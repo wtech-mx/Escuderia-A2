@@ -18,10 +18,12 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/bg.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app" class="w-100 h-100">
-        @include('layouts.navbar')
-            @yield('content')
+{{--        @include('layouts.navbar')--}}
+        @yield('content')
     </div>
 </body>
+</html>
