@@ -19,11 +19,34 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/bg.css') }}" rel="stylesheet">
+
+    <link href="{{ asset('css/login-estilos.css') }}" rel="stylesheet">
+    <link href="{{ asset('fonts/font-awesome.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('fonts/all.min.css') }}" rel="stylesheet">
+
+    <link href="{{ asset('fonts/font-awesome.min.js') }}" rel="stylesheet">
+    <link href="{{ asset('fonts/all.min.js') }}" rel="stylesheet">
+
+
 </head>
+
 <body>
     <div id="app" class="w-100 h-100">
-{{--        @include('layouts.navbar')--}}
-        @yield('content')
+
+        <div class="container-login100" >
+            <div class="wrap-login100">
+
+                <div class="container-fluid">
+                        {{--@include('layouts.navbar')--}}
+                        @yield('content')
+
+                </div>
+
+            </div>
+        </div>
+
     </div>
+
 </body>
+
 </html>
