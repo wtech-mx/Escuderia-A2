@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateGestoriaTable extends Migration
+class CreateFotosVehiculoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,14 @@ class CreateGestoriaTable extends Migration
      */
     public function up()
     {
-        Schema::create('gestoria', function (Blueprint $table) {
+        Schema::create('fotos_vehiculo', function (Blueprint $table) {
             $table->id();
+
             $table->unsignedBigInteger('id_user')->nullable();
             $table->unsignedBigInteger('id_empresa')->nullable();
-            $table->unsignedBigInteger('id_marca');
+            $table->unsignedBigInteger('id_vehiculo')->nullable();
 
-            $table->string('tramite');
+            $table->string('foto');
 
             $table->foreign('id_user')
                 ->references('id')->on('users')
@@ -29,9 +30,10 @@ class CreateGestoriaTable extends Migration
                 ->references('id')->on('empresa')
                 ->inDelete('set null');
 
-            $table->foreign('id_marca')
-                ->references('id')->on('marca')
-                ->inDelete('RESTRICT');
+            $table->foreign('id_vehiculo')
+                ->references('id')->on('automovil')
+                ->inDelete('set null');
+
             $table->timestamps();
         });
     }
@@ -43,6 +45,6 @@ class CreateGestoriaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('gestoria');
+        Schema::dropIfExists('fotos_vehiculo');
     }
 }
