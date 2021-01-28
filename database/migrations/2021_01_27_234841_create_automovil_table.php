@@ -15,14 +15,29 @@ class CreateAutomovilTable extends Migration
     {
         Schema::create('automovil', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('user');
-            $table->string('marca');
+
+            $table->unsignedBigInteger('id_user')->nullable();
+            $table->unsignedBigInteger('id_empresa')->nullable();
+            $table->unsignedBigInteger('id_marca');
             $table->string('tipo');
             $table->string('version');
             $table->integer('puertas');
             $table->string('numero_serie');
             $table->string('placas');
             $table->string('kilometraje');
+
+            $table->foreign('id_user')
+                ->references('id')->on('users')
+                ->inDelete('set null');
+
+            $table->foreign('id_empresa')
+                ->references('id')->on('empresa')
+                ->inDelete('set null');
+
+            $table->foreign('id_marca')
+                ->references('id')->on('marca')
+                ->inDelete('RESTRICT');
+
             $table->timestamps();
         });
     }

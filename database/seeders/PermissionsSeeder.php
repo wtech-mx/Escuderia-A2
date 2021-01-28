@@ -17,7 +17,7 @@ class PermissionsSeeder extends Seeder
      */
     public function run()
     {
-        $permission_array = [];
+  /**      $permission_array = [];
         array_push($permission_array, Permission::create(['name' => 'create_user']));
         array_push($permission_array, Permission::create(['name' => 'edit_user']));
         array_push($permission_array, Permission::create(['name' => 'delete_user']));
@@ -40,6 +40,6 @@ class PermissionsSeeder extends Seeder
             'email' => 'user@user.com',
             'password' => Hash::make('user'),
         ]);
-        $users->assignRole('user');
+        $users->assignRole('user');  */
     }
 }
