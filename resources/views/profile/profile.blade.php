@@ -96,10 +96,10 @@
                             <div class="input-group form-group">
                                 <div class="input-group-prepend " >
                                     <span class="input-group-text" >
-                                         <img class="" src="{{ asset('img/icon/white/calendario (2).png') }}" width="25px" >
+                                         <img class="" type="date" src="{{ asset('img/icon/white/calendario (2).png') }}" width="25px" >
                                     </span>
                                 </div>
-                                <input type="text" class="form-control" placeholder="MM/DD/YYY" style="border-radius: 0  10px 10px 0;" id='datetimepicker1'>
+                                <input type="date" class="form-control" placeholder="MM/DD/YYY"  style="border-radius: 0  10px 10px 0;" id='datetimepicker1'>
                             </div>
 
                              <label for="">
