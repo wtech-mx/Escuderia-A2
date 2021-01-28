@@ -13,7 +13,7 @@
   background-size: cover;
   background-position: center;
   position: relative;
-  z-index: 1;
+  z-index: 1000;
 }
 
 .bg-img-log::before {
@@ -35,6 +35,35 @@
 
 .bg-down-blue{
     background: #050F55 0% 0% no-repeat padding-box;
+    border-radius: 30px 30px 0 0;
+    position: relative;
+    top: -22px;
+}
+
+.bg-down-blue-border{
+    background: #050F55 0% 0% no-repeat padding-box;
+    position: relative;
+    top: -22px;
+    z-index: 10000;
+}
+
+.bg-profile{
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  z-index: 1;
+  background-image: linear-gradient(to bottom, #24f7bf, #00eddb, #00e1f0, #00d3fb, #24c4fc);
+    border-radius: 0 0 30px 30px;
 }
 
 

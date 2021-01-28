@@ -35,7 +35,7 @@
                     </div>
                 </div>
 
-                <div class="row bg-down-blue" style="border-radius: 30px 30px 0 0">
+                <div class="row bg-down-blue" style="">
                     <div class="col-12 p-4">
                         <h6 class="text-center text-white">
                             ¿Que estas buscando?
@@ -43,12 +43,14 @@
                     </div>
 
                     <div class="col-6">
-                        <div class="card" style="border-radius: 15px">
-                          <div class="card-body" >
-                              <img class="d-inline mb-2" src="{{ asset('img/icon/black/user.png') }}" alt="Icon User" width="50px">
-                              <p class="card-text"><strong>Datos de perfil</strong></p>
-                          </div>
-                        </div>
+                         <a href="{{ route('profile') }}">
+                            <div class="card" style="border-radius: 15px">
+                              <div class="card-body" >
+                                  <img class="d-inline mb-2" src="{{ asset('img/icon/black/user.png') }}" alt="Icon User" width="50px">
+                                  <p class="card-text text-dark"><strong>Datos de perfil</strong></p>
+                              </div>
+                            </div>
+                        </a>
                     </div>
 
                     <div class="col-6">

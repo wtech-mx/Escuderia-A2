@@ -17,7 +17,7 @@
            <form method="POST" action="{{ route('login') }}">
            @csrf
 
-                <div class="row bg-down-blue" style="border-radius: 30px 30px 0 0">
+                <div class="row bg-down-blue" >
                     <div class="col-12 p-5">
 
                         <h1 class="text-center text-white p-3">
