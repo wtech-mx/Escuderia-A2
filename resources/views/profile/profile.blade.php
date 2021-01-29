@@ -5,7 +5,7 @@
                 <link href="{{ asset('css/login-form.css') }}" rel="stylesheet">
                 <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
 
-                <div class="row bg-profile" >
+                <div class="row bg-profile" style="z-index: 100000">
 
                     <div class="col-2">
                         <div class="d-flex justify-content-start">
@@ -41,7 +41,7 @@
                 </div>
 
                 <div class="row bg-down-blue-border" style="background: #050F55 0% 0% no-repeat padding-box;">
-                    <div class="col-12 p-4">
+                    <div class="col-12 mt-5">
 
                         <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
 
@@ -175,7 +175,7 @@
 
                           </div>
 
-                              <div class="col-12 text-center mt-3">
+                              <div class="col-12 text-center mt-3 mb-5">
 
                                   <button class="btn btn-lg btn-success btn-save ">
                                       <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}" width="20px" >
@@ -187,7 +187,42 @@
                           </div>
 
                           <div class="tab-pane fade" id="pills-Seguridad" role="tabpanel" aria-labelledby="pills-Seguridad-tab">
-                               <p class="text-white">bt</p>
+
+                             <label for="">
+                                 <p class="text-white"><strong>Contraseña</strong></p>
+                             </label>
+
+                            <div class="input-group form-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                         <img class="" src="{{ asset('img/icon/white/padlock.png') }}" width="25px" >
+                                    </span>
+                                </div>
+                                <input type="text" class="form-control" placeholder="correo@correo.com" style="border-radius: 0  10px 10px 0;">
+                            </div>
+
+                             <label for="">
+                                 <p class="text-white"><strong>Confirmar Contraseña </strong></p>
+                             </label>
+
+                            <div class="input-group form-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                         <img class="" src="{{ asset('img/icon/white/password.png') }}" width="25px" >
+                                    </span>
+                                </div>
+                                <input type="text" class="form-control" placeholder="correo@correo.com" style="border-radius: 0  10px 10px 0;">
+                            </div>
+
+                              <div class="col-12 text-center mt-5 mb-5">
+
+                                  <button class="btn btn-lg btn-success btn-save ">
+                                      <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}" width="20px" >
+                                      Actualizar
+                                  </button>
+
+                              </div>
+
                           </div>
 
                         </div>
