@@ -1,0 +1,29 @@
+.btn-garaje{
+    border-radius: 5px;
+    background-image: linear-gradient(to bottom, #24f7bc, #00edda, #00e1f0, #00d3fb, #24c4fc);
+    padding: 5px;
+}
+
+.card-slide-garaje{
+    border-radius: 15px;
+}
+
+.btn-garaje-2{
+    border-radius: 5px;
+    background-image: linear-gradient(to bottom, #f4d03f, #f2b937, #eda233, #e68c32, #dc7633);
+    padding: 5px;
+}
+
+.text-garaje{
+    font: normal normal bold 15px/25px Segoe UI;
+    color: #010101;
+}
+
+ .col-4 {
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+
+
+

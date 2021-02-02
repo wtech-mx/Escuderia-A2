@@ -35,7 +35,7 @@
                     </div>
                 </div>
 
-                <div class="row bg-down-blue" style="">
+                <div class="row bg-down-blue" style="z-index:1000">
                     <div class="col-12 p-4">
                         <h6 class="text-center text-white">
                             ¿Que estas buscando?
@@ -54,12 +54,14 @@
                     </div>
 
                     <div class="col-6">
-                        <div class="card" style="border-radius: 15px">
-                          <div class="card-body" >
-                              <img class="d-inline mb-2" src="{{ asset('img/icon/black/coche (2).png') }}" alt="Icon User" width="50px">
-                              <p class="card-text"><strong>Datos de auto</strong></p>
-                          </div>
-                        </div>
+                        <a href="{{ route('view-garaje') }}">
+                            <div class="card" style="border-radius: 15px">
+                              <div class="card-body" >
+                                  <img class="d-inline mb-2" src="{{ asset('img/icon/black/coche (2).png') }}" alt="Icon User" width="50px">
+                                  <p class="card-text text-dark"><strong>Datos de auto</strong></p>
+                              </div>
+                            </div>
+                        </a>
                     </div>
 
                     <div class="col-6 mt-4">

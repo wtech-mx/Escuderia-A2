@@ -21,6 +21,10 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+Route::get('/garaje/view-garaje', function () {
+    return view('garaje/view-garaje');
+})->middleware(['auth'])->name('view-garaje');
+
 Route::get('/profile/profile', function () {
     return view('profile/profile');
 })->middleware(['auth'])->name('profile');

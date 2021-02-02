@@ -14,7 +14,7 @@
                     </div>
                 </div>
 
-           <form method="POST" action="{{ route('register') }}">
+           <form method="POST" action="{{ route('register') }}" style="">
            @csrf
 
                 <div class="row bg-down-blue" >

@@ -39,7 +39,7 @@
 
 .wrap-login100 {
   width: 390px;
-  background: #fff;
+  background-image: linear-gradient(to top, #24f7bc, #00edda, #00e1f0, #00d3fb, #24c4fc);
   border-radius: 10px;
   overflow: hidden;
 
@@ -48,5 +48,11 @@
   -webkit-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
   -o-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
   -ms-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+}
+
+.bg-blue{
+    background: #050F55 0% 0% no-repeat padding-box;
+    position: relative;
+    z-index: 10000;
 }
 
