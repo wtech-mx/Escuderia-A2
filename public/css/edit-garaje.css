@@ -1,0 +1,36 @@
+.title-car{
+    color: var(--unnamed-color-ffffff);
+    font: normal normal bold 30px/40px Segoe UI;
+    color: #FFFFFF;
+    opacity: 1;
+}
+
+.subtitle-car{
+    color: var(--unnamed-color-ffffff);
+    font: normal normal normal 20px/27px Segoe UI;
+    color: #FFFFFF;
+    opacity: 1;
+}
+
+.span-edit-car{
+    border-radius: 15px 0 0  15px;
+    background-color: #FFFFFF;
+    border: 1px #FFFFFF;
+    height: 60px;
+}
+
+.input-edit-car{
+    border-radius: 0  10px 10px 0;
+    height: 60px;
+    border: 1px #FFFFFF;
+
+}
+
+.input-a-text{
+    color: var(--unnamed-color-010101);
+    font: normal normal bold 15px/20px Segoe UI;
+    color: #010101;
+}
+
+
+

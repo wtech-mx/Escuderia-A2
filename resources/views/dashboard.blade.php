@@ -9,7 +9,9 @@
 
                             <div class="d-flex flex-row-reverse">
                               <div class="p-2">
-                                  <img class="img-thumbnail" src="{{ asset('img/icon/color/campana.png') }}" width="40px" style="border-radius: 50px">
+                                   <a href="{{ route('view-alerts') }}">
+                                      <img class="img-thumbnail" src="{{ asset('img/icon/color/campana.png') }}" width="40px" style="border-radius: 50px">
+                                  </a>
                               </div>
                             </div>
 
@@ -65,39 +67,47 @@
                     </div>
 
                     <div class="col-6 mt-4">
-                        <div class="card" style="border-radius: 15px">
-                          <div class="card-body" >
-                              <img class="d-inline mb-2" src="{{ asset('img/icon/black/documento.png') }}" alt="Icon documento" width="50px">
-                              <p class="card-text"><strong>Documentacion</strong></p>
-                          </div>
-                        </div>
+                        <a href="{{ route('view-documents') }}" class="text-dark">
+                            <div class="card" style="border-radius: 15px">
+                              <div class="card-body" >
+                                  <img class="d-inline mb-2" src="{{ asset('img/icon/black/documento.png') }}" alt="Icon documento" width="50px">
+                                  <p class="card-text"><strong>Documentacion</strong></p>
+                              </div>
+                            </div>
+                         </a>
                     </div>
 
                     <div class="col-6 mt-4">
-                        <div class="card" style="border-radius: 15px">
-                          <div class="card-body" >
-                              <img class="d-inline mb-2" src="{{ asset('img/icon/black/seguro-de-coche.png') }}" alt="Icon Seguro" width="50px">
-                              <p class="card-text"><strong>Seguro</strong></p>
-                          </div>
-                        </div>
+                        <a href="{{ route('view-seguros') }}" class="text-dark">
+                            <div class="card" style="border-radius: 15px">
+                              <div class="card-body" >
+                                  <img class="d-inline mb-2" src="{{ asset('img/icon/black/seguro-de-coche.png') }}" alt="Icon Seguro" width="50px">
+                                  <p class="card-text"><strong>Seguro</strong></p>
+                              </div>
+                            </div>
+                         </a>
                     </div>
 
                     <div class="col-6 mt-4">
-                        <div class="card" style="border-radius: 15px">
-                          <div class="card-body" >
-                              <img class="d-inline mb-2" src="{{ asset('img/icon/black/expediente.png') }}" alt="Icon Exp Fisico" width="50px">
-                              <p class="card-text"><strong>Exp Fisico</strong></p>
-                          </div>
-                        </div>
+                        <a href="{{ route('view-exp-fisico') }}" class="text-dark">
+                            <div class="card" style="border-radius: 15px">
+                              <div class="card-body" >
+                                  <img class="d-inline mb-2" src="{{ asset('img/icon/black/expediente.png') }}" alt="Icon Exp Fisico" width="50px">
+                                  <p class="card-text"><strong>Exp Fisico</strong></p>
+                              </div>
+                            </div>
+                        </a>
                     </div>
 
                     <div class="col-6 mt-4">
-                        <div class="card" style="border-radius: 15px">
-                          <div class="card-body" >
-                              <img class="d-inline mb-2" src="{{ asset('img/icon/black/gift.png') }}" alt="Icon gift" width="50px">
-                              <p class="card-text"><strong>Comparte y Gana</strong></p>
-                          </div>
-                        </div>
+                        <a href="{{ route('view-win-share') }}" class="text-dark">
+                            <div class="card" style="border-radius: 15px">
+                              <div class="card-body" >
+                                  <img class="d-inline mb-2" src="{{ asset('img/icon/black/gift.png') }}" alt="Icon gift" width="50px">
+                                  <p class="card-text"><strong>Comparte y Gana</strong></p>
+                              </div>
+                            </div>
+                        </a>
                     </div>
 
                     <div class="col-6 mt-4 mb-4">

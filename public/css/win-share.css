@@ -1,0 +1,51 @@
+.bg-profile{
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  z-index: 100000;
+  background-image: linear-gradient(to bottom, #f4d03f, #f2b937, #eda233, #e68c32, #dc7633);
+  border-radius: 0 0 30px 30px;
+}
+
+.title-win{
+    color: var(--unnamed-color-ffffff);
+    text-align: left;
+    font: normal normal bold 25px/22px Segoe UI;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+}
+
+.subtitle-win{
+color: var(--unnamed-color-ffffff);
+text-align: left;
+font: normal normal normal 20px/27px Segoe UI;
+letter-spacing: 0px;
+color: #FFFFFF;
+}
+.sub-tittle-min{
+    font: normal normal bold 15px/22px Segoe UI;
+}
+
+.button-win{
+    top: 404px;
+    left: 152px;
+    width: 101px;
+    height: 28px;
+    border: 3px solid var(--unnamed-color-e59a38);
+    border: 3px solid #E59A38;
+    border-radius: 30px;
+    text-align: center;
+    font: normal normal bold 13px/17px Segoe UI;
+    color: #EDB63B;
+}
+

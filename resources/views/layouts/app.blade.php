@@ -23,6 +23,9 @@
     <link href="{{ asset('css/bg.css') }}" rel="stylesheet">
     <link href="{{ asset('css/login-estilos.css') }}" rel="stylesheet">
     <link href="{{ asset('css/tab-bar.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/modal.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/btn-save.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/alerts.css') }}" rel="stylesheet">
 
     <link href="{{ asset('fonts/font-awesome.min.css') }}" rel="stylesheet">
     <link href="{{ asset('fonts/all.min.css') }}" rel="stylesheet">
@@ -41,8 +44,13 @@
             <div class="wrap-login100">
 
                 <div class="container-fluid">
+
                         {{--@include('layouts.navbar')--}}
+
+
                         @yield('content')
+
+                       @include('layouts.tab-bar')
 
                 </div>
 
