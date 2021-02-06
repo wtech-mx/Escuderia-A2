@@ -32,8 +32,8 @@
     <link href="{{ asset('fonts/font-awesome.min.js') }}" rel="stylesheet">
     <link href="{{ asset('fonts/all.min.js') }}" rel="stylesheet">
 
-
-
+     <!-- personalizados js -->
+    <script src="{{ asset('js/push.js') }}"></script>
 
 </head>
 
