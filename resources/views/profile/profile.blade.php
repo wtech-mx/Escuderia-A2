@@ -1,9 +1,14 @@
 @extends('layouts.app')
 
+@section('bg-color', 'background-image: linear-gradient(to bottom, #050f55, #050f55, #050f55, #050f55, #050f55);')
+
 @section('content')
+
+
 
                 <link href="{{ asset('css/login-form.css') }}" rel="stylesheet">
                 <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
+
 
                 <div class="row bg-profile" style="z-index: 100000">
 
@@ -48,13 +53,13 @@
                         <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
 
                           <li class="nav-item mr-2">
-                            <a class="nav-link active" id="pills-perfil-tab" data-toggle="pill" href="#perfil" role="tab" aria-controls="perfil" aria-selected="true">
+                            <a class="nav-link active a-perso" id="pills-perfil-tab" data-toggle="pill" href="#perfil" role="tab" aria-controls="perfil" aria-selected="true">
                                 Datos de perfil
                             </a>
                           </li>
 
                           <li class="nav-item">
-                            <a class="nav-link" id="pills-Seguridad-tab" data-toggle="pill" href="#pills-Seguridad" role="tab" aria-controls="pills-Seguridad" aria-selected="false">
+                            <a class="nav-link a-perso" id="pills-Seguridad-tab" data-toggle="pill" href="#pills-Seguridad" role="tab" aria-controls="pills-Seguridad" aria-selected="false">
                                 Seguridad
                             </a>
                           </li>

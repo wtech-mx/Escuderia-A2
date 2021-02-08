@@ -39,10 +39,8 @@
 
 .wrap-login100 {
   width: 390px;
-  background-image: linear-gradient(to top, #24f7bc, #00edda, #00e1f0, #00d3fb, #24c4fc);
   border-radius: 10px;
   overflow: hidden;
-
   box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
   -webkit-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);

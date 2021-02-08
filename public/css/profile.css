@@ -7,7 +7,7 @@
     clip-path: polygon(0% 0%, 0% 100%, 85% 100%, 100% 50%, 85% 0%);
 }
 
-a {
+.a-perso{
     background-color: #24C4FB  ;
     color: #fff;
     font-weight: bold;
@@ -29,4 +29,8 @@ a {
     background: #2ECC71 0% 0% no-repeat padding-box;
     border-radius: 18px;
     opacity: 1;
+}
+
+.wrap-login100{
+      background-color: #FFFFFF;
 }

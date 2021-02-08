@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('bg-color', 'background:0% 0% no-repeat padding-box padding-box rgb(5, 15, 85)')
+
 @section('content')
 
                 <link href="{{ asset('css/login-form.css') }}" rel="stylesheet">

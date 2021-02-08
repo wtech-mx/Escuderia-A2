@@ -43,14 +43,14 @@
                     <div class="col-12 p-4">
                         <h6 class="text-center text-white">
                             ¿Que estas buscando? <br>
-                            <a href="{{ route('admin-view-dashboard') }}">
-                                Modo Admin
+                            <a href="{{ route('dashboard') }}">
+                                Modo User
                             </a>
                         </h6>
                     </div>
 
                     <div class="col-6">
-                         <a href="{{ route('admin-view-dashboard') }}">
+                         <a href="{{ route('view-alerts') }}">
                             <div class="card" style="border-radius: 15px">
                               <div class="card-body" >
                                   <img class="d-inline mb-2" src="{{ asset('img/icon/black/campana.png') }}" alt="Icon User" width="50px">

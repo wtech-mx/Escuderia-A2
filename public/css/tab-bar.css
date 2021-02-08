@@ -66,6 +66,10 @@
 .navbar__item.-purple {
   color: #BB8FCE;
 }
+.navbar__item.-camel {
+  color: #E09C09;
+}
+
 .navbar__item:hover::before, .navbar__item:hover::after {
   transform: translateY(-60px) scale(1.1);
 }

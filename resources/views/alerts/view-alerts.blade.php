@@ -16,7 +16,7 @@
 
                         <div class="col-8  mt-4">
                                     <h5 class="text-center text-white ml-4 mr-4 ">
-                                        <strong>Garaje</strong>
+                                        <strong>Alertas y Calendario</strong>
                                     </h5>
                         </div>
 

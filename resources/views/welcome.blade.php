@@ -19,15 +19,15 @@
 
                     </div>
 
-                    <div class="divider" style="position: absolute;top: 78%">
-                        <svg  preserveAspectRatio="none" viewBox="0 0 1900 125" class="d-block" width="150%" height="200px" style="z-index: 1000;position: relative">
+                    <div class="divider" style="position: absolute;top: 63%">
+                        <svg  preserveAspectRatio="none" viewBox="0 0 1900 125" class="d-block" width="150%" height="300px" style="z-index: 1000;position: relative">
                          <path d="m1800 0v50h-1800z" fill="#050f55"></path>
                         </svg>
                     </div>
 
                 </div>
 
-                <div class="row bg-down-blue">
+                <div class="row bg-down-blue" style="border-radius: 0px">
                     <div class="col-12 " style="margin-top: 115px">
 
                         <div class="d-flex justify-content-center">
