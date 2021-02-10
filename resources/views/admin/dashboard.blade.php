@@ -5,44 +5,58 @@
 @section('content')
 
                 <link href="{{ asset('css/login-form.css') }}" rel="stylesheet">
+                <link href="{{ asset('css/dashboard-admin.css') }}" rel="stylesheet">
 
-                <div class="row bg-img-log" style="background-image: url({{ asset('img/bg-log.png') }});">
+                <div class="row " style="background-color: #050F55;">
                     <div class="col-md-12 mt-3 mb-3">
 
-                            <div class="d-flex flex-row-reverse">
+                            <div class="d-flex justify-content-between">
+
+                              <div class="p-2">
+                                  -
+                              </div>
+                              <div class="p-2">
+                                   <h2 style="font: normal normal bold 25px/33px Segoe UI;color: #FFFFFF;" >Alertas</h2>
+                              </div>
                               <div class="p-2">
                                    <a href="{{ route('view-alerts') }}">
                                       <img class="img-thumbnail" src="{{ asset('img/icon/color/campana.png') }}" width="40px" style="border-radius: 50px">
                                   </a>
                               </div>
+
                             </div>
 
-                            <div class="card" style="border-radius: 15px;position: relative;top: 15px;opacity: 0.7;">
-                              <div class="card-body" >
-                                  <h4 class="card-text d-inline mr-4 ">
-                                     <strong>Servicio de mecanica</strong>
-                                  </h4>
-                                  <button class="btn" style="border-radius: 10px;background-color: #050f55">
-                                      <img class="d-inline mb-2" src="{{ asset('img/icon/white/call.png')}}" alt="Icon User" width="15px">
-                                  </button>
-                              </div>
-                            </div>
+                            <table class="table text-white mt-5">
 
-                            <div class="card" style="border-radius: 15px">
-                              <div class="card-body" >
-                                  <p class="card-text">
-                                      <strong>CDMX | Calle 25, esquina con Av. Patri TEL : 5510079878</strong>
-                                  </p>
-                              </div>
-                            </div>
+                              <thead>
+                                <tr>
+                                  <th scope="col"></th>
+                                  <th scope="col">Servicio</th>
+                                  <th scope="col">Km</th>
+                                  <th scope="col">Fecha</th>
+                                  <th scope="col">cambio</th>
+                                </tr>
+                              </thead>
+
+                              <tbody>
+                                <tr>
+                                  <th scope="row">1</th>
+                                  <td>Mark</td>
+                                  <td>Otto</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                </tr>
+                              </tbody>
+
+                            </table>
 
                     </div>
                 </div>
 
-                <div class="row bg-down-blue" style="z-index:1000">
+                <div class="row bg-down-blue" style="z-index:1000;background: transparent linear-gradient(180deg, #24DAF7 0%, #24F7BC 100%) 0% 0% no-repeat padding-box;">
                     <div class="col-12 p-4">
                         <h6 class="text-center text-white">
-                            ¿Que estas buscando? <br>
+                           <strong style="font: normal normal bold 25px/33px Segoe UI;"> ¿Qué haremos hoy?</strong> <br>
                             <a href="{{ route('dashboard') }}">
                                 Modo User
                             </a>
@@ -53,8 +67,8 @@
                          <a href="{{ route('view-alerts') }}">
                             <div class="card" style="border-radius: 15px">
                               <div class="card-body" >
-                                  <img class="d-inline mb-2" src="{{ asset('img/icon/black/campana.png') }}" alt="Icon User" width="50px">
-                                  <p class="card-text text-dark"><strong>Alertas</strong></p>
+                                  <img class="d-inline mb-2" src="{{ asset('img/icon/white/campana (1).png') }}" alt="Icon User" width="50px">
+                                  <p class="card-text text-white"><strong>Alertas</strong></p>
                               </div>
                             </div>
                         </a>
@@ -64,63 +78,52 @@
                          <a href="{{ route('profile') }}">
                             <div class="card" style="border-radius: 15px">
                               <div class="card-body" >
-                                  <img class="d-inline mb-2" src="{{ asset('img/icon/black/user.png') }}" alt="Icon User" width="50px">
-                                  <p class="card-text text-dark"><strong>Datos de perfil</strong></p>
+                                  <img class="d-inline mb-2" src="{{ asset('img/icon/white/usuario (1).png') }}" alt="Icon User" width="50px">
+                                  <p class="card-text text-white"><strong>Usuarios</strong></p>
                               </div>
                             </div>
                         </a>
                     </div>
 
                     <div class="col-6 mt-4">
-                        <a href="{{ route('view-garaje') }}">
+                        <a href="{{ route('view-garaje-admin') }}">
                             <div class="card" style="border-radius: 15px">
                               <div class="card-body" >
-                                  <img class="d-inline mb-2" src="{{ asset('img/icon/black/coche (2).png') }}" alt="Icon User" width="50px">
-                                  <p class="card-text text-dark"><strong>Datos de auto</strong></p>
+                                  <img class="d-inline mb-2" src="{{ asset('img/icon/white/coche (4).png') }}" alt="Icon User" width="50px">
+                                  <p class="card-text text-white"><strong>vehiculos</strong></p>
                               </div>
                             </div>
                         </a>
                     </div>
 
                     <div class="col-6 mt-4">
-                        <a href="{{ route('view-documents') }}" class="text-dark">
+                        <a  class="text-white" data-toggle="modal" data-target="#Servicios" style="cursor: pointer">
                             <div class="card" style="border-radius: 15px">
                               <div class="card-body" >
-                                  <img class="d-inline mb-2" src="{{ asset('img/icon/black/documento.png') }}" alt="Icon documento" width="50px">
+                                  <img class="d-inline mb-2" src="{{ asset('img/icon/white/car-service (1).png') }}" alt="Icon Seguro" width="50px">
+                                  <p class="card-text"><strong>Servicios</strong></p>
+                              </div>
+                            </div>
+                         </a>
+                    </div>
+
+                    <div class="col-6 mt-4">
+                        <a href="{{ route('view-exp-fisico') }}" class="text-white">
+                            <div class="card" style="border-radius: 15px">
+                              <div class="card-body" >
+                                  <img class="d-inline mb-2" src="{{ asset('img/icon/white/documents (1).png') }}" alt="Icon Exp Fisico" width="50px">
                                   <p class="card-text"><strong>Documentacion</strong></p>
                               </div>
                             </div>
-                         </a>
-                    </div>
-
-                    <div class="col-6 mt-4">
-                        <a href="{{ route('view-seguros') }}" class="text-dark">
-                            <div class="card" style="border-radius: 15px">
-                              <div class="card-body" >
-                                  <img class="d-inline mb-2" src="{{ asset('img/icon/black/seguro-de-coche.png') }}" alt="Icon Seguro" width="50px">
-                                  <p class="card-text"><strong>Seguro</strong></p>
-                              </div>
-                            </div>
-                         </a>
-                    </div>
-
-                    <div class="col-6 mt-4">
-                        <a href="{{ route('view-exp-fisico') }}" class="text-dark">
-                            <div class="card" style="border-radius: 15px">
-                              <div class="card-body" >
-                                  <img class="d-inline mb-2" src="{{ asset('img/icon/black/expediente.png') }}" alt="Icon Exp Fisico" width="50px">
-                                  <p class="card-text"><strong>Exp Fisico</strong></p>
-                              </div>
-                            </div>
                         </a>
                     </div>
 
                     <div class="col-6 mt-4">
-                        <a href="{{ route('view-win-share') }}" class="text-dark">
+                        <a href="{{ route('view-win-share') }}" class="text-white">
                             <div class="card" style="border-radius: 15px">
                               <div class="card-body" >
-                                  <img class="d-inline mb-2" src="{{ asset('img/icon/black/gift.png') }}" alt="Icon gift" width="50px">
-                                  <p class="card-text"><strong>Comparte y Gana</strong></p>
+                                  <img class="d-inline mb-2" src="{{ asset('img/icon/white/documento (2).png') }}" alt="Icon gift" width="50px">
+                                  <p class="card-text"><strong>Exp Fisico</strong></p>
                               </div>
                             </div>
                         </a>
@@ -129,11 +132,22 @@
                     <div class="col-6 mt-4 mb-4">
                         <div class="card" style="border-radius: 15px">
                           <div class="card-body" >
-                              <img class="d-inline mb-2" src="{{ asset('img/icon/black/documento (1).png') }}" alt="Icon Tenencia" width="50px">
-                              <p class="card-text"><strong>Tenencia</strong></p>
+                              <img class="d-inline mb-2" src="{{ asset('img/icon/white/seguro-de-coche (1).png') }}" alt="Icon Tenencia" width="50px">
+                              <p class="card-text text-white"><strong>Seguros</strong></p>
                           </div>
                         </div>
                     </div>
+
+                    <div class="col-6 mt-4 mb-4">
+                        <div class="card" style="border-radius: 15px">
+                          <div class="card-body" >
+                              <img class="d-inline mb-2" src="{{ asset('img/icon/white/edificio-de-oficinas.png') }}" alt="Icon Tenencia" width="50px">
+                              <p class="card-text text-white"><strong>Empresas</strong></p>
+                          </div>
+                        </div>
+                    </div>
+
+                    @include('admin.modal-services')
 
                 </div>
 

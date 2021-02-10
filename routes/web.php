@@ -159,8 +159,40 @@ Route::get('/alerts/view-alerts', function () {
 |Admin
 |--------------------------------------------------------------------------*/
 
+/*|--------------------------------------------------------------------------
+|Admin
+|--------------------------------------------------------------------------*/
+
+
 Route::get('admin/dashboard', function () {
     return view('admin/dashboard');
 })->middleware(['auth'])->name('admin-view-dashboard');
+
+/*|--------------------------------------------------------------------------
+|garaje view
+|--------------------------------------------------------------------------*/
+
+Route::get('admin/garaje/view-garaje-admin', function () {
+    return view('admin/garaje/view-garaje-admin');
+})->middleware(['auth'])->name('view-garaje-admin');
+
+
+/*|--------------------------------------------------------------------------
+|garaje edit
+|--------------------------------------------------------------------------*/
+
+Route::get('admin/garaje/edit-garaje-admin', function () {
+    return view('admin/garaje/edit-garaje-admin');
+})->middleware(['auth'])->name('edit-garaje-admin');
+
+/*|--------------------------------------------------------------------------
+|Sevicios
+|--------------------------------------------------------------------------*/
+
+Route::get('admin/services/mecanica', function () {
+    return view('admin/services/mecanica');
+})->middleware(['auth'])->name('mecanica');
+
+
 
 require __DIR__.'/auth.php';

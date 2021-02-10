@@ -1,0 +1,37 @@
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link{
+    background: var(--unnamed-color-24f1c3) 0% 0% no-repeat padding-box;
+    background: #24F1C3 0% 0% no-repeat padding-box;
+    opacity: 1;
+    color: var(--unnamed-color-050f55);
+    text-align: left;
+    font: normal normal bold 15px/20px Segoe UI;
+    letter-spacing: 0px;
+    color: #050F55;
+}
+
+.col-12{
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+.a-nav{
+font: normal normal bold 13px/13px Segoe UI;
+color: #050F55;
+}
+
+.title-services{
+    font: normal normal bold 20px/27px Segoe UI;
+    color: #FFFFFF;
+}
+
+.input-services{
+    background: #24F1C3 0% 0% no-repeat padding-box;
+    border-radius: 0.25rem;
+    border: none;
+}
+
+.subtitle-form-servi {
+    text-align: center;
+    font: normal normal bold 20px/27px Segoe UI;
+    color: #FFFFFF;
+}

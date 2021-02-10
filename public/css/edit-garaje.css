@@ -32,5 +32,51 @@
     color: #010101;
 }
 
+ .nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+    background-color: rgb(5, 15, 85) ;
+    color: #FFFFFF;
+    font-weight: bold;
+    border-radius: 5px 10px 10px 5px;
+    clip-path: polygon(0% 0%, 0% 100%, 85% 100%, 100% 50%, 85% 0%);
+}
+
+ .a-auto{
+    background-color: rgb(5, 15, 85, 0.6) ;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 5px 10px 10px 5px;
+    clip-path: polygon(0% 0%, 15% 50%,0% 100%, 75% 100%, 100% 50%, 75% 0%)
+}
+
+ .subtitle-label{
+    color: var(--unnamed-color-050f55);
+    text-align: center;
+    font: normal normal bold 16px/23px Segoe UI;
+    letter-spacing: 0px;
+    color: #050F55;
+    opacity: 1;
+ }
+
+ .input-vinculacion{
+    background: #050f55;
+    border: none;
+     border-radius: 10px;
+}
+
+ .btn-circel{
+    background: var(--unnamed-color-f6f6f6) 0% 0% no-repeat padding-box;
+    background: #F6F6F6 0% 0% no-repeat padding-box;
+    border-radius: 15px;
+    opacity: 1;
+ }
+
+ .input-modal{
+     background: transparent linear-gradient(180deg, #24F7BC 0%, #24C4FC 100%) 0% 0% no-repeat padding-box;
+    border: none;
+ }
+
+
+
 
 
