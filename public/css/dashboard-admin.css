@@ -1,0 +1,11 @@
+.card{
+    background-color: #050F55 ;
+    border: 1px solid #050F55;
+}
+.car-modal{
+    background-color: #050F55;border: 1px solid #050F55;border-radius: 20px;
+}
+
+.car-modal-ss{
+    background: none;border: none;border-radius: 20px;
+}
