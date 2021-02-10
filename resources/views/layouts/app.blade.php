@@ -45,9 +45,10 @@
             <div class="wrap-login100" style="@yield('bg-color')">
 
                 <div class="container-fluid">
+                    @yield('content')
+                    @include('layouts.tab-bar')
 
-                        @yield('content')
-                       @include('layouts.tab-bar')
+
                 </div>
             </div>
 

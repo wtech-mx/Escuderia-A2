@@ -3,7 +3,7 @@
 @section('bg-color', 'background-image:none')
 
 @section('content')
-
+<p style="display: none">{{$userId = Auth::id()}}</p>
                 <link href="{{ asset('css/login-form.css') }}" rel="stylesheet">
 
                 <div class="row bg-img-log" style="background-image: url({{ asset('img/bg-log.png') }});">
@@ -61,7 +61,7 @@
                     </div>
 
                     <div class="col-6">
-                         <a href="{{ route('profile') }}">
+                         <a href="{{ route('edit.profile', $userId) }}">
                             <div class="card" style="border-radius: 15px">
                               <div class="card-body" >
                                   <img class="d-inline mb-2" src="{{ asset('img/icon/black/user.png') }}" alt="Icon User" width="50px">

@@ -1,5 +1,6 @@
 <?php
 
+namespace App\Http\Controllers\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,10 +18,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 /*|--------------------------------------------------------------------------
 |Usuario
 |--------------------------------------------------------------------------*/
-
 
 /*|--------------------------------------------------------------------------
 |Dashboard
@@ -49,10 +50,8 @@ Route::get('/garaje/edit-garaje', function () {
 /*|--------------------------------------------------------------------------
 |perfil
 |--------------------------------------------------------------------------*/
-
-Route::get('/profile/profile', function () {
-    return view('profile/profile');
-})->middleware(['auth'])->name('profile');
+Route::patch('profile/update/{id}','UserController@update')->name('update.user');
+Route::get('profile/edit/{id}','UserController@edit')->name('edit.profile');
 
 /*|--------------------------------------------------------------------------
 |Seguros
