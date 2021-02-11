@@ -38,8 +38,8 @@ class UserController extends Controller
             ->get();
 
         $user->id = auth()->user()->id;
-
         $user->update();
+
 
         return view('profile.profile', compact('user', 'users'));
     }
@@ -54,7 +54,7 @@ class UserController extends Controller
 
         $users = DB::table('users')
             ->get();
-        
+
         return view('profile.profile', compact('user','users'));
     }
 

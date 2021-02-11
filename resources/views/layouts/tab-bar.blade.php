@@ -1,3 +1,4 @@
+
                 <div class="row bg-blue">
                     <div class="navbar">
 
@@ -18,7 +19,7 @@
                         </div>
 
                         <div class="navbar__item -navy-blue">
-                            <a href="{{ route('view-garaje') }}">
+                            <a href="#">
                             <span class="navbar__icon">
                                   <img class="" src="{{ asset('img/icon/color/add.png') }}" width="25px" >
                             </span>
@@ -34,7 +35,7 @@
                         </div>
 
                         <div class="navbar__item -purple">
-                            <a href="{{ route('edit.profile', $userId) }}">
+                            <a href="#">
                             <span class="navbar__icon">
                                 <img class="" src="{{ asset('img/icon/color/user.png') }}" width="25px" >
                             </span>
