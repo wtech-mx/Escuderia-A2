@@ -139,7 +139,7 @@
                                          <a class="input-a-text">Color</a>
                                     </span>
                                 </div>
-                                <input  type="text" class="form-control input-edit-car" placeholder="Color" id="color" name="color">
+                                <input  type="color" value="#563d7c" class="form-control input-edit-car" placeholder="Color" id="color" name="color">
                             </div>
                         </div>
 

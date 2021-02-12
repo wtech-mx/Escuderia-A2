@@ -140,7 +140,7 @@
                                          <a class="input-a-text">Color</a>
                                     </span>
                                 </div>
-                                <input  type="text" class="form-control input-edit-car" value="{{$automovil->color}}" id="color" name="color">
+                                <input  type="color" class="form-control input-edit-car" value="{{$automovil->color}}" id="color" name="color">
                             </div>
                         </div>
 

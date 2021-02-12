@@ -106,6 +106,8 @@ class AutomovilController extends Controller
         $marca = DB::table('marca')
             ->get();
 
-        return view('garaje.view-garaje',compact('automovil', 'marca'));
+        Session::flash('success', 'Se ha guardado sus datos con exito');
+
+        return redirect()->route('index.automovil', compact('automovil','marca'));
     }
 }
