@@ -42,10 +42,11 @@ Route::get('/garaje/view-garaje', function () {
 /*|--------------------------------------------------------------------------
 |garaje edit
 |--------------------------------------------------------------------------*/
-
-Route::get('/garaje/edit-garaje', function () {
-    return view('garaje/edit-garaje');
-})->middleware(['auth'])->name('edit-garaje');
+Route::patch('automovil/index','AutomovilController@index')->name('index.automovil');
+Route::get('automovil/crear','AutomovilController@create')->name('create.automovil');
+Route::post('automovil/crear','AutomovilController@store')->name('store.automovil');
+Route::patch('automovil/update/{id}','AutomovilController@update')->name('update.automovil');
+Route::get('automovil/edit/{id}','AutomovilController@edit')->name('edit.automovil');
 
 /*|--------------------------------------------------------------------------
 |perfil

@@ -38,7 +38,6 @@ class UserController extends Controller
             ->get();
 
         $user->id = auth()->user()->id;
-
         $user->update();
 
         Session::flash('success', 'Se ha guardado sus datos con exito');

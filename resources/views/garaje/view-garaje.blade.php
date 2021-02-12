@@ -38,7 +38,7 @@
                                 <h4 class="text-white text-tittle-app mr-3">
                                     Agregar
                                 </h4>
-                                <a class="btn btn-garaje" >
+                                <a class="btn btn-garaje" href="{{ route('create.automovil') }}">
                                      <img class="" src="{{ asset('img/icon/white/add.png') }}" width="20px" >
                                 </a>
                             </div>
