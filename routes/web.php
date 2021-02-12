@@ -31,9 +31,16 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+/*|--------------------------------------------------------------------------
+|garaje view
+|--------------------------------------------------------------------------*/
+
+Route::get('/garaje/view-garaje', function () {
+    return view('garaje/view-garaje');
+})->middleware(['auth'])->name('view-garaje');
 
 /*|--------------------------------------------------------------------------
-|garaje
+|garaje edit
 |--------------------------------------------------------------------------*/
 Route::get('automovil/index','AutomovilController@index')->name('index.automovil');
 Route::get('automovil/crear','AutomovilController@create')->name('create.automovil');

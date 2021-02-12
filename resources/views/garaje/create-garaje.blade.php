@@ -115,7 +115,7 @@
                                          <a class="input-a-text"> Año</a>
                                     </span>
                                 </div>
-                                <input  type="date" class="form-control input-edit-car" placeholder="MM/DD/YYY" id="año" name="año">
+                                <input  type="number" class="form-control input-edit-car" placeholder="YYYY" id="año" name="año">
                             </div>
                         </div>
 

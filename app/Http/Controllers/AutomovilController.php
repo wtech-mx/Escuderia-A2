@@ -71,7 +71,10 @@ class AutomovilController extends Controller
 
         $automovil = Automovil::findOrFail($id);
 
-        return view('garaje.edit-garaje',compact('automovil'));
+        $marca = DB::table('marca')
+            ->get();
+
+        return view('garaje.edit-garaje',compact('automovil', 'marca'));
     }
 
     function update(Request $request, $id){
@@ -100,6 +103,9 @@ class AutomovilController extends Controller
 
         $automovil->update();
 
-        return Redirect::to('automovil/index');
+        $marca = DB::table('marca')
+            ->get();
+
+        return view('garaje.view-garaje',compact('automovil', 'marca'));
     }
 }
