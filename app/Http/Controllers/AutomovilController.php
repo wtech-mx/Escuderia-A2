@@ -7,6 +7,7 @@ use DB;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Str;
 use App\Models\Automovil;
+use Session;
 
 class AutomovilController extends Controller
 {
@@ -60,7 +61,10 @@ class AutomovilController extends Controller
 //dd($automovil);
         $automovil->save();
 
-        return view('garaje.view-garaje',compact('automovil'));
+        Session::flash('success', 'Se ha guardado sus datos con exito');
+
+        return redirect()->route('index.automovil', compact('automovil'));
+        //return view('garaje.view-garaje',compact('automovil'));
     }
 
     public function  edit($id){

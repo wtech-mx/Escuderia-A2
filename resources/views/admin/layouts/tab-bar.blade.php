@@ -18,7 +18,7 @@
                         </div>
 
                         <div class="navbar__item -navy-blue">
-                            <a href="{{ route('view-garaje') }}">
+                            <a href="">
                             <span class="navbar__icon">
                                   <img class="" src="{{ asset('img/icon/color/add.png') }}" width="25px" >
                             </span>

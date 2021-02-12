@@ -8,6 +8,16 @@
 
                 <div class="row bg-blue" style="background: #050F55 0% 0% no-repeat padding-box;">
 
+                    @if(Session::has('success'))
+                        <script>
+                            Swal.fire(
+                                'Exito!',
+                                'Se ha guardado auto  exitosamiente.',
+                                'success'
+                            )
+                        </script>
+                    @endif
+
 
                         <div class="col-2  mt-4">
                             <div class="d-flex justify-content-start">
