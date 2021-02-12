@@ -33,7 +33,7 @@ Route::get('/dashboard', function () {
 
 
 /*|--------------------------------------------------------------------------
-|garaje 
+|garaje
 |--------------------------------------------------------------------------*/
 Route::get('automovil/index','AutomovilController@index')->name('index.automovil');
 Route::get('automovil/crear','AutomovilController@create')->name('create.automovil');
