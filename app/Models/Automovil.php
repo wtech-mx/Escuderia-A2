@@ -17,6 +17,7 @@ class Automovil extends Model
         'id_empresa',
         'id_marca',
         'tipo',
+        'kilometraje',
         'subtipo',
         'año',
         'numero_serie',

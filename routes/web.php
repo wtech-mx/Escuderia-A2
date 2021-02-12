@@ -31,22 +31,16 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-/*|--------------------------------------------------------------------------
-|garaje view
-|--------------------------------------------------------------------------*/
-
-Route::get('/garaje/view-garaje', function () {
-    return view('garaje/view-garaje');
-})->middleware(['auth'])->name('view-garaje');
 
 /*|--------------------------------------------------------------------------
-|garaje edit
+|garaje 
 |--------------------------------------------------------------------------*/
-Route::patch('automovil/index','AutomovilController@index')->name('index.automovil');
+Route::get('automovil/index','AutomovilController@index')->name('index.automovil');
 Route::get('automovil/crear','AutomovilController@create')->name('create.automovil');
 Route::post('automovil/crear','AutomovilController@store')->name('store.automovil');
-Route::patch('automovil/update/{id}','AutomovilController@update')->name('update.automovil');
 Route::get('automovil/edit/{id}','AutomovilController@edit')->name('edit.automovil');
+Route::patch('automovil/update/{id}','AutomovilController@update')->name('update.automovil');
+
 
 /*|--------------------------------------------------------------------------
 |perfil

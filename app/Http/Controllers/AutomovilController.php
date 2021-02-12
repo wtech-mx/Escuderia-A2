@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use DB;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Str;
-use App\Automovil;
+use App\Models\Automovil;
 
 class AutomovilController extends Controller
 {
@@ -26,16 +26,18 @@ class AutomovilController extends Controller
     }
 
     public function create(){
+         $marca = DB::table('marca')
+            ->get();
 
-        return view('garaje.create-garaje');
+        return view('garaje.create-garaje',compact('marca'));
     }
 
     public function store(Request $request){
 
         $validate = $this->validate($request,[
-            'marca' => 'required',
             'submarca' => 'required|max:191',
             'tipo' => 'required|max:191',
+            'kilometraje' => 'required|max:191',
             'subtipo' => 'required|max:191',
             'año' => 'required|max:191',
             'numero_serie' => 'required|max:191',
@@ -44,21 +46,21 @@ class AutomovilController extends Controller
         ]);
 
         $automovil = new Automovil;
+        $automovil->id_marca = $request->get('id_marca');
         $automovil->submarca = $request->get('submarca');
         $automovil->tipo = $request->get('tipo');
+        $automovil->kilometraje = $request->get('kilometraje');
         $automovil->subtipo = $request->get('subtipo');
         $automovil->año = $request->get('año');
         $automovil->numero_serie = $request->get('numero_serie');
         $automovil->color = $request->get('color');
         $automovil->placas = $request->get('placas');
 
-        $marca = DB::table('marca')
-            ->get();
-
         $automovil->id_user = auth()->user()->id;
+//dd($automovil);
         $automovil->save();
 
-        return view('garaje.create-garaje',compact('marca', 'automovil'));
+        return view('garaje.view-garaje',compact('automovil'));
     }
 
     public function  edit($id){
@@ -71,9 +73,9 @@ class AutomovilController extends Controller
     function update(Request $request, $id){
 
         $validate = $this->validate($request, [
-            'marca' => 'required',
             'submarca' => 'required|max:191',
             'tipo' => 'required|max:191',
+            'kilometraje' => 'required|max:191',
             'subtipo' => 'required|max:191',
             'año' => 'required|max:191',
             'numero_serie' => 'required|max:191',
@@ -82,8 +84,10 @@ class AutomovilController extends Controller
         ]);
 
         $automovil = Automovil::findOrFail($id);
+        $automovil->id_marca = $request->get('id_marca');
         $automovil->submarca = $request->get('submarca');
         $automovil->tipo = $request->get('tipo');
+        $automovil->kilometraje = $request->get('kilometraje');
         $automovil->subtipo = $request->get('subtipo');
         $automovil->año = $request->get('año');
         $automovil->numero_serie = $request->get('numero_serie');

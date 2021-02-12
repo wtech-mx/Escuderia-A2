@@ -2,7 +2,7 @@
 
 @section('content')
 
-
+<p style="display: none">{{$userId = Auth::id()}}</p>
 
                 <link href="{{ asset('css/garje.css') }}" rel="stylesheet">
 
@@ -64,55 +64,17 @@
                                 <div class="carousel-item active">
 
                                   <div class="row">
-
-                                        <div class="col-6 mt-4">
-                                            <div class="card card-slide-garaje" style="background-image: linear-gradient(to bottom, #24f7bc, #00edda, #00e1f0, #00d3fb, #24c4fc);">
-                                              <div class="card-body" >
-                                                  <img class="d-inline mb-2" src="{{ asset('img/icon/car.png') }}" alt="Icon documento" width="150px">
-                                                  <p class="card-text"><strong>HAVAL F7</strong></p>
-                                                  <p class="card-text" style="font-size: 12px"><strong>1000 KM Recorridos</strong></p>
-                                              </div>
-                                            </div>
-                                        </div>
-
+                                      @foreach($automovil as $item)
                                         <div class="col-6  mt-4">
                                             <div class="card card-slide-garaje">
                                               <div class="card-body" >
                                                   <img class="d-inline mb-2" src="{{ asset('img/icon/car2.png') }}" alt="Icon documento" width="150px">
-                                                  <p class="card-text"><strong>HAVAL F7</strong></p>
-                                                  <p class="card-text" style="font-size: 12px"><strong>1000 KM Recorridos</strong></p>
+                                                  <p class="card-text"><strong>{{$item->submarca}}</strong></p>
+                                                  <p class="card-text" style="font-size: 12px"><strong>{{$item->kilometraje}} KM Recorridos</strong></p>
                                               </div>
                                             </div>
                                         </div>
-
-                                  </div>
-
-                                </div>
-
-                                <div class="carousel-item ">
-
-                                  <div class="row">
-
-                                        <div class="col-6  mt-4">
-                                            <div class="card card-slide-garaje">
-                                              <div class="card-body" >
-                                                  <img class="d-inline mb-2" src="{{ asset('img/icon/car3.png') }}" alt="Icon documento" width="150px">
-                                                  <p class="card-text"><strong>HAVAL F7</strong></p>
-                                                  <p class="card-text" style="font-size: 12px"><strong>1000 KM Recorridos</strong></p>
-                                              </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-6  mt-4">
-                                            <div class="card card-slide-garaje">
-                                              <div class="card-body" >
-                                                  <img class="d-inline mb-2" src="{{ asset('img/icon/car4.png') }}" alt="Icon documento" width="150px">
-                                                  <p class="card-text"><strong>BMW</strong></p>
-                                                  <p class="card-text" style="font-size: 12px"><strong>1000 KM Recorridos</strong></p>
-                                              </div>
-                                            </div>
-                                        </div>
-
+                                      @endforeach
                                   </div>
 
                                 </div>
@@ -129,7 +91,7 @@
                                     Detalles de Vehiculo
                                 </h4>
 
-                                <a class="btn btn-garaje-2" href="{{ route('edit-garaje') }}">
+                                <a class="btn btn-garaje-2" href="{{ route('edit.automovil',$userId) }}">
                                      <img class="" src="{{ asset('img/icon/white/editar.png') }}" width="20px" >
                                 </a>
                             </div>
