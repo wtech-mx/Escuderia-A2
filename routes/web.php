@@ -89,9 +89,6 @@ Route::get('/documents/view-vencimiento-ts', function () {
     return view('documents/view-vencimiento-ts');
 })->middleware(['auth'])->name('view-vencimiento-ts');
 
-Route::get('/documents/view-otro-ts', function () {
-    return view('documents/view-otro-ts');
-})->middleware(['auth'])->name('view-otro-ts');
 
 /*|--------------------------------------------------------------------------
 |Expedientes Fisicos
@@ -193,6 +190,41 @@ Route::get('admin/services/mecanica', function () {
     return view('admin/services/mecanica');
 })->middleware(['auth'])->name('mecanica');
 
+/*|--------------------------------------------------------------------------
+|Documents
+|--------------------------------------------------------------------------*/
+
+Route::get('admin/documents/view-documents-admin', function () {
+    return view('admin/documents/view-documents-admin');
+})->middleware(['auth'])->name('view-documents-admin');
+
+Route::get('admin/documents/create-documents-admin', function () {
+    return view('admin/documents/create-documents-admin');
+})->middleware(['auth'])->name('create-documents-admin');
+
+Route::get('admin/documents/edit-documents-admin', function () {
+    return view('admin/documents/edit-documents-admin');
+})->middleware(['auth'])->name('edit-documents-admin');
+
+Route::get('admin/documents/view-exp-ts', function () {
+    return view('admin/documents/view-exp-ts-admin');
+})->middleware(['auth'])->name('view-exp-ts-admin');
+
+Route::get('admin/documents/view-lugar-ts-admin', function () {
+    return view('admin/documents/view-lugar-ts-admin');
+})->middleware(['auth'])->name('view-lugar-ts-admin');
+
+Route::get('admin/documents/view-vencimiento-ts-admin', function () {
+    return view('admin/documents/view-vencimiento-ts-admin');
+})->middleware(['auth'])->name('view-vencimiento-ts-admin');
+
+Route::get('admin/documents/view-vencimiento-ts-admin', function () {
+    return view('admin/documents/view-vencimiento-ts-admin');
+})->middleware(['auth'])->name('view-vencimiento-ts-admin');
+
+Route::get('admin/documents/view-otro-ts-admin', function () {
+    return view('admin/documents/view-otro-ts-admin');
+})->middleware(['auth'])->name('view-otro-ts-admin');
 
 
 require __DIR__.'/auth.php';

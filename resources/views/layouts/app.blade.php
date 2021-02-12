@@ -27,13 +27,16 @@
     <link href="{{ asset('css/btn-save.css') }}" rel="stylesheet">
     <link href="{{ asset('css/alerts.css') }}" rel="stylesheet">
 
+
     <link href="{{ asset('fonts/font-awesome.min.css') }}" rel="stylesheet">
     <link href="{{ asset('fonts/all.min.css') }}" rel="stylesheet">
     <link href="{{ asset('fonts/font-awesome.min.js') }}" rel="stylesheet">
     <link href="{{ asset('fonts/all.min.js') }}" rel="stylesheet">
 
+
      <!-- personalizados js -->
     <script src="{{ asset('js/push.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
 </head>
 
@@ -45,9 +48,9 @@
             <div class="wrap-login100" style="@yield('bg-color')">
 
                 <div class="container-fluid">
-                    @yield('content')
-                    @include('layouts.tab-bar')
 
+                    @yield('content')
+                    @include('admin.layouts.tab-bar')
 
                 </div>
             </div>

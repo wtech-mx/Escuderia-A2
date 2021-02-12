@@ -41,6 +41,7 @@ class UserController extends Controller
 
         $user->update();
 
+        Session::flash('success', 'Se ha guardado sus datos con exito');
         return view('profile.profile', compact('user', 'users'));
     }
 
@@ -54,7 +55,7 @@ class UserController extends Controller
 
         $users = DB::table('users')
             ->get();
-        
+
         return view('profile.profile', compact('user','users'));
     }
 

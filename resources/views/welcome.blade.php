@@ -28,7 +28,7 @@
                 </div>
 
                 <div class="row bg-down-blue" style="border-radius: 0px">
-                    <div class="col-12 " style="margin-top: 115px">
+                    <div class="col-12 " style="margin-top: 165px">
 
                         <div class="d-flex justify-content-center">
                             <a class="btn btn-lg  btn-perzonalizado-gradient text-white mb-3" href="{{ route('login') }}">

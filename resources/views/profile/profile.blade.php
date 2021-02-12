@@ -54,16 +54,24 @@
 
 
 
-                                @if(Session::has('succes'))
-                                            <div class="col-lg-8">
-                                                <div class="alert alert-success alert-dismissible fade show mb-4 mt-4" role="alert">
-                                                    {{Session::get('succes')}}
-                                                    <button type="" class="close" data-dismiss="alert" arial-label="close">
-                                                        <span aria-hidden="true">&times;</span>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        @endif
+                                @if(Session::has('success'))
+                                    {{--<div class="col-lg-12">--}}
+                                    {{--    <div class="alert alert-success alert-dismissible fade show mb-4 mt-4" role="alert">--}}
+                                    {{--        {{Session::get('success')}}--}}
+                                    {{--        <button type="" class="close" data-dismiss="alert" arial-label="close">--}}
+                                    {{--            <span aria-hidden="true">&times;</span>--}}
+                                    {{--        </button>--}}
+                                    {{--    </div>--}}
+                                    {{--</div>--}}-+
+
+                                    <script>
+                                        Swal.fire(
+                                            'Exito!',
+                                            'Se ha guardado exitosamiente.',
+                                            'success'
+                                        )
+                                    </script>
+                                @endif
 
                                 <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
 
@@ -271,6 +279,7 @@
 
                         </form>
                     </div>
+
                 </div>
 
 

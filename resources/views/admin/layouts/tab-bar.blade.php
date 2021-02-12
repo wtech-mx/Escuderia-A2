@@ -34,7 +34,7 @@
                         </div>
 
                         <div class="navbar__item -purple">
-                            <a href="{{ route('profile') }}">
+                            <a href="#">
                             <span class="navbar__icon">
                                 <img class="" src="{{ asset('img/icon/color/user.png') }}" width="25px" >
                             </span>
