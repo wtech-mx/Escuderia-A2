@@ -7,6 +7,7 @@ use DB;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Str;
 use App\Models\Automovil;
+use App\Models\User;
 use Session;
 
 class AutomovilController extends Controller
@@ -23,7 +24,11 @@ class AutomovilController extends Controller
         ->where('id_user','=',$auto_user)
         ->get();
 
-        return view('garaje.view-garaje',compact('automovil'));
+        $carro = DB::table('automovil')
+        ->where('id','=',auth()->user()->current_auto)
+        ->get();
+
+        return view('garaje.view-garaje',compact('carro', 'automovil'));
     }
 
     public function create(){
@@ -110,5 +115,13 @@ class AutomovilController extends Controller
         Session::flash('success', 'Se ha guardado sus datos con exito');
 
         return redirect()->route('index.automovil', compact('automovil','marca'));
+    }
+
+    public function current_auto(Request $request, $id){
+        $user = User::findOrFail($id);
+        $user->current_auto = $request->get('current_auto');
+        $user->update();
+        Session::flash('succes', 'Se selecciono su pagina de edicion');
+        return redirect()->route('index.automovil');
     }
 }

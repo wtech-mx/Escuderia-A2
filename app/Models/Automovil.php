@@ -34,7 +34,7 @@ class Automovil extends Model
 
     public function User()
     {
-        return $this->belongsTo(User::class,'id_user');
+        return $this->belongsTo(User::class);
     }
 
 }
