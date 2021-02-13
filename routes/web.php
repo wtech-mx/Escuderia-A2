@@ -48,7 +48,6 @@ Route::post('automovil/crear','AutomovilController@store')->name('store.automovi
 Route::get('automovil/edit/{id}','AutomovilController@edit')->name('edit.automovil');
 Route::patch('automovil/update/{id}','AutomovilController@update')->name('update.automovil');
 
-
 /*|--------------------------------------------------------------------------
 |perfil
 |--------------------------------------------------------------------------*/

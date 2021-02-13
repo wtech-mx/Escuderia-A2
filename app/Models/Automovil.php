@@ -24,6 +24,7 @@ class Automovil extends Model
         'color',
         'placas',
         'kilometraje',
+        'estatus',
     ];
 
     protected $guarded=[

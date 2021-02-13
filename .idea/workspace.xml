@@ -22,8 +22,8 @@
     <list default="true" id="936a45dc-4f36-4130-a52f-695b08d602c5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AutomovilController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AutomovilController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/garaje/create-garaje.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/garaje/create-garaje.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/garaje/edit-garaje.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/garaje/edit-garaje.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Automovil.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Automovil.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/garaje/view-garaje.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/garaje/view-garaje.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -221,7 +221,9 @@
       <workItem from="1612968350808" duration="24747000" />
       <workItem from="1613022614325" duration="667000" />
       <workItem from="1613069029400" duration="7276000" />
-      <workItem from="1613094242632" duration="6140000" />
+      <workItem from="1613094242632" duration="12921000" />
+      <workItem from="1613147634261" duration="57000" />
+      <workItem from="1613172873108" duration="6604000" />
     </task>
     <servers />
   </component>

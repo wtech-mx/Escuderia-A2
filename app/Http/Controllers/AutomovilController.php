@@ -23,7 +23,10 @@ class AutomovilController extends Controller
         ->where('id_user','=',$auto_user)
         ->get();
 
-        return view('garaje.view-garaje',compact('automovil'));
+        $marca = DB::table('marca')
+            ->get();
+
+        return view('garaje.view-garaje',compact('automovil', 'marca'));
     }
 
     public function create(){
@@ -56,9 +59,10 @@ class AutomovilController extends Controller
         $automovil->numero_serie = $request->get('numero_serie');
         $automovil->color = $request->get('color');
         $automovil->placas = $request->get('placas');
+        $automovil->estatus = $request->get('estatus');
 
         $automovil->id_user = auth()->user()->id;
-//dd($automovil);
+
         $automovil->save();
 
         Session::flash('success', 'Se ha guardado sus datos con exito');
@@ -100,6 +104,7 @@ class AutomovilController extends Controller
         $automovil->numero_serie = $request->get('numero_serie');
         $automovil->color = $request->get('color');
         $automovil->placas = $request->get('placas');
+        $automovil->estatus = $request->get('estatus');
 
         $automovil->update();
 
@@ -110,4 +115,5 @@ class AutomovilController extends Controller
 
         return redirect()->route('index.automovil', compact('automovil','marca'));
     }
+
 }
