@@ -6,7 +6,7 @@
 
                 <link href="{{ asset('css/garje.css') }}" rel="stylesheet">
 
-     <div class="row bg-blue" style="background: #050F55 0% 0% no-repeat padding-box;">
+                <div class="row bg-blue" style="background: #050F55 0% 0% no-repeat padding-box;">
 
                     @if(Session::has('success'))
                         <script>
@@ -75,20 +75,15 @@
 
                                   <div class="row">
                                       @foreach($automovil as $item)
-                                         <div class="col-6  mt-4">
-
-                                                <div class="card card-slide-garaje">
-                                                  <div class="card-body" >
-                                                      <img class="d-inline mb-2" src="{{ asset('img/icon/car2.png') }}" alt="Icon documento" width="150px">
-                                                      <p class="card-text"><strong>{{$item->submarca}}</strong></p>
-                                                      <p class="card-text" style="font-size: 12px"><strong>{{$item->kilometraje}} KM Recorridos</strong></p>
-<!--                                                      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#d{{$item->id}}">gg </button> -->
-                                                      <a href="javascript:document.getElementById('{{$item->submarca}}').style.display='block';void0">Mostrar</a>
-                                                      <a href="javascript:document.getElementById('{{$item->submarca}}').style.display='none';void0">Ocultar</a>
-                                                  </div>
-                                                </div>
-
-                                         </div>
+                                        <div class="col-6  mt-4">
+                                            <div class="card card-slide-garaje">
+                                              <div class="card-body" >
+                                                  <img class="d-inline mb-2" src="{{ asset('img/icon/car2.png') }}" alt="Icon documento" width="150px">
+                                                  <p class="card-text"><strong>{{$item->submarca}}</strong></p>
+                                                  <p class="card-text" style="font-size: 12px"><strong>{{$item->kilometraje}} KM Recorridos</strong></p>
+                                              </div>
+                                            </div>
+                                        </div>
                                       @endforeach
                                   </div>
 
@@ -100,114 +95,124 @@
 
                     </div>
 
-                @foreach($automovil as $item)
-                        <div class="col-12 mt-5 mb-5" id="{{$item->submarca}}" style="display:none;">
+                        <div class="col-12 mt-5 mb-5">
                             <div class="d-flex justify-content-between">
                                 <h4 class="text-white text-tittle-app mr-3">
                                     Detalles de Vehiculo
                                 </h4>
 
-                                <a class="btn btn-garaje-2" href="{{ route('edit.automovil',$item->id) }}">
+                                <a class="btn btn-garaje-2" href="{{ route('edit.automovil',$userId) }}">
                                      <img class="" src="{{ asset('img/icon/white/editar.png') }}" width="20px" >
                                 </a>
                             </div>
+                        </div>
 
+                    <div class="col-4 mb-3">
                             <div class="card" style="border-radius: 15px">
                               <div class="card-body" >
                                   <p class="card-text text-center text-garaje">
                                         <img class="d-inline mb-2" src="{{ asset('img/icon/black/proteger.png') }}" alt="Icon documento" width="50px">
                                       <strong>Marca</strong>
-                                      <p style="text-align: center"><strong> {{$item->id_marca}} </strong></p>
                                   </p>
                               </div>
                             </div>
+                    </div>
 
+                    <div class="col-4 mb-3">
                             <div class="card" style="border-radius: 15px">
                               <div class="card-body" >
                                   <p class="card-text text-center text-garaje">
                                       <img class="d-inline mb-2" src="{{ asset('img/icon/black/documento.png') }}" alt="Icon documento" width="50px">
                                       <strong>Submarca </strong>
-                                      <p style="text-align: center"><strong> {{$item->submarca}} </strong></p>
                                   </p>
                               </div>
                             </div>
+                    </div>
 
+                    <div class="col-4 mb-3">
                             <div class="card" style="border-radius: 15px">
                               <div class="card-body" >
                                   <p class="card-text text-center text-garaje ">
                                       <img class="d-inline mb-2" src="{{ asset('img/icon/black/coche (2).png') }}" alt="Icon documento" width="50px">
                                       <strong>Tipo</strong>
-                                      <p style="text-align: center"><strong> {{$item->tipo}} </strong></p>
                                   </p>
                               </div>
                             </div>
+                    </div>
 
 
-                    {{-- ----------------------}}
+                {{-- ----------------------}}
 
+                     <div class="col-4 mb-3">
                             <div class="card" style="border-radius: 15px">
                               <div class="card-body" >
                                   <p class="card-text text-center text-garaje">
                                       <img class="d-inline mb-2" src="{{ asset('img/icon/black/coche (3).png') }}" alt="Icon documento" width="50px">
                                       <strong>Subtipo</strong>
-                                      <p style="text-align: center"><strong> {{$item->subtipo}} </strong></p>
                                   </p>
                               </div>
                             </div>
+                    </div>
 
+                    <div class="col-4 mb-3">
                             <div class="card" style="border-radius: 15px">
                               <div class="card-body" >
                                   <p class="card-text text-center text-garaje">
                                       <img class="d-inline mb-2" src="{{ asset('img/icon/black/days.png') }}" alt="Icon documento" width="50px">
                                       <strong>Año</strong>
-                                      <p style="text-align: center"><strong> {{$item->año}} </strong></p>
                                   </p>
                               </div>
                             </div>
+                    </div>
 
+                     <div class="col-4 mb-3">
                             <div class="card" style="border-radius: 15px">
                               <div class="card-body" >
                                   <p class="card-text text-center text-garaje">
                                       <img class="d-inline mb-2" src="{{ asset('img/icon/black/color-palette.png') }}" alt="Icon documento" width="50px">
                                       <strong>Color</strong>
-                                      <p style="text-align: center"><strong> {{$item->color}} </strong></p>
                                   </p>
                               </div>
                             </div>
+                    </div>
 
-                    {{-- ----------------------}}
+                {{-- ----------------------}}
 
+                    <div class="col-4 mb-3">
                             <div class="card" style="border-radius: 15px">
                               <div class="card-body" >
                                   <p class="card-text text-center text-garaje">
                                        <img class="d-inline mb-2" src="{{ asset('img/icon/black/barcode.png') }}" alt="Icon documento" width="50px">
                                       <strong>Num de Serie</strong>
-                                      <p style="text-align: center"><strong> {{$item->numero_serie}} </strong></p>
                                   </p>
                               </div>
                             </div>
+                    </div>
 
+                    <div class="col-4 mb-3">
                             <div class="card" style="border-radius: 15px">
                               <div class="card-body" >
                                   <p class="card-text text-center text-garaje">
                                        <img class="d-inline mb-2" src="{{ asset('img/icon/black/llantas.png') }}" alt="Icon documento" width="50px">
-                                      <strong>Kilometraje</strong>
-                                      <p style="text-align: center"><strong> {{$item->kilometraje}} KM </strong></p>
+                                      <strong>Med llantas</strong>
                                   </p>
                               </div>
                             </div>
+                    </div>
 
+                    <div class="col-4 mb-3">
                             <div class="card" style="border-radius: 15px">
                               <div class="card-body" >
                                   <p class="card-text text-center text-garaje">
                                       <img class="d-inline mb-2" src="{{ asset('img/icon/black/placa.png') }}" alt="Icon documento" width="50px">
                                       <strong>Num Placas</strong>
-                                      <p style="text-align: center"><strong> {{$item->placas}} </strong></p>
                                   </p>
                               </div>
                             </div>
                     </div>
-                @endforeach
-    </div>
-@endsection
 
+                </div>
+
+
+
+@endsection
