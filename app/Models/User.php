@@ -48,26 +48,10 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    //Relacion uno a muchos
-    public function automovil(){
-        return $this->hasMany('App\Models\Automovil');
+    public function Automovil()
+    {
+        //relationship of many users to many posts
+        return $this->hasMany(Automovil::class);
     }
-    public function documentos(){
-        return $this->hasMany('App\Models\Documentos');
-    }
-    public function expediente(){
-        return $this->hasMany('App\Models\ExpedientesFisicos');
-    }
-    public function estetica(){
-        return $this->hasMany('App\Models\Estetica');
-    }
-    public function gestoria(){
-        return $this->hasMany('App\Models\Gestoria');
-    }
-    public function mecanica(){
-        return $this->hasMany('App\Models\Mecanica');
-    }
-    public function foto(){
-        return $this->hasMany('App\Models\FotosVehiculo');
-    }
+
 }

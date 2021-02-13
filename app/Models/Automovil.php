@@ -31,8 +31,10 @@ class Automovil extends Model
 
     ];
 
-    //Relacion muchos a uno
-    public function user() {
-        return $this->belongsTo('App\Models\User');
+
+    public function User()
+    {
+        return $this->belongsTo(User::class,'id_user');
     }
+
 }
