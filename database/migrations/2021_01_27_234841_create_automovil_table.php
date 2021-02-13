@@ -19,6 +19,7 @@ class CreateAutomovilTable extends Migration
             $table->unsignedBigInteger('id_user')->nullable();
             $table->unsignedBigInteger('id_empresa')->nullable();
             $table->unsignedBigInteger('id_marca');
+            $table->boolean('estatus');
             $table->string('submarca');
             $table->string('tipo');
             $table->string('subtipo');

@@ -71,6 +71,18 @@
                             </div>
                         </div>
 
+                        <div class="col-12" style="display: none">
+                            <div class="input-group form-group">
+                                <div class="input-group-prepend " >
+                                    <span class="input-group-text span-edit-car">
+                                         <img class="" src="{{ asset('img/icon/black/proteger.png') }}" width="35px">
+                                         <a class="input-a-text">estatus</a>
+                                    </span>
+                                </div>
+                                <input  type="number" class="form-control input-edit-car" value="0" id="estatus" name="estatus">
+                            </div>
+                        </div>
+
                         <div class="col-12">
                             <div class="input-group form-group">
                                 <div class="input-group-prepend " >

@@ -75,15 +75,29 @@
 
                                   <div class="row">
                                       @foreach($automovil as $item)
-                                        <div class="col-6  mt-4">
-                                            <div class="card card-slide-garaje">
-                                              <div class="card-body" >
-                                                  <img class="d-inline mb-2" src="{{ asset('img/icon/car2.png') }}" alt="Icon documento" width="150px">
-                                                  <p class="card-text"><strong>{{$item->submarca}}</strong></p>
-                                                  <p class="card-text" style="font-size: 12px"><strong>{{$item->kilometraje}} KM Recorridos</strong></p>
-                                              </div>
-                                            </div>
-                                        </div>
+                                             @if($item->estatus == 1)
+                                                <div class="col-6  mt-4">
+                                                    <div class="card card-slide-garaje" style="background-image: linear-gradient(to bottom, #24f7bc, #00edda, #00e1f0, #00d3fb, #24c4fc);">
+                                                      <div class="card-body" >
+                                                          <img class="d-inline mb-2" src="{{ asset('img/icon/car2.png') }}" alt="Icon documento" width="150px">
+                                                          <p class="card-text"><strong>{{$item->submarca}}</strong></p>
+                                                          <p class="card-text" style="font-size: 12px"><strong>{{$item->kilometraje}} KM Recorridos</strong></p>
+                                                      </div>
+                                                    </div>
+                                                </div>
+                                             @else
+                                                <div class="col-6  mt-4">
+                                                    <a type="button" class="" data-toggle="modal" data-target="#modal-estatus-{{$item->id}}">
+                                                        <div class="card card-slide-garaje">
+                                                          <div class="card-body" >
+                                                              <img class="d-inline mb-2" src="{{ asset('img/icon/car2.png') }}" alt="Icon documento" width="150px">
+                                                              <p class="card-text"><strong>{{$item->submarca}}</strong></p>
+                                                              <p class="card-text" style="font-size: 12px"><strong>{{$item->kilometraje}} KM Recorridos</strong></p>
+                                                          </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                             @endif
                                       @endforeach
                                   </div>
 
@@ -210,6 +224,8 @@
                               </div>
                             </div>
                     </div>
+
+                    @include('garaje.modal-estatus')
 
                 </div>
 

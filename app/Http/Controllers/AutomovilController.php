@@ -48,6 +48,7 @@ class AutomovilController extends Controller
 
         $automovil = new Automovil;
         $automovil->id_marca = $request->get('id_marca');
+        $automovil->estatus = $request->get('estatus');
         $automovil->submarca = $request->get('submarca');
         $automovil->tipo = $request->get('tipo');
         $automovil->kilometraje = $request->get('kilometraje');
