@@ -77,20 +77,18 @@
                                       @foreach($automovil as $item)
                                           @foreach($users as $item2)
                                              @if($item2->current_auto == $item->id)
-                                                <div class="col-6  mt-4">
-                                                    <a type="button" class="" data-toggle="modal" data-target="#modal">
-                                                    <div class="card card-slide-garaje" style="background-image: linear-gradient(to bottom, #24f7bc, #00edda, #00e1f0, #00d3fb, #24c4fc);">
-                                                      <div class="card-body" >
-                                                          <img class="d-inline mb-2" src="{{ asset('img/icon/car2.png') }}" alt="Icon documento" width="150px">
-                                                          <p class="card-text"><strong>{{$item->submarca}}</strong></p>
-                                                          <p class="card-text" style="font-size: 12px"><strong>{{$item->kilometraje}} KM Recorridos</strong></p>
-                                                      </div>
+                                                    <div class="col-6  mt-4">
+                                                            <div class="card card-slide-garaje" style="background-image: linear-gradient(to bottom, #24f7bc, #00edda, #00e1f0, #00d3fb, #24c4fc);">
+                                                              <div class="card-body" >
+                                                                  <img class="d-inline mb-2" src="{{ asset('img/icon/car2.png') }}" alt="Icon documento" width="150px">
+                                                                  <p class="card-text"><strong>{{$item->submarca}}</strong></p>
+                                                                  <p class="card-text" style="font-size: 12px"><strong>{{$item->kilometraje}} KM Recorridos</strong></p>
+                                                              </div>
+                                                            </div>
                                                     </div>
-                                                        </a>
-                                                </div>
                                              @else
                                                 <div class="col-6  mt-4">
-                                                    <a type="button" class="" data-toggle="modal" data-target="#modal">
+                                                     <a type="button" class="" data-toggle="modal" data-target="#modal-estatus-{{$item->id}}">
                                                         <div class="card card-slide-garaje">
                                                           <div class="card-body" >
                                                               <img class="d-inline mb-2" src="{{ asset('img/icon/car2.png') }}" alt="Icon documento" width="150px">
@@ -98,7 +96,7 @@
                                                               <p class="card-text" style="font-size: 12px"><strong>{{$item->kilometraje}} KM Recorridos</strong></p>
                                                           </div>
                                                         </div>
-                                                    </a>
+                                                     </a>
                                                 </div>
                                              @endif
                                               @break
@@ -133,7 +131,7 @@
                                   <p class="card-text text-center text-garaje">
                                         <img class="d-inline mb-2" src="{{ asset('img/icon/black/proteger.png') }}" alt="Icon documento" width="50px">
                                       <strong>Marca</strong>
-                                      <p>{{$item->id_marca}}</p>
+                                      <p class="text-center">{{$item->id_marca}}</p>
                                   </p>
                               </div>
                             </div>
@@ -145,7 +143,7 @@
                                   <p class="card-text text-center text-garaje">
                                       <img class="d-inline mb-2" src="{{ asset('img/icon/black/documento.png') }}" alt="Icon documento" width="50px">
                                       <strong>Submarca </strong>
-                                      <p>{{$item->submarca}}</p>
+                                      <p class="text-center">{{$item->submarca}}</p>
                                   </p>
                               </div>
                             </div>
@@ -157,7 +155,7 @@
                                   <p class="card-text text-center text-garaje ">
                                       <img class="d-inline mb-2" src="{{ asset('img/icon/black/coche (2).png') }}" alt="Icon documento" width="50px">
                                       <strong>Tipo</strong>
-                                      <p>{{$item->tipo}}</p>
+                                      <p class="text-center">{{$item->tipo}}</p>
                                   </p>
                               </div>
                             </div>
@@ -172,7 +170,7 @@
                                   <p class="card-text text-center text-garaje">
                                       <img class="d-inline mb-2" src="{{ asset('img/icon/black/coche (3).png') }}" alt="Icon documento" width="50px">
                                       <strong>Subtipo</strong>
-                                      <p>{{$item->subtipo}}</p>
+                                      <p class="text-center">{{$item->subtipo}}</p>
                                   </p>
                               </div>
                             </div>
@@ -184,7 +182,7 @@
                                   <p class="card-text text-center text-garaje">
                                       <img class="d-inline mb-2" src="{{ asset('img/icon/black/days.png') }}" alt="Icon documento" width="50px">
                                       <strong>Año</strong>
-                                      <p>{{$item->año}}</p>
+                                      <p class="text-center">{{$item->año}}</p>
                                   </p>
                               </div>
                             </div>
@@ -196,7 +194,10 @@
                                   <p class="card-text text-center text-garaje">
                                       <img class="d-inline mb-2" src="{{ asset('img/icon/black/color-palette.png') }}" alt="Icon documento" width="50px">
                                       <strong>Color</strong>
-                                      <p>{{$item->color}}</p>
+
+                                      <p class="text-center">
+                                        <input class="" type="color" value="{{$item->color}}" id="example-color-input" Disabled>
+                                      </p>
                                   </p>
                               </div>
                             </div>
@@ -210,7 +211,7 @@
                                   <p class="card-text text-center text-garaje">
                                        <img class="d-inline mb-2" src="{{ asset('img/icon/black/barcode.png') }}" alt="Icon documento" width="50px">
                                       <strong>Num de Serie</strong>
-                                      <p>{{$item->numero_serie}}</p>
+                                      <p class="text-center">{{$item->numero_serie}}</p>
                                   </p>
                               </div>
                             </div>
@@ -222,7 +223,7 @@
                                   <p class="card-text text-center text-garaje">
                                        <img class="d-inline mb-2" src="{{ asset('img/icon/black/llantas.png') }}" alt="Icon documento" width="50px">
                                       <strong>Kilometraje</strong>
-                                      <p>{{$item->kilometraje}}</p>
+                                      <p class="text-center">{{$item->kilometraje}}</p>
                                   </p>
                               </div>
                             </div>
@@ -234,7 +235,7 @@
                                   <p class="card-text text-center text-garaje">
                                       <img class="d-inline mb-2" src="{{ asset('img/icon/black/placa.png') }}" alt="Icon documento" width="50px">
                                       <strong>Num Placas</strong>
-                                      <p>{{$item->placas}}</p>
+                                      <p class="text-center">{{$item->placas}}</p>
                                   </p>
                               </div>
                             </div>
