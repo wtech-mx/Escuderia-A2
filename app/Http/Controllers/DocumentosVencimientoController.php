@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use Session;
-use App\Models\Documentos;
+use App\Models\DocumentosVencimiento;
 
-class DocumentosController extends Controller
+class DocumentosVencimientoController extends Controller
 {
      function index(){
 
@@ -17,32 +17,32 @@ class DocumentosController extends Controller
 
         $auto_user = $user->{'id'};
 
-        $documentos = DB::table('documentos_exp')
+        $documentos = DB::table('documentos_vencimiento')
         ->where('id_user','=',$auto_user)
         ->where('current_auto','=',auth()->user()->current_auto)
         ->get();
 
-        return view('documents.view-exp-ts',compact('documentos'));
+        return view('documents.view-vencimiento-ts',compact('documentos'));
     }
 
     public function create(){
 
-        return view('documents.create.exp-tc');
+        return view('documents.create.vencimiento-tc');
     }
 
     public function store(Request $request){
 
         $validate = $this->validate($request,[
-            'fecha_expedicion' => 'mimes:jpeg,bpm,jpg,png|max:900',
+            'fecha_vencimiento' => 'mimes:jpeg,bpm,jpg,png|max:900',
         ]);
 
-        $documentos = new Documentos;
+        $documentos = new DocumentosVencimiento;
 
-    	if ($request->hasFile('fecha_expedicion')) {
-    		$file=$request->file('fecha_expedicion');
+    	if ($request->hasFile('fecha_vencimiento')) {
+    		$file=$request->file('fecha_vencimiento');
     		// dd($file);
-    		$file->move(public_path().'/exp-tc',time().".".$file->getClientOriginalExtension());
-    		$documentos->fecha_expedicion=time().".".$file->getClientOriginalExtension();
+    		$file->move(public_path().'/vencimiento-tc',time().".".$file->getClientOriginalExtension());
+    		$documentos->fecha_vencimiento=time().".".$file->getClientOriginalExtension();
     	}
 
         $documentos->id_user = auth()->user()->id;
@@ -52,7 +52,7 @@ class DocumentosController extends Controller
 
         Session::flash('success', 'Se ha guardado sus datos con exito');
 
-        return redirect()->route('index.exp-tc', compact('documentos'));
+        return redirect()->route('index.vencimiento-tc', compact('documentos'));
         //return view('garaje.view-garaje',compact('automovil'));
     }
 }

@@ -5,17 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Documentos extends Model
+class DocumentosLugarExp extends Model
 {
     use HasFactory;
 
-    protected $table = "documentos_exp";
+    protected $table = "documentos_lugarexp";
     protected $primarykey = "id";
 
     protected $fillable = [
         'id_user',
         'current_auto',
-        'fecha_expedicion',
+        'lugar_expedicion',
     ];
 
     protected $guarded=[

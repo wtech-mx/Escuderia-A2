@@ -75,8 +75,22 @@
 
                                   <div class="row">
                                       @foreach($automovil as $item)
+                                          @foreach($users as $item2)
+                                             @if($item2->current_auto == $item->id)
                                                 <div class="col-6  mt-4">
-                                                    <a type="button" class="" data-toggle="modal" data-target="#modal-estatus-{{$item->id}}">
+                                                    <a type="button" class="" data-toggle="modal" data-target="#modal">
+                                                    <div class="card card-slide-garaje" style="background-image: linear-gradient(to bottom, #24f7bc, #00edda, #00e1f0, #00d3fb, #24c4fc);">
+                                                      <div class="card-body" >
+                                                          <img class="d-inline mb-2" src="{{ asset('img/icon/car2.png') }}" alt="Icon documento" width="150px">
+                                                          <p class="card-text"><strong>{{$item->submarca}}</strong></p>
+                                                          <p class="card-text" style="font-size: 12px"><strong>{{$item->kilometraje}} KM Recorridos</strong></p>
+                                                      </div>
+                                                    </div>
+                                                        </a>
+                                                </div>
+                                             @else
+                                                <div class="col-6  mt-4">
+                                                    <a type="button" class="" data-toggle="modal" data-target="#modal">
                                                         <div class="card card-slide-garaje">
                                                           <div class="card-body" >
                                                               <img class="d-inline mb-2" src="{{ asset('img/icon/car2.png') }}" alt="Icon documento" width="150px">
@@ -86,6 +100,9 @@
                                                         </div>
                                                     </a>
                                                 </div>
+                                             @endif
+                                              @break
+                                          @endforeach
                                       @endforeach
                                   </div>
 
@@ -97,26 +114,6 @@
 
                     </div>
 
-                         <div class="col-12">
-                            <div class="input-group form-group">
-                                 <form action="{{route('current_auto', auth()->user()->id)}}" method="POST">
-                                    @csrf
-                                   <input name="_method" type="hidden" value="PATCH">
-                                         <select class="form-control input-edit-car" id="current_auto" name="current_auto">
-
-                                            <option>Selecciona tu carro</option>
-                                            @foreach($automovil as $item)
-                                                 @if ($item->id == auth()->user()->current_auto)
-                                                     <option selected value="{{$item->id}}">{{$item->submarca}}</option>
-                                                 @else
-                                                    <option value="{{$item->id}}">{{$item->submarca}}</option>
-                                                @endif
-                                            @endforeach
-                                        </select>
-                                        <button type="submit" class="btn btn-success">Seleccionar</button>
-                                 </form>
-                            </div>
-                        </div>
 @foreach ($carro as $item)
                         <div class="col-12 mt-5 mb-5">
                             <div class="d-flex justify-content-between">
@@ -242,6 +239,7 @@
                               </div>
                             </div>
                     </div>
+     @include('garaje.modal-estatus')
 @endforeach
 
                 </div>

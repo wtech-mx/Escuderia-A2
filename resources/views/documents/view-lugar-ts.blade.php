@@ -46,7 +46,7 @@
 
                         <div class="col-6">
                             <p class="text-center">
-                                <a href="{{ route('view-exp-ts') }}">
+                                <a href="#">
                                     <img class="d-inline mb-2" src="{{ asset('img/ts.jpg') }}" alt="Icon documento" width="30px">
                                 </a>
                             </p>
@@ -54,6 +54,16 @@
                                 Fecha: 05/05/20
                             </p>
                         </div>
+                        @foreach($documentos as $item)
+                            <div class="col-6">
+                                <p class="text-center">
+                                        <img class="d-inline mb-2" src="{{asset('lugarexp-tc/'.$item->lugar_expedicion)}}" alt="{{$item->lugar_expedicion}}" width="100px">
+                                </p>
+                                <p class="text-center text-white">
+                                    Fecha: {{$item->created_at}}
+                                </p>
+                            </div>
+                        @endforeach
 
                         <!-- Modal -->
                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -67,30 +77,32 @@
                                         Agregar Imagen
                                     </p>
                                   </div>
+                                   <form method="POST" action="{{route('store.lugar-tc')}}" enctype="multipart/form-data" role="form">
+                                         @csrf
+                                        <div class="col-12 mt-3">
+                                            <p class="text-center">
+                                                       <!-- <a href="#">
+                                                            <img class="d-inline mb-2" src="{{ asset('img/icon/black/plus (2).png') }}" alt="Icon documento" width="30px">
+                                                        </a> -->
+                                                        <input type="file" class="form-control"  name="lugar_expedicion">
+                                            </p>
 
-                                <div class="col-12 mt-3">
-                                    <p class="text-center">
-                                        <a href="{{ route('view-exp-ts') }}">
-                                            <img class="d-inline mb-2" src="{{ asset('img/icon/black/plus (2).png') }}" alt="Icon documento" width="30px">
-                                        </a>
-                                    </p>
+                                            <p class="text-center">
+                                                Agregar <br>
+                                                Lugar de expedicion de Tarjeta de Circulación
 
-                                    <p class="text-center">
-                                        Agregar <br>
-                                        Lugar de expedicion de Tarjeta de Circulación
+                                                <br>
 
-                                        <br>
-
-                                        <a class="btn btn-save text-white">
-                                            <img class="d-inline" src="{{ asset('img/icon/white/save-file-option (1).png') }}" alt="Icon documento" width="30px">
-                                            Guardar
-                                        </a>
-                                    </p>
+                                            <button type="submit" class="btn btn-success btn-save text-white">
+                                                  <img class="d-inline" src="{{ asset('img/icon/white/save-file-option (1).png') }}" alt="Icon documento" width="30px">
+                                                      Guardar
+                                            </button>
+                                            </p>
 
 
 
-                                </div>
-
+                                        </div>
+                                   </form>
                               </div>
 
 

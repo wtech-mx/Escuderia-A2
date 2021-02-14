@@ -65,7 +65,7 @@
 
                         <div class="col-6">
                             <p class="text-center">
-                                <a href="{{ route('view-exp-ts') }}">
+                                <a href="{{ route('index.exp-tc') }}">
                                     <img class="d-inline mb-2" src="{{ asset('img/icon/white/plus.png') }}" alt="Icon documento" width="30px">
                                 </a>
                             </p>
@@ -76,7 +76,7 @@
 
                         <div class="col-6">
                             <p class="text-center">
-                                <a href="{{ route('view-vencimiento-ts') }}">
+                                <a href="{{ route('index.vencimiento-tc') }}">
                                     <img class="d-inline mb-2" src="{{ asset('img/icon/white/plus.png') }}" alt="Icon documento" width="30px">
                                 </a>
                             </p>
@@ -87,7 +87,7 @@
 
                         <div class="col-6">
                             <p class="text-center">
-                                <a href="{{ route('view-lugar-ts') }}">
+                                <a href="{{ route('index.lugar-tc') }}">
                                     <img class="d-inline mb-2" src="{{ asset('img/icon/white/plus.png') }}" alt="Icon documento" width="30px">
                                 </a>
                             </p>
@@ -98,7 +98,7 @@
 
                         <div class="col-6">
                             <p class="text-center">
-                                <a href="{{ route('view-otro-ts') }}">
+                                <a href="{{ route('index.otro-tc') }}">
                                     <img class="d-inline mb-2" src="{{ asset('img/icon/white/plus.png') }}" alt="Icon documento" width="30px">
                                 </a>
                             </p>

@@ -68,31 +68,25 @@ Route::get('/seguros/view-seguros', function () {
 /*|--------------------------------------------------------------------------
 |Documents
 |--------------------------------------------------------------------------*/
+Route::get('documents/view/exp','DocumentosController@index')->name('index.exp-tc');
+Route::get('documents/crear/exp-tc','DocumentosController@create')->name('create.exp-tc');
+Route::post('documents/crear/exp-tc','DocumentosController@store')->name('store.exp-tc');
+
+Route::get('documents/view/vencimiento','DocumentosVencimientoController@index')->name('index.vencimiento-tc');
+Route::get('documents/crear/vencimiento-tc','DocumentosVencimientoController@create')->name('create.vencimiento-tc');
+Route::post('documents/crear/vencimiento-tc','DocumentosVencimientoController@store')->name('store.vencimiento-tc');
+
+Route::get('documents/view/otro','DocumentosOtroController@index')->name('index.otro-tc');
+Route::get('documents/crear/otro-tc','DocumentosOtroController@create')->name('create.otro-tc');
+Route::post('documents/crear/otro-tc','DocumentosOtroController@store')->name('store.otro-tc');
+
+Route::get('documents/view/lugar','DocumentosLugarExpController@index')->name('index.lugar-tc');
+Route::get('documents/crear/lugar-tc','DocumentosLugarExpController@create')->name('create.lugar-tc');
+Route::post('documents/crear/lugar-tc','DocumentosLugarExpController@store')->name('store.lugar-tc');
 
 Route::get('/documents/view-documents', function () {
     return view('documents/view-documents');
 })->middleware(['auth'])->name('view-documents');
-
-Route::get('/documents/view-otro-ts', function () {
-    return view('documents/view-otro-ts');
-})->middleware(['auth'])->name('view-otro-ts');
-
-Route::get('/documents/view-exp-ts', function () {
-    return view('documents/view-exp-ts');
-})->middleware(['auth'])->name('view-exp-ts');
-
-Route::get('/documents/view-lugar-ts', function () {
-    return view('documents/view-lugar-ts');
-})->middleware(['auth'])->name('view-lugar-ts');
-
-Route::get('/documents/view-vencimiento-ts', function () {
-    return view('documents/view-vencimiento-ts');
-})->middleware(['auth'])->name('view-vencimiento-ts');
-
-Route::get('/documents/view-vencimiento-ts', function () {
-    return view('documents/view-vencimiento-ts');
-})->middleware(['auth'])->name('view-vencimiento-ts');
-
 
 /*|--------------------------------------------------------------------------
 |Expedientes Fisicos
