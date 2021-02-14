@@ -239,9 +239,9 @@
                               </div>
                             </div>
                     </div>
-     @include('garaje.modal-estatus')
-@endforeach
 
+@endforeach
+@include('garaje.modal-estatus')
                 </div>
 
 
