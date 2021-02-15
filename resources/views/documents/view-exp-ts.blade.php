@@ -25,11 +25,9 @@
                         <div class="col-2  mt-4">
                             <div class="d-flex justify-content-start">
                                     <div class="text-center text-white bg-white" style="border-radius: 50px;padding: 5px">
-
                                         <a href="">
                                              <img class="" src="{{ asset('img/icon/color/campana.png') }}" width="25px" >
                                         </a>
-
                                     </div>
                             </div>
                         </div>
@@ -47,16 +45,8 @@
 
                             </div>
                         </div>
-                        <div class="col-6">
-                            <p class="text-center">
-                                <a href="#">
-                                    <img class="d-inline mb-2" src="{{ asset('img/ts.jpg') }}" alt="Icon documento" width="100px">
-                                </a>
-                            </p>
-                            <p class="text-center text-white">
-                                Fecha: 05/05/20
-                            </p>
-                        </div>
+
+                    @if ($documentos->count())
                         @foreach($documentos as $item)
                             <div class="col-6">
                                 <p class="text-center">
@@ -67,6 +57,40 @@
                                 </p>
                             </div>
                         @endforeach
+                    @else
+                        {{------------------------------------}}
+                        {{--      Documentacion con form    --}}
+                        {{------------------------------------}}
+                        <div class="col-12 mb3">
+                            <p class="text-center title-car">
+                            <img class="d-inline mb-2" src="{{ asset('img/icon/white/paper (1).png') }}" alt="Icon documento" width="150px">
+
+                            </p>
+                            <p class="text-center  text-white">
+                             <strong style="font: normal normal bold 20px/20px Segoe UI;">Aun no tienes documentos! </strong><br>
+                             Escanea tus documentos has <br> click en el botón de + para <br> agregar tus documentos
+                            </p>
+                        </div>
+
+                        <div class="col-12 mt-5">
+                            <p class="text-center">
+                                 <button type="button" class="btn " data-toggle="modal" data-target="#exampleModal">
+                                    <img class="d-inline mb-2" src="{{ asset('img/icon/white/plus.png') }}" alt="Icon documento" width="60px">
+                                </button>
+                            </p>
+                        </div>
+
+
+                        <div class="col-12 mt-3">
+                            <p class="text-center text-white">
+                                Escanea tus documentos
+                            </p>
+                        </div>
+                        {{------------------------------------}}
+                        {{--      Documentacion con form    --}}
+                        {{------------------------------------}}
+
+                        @endif
 
                         <!-- Modal -->
                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

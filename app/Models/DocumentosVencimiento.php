@@ -21,4 +21,10 @@ class DocumentosVencimiento extends Model
     protected $guarded=[
 
     ];
+
+    public function User()
+    {
+       return $this->belongsTo(User::class,'id_user');
+    }
+
 }

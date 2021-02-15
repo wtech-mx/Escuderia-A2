@@ -54,4 +54,10 @@ class User extends Authenticatable
         return $this->hasMany(Automovil::class);
     }
 
+    public function DocumentosVencimiento()
+    {
+        //relationship of many users to many posts
+        return $this->hasMany(DocumentosVencimiento::class);
+    }
+
 }
