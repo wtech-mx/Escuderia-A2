@@ -16,6 +16,7 @@ class DocumentosLugarExp extends Model
         'id_user',
         'current_auto',
         'lugar_expedicion',
+        'img',
     ];
 
     protected $guarded=[

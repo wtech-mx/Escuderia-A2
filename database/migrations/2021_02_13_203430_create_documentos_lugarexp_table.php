@@ -17,7 +17,8 @@ class CreateDocumentosLugarexpTable extends Migration
             $table->id();
             $table->unsignedBigInteger('id_user')->nullable();
             $table->string('current_auto')->nullable();
-            $table->string('lugar_expedicion', 900);
+            $table->string('lugar_expedicion')->nullable();
+            $table->string('img', 900);
 
             $table->foreign('id_user')
                 ->references('id')->on('users')

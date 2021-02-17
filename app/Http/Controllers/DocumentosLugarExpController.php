@@ -33,17 +33,21 @@ class DocumentosLugarExpController extends Controller
     public function store(Request $request){
 
         $validate = $this->validate($request,[
-            'lugar_expedicion' => 'mimes:jpeg,bpm,jpg,png|max:900',
+            'img' => 'mimes:jpeg,bpm,jpg,png|max:900',
+            'lugar_expedicion' => 'required',
         ]);
 
         $documentos = new DocumentosLugarExp;
 
-    	if ($request->hasFile('lugar_expedicion')) {
-    		$file=$request->file('lugar_expedicion');
+
+    	if ($request->hasFile('img')) {
+    		$file=$request->file('img');
     		// dd($file);
     		$file->move(public_path().'/lugarexp-tc',time().".".$file->getClientOriginalExtension());
-    		$documentos->lugar_expedicion=time().".".$file->getClientOriginalExtension();
+    		$documentos->img=time().".".$file->getClientOriginalExtension();
     	}
+
+    	$documentos->lugar_expedicion = $request->get('lugar_expedicion');
 
         $documentos->id_user = auth()->user()->id;
     	$documentos->current_auto = auth()->user()->current_auto;

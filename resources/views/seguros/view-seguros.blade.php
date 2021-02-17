@@ -119,7 +119,8 @@
                                 </div>
 
                                 <select class="form-control" id="exampleFormControlSelect1">
-                                  <option>Total</option>
+                                  <option>Amplia</option>
+                                  <option>Limitada</option>
                                 </select>
                             </div>
 

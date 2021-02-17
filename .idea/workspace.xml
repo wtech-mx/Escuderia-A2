@@ -20,14 +20,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="936a45dc-4f36-4130-a52f-695b08d602c5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/documents/estados.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DocumentosLugarExpController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DocumentosLugarExpController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Documentos.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Documentos.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/DocumentosLugarExp.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/DocumentosLugarExp.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/DocumentosOtro.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/DocumentosOtro.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/DocumentosVencimiento.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/DocumentosVencimiento.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/documents/view-documents.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/documents/view-documents.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/documents/view-exp-ts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/documents/view-exp-ts.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_01_27_231248_create_documentos_exp_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_01_27_231248_create_documentos_exp_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_02_13_203245_create_documentos_vencimiento_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_02_13_203245_create_documentos_vencimiento_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_02_13_203430_create_documentos_lugarexp_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_02_13_203430_create_documentos_lugarexp_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_02_13_203454_create_documentos_otro_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_02_13_203454_create_documentos_otro_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/documents/view-lugar-ts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/documents/view-lugar-ts.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/documents/view-otro-ts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/documents/view-otro-ts.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/documents/view-vencimiento-ts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/documents/view-vencimiento-ts.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/seguros/view-seguros.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/seguros/view-seguros.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -250,5 +255,11 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="1767" y="439" key="NewPhpFileDialog" timestamp="1613535954213">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state x="1767" y="439" key="NewPhpFileDialog/0.0.2560.1040@0.0.2560.1040" timestamp="1613535954213" />
   </component>
 </project>

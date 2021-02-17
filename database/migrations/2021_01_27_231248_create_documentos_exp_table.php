@@ -18,6 +18,7 @@ class CreateDocumentosExpTable extends Migration
 
             $table->unsignedBigInteger('id_user')->nullable();
             $table->string('fecha_expedicion', 900);
+            $table->string('img', 900);
             $table->string('current_auto')->nullable();
 
             $table->foreign('id_user')

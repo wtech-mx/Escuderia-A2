@@ -16,6 +16,7 @@ class DocumentosOtro extends Model
         'id_user',
         'current_auto',
         'otro',
+        'img',
     ];
 
     protected $guarded=[

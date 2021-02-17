@@ -17,7 +17,8 @@ class CreateDocumentosVencimientoTable extends Migration
             $table->id();
             $table->unsignedBigInteger('id_user')->nullable();
             $table->string('current_auto')->nullable();
-            $table->string('fecha_vencimiento', 900);
+            $table->string('fecha_vencimiento' )->nullable();
+            $table->string('img', 900);
 
             $table->foreign('id_user')
                 ->references('id')->on('users')

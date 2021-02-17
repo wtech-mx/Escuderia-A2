@@ -16,6 +16,7 @@ class DocumentosVencimiento extends Model
         'id_user',
         'current_auto',
         'fecha_vencimiento',
+        'img',
     ];
 
     protected $guarded=[
