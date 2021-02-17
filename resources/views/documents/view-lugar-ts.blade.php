@@ -47,14 +47,18 @@
                     @if ($documentos->count())
                         @foreach($documentos as $item)
                             <div class="col-6">
-                                <p class="text-center">
-                                        <img class="d-inline mb-2" src="{{asset('lugarexp-tc/'.$item->img)}}" alt="{{$item->img}}" width="100px">
-                                </p>
-                                <p class="text-center text-white">
-                                    Lugar: <br>
-                                    <strong>{{$item->lugar_expedicion}}</strong>
-                                </p>
+                                <a type="button" class="" data-toggle="modal" data-target="#modal-doc-{{$item->id}}">
+                                    <p class="text-center">
+                                      <img class="d-inline mb-2" src="{{asset('lugarexp-tc/'.$item->img)}}" alt="{{$item->img}}" width="100px">
+                                    </p>
+
+                                    <p class="text-center text-white">
+                                        Lugar: <br>
+                                        <strong>{{$item->lugar_expedicion}}</strong>
+                                    </p>
+                                </a>
                             </div>
+                            @include('documents.modal-doc')
                         @endforeach
                     @else
 
@@ -108,10 +112,18 @@
                                          @csrf
                                         <div class="col-12 mt-3">
 
+                                        <label for="">
+                                            <p class="text-dark"><strong>Elegir Img</strong></p>
+                                        </label>
+
                                           <div class=" custom-file mb-3">
                                             <input type="file" class="custom-file-input input-group-text" name="img">
                                             <label class="custom-file-label">Elegir img...</label>
                                           </div>
+
+                                            <label for="">
+                                                <p class="text-dark"><strong>Seleciona Estado</strong></p>
+                                            </label>
 
                                             <div class="input-group form-group ">
                                                 <div class="input-group-prepend " >
@@ -134,9 +146,6 @@
                                                   <img class="d-inline" src="{{ asset('img/icon/white/save-file-option (1).png') }}" alt="Icon documento" width="30px">
                                                       Guardar
                                             </button>
-
-
-
 
                                         </div>
                                    </form>

@@ -2,6 +2,7 @@
 
 @section('content')
 
+    <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
 
 <div class="row bg-blue" style="background-image: linear-gradient(to bottom, #24b6f7, #009fff, #0086ff, #0066ff, #243afc);">
 
@@ -46,13 +47,17 @@
                     @if ($documentos->count())
                         @foreach($documentos as $item)
                             <div class="col-6">
-                                <p class="text-center">
-                                        <img class="d-inline mb-2" src="{{asset('otro-tc/'.$item->otro)}}" alt="{{$item->otro}}" width="100px">
-                                </p>
-                                <p class="text-center text-white">
-                                    Fecha: {{$item->created_at}}
-                                </p>
+                                <a type="button" class="" data-toggle="modal" data-target="#modal-doc-{{$item->id}}">
+                                    <p class="text-center">
+                                            <img class="d-inline mb-2" src="{{asset('otro-tc/'.$item->img)}}" alt="{{$item->img}}" width="100px">
+                                    </p>
+                                    <p class="text-center text-white">
+                                        Otro: <br>
+                                        <strong>{{$item->otro}}</strong>
+                                    </p>
+                                </a>
                             </div>
+                            @include('documents.modal-otro')
                         @endforeach
                     @else
 
@@ -99,30 +104,43 @@
 
                                   <div class="col-12">
                                     <p class="text-center text-dark" style="font: normal normal bold 23px/31px Segoe UI;">
-                                        Agregar Imagen
+                                       Agregar Datos
                                     </p>
                                   </div>
                                    <form method="POST" action="{{route('store.otro-tc')}}" enctype="multipart/form-data" role="form">
                                          @csrf
                                         <div class="col-12 mt-3">
-                                            <p class="text-center">
-                                           <!--     <a href="#">
-                                                    <img class="d-inline mb-2" src="{{ asset('img/icon/black/plus (2).png') }}" alt="Icon documento" width="30px">
-                                                </a> -->
-                                                <input type="file" class="form-control"  name="otro">
-                                            </p>
 
-                                            <p class="text-center">
-                                                Agregar <br>
-                                                otro
+                                        <div class="col-12 mt-3">
+                                        <label for="">
+                                            <p class="text-dark"><strong>Elegir Img</strong></p>
+                                        </label>
 
-                                                <br>
+                                          <div class=" custom-file mb-3">
+                                            <input type="file" class="custom-file-input input-group-text" name="img">
+                                            <label class="custom-file-label">Elegir img...</label>
+                                          </div>
+
+                                            <label for="">
+                                                <p class="text-dark"><strong>Agregar texto</strong></p>
+                                            </label>
+
+                                              <div class="form-group">
+                                                <label for="exampleFormControlTextarea1">Escribir</label>
+                                                <textarea class="form-control" name="otro" rows="3"></textarea>
+                                              </div>
+
+                                                <p class="text-center mt-3">
+                                                    Agregar <br>
+                                                    <strong> Otro</strong>
+                                                </p>
 
                                                 <button type="submit" class="btn btn-success btn-save text-white">
                                                     <img class="d-inline" src="{{ asset('img/icon/white/save-file-option (1).png') }}" alt="Icon documento" width="30px">
                                                     Guardar
                                                 </button>
-                                            </p>
+                                        </div>
+
                                       </div>
                                    </form>
 

@@ -33,18 +33,20 @@ class DocumentosVencimientoController extends Controller
     public function store(Request $request){
 
         $validate = $this->validate($request,[
-            'fecha_vencimiento' => 'mimes:jpeg,bpm,jpg,png|max:900',
+            'fecha_vencimiento' => 'required',
+            'img' => 'mimes:jpeg,bpm,jpg,png|max:900',
         ]);
 
         $documentos = new DocumentosVencimiento;
 
-    	if ($request->hasFile('fecha_vencimiento')) {
-    		$file=$request->file('fecha_vencimiento');
+    	if ($request->hasFile('img')) {
+    		$file=$request->file('img');
     		// dd($file);
     		$file->move(public_path().'/vencimiento-tc',time().".".$file->getClientOriginalExtension());
-    		$documentos->fecha_vencimiento=time().".".$file->getClientOriginalExtension();
+    		$documentos->img=time().".".$file->getClientOriginalExtension();
     	}
 
+    	$documentos->fecha_vencimiento = $request->get('fecha_vencimiento');
         $documentos->id_user = auth()->user()->id;
     	$documentos->current_auto = auth()->user()->current_auto;
 

@@ -33,18 +33,20 @@ class DocumentosController extends Controller
     public function store(Request $request){
 
         $validate = $this->validate($request,[
-            'fecha_expedicion' => 'mimes:jpeg,bpm,jpg,png|max:900',
+            'fecha_expedicion' => 'required',
+            'img' => 'mimes:jpeg,bpm,jpg,png|max:900',
         ]);
 
         $documentos = new Documentos;
 
-    	if ($request->hasFile('fecha_expedicion')) {
-    		$file=$request->file('fecha_expedicion');
+    	if ($request->hasFile('img')) {
+    		$file=$request->file('img');
     		// dd($file);
     		$file->move(public_path().'/exp-tc',time().".".$file->getClientOriginalExtension());
-    		$documentos->fecha_expedicion=time().".".$file->getClientOriginalExtension();
+    		$documentos->img=time().".".$file->getClientOriginalExtension();
     	}
 
+    	$documentos->fecha_expedicion = $request->get('fecha_expedicion');
         $documentos->id_user = auth()->user()->id;
     	$documentos->current_auto = auth()->user()->current_auto;
 

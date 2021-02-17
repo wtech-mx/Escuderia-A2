@@ -2,6 +2,7 @@
 
 @section('content')
 
+<link href="{{ asset('css/profile.css') }}" rel="stylesheet">
 
 <div class="row bg-blue" style="background-image: linear-gradient(to bottom, #24b6f7, #009fff, #0086ff, #0066ff, #243afc);">
 
@@ -49,13 +50,17 @@
                     @if ($documentos->count())
                         @foreach($documentos as $item)
                             <div class="col-6">
-                                <p class="text-center">
-                                        <img class="d-inline mb-2" src="{{asset('exp-tc/'.$item->fecha_expedicion)}}" alt="{{$item->fecha_expedicion}}" width="100px">
-                                </p>
-                                <p class="text-center text-white">
-                                    Fecha: {{$item->created_at}}
-                                </p>
+                                 <a type="button" class="" data-toggle="modal" data-target="#modal-doc-{{$item->id}}">
+                                    <p class="text-center">
+                                            <img class="d-inline mb-2" src="{{asset('exp-tc/'.$item->img)}}" alt="{{$item->img}}" width="100px">
+                                    </p>
+                                    <p class="text-center text-white">
+                                        Fecha de Expedicion: <br>
+                                        <strong>{{$item->fecha_expedicion}}</strong>
+                                    </p>
+                                </a>
                             </div>
+                            @include('documents.modal-doc-expedicion')
                         @endforeach
                     @else
                         {{------------------------------------}}
@@ -101,31 +106,47 @@
 
                                   <div class="col-12">
                                     <p class="text-center text-dark" style="font: normal normal bold 23px/31px Segoe UI;">
-                                        Agregar Imagen
+                                       Agregar Datos
                                     </p>
                                   </div>
 
                                    <form method="POST" action="{{route('store.exp-tc')}}" enctype="multipart/form-data" role="form">
                                          @csrf
                                         <div class="col-12 mt-3">
-                                            <p class="text-center">
-                                               <!-- <a href="#">
-                                                    <img class="d-inline mb-2" src="{{ asset('img/icon/black/plus (2).png') }}" alt="Icon documento" width="30px">
-                                                </a> -->
-                                                <input type="file" class="form-control"  name="fecha_expedicion">
-                                            </p>
 
-                                            <p class="text-center">
+                                    <label for="">
+                                        <p class="text-dark"><strong>Elegir Img</strong></p>
+                                    </label>
+
+                                          <div class=" custom-file mb-3">
+                                            <input type="file" class="custom-file-input input-group-text" name="img">
+                                            <label class="custom-file-label">Elegir img...</label>
+                                          </div>
+
+                                    <label for="">
+                                        <p class="text-dark"><strong>Fecha de Expedicion</strong></p>
+                                    </label>
+
+                                        <div class="input-group form-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">
+                                                     <img class="" src="{{ asset('img/icon/white/calendario (1).png') }}" width="25px" >
+                                                </span>
+                                            </div>
+                                             <input type="date" class="form-control" placeholder="MM/DD/YYY"  style="border-radius: 0  10px 10px 0;"  name="fecha_expedicion">
+                                        </div>
+
+
+                                            <p class="text-center mt-3">
                                                 Agregar <br>
-                                                Fecha de exp de Tarjeta de Circulación
-
-                                                <br>
+                                                <strong>Fecha de exp de Tarjeta de Circulación</strong>
+                                            </p>
 
                                                 <button type="submit" class="btn btn-success btn-save text-white">
                                                     <img class="d-inline" src="{{ asset('img/icon/white/save-file-option (1).png') }}" alt="Icon documento" width="30px">
                                                     Guardar
                                                 </button>
-                                            </p>
+
                                         </div>
                                    </form>
 

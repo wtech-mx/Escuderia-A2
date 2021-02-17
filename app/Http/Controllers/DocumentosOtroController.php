@@ -33,18 +33,20 @@ class DocumentosOtroController extends Controller
     public function store(Request $request){
 
         $validate = $this->validate($request,[
-            'otro' => 'mimes:jpeg,bpm,jpg,png|max:900',
+            'otro' => 'required',
+            'img' => 'mimes:jpeg,bpm,jpg,png|max:900',
         ]);
 
         $documentos = new DocumentosOtro;
 
-    	if ($request->hasFile('otro')) {
-    		$file=$request->file('otro');
+    	if ($request->hasFile('img')) {
+    		$file=$request->file('img');
     		// dd($file);
     		$file->move(public_path().'/otro-tc',time().".".$file->getClientOriginalExtension());
-    		$documentos->otro=time().".".$file->getClientOriginalExtension();
+    		$documentos->img=time().".".$file->getClientOriginalExtension();
     	}
 
+    	$documentos->otro = $request->get('otro');
         $documentos->id_user = auth()->user()->id;
     	$documentos->current_auto = auth()->user()->current_auto;
 
