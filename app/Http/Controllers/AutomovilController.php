@@ -7,6 +7,7 @@ use DB;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Str;
 use App\Models\Automovil;
+use App\Models\Seguros;
 use App\Models\User;
 use Session;
 
@@ -70,10 +71,22 @@ class AutomovilController extends Controller
 //dd($automovil);
         $automovil->save();
 
+        $user = DB::table('users')
+        ->where('id','=',auth()->user()->id)
+        ->first();
+
+        $seguro = new  Seguros;
+        $seguro->seguro = 'gnp';
+        $seguro->tipo_cobertura = 'default';
+        $seguro->costo = '000';
+        $seguro->costo_anual = '000';
+        $seguro->id_user = $user->id;
+        $seguro->current_auto = $automovil->id;
+        $seguro->save();
+
         Session::flash('success', 'Se ha guardado sus datos con exito');
 
         return redirect()->route('index.automovil', compact('automovil'));
-        //return view('garaje.view-garaje',compact('automovil'));
     }
 
     public function  edit($id){

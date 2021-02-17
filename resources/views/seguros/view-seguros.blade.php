@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
                 <link href="{{ asset('css/login-form.css') }}" rel="stylesheet">
                 <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
 
@@ -38,7 +37,10 @@
                     </div>
 
                 </div>
-
+    @foreach ($seguro as $item)
+        <form method="POST" action="{{route('update.seguro',$item->id)}}" enctype="multipart/form-data" role="form">
+                @csrf
+                  <input type="hidden" name="_method" value="PATCH">
                 <div class="row bg-down-blue-border" style="background: #050F55 0% 0% no-repeat padding-box;">
                     <div class="col-12 mt-5">
 
@@ -57,26 +59,27 @@
                                     </span>
                                 </div>
 
-                                <select class="form-control" id="exampleFormControlSelect1">
-                                  <option>aba</option>
-                                  <option>afirme</option>
-                                  <option>aig</option>
-                                  <option>ana</option>
-                                  <option>atlas</option>
-                                  <option>axa</option>
-                                  <option>banorte</option>
-                                  <option>general</option>
-                                  <option>sura</option>
-                                  <option>vexmas</option>
-                                  <option>gnp</option>
-                                  <option>hdi</option>
-                                  <option>inbursa</option>
-                                  <option>latino</option>
-                                  <option>mapfre</option>
-                                  <option>qualitas</option>
-                                  <option>potosi</option>
-                                  <option>miituo</option>
-                                  <option>zurich</option>
+                                <select class="form-control" id="seguro">
+                                  <option value="{{$item->seguro}}" selected>{{$item->seguro}}</option>
+                                  <option value="aba">aba</option>
+                                  <option value="afirme">afirme</option>
+                                  <option value="aig">aig</option>
+                                  <option value="ana">ana</option>
+                                  <option value="atlas">atlas</option>
+                                  <option value="axa">axa</option>
+                                  <option value="banorte">banorte</option>
+                                  <option value="general">general</option>
+                                  <option value="sura">sura</option>
+                                  <option value="vexmas">vexmas</option>
+                                  <option value="gnp">gnp</option>
+                                  <option value="hdi">hdi</option>
+                                  <option value="inbursa">inbursa</option>
+                                  <option value="latino">latino</option>
+                                  <option value="mapfre">mapfre</option>
+                                  <option value="qualitas">qualitas</option>
+                                  <option value="potosi">potosi</option>
+                                  <option value="miituo">miituo</option>
+                                  <option value="zurich">zurich</option>
 
                                 </select>
                             </div>
@@ -91,7 +94,7 @@
                                          <img class="" src="{{ asset('img/icon/white/calendario (1).png') }}" width="25px" >
                                     </span>
                                 </div>
-                                 <input type="date" class="form-control" placeholder="MM/DD/YYY"  style="border-radius: 0  10px 10px 0;" id='datetimepicker1'>
+                                 <input type="date" class="form-control" placeholder="MM/DD/YYY"  style="border-radius: 0  10px 10px 0;" id='fecha_expedicion' value="{{$item->fecha_expedicion}}">
                             </div>
 
                              <label for="">
@@ -104,7 +107,7 @@
                                          <img class="" src="{{ asset('img/icon/white/calendario (5).png') }}" width="25px" >
                                     </span>
                                 </div>
-                                 <input type="date" class="form-control" placeholder="MM/DD/YYY"  style="border-radius: 0  10px 10px 0;" id='datetimepicker1'>
+                                 <input type="date" class="form-control" placeholder="MM/DD/YYY"  style="border-radius: 0  10px 10px 0;" id='fecha_vencimiento' value="{{$item->fecha_vencimiento}}">
                             </div>
 
                              <label for="">
@@ -118,9 +121,10 @@
                                     </span>
                                 </div>
 
-                                <select class="form-control" id="exampleFormControlSelect1">
-                                  <option>Amplia</option>
-                                  <option>Limitada</option>
+                                <select class="form-control" id="tipo_cobertura">
+                                  <option value="{{$item->tipo_cobertura}}" selected>{{$item->tipo_cobertura}}</option>
+                                  <option value="Amplia">Amplia</option>
+                                  <option value="Limitada">Limitada</option>
                                 </select>
                             </div>
 
@@ -134,13 +138,12 @@
                                          <img class="" src="{{ asset('img/icon/white/bolsa-de-dinero (1).png') }}" width="25px" >
                                     </span>
                                 </div>
-                                <input type="text" class="form-control" placeholder="Direccion" style="border-radius: 0  10px 10px 0;" id='datetimepicker1'>
+                                <input type="text" class="form-control" placeholder="Costo" style="border-radius: 0  10px 10px 0;" id='costo' value="{{$item->costo}}">
                             </div>
 
                              <label for="">
                                  <p class="text-white"><strong>Costo anual</strong></p>
                              </label>
-
 
                             <div class="input-group form-group">
                                 <div class="input-group-prepend " >
@@ -148,21 +151,18 @@
                                          <img class="" src="{{ asset('img/icon/white/presupuesto (1).png') }}" width="25px" >
                                     </span>
                                 </div>
-                                <input type="number" class="form-control" placeholder="$0000" style="border-radius: 0  10px 10px 0;" id='datetimepicker1'>
+                                <input type="number" class="form-control" placeholder="$0000" style="border-radius: 0  10px 10px 0;" id='costo_anual' value="{{$item->costo_anual}}">
                             </div>
 
                     </div>
 
                     <div class="col-12 text-center mt-5 mb-5">
-
-                        <button class="btn btn-lg btn-success btn-save ">
-                            <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}" width="20px" >
-                            Actualizar
-                        </button>
-
+                             <button class="btn btn-lg btn-success btn-save ">
+                                   <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}" width="20px" >
+                                        Guardar
+                             </button>
                     </div>
-
                 </div>
-
-
+       </form>
+    @endforeach
 @endsection

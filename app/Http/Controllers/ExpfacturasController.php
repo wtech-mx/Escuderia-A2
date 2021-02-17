@@ -3,82 +3,56 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Str;
+use App\Models\ExpFactura;
+use Session;
 
 class ExpfacturasController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
+     function index(){
+
+        $user = DB::table('users')
+        ->where('id','=',auth()->user()->id)
+        ->first();
+
+        $auto_user = $user->{'id'};
+
+        $exp_factura = DB::table('exp_facturas')
+        ->where('id_user','=',$auto_user)
+        ->where('current_auto','=',auth()->user()->current_auto)
+        ->get();
+
+        return view('exp-fisico.view-factura',compact('exp_factura'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+    public function create(){
+
+        return view('exp-fisico.view-factura');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+    public function store(Request $request){
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
+        $validate = $this->validate($request,[
+            'factura' => 'mimes:jpeg,bpm,jpg,png|max:900',
+        ]);
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
+        $exp_factura = new ExpFactura;
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
+    	if ($request->hasFile('factura')) {
+    		$file=$request->file('factura');
+    		$file->move(public_path().'/exp-factura',time().".".$file->getClientOriginalExtension());
+    		$exp_factura->factura=time().".".$file->getClientOriginalExtension();
+    	}
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        $exp_factura->id_user = auth()->user()->id;
+    	$exp_factura->current_auto = auth()->user()->current_auto;
+//dd($exp_factura);
+        $exp_factura->save();
+
+        Session::flash('success', 'Se ha guardado sus datos con exito');
+
+        return redirect()->route('index.exp-factura', compact('exp_factura'));
     }
 }

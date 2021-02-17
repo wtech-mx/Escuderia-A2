@@ -60,10 +60,8 @@ Route::get('profile/edit/{id}','UserController@edit')->name('edit.profile');
 /*|--------------------------------------------------------------------------
 |Seguros
 |--------------------------------------------------------------------------*/
-
-Route::get('/seguros/view-seguros', function () {
-    return view('seguros/view-seguros');
-})->middleware(['auth'])->name('view-seguros');
+Route::get('seguro/index/','SegurosController@index')->name('index.seguro');
+Route::patch('seguro/update/{id}','SegurosController@update')->name('update.seguro');
 
 /*|--------------------------------------------------------------------------
 |Documents
@@ -91,49 +89,50 @@ Route::get('/documents/view-documents', function () {
 /*|--------------------------------------------------------------------------
 |Expedientes Fisicos
 |--------------------------------------------------------------------------*/
+Route::get('exp_carta/view/exp-cr','ExpcartaController@index')->name('index.exp-cr');
+Route::get('exp_carta/crear/exp-cr','ExpcartaController@create')->name('create.exp-cr');
+Route::post('exp_carta/crear/exp-cr','ExpcartaController@store')->name('store.exp-cr');
+
+Route::get('exp_domicilio/view/exp-cd','ExpdomicilioController@index')->name('index.exp-cd');
+Route::get('exp_domicilio/crear/exp-cd','ExpdomicilioController@create')->name('create.exp-cd');
+Route::post('exp_domicilio/crear/exp-cd','ExpdomicilioController@store')->name('store.exp-cd');
+
+Route::get('exp_factura/view/exp-factura','ExpfacturasController@index')->name('index.exp-factura');
+Route::get('exp_factura/crear/exp-factura','ExpfacturasController@create')->name('create.exp-factura');
+Route::post('exp_factura/crear/exp-factura','ExpfacturasController@store')->name('store.exp-factura');
+
+Route::get('exp_ine/view/exp-ine','ExpineController@index')->name('index.exp-ine');
+Route::get('exp_ine/crear/exp-ine','ExpineController@create')->name('create.exp-ine');
+Route::post('exp_ine/crear/exp-ine','ExpineController@store')->name('store.exp-ine');
+
+Route::get('exp_bp/view/exp-bp','ExplacasController@index')->name('index.exp-bp');
+Route::get('exp_bp/crear/exp-bp','ExplacasController@create')->name('create.exp-bp');
+Route::post('exp_bp/crear/exp-bp','ExplacasController@store')->name('store.exp-bp');
+
+Route::get('exp_poliza/view/exp-poliza','ExpolizaController@index')->name('index.exp-poliza');
+Route::get('exp_poliza/crear/exp-poliza','ExpolizaController@create')->name('create.exp-poliza');
+Route::post('exp_poliza/crear/exp-poliza','ExpolizaController@store')->name('store.exp-poliza');
+
+Route::get('exp_reemplacamiento/view','ExpreemplacaminetoController@index')->name('index.exp-reemplacamiento');
+Route::get('exp_reemplacamiento/crear','ExpreemplacaminetoController@create')->name('create.exp-reemplacamiento');
+Route::post('exp_reemplacamiento/crear','ExpreemplacaminetoController@store')->name('store.exp-reemplacamiento');
+
+Route::get('exp_rfc/view','ExprfcController@index')->name('index.exp-rfc');
+Route::get('exp_rfc/crear','ExprfcController@create')->name('create.exp-rfc');
+Route::post('exp_rfc/crear','ExprfcController@store')->name('store.exp-rfc');
+
+Route::get('exp_tc/view','ExptcController@index')->name('index.exp-tc');
+Route::get('exp_tc/crear','ExptcController@create')->name('create.exp-tc');
+Route::post('exp_tc/crear','ExptcController@store')->name('store.exp-tc');
+
+Route::get('exp_tenencias/view','ExptenenciasController@index')->name('index.exp-tenencias');
+Route::get('exp_tenencias/crear','ExptenenciasController@create')->name('create.exp-tenencias');
+Route::post('exp_tenencias/crear','ExptenenciasController@store')->name('store.exp-tenencias');
+
 Route::get('/exp-fisico/view-exp-fisico', function () {
     return view('exp-fisico/view-exp-fisico');
 })->middleware(['auth'])->name('view-exp-fisico');
 
-Route::get('/exp-fisico/view-factura', function () {
-    return view('exp-fisico/view-factura');
-})->middleware(['auth'])->name('view-factura');
-
-Route::get('/exp-fisico/view-cr', function () {
-    return view('exp-fisico/view-cr');
-})->middleware(['auth'])->name('view-cr');
-
-Route::get('/exp-fisico/view-poliza', function () {
-    return view('exp-fisico/view-poliza');
-})->middleware(['auth'])->name('view-poliza');
-
-Route::get('/exp-fisico/view-tc', function () {
-    return view('exp-fisico/view-tc');
-})->middleware(['auth'])->name('view-tc');
-
-Route::get('/exp-fisico/view-reemplacamiento', function () {
-    return view('exp-fisico/view-reemplacamiento');
-})->middleware(['auth'])->name('view-reemplacamiento');
-
-Route::get('/exp-fisico/view-bp', function () {
-    return view('exp-fisico/view-bp');
-})->middleware(['auth'])->name('view-bp');
-
-Route::get('/exp-fisico/view-ine', function () {
-    return view('exp-fisico/view-ine');
-})->middleware(['auth'])->name('view-ine');
-
-Route::get('/exp-fisico/view-cd', function () {
-    return view('exp-fisico/view-cd');
-})->middleware(['auth'])->name('view-cd');
-
-Route::get('/exp-fisico/view-rfc', function () {
-    return view('exp-fisico/view-rfc');
-})->middleware(['auth'])->name('view-rfc');
-
-Route::get('/exp-fisico/view-tenencia', function () {
-    return view('exp-fisico/view-tenencia');
-})->middleware(['auth'])->name('view-tenencia');
 
 /*|--------------------------------------------------------------------------
 |Comparte y Gana

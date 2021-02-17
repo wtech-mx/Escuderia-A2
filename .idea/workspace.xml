@@ -20,19 +20,46 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="936a45dc-4f36-4130-a52f-695b08d602c5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/documents/estados.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/ExpCarta.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/ExpDomicilio.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/ExpFactura.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/ExpIne.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/ExpPlacas.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/ExpPoliza.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/ExpReemplacamiento.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/ExpRfc.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/ExpTc.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/ExpTenencias.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Escuderia-A2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Escuderia-A2.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DocumentosLugarExpController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DocumentosLugarExpController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Documentos.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Documentos.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/DocumentosLugarExp.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/DocumentosLugarExp.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/DocumentosOtro.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/DocumentosOtro.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/DocumentosVencimiento.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/DocumentosVencimiento.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_01_27_231248_create_documentos_exp_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_01_27_231248_create_documentos_exp_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_02_13_203245_create_documentos_vencimiento_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_02_13_203245_create_documentos_vencimiento_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_02_13_203430_create_documentos_lugarexp_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_02_13_203430_create_documentos_lugarexp_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_02_13_203454_create_documentos_otro_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_02_13_203454_create_documentos_otro_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/documents/view-lugar-ts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/documents/view-lugar-ts.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AutomovilController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AutomovilController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ExpcartaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ExpcartaController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ExpdomicilioController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ExpdomicilioController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ExpfacturasController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ExpfacturasController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ExpineController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ExpineController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ExplacasController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ExplacasController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ExpolizaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ExpolizaController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ExpreemplacaminetoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ExpreemplacaminetoController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ExprfcController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ExprfcController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ExptcController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ExptcController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ExptenenciasController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ExptenenciasController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SegurosController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SegurosController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Seguros.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Seguros.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_01_27_232018_create_seguros_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_01_27_232018_create_seguros_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/exp-fisico/view-bp.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/exp-fisico/view-bp.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/exp-fisico/view-cd.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/exp-fisico/view-cd.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/exp-fisico/view-cr.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/exp-fisico/view-cr.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/exp-fisico/view-exp-fisico.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/exp-fisico/view-exp-fisico.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/exp-fisico/view-factura.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/exp-fisico/view-factura.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/exp-fisico/view-ine.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/exp-fisico/view-ine.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/exp-fisico/view-poliza.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/exp-fisico/view-poliza.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/exp-fisico/view-reemplacamiento.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/exp-fisico/view-reemplacamiento.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/exp-fisico/view-rfc.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/exp-fisico/view-rfc.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/exp-fisico/view-tc.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/exp-fisico/view-tc.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/exp-fisico/view-tenencia.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/exp-fisico/view-tenencia.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/seguros/view-seguros.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/seguros/view-seguros.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -186,7 +213,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Http/Controllers" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Models" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -199,8 +226,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\Escuderia-A2\app\Http\Controllers" />
       <recent name="C:\xampp\htdocs\Escuderia-A2\app\Models" />
+      <recent name="C:\xampp\htdocs\Escuderia-A2\app\Http\Controllers" />
       <recent name="C:\xampp\htdocs\Escuderia-A2\resources\views\garaje" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -238,6 +265,7 @@
       <workItem from="1613232622888" duration="12325000" />
       <workItem from="1613260106788" duration="4486000" />
       <workItem from="1613364940250" duration="3706000" />
+      <workItem from="1613573156599" duration="19450000" />
     </task>
     <servers />
   </component>

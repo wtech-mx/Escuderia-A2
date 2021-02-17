@@ -5,23 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Seguros extends Model
+class ExpCarta extends Model
 {
     use HasFactory;
 
-    protected $table = "seguros";
+    protected $table = "exp_carta";
     protected $primarykey = "id";
 
     protected $fillable = [
         'id_user',
-        'id_empresa',
-        'seguro',
-        'fecha_expedicion',
-        'fecha_vencimiento',
-        'tipo_cobertura',
-        'costo',
-        'costo_anual',
         'current_auto',
+        'carta',
     ];
 
     protected $guarded=[

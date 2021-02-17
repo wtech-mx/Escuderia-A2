@@ -44,17 +44,43 @@
                             </div>
                         </div>
 
-                        <div class="col-6">
-                            <p class="text-center">
-                                <a href="{{ route('view-exp-ts') }}">
-                                    <img class="d-inline mb-2" src="{{ asset('img/ts.jpg') }}" alt="Icon documento" width="30px">
-                                </a>
+                    @if ($exp_rfc->count())
+                        @foreach($exp_rfc as $item)
+                            <div class="col-6">
+                                    <p class="text-center">
+                                            <img class="d-inline mb-2" src="{{asset('exp-rfc/'.$item->rfc)}}" alt="{{$item->rfc}}" width="100px">
+                                    </p>
+                            </div>
+                        @endforeach
+                    @else
+
+                        <div class="col-12 mb3">
+                            <p class="text-center title-car">
+                            <img class="d-inline mb-2" src="{{ asset('img/icon/white/paper (1).png') }}" alt="Icon documento" width="150px">
+
                             </p>
-                            <p class="text-center text-white">
-                                Fecha: 05/05/20
+                            <p class="text-center  text-white">
+                             <strong style="font: normal normal bold 20px/20px Segoe UI;">Aun no tienes Expedientes! </strong><br>
+                             Escanea tus documentos has <br> click en el botón de + para <br> agregar tu expediente
                             </p>
                         </div>
 
+                        <div class="col-12 mt-5">
+                            <p class="text-center">
+                                 <button type="button" class="btn " data-toggle="exampleModal" data-target="#exampleModal">
+                                    <img class="d-inline mb-2" src="{{ asset('img/icon/white/plus.png') }}" alt="Icon documento" width="60px">
+                                </button>
+                            </p>
+                        </div>
+
+
+                        <div class="col-12 mt-3">
+                            <p class="text-center text-white">
+                                Escanea tu Expediente
+                            </p>
+                        </div>
+
+                    @endif
                         <!-- Modal -->
                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                           <div class="modal-dialog modal-sm modal-dialog-centered">
@@ -67,13 +93,13 @@
                                         Agregar Imagen
                                     </p>
                                   </div>
-
+                               <form method="POST" action="{{route('store.exp-rfc')}}" enctype="multipart/form-data" role="form">
+                                         @csrf
                                 <div class="col-12 mt-3">
-                                    <p class="text-center">
-                                        <a href="{{ route('view-exp-ts') }}">
-                                            <img class="d-inline mb-2" src="{{ asset('img/icon/black/plus (2).png') }}" alt="Icon documento" width="30px">
-                                        </a>
-                                    </p>
+                                          <div class=" custom-file mb-3">
+                                            <input type="file" class="custom-file-input input-group-text" name="rfc">
+                                            <label class="custom-file-label">Elegir img...</label>
+                                          </div>
 
                                     <p class="text-center">
                                         Agregar <br>
@@ -81,16 +107,16 @@
 
                                         <br>
 
-                                        <a class="btn btn-save text-white">
-                                            <img class="d-inline" src="{{ asset('img/icon/white/save-file-option (1).png') }}" alt="Icon documento" width="30px">
-                                            Guardar
-                                        </a>
+                                                <button type="submit" class="btn btn-success btn-save text-white">
+                                                    <img class="d-inline" src="{{ asset('img/icon/white/save-file-option (1).png') }}" alt="Icon documento" width="30px">
+                                                    Guardar
+                                                </button>
                                     </p>
 
 
 
                                 </div>
-
+                               </form>
                               </div>
 
 
