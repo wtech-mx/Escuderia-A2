@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class ExpedientesFisicosController extends Controller
+class ExpreemplacaminetoController extends Controller
 {
     //
 }
