@@ -2,10 +2,7 @@
 
 @section('content')
 
-
 <div class="row bg-blue" style="background-image: linear-gradient(to bottom, #246af7, #315ffb, #4351fe, #573ffe, #6b24fc);">
-
-
                         <div class="col-2  mt-4">
                             <div class="d-flex justify-content-start">
                                     <div class="text-center text-white">
@@ -30,39 +27,7 @@
                             </div>
                         </div>
 
-                        {{-----------------------------------  -}}
-                        {{--      Vista sin regostro de Docs  --}}
-                        {{------------------------------------}}
-
-                        <div class="col-12 mb3">
-                            <p class="text-center title-car mt-5">
-                                <img class="d-inline mb-2" src="{{ asset('img/icon/white/documento (2).png') }}" alt="Icon plus" width="150px">
-                            </p>
-                            <p class="text-center  text-white">
-                             <strong style="font: normal normal bold 20px/20px Segoe UI;">¿Aun no tienes tu expediente?</strong><br>
-                                Escanea tus documentos has <br> click en el botón de + para <br> agregar tus documentos
-                            </p>
-                        </div>
-
-                        <div class="col-12 mt-5">
-                            <p class="text-center">
-                                <button class="btn">
-                                    <img class="d-inline mb-2" src="{{ asset('img/icon/white/plus.png') }}" alt="Icon plus" width="60px">
-                                </button>
-                            </p>
-                        </div>
-
-                        {{------------------------------------}}
-                        {{--      esp fisico  con form    --}}
-                        {{------------------------------------}}
-
-                        <div class="col-12 mt-3">
-                            <p class="text-center text-white">
-                                Escanea tus documentos
-                            </p>
-                        </div>
-
-                        <div class="col-6">
+                        <div class="col-6 mt-5">
                             <p class="text-center">
                                 <a href="{{ route('index.exp-factura') }}">
                                     <img class="d-inline mb-2" src="{{ asset('img/icon/white/plus.png') }}" alt="Icon plus" width="30px">
@@ -73,7 +38,7 @@
                             </p>
                         </div>
 
-                        <div class="col-6">
+                        <div class="col-6 mt-5">
                             <p class="text-center">
                                 <a href="{{ route('index.exp-tenencias') }}">
                                     <img class="d-inline mb-2" src="{{ asset('img/icon/white/plus.png') }}" alt="Icon plus" width="30px">
@@ -84,7 +49,7 @@
                             </p>
                         </div>
 
-                        <div class="col-6">
+                        <div class="col-6 mt-5">
                             <p class="text-center">
                                 <a href="{{ route('index.exp-cr') }}">
                                     <img class="d-inline mb-2" src="{{ asset('img/icon/white/plus.png') }}" alt="Icon plus" width="30px">
@@ -95,7 +60,7 @@
                             </p>
                         </div>
 
-                        <div class="col-6">
+                        <div class="col-6 mt-5">
                             <p class="text-center">
                                 <a href="{{ route('index.exp-poliza') }}">
                                     <img class="d-inline mb-2" src="{{ asset('img/icon/white/plus.png') }}" alt="Icon plus" width="30px">
@@ -106,7 +71,7 @@
                             </p>
                         </div>
 
-                        <div class="col-6">
+                        <div class="col-6 mt-5">
                             <p class="text-center">
                                 <a href="{{ route('index.exp-tc') }}">
                                     <img class="d-inline mb-2" src="{{ asset('img/icon/white/plus.png') }}" alt="Icon plus" width="30px">
@@ -117,7 +82,7 @@
                             </p>
                         </div>
 
-                        <div class="col-6">
+                        <div class="col-6 mt-5">
                             <p class="text-center">
                                 <a href="{{ route('index.exp-reemplacamiento') }}">
                                     <img class="d-inline mb-2" src="{{ asset('img/icon/white/plus.png') }}" alt="Icon plus" width="30px">
@@ -128,7 +93,7 @@
                             </p>
                         </div>
 
-                        <div class="col-6">
+                        <div class="col-6 mt-5">
                             <p class="text-center">
                                 <a href="{{ route('index.exp-bp') }}">
                                     <img class="d-inline mb-2" src="{{ asset('img/icon/white/plus.png') }}" alt="Icon plus" width="30px">
@@ -139,7 +104,7 @@
                             </p>
                         </div>
 
-                        <div class="col-6">
+                        <div class="col-6 mt-5">
                             <p class="text-center">
                                 <a href="{{ route('index.exp-ine') }}">
                                     <img class="d-inline mb-2" src="{{ asset('img/icon/white/plus.png') }}" alt="Icon plus" width="30px">
@@ -150,7 +115,7 @@
                             </p>
                         </div>
 
-                        <div class="col-6">
+                        <div class="col-6 mt-5">
                             <p class="text-center">
                                 <a href="{{ route('index.exp-cd') }}">
                                     <img class="d-inline mb-2" src="{{ asset('img/icon/white/plus.png') }}" alt="Icon plus" width="30px">
@@ -161,7 +126,7 @@
                             </p>
                         </div>
 
-                        <div class="col-6">
+                        <div class="col-6 mt-5">
                             <p class="text-center">
                                 <a href="{{ route('index.exp-rfc') }}">
                                     <img class="d-inline mb-2" src="{{ asset('img/icon/white/plus.png') }}" alt="Icon plus" width="30px">

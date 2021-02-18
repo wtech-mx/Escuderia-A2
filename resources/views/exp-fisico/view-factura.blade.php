@@ -2,6 +2,7 @@
 
 @section('content')
 
+<link href="{{ asset('css/profile.css') }}" rel="stylesheet">
 
 <div class="row bg-blue" style="background-image: linear-gradient(to bottom, #246af7, #315ffb, #4351fe, #573ffe, #6b24fc);">
 
@@ -46,10 +47,34 @@
 
                     @if ($exp_factura->count())
                         @foreach($exp_factura as $item)
-                            <div class="col-6">
-                                    <p class="text-center">
-                                            <img class="d-inline mb-2" src="{{asset('exp-factura/'.$item->factura)}}" alt="{{$item->factura}}" width="100px">
-                                    </p>
+                                <div class="col-6">
+                                    <a type="button" class="" data-toggle="modal" data-target="#modal-doc-{{$item->id}}">
+                                        <p class="text-center">
+                                                <img class="d-inline mb-2" src="{{asset('exp-factura/'.$item->factura)}}" alt="{{$item->factura}}" width="100px">
+                                        </p>
+                                     </a>
+                                </div>
+                            <!-- Modal -->
+                            <div class="modal fade" id="modal-doc-{{$item->id}}" tabindex="-1" role="dialog" aria-labelledby="modal-doc-{{$item->id}}" aria-hidden="true">
+                              <div class="modal-dialog  modal-sm modal-dialog-centered" role="document">
+                                <div class="modal-content">
+
+                                    <div class="d-flex justify-content-end">
+                                      <div class="mr-4 mt-3">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                              <span aria-hidden="true">&times;</span>
+                                            </button>
+                                      </div>
+                                    </div>
+
+                                  <div class="modal-body">
+                                      <p class="text-center">
+                                          <img class="" src="{{asset('exp-factura/'.$item->factura)}}" alt="{{$item->factura}}" width="100%">
+                                      </p>
+                                  </div>
+
+                                </div>
+                              </div>
                             </div>
                         @endforeach
                     @else
@@ -67,7 +92,7 @@
 
                         <div class="col-12 mt-5">
                             <p class="text-center">
-                                 <button type="button" class="btn " data-toggle="exampleModal" data-target="#exampleModal">
+                                 <button type="button" class="btn " data-toggle="modal" data-target="#exampleModal">
                                     <img class="d-inline mb-2" src="{{ asset('img/icon/white/plus.png') }}" alt="Icon documento" width="60px">
                                 </button>
                             </p>
