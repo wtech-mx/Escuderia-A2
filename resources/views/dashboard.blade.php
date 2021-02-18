@@ -94,7 +94,7 @@
                     </div>
 
                     <div class="col-6 mt-4">
-                        <a href="{{ route('edit.seguro',$userId) }}" class="text-dark">
+                        <a href="{{ route('index.seguro') }}" class="text-dark">
                             <div class="card" style="border-radius: 15px">
                               <div class="card-body" >
                                   <img class="d-inline mb-2" src="{{ asset('img/icon/black/seguro-de-coche.png') }}" alt="Icon Seguro" width="50px">

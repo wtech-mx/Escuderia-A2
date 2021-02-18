@@ -61,7 +61,7 @@ Route::get('profile/edit/{id}','UserController@edit')->name('edit.profile');
 |Seguros
 |--------------------------------------------------------------------------*/
 Route::patch('seguro/update/{id}','SegurosController@update')->name('update.seguro');
-Route::get('seguro/edit/{id}','SegurosController@edit')->name('edit.seguro');
+Route::get('seguro/index','SegurosController@index')->name('index.seguro');
 
 /*|--------------------------------------------------------------------------
 |Documents

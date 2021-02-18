@@ -5,7 +5,6 @@
                 <link href="{{ asset('css/login-form.css') }}" rel="stylesheet">
                 <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
 
-    <p style="display: none">{{$userId = Auth::id()}}</p>
 
                 <div class="row bg-profile" style="z-index: 100000">
 
@@ -75,7 +74,7 @@
                                     </span>
                                 </div>
 
-                                <select class="form-control" id="seguro">
+                                <select class="form-control" id="seguro" name="seguro">
                                   <option value="{{$seguro->seguro}}" selected>{{$seguro->seguro}}</option>
                                   <option value="aba">aba</option>
                                   <option value="afirme">afirme</option>
@@ -110,7 +109,7 @@
                                          <img class="" src="{{ asset('img/icon/white/calendario (1).png') }}" width="25px" >
                                     </span>
                                 </div>
-                                 <input type="date" class="form-control" placeholder="MM/DD/YYY"  style="border-radius: 0  10px 10px 0;" id='fecha_expedicion' value="{{$seguro->fecha_expedicion}}">
+                                 <input type="date" class="form-control" placeholder="MM/DD/YYY"  style="border-radius: 0  10px 10px 0;" id='fecha_expedicion' name="fecha_expedicion" value="{{$seguro->fecha_expedicion}}">
                             </div>
 
                              <label for="">
@@ -123,7 +122,7 @@
                                          <img class="" src="{{ asset('img/icon/white/calendario (5).png') }}" width="25px" >
                                     </span>
                                 </div>
-                                 <input type="date" class="form-control" placeholder="MM/DD/YYY"  style="border-radius: 0  10px 10px 0;" id='fecha_vencimiento' value="{{$seguro->fecha_vencimiento}}">
+                                 <input type="date" class="form-control" placeholder="MM/DD/YYY"  style="border-radius: 0  10px 10px 0;" id='fecha_vencimiento' name="fecha_vencimiento" value="{{$seguro->fecha_vencimiento}}">
                             </div>
 
                              <label for="">
@@ -137,7 +136,7 @@
                                     </span>
                                 </div>
 
-                                <select class="form-control" id="tipo_cobertura">
+                                <select class="form-control" id="tipo_cobertura" name="tipo_cobertura">
                                   <option value="{{$seguro->tipo_cobertura}}" selected>{{$seguro->tipo_cobertura}}</option>
                                   <option value="Amplia">Amplia</option>
                                   <option value="Limitada">Limitada</option>
@@ -154,7 +153,7 @@
                                          <img class="" src="{{ asset('img/icon/white/bolsa-de-dinero (1).png') }}" width="25px" >
                                     </span>
                                 </div>
-                                <input type="number" class="form-control" placeholder="Costo" style="border-radius: 0  10px 10px 0;" id='costo' value="{{$seguro->costo}}">
+                                <input type="number" class="form-control" placeholder="Costo" style="border-radius: 0  10px 10px 0;" id='costo' name="costo" value="{{$seguro->costo}}">
                             </div>
 
                              <label for="">
@@ -167,7 +166,7 @@
                                          <img class="" src="{{ asset('img/icon/white/presupuesto (1).png') }}" width="25px" >
                                     </span>
                                 </div>
-                                <input type="number" class="form-control" placeholder="$0000" style="border-radius: 0  10px 10px 0;" id='costo_anual' value="{{$seguro->costo_anual}}">
+                                <input type="number" class="form-control" placeholder="$0000" style="border-radius: 0  10px 10px 0;" id='costo_anual' name="costo_anual" value="{{$seguro->costo_anual}}">
                             </div>
 
                     </div>

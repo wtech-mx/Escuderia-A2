@@ -11,16 +11,20 @@ use Illuminate\Support\Facades\Auth;
 class SegurosController extends Controller
 {
 
-    public function update(Request $request,$id){
+    public function index(){
 
-        $validate = $this->validate($request,[
-            'seguro' => 'max:150',
-            'fecha_expedicion' => 'max:150',
-    		'fecha_vencimiento' => 'max:150',
-            'tipo_cobertura' => 'max:150',
-            'costo' => 'max:150',
-            'costo_anual' => 'max:150',
-        ]);
+        $auto = DB::table('users')
+        ->where('current_auto','=',auth()->user()->current_auto)
+        ->first();
+
+        $seguro = DB::table('seguros')
+        ->where('current_auto','=',$auto->current_auto)
+        ->first();
+
+        return view('seguros.seguros',compact('seguro'));
+    }
+
+    public function update(Request $request,$id){
 
         $seguro = Seguros::findOrFail($id);
 
@@ -34,19 +38,6 @@ class SegurosController extends Controller
         $seguro->update();
 
         Session::flash('success', 'Se ha guardado sus datos con exito');
-        return view('seguros.seguros', compact('seguro'));
-    }
-
-    public function edit($id){
-
-        $auto = DB::table('users')
-        ->where('current_auto','=',auth()->user()->current_auto)
-        ->first();
-
-        $seguro = DB::table('seguros')
-        ->where('current_auto','=',$auto->current_auto)
-        ->first();
-
-        return view('seguros.seguros',compact('seguro'));
+        return redirect()->route('index.seguro', compact('seguro'));
     }
 }
