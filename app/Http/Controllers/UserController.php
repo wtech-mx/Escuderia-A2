@@ -15,17 +15,19 @@ class UserController extends Controller
 
 
     public function update(Request $request,$id){
+
         $validate = $this->validate($request,[
             'name' => 'max:191',
             'telefono' => 'max:191',
             'email' => 'max:191',
-            'fecha_nacimiento',
+            'fecha_nacimiento' => 'max:191',
     		'direccion' => 'max:191',
             'referencia' => 'max:191',
             'genero' => 'max:191',
         ]);
 
         $user = User::findOrFail($id);
+
         $user->name = $request->get('name');
         $user->telefono = $request->get('telefono');
         $user->email = $request->get('email');
@@ -35,9 +37,8 @@ class UserController extends Controller
         $user->genero = $request->get('genero');
 
         $users = DB::table('users')
-            ->get();
+        ->get();
 
-        $user->id = auth()->user()->id;
         $user->update();
 
         Session::flash('success', 'Se ha guardado sus datos con exito');

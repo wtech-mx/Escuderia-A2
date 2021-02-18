@@ -49,19 +49,11 @@
                 <div class="row bg-down-blue-border" style="background: #050F55 0% 0% no-repeat padding-box;">
                     <div class="col-12 mt-5">
                         <form method="POST" action="{{route('update.user',$userId)}}" enctype="multipart/form-data" role="form">
+
                             @csrf
                             <input type="hidden" name="_method" value="PATCH">
 
                                 @if(Session::has('success'))
-                                    {{--<div class="col-lg-12">--}}
-                                    {{--    <div class="alert alert-success alert-dismissible fade show mb-4 mt-4" role="alert">--}}
-                                    {{--        {{Session::get('success')}}--}}
-                                    {{--        <button type="" class="close" data-dismiss="alert" arial-label="close">--}}
-                                    {{--            <span aria-hidden="true">&times;</span>--}}
-                                    {{--        </button>--}}
-                                    {{--    </div>--}}
-                                    {{--</div>--}}-+
-
                                     <script>
                                         Swal.fire(
                                             'Exito!',

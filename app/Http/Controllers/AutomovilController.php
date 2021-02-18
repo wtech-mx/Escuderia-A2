@@ -68,7 +68,6 @@ class AutomovilController extends Controller
         $automovil->placas = $request->get('placas');
 
         $automovil->id_user = auth()->user()->id;
-//dd($automovil);
         $automovil->save();
 
         $user = DB::table('users')
@@ -77,9 +76,9 @@ class AutomovilController extends Controller
 
         $seguro = new  Seguros;
         $seguro->seguro = 'gnp';
-        $seguro->tipo_cobertura = 'default';
-        $seguro->costo = '000';
-        $seguro->costo_anual = '000';
+        $seguro->tipo_cobertura = 'total';
+        $seguro->costo = '100';
+        $seguro->costo_anual = '100';
         $seguro->id_user = $user->id;
         $seguro->current_auto = $automovil->id;
         $seguro->save();

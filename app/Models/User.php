@@ -60,4 +60,9 @@ class User extends Authenticatable
         return $this->hasMany(DocumentosVencimiento::class);
     }
 
+    public function Seguros()
+    {
+       return $this->hasMany(Seguros::class,'id_user');
+    }
+
 }

@@ -27,4 +27,6 @@ class Seguros extends Model
     protected $guarded=[
 
     ];
+
+
 }

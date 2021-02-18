@@ -1,8 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+
                 <link href="{{ asset('css/login-form.css') }}" rel="stylesheet">
                 <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
+
+    <p style="display: none">{{$userId = Auth::id()}}</p>
 
                 <div class="row bg-profile" style="z-index: 100000">
 
@@ -37,10 +40,23 @@
                     </div>
 
                 </div>
-    @foreach ($seguro as $item)
-        <form method="POST" action="{{route('update.seguro',$item->id)}}" enctype="multipart/form-data" role="form">
-                @csrf
-                  <input type="hidden" name="_method" value="PATCH">
+
+
+        <form method="POST" action="{{route('update.seguro',$seguro->id)}}" enctype="multipart/form-data" role="form">
+
+            @csrf
+            <input type="hidden" name="_method" value="PATCH">
+
+                @if(Session::has('success'))
+                    <script>
+                        Swal.fire(
+                            'Exito!',
+                            'Se ha guardado exitosamiente.',
+                            'success'
+                        )
+                    </script>
+                @endif
+
                 <div class="row bg-down-blue-border" style="background: #050F55 0% 0% no-repeat padding-box;">
                     <div class="col-12 mt-5">
 
@@ -60,7 +76,7 @@
                                 </div>
 
                                 <select class="form-control" id="seguro">
-                                  <option value="{{$item->seguro}}" selected>{{$item->seguro}}</option>
+                                  <option value="{{$seguro->seguro}}" selected>{{$seguro->seguro}}</option>
                                   <option value="aba">aba</option>
                                   <option value="afirme">afirme</option>
                                   <option value="aig">aig</option>
@@ -94,7 +110,7 @@
                                          <img class="" src="{{ asset('img/icon/white/calendario (1).png') }}" width="25px" >
                                     </span>
                                 </div>
-                                 <input type="date" class="form-control" placeholder="MM/DD/YYY"  style="border-radius: 0  10px 10px 0;" id='fecha_expedicion' value="{{$item->fecha_expedicion}}">
+                                 <input type="date" class="form-control" placeholder="MM/DD/YYY"  style="border-radius: 0  10px 10px 0;" id='fecha_expedicion' value="{{$seguro->fecha_expedicion}}">
                             </div>
 
                              <label for="">
@@ -107,7 +123,7 @@
                                          <img class="" src="{{ asset('img/icon/white/calendario (5).png') }}" width="25px" >
                                     </span>
                                 </div>
-                                 <input type="date" class="form-control" placeholder="MM/DD/YYY"  style="border-radius: 0  10px 10px 0;" id='fecha_vencimiento' value="{{$item->fecha_vencimiento}}">
+                                 <input type="date" class="form-control" placeholder="MM/DD/YYY"  style="border-radius: 0  10px 10px 0;" id='fecha_vencimiento' value="{{$seguro->fecha_vencimiento}}">
                             </div>
 
                              <label for="">
@@ -122,7 +138,7 @@
                                 </div>
 
                                 <select class="form-control" id="tipo_cobertura">
-                                  <option value="{{$item->tipo_cobertura}}" selected>{{$item->tipo_cobertura}}</option>
+                                  <option value="{{$seguro->tipo_cobertura}}" selected>{{$seguro->tipo_cobertura}}</option>
                                   <option value="Amplia">Amplia</option>
                                   <option value="Limitada">Limitada</option>
                                 </select>
@@ -138,7 +154,7 @@
                                          <img class="" src="{{ asset('img/icon/white/bolsa-de-dinero (1).png') }}" width="25px" >
                                     </span>
                                 </div>
-                                <input type="text" class="form-control" placeholder="Costo" style="border-radius: 0  10px 10px 0;" id='costo' value="{{$item->costo}}">
+                                <input type="number" class="form-control" placeholder="Costo" style="border-radius: 0  10px 10px 0;" id='costo' value="{{$seguro->costo}}">
                             </div>
 
                              <label for="">
@@ -151,18 +167,19 @@
                                          <img class="" src="{{ asset('img/icon/white/presupuesto (1).png') }}" width="25px" >
                                     </span>
                                 </div>
-                                <input type="number" class="form-control" placeholder="$0000" style="border-radius: 0  10px 10px 0;" id='costo_anual' value="{{$item->costo_anual}}">
+                                <input type="number" class="form-control" placeholder="$0000" style="border-radius: 0  10px 10px 0;" id='costo_anual' value="{{$seguro->costo_anual}}">
                             </div>
 
                     </div>
 
                     <div class="col-12 text-center mt-5 mb-5">
-                             <button class="btn btn-lg btn-success btn-save ">
-                                   <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}" width="20px" >
-                                        Guardar
-                             </button>
+                        <button class="btn btn-lg btn-success btn-save ">
+                            <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}" width="20px" >
+                            Actualizar
+                        </button>
                     </div>
+
                 </div>
        </form>
-    @endforeach
+
 @endsection
