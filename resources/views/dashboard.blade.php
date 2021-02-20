@@ -3,7 +3,9 @@
 @section('bg-color', 'background-image:none')
 
 @section('content')
+
 <p style="display: none">{{$userId = Auth::id()}}</p>
+
                 <link href="{{ asset('css/login-form.css') }}" rel="stylesheet">
 
                 <div class="row bg-img-log" style="background-image: url({{ asset('img/bg-log.png') }});">

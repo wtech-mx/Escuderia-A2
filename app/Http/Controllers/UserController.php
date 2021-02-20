@@ -6,9 +6,11 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use DB;
 use Session;
-use Illuminate\Support\Facades\Auth;
+
+
 class UserController extends Controller
 {
+
      public function __construct(){
         $this->middleware('auth');
     }

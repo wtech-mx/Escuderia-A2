@@ -18,13 +18,15 @@
                             </a>
                         </div>
 
-                        <div class="navbar__item -navy-blue">
-                            <a href="#">
-                            <span class="navbar__icon">
-                                  <img class="" src="{{ asset('img/icon/color/add.png') }}" width="25px" >
-                            </span>
-                            </a>
-                        </div>
+                        @if(Auth::user()->role == 1)
+                            <div class="navbar__item -navy-blue">
+                                <a href="#">
+                                <span class="navbar__icon">
+                                      <img class="" src="{{ asset('img/icon/color/add.png') }}" width="25px" >
+                                </span>
+                                </a>
+                            </div>
+                        @endif
 
                         <div class="navbar__item -yellow">
                             <a href="{{ route('view-documents') }}">
@@ -35,10 +37,10 @@
                         </div>
 
                         <div class="navbar__item -purple">
-                            <a href="#">
-                            <span class="navbar__icon">
-                                <img class="" src="{{ asset('img/icon/color/user.png') }}" width="25px" >
-                            </span>
+                            <a href="{{ route('edit.profile', $userId) }}">
+                                <span class="navbar__icon">
+                                    <img class="" src="{{ asset('img/icon/color/user.png') }}" width="25px" >
+                                </span>
                             </a>
                         </div>
 

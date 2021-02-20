@@ -31,17 +31,21 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+
 /*|--------------------------------------------------------------------------
 |garaje view
 |--------------------------------------------------------------------------*/
+
 
 Route::get('/garaje/view-garaje', function () {
     return view('garaje/view-garaje');
 })->middleware(['auth'])->name('view-garaje');
 
+
 /*|--------------------------------------------------------------------------
 |garaje edit
 |--------------------------------------------------------------------------*/
+
 Route::get('automovil/index','AutomovilController@index')->name('index.automovil');
 Route::get('automovil/crear','AutomovilController@create')->name('create.automovil');
 Route::post('automovil/crear','AutomovilController@store')->name('store.automovil');
@@ -54,18 +58,21 @@ Route::patch('automovil/index/current_auto/{id}','AutomovilController@current_au
 /*|--------------------------------------------------------------------------
 |perfil
 |--------------------------------------------------------------------------*/
+
 Route::patch('profile/update/{id}','UserController@update')->name('update.user');
 Route::get('profile/edit/{id}','UserController@edit')->name('edit.profile');
 
 /*|--------------------------------------------------------------------------
 |Seguros
 |--------------------------------------------------------------------------*/
+
 Route::patch('seguro/update/{id}','SegurosController@update')->name('update.seguro');
 Route::get('seguro/index','SegurosController@index')->name('index.seguro');
 
 /*|--------------------------------------------------------------------------
 |Documents
 |--------------------------------------------------------------------------*/
+
 Route::get('documents/view/exp','DocumentosController@index')->name('index.exp-tc');
 Route::get('documents/crear/exp-tc','DocumentosController@create')->name('create.exp-tc');
 Route::post('documents/crear/exp-tc','DocumentosController@store')->name('store.exp-tc');
@@ -89,6 +96,7 @@ Route::get('/documents/view-documents', function () {
 /*|--------------------------------------------------------------------------
 |Expedientes Fisicos
 |--------------------------------------------------------------------------*/
+
 Route::get('exp_carta/view/exp-cr','ExpcartaController@index')->name('index.exp-cr');
 Route::get('exp_carta/crear/exp-cr','ExpcartaController@create')->name('create.exp-cr');
 Route::post('exp_carta/crear/exp-cr','ExpcartaController@store')->name('store.exp-cr');

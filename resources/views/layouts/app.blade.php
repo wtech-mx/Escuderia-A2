@@ -41,6 +41,7 @@
 </head>
 
 <body>
+<p style="display: none">{{$userId = Auth::id()}}</p>
     <div id="app" class="w-100 h-100">
 
         <div class="container-login100" >
@@ -50,7 +51,13 @@
                 <div class="container-fluid">
 
                     @yield('content')
-                    @include('admin.layouts.tab-bar')
+
+                        @if((Auth::check()))
+                            @include('layouts.tab-bar')
+                        @else
+
+                    @endif
+
 
                 </div>
             </div>
