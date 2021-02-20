@@ -171,6 +171,15 @@ Route::get('admin/dashboard', function () {
 })->middleware(['auth'])->name('admin-view-dashboard');
 
 /*|--------------------------------------------------------------------------
+|User view
+|--------------------------------------------------------------------------*/
+
+Route::get('admin/user/view-user-admin', function () {
+    return view('admin/user/view-user-admin');
+})->middleware(['auth'])->name('view-user-admin');
+
+
+/*|--------------------------------------------------------------------------
 |garaje view
 |--------------------------------------------------------------------------*/
 
