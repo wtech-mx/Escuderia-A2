@@ -21,7 +21,7 @@
               </div>
           </div>
 
-          <div class="row " >
+                    <div class="row " >
                         <div class="col-12 mt-5">
 
                             <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
@@ -39,10 +39,23 @@
                               </li>
 
                             </ul>
-
+                     <form method="POST" action="{{route('store.empresa')}}" enctype="multipart/form-data" role="form">
+                         @csrf
                             <div class="tab-content" id="pills-tabContent">
 
                               <div class="tab-pane fade show active" id="perfil" role="tabpanel" aria-labelledby="pills-perfil-tab">
+                                 <label for="">
+                                     <p class="text-white"><strong>Nombre</strong></p>
+                                 </label>
+
+                                <div class="input-group form-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text input-modal">
+                                             <img class="" src="{{ asset('img/icon/white/email.png') }}" width="25px" >
+                                        </span>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="Nombre" id="nombre" name="nombre" style="border-radius: 0  10px 10px 0;">
+                                </div>
 
                                  <label for="">
                                      <p class="text-white"><strong>Correo</strong></p>
@@ -54,7 +67,7 @@
                                              <img class="" src="{{ asset('img/icon/white/email.png') }}" width="25px" >
                                         </span>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="correo@correo.com" style="border-radius: 0  10px 10px 0;">
+                                    <input type="text" class="form-control" placeholder="correo@correo.com" id="email" name="email" style="border-radius: 0  10px 10px 0;">
                                 </div>
 
                                  <label for="">
@@ -67,7 +80,7 @@
                                              <img class="" src="{{ asset('img/icon/white/call.png') }}" width="25px" >
                                         </span>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="correo@correo.com" style="border-radius: 0  10px 10px 0;">
+                                    <input type="text" class="form-control" placeholder="00 0000-0000" id="telefono" name="telefono" style="border-radius: 0  10px 10px 0;">
                                 </div>
 
 
@@ -81,7 +94,7 @@
                                              <img class="" src="{{ asset('img/icon/white/marcador-de-posicion.png') }}" width="25px" >
                                         </span>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="Direccion" style="border-radius: 0  10px 10px 0;" id='datetimepicker1'>
+                                    <input type="text" class="form-control" placeholder="Direccion" style="border-radius: 0  10px 10px 0;" id="direccion" name="direccion">
                                 </div>
 
                                  <label for="">
@@ -95,20 +108,13 @@
                                         </span>
                                     </div>
 
-                                    <select class="form-control" id="exampleFormControlSelect1">
-                                      <option>Ale</option>
-                                    </select>
+                                                 <select class="form-control" id="referencia" name="referencia">
+                                                     <option>Seleccione Referencia</option>
+                                                     @foreach($user as $item)
+                                                        <option value="{{$item->id}}">{{$item->name}}</option>
+                                                     @endforeach
+                                                 </select>
                                 </div>
-
-                                  <div class="col-12 text-center mt-3 mb-5">
-
-                                      <button class="btn btn-lg btn-success btn-save mb-5">
-                                          <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}" width="20px" >
-                                          Actualizar
-                                     </button>
-
-                                  </div>
-
                               </div>
 
                               <div class="tab-pane fade" id="pills-Seguridad" role="tabpanel" aria-labelledby="pills-Seguridad-tab">
@@ -123,7 +129,7 @@
                                              <img class="" src="{{ asset('img/icon/white/padlock.png') }}" width="25px" >
                                         </span>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="correo@correo.com" style="border-radius: 0  10px 10px 0;">
+                                    <input type="password" class="form-control" placeholder="****" style="border-radius: 0  10px 10px 0;">
                                 </div>
 
                                  <label for="">
@@ -136,22 +142,21 @@
                                              <img class="" src="{{ asset('img/icon/white/password.png') }}" width="25px" >
                                         </span>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="correo@correo.com" style="border-radius: 0  10px 10px 0;">
+                                    <input type="password" class="form-control" placeholder="****" id="password" name="password" style="border-radius: 0  10px 10px 0;">
                                 </div>
 
                                   <div class="col-12 text-center mt-5 mb-5">
 
                                       <button class="btn btn-lg btn-success btn-save mb-5">
                                           <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}" width="20px" >
-                                          Actualizar
+                                          Guardar
                                       </button>
 
                                   </div>
 
                               </div>
-
                             </div>
-
+                     </form>
                         </div>
                     </div>
 

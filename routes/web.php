@@ -43,7 +43,7 @@ Route::get('/garaje/view-garaje', function () {
 
 
 /*|--------------------------------------------------------------------------
-|garaje edit
+|garaje edit - Usuario
 |--------------------------------------------------------------------------*/
 
 Route::get('automovil/index','AutomovilController@index')->name('index.automovil');
@@ -53,8 +53,16 @@ Route::get('automovil/edit/{id}','AutomovilController@edit')->name('edit.automov
 Route::patch('automovil/update/{id}','AutomovilController@update')->name('update.automovil');
 
 Route::patch('automovil/index/current_auto/{id}','AutomovilController@current_auto')->name('current_auto');
+    /*|--------------------------------------------------------------------------
+    |garaje edit - Admin
+    |--------------------------------------------------------------------------*/
 
+    Route::get('admin/automovil/index','AutomovilController@index_admin')->name('index_admin.automovil');
+    Route::get('admin/automovil/crear','AutomovilController@create_admin')->name('create_admin.automovil');
+    Route::post('admin/automovil/crear','AutomovilController@store_admin')->name('store_admin.automovil');
 
+    Route::get('admin/automovil/edit/{id}','AutomovilController@edit_admin')->name('edit_admin.automovil');
+    Route::patch('admin/automovil/update/{id}','AutomovilController@update_admin')->name('update_admin.automovil');
 /*|--------------------------------------------------------------------------
 |perfil
 |--------------------------------------------------------------------------*/
@@ -170,6 +178,7 @@ Route::get('admin/dashboard', function () {
     return view('admin/dashboard');
 })->middleware(['auth'])->name('admin-view-dashboard');
 
+
 /*|--------------------------------------------------------------------------
 |User view
 |--------------------------------------------------------------------------*/
@@ -186,23 +195,9 @@ Route::get('admin/empresas/view-empresas-admin', function () {
     return view('admin/empresas/view-empresas-admin');
 })->middleware(['auth'])->name('view-empresas-admin');
 
+Route::get('admin/empresa/crear','EmpresasController@create')->name('create.empresa');
+Route::post('admin/empresa/crear','EmpresasController@store')->name('store.empresa');
 
-/*|--------------------------------------------------------------------------
-|garaje view
-|--------------------------------------------------------------------------*/
-
-Route::get('admin/garaje/view-garaje-admin', function () {
-    return view('admin/garaje/view-garaje-admin');
-})->middleware(['auth'])->name('view-garaje-admin');
-
-
-/*|--------------------------------------------------------------------------
-|garaje edit
-|--------------------------------------------------------------------------*/
-
-Route::get('admin/garaje/edit-garaje-admin', function () {
-    return view('admin/garaje/edit-garaje-admin');
-})->middleware(['auth'])->name('edit-garaje-admin');
 
 /*|--------------------------------------------------------------------------
 |Sevicios

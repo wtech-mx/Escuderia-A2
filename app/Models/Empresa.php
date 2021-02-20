@@ -18,6 +18,7 @@ class Empresa extends Model
         'direccion',
         'referencia',
         'email',
+        'password'
     ];
 
     protected $guarded=[
