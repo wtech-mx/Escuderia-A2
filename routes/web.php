@@ -178,6 +178,14 @@ Route::get('admin/user/view-user-admin', function () {
     return view('admin/user/view-user-admin');
 })->middleware(['auth'])->name('view-user-admin');
 
+/*|--------------------------------------------------------------------------
+|Empresas view
+|--------------------------------------------------------------------------*/
+
+Route::get('admin/empresas/view-empresas-admin', function () {
+    return view('admin/empresas/view-empresas-admin');
+})->middleware(['auth'])->name('view-empresas-admin');
+
 
 /*|--------------------------------------------------------------------------
 |garaje view

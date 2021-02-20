@@ -139,12 +139,14 @@
                     </div>
 
                     <div class="col-6 mt-4 mb-4">
-                        <div class="card" style="border-radius: 15px">
-                          <div class="card-body" >
-                              <img class="d-inline mb-2" src="{{ asset('img/icon/white/edificio-de-oficinas.png') }}" alt="Icon Tenencia" width="50px">
-                              <p class="card-text text-white"><strong>Empresas</strong></p>
-                          </div>
-                        </div>
+                        <a href="{{ route('view-empresas-admin') }}" class="text-white">
+                            <div class="card" style="border-radius: 15px">
+                              <div class="card-body" >
+                                  <img class="d-inline mb-2" src="{{ asset('img/icon/white/edificio-de-oficinas.png') }}" alt="Icon Tenencia" width="50px">
+                                  <p class="card-text text-white"><strong>Empresas</strong></p>
+                              </div>
+                            </div>
+                        </a>
                     </div>
 
                     @include('admin.modal-services')
