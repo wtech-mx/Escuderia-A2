@@ -19,7 +19,7 @@
 
                         <div class="col-8  mt-4">
                                     <h5 class="text-center text-white ml-4 mr-4 ">
-                                        <strong>Documentos</strong>
+                                        <strong>Expediente Fisico</strong>
                                     </h5>
                         </div>
 
@@ -62,7 +62,7 @@
 
                                 <div class="carousel-item active">
                                     <h5 class="text-center text-white mt-4 ml-4 mr-4 ">
-                                        <strong>Documentos de personas</strong>
+                                        <strong>Expediente de personas</strong>
                                     </h5>
 
                                   <div class="row">
@@ -91,35 +91,81 @@
 
                                             <div class="collapse mt-1 " id="collapseExample">
                                               <div class="card card-body card-slide-garaje">
-                                                  <p class="text-center"><strong style="font-size: 19px">Tarjeta de Circulacion</strong></p>
+                                                  <p class="text-center"><strong style="font-size: 19px">Expediente Fisico</strong></p>
+
                                                   <div class="d-flex justify-content-between">
-
-
                                                       <a href="">
                                                         <span class="badge badge-primary" style="font-size: 70%;">
-                                                            Fecha de exp
+                                                          Facturas
                                                         </span>
                                                       </a>
 
                                                       <a href="">
                                                         <span class="badge badge-secondary" style="font-size: 70%;">
-                                                            Fecha de vencimiento
+                                                           Tenencias
                                                         </span>
                                                       </a>
 
                                                       <a href="">
                                                         <span class="badge badge-success" style="font-size: 70%;">
-                                                            Lugar de expedicion
+                                                            Carta Responsiva
                                                         </span>
                                                       </a>
 
                                                       <a href="">
                                                         <span class="badge badge-danger" style="font-size: 70%;">
-                                                            otro
+                                                            Póliza de Seguro
+                                                        </span>
+                                                      </a>
+
+
+                                                  </div>
+
+                                                  <div class="d-flex justify-content-between">
+
+                                                      <a href="">
+                                                        <span class="badge badge-primary" style="font-size: 70%;">
+                                                            tarjeta de circulacion
+                                                        </span>
+                                                      </a>
+
+                                                      <a href="">
+                                                        <span class="badge badge-secondary" style="font-size: 70%;">
+                                                            Reemplacamiento
+                                                        </span>
+                                                      </a>
+
+                                                      <a href="">
+                                                        <span class="badge badge-success" style="font-size: 70%;">
+                                                            Baja de placas
                                                         </span>
                                                       </a>
 
                                                   </div>
+
+                                                  <div class="d-flex justify-content-between">
+
+
+                                                      <a href="">
+                                                        <span class="badge badge-danger" style="font-size: 70%;">
+                                                            INE
+                                                        </span>
+                                                      </a>
+
+                                                      <a href="">
+                                                        <span class="badge badge-danger" style="font-size: 70%;">
+                                                            Comprobante de domicilio
+                                                        </span>
+                                                      </a>
+
+                                                      <a href="">
+                                                        <span class="badge badge-danger" style="font-size: 70%;">
+                                                            RFC
+                                                        </span>
+                                                      </a>
+
+                                                  </div>
+
                                               </div>
                                             </div>
 

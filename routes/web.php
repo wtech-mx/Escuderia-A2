@@ -258,5 +258,14 @@ Route::get('admin/documents/view-otro-ts-admin', function () {
     return view('admin/documents/view-otro-ts-admin');
 })->middleware(['auth'])->name('view-otro-ts-admin');
 
+/*|--------------------------------------------------------------------------
+|Expedientes Fisicos
+|--------------------------------------------------------------------------*/
+
+Route::get('admin/exp-fisico/view-exp-fisico-admin', function () {
+    return view('admin/exp-fisico/view-exp-fisico-admin');
+})->middleware(['auth'])->name('view-exp-fisico-admin');
+
+
 
 require __DIR__.'/auth.php';
