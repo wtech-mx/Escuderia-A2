@@ -20,6 +20,9 @@ class UserController extends Controller
      public function __construct(){
         $this->middleware('auth');
     }
+/*|--------------------------------------------------------------------------
+|Create User Auto_Admin
+|--------------------------------------------------------------------------*/
         public function create()
     {
         return view('admin.garaje.create-garaje-admin');
@@ -48,6 +51,47 @@ class UserController extends Controller
         return redirect()->route('create_admin.automovil');
     }
 
+/*|--------------------------------------------------------------------------
+|Create User Admin_Admin
+|--------------------------------------------------------------------------*/
+     function index_admin(){
+
+        $user = User::where('role', '=', '0')->get();
+
+        return view('admin.user.view-user-admin',compact('user'));
+    }
+
+        public function create_admin()
+    {
+        return view('admin.user.add-user-modal');
+    }
+
+    public function store_admin(Request $request)
+    {
+       $validate = $this->validate($request,[
+            'name' => 'required|string|max:191',
+            'email' => 'required|string|email|max:191|unique:users',
+            'password' => 'required|string|confirmed|min:8',
+        ]);
+
+        $user = new User;
+        $user->name = $request->get('name');
+        $user->role = $request->get('role');
+        $user->telefono = $request->get('telefono');
+        $user->email = $request->get('email');
+        $user->fecha_nacimiento = $request->get('fecha_nacimiento');
+        $user->direccion = $request->get('direccion');
+        $user->referencia = $request->get('referencia');
+        $user->genero = $request->get('genero');
+        $user->password = Hash::make($request->password);
+
+        $user->save();
+        return redirect()->route('index_admin.user');
+    }
+
+/*|--------------------------------------------------------------------------
+|Edit User Profile
+|--------------------------------------------------------------------------*/
     public function update(Request $request,$id){
 
         $validate = $this->validate($request,[

@@ -249,7 +249,7 @@
                                              <img class="" src="{{ asset('img/icon/white/call.png') }}" width="25px" >
                                         </span>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="correo@correo.com" id="telefono" name="telefono" style="border-radius: 0  10px 10px 0;">
+                                    <input type="text" class="form-control" placeholder="00 0000-0000" id="telefono" name="telefono" style="border-radius: 0  10px 10px 0;">
                                 </div>
 
 

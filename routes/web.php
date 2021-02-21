@@ -53,16 +53,7 @@ Route::get('automovil/edit/{id}','AutomovilController@edit')->name('edit.automov
 Route::patch('automovil/update/{id}','AutomovilController@update')->name('update.automovil');
 
 Route::patch('automovil/index/current_auto/{id}','AutomovilController@current_auto')->name('current_auto');
-    /*|--------------------------------------------------------------------------
-    |garaje edit - Admin
-    |--------------------------------------------------------------------------*/
 
-    Route::get('admin/automovil/index','AutomovilController@index_admin')->name('index_admin.automovil');
-    Route::get('admin/automovil/crear','AutomovilController@create_admin')->name('create_admin.automovil');
-    Route::post('admin/automovil/crear','AutomovilController@store_admin')->name('store_admin.automovil');
-
-    Route::get('admin/automovil/edit/{id}','AutomovilController@edit_admin')->name('edit_admin.automovil');
-    Route::patch('admin/automovil/update/{id}','AutomovilController@update_admin')->name('update_admin.automovil');
 /*|--------------------------------------------------------------------------
 |perfil
 |--------------------------------------------------------------------------*/
@@ -183,23 +174,37 @@ Route::get('admin/dashboard', function () {
 |User view
 |--------------------------------------------------------------------------*/
 
-Route::get('admin/user/view-user-admin', function () {
-    return view('admin/user/view-user-admin');
-})->middleware(['auth'])->name('view-user-admin');
+/* Create User_Auto */
+Route::get('admin/user/create','UserController@create')->name('create.user');
+Route::post('admin/user/create','UserController@store_auto')->name('store_auto.user');
 
-Route::get('admin/user/crear','UserController@create')->name('create.user');
-Route::post('admin/user/crear','UserController@store_auto')->name('store_auto.user');
+/* Create User_Admin */
+Route::get('admin/usuario/index','UserController@index_admin')->name('index_admin.user');
+Route::get('admin/usuario/crear','UserController@create_admin')->name('create_admin.user');
+Route::post('admin/usuario/crear','UserController@store_admin')->name('store_admin.user');
+
+/*|--------------------------------------------------------------------------
+|garaje edit - Admin
+|--------------------------------------------------------------------------*/
+
+Route::get('admin/automovil/index','AutomovilController@index_admin')->name('index_admin.automovil');
+Route::get('admin/automovil/crear','AutomovilController@create_admin')->name('create_admin.automovil');
+Route::post('admin/automovil/crear','AutomovilController@store_admin')->name('store_admin.automovil');
+Route::get('admin/automovil/edit/{id}','AutomovilController@edit_admin')->name('edit_admin.automovil');
+Route::patch('admin/automovil/update/{id}','AutomovilController@update_admin')->name('update_admin.automovil');
 
 /*|--------------------------------------------------------------------------
 |Empresas view
 |--------------------------------------------------------------------------*/
 
-Route::get('admin/empresas/view-empresas-admin', function () {
-    return view('admin/empresas/view-empresas-admin');
-})->middleware(['auth'])->name('view-empresas-admin');
-
+/* Create Empresa_Auto */
 Route::get('admin/empresa/crear','EmpresasController@create_empresa')->name('create_empresa.empresa');
 Route::post('admin/empresa/crear','EmpresasController@store_empresa')->name('store_empresa.empresa');
+
+/* Create Empresa_Admin */
+Route::get('admin/empresa/index','EmpresasController@index_admin')->name('index_admin.empresa');
+Route::get('admin/empresa/create','EmpresasController@create_admin')->name('create_admin.empresa');
+Route::post('admin/empresa/create','EmpresasController@store_admin')->name('store_admin.empresa');
 
 /*|--------------------------------------------------------------------------
 |SEGUROS view

@@ -75,7 +75,7 @@
                     </div>
 
                     <div class="col-6">
-                         <a href="{{ route('view-user-admin') }}">
+                         <a href="{{ route('index_admin.user') }}">
                             <div class="card" style="border-radius: 15px">
                               <div class="card-body" >
                                   <img class="d-inline mb-2" src="{{ asset('img/icon/white/usuario (1).png') }}" alt="Icon User" width="50px">
@@ -141,7 +141,7 @@
                     </div>
 
                     <div class="col-6 mt-4 mb-4">
-                        <a href="{{ route('view-empresas-admin') }}" class="text-white">
+                        <a href="{{ route('index_admin.empresa') }}" class="text-white">
                             <div class="card" style="border-radius: 15px">
                               <div class="card-body" >
                                   <img class="d-inline mb-2" src="{{ asset('img/icon/white/edificio-de-oficinas.png') }}" alt="Icon Tenencia" width="50px">

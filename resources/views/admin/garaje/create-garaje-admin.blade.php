@@ -247,8 +247,8 @@
                                                      </span>
                                                  </div>
 
-                                                 <select class="form-control" id="id_user" name="id_user" value="{{ old('id_user') }}">
-                                                     <option>Seleccione usuario</option>
+                                                 <select class="form-control" id="id_user" name="id_user">
+                                                     <option value="">Seleccione usuario</option>
                                                      @foreach($user as $item)
                                                         <option value="{{$item->id}}">{{$item->name}}</option>
                                                      @endforeach

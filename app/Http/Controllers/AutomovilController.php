@@ -13,6 +13,9 @@ use Session;
 
 class AutomovilController extends Controller
 {
+/*|--------------------------------------------------------------------------
+|Garaje Edit/Create/Index - User
+|--------------------------------------------------------------------------*/
     function index(){
 
         $user = DB::table('users')
@@ -141,14 +144,15 @@ class AutomovilController extends Controller
     }
 
 /*|--------------------------------------------------------------------------
-|garaje edit - Admin
+|Garaje edit - Admin
 |--------------------------------------------------------------------------*/
 
-        function index_admin(){
+    function index_admin(){
 
-        $automovil = Automovil::get();
+        $automovil = Automovil::where('id_empresa', '=', NULL)->get();
 
-        return view('admin/garaje.view-garaje-admin',compact('automovil'));
+        $automovil2 = Automovil::where('id_user', '=', NULL)->get();
+        return view('admin.garaje.view-garaje-admin',compact('automovil', 'automovil2'));
     }
 
     public function create_admin(){
@@ -220,7 +224,7 @@ class AutomovilController extends Controller
             ->where('role','=', '0')
             ->get();
 
-        return view('admin/garaje.edit-garaje-admin',compact('automovil', 'marca', 'user'));
+        return view('admin.garaje.edit-garaje-admin',compact('automovil', 'marca', 'user'));
     }
 
     function update_admin(Request $request, $id){

@@ -39,7 +39,8 @@
                               </li>
 
                             </ul>
-
+                     <form method="POST" action="{{route('store_admin.empresa')}}" enctype="multipart/form-data" role="form">
+                         @csrf
                             <div class="tab-content" id="pills-tabContent">
 
                               <div class="tab-pane fade show active" id="perfil" role="tabpanel" aria-labelledby="pills-perfil-tab">
@@ -54,7 +55,7 @@
                                              <img class="" src="{{ asset('img/icon/white/edificio-de-oficinas.png') }}" width="25px" >
                                         </span>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="Nombre empresa" style="border-radius: 0  10px 10px 0;">
+                                    <input type="text" class="form-control" placeholder="Nombre" id="nombre" name="nombre" style="border-radius: 0  10px 10px 0;">
                                 </div>
 
                                  <label for="">
@@ -67,7 +68,7 @@
                                              <img class="" src="{{ asset('img/icon/white/email.png') }}" width="25px" >
                                         </span>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="correo@correo.com" style="border-radius: 0  10px 10px 0;">
+                                    <input type="text" class="form-control" placeholder="correo@correo.com" id="email" name="email" style="border-radius: 0  10px 10px 0;">
                                 </div>
 
                                  <label for="">
@@ -80,7 +81,7 @@
                                              <img class="" src="{{ asset('img/icon/white/call.png') }}" width="25px" >
                                         </span>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="correo@correo.com" style="border-radius: 0  10px 10px 0;">
+                                    <input type="text" class="form-control" placeholder="55 5555-0000" id="telefono" name="telefono" style="border-radius: 0  10px 10px 0;">
                                 </div>
 
 
@@ -94,7 +95,7 @@
                                              <img class="" src="{{ asset('img/icon/white/marcador-de-posicion.png') }}" width="25px" >
                                         </span>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="Direccion" style="border-radius: 0  10px 10px 0;" id='datetimepicker1'>
+                                    <input type="text" class="form-control" placeholder="Direccion" style="border-radius: 0  10px 10px 0;" id="direccion" name="direccion">
                                 </div>
 
                                  <label for="">
@@ -108,19 +109,13 @@
                                         </span>
                                     </div>
 
-                                    <select class="form-control" id="exampleFormControlSelect1">
-                                      <option>Ale</option>
-                                    </select>
+                                        <select class="form-control" id="referencia" name="referencia">
+                                            <option>Selecione Referencia</option>
+                                            @foreach($user as $item)
+                                                <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                            @endforeach
+                                        </select>
                                 </div>
-
-                                  <div class="col-12 text-center mt-3 mb-5">
-
-                                      <button class="btn btn-lg btn-success btn-save mb-5">
-                                          <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}" width="20px" >
-                                          Actualizar
-                                     </button>
-
-                                  </div>
 
                               </div>
 
@@ -136,7 +131,7 @@
                                              <img class="" src="{{ asset('img/icon/white/padlock.png') }}" width="25px" >
                                         </span>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="correo@correo.com" style="border-radius: 0  10px 10px 0;">
+                                    <input type="password" class="form-control" placeholder="****" id="password" name="password" style="border-radius: 0  10px 10px 0;">
                                 </div>
 
                                  <label for="">
@@ -149,7 +144,7 @@
                                              <img class="" src="{{ asset('img/icon/white/password.png') }}" width="25px" >
                                         </span>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="correo@correo.com" style="border-radius: 0  10px 10px 0;">
+                                    <input type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="Confirmar Contraseña" id="password-confirm" style="border-radius: 0  10px 10px 0;">
                                 </div>
 
                                   <div class="col-12 text-center mt-5 mb-5">
@@ -164,7 +159,7 @@
                               </div>
 
                             </div>
-
+                     </form>
                         </div>
                     </div>
 

@@ -28,4 +28,10 @@ class Empresa extends Model
     protected $guarded=[
 
     ];
+
+    public function Automovil()
+    {
+        //relationship of many users to many posts
+        return $this->hasMany(Automovil::class);
+    }
 }

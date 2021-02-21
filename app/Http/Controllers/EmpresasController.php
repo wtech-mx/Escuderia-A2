@@ -12,6 +12,9 @@ use Illuminate\Support\Facades\Hash;
 
 class EmpresasController extends Controller
 {
+/*|--------------------------------------------------------------------------
+|Create Empresa Auto_Admin
+|--------------------------------------------------------------------------*/
      public function create_empresa(){
          $user = DB::table('users')
             ->where('role','=', '0')
@@ -39,5 +42,47 @@ class EmpresasController extends Controller
         $empresa->save();
 
        return redirect()->route('create_admin.automovil');
+    }
+
+/*|--------------------------------------------------------------------------
+|Create Empresa Admin
+|--------------------------------------------------------------------------*/
+     function index_admin(){
+
+        $empresa = Empresa::get();
+
+        $user = DB::table('users')
+            ->where('role','=', '0')
+            ->get();
+
+        return view('admin.empresas.view-empresas-admin',compact('empresa','user'));
+    }
+
+        public function create_admin(){
+          $user = DB::table('users')
+            ->where('role','=', '0')
+            ->get();
+
+        return view('admin.empresas.add-empresa-modal',compact('user'));
+    }
+
+    public function store_admin(Request $request)
+    {
+       $validate = $this->validate($request,[
+            'nombre' => 'required|string|max:191',
+            'email' => 'required|string|email|max:191|unique:users',
+            'password' => 'required|string|confirmed|min:8',
+        ]);
+
+        $empresa = new Empresa;
+        $empresa->nombre = $request->get('nombre');
+        $empresa->telefono = $request->get('telefono');
+        $empresa->direccion = $request->get('direccion');
+        $empresa->referencia = $request->get('referencia');
+        $empresa->email = $request->get('email');
+        $empresa->password = Hash::make($request->password);
+
+        $empresa->save();
+        return redirect()->route('index_admin.empresa');
     }
 }

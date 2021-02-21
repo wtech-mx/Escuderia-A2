@@ -38,12 +38,28 @@
                               </li>
 
                             </ul>
-
+                     <form method="POST" action="{{route('store_admin.user')}}" enctype="multipart/form-data" role="form">
+                         @csrf
                             <div class="tab-content" id="pills-tabContent">
 
                               <div class="tab-pane fade show active" id="perfil2" role="tabpanel" aria-labelledby="pills-perfil2-tab">
 
                                  <label for="">
+                                     <p class="text-white"><strong>Nombre</strong></p>
+                                 </label>
+
+                                <div class="input-group form-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text input-modal" style="background: transparent linear-gradient(180deg, #24F7BC 0%, #24C4FC 100%) 0% 0% no-repeat padding-box;border: none;">
+                                             <img class="" src="{{ asset('img/icon/white/email.png') }}" width="25px" >
+                                        </span>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="Nombre" id="name" name="name" style="border-radius: 0  10px 10px 0;">
+                                </div>
+
+                                  <input type="text" class="form-control" placeholder="role" id="role" name="role" value="0" style="display: none">
+
+                                  <label for="">
                                      <p class="text-white"><strong>Correo</strong></p>
                                  </label>
 
@@ -53,7 +69,7 @@
                                              <img class="" src="{{ asset('img/icon/white/email.png') }}" width="25px" >
                                         </span>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="correo@correo.com" style="border-radius: 0  10px 10px 0;">
+                                    <input type="text" class="form-control" placeholder="correo@correo.com" id="email" name="email" style="border-radius: 0  10px 10px 0;">
                                 </div>
 
                                  <label for="">
@@ -66,7 +82,7 @@
                                              <img class="" src="{{ asset('img/icon/white/call.png') }}" width="25px" >
                                         </span>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="correo@correo.com" style="border-radius: 0  10px 10px 0;">
+                                    <input type="text" class="form-control" placeholder="00 0000-0000" id="telefono" name="telefono" style="border-radius: 0  10px 10px 0;">
                                 </div>
 
 
@@ -80,7 +96,7 @@
                                              <img class="" src="{{ asset('img/icon/white/marcador-de-posicion.png') }}" width="25px" >
                                         </span>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="Direccion" style="border-radius: 0  10px 10px 0;" id='datetimepicker1'>
+                                    <input type="text" class="form-control" placeholder="Direccion" id="direccion" name="direccion" style="border-radius: 0  10px 10px 0;" id='datetimepicker1'>
                                 </div>
 
                              <label for="">
@@ -93,7 +109,7 @@
                                          <img class="" type="date" src="{{ asset('img/icon/white/calendario (2).png') }}" width="25px" >
                                     </span>
                                 </div>
-                                <input type="date" class="form-control" placeholder="MM/DD/YYY"  style="border-radius: 0  10px 10px 0;" id='datetimepicker1'>
+                                <input type="date" class="form-control" placeholder="MM/DD/YYY" id="fecha_nacimiento" name="fecha_nacimiento"  style="border-radius: 0  10px 10px 0;" id='datetimepicker1'>
                             </div>
 
                                  <label for="">
@@ -107,9 +123,11 @@
                                         </span>
                                     </div>
 
-                                    <select class="form-control" id="exampleFormControlSelect1">
-                                      <option>Ale</option>
-                                    </select>
+                                        <select class="form-control" id="referencia" name="referencia">
+                                            @foreach($user as $item)
+                                                <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                            @endforeach
+                                        </select>
                                 </div>
 
                              <label for="">
@@ -124,7 +142,7 @@
 
                                     <div class="form-check form-check-inline d-block">
                                         <div class="d-flex justify-content-center">
-                                            <input class="form-check-input d-block" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                            <input class="form-check-input d-block" type="radio" name="genero" id="genero" value="masculino">
                                         </div>
 
                                         <label class="form-check-label text-white" for="inlineRadio1">
@@ -134,7 +152,7 @@
 
                                     <div class="form-check form-check-inline d-block">
                                         <div class="d-flex justify-content-center">
-                                            <input class="form-check-input  d-block" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                            <input class="form-check-input  d-block" type="radio" name="genero" id="genero" value="femeninp">
                                         </div>
                                       <label class="form-check-label text-white" for="inlineRadio2">
                                           Femenino
@@ -143,7 +161,7 @@
 
                                     <div class="form-check form-check-inline d-block">
                                         <div class="d-flex justify-content-center">
-                                            <input class="form-check-input d-block" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
+                                            <input class="form-check-input d-block" type="radio" name="genero" id="genero" value="otro">
                                         </div>
                                       <label class="form-check-label text-white" for="inlineRadio3">
                                           Otro
@@ -155,15 +173,6 @@
                             </div>
 
                           </div>
-
-                                  <div class="col-12 text-center mt-3 mb-5">
-
-                                      <button class="btn btn-lg btn-success btn-save mb-5">
-                                          <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}" width="20px" >
-                                          Actualizar
-                                     </button>
-
-                                  </div>
 
                               </div>
 
@@ -179,7 +188,7 @@
                                              <img class="" src="{{ asset('img/icon/white/padlock.png') }}" width="25px" >
                                         </span>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="correo@correo.com" style="border-radius: 0  10px 10px 0;">
+                                    <input type="password" class="form-control" placeholder="****" id="password" name="password" style="border-radius: 0  10px 10px 0;">
                                 </div>
 
                                  <label for="">
@@ -192,7 +201,7 @@
                                              <img class="" src="{{ asset('img/icon/white/password.png') }}" width="25px" >
                                         </span>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="correo@correo.com" style="border-radius: 0  10px 10px 0;">
+                                    <input type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="Confirmar Contraseña" id="password-confirm" style="border-radius: 0  10px 10px 0;">
                                 </div>
 
                                   <div class="col-12 text-center mt-5 mb-5">
@@ -207,7 +216,7 @@
                               </div>
 
                             </div>
-
+                     </form>
                         </div>
                     </div>
       </div>
