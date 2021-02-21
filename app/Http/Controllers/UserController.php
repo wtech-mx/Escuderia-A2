@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Automovil;
 use Illuminate\Http\Request;
 use DB;
 use Session;
@@ -27,13 +28,14 @@ class UserController extends Controller
     public function store_auto(Request $request)
     {
        $validate = $this->validate($request,[
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
+            'name' => 'required|string|max:191',
+            'email' => 'required|string|email|max:191|unique:users',
             'password' => 'required|string|confirmed|min:8',
         ]);
 
         $user = new User;
         $user->name = $request->get('name');
+        $user->role = $request->get('role');
         $user->telefono = $request->get('telefono');
         $user->email = $request->get('email');
         $user->fecha_nacimiento = $request->get('fecha_nacimiento');
@@ -42,10 +44,8 @@ class UserController extends Controller
         $user->genero = $request->get('genero');
         $user->password = Hash::make($request->password);
 
-dd($user);
         $user->save();
-       // return redirect()->route('index_admin.automovil');
-        return view('admin.garaje.create-garaje-admin');
+        return redirect()->route('create_admin.automovil');
     }
 
     public function update(Request $request,$id){

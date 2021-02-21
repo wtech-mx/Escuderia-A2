@@ -24,7 +24,7 @@
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EmpresasController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EmpresasController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/garaje/add-bussines-modal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/garaje/add-bussines-modal.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/garaje/create-garaje-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/garaje/create-garaje-admin.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -234,7 +234,7 @@
       <workItem from="1613573156599" duration="19450000" />
       <workItem from="1613623648456" duration="15574000" />
       <workItem from="1613670961497" duration="5043000" />
-      <workItem from="1613838747345" duration="22634000" />
+      <workItem from="1613838747345" duration="26692000" />
     </task>
     <servers />
   </component>

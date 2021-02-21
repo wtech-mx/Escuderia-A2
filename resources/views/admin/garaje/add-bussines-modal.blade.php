@@ -129,7 +129,7 @@
                                              <img class="" src="{{ asset('img/icon/white/padlock.png') }}" width="25px" >
                                         </span>
                                     </div>
-                                    <input type="password" class="form-control" placeholder="****" style="border-radius: 0  10px 10px 0;">
+                                    <input type="password" class="form-control" placeholder="correo@correo.com" id="password" name="password" style="border-radius: 0  10px 10px 0;">
                                 </div>
 
                                  <label for="">
@@ -142,7 +142,7 @@
                                              <img class="" src="{{ asset('img/icon/white/password.png') }}" width="25px" >
                                         </span>
                                     </div>
-                                    <input type="password" class="form-control" placeholder="****" id="password" name="password" style="border-radius: 0  10px 10px 0;">
+                                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="Repetor Contraseña" style="border-radius: 0  10px 10px 0;">
                                 </div>
 
                                   <div class="col-12 text-center mt-5 mb-5">
@@ -221,8 +221,10 @@
                                              <img class="" src="{{ asset('img/icon/white/email.png') }}" width="25px" >
                                         </span>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="nombre" id="nombre" name="nombre" style="border-radius: 0  10px 10px 0;">
+                                    <input type="text" class="form-control" placeholder="nombre" id="name" name="name" style="border-radius: 0  10px 10px 0;">
                                 </div>
+
+                                  <input type="text" class="form-control" placeholder="role" id="role" name="role" value="0" style="display: none">
 
                                  <label for="">
                                      <p class="text-white"><strong>Correo</strong></p>
@@ -353,7 +355,7 @@
                                              <img class="" src="{{ asset('img/icon/white/padlock.png') }}" width="25px" >
                                         </span>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="correo@correo.com" style="border-radius: 0  10px 10px 0;">
+                                    <input type="password" class="form-control" placeholder="correo@correo.com" id="password" name="password" style="border-radius: 0  10px 10px 0;">
                                 </div>
 
                                  <label for="">
@@ -366,14 +368,14 @@
                                              <img class="" src="{{ asset('img/icon/white/password.png') }}" width="25px" >
                                         </span>
                                     </div>
-                                    <input type="password" class="form-control" placeholder="correo@correo.com" id="password" name="password" style="border-radius: 0  10px 10px 0;">
+                                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="Repetor Contraseña" style="border-radius: 0  10px 10px 0;">
                                 </div>
 
                                   <div class="col-12 text-center mt-5 mb-5">
 
                                       <button class="btn btn-lg btn-success btn-save mb-5">
                                           <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}" width="20px" >
-                                          Actualizar
+                                          Guardar
                                       </button>
 
                                   </div>

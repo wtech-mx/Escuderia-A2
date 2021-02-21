@@ -15,17 +15,14 @@ class EmpresasController extends Controller
             ->where('role','=', '0')
             ->get();
 
-        return view('admin/garaje.add-bussines-modal',compact('user'));
+        return view('admin.garaje.create-garaje-admin',compact('user'));
     }
 
     public function store(Request $request){
 
         $validate = $this->validate($request,[
             'nombre' => 'required|max:191',
-            'telefono' => 'required|max:191',
-            'direccion' => 'required|max:191',
-            'referencia' => 'required|max:191',
-            'email' => 'required|string|email|max:255|unique:users',
+            'email' => 'required|string|email|max:191',
             'password' => 'required|string|confirmed|min:8',
         ]);
 
@@ -37,9 +34,9 @@ class EmpresasController extends Controller
         $empresa->submarca = $request->get('submarca');
         $empresa->email = $request->get('email');
         $empresa->password = Hash::make($request->password);
-
+dd($empresa);
         $empresa->save();
 
-        return view('admin/garaje.create-garaje-admin', compact('empresa'));
+       return redirect()->route('create_admin.automovil');
     }
 }

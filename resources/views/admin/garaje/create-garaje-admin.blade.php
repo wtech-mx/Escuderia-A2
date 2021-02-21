@@ -79,13 +79,16 @@
                                              <a class="input-a-text">Marca</a>
                                         </span>
                                     </div>
-                                             <select class="form-control input-edit-car" id="id_marca" name="id_marca">
+                                             <select class="form-control input-edit-car" id="id_marca" name="id_marca" value="{{ old('submarca') }}">
                                                 <option>Selecciona la marca de tu carro</option>
                                                 @foreach($marca as $item)
                                                     <option value="{{ $item->id }}">{{ $item->nombre }}</option>
                                                 @endforeach
                                             </select>
                                 </div>
+                                         @if ($errors->has('id_marca'))
+                                            <span class="text-danger">{{ $errors->first('id_marca') }}</span>
+                                        @endif
                             </div>
 
                             <div class="col-12">
@@ -96,7 +99,10 @@
                                              <a class="input-a-text">Submarca</a>
                                         </span>
                                     </div>
-                                    <input  type="text" class="form-control input-edit-car" placeholder="Submarca" id="submarca" name="submarca">
+                                    <input  type="text" class="form-control input-edit-car" placeholder="Submarca" id="submarca" name="submarca" value="{{ old('submarca') }}" >
+                                        @if ($errors->has('submarca'))
+                                            <span class="text-danger">{{ $errors->first('submarca') }}</span>
+                                        @endif
                                 </div>
                             </div>
 
@@ -108,7 +114,7 @@
                                              <a class="input-a-text">Tipo</a>
                                         </span>
                                     </div>
-                                    <input  type="text" class="form-control input-edit-car" placeholder="Tipo" id="tipo" name="tipo">
+                                    <input  type="text" class="form-control input-edit-car" placeholder="Tipo" id="tipo" name="tipo" value="{{ old('tipo') }}">
                                 </div>
                             </div>
 
@@ -120,7 +126,7 @@
                                              <a class="input-a-text">Subtipo</a>
                                         </span>
                                     </div>
-                                    <input  type="text" class="form-control input-edit-car" placeholder="Subtipo" id="subtipo" name="subtipo">
+                                    <input  type="text" class="form-control input-edit-car" placeholder="Subtipo" id="subtipo" name="subtipo" value="{{ old('subtipo') }}">
                                 </div>
                             </div>
 
@@ -133,7 +139,7 @@
                                              <a class="input-a-text">Kilometraje</a>
                                         </span>
                                     </div>
-                                    <input  type="text" class="form-control input-edit-car" placeholder="kilometraje" id="kilometraje" name="kilometraje">
+                                    <input  type="text" class="form-control input-edit-car" placeholder="kilometraje" id="kilometraje" name="kilometraje" value="{{ old('kilometraje') }}">
                                 </div>
                             </div>
 
@@ -145,7 +151,7 @@
                                              <a class="input-a-text">Año</a>
                                         </span>
                                     </div>
-                                    <input  type="number" class="form-control input-edit-car" placeholder="YYYY" id="año" name="año">
+                                    <input  type="number" class="form-control input-edit-car" placeholder="YYYY" id="año" name="año" value="{{ old('año') }}">
                                 </div>
                             </div>
 
@@ -157,7 +163,7 @@
                                              <a class="input-a-text">Num Serie</a>
                                         </span>
                                     </div>
-                                    <input  type="text" class="form-control input-edit-car" placeholder="Num Serie" id="numero_serie" name="numero_serie">
+                                    <input  type="text" class="form-control input-edit-car" placeholder="Num Serie" id="numero_serie" name="numero_serie" value="{{ old('numero_serie') }}">
                                 </div>
                             </div>
 
@@ -169,7 +175,7 @@
                                              <a class="input-a-text">Color</a>
                                         </span>
                                     </div>
-                                    <input  type="color" value="#563d7c" class="form-control input-edit-car" placeholder="Color" id="color" name="color">
+                                    <input  type="color" value="#563d7c" class="form-control input-edit-car" placeholder="Color" id="color" name="color" value="{{ old('color') }}">
                                 </div>
                             </div>
 
@@ -181,7 +187,7 @@
                                               <a class="input-a-text">Num Placas</a>
                                         </span>
                                     </div>
-                                    <input type="text" class="form-control input-edit-car input-edit-car" placeholder="Num Placas" id="placas" name="placas">
+                                    <input type="text" class="form-control input-edit-car input-edit-car" placeholder="Num Placas" id="placas" name="placas" value="{{ old('placas') }}">
                                 </div>
                             </div>
 
@@ -238,7 +244,7 @@
                                                      </span>
                                                  </div>
 
-                                                 <select class="form-control" id="id_user" name="id_user">
+                                                 <select class="form-control" id="id_user" name="id_user" value="{{ old('id_user') }}">
                                                      <option>Seleccione usuario</option>
                                                      @foreach($user as $item)
                                                         <option value="{{$item->id}}">{{$item->name}}</option>
