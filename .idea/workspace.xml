@@ -21,19 +21,11 @@
   <component name="ChangeListManager">
     <list default="true" id="936a45dc-4f36-4130-a52f-695b08d602c5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SegurosController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SegurosController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Seguros.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Seguros.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/seguros/AIG-MEXICO.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/seguros/SEGLATINO.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/seguros/aba-seguros.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/seguros/ana-seguros.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/seguros/atlas-seguros-logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/seguros/hdi-seguros.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/seguros/logo-gnp.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/seguros/logo-inbursa.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DocumentosController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DocumentosController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Documentos.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Documentos.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/dashboard.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/seguros/create-seguros-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/seguros/create-seguros-admin.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/seguros/view-seguros-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/seguros/view-seguros-admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/documents/view-documents-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/documents/view-documents-admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/documents/view-exp-ts-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/documents/view-exp-ts-admin.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

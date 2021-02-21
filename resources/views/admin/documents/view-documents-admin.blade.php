@@ -63,16 +63,17 @@
 
                                         <div class="col-12 mt-4">
 
-                                            @foreach ($user as $item)
+                                            @foreach ($automovil as $item)
 
-                                             <a  data-toggle="collapse" href="#collapse{{$item->name}}" role="button" aria-expanded="false" aria-controls="collapse{{$item->name}}">
+                                             <a class="mb-2" data-toggle="collapse" href="#collapse{{$item->submarca}}" role="button" aria-expanded="false" aria-controls="collapse{{$item->submarca}}">
                                                 <div class="card card-slide-garaje" >
                                                   <div class="card-body p-2" >
 
                                                       <div class="row">
                                                           <div class="col-6 mt-3">
-                                                              <p class="card-text"><strong style="font: normal normal bold 20px/27px Segoe UI;">{{$item->name}}</strong></p>
-                                                              <p class="card-text" style="font-size: 12px"><strong>{{$item->name}}</strong></p>
+                                                              <p class="card-text"><strong style="font: normal normal bold 20px/27px Segoe UI;">{{$item->submarca}}</strong></p>
+                                                              <p class="card-text" style="font-size: 12px"><strong>{{$item->User->name}}</strong></p>
+                                                              <p class="card-text" style="font-size: 12px"><strong>{{$item->id}}</strong></p>
                                                           </div>
 
                                                           <div class="col-6">
@@ -85,13 +86,13 @@
                                                 </div>
                                              </a>
 
-                                            <div class="collapse mt-1 " id="collapse{{$item->name}}">
+                                            <div class="collapse mt-1 " id="collapse{{$item->submarca}}">
                                               <div class="card card-body card-slide-garaje">
                                                   <p class="text-center"><strong style="font-size: 19px">Tarjeta de Circulacion</strong></p>
                                                   <div class="d-flex justify-content-between">
 
 
-                                                      <a href="{{ route('create.view-exp-ts-admin') }}">
+                                                      <a href="{{ route('create_admin.view-exp-ts-admin',$item->id) }}">
                                                         <span class="badge badge-primary" style="font-size: 70%;">
                                                             Fecha de exp
                                                         </span>

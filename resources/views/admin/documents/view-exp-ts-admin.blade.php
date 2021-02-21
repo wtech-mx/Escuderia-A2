@@ -138,7 +138,7 @@
                                     </p>
                                   </div>
 
-                                   <form method="POST" action="{{route('store.exp-tc')}}" enctype="multipart/form-data" role="form">
+                                   <form method="POST" action="{{route('store_admin.view-exp-ts-admin', $automovil->id)}}" enctype="multipart/form-data" role="form">
                                          @csrf
                                         <div class="col-12 mt-3">
 

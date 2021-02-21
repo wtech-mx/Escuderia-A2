@@ -225,10 +225,12 @@ Route::get('admin/services/mecanica', function () {
 /*|--------------------------------------------------------------------------
 |Documents
 |--------------------------------------------------------------------------*/
-Route::get('admin/documents/index/','DocumentosController@index_admin')->name('index.view-documents-admin');
+/* Trae todos todos los autos */
+Route::get('admin/documents/index/','DocumentosController@index_admin')->name('index_admin.view-documents-admin');
 
-Route::get('admin/documents/crear/','DocumentosController@create_admin')->name('create.view-exp-ts-admin');
-Route::post('admin/documents/crear/','DocumentosController@store_admin')->name('store.view-exp-ts-admin');
+/* Trae datos de Fecha_expedicion */
+Route::get('admin/documents/view/{id}','DocumentosController@create_admin')->name('create_admin.view-exp-ts-admin');
+Route::post('admin/documents/crear/{id}','DocumentosController@store_admin')->name('store_admin.view-exp-ts-admin');
 
 
 Route::get('admin/documents/view-lugar-ts-admin', function () {
