@@ -18,7 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('name')->nullable();
             $table->string('current_auto')->nullable();
             $table->string('role')->nullable();
-            $table->boolean('telefono')->nullable();
+            $table->string('telefono')->nullable();
             $table->date('fecha_nacimiento')->nullable();
             $table->string('direccion')->nullable();
             $table->string('referencia')->nullable();
