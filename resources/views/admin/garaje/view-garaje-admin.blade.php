@@ -66,7 +66,7 @@
                                     </h5>
 
                                   <div class="row">
-@foreach ($automovil as $item)
+                                    @foreach ($automovil as $item)
                                         <div class="col-12 mt-4">
                                             <div class="card card-slide-garaje" >
                                               <div class="card-body p-2" >
@@ -86,7 +86,7 @@
                                               </div>
                                             </div>
                                         </div>
-@endforeach
+                                    @endforeach
                                   </div>
 
                                 </div>

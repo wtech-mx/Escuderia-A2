@@ -198,6 +198,18 @@ Route::get('admin/empresas/view-empresas-admin', function () {
 Route::get('admin/empresa/crear','EmpresasController@create')->name('create.empresa');
 Route::post('admin/empresa/crear','EmpresasController@store')->name('store.empresa');
 
+/*|--------------------------------------------------------------------------
+|SEGUROS view
+|--------------------------------------------------------------------------*/
+
+Route::get('admin/seguros/view-seguros-admin', function () {
+    return view('admin/seguros/view-seguros-admin');
+})->middleware(['auth'])->name('view-seguros-admin');
+
+Route::get('admin/seguros/create-seguros-admin', function () {
+    return view('admin/seguros/create-seguros-admin');
+})->middleware(['auth'])->name('create-seguros-admin');
+
 
 /*|--------------------------------------------------------------------------
 |Sevicios
