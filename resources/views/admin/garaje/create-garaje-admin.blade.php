@@ -216,7 +216,10 @@
                                                 </div>
 
                                                 <select class="form-control" id="id_empresa" name="id_empresa">
-                                                  <option value="">Seleccione empresa</option>
+                                                     <option>Seleccione empresa</option>
+                                                     @foreach($empresa as $item)
+                                                        <option value="{{$item->id}}">{{$item->nombre}}</option>
+                                                     @endforeach
                                                 </select>
                                             </div>
                                         </div>
@@ -269,11 +272,12 @@
 
                               </div>
 
-                              @include('admin.garaje.add-bussines-modal')
+
 
                           </div>
                         </div>
                      </form>
+                        @include('admin.garaje.add-bussines-modal')
                     </div>
 
 

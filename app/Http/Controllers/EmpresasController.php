@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Hash;
 
 class EmpresasController extends Controller
 {
-     public function create(){
+     public function create_empresa(){
          $user = DB::table('users')
             ->where('role','=', '0')
             ->get();
@@ -20,7 +20,7 @@ class EmpresasController extends Controller
         return view('admin.garaje.create-garaje-admin',compact('user'));
     }
 
-    public function store(Request $request){
+    public function store_empresa(Request $request){
 
         $validate = $this->validate($request,[
             'nombre' => 'required|max:191',
@@ -35,7 +35,7 @@ class EmpresasController extends Controller
         $empresa->referencia = $request->get('referencia');
         $empresa->email = $request->get('email');
         $empresa->password = Hash::make($request->password);
-dd($empresa);
+//dd($empresa);
         $empresa->save();
 
        return redirect()->route('create_admin.automovil');

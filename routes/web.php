@@ -198,8 +198,8 @@ Route::get('admin/empresas/view-empresas-admin', function () {
     return view('admin/empresas/view-empresas-admin');
 })->middleware(['auth'])->name('view-empresas-admin');
 
-Route::get('admin/empresa/crear','EmpresasController@create')->name('create.empresa');
-Route::post('admin/empresa/crear','EmpresasController@store')->name('store.empresa');
+Route::get('admin/empresa/crear','EmpresasController@create_empresa')->name('create_empresa.empresa');
+Route::post('admin/empresa/crear','EmpresasController@store_empresa')->name('store_empresa.empresa');
 
 /*|--------------------------------------------------------------------------
 |SEGUROS view

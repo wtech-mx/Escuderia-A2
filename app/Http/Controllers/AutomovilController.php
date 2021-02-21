@@ -159,7 +159,10 @@ class AutomovilController extends Controller
             ->where('role','=', '0')
             ->get();
 
-        return view('admin/garaje.create-garaje-admin',compact('marca', 'user'));
+         $empresa = DB::table('empresa')
+            ->get();
+
+        return view('admin.garaje.create-garaje-admin',compact('marca', 'user', 'empresa'));
     }
 
     public function store_admin(Request $request){

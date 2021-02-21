@@ -28,7 +28,7 @@
 
                               <li class="nav-item mr-2">
                                 <a class="nav-link active a-perso" id="pills-perfil-tab" data-toggle="pill" href="#perfil" role="tab" aria-controls="perfil" aria-selected="true" style="background-color: #24F1C3;color: #000;font-weight: bold;border-radius: 5px 10px 10px 5px;clip-path: polygon(0% 0%, 0% 100%, 85% 100%, 100% 50%, 85% 0%);">
-                                    Datos de perfil
+                                    Datos de Empresa
                                 </a>
                               </li>
 
@@ -39,13 +39,13 @@
                               </li>
 
                             </ul>
-                     <form method="POST" action="{{route('store.empresa')}}" enctype="multipart/form-data" role="form">
+                     <form method="POST" action="{{route('store_empresa.empresa')}}" enctype="multipart/form-data" role="form">
                          @csrf
                             <div class="tab-content" id="pills-tabContent">
 
                               <div class="tab-pane fade show active" id="perfil" role="tabpanel" aria-labelledby="pills-perfil-tab">
                                  <label for="">
-                                     <p class="text-white"><strong>Nombre</strong></p>
+                                     <p class="text-white"><strong>Nombre Empresa</strong></p>
                                  </label>
 
                                 <div class="input-group form-group">
@@ -54,7 +54,7 @@
                                              <img class="" src="{{ asset('img/icon/white/email.png') }}" width="25px" >
                                         </span>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="Nombre" id="nombre" name="nombre" style="border-radius: 0  10px 10px 0;">
+                                    <input type="text" class="form-control" placeholder="Nombre Empresa" id="nombre" name="nombre" style="border-radius: 0  10px 10px 0;">
                                 </div>
 
                                  <label for="">
@@ -101,7 +101,7 @@
                                      <p class="text-white"><strong>Referencia</strong></p>
                                  </label>
 
-                                <div class="input-group form-group">
+                                <div class="input-group form-group mb-5">
                                     <div class="input-group-prepend " >
                                         <span class="input-group-text input-modal" >
                                              <img class="" src="{{ asset('img/icon/white/referencia (1).png') }}" width="25px" >
@@ -129,7 +129,7 @@
                                                  <img class="" src="{{ asset('img/icon/white/padlock.png') }}" width="25px" >
                                             </span>
                                         </div>
-                                        <input type="password" class="form-control" placeholder="correo@correo.com" id="password" name="password" style="border-radius: 0  10px 10px 0;">
+                                        <input type="password" class="form-control" placeholder="*****" id="password" name="password" style="border-radius: 0  10px 10px 0;">
                                     </div>
 
                                      <label for="">
@@ -142,7 +142,7 @@
                                                  <img class="" src="{{ asset('img/icon/white/password.png') }}" width="25px" >
                                             </span>
                                         </div>
-                                        <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="Repetor Contraseña" style="border-radius: 0  10px 10px 0;">
+                                        <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="Confirmar Contraseña" style="border-radius: 0  10px 10px 0;">
                                     </div>
 
                                   <div class="col-12 text-center mt-5 mb-5">
@@ -355,7 +355,7 @@
                                              <img class="" src="{{ asset('img/icon/white/padlock.png') }}" width="25px" >
                                         </span>
                                     </div>
-                                    <input type="password" class="form-control" placeholder="correo@correo.com" id="password" name="password" style="border-radius: 0  10px 10px 0;">
+                                    <input type="password" class="form-control" placeholder="****" id="password" name="password" style="border-radius: 0  10px 10px 0;">
                                 </div>
 
                                  <label for="">
@@ -368,7 +368,7 @@
                                              <img class="" src="{{ asset('img/icon/white/password.png') }}" width="25px" >
                                         </span>
                                     </div>
-                                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="Repetor Contraseña" style="border-radius: 0  10px 10px 0;">
+                                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="Confirmar Contraseña" style="border-radius: 0  10px 10px 0;">
                                 </div>
 
                                   <div class="col-12 text-center mt-5 mb-5">
@@ -391,4 +391,5 @@
     </div>
   </div>
 </div>
+
 
