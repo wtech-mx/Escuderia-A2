@@ -209,14 +209,9 @@ Route::post('admin/empresa/create','EmpresasController@store_admin')->name('stor
 /*|--------------------------------------------------------------------------
 |SEGUROS view
 |--------------------------------------------------------------------------*/
-
-Route::get('admin/seguros/view-seguros-admin', function () {
-    return view('admin/seguros/view-seguros-admin');
-})->middleware(['auth'])->name('view-seguros-admin');
-
-Route::get('admin/seguros/create-seguros-admin', function () {
-    return view('admin/seguros/create-seguros-admin');
-})->middleware(['auth'])->name('create-seguros-admin');
+Route::get('admin/seguros/index','SegurosController@index_admin')->name('index_admin.seguros');
+Route::get('admin/seguro/edit/{id}','SegurosController@edit_admin')->name('edit_admin.seguro');
+Route::patch('admin/seguro/update/{id}','SegurosController@update_admin')->name('update_admin.seguro');
 
 
 /*|--------------------------------------------------------------------------

@@ -34,19 +34,18 @@
 
                     <div class="col-12 p-3">
                         <p class="text-center">
-                            <img class="" src="{{ asset('img/icon/color/logo-gnp.png') }}" width="150px" >
+                            <img class="" src="{{ asset('img/icon/seguros/'.$img) }}" width="150px" >
                         </p>
                     </div>
 
                 </div>
 
 
-        <form method="POST" action="" enctype="multipart/form-data" role="form">
+       <form method="POST" action="{{route('update_admin.seguro',$seguro->id)}}" enctype="multipart/form-data" role="form">
+             @csrf
+           <input type="hidden" name="_method" value="PATCH">
 
-            @csrf
-            <input type="hidden" name="_method" value="PATCH">
-
-                @if(Session::has('success'))
+                @if(Session::has('success2'))
                     <script>
                         Swal.fire(
                             'Exito!',
@@ -74,8 +73,8 @@
                                     </span>
                                 </div>
 
-                                <select class="form-control" id="seguro" name="seguro">
-                                  <option value="" selected></option>
+                                <select class="form-control" id="seguro" name="seguro" >
+                                  <option value="{{$seguro->seguro}}" selected>{{$seguro->seguro}}</option>
                                   <option value="aba">aba</option>
                                   <option value="afirme">afirme</option>
                                   <option value="aig">aig</option>
@@ -109,7 +108,7 @@
                                          <img class="" src="{{ asset('img/icon/white/calendario (1).png') }}" width="25px" >
                                     </span>
                                 </div>
-                                 <input type="date" class="form-control" placeholder="MM/DD/YYY"  style="border-radius: 0  10px 10px 0;" id='fecha_expedicion' name="fecha_expedicion" value="">
+                                 <input type="date" class="form-control" placeholder="MM/DD/YYY"  style="border-radius: 0  10px 10px 0;" id='fecha_expedicion' name="fecha_expedicion" value="{{$seguro->fecha_expedicion}}">
                             </div>
 
                              <label for="">
@@ -122,7 +121,7 @@
                                          <img class="" src="{{ asset('img/icon/white/calendario (5).png') }}" width="25px" >
                                     </span>
                                 </div>
-                                 <input type="date" class="form-control" placeholder="MM/DD/YYY"  style="border-radius: 0  10px 10px 0;" id='fecha_vencimiento' name="fecha_vencimiento" value="">
+                                 <input type="date" class="form-control" placeholder="MM/DD/YYY"  style="border-radius: 0  10px 10px 0;" id='fecha_vencimiento' name="fecha_vencimiento" value="{{$seguro->fecha_vencimiento}}">
                             </div>
 
                              <label for="">
@@ -137,7 +136,7 @@
                                 </div>
 
                                 <select class="form-control" id="tipo_cobertura" name="tipo_cobertura">
-                                  <option value="" selected></option>
+                                  <option value="{{$seguro->tipo_cobertura}}" selected>{{$seguro->tipo_cobertura}}</option>
                                   <option value="Amplia">Amplia</option>
                                   <option value="Limitada">Limitada</option>
                                 </select>
@@ -153,7 +152,7 @@
                                          <img class="" src="{{ asset('img/icon/white/bolsa-de-dinero (1).png') }}" width="25px" >
                                     </span>
                                 </div>
-                                <input type="number" class="form-control" placeholder="Costo" style="border-radius: 0  10px 10px 0;" id='costo' name="costo" value="">
+                                <input type="number" class="form-control" placeholder="Costo" style="border-radius: 0  10px 10px 0;" id='costo' name="costo" value="{{$seguro->costo}}">
                             </div>
 
                              <label for="">
@@ -166,7 +165,7 @@
                                          <img class="" src="{{ asset('img/icon/white/presupuesto (1).png') }}" width="25px" >
                                     </span>
                                 </div>
-                                <input type="number" class="form-control" placeholder="$0000" style="border-radius: 0  10px 10px 0;" id='costo_anual' name="costo_anual" value="">
+                                <input type="number" class="form-control" placeholder="$0000" style="border-radius: 0  10px 10px 0;" id='costo_anual' name="costo_anual" value="{{$seguro->costo_anual}}">
                             </div>
 
                     </div>

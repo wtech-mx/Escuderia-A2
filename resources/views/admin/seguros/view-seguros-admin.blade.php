@@ -41,15 +41,6 @@
                             </a>
                         </div>
 
-                        <div class="col-6 mt-4 d-inline">
-                            <h5 class="text-white text-tittle-app mr-3 d-inline" style="font: normal normal bold 15px/20px Segoe UI">
-                                Agregar
-                            </h5>
-
-                            <a class="btn" href="{{ route('create-seguros-admin') }}">
-                                <img class="" src="{{ asset('img/icon/white/plus.png') }}" width="30px" >
-                            </a>
-                        </div>
 
                         <div class="col-12">
 
@@ -66,16 +57,16 @@
                                     </h5>
 
                                   <div class="row">
-
+                                    @foreach ($seguros as $item)
                                         <div class="col-12 mt-4">
                                             <div class="card card-slide-garaje" >
                                               <div class="card-body p-2" >
 
                                                   <div class="row">
                                                       <div class="col-6 mt-3">
-                                                          <a class="card-text" href=""><strong style="font: normal normal bold 20px/27px Segoe UI;"></strong></a>
-                                                          <p class="card-text" style="font-size: 12px"><strong></strong></p>
-                                                          <p class="card-text" style="font-size: 12px"><strong>KM Recorridos</strong></p>
+                                                          <a class="card-text" href="{{ route('edit_admin.seguro',$item->id) }}"><strong style="font: normal normal bold 20px/27px Segoe UI;">{{$item->User->name}}</strong></a>
+                                                          <p class="card-text" style="font-size: 12px"><strong>{{$item->Automovil->submarca}}</strong></p>
+                                                          <p class="card-text" style="font-size: 12px"><strong>{{$item->seguro}}</strong></p>
                                                       </div>
 
                                                       <div class="col-6">
@@ -86,7 +77,7 @@
                                               </div>
                                             </div>
                                         </div>
-
+                                    @endforeach
                                   </div>
 
                                 </div>
@@ -103,62 +94,27 @@
 
                                   <div class="row">
 
+                                    @foreach ($seguros2 as $item)
                                         <div class="col-12 mt-4">
                                             <div class="card card-slide-garaje" >
                                               <div class="card-body p-2" >
 
                                                   <div class="row">
                                                       <div class="col-6 mt-3">
-                                                          <p class="card-text"><strong style="font: normal normal bold 20px/27px Segoe UI;">HAVAL F7</strong></p>
-                                                          <p class="card-text" style="font-size: 12px"><strong>1000 KM Recorridos</strong></p>
+                                                          <a class="card-text" href="{{ route('edit_admin.seguro',$item->id) }}"><strong style="font: normal normal bold 20px/27px Segoe UI;">{{$item->Empresa->nombre}}</strong></a>
+                                                          <p class="card-text" style="font-size: 12px"><strong>{{$item->Automovil->submarca}}</strong></p>
+                                                          <p class="card-text" style="font-size: 12px"><strong>{{$item->seguro}}</strong></p>
                                                       </div>
 
                                                       <div class="col-6">
-                                                        <img class="d-inline mb-2" src="{{ asset('img/icon/car2.png') }}" alt="Icon documento" width="150px">
+                                                        <img class="d-inline mb-2" src="{{ asset('img/icon/car.png') }}" alt="Icon documento" width="150px">
                                                       </div>
                                                   </div>
 
                                               </div>
                                             </div>
                                         </div>
-
-                                        <div class="col-12  mt-4">
-                                            <div class="card card-slide-garaje">
-                                              <div class="card-body p-2" >
-
-                                                  <div class="row">
-                                                      <div class="col-6 mt-3">
-                                                          <p class="card-text"><strong style="font: normal normal bold 20px/27px Segoe UI;">HAVAL F7</strong></p>
-                                                          <p class="card-text" style="font-size: 12px"><strong>1000 KM Recorridos</strong></p>
-                                                      </div>
-
-                                                      <div class="col-6">
-                                                        <img class="d-inline mb-2" src="{{ asset('img/icon/car2.png') }}" alt="Icon documento" width="150px">
-                                                      </div>
-                                                  </div>
-
-                                              </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-12  mt-4">
-                                            <div class="card card-slide-garaje">
-                                              <div class="card-body p-2" >
-
-                                                  <div class="row">
-                                                      <div class="col-6 mt-3">
-                                                          <p class="card-text"><strong style="font: normal normal bold 20px/27px Segoe UI;">HAVAL F7</strong></p>
-                                                          <p class="card-text" style="font-size: 12px"><strong>1000 KM Recorridos</strong></p>
-                                                      </div>
-
-                                                      <div class="col-6">
-                                                        <img class="d-inline mb-2" src="{{ asset('img/icon/car2.png') }}" alt="Icon documento" width="150px">
-                                                      </div>
-                                                  </div>
-
-                                              </div>
-                                            </div>
-                                        </div>
+                                    @endforeach
 
                                   </div>
 
