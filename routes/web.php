@@ -187,6 +187,9 @@ Route::get('admin/user/view-user-admin', function () {
     return view('admin/user/view-user-admin');
 })->middleware(['auth'])->name('view-user-admin');
 
+Route::get('admin/user/crear','UserController@create')->name('create.user');
+Route::post('admin/user/crear','UserController@store_auto')->name('store_auto.user');
+
 /*|--------------------------------------------------------------------------
 |Empresas view
 |--------------------------------------------------------------------------*/

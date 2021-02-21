@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 use DB;
 use Session;
 
+use App\Providers\RouteServiceProvider;
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+
 
 class UserController extends Controller
 {
@@ -14,7 +19,34 @@ class UserController extends Controller
      public function __construct(){
         $this->middleware('auth');
     }
+        public function create()
+    {
+        return view('admin.garaje.create-garaje-admin');
+    }
 
+    public function store_auto(Request $request)
+    {
+       $validate = $this->validate($request,[
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|confirmed|min:8',
+        ]);
+
+        $user = new User;
+        $user->name = $request->get('name');
+        $user->telefono = $request->get('telefono');
+        $user->email = $request->get('email');
+        $user->fecha_nacimiento = $request->get('fecha_nacimiento');
+        $user->direccion = $request->get('direccion');
+        $user->referencia = $request->get('referencia');
+        $user->genero = $request->get('genero');
+        $user->password = Hash::make($request->password);
+
+dd($user);
+        $user->save();
+       // return redirect()->route('index_admin.automovil');
+        return view('admin.garaje.create-garaje-admin');
+    }
 
     public function update(Request $request,$id){
 

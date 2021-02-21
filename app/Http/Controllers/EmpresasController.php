@@ -36,7 +36,6 @@ class EmpresasController extends Controller
         $empresa->referencia = $request->get('referencia');
         $empresa->submarca = $request->get('submarca');
         $empresa->email = $request->get('email');
-        dd($empresa);
         $empresa->password = Hash::make($request->password);
 
         $empresa->save();
