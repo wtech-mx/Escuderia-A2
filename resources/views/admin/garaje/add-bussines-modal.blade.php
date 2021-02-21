@@ -117,33 +117,33 @@
                                 </div>
                               </div>
 
-                              <div class="tab-pane fade" id="pills-Seguridad" role="tabpanel" aria-labelledby="pills-Seguridad-tab">
+                                  <div class="tab-pane fade" id="pills-Seguridad" role="tabpanel" aria-labelledby="pills-Seguridad-tab">
 
-                                 <label for="">
-                                     <p class="text-white"><strong>Contraseña</strong></p>
-                                 </label>
+                                     <label for="">
+                                         <p class="text-white"><strong>Contraseña</strong></p>
+                                     </label>
 
-                                <div class="input-group form-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text input-modal">
-                                             <img class="" src="{{ asset('img/icon/white/padlock.png') }}" width="25px" >
-                                        </span>
+                                    <div class="input-group form-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text input-modal">
+                                                 <img class="" src="{{ asset('img/icon/white/padlock.png') }}" width="25px" >
+                                            </span>
+                                        </div>
+                                        <input type="password" class="form-control" placeholder="correo@correo.com" id="password" name="password" style="border-radius: 0  10px 10px 0;">
                                     </div>
-                                    <input type="password" class="form-control" placeholder="correo@correo.com" id="password" name="password" style="border-radius: 0  10px 10px 0;">
-                                </div>
 
-                                 <label for="">
-                                     <p class="text-white"><strong>Confirmar Contraseña </strong></p>
-                                 </label>
+                                     <label for="">
+                                         <p class="text-white"><strong>Confirmar Contraseña </strong></p>
+                                     </label>
 
-                                <div class="input-group form-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text input-modal">
-                                             <img class="" src="{{ asset('img/icon/white/password.png') }}" width="25px" >
-                                        </span>
+                                    <div class="input-group form-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text input-modal">
+                                                 <img class="" src="{{ asset('img/icon/white/password.png') }}" width="25px" >
+                                            </span>
+                                        </div>
+                                        <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="Repetor Contraseña" style="border-radius: 0  10px 10px 0;">
                                     </div>
-                                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="Repetor Contraseña" style="border-radius: 0  10px 10px 0;">
-                                </div>
 
                                   <div class="col-12 text-center mt-5 mb-5">
 
@@ -156,7 +156,7 @@
 
                               </div>
                             </div>
-                     </form>
+                         </form>
                         </div>
                     </div>
 

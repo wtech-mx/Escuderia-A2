@@ -18,7 +18,11 @@ class Empresa extends Model
         'direccion',
         'referencia',
         'email',
-        'password'
+        'password',
+    ];
+
+    protected $hidden = [
+        'password',
     ];
 
     protected $guarded=[

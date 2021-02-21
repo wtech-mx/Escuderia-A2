@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Empresa;
 use DB;
+use Session;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Str;
-use App\Models\Empresa;
+use Illuminate\Support\Facades\Hash;
 
 class EmpresasController extends Controller
 {
@@ -31,7 +33,6 @@ class EmpresasController extends Controller
         $empresa->telefono = $request->get('telefono');
         $empresa->direccion = $request->get('direccion');
         $empresa->referencia = $request->get('referencia');
-        $empresa->submarca = $request->get('submarca');
         $empresa->email = $request->get('email');
         $empresa->password = Hash::make($request->password);
 dd($empresa);
