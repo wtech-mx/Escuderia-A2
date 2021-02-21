@@ -72,9 +72,9 @@ Route::get('seguro/index','SegurosController@index')->name('index.seguro');
 |Documents
 |--------------------------------------------------------------------------*/
 
-Route::get('documents/view/exp','DocumentosController@index')->name('index.exp-tc');
-Route::get('documents/crear/exp-tc','DocumentosController@create')->name('create.exp-tc');
-Route::post('documents/crear/exp-tc','DocumentosController@store')->name('store.exp-tc');
+Route::get('documents/view/exp','DocumentosController@index')->name('index.exp-doc-tc');
+Route::get('documents/crear/exp-tc','DocumentosController@create')->name('create.exp-doc-tc');
+Route::post('documents/crear/exp-tc','DocumentosController@store')->name('store.exp-doc-tc');
 
 Route::get('documents/view/vencimiento','DocumentosVencimientoController@index')->name('index.vencimiento-tc');
 Route::get('documents/crear/vencimiento-tc','DocumentosVencimientoController@create')->name('create.vencimiento-tc');
@@ -230,22 +230,11 @@ Route::get('admin/services/mecanica', function () {
 /*|--------------------------------------------------------------------------
 |Documents
 |--------------------------------------------------------------------------*/
+Route::get('admin/documents/index/','DocumentosController@index_admin')->name('index.view-documents-admin');
 
-Route::get('admin/documents/view-documents-admin', function () {
-    return view('admin/documents/view-documents-admin');
-})->middleware(['auth'])->name('view-documents-admin');
+Route::get('admin/documents/crear/','DocumentosController@create_admin')->name('create.view-exp-ts-admin');
+Route::post('admin/documents/crear/','DocumentosController@store_admin')->name('store.view-exp-ts-admin');
 
-Route::get('admin/documents/create-documents-admin', function () {
-    return view('admin/documents/create-documents-admin');
-})->middleware(['auth'])->name('create-documents-admin');
-
-Route::get('admin/documents/edit-documents-admin', function () {
-    return view('admin/documents/edit-documents-admin');
-})->middleware(['auth'])->name('edit-documents-admin');
-
-Route::get('admin/documents/view-exp-ts', function () {
-    return view('admin/documents/view-exp-ts-admin');
-})->middleware(['auth'])->name('view-exp-ts-admin');
 
 Route::get('admin/documents/view-lugar-ts-admin', function () {
     return view('admin/documents/view-lugar-ts-admin');
@@ -255,13 +244,11 @@ Route::get('admin/documents/view-vencimiento-ts-admin', function () {
     return view('admin/documents/view-vencimiento-ts-admin');
 })->middleware(['auth'])->name('view-vencimiento-ts-admin');
 
-Route::get('admin/documents/view-vencimiento-ts-admin', function () {
-    return view('admin/documents/view-vencimiento-ts-admin');
-})->middleware(['auth'])->name('view-vencimiento-ts-admin');
 
 Route::get('admin/documents/view-otro-ts-admin', function () {
     return view('admin/documents/view-otro-ts-admin');
 })->middleware(['auth'])->name('view-otro-ts-admin');
+
 
 /*|--------------------------------------------------------------------------
 |Expedientes Fisicos

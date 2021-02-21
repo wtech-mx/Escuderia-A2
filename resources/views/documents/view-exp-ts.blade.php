@@ -110,7 +110,7 @@
                                     </p>
                                   </div>
 
-                                   <form method="POST" action="{{route('store.exp-tc')}}" enctype="multipart/form-data" role="form">
+                                   <form method="POST" action="{{route('store.exp-doc-tc')}}" enctype="multipart/form-data" role="form">
                                          @csrf
                                         <div class="col-12 mt-3">
 

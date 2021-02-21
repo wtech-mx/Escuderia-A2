@@ -14,7 +14,7 @@
 
       <div class="modal-body">
           <p class="text-center mb-3">
-              <img class="d-inline mb-2" src="{{asset('exp-tc/'.$item->img)}}" alt="{{$item->img}}" width="100%">
+              <img class="d-inline mb-2" src="{{asset('exp-tc/'.$item->img)}}" alt="{{$item->img}}" width="auto">
           </p>
 
           <p class="text-center text-dark">

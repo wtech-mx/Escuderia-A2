@@ -37,7 +37,7 @@
 
                         <div class="col-6 mt-5 mb-5">
                             <p class="text-center">
-                                <a href="{{ route('index.exp-tc') }}">
+                                <a href="{{ route('index.exp-doc-tc') }}">
                                     <img class="d-inline mb-2" src="{{ asset('img/icon/white/plus.png') }}" alt="Icon documento" width="30px">
                                 </a>
                             </p>

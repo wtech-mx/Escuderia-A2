@@ -42,13 +42,7 @@
                         </div>
 
                         <div class="col-6 mt-4 d-inline">
-                            <h5 class="text-white text-tittle-app mr-3 d-inline" style="font: normal normal bold 15px/20px Segoe UI">
-                                Agregar
-                            </h5>
-
-                            <a class="btn" href="">
-                                <img class="" src="{{ asset('img/icon/white/plus.png') }}" width="30px" >
-                            </a>
+                            <p>-</p>
                         </div>
 
                         <div class="col-12">
@@ -69,14 +63,16 @@
 
                                         <div class="col-12 mt-4">
 
-                                             <a  data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                            @foreach ($user as $item)
+
+                                             <a  data-toggle="collapse" href="#collapse{{$item->name}}" role="button" aria-expanded="false" aria-controls="collapse{{$item->name}}">
                                                 <div class="card card-slide-garaje" >
                                                   <div class="card-body p-2" >
 
                                                       <div class="row">
                                                           <div class="col-6 mt-3">
-                                                              <p class="card-text"><strong style="font: normal normal bold 20px/27px Segoe UI;">Documentos</strong></p>
-                                                              <p class="card-text" style="font-size: 12px"><strong>nombre</strong></p>
+                                                              <p class="card-text"><strong style="font: normal normal bold 20px/27px Segoe UI;">{{$item->name}}</strong></p>
+                                                              <p class="card-text" style="font-size: 12px"><strong>{{$item->name}}</strong></p>
                                                           </div>
 
                                                           <div class="col-6">
@@ -89,31 +85,31 @@
                                                 </div>
                                              </a>
 
-                                            <div class="collapse mt-1 " id="collapseExample">
+                                            <div class="collapse mt-1 " id="collapse{{$item->name}}">
                                               <div class="card card-body card-slide-garaje">
                                                   <p class="text-center"><strong style="font-size: 19px">Tarjeta de Circulacion</strong></p>
                                                   <div class="d-flex justify-content-between">
 
 
-                                                      <a href="">
+                                                      <a href="{{ route('create.view-exp-ts-admin') }}">
                                                         <span class="badge badge-primary" style="font-size: 70%;">
                                                             Fecha de exp
                                                         </span>
                                                       </a>
 
-                                                      <a href="">
+                                                      <a href="{{ route('view-lugar-ts-admin') }}">
                                                         <span class="badge badge-secondary" style="font-size: 70%;">
                                                             Fecha de vencimiento
                                                         </span>
                                                       </a>
 
-                                                      <a href="">
+                                                      <a href="{{ route('view-vencimiento-ts-admin') }}">
                                                         <span class="badge badge-success" style="font-size: 70%;">
                                                             Lugar de expedicion
                                                         </span>
                                                       </a>
 
-                                                      <a href="">
+                                                      <a href="{{ route('view-otro-ts-admin') }}">
                                                         <span class="badge badge-danger" style="font-size: 70%;">
                                                             otro
                                                         </span>
@@ -122,6 +118,8 @@
                                                   </div>
                                               </div>
                                             </div>
+
+                                            @endforeach
 
                                         </div>
 

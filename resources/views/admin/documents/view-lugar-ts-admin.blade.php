@@ -46,7 +46,7 @@
 
                         <div class="col-6">
                             <p class="text-center">
-                                <a href="{{ route('view-exp-ts') }}">
+                                <a href="">
                                     <img class="d-inline mb-2" src="{{ asset('img/ts.jpg') }}" alt="Icon documento" width="30px">
                                 </a>
                             </p>
@@ -70,7 +70,7 @@
 
                                 <div class="col-12 mt-3">
                                     <p class="text-center">
-                                        <a href="{{ route('view-exp-ts') }}">
+                                        <a href="">
                                             <img class="d-inline mb-2" src="{{ asset('img/icon/black/plus (2).png') }}" alt="Icon documento" width="30px">
                                         </a>
                                     </p>
