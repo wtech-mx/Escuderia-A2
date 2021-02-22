@@ -23,7 +23,67 @@ class SegurosController extends Controller
         ->where('current_auto','=',$auto->current_auto)
         ->first();
 
-        return view('seguros.seguros',compact('seguro'));
+          switch($seguro){
+            case( $seguro->seguro == 'aba' ):
+                $img = 'aba.png';
+            break;
+            case( $seguro->seguro == 'afirme' ):
+                $img = 'afirme.png';
+            break;
+            case( $seguro->seguro == 'aig' ):
+                $img = 'aig.png';
+            break;
+            case( $seguro->seguro == 'ana' ):
+                $img = 'ana.png';
+            break;
+            case( $seguro->seguro == 'atlas' ):
+                $img = 'atlas.png';
+            break;
+            case( $seguro->seguro == 'axa' ):
+                $img = 'axa.png';
+            break;
+            case( $seguro->seguro == 'banorte' ):
+                $img = 'banorte.png';
+            break;
+            case( $seguro->seguro == 'general' ):
+                $img = 'general.png';
+            break;
+            case( $seguro->seguro == 'sura' ):
+                $img = 'sura.png';
+            break;
+            case( $seguro->seguro == 'vexmas' ):
+                $img = 'vexmas.png';
+            break;
+            case( $seguro->seguro == 'gnp' ):
+               $img = 'gnp.png';
+            break;
+            case( $seguro->seguro == 'hdi' ):
+                $img = 'hdi.png';
+            break;
+            case( $seguro->seguro == 'inbursa' ):
+                $img = 'inbursa.png';
+            break;
+            case( $seguro->seguro == 'latino' ):
+                $img = 'latino.png';
+            break;
+            case( $seguro->seguro == 'mapfre' ):
+                $img = 'mapfre.png';
+            break;
+            case( $seguro->seguro == 'qualitas' ):
+                $img = 'qualitas.png';
+            break;
+            case( $seguro->seguro == 'potosi' ):
+                $img = 'potosi.png';
+            break;
+            case( $seguro->seguro == 'miituo' ):
+                $img = 'miituo.png';
+            break;
+            case( $seguro->seguro == 'zurich' ):
+                $img = 'zurich.png';
+            break;
+        }
+
+        return view('seguros.seguros',compact('seguro', 'img'));
     }
 
     public function update(Request $request,$id){
