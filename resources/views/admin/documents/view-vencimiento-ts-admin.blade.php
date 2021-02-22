@@ -2,6 +2,7 @@
 
 @section('content')
 
+    <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
 
 <div class="row bg-blue" style="background-image: linear-gradient(to bottom, #24b6f7, #009fff, #0086ff, #0066ff, #243afc);">
 
@@ -18,7 +19,7 @@
 
                         <div class="col-8  mt-4">
                                     <h5 class="text-center text-white ml-4 mr-4 ">
-                                        <strong>Fecha de vencimiento de Tarjeta de Vencimiento</strong>
+                                        <strong>Fecha de vencimiento de Tarjeta de Circulación</strong>
                                     </h5>
                         </div>
 
@@ -44,16 +45,86 @@
                             </div>
                         </div>
 
-                        <div class="col-6">
-                            <p class="text-center">
-                                <a href="">
-                                    <img class="d-inline mb-2" src="{{ asset('img/ts.jpg') }}" alt="Icon documento" width="30px">
-                                </a>
+                        @if ($documentos->count())
+                            @foreach($documentos as $item)
+                                <div class="col-6">
+                                    <a type="button" class="" data-toggle="modal" data-target="#modal-doc-{{$item->id}}">
+                                        <p class="text-center">
+                                                <img class="d-inline mb-2" src="{{asset('vencimiento-tc/'.$item->img)}}" alt="{{$item->img}}" width="100px">
+                                        <p class="text-center text-white">
+                                            Fecha de vencimiento : <br>
+                                            <strong>{{$item->fecha_expedicion }}</strong>
+                                        </p>
+                                    </a>
+                                </div>
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="modal-doc-{{$item->id}}" tabindex="-1" role="dialog" aria-labelledby="modal-doc-{{$item->id}}" aria-hidden="true">
+                                  <div class="modal-dialog  modal-sm modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+
+                                        <div class="d-flex justify-content-end">
+                                          <div class="mr-4 mt-3">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                  <span aria-hidden="true">&times;</span>
+                                                </button>
+                                          </div>
+                                        </div>
+
+
+                                      <div class="modal-body">
+                                          <p class="text-center mb-3">
+                                              <img class="d-inline mb-2" src="{{asset('vencimiento-tc/'.$item->img)}}" alt="{{$item->img}}" width="100%">
+                                          </p>
+
+                                          <p class="text-center text-dark">
+                                              Fecha de vencimiento: <br>
+                                              <strong>{{$item->fecha_expedicion}}</strong>
+                                          </p>
+
+                                      </div>
+
+                                    </div>
+                                  </div>
+                                </div>
+
+
+                            @endforeach
+                        @else
+
+                        {{------------------------------------}}
+                        {{--      Documentacion con form    --}}
+                        {{------------------------------------}}
+                        <div class="col-12 mb3">
+                            <p class="text-center title-car">
+                            <img class="d-inline mb-2" src="{{ asset('img/icon/white/paper (1).png') }}" alt="Icon documento" width="150px">
+
                             </p>
-                            <p class="text-center text-white">
-                                Fecha: 05/05/20
+                            <p class="text-center  text-white">
+                             <strong style="font: normal normal bold 20px/20px Segoe UI;">Aun no tienes documentos! </strong><br>
+                             Escanea tus documentos has <br> click en el botón de + para <br> agregar tus documentos
                             </p>
                         </div>
+
+                        <div class="col-12 mt-5">
+                            <p class="text-center">
+                                 <button type="button" class="btn " data-toggle="modal" data-target="#exampleModal">
+                                    <img class="d-inline mb-2" src="{{ asset('img/icon/white/plus.png') }}" alt="Icon documento" width="60px">
+                                </button>
+                            </p>
+                        </div>
+
+
+                        <div class="col-12 mt-3">
+                            <p class="text-center text-white">
+                                Escanea tus documentos
+                            </p>
+                        </div>
+                        {{------------------------------------}}
+                        {{--      Documentacion con form    --}}
+                        {{------------------------------------}}
+
+                        @endif
 
                         <!-- Modal -->
                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -64,32 +135,45 @@
 
                                   <div class="col-12">
                                     <p class="text-center text-dark" style="font: normal normal bold 23px/31px Segoe UI;">
-                                        Agregar Imagen
+                                        Agregar Datos
                                     </p>
                                   </div>
+                                   <form method="POST" action="{{route('store.vencimiento-tc')}}" enctype="multipart/form-data" role="form">
+                                         @csrf
+                                        <div class="col-12 mt-3">
+                                        <label for="">
+                                            <p class="text-dark"><strong>Elegir Img</strong></p>
+                                        </label>
 
-                                <div class="col-12 mt-3">
-                                    <p class="text-center">
-                                        <a href="">
-                                            <img class="d-inline mb-2" src="{{ asset('img/icon/black/plus (2).png') }}" alt="Icon documento" width="30px">
-                                        </a>
-                                    </p>
+                                          <div class=" custom-file mb-3">
+                                            <input type="file" class="custom-file-input input-group-text" name="img">
+                                            <label class="custom-file-label">Elegir img...</label>
+                                          </div>
 
-                                    <p class="text-center">
-                                        Agregar <br>
-                                        Fecha de vencimiento de Tarjeta de Circulación
+                                            <label for="">
+                                                <p class="text-dark"><strong>Fecha de Expedicion</strong></p>
+                                            </label>
 
-                                        <br>
+                                                <div class="input-group form-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">
+                                                             <img class="" src="{{ asset('img/icon/white/calendario (1).png') }}" width="25px" >
+                                                        </span>
+                                                    </div>
+                                                     <input type="date" class="form-control" placeholder="MM/DD/YYY"  style="border-radius: 0  10px 10px 0;"  name="fecha_vencimiento">
+                                                </div>
 
-                                        <a class="btn btn-save text-white">
-                                            <img class="d-inline" src="{{ asset('img/icon/white/save-file-option (1).png') }}" alt="Icon documento" width="30px">
-                                            Guardar
-                                        </a>
-                                    </p>
+                                            <p class="text-center mt-3">
+                                                Agregar <br>
+                                                <strong> Fecha de vencimiento de Tarjeta de Circulación</strong>
+                                            </p>
 
-
-
-                                </div>
+                                                <button type="submit" class="btn btn-success btn-save text-white">
+                                                    <img class="d-inline" src="{{ asset('img/icon/white/save-file-option (1).png') }}" alt="Icon documento" width="30px">
+                                                    Guardar
+                                                </button>
+                                        </div>
+                                   </form>
 
                               </div>
 

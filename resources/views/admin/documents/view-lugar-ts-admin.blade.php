@@ -2,6 +2,7 @@
 
 @section('content')
 
+<link href="{{ asset('css/profile.css') }}" rel="stylesheet">
 
 <div class="row bg-blue" style="background-image: linear-gradient(to bottom, #24b6f7, #009fff, #0086ff, #0066ff, #243afc);">
 
@@ -43,17 +44,57 @@
 
                             </div>
                         </div>
+                    @if ($documentos->count())
+                        @foreach($documentos as $item)
+                            <div class="col-6">
+                                <a type="button" class="" data-toggle="modal" data-target="#modal-doc-{{$item->id}}">
+                                    <p class="text-center">
+                                      <img class="d-inline mb-2" src="{{asset('lugarexp-tc/'.$item->img)}}" alt="{{$item->img}}" width="100px">
+                                    </p>
 
-                        <div class="col-6">
-                            <p class="text-center">
-                                <a href="">
-                                    <img class="d-inline mb-2" src="{{ asset('img/ts.jpg') }}" alt="Icon documento" width="30px">
+                                    <p class="text-center text-white">
+                                        Lugar: <br>
+                                        <strong>{{$item->lugar_expedicion}}</strong>
+                                    </p>
                                 </a>
+                            </div>
+                            @include('documents.modal-doc')
+                        @endforeach
+                    @else
+
+                        {{------------------------------------}}
+                        {{--      Documentacion con form    --}}
+                        {{------------------------------------}}
+                        <div class="col-12 mb3">
+                            <p class="text-center title-car">
+                            <img class="d-inline mb-2" src="{{ asset('img/icon/white/paper (1).png') }}" alt="Icon documento" width="150px">
+
                             </p>
-                            <p class="text-center text-white">
-                                Fecha: 05/05/20
+                            <p class="text-center  text-white">
+                             <strong style="font: normal normal bold 20px/20px Segoe UI;">Aun no tienes documentos! </strong><br>
+                             Escanea tus documentos has <br> click en el botón de + para <br> agregar tus documentos
                             </p>
                         </div>
+
+                        <div class="col-12 mt-5">
+                            <p class="text-center">
+                                 <button type="button" class="btn " data-toggle="modal" data-target="#exampleModal">
+                                    <img class="d-inline mb-2" src="{{ asset('img/icon/white/plus.png') }}" alt="Icon documento" width="60px">
+                                </button>
+                            </p>
+                        </div>
+
+
+                        <div class="col-12 mt-3">
+                            <p class="text-center text-white">
+                                Escanea tus documentos
+                            </p>
+                        </div>
+                        {{------------------------------------}}
+                        {{--      Documentacion con form    --}}
+                        {{------------------------------------}}
+
+                        @endif
 
                         <!-- Modal -->
                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -64,33 +105,50 @@
 
                                   <div class="col-12">
                                     <p class="text-center text-dark" style="font: normal normal bold 23px/31px Segoe UI;">
-                                        Agregar Imagen
+                                        Agregar Datos
                                     </p>
                                   </div>
+                                   <form method="POST" action="{{route('store.lugar-tc')}}" enctype="multipart/form-data" role="form">
+                                         @csrf
+                                        <div class="col-12 mt-3">
 
-                                <div class="col-12 mt-3">
-                                    <p class="text-center">
-                                        <a href="">
-                                            <img class="d-inline mb-2" src="{{ asset('img/icon/black/plus (2).png') }}" alt="Icon documento" width="30px">
-                                        </a>
-                                    </p>
+                                        <label for="">
+                                            <p class="text-dark"><strong>Elegir Img</strong></p>
+                                        </label>
 
-                                    <p class="text-center">
-                                        Agregar <br>
-                                        Lugar de expedicion de Tarjeta de Circulación
+                                          <div class=" custom-file mb-3">
+                                            <input type="file" class="custom-file-input input-group-text" name="img">
+                                            <label class="custom-file-label">Elegir img...</label>
+                                          </div>
 
-                                        <br>
+                                            <label for="">
+                                                <p class="text-dark"><strong>Seleciona Estado</strong></p>
+                                            </label>
 
-                                        <a class="btn btn-save text-white">
-                                            <img class="d-inline" src="{{ asset('img/icon/white/save-file-option (1).png') }}" alt="Icon documento" width="30px">
-                                            Guardar
-                                        </a>
-                                    </p>
+                                            <div class="input-group form-group ">
+                                                <div class="input-group-prepend " >
+                                                    <span class="input-group-text" >
+                                                         <img class="" type="date" src="{{ asset('img/icon/white/mexico.png') }}" width="25px" >
+                                                    </span>
+                                                </div>
 
+                                                <select class="form-control" name="lugar_expedicion">
+                                                    @include('documents.estados')
+                                                </select>
+                                            </div>
 
+                                            <p class="text-center mt-3">
+                                                Agregar <br>
+                                                <strong>Lugar de expedicion de Tarjeta de Circulación</strong>
+                                            </p>
 
-                                </div>
+                                            <button type="submit mt-5" class="btn btn-success btn-save text-white">
+                                                  <img class="d-inline" src="{{ asset('img/icon/white/save-file-option (1).png') }}" alt="Icon documento" width="30px">
+                                                      Guardar
+                                            </button>
 
+                                        </div>
+                                   </form>
                               </div>
 
 

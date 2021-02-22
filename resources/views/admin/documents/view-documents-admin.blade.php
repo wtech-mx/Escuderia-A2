@@ -104,13 +104,13 @@
                                                         </span>
                                                       </a>
 
-                                                      <a href="{{ route('view-vencimiento-ts-admin') }}">
+                                                       <a href="{{ route('create_admin.view-lugar-ts-admin',$item->id) }}">
                                                         <span class="badge badge-success" style="font-size: 70%;">
                                                             Lugar de expedicion
                                                         </span>
                                                       </a>
 
-                                                      <a href="{{ route('view-otro-ts-admin') }}">
+                                                       <a href="{{ route('create_admin.view-otro-ts-admin',$item->id) }}">
                                                         <span class="badge badge-danger" style="font-size: 70%;">
                                                             otro
                                                         </span>

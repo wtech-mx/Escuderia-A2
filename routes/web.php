@@ -235,23 +235,15 @@ Route::get('admin/documents/index/','DocumentosController@index_admin')->name('i
 Route::get('admin/documents/view/{id}','DocumentosController@create_admin')->name('create_admin.view-exp-ts-admin');
 Route::post('admin/documents/crear/{id}','DocumentosController@store_admin')->name('store_admin.view-exp-ts-admin');
 
-/* Trae datos de Fecha_expedicion */
-Route::get('admin/documents/view/vencimiento/{id}','DocumentosVencimientoController@create_admin')->name('create_admin.view-vencimiento-ts-admin');
-Route::post('admin/documents/crear/vencimiento/{id}','DocumentosVencimientoController@store_admin')->name('store_admin.view-vencimiento-ts-admin');
+/* Trae datos de vencimiento */
+Route::get('admin/documents/vencimiento/view/{id}','DocumentosVencimientoController@create_admin')->name('create_admin.view-vencimiento-ts-admin');
+Route::post('admin/documents/vencimiento/crear/{id}','DocumentosVencimientoController@store_admin')->name('store_admin.view-vencimiento-ts-admin');
 
+Route::get('admin/documents/lugar/view/{id}','DocumentosLugarExpController@create_admin')->name('create_admin.view-lugar-ts-admin');
+Route::post('admin/documents/lugar/crear/{id}','DocumentosLugarExpController@store_admin')->name('store_admin.view-lugar-ts-admin');
 
-Route::get('admin/documents/view-lugar-ts-admin', function () {
-    return view('admin/documents/view-lugar-ts-admin');
-})->middleware(['auth'])->name('view-lugar-ts-admin');
-
-Route::get('admin/documents/view-vencimiento-ts-admin', function () {
-    return view('admin/documents/view-vencimiento-ts-admin');
-})->middleware(['auth'])->name('view-vencimiento-ts-admin');
-
-
-Route::get('admin/documents/view-otro-ts-admin', function () {
-    return view('admin/documents/view-otro-ts-admin');
-})->middleware(['auth'])->name('view-otro-ts-admin');
+Route::get('admin/documents/otro/view/{id}','DocumentosOtroController@create_admin')->name('create_admin.view-otro-ts-admin');
+Route::post('admin/documents/otro/crear/{id}','DocumentosOtroController@store_admin')->name('store_admin.view-otro-ts-admin');
 
 
 /*|--------------------------------------------------------------------------

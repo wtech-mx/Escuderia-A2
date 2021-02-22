@@ -61,7 +61,7 @@ class DocumentosVencimientoController extends Controller
             /*|--------------------------------------------------------------------------
         |Create Doc Admin_Admin
         |--------------------------------------------------------------------------*/
-        public function create_admin($id)
+    public function create_admin($id)
     {
         /* Trae los datos el auto en el que esta */
         $automovil = DB::table('automovil')
@@ -70,7 +70,7 @@ class DocumentosVencimientoController extends Controller
 
         $document_auto = $automovil->id;
 
-        $documentos = DB::table('documentos_exp')
+        $documentos = DB::table('documentos_vencimiento')
         ->where('current_auto','=', $document_auto)
         ->get();
 
@@ -87,7 +87,7 @@ class DocumentosVencimientoController extends Controller
         $documentos = new Documentos;
     	if ($request->hasFile('img')) {
     		$file=$request->file('img');
-    		$file->move(public_path().'/exp-tc',time().".".$file->getClientOriginalExtension());
+    		$file->move(public_path().'/vencimiento-tc',time().".".$file->getClientOriginalExtension());
     		$documentos->img=time().".".$file->getClientOriginalExtension();
     	}
 
