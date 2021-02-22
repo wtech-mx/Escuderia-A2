@@ -228,6 +228,7 @@ Route::post('admin/servicio/crear','MecanicaController@store_servicio')->name('s
 /*|--------------------------------------------------------------------------
 |Documents
 |--------------------------------------------------------------------------*/
+
 /* Trae todos todos los autos */
 Route::get('admin/documents/index/','DocumentosController@index_admin')->name('index_admin.view-documents-admin');
 
@@ -250,9 +251,39 @@ Route::post('admin/documents/otro/crear/{id}','DocumentosOtroController@store_ad
 |Expedientes Fisicos
 |--------------------------------------------------------------------------*/
 
-Route::get('admin/exp-fisico/view-exp-fisico-admin', function () {
-    return view('admin/exp-fisico/view-exp-fisico-admin');
-})->middleware(['auth'])->name('view-exp-fisico-admin');
+/* Trae todos todos los autos */
+Route::get('admin/exp-fisico/index/','ExpfacturasController@index_admin')->name('index_admin.view-exp-fisico-admin');
+
+/* Trae datos de facttura */
+Route::get('admin/exp-fisico/factura/view/{id}','ExpfacturasController@create_admin')->name('create_admin.view-factura-admin');
+Route::post('admin/exp-fisico/factura/crear/{id}','ExpfacturasController@store_admin')->name('store_admin.view-factura-admin');
+
+Route::get('admin/exp-fisico/bp/view/{id}','ExplacasController@create_admin')->name('create_admin.view-bp-admin');
+Route::post('admin/exp-fisico/bp/crear/{id}','ExplacasController@store_admin')->name('store_admin.view-bp-admin');
+
+Route::get('admin/exp-fisico/cd/view/{id}','ExpdomicilioController@create_admin')->name('create_admin.view-cd-admin');
+Route::post('admin/exp-fisico/cd/crear/{id}','ExpdomicilioController@store_admin')->name('store_admin.view-cd-admin');
+
+Route::get('admin/exp-fisico/cr/view/{id}','ExpcartaController@create_admin')->name('create_admin.view-cr-admin');
+Route::post('admin/exp-fisico/cr/crear/{id}','ExpcartaController@store_admin')->name('store_admin.view-cr-admin');
+
+Route::get('admin/exp-fisico/ine/view/{id}','ExpineController@create_admin')->name('create_admin.view-ine-admin');
+Route::post('admin/exp-fisico/ine/crear/{id}','ExpineController@store_admin')->name('store_admin.view-ine-admin');
+
+Route::get('admin/exp-fisico/poliza/view/{id}','ExpolizaController@create_admin')->name('create_admin.view-poliza-admin');
+Route::post('admin/exp-fisico/poliza/crear/{id}','ExpolizaController@store_admin')->name('store_admin.view-poliza-admin');
+
+Route::get('admin/exp-fisico/reemplacamiento/view/{id}','ExpreemplacaminetoController@create_admin')->name('create_admin.view-reemplacamiento-admin');
+Route::post('admin/exp-fisico/reemplacamiento/crear/{id}','ExpreemplacaminetoController@store_admin')->name('store_admin.view-reemplacamiento-admin');
+
+Route::get('admin/exp-fisico/rfc/view/{id}','ExprfcController@create_admin')->name('create_admin.view-rfc-admin');
+Route::post('admin/exp-fisico/rfc/crear/{id}','ExprfcController@store_admin')->name('store_admin.view-rfc-admin');
+
+Route::get('admin/exp-fisico/tc/view/{id}','ExptcController@create_admin')->name('create_admin.view-tc-admin');
+Route::post('admin/exp-fisico/tc/crear/{id}','ExptcController@store_admin')->name('store_admin.view-tc-admin');
+
+Route::get('admin/exp-fisico/tenencia/view/{id}','ExptenenciasController@create_admin')->name('create_admin.view-tenencia-admin');
+Route::post('admin/exp-fisico/tenencia/crear/{id}','ExptenenciasController@store_admin')->name('store_admin.view-tenencia-admin');
 
 
 

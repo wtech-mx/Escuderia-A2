@@ -55,4 +55,50 @@ class ExpolizaController extends Controller
 
         return redirect()->route('index.exp-poliza', compact('exp_poliza'));
     }
+
+        public function create_admin($id)
+    {
+        /* Trae los datos el auto en el que esta */
+        $automovil = DB::table('automovil')
+        ->where('id','=',$id)
+        ->first();
+
+        $exp_auto = $automovil->id;
+
+        $exp_poliza = DB::table('exp_poliza')
+        ->where('current_auto','=', $exp_auto)
+        ->get();
+
+        return view('admin.exp-fisico.view-poliza-admin',compact('exp_poliza','automovil'));
+    }
+
+    public function store_admin(Request $request,$id){
+
+        $validate = $this->validate($request,[
+            'poliza' => 'mimes:jpeg,bpm,jpg,png|max:900',
+        ]);
+
+        $exp = new ExpPoliza;
+    	if ($request->hasFile('poliza')) {
+    		$file=$request->file('poliza');
+    		$file->move(public_path().'/exp-poliza',time().".".$file->getClientOriginalExtension());
+    		$exp->poliza=time().".".$file->getClientOriginalExtension();
+    	}
+
+//    	$exp->fecha_expedicion = $request->get('fecha_expedicion');
+
+    	/* Compara el auto que se selecciono con la db */
+        $automovil = DB::table('automovil')
+        ->where('id','=',$id)
+        ->first();
+
+        $exp->current_auto = $automovil->id;
+
+        $exp->id_user = $automovil->id_user;
+
+        $exp->save();
+
+        Session::flash('success', 'Se ha guardado sus datos con exito');
+        return redirect()->back();
+    }
 }

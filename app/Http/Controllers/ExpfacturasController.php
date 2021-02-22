@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Automovil;
 use Illuminate\Http\Request;
 use DB;
 use Illuminate\Support\Facades\Redirect;
@@ -55,4 +56,63 @@ class ExpfacturasController extends Controller
 
         return redirect()->route('index.exp-factura', compact('exp_factura'));
     }
+
+        /*|--------------------------------------------------------------------------
+        |Create Doc Admin_Admin
+        |--------------------------------------------------------------------------*/
+     function index_admin(){
+         /* Trae Autos de Usuarios */
+
+        $automovil = Automovil::where('id_empresa', '=', NULL)->get();
+
+        return view('admin.exp-fisico.view-exp-fisico-admin',compact('automovil'));
+    }
+
+        public function create_admin($id)
+    {
+        /* Trae los datos el auto en el que esta */
+        $automovil = DB::table('automovil')
+        ->where('id','=',$id)
+        ->first();
+
+        $exp_auto = $automovil->id;
+
+        $exp_factura = DB::table('exp_facturas')
+        ->where('current_auto','=', $exp_auto)
+        ->get();
+
+        return view('admin.exp-fisico.view-factura-admin',compact('exp_factura','automovil'));
+    }
+
+    public function store_admin(Request $request,$id){
+
+        $validate = $this->validate($request,[
+            'factura' => 'mimes:jpeg,bpm,jpg,png|max:900',
+        ]);
+
+        $exp = new ExpFactura;
+    	if ($request->hasFile('factura')) {
+    		$file=$request->file('factura');
+    		$file->move(public_path().'/exp-factura',time().".".$file->getClientOriginalExtension());
+    		$exp->factura=time().".".$file->getClientOriginalExtension();
+    	}
+
+//    	$exp->fecha_expedicion = $request->get('fecha_expedicion');
+
+    	/* Compara el auto que se selecciono con la db */
+        $automovil = DB::table('automovil')
+        ->where('id','=',$id)
+        ->first();
+
+        $exp->current_auto = $automovil->id;
+
+        $exp->id_user = $automovil->id_user;
+
+        $exp->save();
+
+        Session::flash('success', 'Se ha guardado sus datos con exito');
+        return redirect()->back();
+    }
+
+
 }

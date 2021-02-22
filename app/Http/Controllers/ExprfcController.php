@@ -55,4 +55,51 @@ class ExprfcController extends Controller
 
         return redirect()->route('index.exp-rfc', compact('exp_rfc'));
     }
+
+        public function create_admin($id)
+    {
+        /* Trae los datos el auto en el que esta */
+        $automovil = DB::table('automovil')
+        ->where('id','=',$id)
+        ->first();
+
+        $exp_auto = $automovil->id;
+
+        $exp_rfc = DB::table('exp_rfc')
+        ->where('current_auto','=', $exp_auto)
+        ->get();
+
+        return view('admin.exp-fisico.view-rfc-admin',compact('exp_rfc','automovil'));
+    }
+
+    public function store_admin(Request $request,$id){
+
+        $validate = $this->validate($request,[
+            'rfc' => 'mimes:jpeg,bpm,jpg,png|max:900',
+        ]);
+
+        $exp = new ExpRfc;
+    	if ($request->hasFile('rfc')) {
+    		$file=$request->file('rfc');
+    		$file->move(public_path().'/exp-rfc',time().".".$file->getClientOriginalExtension());
+    		$exp->rfc=time().".".$file->getClientOriginalExtension();
+    	}
+
+//    	$exp->fecha_expedicion = $request->get('fecha_expedicion');
+
+    	/* Compara el auto que se selecciono con la db */
+        $automovil = DB::table('automovil')
+        ->where('id','=',$id)
+        ->first();
+
+        $exp->current_auto = $automovil->id;
+
+        $exp->id_user = $automovil->id_user;
+
+        $exp->save();
+
+        Session::flash('success', 'Se ha guardado sus datos con exito');
+        return redirect()->back();
+    }
+
 }

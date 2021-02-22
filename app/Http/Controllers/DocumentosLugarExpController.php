@@ -83,7 +83,7 @@ class DocumentosLugarExpController extends Controller
             'img' => 'mimes:jpeg,bpm,jpg,png|max:900',
         ]);
 
-        $documentos = new Documentos;
+        $documentos = new DocumentosLugarExp;
     	if ($request->hasFile('img')) {
     		$file=$request->file('img');
     		$file->move(public_path().'/lugarexp-tc',time().".".$file->getClientOriginalExtension());

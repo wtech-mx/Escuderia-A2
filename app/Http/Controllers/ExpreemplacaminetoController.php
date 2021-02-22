@@ -55,4 +55,51 @@ class ExpreemplacaminetoController extends Controller
 
         return redirect()->route('index.exp-reemplacamiento', compact('exp_reemplacamiento'));
     }
+
+        public function create_admin($id)
+    {
+        /* Trae los datos el auto en el que esta */
+        $automovil = DB::table('automovil')
+        ->where('id','=',$id)
+        ->first();
+
+        $exp_auto = $automovil->id;
+
+        $exp_reemplacamiento = DB::table('exp_reemplacamiento')
+        ->where('current_auto','=', $exp_auto)
+        ->get();
+
+        return view('admin.exp-fisico.view-reemplacamiento-admin',compact('exp_reemplacamiento','automovil'));
+    }
+
+    public function store_admin(Request $request,$id){
+
+        $validate = $this->validate($request,[
+            'reemplacamiento' => 'mimes:jpeg,bpm,jpg,png|max:900',
+        ]);
+
+        $exp = new ExpReemplacamiento;
+    	if ($request->hasFile('reemplacamiento')) {
+    		$file=$request->file('reemplacamiento');
+    		$file->move(public_path().'/exp-reemplacamiento',time().".".$file->getClientOriginalExtension());
+    		$exp->reemplacamiento=time().".".$file->getClientOriginalExtension();
+    	}
+
+//    	$exp->fecha_expedicion = $request->get('fecha_expedicion');
+
+    	/* Compara el auto que se selecciono con la db */
+        $automovil = DB::table('automovil')
+        ->where('id','=',$id)
+        ->first();
+
+        $exp->current_auto = $automovil->id;
+
+        $exp->id_user = $automovil->id_user;
+
+        $exp->save();
+
+        Session::flash('success', 'Se ha guardado sus datos con exito');
+        return redirect()->back();
+    }
+
 }

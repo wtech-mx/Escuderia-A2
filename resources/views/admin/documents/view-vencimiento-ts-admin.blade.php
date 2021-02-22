@@ -53,7 +53,7 @@
                                                 <img class="d-inline mb-2" src="{{asset('vencimiento-tc/'.$item->img)}}" alt="{{$item->img}}" width="100px">
                                         <p class="text-center text-white">
                                             Fecha de vencimiento : <br>
-                                            <strong>{{$item->fecha_expedicion }}</strong>
+                                            <strong>{{$item->fecha_vencimiento }}</strong>
                                         </p>
                                     </a>
                                 </div>
@@ -79,7 +79,7 @@
 
                                           <p class="text-center text-dark">
                                               Fecha de vencimiento: <br>
-                                              <strong>{{$item->fecha_expedicion}}</strong>
+                                              <strong>{{$item->fecha_vencimiento}}</strong>
                                           </p>
 
                                       </div>
@@ -138,7 +138,7 @@
                                         Agregar Datos
                                     </p>
                                   </div>
-                                   <form method="POST" action="{{route('store.vencimiento-tc')}}" enctype="multipart/form-data" role="form">
+                                   <form method="POST" action="{{route('store_admin.view-vencimiento-ts-admin', $automovil->id)}}" enctype="multipart/form-data" role="form">
                                          @csrf
                                         <div class="col-12 mt-3">
                                         <label for="">

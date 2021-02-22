@@ -44,10 +44,12 @@
                 <div class="row bg-down-blue" style="z-index:1000">
                     <div class="col-12 p-4">
                         <h6 class="text-center text-white">
+
                             ¿Que estas buscando? <br>
                             <a href="{{ route('admin-view-dashboard') }}">
                                 Modo Admin
                             </a>
+
                         </h6>
                     </div>
 

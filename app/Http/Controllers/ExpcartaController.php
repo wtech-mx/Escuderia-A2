@@ -57,4 +57,51 @@ class ExpcartaController extends Controller
         return redirect()->route('index.exp-cr', compact('exp_carta'));
         //return view('garaje.view-garaje',compact('automovil'));
     }
+
+        public function create_admin($id)
+    {
+        /* Trae los datos el auto en el que esta */
+        $automovil = DB::table('automovil')
+        ->where('id','=',$id)
+        ->first();
+
+        $exp_auto = $automovil->id;
+
+        $exp_carta = DB::table('exp_carta')
+        ->where('current_auto','=', $exp_auto)
+        ->get();
+
+        return view('admin.exp-fisico.view-cr-admin',compact('exp_carta','automovil'));
+    }
+
+    public function store_admin(Request $request,$id){
+
+        $validate = $this->validate($request,[
+            'carta' => 'mimes:jpeg,bpm,jpg,png|max:900',
+        ]);
+
+        $exp = new ExpCarta;
+    	if ($request->hasFile('carta')) {
+    		$file=$request->file('carta');
+    		$file->move(public_path().'/exp-carta',time().".".$file->getClientOriginalExtension());
+    		$exp->carta=time().".".$file->getClientOriginalExtension();
+    	}
+
+//    	$exp->fecha_expedicion = $request->get('fecha_expedicion');
+
+    	/* Compara el auto que se selecciono con la db */
+        $automovil = DB::table('automovil')
+        ->where('id','=',$id)
+        ->first();
+
+        $exp->current_auto = $automovil->id;
+
+        $exp->id_user = $automovil->id_user;
+
+        $exp->save();
+
+        Session::flash('success', 'Se ha guardado sus datos con exito');
+        return redirect()->back();
+    }
+
 }

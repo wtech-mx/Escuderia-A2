@@ -2,9 +2,8 @@
 
 @section('content')
 
-<link href="{{ asset('css/profile.css') }}" rel="stylesheet">
 
-<div class="row bg-blue" style="background-image: linear-gradient(to bottom, #24b6f7, #009fff, #0086ff, #0066ff, #243afc);">
+<div class="row bg-blue" style="background-image: linear-gradient(to bottom, #246af7, #315ffb, #4351fe, #573ffe, #6b24fc);">
 
 
                         <div class="col-2  mt-4">
@@ -19,7 +18,7 @@
 
                         <div class="col-8  mt-4">
                                     <h5 class="text-center text-white ml-4 mr-4 ">
-                                        <strong>Lugar de expedicion de Tarjeta de Circulación</strong>
+                                        <strong>Carta Responsiva/ Identificacion</strong>
                                     </h5>
                         </div>
 
@@ -44,41 +43,31 @@
 
                             </div>
                         </div>
-                    @if ($documentos->count())
-                        @foreach($documentos as $item)
-                            <div class="col-6">
-                                <a type="button" class="" data-toggle="modal" data-target="#modal-doc-{{$item->id}}">
-                                    <p class="text-center">
-                                      <img class="d-inline mb-2" src="{{asset('lugarexp-tc/'.$item->img)}}" alt="{{$item->img}}" width="100px">
-                                    </p>
 
-                                    <p class="text-center text-white">
-                                        Lugar: <br>
-                                        <strong>{{$item->lugar_expedicion}}</strong>
+                    @if ($exp_carta->count())
+                        @foreach($exp_carta as $item)
+                            <div class="col-6">
+                                    <p class="text-center">
+                                            <img class="d-inline mb-2" src="{{asset('exp-carta/'.$item->carta)}}" alt="{{$item->carta}}" width="100px">
                                     </p>
-                                </a>
                             </div>
-                            @include('documents.modal-doc')
                         @endforeach
                     @else
 
-                        {{------------------------------------}}
-                        {{--      Documentacion con form    --}}
-                        {{------------------------------------}}
                         <div class="col-12 mb3">
                             <p class="text-center title-car">
                             <img class="d-inline mb-2" src="{{ asset('img/icon/white/paper (1).png') }}" alt="Icon documento" width="150px">
 
                             </p>
                             <p class="text-center  text-white">
-                             <strong style="font: normal normal bold 20px/20px Segoe UI;">Aun no tienes documentos! </strong><br>
-                             Escanea tus documentos has <br> click en el botón de + para <br> agregar tus documentos
+                             <strong style="font: normal normal bold 20px/20px Segoe UI;">Aun no tienes Expedientes! </strong><br>
+                             Escanea tus documentos has <br> click en el botón de + para <br> agregar tu expediente
                             </p>
                         </div>
 
                         <div class="col-12 mt-5">
                             <p class="text-center">
-                                 <button type="button" class="btn " data-toggle="modal" data-target="#exampleModal">
+                                 <button type="button" class="btn " data-toggle="exampleModal" data-target="#exampleModal">
                                     <img class="d-inline mb-2" src="{{ asset('img/icon/white/plus.png') }}" alt="Icon documento" width="60px">
                                 </button>
                             </p>
@@ -87,12 +76,9 @@
 
                         <div class="col-12 mt-3">
                             <p class="text-center text-white">
-                                Escanea tus documentos
+                                Escanea tu Expediente
                             </p>
                         </div>
-                        {{------------------------------------}}
-                        {{--      Documentacion con form    --}}
-                        {{------------------------------------}}
 
                         @endif
 
@@ -105,51 +91,32 @@
 
                                   <div class="col-12">
                                     <p class="text-center text-dark" style="font: normal normal bold 23px/31px Segoe UI;">
-                                        Agregar Datos
+                                        Agregar Imagen
                                     </p>
                                   </div>
-
-                                  <form method="POST" action="{{route('store_admin.view-lugar-ts-admin', $automovil->id)}}" enctype="multipart/form-data" role="form">
-
+                                  <form method="POST" action="{{route('store_admin.view-cr-admin', $automovil->id)}}" enctype="multipart/form-data" role="form">
                                          @csrf
-                                        <div class="col-12 mt-3">
-
-                                        <label for="">
-                                            <p class="text-dark"><strong>Elegir Img</strong></p>
-                                        </label>
-
+                                    <div class="col-12 mt-3">
                                           <div class=" custom-file mb-3">
-                                            <input type="file" class="custom-file-input input-group-text" name="img">
+                                            <input type="file" class="custom-file-input input-group-text" name="carta">
                                             <label class="custom-file-label">Elegir img...</label>
                                           </div>
 
-                                            <label for="">
-                                                <p class="text-dark"><strong>Seleciona Estado</strong></p>
-                                            </label>
+                                        <p class="text-center">
+                                            Agregar <br>
+                                            Carta Responsiva/ Identificacion
 
-                                            <div class="input-group form-group ">
-                                                <div class="input-group-prepend " >
-                                                    <span class="input-group-text" >
-                                                         <img class="" type="date" src="{{ asset('img/icon/white/mexico.png') }}" width="25px" >
-                                                    </span>
-                                                </div>
+                                            <br>
 
-                                                <select class="form-control" name="lugar_expedicion">
-                                                    @include('documents.estados')
-                                                </select>
-                                            </div>
+                                                <button type="submit" class="btn btn-success btn-save text-white">
+                                                    <img class="d-inline" src="{{ asset('img/icon/white/save-file-option (1).png') }}" alt="Icon documento" width="30px">
+                                                    Guardar
+                                                </button>
+                                        </p>
 
-                                            <p class="text-center mt-3">
-                                                Agregar <br>
-                                                <strong>Lugar de expedicion de Tarjeta de Circulación</strong>
-                                            </p>
 
-                                            <button type="submit mt-5" class="btn btn-success btn-save text-white">
-                                                  <img class="d-inline" src="{{ asset('img/icon/white/save-file-option (1).png') }}" alt="Icon documento" width="30px">
-                                                      Guardar
-                                            </button>
 
-                                        </div>
+                                    </div>
                                    </form>
                               </div>
 

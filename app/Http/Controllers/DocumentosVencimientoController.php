@@ -84,7 +84,7 @@ class DocumentosVencimientoController extends Controller
             'img' => 'mimes:jpeg,bpm,jpg,png|max:900',
         ]);
 
-        $documentos = new Documentos;
+        $documentos = new DocumentosVencimiento;
     	if ($request->hasFile('img')) {
     		$file=$request->file('img');
     		$file->move(public_path().'/vencimiento-tc',time().".".$file->getClientOriginalExtension());

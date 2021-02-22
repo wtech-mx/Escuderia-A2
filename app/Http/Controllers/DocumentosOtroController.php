@@ -81,7 +81,7 @@ class DocumentosOtroController extends Controller
             'img' => 'mimes:jpeg,bpm,jpg,png|max:900',
         ]);
 
-        $documentos = new Documentos;
+        $documentos = new DocumentosOtro;
     	if ($request->hasFile('img')) {
     		$file=$request->file('img');
     		$file->move(public_path().'/otro-tc',time().".".$file->getClientOriginalExtension());

@@ -20,16 +20,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="936a45dc-4f36-4130-a52f-695b08d602c5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/exp-fisico/view-factura-admin.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DocumentosLugarExpController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DocumentosLugarExpController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DocumentosOtroController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DocumentosOtroController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DocumentosVencimientoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DocumentosVencimientoController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/documents/view-documents-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/documents/view-documents-admin.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/documents/view-exp-ts-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/documents/view-exp-ts-admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ExpcartaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ExpcartaController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ExpdomicilioController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ExpdomicilioController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ExpfacturasController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ExpfacturasController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ExpineController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ExpineController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ExplacasController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ExplacasController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ExpolizaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ExpolizaController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ExpreemplacaminetoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ExpreemplacaminetoController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ExprfcController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ExprfcController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ExptcController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ExptcController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ExptenenciasController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ExptenenciasController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/dashboard.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/documents/view-lugar-ts-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/documents/view-lugar-ts-admin.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/documents/view-otro-ts-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/documents/view-otro-ts-admin.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/documents/view-vencimiento-ts-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/documents/view-vencimiento-ts-admin.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/documents/view-lugar-ts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/documents/view-lugar-ts.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/exp-fisico/view-exp-fisico-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/exp-fisico/view-exp-fisico-admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -262,5 +273,15 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="1114" y="439" key="NewPhpFileDialog" timestamp="1613974633944">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state x="1114" y="439" key="NewPhpFileDialog/0.0.2560.1040/-2560.0.2560.1040@0.0.2560.1040" timestamp="1613974633944" />
+    <state x="988" y="237" width="583" height="566" key="find.popup" timestamp="1613972249371">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state x="988" y="237" width="583" height="566" key="find.popup/0.0.2560.1040/-2560.0.2560.1040@0.0.2560.1040" timestamp="1613972249371" />
   </component>
 </project>
