@@ -20,11 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="936a45dc-4f36-4130-a52f-695b08d602c5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/user/edit-user-admin.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MecanicaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MecanicaController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SegurosController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SegurosController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/services/llantas.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/services/llantas.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/seguros/seguros.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/seguros/seguros.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/seguros/view-seguros-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/seguros/view-seguros-admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/user/view-user-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/user/view-user-admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -259,10 +260,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1114" y="439" key="NewPhpFileDialog" timestamp="1613974633944">
+    <state x="1114" y="439" key="NewPhpFileDialog" timestamp="1614016137180">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="1114" y="439" key="NewPhpFileDialog/0.0.2560.1040/-2560.0.2560.1040@0.0.2560.1040" timestamp="1613974633944" />
+    <state x="1114" y="439" key="NewPhpFileDialog/0.0.2560.1040/-2560.0.2560.1040@0.0.2560.1040" timestamp="1614016137180" />
     <state x="988" y="237" width="583" height="566" key="find.popup" timestamp="1613972249371">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>

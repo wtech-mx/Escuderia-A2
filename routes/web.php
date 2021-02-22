@@ -18,7 +18,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
 /*|--------------------------------------------------------------------------
 |Usuario
 |--------------------------------------------------------------------------*/
@@ -182,6 +181,9 @@ Route::post('admin/user/create','UserController@store_auto')->name('store_auto.u
 Route::get('admin/usuario/index','UserController@index_admin')->name('index_admin.user');
 Route::get('admin/usuario/crear','UserController@create_admin')->name('create_admin.user');
 Route::post('admin/usuario/crear','UserController@store_admin')->name('store_admin.user');
+
+Route::get('admin/usuario/edit/{id}','UserController@edit_admin')->name('edit_admin.user');
+Route::patch('admin/usuario/update/{id}','UserController@update_admin')->name('update_admin.user');
 
 /*|--------------------------------------------------------------------------
 |garaje edit - Admin
