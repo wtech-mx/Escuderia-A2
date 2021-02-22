@@ -34,7 +34,7 @@
 
                     <div class="col-12 p-3">
                         <p class="text-center">
-                            <img class="" src="{{ asset('img/icon/color/logo-gnp.png') }}" width="150px" >
+                            <img class="" src="{{ asset('img/icon/seguros/'.$img) }}" width="150px" >
                         </p>
                     </div>
 

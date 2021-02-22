@@ -83,8 +83,8 @@
 
                                                  <select class="form-control" id="id_user" name="id_user">
                                                      <option value="">Seleccione usuario</option>
-                                                     @foreach($user as $item)
-                                                        <option value="{{$item->id}}">{{$item->name}}</option>
+                                                     @foreach($users as $item)
+                                                        <option value="{{$carro = old('id')}}">{{$item->User->name}}</option>
                                                      @endforeach
                                                  </select>
                                         </div>
@@ -100,12 +100,14 @@
                                                 </span>
                                             </div>
 
-                                                 <select class="form-control" id="current_auto" name="current_auto">
-                                                     <option value="">Seleccione usuario</option>
-                                                     @foreach($automovil as $item)
-                                                        <option value="{{$item->id}}">{{$item->submarca}}</option>
-                                                     @endforeach
-                                                 </select>
+                                            <select class="form-control" id="exampleFormControlSelect1">
+                                                @foreach($automovil as $item)
+                                                    @if ($item->id_user == $carro)
+
+                                              <option>{{$item->submarca}}</option>
+                                                    @endif
+                                                @endforeach
+                                            </select>
                                         </div>
 
                                       </div>
@@ -220,7 +222,7 @@
                                                 <input type="text" class="form-control" placeholder="Direccion" style="border-radius: 0  10px 10px 0;" id="descripcion" name="descripcion">
                                             </div>
 
-                                            <input type="text" class="form-control" placeholder="servicio" style="border-radius: 0  10px 10px 0;" id="servicio" name="servicio" value="1">
+                                            <input type="text" class="form-control" placeholder="servicio" style="border-radius: 0  10px 10px 0;" id="servicio" name="servicio">
 
                                          <label for="">
                                              <p class="text-white"><strong>Garantia</strong></p>

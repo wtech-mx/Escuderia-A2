@@ -22,8 +22,7 @@ class MecanicaController extends Controller
             ->where('role','=', '0')
             ->get();
 
-          $users = DB::table('users')
-            ->first();
+          $users = Automovil::get();
 
          $empresa = DB::table('empresa')
             ->get();
@@ -32,10 +31,10 @@ class MecanicaController extends Controller
             ->get();
 
          $automovil = DB::table('automovil')
-             ->where('id_user','=', $users->id)
+
             ->get();
 
-        return view('admin.services.mecanica',compact('user', 'empresa', 'marca', 'automovil'));
+        return view('admin.services.mecanica',compact('user', 'empresa', 'marca', 'automovil','users'));
     }
 
     public function store_servicio(Request $request)
