@@ -1,5 +1,6 @@
-                                  <div class="col-12">
-
+                       <form method="POST" action="{{route('store_servicio.servicio')}}" enctype="multipart/form-data" role="form">
+                         @csrf
+                                <div class="col-12">
                                       <p class="title-services text-center p-3">
                                           Elige al usuario o empresa <br> del auto a elegir
                                       </p>
@@ -24,10 +25,8 @@
                                             </a>
                                           </li>
                                         </ul>
-                                      </div>
-
-
-                                    <div class="tab-content" id="pills-tabContent">
+                                     </div>
+                                     <div class="tab-content" id="pills-tabContent">
 
                                       <div class="tab-pane fade show active mr-4 ml-4" id="pills-Empresa" role="tabpanel" aria-labelledby="pills-Empresa-tab">
 
@@ -43,9 +42,9 @@
                                             </div>
 
                                                 <select class="form-control" id="id_empresa" name="id_empresa">
-                                                     <option>Seleccione empresa</option>
+                                                     <option value="">Seleccione empresa</option>
                                                      @foreach($empresa as $item)
-                                                        <option value="{{$item->id}}">{{$item->nombre}}</option>
+                                                        <option value="{{$item->id}}">{{ ucfirst($item->nombre)}}</option>
                                                      @endforeach
                                                 </select>
                                         </div>
@@ -61,8 +60,8 @@
                                                 </span>
                                             </div>
 
-                                            <select class="form-control" id="exampleFormControlSelect1">
-                                              <option>Ale</option>
+                                            <select class="form-control" id="current_auto" name="current_auto">
+                                              <option value="">seleccione auto</option>
                                             </select>
                                         </div>
 
@@ -81,10 +80,10 @@
                                                 </span>
                                             </div>
 
-                                                 <select class="form-control" id="id_user" name="id_user">
+                                                 <select class="form-control formselect" id="id_user" name="id_user">
                                                      <option value="">Seleccione usuario</option>
-                                                     @foreach($users as $item)
-                                                        <option value="{{$carro = old('id')}}">{{$item->User->name}}</option>
+                                                     @foreach($user as $item)
+                                                        <option value="{{$item->id}}">{{ ucfirst($item->name)}}</option>
                                                      @endforeach
                                                  </select>
                                         </div>
@@ -100,25 +99,13 @@
                                                 </span>
                                             </div>
 
-                                            <select class="form-control" id="exampleFormControlSelect1">
-                                                @foreach($automovil as $item)
-                                                    @if ($item->id_user == $carro)
-
-                                              <option>{{$item->submarca}}</option>
-                                                    @endif
-                                                @endforeach
+                                            <select class="form-control formselect" id="current_auto2" name="current_auto2">
+                                                    <option value="">seleccione auto</option>
                                             </select>
                                         </div>
-
                                       </div>
-
                                     </div>
-
-                                    {{--/*|----------------------------------------------------------------------------}}
-                                    {{--Tab Empres o User--}}
-                                    {{--|--------------------------------------------------------------------------*/--}}
-
-                                  </div>
+                                </div>
 
                                   <div class="col-12 text-center">
 
@@ -205,7 +192,6 @@
                                             <a  class="btn bg-white" data-toggle="modal" data-target="#Marca">
                                                 <img class="" src="{{ asset('img/icon/black/boton-circular-plus (1).png') }}" width="25px" >
                                             </a>
-
                                   </div>
 
                                   <div class="col-12 p-4">
@@ -219,10 +205,10 @@
                                                          <img class="" src="{{ asset('img/icon/white/contrato.png') }}" width="25px" >
                                                     </span>
                                                 </div>
-                                                <input type="text" class="form-control" placeholder="Direccion" style="border-radius: 0  10px 10px 0;" id="descripcion" name="descripcion">
+                                                <input type="text" class="form-control" placeholder="Descripcion" style="border-radius: 0  10px 10px 0;" id="descripcion" name="descripcion">
                                             </div>
 
-                                            <input type="text" class="form-control" placeholder="servicio" style="border-radius: 0  10px 10px 0;" id="servicio" name="servicio">
+                                            <input type="hidden" class="form-control" placeholder="servicio" style="border-radius: 0  10px 10px 0;" id="servicio" name="servicio" value="1">
 
                                          <label for="">
                                              <p class="text-white"><strong>Garantia</strong></p>
@@ -281,12 +267,62 @@
                                           <label class="custom-file-label" for="customFile">Selecciona Video</label>
                                         </div>
 
-
-
                                           <button class="btn btn-lg btn-success btn-save mt-4">
                                               <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}" width="20px" >
                                               Actualizar
                                           </button>
-
-
                                   </div>
+
+                                  <!-- Select anidado User-->
+                                    <script src="http://code.jquery.com/jquery-3.4.1.js"></script>
+                                    <script>
+                                                    $(document).ready(function () {
+                                                    $('#id_user').on('change', function () {
+                                                    let id = $(this).val();
+                                                    //id_user no esta en la tabla de automovil
+                                                    $('#current_auto2').empty();
+                                                    $('#current_auto2').append(`<option value="" disabled selected>Prosesando..</option>`);
+                                                    $.ajax({
+                                                    type: 'GET',
+                                                    url: 'crear/' + id,
+                                                    success: function (response) {
+                                                    var response = JSON.parse(response);
+                                                    console.log(response);
+                                                    //trae los automoviles relacionados con el id_user
+                                                    $('#current_auto2').empty();
+                                                    $('#current_auto2').append(`<option value="" disabled selected>Seleccione Automovil</option>`);
+                                                    response.forEach(element => {
+                                                        $('#current_auto2').append(`<option value="${element['id']}">${element['submarca']}</option>`);
+                                                        });
+                                                    }
+                                                });
+                                            });
+                                        });
+                                     </script>
+                                  <!-- Select anidado Empresa-->
+                                    <script>
+                                                    $(document).ready(function () {
+                                                    $('#id_empresa').on('change', function () {
+                                                    let id = $(this).val();
+                                                    //id_empresa no esta en la tabla de automovil
+                                                    $('#current_auto').empty();
+                                                    $('#current_auto').append(`<option value="" disabled selected>Prosesando..</option>`);
+                                                    $.ajax({
+                                                    type: 'GET',
+                                                    url: 'crear/empresa/' + id,
+                                                    success: function (response) {
+                                                    var response = JSON.parse(response);
+                                                    console.log(response);
+                                                    //trae los automoviles relacionados con el id_empresa
+                                                    $('#current_auto').empty();
+                                                    $('#current_auto').append(`<option value="" disabled selected>Seleccione Automovil</option>`);
+                                                    response.forEach(element => {
+                                                        $('#current_auto').append(`<option value="${element['id']}">${element['submarca']}</option>`);
+                                                        });
+                                                    }
+                                                });
+                                            });
+                                        });
+                                     </script>
+                       </form>
+

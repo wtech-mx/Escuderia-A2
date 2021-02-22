@@ -22,8 +22,6 @@ class MecanicaController extends Controller
             ->where('role','=', '0')
             ->get();
 
-          $users = Automovil::get();
-
          $empresa = DB::table('empresa')
             ->get();
 
@@ -31,10 +29,16 @@ class MecanicaController extends Controller
             ->get();
 
          $automovil = DB::table('automovil')
-
             ->get();
 
-        return view('admin.services.mecanica',compact('user', 'empresa', 'marca', 'automovil','users'));
+        return view('admin.services.mecanica',compact('empresa', 'marca', 'automovil', 'user'));
+    }
+    /* Trae los automoviles con el user seleccionado  */
+    public function GetSubCatAgainstMainCatEdit($id){
+            echo json_encode(DB::table('automovil')->where('id_user', $id)->get());
+    }
+    public function GetEmpreAgainstMainCatEdit($id){
+            echo json_encode(DB::table('automovil')->where('id_empresa', $id)->get());
     }
 
     public function store_servicio(Request $request)
@@ -45,6 +49,7 @@ class MecanicaController extends Controller
         $mecanica->llantas_delanteras = $request->get('llantas_delanteras');
         $mecanica->llantas_traseras = $request->get('llantas_traseras');
         $mecanica->current_auto = $request->get('current_auto');
+        $mecanica->current_auto2 = $request->get('current_auto2');
         $mecanica->servicio = $request->get('servicio');
         $mecanica->id_marca = $request->get('id_marca');
         $mecanica->descripcion = $request->get('descripcion');
@@ -67,4 +72,5 @@ class MecanicaController extends Controller
         $mecanica->save();
         return redirect()->back();
     }
+
 }

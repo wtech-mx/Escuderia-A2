@@ -21,10 +21,14 @@
   <component name="ChangeListManager">
     <list default="true" id="936a45dc-4f36-4130-a52f-695b08d602c5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MarcaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MarcaController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MecanicaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MecanicaController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SegurosController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SegurosController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Mecanica.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Mecanica.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_01_27_235702_create_mecanica_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_01_27_235702_create_mecanica_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/layouts/app.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/services/llantas.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/services/llantas.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/seguros/seguros.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/seguros/seguros.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/services/modal-marca.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/services/modal-marca.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -239,7 +243,7 @@
       <workItem from="1613670961497" duration="5043000" />
       <workItem from="1613838747345" duration="26692000" />
       <workItem from="1613917392620" duration="18167000" />
-      <workItem from="1614002923815" duration="1877000" />
+      <workItem from="1614002923815" duration="14307000" />
     </task>
     <servers />
   </component>
@@ -257,15 +261,5 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="1114" y="439" key="NewPhpFileDialog" timestamp="1613974633944">
-      <screen x="0" y="0" width="2560" height="1040" />
-    </state>
-    <state x="1114" y="439" key="NewPhpFileDialog/0.0.2560.1040/-2560.0.2560.1040@0.0.2560.1040" timestamp="1613974633944" />
-    <state x="988" y="237" width="583" height="566" key="find.popup" timestamp="1613972249371">
-      <screen x="0" y="0" width="2560" height="1040" />
-    </state>
-    <state x="988" y="237" width="583" height="566" key="find.popup/0.0.2560.1040/-2560.0.2560.1040@0.0.2560.1040" timestamp="1613972249371" />
   </component>
 </project>

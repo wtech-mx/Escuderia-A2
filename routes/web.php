@@ -224,7 +224,8 @@ Route::get('admin/services/mecanica', function () {
 
 Route::get('admin/servicio/crear','MecanicaController@create_servicio')->name('create_servicio.servicio');
 Route::post('admin/servicio/crear','MecanicaController@store_servicio')->name('store_servicio.servicio');
-
+Route::get('admin/servicio/crear/{id}', 'MecanicaController@GetSubCatAgainstMainCatEdit');
+Route::get('admin/servicio/crear/empresa/{id}', 'MecanicaController@GetEmpreAgainstMainCatEdit');
 /*|--------------------------------------------------------------------------
 |Documents
 |--------------------------------------------------------------------------*/
@@ -285,6 +286,10 @@ Route::post('admin/exp-fisico/tc/crear/{id}','ExptcController@store_admin')->nam
 Route::get('admin/exp-fisico/tenencia/view/{id}','ExptenenciasController@create_admin')->name('create_admin.view-tenencia-admin');
 Route::post('admin/exp-fisico/tenencia/crear/{id}','ExptenenciasController@store_admin')->name('store_admin.view-tenencia-admin');
 
+/*|--------------------------------------------------------------------------
+|Marca
+|--------------------------------------------------------------------------*/
+Route::post('admin/servicio/crear/marca','MarcaController@store')->name('store.marca');
 
 
 require __DIR__.'/auth.php';

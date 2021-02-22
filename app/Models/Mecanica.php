@@ -24,6 +24,7 @@ class Mecanica extends Model
         'garantia',
         'vida_llantas',
         'km_actual',
+        'current_auto2',
     ];
 
     protected $guarded=[

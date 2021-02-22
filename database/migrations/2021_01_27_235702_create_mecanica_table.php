@@ -19,6 +19,7 @@ class CreateMecanicaTable extends Migration
             $table->unsignedBigInteger('id_empresa')->nullable();
             $table->string('servicio')->nullable();
             $table->string('current_auto')->nullable();
+            $table->string('current_auto2')->nullable();
             $table->integer('llantas_delanteras');
             $table->integer('llantas_traseras');
             $table->unsignedBigInteger('id_marca');
