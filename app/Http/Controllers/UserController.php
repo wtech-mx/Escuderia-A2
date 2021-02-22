@@ -102,6 +102,7 @@ class UserController extends Controller
     		'direccion' => 'max:191',
             'referencia' => 'max:191',
             'genero' => 'max:191',
+            'password' => 'string|confirmed|min:8',
         ]);
 
         $user = User::findOrFail($id);
@@ -113,6 +114,13 @@ class UserController extends Controller
         $user->direccion = $request->get('direccion');
         $user->referencia = $request->get('referencia');
         $user->genero = $request->get('genero');
+        $user->password = Hash::make($request->password);
+
+    	if ($request->hasFile('img')) {
+    		$file=$request->file('img');
+    		$file->move(public_path().'/img-perfil',time().".".$file->getClientOriginalExtension());
+    		$user->img=time().".".$file->getClientOriginalExtension();
+    	}
 
         $users = DB::table('users')
         ->get();

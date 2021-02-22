@@ -38,7 +38,7 @@
 
                     <div class="col-12 p-3">
                         <p class="text-center">
-                            <img class="rounded-circle" src="https://www.elsiglodetorreon.com.mx/m/i/2021/01/1384186.jpeg" height="150px" width="150px">
+                            <img class="rounded-circle" src="{{ asset('img-perfil/'.$user->img) }}" height="150px" width="150px">
                             <h4 class="text-center text-white">
                                 <strong>{{$user->name}}</strong>
                             </h4>
@@ -214,13 +214,21 @@
 
                                   </div>
 
-                                      <div class="col-12 text-center mt-3 mb-5">
+                                     <label for="" class="mt-3">
+                                         <p class="text-white"><strong>Foto de Perfil</strong></p>
+                                     </label>
 
+                                    <div class="custom-file">
+                                      <input type="file" class="custom-file-input"  id='img' name="img" value="{{$user->img}}">
+                                      <label class="custom-file-label" for="img">Selecciona imagen</label>
+                                    </div>
+
+
+                                      <div class="col-12 text-center mt-3 mb-5">
                                           <button class="btn btn-lg btn-success btn-save ">
                                               <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}" width="20px" >
                                               Actualizar
                                          </button>
-
                                       </div>
 
                                   </div>
@@ -237,7 +245,7 @@
                                                  <img class="" src="{{ asset('img/icon/white/padlock.png') }}" width="25px" >
                                             </span>
                                         </div>
-                                        <input type="text" class="form-control" placeholder="correo@correo.com" style="border-radius: 0  10px 10px 0;">
+                                        <input type="password" class="form-control" placeholder="****" id="password" name="password" style="border-radius: 0  10px 10px 0;">
                                     </div>
 
                                      <label for="">
@@ -250,7 +258,7 @@
                                                  <img class="" src="{{ asset('img/icon/white/password.png') }}" width="25px" >
                                             </span>
                                         </div>
-                                        <input type="text" class="form-control" placeholder="correo@correo.com" style="border-radius: 0  10px 10px 0;">
+                                        <input type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="Confirmar Contraseña" id="password-confirm" style="border-radius: 0  10px 10px 0;">
                                     </div>
 
                                       <div class="col-12 text-center mt-5 mb-5">
