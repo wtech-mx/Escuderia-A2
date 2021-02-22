@@ -42,9 +42,12 @@
                                                 </span>
                                             </div>
 
-                                            <select class="form-control" id="exampleFormControlSelect1">
-                                              <option>Ale</option>
-                                            </select>
+                                                <select class="form-control" id="id_empresa" name="id_empresa">
+                                                     <option>Seleccione empresa</option>
+                                                     @foreach($empresa as $item)
+                                                        <option value="{{$item->id}}">{{$item->nombre}}</option>
+                                                     @endforeach
+                                                </select>
                                         </div>
 
                                          <label for="">
@@ -78,9 +81,12 @@
                                                 </span>
                                             </div>
 
-                                            <select class="form-control" id="exampleFormControlSelect1">
-                                              <option>Ale</option>
-                                            </select>
+                                                 <select class="form-control" id="id_user" name="id_user">
+                                                     <option value="">Seleccione usuario</option>
+                                                     @foreach($user as $item)
+                                                        <option value="{{$item->id}}">{{$item->name}}</option>
+                                                     @endforeach
+                                                 </select>
                                         </div>
 
                                          <label for="">
@@ -94,9 +100,12 @@
                                                 </span>
                                             </div>
 
-                                            <select class="form-control" id="exampleFormControlSelect1">
-                                              <option>Ale</option>
-                                            </select>
+                                                 <select class="form-control" id="current_auto" name="current_auto">
+                                                     <option value="">Seleccione usuario</option>
+                                                     @foreach($automovil as $item)
+                                                        <option value="{{$item->id}}">{{$item->submarca}}</option>
+                                                     @endforeach
+                                                 </select>
                                         </div>
 
                                       </div>
@@ -118,20 +127,20 @@
                                             <div class="form-check form-check-inline mr-4 ml-4">
 
                                                 <div class="d-flex justify-content-center">
-                                                    <input class="form-check-input " type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                                    <input class="form-check-input " type="radio" name="llantas_delanteras" id="llantas_delanteras" value="1">
                                                 </div>
 
                                                 <label class="form-check-label text-white" for="inlineRadio1">
-                                                    SI
+                                                    Si
                                                 </label>
                                             </div>
 
                                             <div class="form-check form-check-inline mr-4 ml-4">
                                                 <div class="d-flex justify-content-center">
-                                                    <input class="form-check-input  d-block" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                                    <input class="form-check-input  d-block" type="radio" name="llantas_delanteras" id="llantas_delanteras" value="0">
                                                 </div>
                                               <label class="form-check-label text-white" for="inlineRadio2">
-                                                  NO
+                                                  No
                                               </label>
                                             </div>
 
@@ -146,20 +155,20 @@
                                             <div class="form-check form-check-inline mr-4 ml-4">
 
                                                 <div class="d-flex justify-content-center">
-                                                    <input class="form-check-input " type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                                    <input class="form-check-input " type="radio" name="llantas_traseras" id="llantas_traseras" value="1">
                                                 </div>
 
                                                 <label class="form-check-label text-white" for="inlineRadio1">
-                                                    SI
+                                                    Si
                                                 </label>
                                             </div>
 
                                             <div class="form-check form-check-inline mr-4 ml-4">
                                                 <div class="d-flex justify-content-center">
-                                                    <input class="form-check-input  d-block" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                                    <input class="form-check-input  d-block" type="radio" name="llantas_traseras" id="llantas_traseras" value="0">
                                                 </div>
                                               <label class="form-check-label text-white" for="inlineRadio2">
-                                                  NO
+                                                  No
                                               </label>
                                             </div>
                                   </div>
@@ -177,9 +186,12 @@
                                                     </span>
                                                 </div>
 
-                                                <select class="form-control" id="exampleFormControlSelect1">
-                                                  <option>Ale</option>
-                                                </select>
+                                             <select class="form-control input-edit-car" id="id_marca" name="id_marca" value="{{ old('submarca') }}">
+                                                <option>Selecciona la marca</option>
+                                                @foreach($marca as $item)
+                                                    <option value="{{ $item->id }}">{{ $item->nombre }}</option>
+                                                @endforeach
+                                             </select>
                                             </div>
                                   </div>
 
@@ -205,8 +217,10 @@
                                                          <img class="" src="{{ asset('img/icon/white/contrato.png') }}" width="25px" >
                                                     </span>
                                                 </div>
-                                                <input type="text" class="form-control" placeholder="Direccion" style="border-radius: 0  10px 10px 0;" id='datetimepicker1'>
+                                                <input type="text" class="form-control" placeholder="Direccion" style="border-radius: 0  10px 10px 0;" id="descripcion" name="descripcion">
                                             </div>
+
+                                            <input type="text" class="form-control" placeholder="servicio" style="border-radius: 0  10px 10px 0;" id="servicio" name="servicio" value="1">
 
                                          <label for="">
                                              <p class="text-white"><strong>Garantia</strong></p>
@@ -218,7 +232,7 @@
                                                          <img class="" src="{{ asset('img/icon/white/garantia.png') }}" width="25px" >
                                                     </span>
                                                 </div>
-                                                <input type="text" class="form-control" placeholder="garantia" style="border-radius: 0  10px 10px 0;" id='datetimepicker1'>
+                                                <input type="text" class="form-control" placeholder="garantia" style="border-radius: 0  10px 10px 0;" id="garantia" name="garantia">
                                             </div>
 
                                          <label for="">
@@ -231,7 +245,7 @@
                                                          <img class="" src="{{ asset('img/icon/white/velocimetro.png') }}" width="25px" >
                                                     </span>
                                                 </div>
-                                                <input type="text" class="form-control" placeholder="Direccion" style="border-radius: 0  10px 10px 0;" id='datetimepicker1'>
+                                                <input type="text" class="form-control" placeholder="vida llantas" style="border-radius: 0  10px 10px 0;" id="vida_llantas" name="vida_llantas">
                                             </div>
 
                                          <label for="">
@@ -244,7 +258,7 @@
                                                          <img class="" src="{{ asset('img/icon/white/velocimetro (2).png') }}" width="25px" >
                                                     </span>
                                                 </div>
-                                                <input type="text" class="form-control" placeholder="Direccion" style="border-radius: 0  10px 10px 0;" id='datetimepicker1'>
+                                                <input type="text" class="form-control" placeholder="km actual" style="border-radius: 0  10px 10px 0;" id="km_actual" name="km_actual">
                                             </div>
 
                                          <label for="">
@@ -252,7 +266,7 @@
                                          </label>
 
                                         <div class="custom-file">
-                                          <input type="file" class="custom-file-input " id="customFile">
+                                          <input type="file" class="custom-file-input " id="video" name="video">
                                           <label class="custom-file-label " for="customFile">Selecciona Video</label>
                                         </div>
 
@@ -261,7 +275,7 @@
                                          </label>
 
                                         <div class="custom-file">
-                                          <input type="file" class="custom-file-input" id="customFile">
+                                          <input type="file" class="custom-file-input" id="video2" name="video2">
                                           <label class="custom-file-label" for="customFile">Selecciona Video</label>
                                         </div>
 
@@ -270,7 +284,7 @@
                                           <button class="btn btn-lg btn-success btn-save mt-4">
                                               <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}" width="20px" >
                                               Actualizar
-                                         </button>
+                                          </button>
 
 
                                   </div>

@@ -15,6 +15,8 @@ class Mecanica extends Model
     protected $fillable = [
         'id_user',
         'id_empresa',
+        'current_auto',
+        'servicio',
         'llantas_delanteras',
         'llantas_traseras',
         'id_marca',

@@ -222,6 +222,9 @@ Route::get('admin/services/mecanica', function () {
     return view('admin/services/mecanica');
 })->middleware(['auth'])->name('mecanica');
 
+Route::get('admin/servicio/crear','MecanicaController@create_servicio')->name('create_servicio.servicio');
+Route::post('admin/servicio/crear','MecanicaController@store_servicio')->name('store_servicio.servicio');
+
 /*|--------------------------------------------------------------------------
 |Documents
 |--------------------------------------------------------------------------*/
@@ -231,6 +234,10 @@ Route::get('admin/documents/index/','DocumentosController@index_admin')->name('i
 /* Trae datos de Fecha_expedicion */
 Route::get('admin/documents/view/{id}','DocumentosController@create_admin')->name('create_admin.view-exp-ts-admin');
 Route::post('admin/documents/crear/{id}','DocumentosController@store_admin')->name('store_admin.view-exp-ts-admin');
+
+/* Trae datos de Fecha_expedicion */
+Route::get('admin/documents/view/vencimiento/{id}','DocumentosVencimientoController@create_admin')->name('create_admin.view-vencimiento-ts-admin');
+Route::post('admin/documents/crear/vencimiento/{id}','DocumentosVencimientoController@store_admin')->name('store_admin.view-vencimiento-ts-admin');
 
 
 Route::get('admin/documents/view-lugar-ts-admin', function () {

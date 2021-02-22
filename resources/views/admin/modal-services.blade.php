@@ -21,7 +21,7 @@
                           <div class="row">
 
                               <div class="col-9  mr-3 car-modal " style="height: 60px;">
-                                   <a href="{{ route('mecanica') }}" >
+                                   <a href="{{ route('create_servicio.servicio') }}" >
                                        <p class="text-center mt-2" style="font: normal normal bold 25px/33px Segoe UI;color: #FFFFFF">
                                            <img src="{{ asset('img/icon/color/coche (5).png') }}" alt="Icon documento" width="40px">
                                            Mecanica
@@ -30,7 +30,7 @@
                               </div>
 
                               <div class="col-2 car-modal " style="height: 60px;background-color: #24DAF7;border: 1px solid #24DAF7">
-                                   <a href="{{ route('mecanica') }}" >
+                                   <a href="{{ route('create_servicio.servicio') }}" >
                                        <p class="text-center mt-2" style="font: normal normal bold 25px/33px Segoe UI;color: #FFFFFF">
                                            <img src="{{ asset('img/icon/white/documento (2).png') }}" alt="Icon documento" width="25px">
                                        </p>
@@ -45,7 +45,7 @@
                               </div>
 
                               <div class="col-2  mt-3 car-modal " style="height: 60px;background-color: #24DAF7;border: 1px solid #24DAF7">
-                                   <a href="{{ route('mecanica') }}" >
+                                   <a href="{{ route('create_servicio.servicio') }}" >
                                        <p class="text-center mt-2" style="font: normal normal bold 25px/33px Segoe UI;color: #FFFFFF">
                                            <img src="{{ asset('img/icon/white/documento (2).png') }}" alt="Icon documento" width="25px">
                                        </p>
@@ -60,7 +60,7 @@
                               </div>
 
                               <div class="col-2 mt-3 car-modal " style="height: 60px;background-color: #24DAF7;border: 1px solid #24DAF7">
-                                   <a href="{{ route('mecanica') }}" >
+                                   <a href="{{ route('create_servicio.servicio') }}" >
                                        <p class="text-center mt-2" style="font: normal normal bold 25px/33px Segoe UI;color: #FFFFFF">
                                            <img src="{{ asset('img/icon/white/documento (2).png') }}" alt="Icon documento" width="25px">
                                        </p>
@@ -75,7 +75,7 @@
                               </div>
 
                               <div class="col-2 mt-3 car-modal " style="height: 60px;background-color: #24DAF7;border: 1px solid #24DAF7">
-                                   <a href="{{ route('mecanica') }}" >
+                                   <a href="{{ route('create_servicio.servicio') }}" >
                                        <p class="text-center mt-2" style="font: normal normal bold 25px/33px Segoe UI;color: #FFFFFF">
                                            <img src="{{ asset('img/icon/white/documento (2).png') }}" alt="Icon documento" width="25px">
                                        </p>

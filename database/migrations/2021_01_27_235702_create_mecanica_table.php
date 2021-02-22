@@ -17,6 +17,8 @@ class CreateMecanicaTable extends Migration
             $table->id();
             $table->unsignedBigInteger('id_user')->nullable();
             $table->unsignedBigInteger('id_empresa')->nullable();
+            $table->string('servicio')->nullable();
+            $table->string('current_auto')->nullable();
             $table->integer('llantas_delanteras');
             $table->integer('llantas_traseras');
             $table->unsignedBigInteger('id_marca');
@@ -24,6 +26,8 @@ class CreateMecanicaTable extends Migration
             $table->string('garantia');
             $table->string('vida_llantas');
             $table->string('km_actual');
+            $table->string('video_interior',900);
+            $table->string('video_exterior', 900);
 
             $table->foreign('id_user')
                 ->references('id')->on('users')

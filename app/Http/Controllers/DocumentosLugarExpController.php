@@ -59,4 +59,5 @@ class DocumentosLugarExpController extends Controller
         return redirect()->route('index.lugar-tc', compact('documentos'));
         //return view('garaje.view-garaje',compact('automovil'));
     }
+
 }

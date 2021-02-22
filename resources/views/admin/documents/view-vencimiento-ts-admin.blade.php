@@ -18,7 +18,7 @@
 
                         <div class="col-8  mt-4">
                                     <h5 class="text-center text-white ml-4 mr-4 ">
-                                        <strong>Fecha de vencimiento de Tarjeta de Circulación</strong>
+                                        <strong>Fecha de vencimiento de Tarjeta de Vencimiento</strong>
                                     </h5>
                         </div>
 

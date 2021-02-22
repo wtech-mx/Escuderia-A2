@@ -98,7 +98,7 @@
                                                         </span>
                                                       </a>
 
-                                                      <a href="{{ route('view-lugar-ts-admin') }}">
+                                                      <a href="{{ route('create_admin.view-vencimiento-ts-admin',$item->id) }}">
                                                         <span class="badge badge-secondary" style="font-size: 70%;">
                                                             Fecha de vencimiento
                                                         </span>
