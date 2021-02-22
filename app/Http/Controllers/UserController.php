@@ -23,7 +23,7 @@ class UserController extends Controller
 /*|--------------------------------------------------------------------------
 |Create User Auto_Admin
 |--------------------------------------------------------------------------*/
-        public function create()
+    public function create()
     {
         return view('admin.garaje.create-garaje-admin');
     }
@@ -49,44 +49,6 @@ class UserController extends Controller
 
         $user->save();
         return redirect()->route('create_admin.automovil');
-    }
-
-/*|--------------------------------------------------------------------------
-|Create User Admin_Admin
-|--------------------------------------------------------------------------*/
-     function index_admin(){
-
-        $user = User::where('role', '=', '0')->get();
-
-        return view('admin.user.view-user-admin',compact('user'));
-    }
-
-        public function create_admin()
-    {
-        return view('admin.user.add-user-modal');
-    }
-
-    public function store_admin(Request $request)
-    {
-       $validate = $this->validate($request,[
-            'name' => 'required|string|max:191',
-            'email' => 'required|string|email|max:191|unique:users',
-            'password' => 'required|string|confirmed|min:8',
-        ]);
-
-        $user = new User;
-        $user->name = $request->get('name');
-        $user->role = $request->get('role');
-        $user->telefono = $request->get('telefono');
-        $user->email = $request->get('email');
-        $user->fecha_nacimiento = $request->get('fecha_nacimiento');
-        $user->direccion = $request->get('direccion');
-        $user->referencia = $request->get('referencia');
-        $user->genero = $request->get('genero');
-        $user->password = Hash::make($request->password);
-
-        $user->save();
-        return redirect()->route('index_admin.user');
     }
 
 /*|--------------------------------------------------------------------------
@@ -144,5 +106,79 @@ class UserController extends Controller
 
         return view('profile.profile', compact('user','users'));
     }
+
+/*|--------------------------------------------------------------------------
+|Create User Admin_Admin
+|--------------------------------------------------------------------------*/
+     function index_admin(){
+
+        $user = User::where('role', '=', '0')->get();
+
+        return view('admin.user.view-user-admin',compact('user'));
+    }
+
+    public function create_admin()
+    {
+        return view('admin.user.add-user-modal');
+    }
+
+    public function store_admin(Request $request)
+    {
+       $validate = $this->validate($request,[
+            'name' => 'required|string|max:191',
+            'email' => 'required|string|email|max:191|unique:users',
+            'password' => 'required|string|confirmed|min:8',
+        ]);
+
+        $user = new User;
+        $user->name = $request->get('name');
+        $user->role = $request->get('role');
+        $user->telefono = $request->get('telefono');
+        $user->email = $request->get('email');
+        $user->fecha_nacimiento = $request->get('fecha_nacimiento');
+        $user->direccion = $request->get('direccion');
+        $user->referencia = $request->get('referencia');
+        $user->genero = $request->get('genero');
+        $user->password = Hash::make($request->password);
+
+        $user->save();
+        return redirect()->route('index_admin.user');
+    }
+
+    public function edit_admin($id){
+
+       $user = User::findOrFail($id);
+
+        $users = DB::table('users')
+        ->get();
+
+        return view('admin.user.edit-user-admin',compact('user','users'));
+    }
+
+    public function update_admin(Request $request,$id)
+    {
+        $user = User::findOrFail($id);
+
+        $user->name = $request->get('name');
+        $user->telefono = $request->get('telefono');
+        $user->email = $request->get('email');
+        $user->fecha_nacimiento = $request->get('fecha_nacimiento');
+        $user->direccion = $request->get('direccion');
+        $user->referencia = $request->get('referencia');
+        $user->genero = $request->get('genero');
+        $user->password = Hash::make($request->password);
+
+    	if ($request->hasFile('img')) {
+    		$file=$request->file('img');
+    		$file->move(public_path().'/img-perfil',time().".".$file->getClientOriginalExtension());
+    		$user->img=time().".".$file->getClientOriginalExtension();
+    	}
+
+        $user->update();
+
+        Session::flash('success', 'Se ha actualizado sus datos con exito');
+        return redirect()->back();
+    }
+
 
 }

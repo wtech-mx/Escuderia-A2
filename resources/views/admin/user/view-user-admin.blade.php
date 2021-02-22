@@ -35,6 +35,7 @@
 
                         <div class="col-12 mt-4 d-inline">
                             <div class="d-flex flex-row-reverse">
+
                                 <a  class="btn btn-circel" data-toggle="modal" data-target="#persona">
                                     <h5 class="text-white text-tittle-app mt-2 " style="font: normal normal bold 15px/20px Segoe UI">
                                         Agregar
@@ -44,28 +45,33 @@
                                  <a  class="btn btn-circel" data-toggle="modal" data-target="#persona">
                                     <img class="" src="{{ asset('img/icon/white/plus.png') }}" width="30px" >
                                 </a>
+
                             </div>
                         </div>
 
                                     @foreach ($user as $item)
                                         <div class="col-12 mt-4">
-                                            <div class="card card-slide-garaje" >
-                                              <div class="card-body p-2" >
 
-                                                  <div class="row">
-                                                      <div class="col-6 mt-3">
-                                                          <a class="card-text"><strong style="font: normal normal bold 20px/27px Segoe UI;">{{$item->name}}</strong></a>
-                                                          <p class="card-text" style="font-size: 12px"><strong>{{$item->telefono}}</strong></p>
-                                                          <p class="card-text" style="font-size: 12px"><strong>{{$item->email}}</strong></p>
+                                                <div class="card card-slide-garaje" >
+                                                  <div class="card-body p-2" >
+
+                                                      <div class="row">
+                                                          <div class="col-6 mt-3">
+                                                              <a class="card-text" href="{{ route('edit_admin.user',$item->id) }}">
+                                                                  <strong style="font: normal normal bold 20px/27px Segoe UI;">{{$item->name}}</strong>
+                                                              </a>
+                                                              <p class="card-text" style="font-size: 12px"><strong>{{$item->telefono}}</strong></p>
+                                                              <p class="card-text" style="font-size: 12px"><strong>{{$item->email}}</strong></p>
+                                                          </div>
+
+                                                          <div class="col-6">
+                                                            <img class="d-inline mb-2" src="{{ asset('img/icon/car.png') }}" alt="Icon documento" width="150px">
+                                                          </div>
                                                       </div>
 
-                                                      <div class="col-6">
-                                                        <img class="d-inline mb-2" src="{{ asset('img/icon/car.png') }}" alt="Icon documento" width="150px">
-                                                      </div>
                                                   </div>
+                                                </div>
 
-                                              </div>
-                                            </div>
                                         </div>
                                     @endforeach
 
