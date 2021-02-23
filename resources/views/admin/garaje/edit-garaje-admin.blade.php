@@ -37,7 +37,7 @@
                                 <strong>{{$automovil->submarca}}</strong>
                             </p>
 
-                            <p class="text-left subtitle-car" style="font-size: 12px">
+                            <p class="text-left subtitle-car" style="font-size: 14px">
                                 <strong>{{$automovil->kilometraje}} KM Recorridos</strong>
                             </p>
                         </div>
@@ -211,7 +211,10 @@
                                                 </div>
 
                                                 <select class="form-control" id="id_empresa" name="id_empresa">
-                                                  <option value="">Seleccione empresa</option>
+                                                     <option value="{{$automovil->id_empresa}}">Seleccione empresa</option>
+                                                     @foreach($empresa as $item)
+                                                        <option  value="{{$item->id}}">{{$item->nombre}}</option>
+                                                     @endforeach
                                                 </select>
                                             </div>
                                         </div>
@@ -242,7 +245,7 @@
                                                  <select class="form-control" id="id_user" name="id_user">
                                                      <option value="{{$automovil->id_user}}">Seleccione usuario</option>
                                                      @foreach($user as $item)
-                                                        <option value="{{$item->id}}">{{$item->name}}</option>
+                                                        <option selected value="{{$item->id}}">{{$item->name}}</option>
                                                      @endforeach
                                                  </select>
 
@@ -261,14 +264,12 @@
                                            <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}" width="20px" >
                                                 Guardar
                                      </button>
-
                               </div>
-
-                              @include('admin.garaje.add-bussines-modal')
 
                           </div>
                         </div>
                      </form>
+                        @include('admin.garaje.add-bussines-modal')
                     </div>
 
 

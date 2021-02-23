@@ -112,7 +112,6 @@
                             </p>
                         </div>
 
-
                         <div class="col-12 mt-3">
                             <p class="text-center text-white">
                                 Escanea tus documentos
@@ -147,8 +146,11 @@
                                         </label>
 
                                           <div class=" custom-file mb-3">
-                                            <input type="file" class="custom-file-input input-group-text" name="img">
+                                            <input type="file" class="custom-file-input input-group-text" name="img" value="{{ old('img') }}">
                                             <label class="custom-file-label">Elegir img...</label>
+                                            @if ($errors->has('img'))
+                                                <span class="text-danger">{{ $errors->first('img') }}</span>
+                                            @endif
                                           </div>
 
                                             <label for="">
@@ -157,7 +159,10 @@
 
                                               <div class="form-group">
                                                 <label for="exampleFormControlTextarea1">Escribir</label>
-                                                <textarea class="form-control" name="otro" rows="3"></textarea>
+                                                <textarea class="form-control" name="otro" rows="3" value="{{ old('lugar_expedicion') }}"></textarea>
+                                                @if ($errors->has('otro'))
+                                                    <span class="text-danger">{{ $errors->first('otro') }}</span>
+                                                @endif
                                               </div>
 
                                                 <p class="text-center mt-3">

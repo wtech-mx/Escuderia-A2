@@ -119,8 +119,11 @@
                                         </label>
 
                                           <div class=" custom-file mb-3">
-                                            <input type="file" class="custom-file-input input-group-text" name="img">
+                                            <input type="file" class="custom-file-input input-group-text" name="img" value="{{ old('img') }}">
                                             <label class="custom-file-label">Elegir img...</label>
+                                            @if ($errors->has('img'))
+                                                <span class="text-danger">{{ $errors->first('img') }}</span>
+                                            @endif
                                           </div>
 
                                             <label for="">
@@ -134,9 +137,12 @@
                                                     </span>
                                                 </div>
 
-                                                <select class="form-control" name="lugar_expedicion">
+                                                <select class="form-control" name="lugar_expedicion" value="{{ old('lugar_expedicion') }}">
                                                     @include('documents.estados')
                                                 </select>
+                                                @if ($errors->has('lugar_expedicion'))
+                                                    <span class="text-danger">{{ $errors->first('lugar_expedicion') }}</span>
+                                                @endif
                                             </div>
 
                                             <p class="text-center mt-3">

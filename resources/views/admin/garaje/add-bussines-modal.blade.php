@@ -16,13 +16,13 @@
                 </h2>
 
                   <p class="text-center mt-3">
-                       <img class="img-thumbnail" src="{{ asset('img/icon/color/edificio-de-oficinas (3).png') }}" width="150px" style="padding: 20px;border-radius: 10px">
+                       <img class="img-thumbnail" src="{{ asset('img/icon/color/edificio-de-oficinas (3).png') }}" width="80px" style="padding: 20px;border-radius: 10px">
                   </p>
               </div>
           </div>
 
                     <div class="row " >
-                        <div class="col-12 mt-5">
+                        <div class="col-12 ">
 
                             <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
 
@@ -182,13 +182,13 @@
                 </h2>
 
                   <p class="text-center mt-3">
-                       <img class="img-thumbnail" src="{{ asset('img/icon/color/empresario.png') }}" width="150px" style="padding: 20px;border-radius: 10px">
+                       <img class="img-thumbnail" src="{{ asset('img/icon/color/empresario.png') }}" width="80px" style="padding: 20px;border-radius: 10px">
                   </p>
               </div>
           </div>
 
           <div class="row " >
-                        <div class="col-12 mt-5">
+                        <div class="col-12">
 
                             <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
 

@@ -80,7 +80,7 @@ class DocumentosLugarExpController extends Controller
 
         $validate = $this->validate($request,[
             'lugar_expedicion' => 'required',
-            'img' => 'mimes:jpeg,bpm,jpg,png|max:900',
+            'img' => 'required|mimes:jpeg,bpm,jpg,png|max:900',
         ]);
 
         $documentos = new DocumentosLugarExp;

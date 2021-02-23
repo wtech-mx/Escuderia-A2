@@ -140,15 +140,18 @@
 
                                    <form method="POST" action="{{route('store_admin.view-exp-ts-admin', $automovil->id)}}" enctype="multipart/form-data" role="form">
                                          @csrf
-                                        <div class="col-12 mt-3">
+                                        <div class="col-12 ">
 
                                     <label for="">
                                         <p class="text-dark"><strong>Elegir Img</strong></p>
                                     </label>
 
-                                          <div class=" custom-file mb-3">
-                                            <input type="file" class="custom-file-input input-group-text" name="img">
+                                          <div class=" custom-file ">
+                                            <input type="file" class="custom-file-input input-group-text" name="img" value="{{ old('img') }}">
                                             <label class="custom-file-label">Elegir img...</label>
+                                            @if ($errors->has('img'))
+                                                <span class="text-danger">{{ $errors->first('img') }}</span>
+                                            @endif
                                           </div>
 
                                     <label for="">
@@ -161,16 +164,17 @@
                                                      <img class="" src="{{ asset('img/icon/white/calendario (1).png') }}" width="25px" >
                                                 </span>
                                             </div>
-                                             <input type="date" class="form-control" placeholder="MM/DD/YYY"  style="border-radius: 0  10px 10px 0;"  name="fecha_expedicion">
+                                             <input type="date" class="form-control" placeholder="MM/DD/YYY"  style="border-radius: 0  10px 10px 0;"  name="fecha_expedicion" value="{{ old('fecha_expedicion') }}">
+                                            @if ($errors->has('fecha_expedicion'))
+                                                <span class="text-danger">{{ $errors->first('fecha_expedicion') }}</span>
+                                            @endif
                                         </div>
 
-
-                                            <p class="text-center mt-3">
-                                                Agregar <br>
+                                            <p class="text-center ">
                                                 <strong>Fecha de exp de Tarjeta de Circulación</strong>
                                             </p>
 
-                                                <button type="submit" class="btn btn-success btn-save text-white">
+                                                <button type="submit" class="btn btn-success btn-save text-white mb-5">
                                                     <img class="d-inline" src="{{ asset('img/icon/white/save-file-option (1).png') }}" alt="Icon documento" width="30px">
                                                     Guardar
                                                 </button>

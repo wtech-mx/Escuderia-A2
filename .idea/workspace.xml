@@ -20,20 +20,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="936a45dc-4f36-4130-a52f-695b08d602c5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/empresas/add-empresa-admin.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/empresas/edit-empresa-admin.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/user/add-user-admin.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EmpresasController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EmpresasController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_01_27_211530_create_empresa_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_01_27_211530_create_empresa_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/empresas/add-empresa-modal.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/empresas/view-empresas-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/empresas/view-empresas-admin.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/user/add-user-modal.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/user/edit-user-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/user/edit-user-admin.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/user/view-user-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/user/view-user-admin.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/profile/profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/profile.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AutomovilController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AutomovilController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DocumentosController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DocumentosController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DocumentosLugarExpController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DocumentosLugarExpController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DocumentosOtroController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DocumentosOtroController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DocumentosVencimientoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DocumentosVencimientoController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/documents/view-exp-ts-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/documents/view-exp-ts-admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/documents/view-lugar-ts-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/documents/view-lugar-ts-admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/documents/view-otro-ts-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/documents/view-otro-ts-admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/documents/view-vencimiento-ts-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/documents/view-vencimiento-ts-admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/garaje/add-bussines-modal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/garaje/add-bussines-modal.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/garaje/create-garaje-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/garaje/create-garaje-admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/garaje/edit-garaje-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/garaje/edit-garaje-admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/garaje/view-garaje-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/garaje/view-garaje-admin.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -199,6 +199,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="database.data.views" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -276,5 +277,13 @@
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="1114" y="439" key="NewPhpFileDialog/0.0.2560.1040/-2560.0.2560.1040@0.0.2560.1040" timestamp="1614031104545" />
+    <state x="781" y="164" key="SettingsEditor" timestamp="1614065462608">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state x="781" y="164" key="SettingsEditor/0.0.2560.1040/-2560.0.2560.1040@0.0.2560.1040" timestamp="1614065462608" />
+    <state x="92" y="92" width="2376" height="856" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1614065594689">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state x="92" y="92" width="2376" height="856" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.0.2560.1040/-2560.0.2560.1040@0.0.2560.1040" timestamp="1614065594689" />
   </component>
 </project>

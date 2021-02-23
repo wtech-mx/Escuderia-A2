@@ -78,7 +78,7 @@ class DocumentosOtroController extends Controller
 
         $validate = $this->validate($request,[
             'otro' => 'required',
-            'img' => 'mimes:jpeg,bpm,jpg,png|max:900',
+            'img' => 'required|mimes:jpeg,bpm,jpg,png|max:900',
         ]);
 
         $documentos = new DocumentosOtro;

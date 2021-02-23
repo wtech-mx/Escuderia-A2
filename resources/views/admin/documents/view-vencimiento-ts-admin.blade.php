@@ -114,7 +114,6 @@
                             </p>
                         </div>
 
-
                         <div class="col-12 mt-3">
                             <p class="text-center text-white">
                                 Escanea tus documentos
@@ -146,8 +145,11 @@
                                         </label>
 
                                           <div class=" custom-file mb-3">
-                                            <input type="file" class="custom-file-input input-group-text" name="img">
+                                            <input type="file" class="custom-file-input input-group-text" name="img" value="{{ old('img') }}>
                                             <label class="custom-file-label">Elegir img...</label>
+                                                @if ($errors->has('img'))
+                                                    <span class="text-danger">{{ $errors->first('img') }}</span>
+                                                @endif
                                           </div>
 
                                             <label for="">
@@ -160,7 +162,10 @@
                                                              <img class="" src="{{ asset('img/icon/white/calendario (1).png') }}" width="25px" >
                                                         </span>
                                                     </div>
-                                                     <input type="date" class="form-control" placeholder="MM/DD/YYY"  style="border-radius: 0  10px 10px 0;"  name="fecha_vencimiento">
+                                                     <input type="date" class="form-control" placeholder="MM/DD/YYY"  style="border-radius: 0  10px 10px 0;"  name="fecha_vencimiento" value="{{ old('fecha_vencimiento') }}>
+                                                    @if ($errors->has('fecha_vencimiento'))
+                                                        <span class="text-danger">{{ $errors->first('fecha_vencimiento') }}</span>
+                                                    @endif
                                                 </div>
 
                                             <p class="text-center mt-3">

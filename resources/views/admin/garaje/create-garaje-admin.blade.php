@@ -115,6 +115,9 @@
                                         </span>
                                     </div>
                                     <input  type="text" class="form-control input-edit-car" placeholder="Tipo" id="tipo" name="tipo" value="{{ old('tipo') }}">
+                                        @if ($errors->has('tipo'))
+                                            <span class="text-danger">{{ $errors->first('tipo') }}</span>
+                                        @endif
                                 </div>
                             </div>
 
@@ -127,6 +130,9 @@
                                         </span>
                                     </div>
                                     <input  type="text" class="form-control input-edit-car" placeholder="Subtipo" id="subtipo" name="subtipo" value="{{ old('subtipo') }}">
+                                        @if ($errors->has('Subtipo'))
+                                            <span class="text-danger">{{ $errors->first('Subtipo') }}</span>
+                                        @endif
                                 </div>
                             </div>
 
@@ -140,6 +146,9 @@
                                         </span>
                                     </div>
                                     <input  type="text" class="form-control input-edit-car" placeholder="kilometraje" id="kilometraje" name="kilometraje" value="{{ old('kilometraje') }}">
+                                        @if ($errors->has('kilometraje'))
+                                            <span class="text-danger">{{ $errors->first('kilometraje') }}</span>
+                                        @endif
                                 </div>
                             </div>
 
@@ -152,6 +161,9 @@
                                         </span>
                                     </div>
                                     <input  type="number" class="form-control input-edit-car" placeholder="YYYY" id="año" name="año" value="{{ old('año') }}">
+                                        @if ($errors->has('año'))
+                                            <span class="text-danger">{{ $errors->first('año') }}</span>
+                                        @endif
                                 </div>
                             </div>
 
@@ -164,6 +176,9 @@
                                         </span>
                                     </div>
                                     <input  type="text" class="form-control input-edit-car" placeholder="Num Serie" id="numero_serie" name="numero_serie" value="{{ old('numero_serie') }}">
+                                        @if ($errors->has('numero_serie'))
+                                            <span class="text-danger">{{ $errors->first('numero_serie') }}</span>
+                                        @endif
                                 </div>
                             </div>
 
@@ -176,6 +191,9 @@
                                         </span>
                                     </div>
                                     <input  type="color" value="#563d7c" class="form-control input-edit-car" placeholder="Color" id="color" name="color" value="{{ old('color') }}">
+                                        @if ($errors->has('color'))
+                                            <span class="text-danger">{{ $errors->first('color') }}</span>
+                                        @endif
                                 </div>
                             </div>
 
@@ -188,6 +206,9 @@
                                         </span>
                                     </div>
                                     <input type="text" class="form-control input-edit-car input-edit-car" placeholder="Num Placas" id="placas" name="placas" value="{{ old('placas') }}">
+                                        @if ($errors->has('placas'))
+                                            <span class="text-danger">{{ $errors->first('placas') }}</span>
+                                        @endif
                                 </div>
                             </div>
 

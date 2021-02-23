@@ -81,7 +81,7 @@ class DocumentosVencimientoController extends Controller
 
         $validate = $this->validate($request,[
             'fecha_vencimiento' => 'required',
-            'img' => 'mimes:jpeg,bpm,jpg,png|max:900',
+            'img' => 'required|mimes:jpeg,bpm,jpg,png|max:900',
         ]);
 
         $documentos = new DocumentosVencimiento;

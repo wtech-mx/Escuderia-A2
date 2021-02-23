@@ -220,11 +220,14 @@ class AutomovilController extends Controller
         $marca = DB::table('marca')
             ->get();
 
+        $empresa = DB::table('empresa')
+            ->get();
+
         $user = DB::table('users')
             ->where('role','=', '0')
             ->get();
 
-        return view('admin.garaje.edit-garaje-admin',compact('automovil', 'marca', 'user'));
+        return view('admin.garaje.edit-garaje-admin',compact('automovil', 'marca', 'user','empresa'));
     }
 
     function update_admin(Request $request, $id){

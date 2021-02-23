@@ -65,6 +65,17 @@
                                         <strong>Vehiculos Personales</strong>
                                     </h5>
 
+                                @if(Session::has('success'))
+                                    <script>
+                                        Swal.fire(
+                                            'Exito!',
+                                            'Se ha guardado exitosamiente.',
+                                            'success'
+                                        )
+                                    </script>
+                                @endif
+
+
                                   <div class="row">
                                     @foreach ($automovil as $item)
                                         <div class="col-12 mt-4">
