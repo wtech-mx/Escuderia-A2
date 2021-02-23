@@ -64,7 +64,7 @@ class UserController extends Controller
     		'direccion' => 'max:191',
             'referencia' => 'max:191',
             'genero' => 'max:191',
-            'password' => 'string|confirmed|min:8',
+//            'password' => 'string|confirmed|min:8',
         ]);
 
         $user = User::findOrFail($id);
@@ -119,7 +119,11 @@ class UserController extends Controller
 
     public function create_admin()
     {
-        return view('admin.user.add-user-modal');
+
+        $user = DB::table('users')
+        ->get();
+
+        return view('admin.user.add-user-admin',compact('user'));
     }
 
     public function store_admin(Request $request)
@@ -127,7 +131,7 @@ class UserController extends Controller
        $validate = $this->validate($request,[
             'name' => 'required|string|max:191',
             'email' => 'required|string|email|max:191|unique:users',
-            'password' => 'required|string|confirmed|min:8',
+//            'password' => 'required|string|confirmed|min:8',
         ]);
 
         $user = new User;
@@ -141,7 +145,15 @@ class UserController extends Controller
         $user->genero = $request->get('genero');
         $user->password = Hash::make($request->password);
 
+    	if ($request->hasFile('img')) {
+    		$file=$request->file('img');
+    		$file->move(public_path().'/img-perfil',time().".".$file->getClientOriginalExtension());
+    		$user->img=time().".".$file->getClientOriginalExtension();
+    	}
+
         $user->save();
+
+        Session::flash('success', 'Se ha actualizado sus datos con exito');
         return redirect()->route('index_admin.user');
     }
 
@@ -157,6 +169,7 @@ class UserController extends Controller
 
     public function update_admin(Request $request,$id)
     {
+
         $user = User::findOrFail($id);
 
         $user->name = $request->get('name');
@@ -174,10 +187,14 @@ class UserController extends Controller
     		$user->img=time().".".$file->getClientOriginalExtension();
     	}
 
+
+
         $user->update();
 
         Session::flash('success', 'Se ha actualizado sus datos con exito');
-        return redirect()->back();
+//        return redirect()->back();
+         return redirect()->route('index_admin.user');
+
     }
 
 

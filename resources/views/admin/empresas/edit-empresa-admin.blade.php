@@ -1,27 +1,53 @@
-{{-- ----------------------------------------------------------------------------}}
-{{-- |Modal Add empresa--}}
-{{-- |----------------------------------------------------------------------------}}
+@extends('layouts.app')
 
-<div class="modal fade" id="empresa" tabindex="-1" aria-labelledby="empresaLabel" aria-hidden="true" >
-  <div class="modal-dialog modal-sm">
-    <div class="modal-content">
+@section('bg-color', 'background-image: linear-gradient(to bottom, #050f55, #050f55, #050f55, #050f55, #050f55);')
 
-      <div class="modal-body" style="background: #050F55 0% 0% no-repeat padding-box;border-radius: 30px;">
+@section('content')
+<p style="display: none">{{$userId = Auth::id()}}</p>
 
-          <div class="row">
-              <div class="col-12">
 
-                <h2 class="text-center text-white mt-3">
-                    Auto de empresa
-                </h2>
+                <link href="{{ asset('css/login-form.css') }}" rel="stylesheet">
+                <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
 
-                  <p class="text-center mt-3">
-                       <img class="img-thumbnail" src="{{ asset('img/icon/color/edificio-de-oficinas (3).png') }}" width="150px" style="padding: 20px;border-radius: 10px">
-                  </p>
-              </div>
-          </div>
 
-          <div class="row " >
+                <div class="row bg-profile" style="z-index: 100000">
+
+                    <div class="col-2">
+                        <div class="d-flex justify-content-start">
+                                <div class="text-center text-white">
+                                    <a href="javascript:history.back()" style="background-color: transparent;clip-path: none">
+                                        <img class="" src="{{ asset('img/icon/white/left-arrow.png') }}" width="25px" >
+                                    </a>
+                                </div>
+                        </div>
+                    </div>
+
+                    <div class="col-8">
+                                <h5 class="text-center text-white ml-4 mr-4 ">
+                                    <strong>Empresa</strong>
+                                </h5>
+                    </div>
+
+                    <div class="col-2">
+                        <div class="d-flex justify-content-start">
+                                <div class="text-center text-white bg-white" style="border-radius: 50px;padding: 5px">
+                                  <img class="" src="{{ asset('img/icon/color/campana.png') }}" width="25px" >
+                                </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 p-3">
+                        <p class="text-center">
+                             <img class="rounded-circle" src="{{ asset('img-empresa/'.$empresa->img) }}" height="150px" width="150px">
+                            <h4 class="text-center text-white">
+                                <strong>{{$empresa->nombre}}</strong>
+                            </h4>
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="row bg-down-blue-border" style="background: #050F55 0% 0% no-repeat padding-box;">
                         <div class="col-12 mt-5">
 
                             <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
@@ -39,8 +65,22 @@
                               </li>
 
                             </ul>
-                     <form method="POST" action="{{route('store_admin.empresa')}}" enctype="multipart/form-data" role="form">
-                         @csrf
+
+                            <form method="POST" action="{{route('update_admin.empresa',$empresa->id)}}" enctype="multipart/form-data" role="form">
+
+                            @csrf
+                            <input type="hidden" name="_method" value="PATCH">
+
+                                @if(Session::has('success'))
+                                    <script>
+                                        Swal.fire(
+                                            'Exito!',
+                                            'Se ha guardado exitosamiente.',
+                                            'success'
+                                        )
+                                    </script>
+                                @endif
+
                             <div class="tab-content" id="pills-tabContent">
 
                               <div class="tab-pane fade show active" id="perfil" role="tabpanel" aria-labelledby="pills-perfil-tab">
@@ -55,7 +95,7 @@
                                              <img class="" src="{{ asset('img/icon/white/edificio-de-oficinas.png') }}" width="25px" >
                                         </span>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="Nombre" id="nombre" name="nombre" style="border-radius: 0  10px 10px 0;">
+                                    <input type="text" class="form-control"  id="nombre" name="nombre" value="{{$empresa->nombre}}" style="border-radius: 0  10px 10px 0;">
                                 </div>
 
                                  <label for="">
@@ -68,7 +108,7 @@
                                              <img class="" src="{{ asset('img/icon/white/email.png') }}" width="25px" >
                                         </span>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="correo@correo.com" id="email" name="email" style="border-radius: 0  10px 10px 0;">
+                                    <input type="text" class="form-control" id="email" name="email" value="{{$empresa->email}}" style="border-radius: 0  10px 10px 0;">
                                 </div>
 
                                  <label for="">
@@ -81,7 +121,7 @@
                                              <img class="" src="{{ asset('img/icon/white/call.png') }}" width="25px" >
                                         </span>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="55 5555-0000" id="telefono" name="telefono" style="border-radius: 0  10px 10px 0;">
+                                    <input type="text" class="form-control" value="{{$empresa->telefono}}" id="telefono" name="telefono" style="border-radius: 0  10px 10px 0;">
                                 </div>
 
 
@@ -95,7 +135,7 @@
                                              <img class="" src="{{ asset('img/icon/white/marcador-de-posicion.png') }}" width="25px" >
                                         </span>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="Direccion" style="border-radius: 0  10px 10px 0;" id="direccion" name="direccion">
+                                    <input type="text" class="form-control" value="{{$empresa->direccion}}"  id="direccion" name="direccion" style="border-radius: 0  10px 10px 0;">
                                 </div>
 
                                  <label for="">
@@ -112,10 +152,20 @@
                                         <select class="form-control" id="referencia" name="referencia">
                                             <option>Selecione Referencia</option>
                                             @foreach($user as $item)
-                                                <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                                <option selected value="{{ $item->id }}">{{ $item->name }}</option>
                                             @endforeach
                                         </select>
                                 </div>
+
+                                     <label for="" class="mt-3">
+                                         <p class="text-white"><strong>Foto de Perfil</strong></p>
+                                     </label>
+
+                                    <div class="custom-file mb-5">
+                                      <input type="file" class="custom-file-input"  id='img' name="img" value="{{$empresa->img}}">
+                                      <label class="custom-file-label" for="img">Selecciona imagen</label>
+                                    </div>
+
 
                               </div>
 
@@ -144,7 +194,7 @@
                                              <img class="" src="{{ asset('img/icon/white/password.png') }}" width="25px" >
                                         </span>
                                     </div>
-                                    <input type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="Confirmar Contraseña" id="password-confirm" style="border-radius: 0  10px 10px 0;">
+                                    <input type="password" class="form-control" name="password_confirmation"  autocomplete="new-password" placeholder="Confirmar Contraseña" id="password-confirm" style="border-radius: 0  10px 10px 0;">
                                 </div>
 
                                   <div class="col-12 text-center mt-5 mb-5">
@@ -160,11 +210,10 @@
 
                             </div>
                      </form>
+
                         </div>
                     </div>
 
-      </div>
 
-    </div>
-  </div>
-</div>
+@endsection
+

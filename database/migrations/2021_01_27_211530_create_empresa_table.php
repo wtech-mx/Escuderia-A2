@@ -19,6 +19,8 @@ class CreateEmpresaTable extends Migration
             $table->string('telefono');
             $table->string('direccion');
             $table->string('referencia');
+            $table->string('img');
+            $table->string('password');
             $table->string('email')->unique();
             $table->timestamps();
         });

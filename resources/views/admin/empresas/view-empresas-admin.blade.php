@@ -2,7 +2,6 @@
 
 @section('content')
 
-@include('admin.empresas.add-empresa-modal')
 
                 <link href="{{ asset('css/garje.css') }}" rel="stylesheet">
 
@@ -35,13 +34,13 @@
 
                         <div class="col-12 mt-4 d-inline">
                             <div class="d-flex flex-row-reverse">
-                                <a  class="btn btn-circel" data-toggle="modal" data-target="#empresa">
+                                <a  class="btn btn-circel" href="{{ route('create_admin.empresa') }}">
                                     <h5 class="text-white text-tittle-app mt-2 " style="font: normal normal bold 15px/20px Segoe UI">
                                         Agregar
                                     </h5>
                                 </a>
 
-                                 <a  class="btn btn-circel" data-toggle="modal" data-target="#empresa">
+                                 <a  class="btn btn-circel" href="{{ route('create_admin.empresa') }}">
                                     <img class="" src="{{ asset('img/icon/white/plus.png') }}" width="30px" >
                                 </a>
                             </div>
@@ -49,25 +48,43 @@
 
                                   <div class="row ml-2 mr-2">
 
+                                    @if(Session::has('success'))
+                                        <script>
+                                            Swal.fire(
+                                                'Exito!',
+                                                'Se ha guardado exitosamiente.',
+                                                'success'
+                                            )
+                                        </script>
+                                    @endif
+
                                     @foreach ($empresa as $item)
                                         <div class="col-12 mt-4">
-                                            <div class="card card-slide-garaje" >
-                                              <div class="card-body p-2" >
 
-                                                  <div class="row">
-                                                      <div class="col-6 mt-3">
-                                                          <a class="card-text"><strong style="font: normal normal bold 20px/27px Segoe UI;">{{$item->nombre}}</strong></a>
-                                                          <p class="card-text" style="font-size: 12px"><strong>{{$item->telefono}}</strong></p>
-                                                          <p class="card-text" style="font-size: 12px"><strong>{{$item->email}}</strong></p>
+                                                <div class="card card-slide-garaje" >
+                                                  <div class="card-body p-2" >
+
+                                                      <div class="row">
+
+                                                          <div class="col-6 mt-3">
+                                                               <a class="card-text" href="{{ route('edit_admin.empresa',$item->id) }}">
+                                                                  <strong style="font: normal normal bold 20px/27px Segoe UI;">
+                                                                       {{$item->nombre}}
+                                                                  </strong>
+                                                              </a>
+                                                              <p class="card-text" style="font-size: 12px"><strong>{{$item->telefono}}</strong></p>
+                                                              <p class="card-text" style="font-size: 12px"><strong>{{$item->email}}</strong></p>
+                                                          </div>
+
+                                                          <div class="col-6">
+                                                              <img class="d-inline" src="{{ asset('img-empresa/'.$item->img) }}" alt="Icon documento" width="110px">
+                                                          </div>
+
                                                       </div>
 
-                                                      <div class="col-6">
-                                                        <img class="d-inline mb-2" src="{{ asset('img/icon/car.png') }}" alt="Icon documento" width="150px">
-                                                      </div>
                                                   </div>
+                                                </div>
 
-                                              </div>
-                                            </div>
                                         </div>
                                     @endforeach
 

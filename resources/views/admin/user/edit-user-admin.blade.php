@@ -48,7 +48,7 @@
 
                 <div class="row bg-down-blue-border" style="background: #050F55 0% 0% no-repeat padding-box;">
                     <div class="col-12 mt-5">
-                        <form method="POST" action="{{route('update_admin.user',$userId)}}" enctype="multipart/form-data" role="form">
+                        <form method="POST" action="{{route('update_admin.user',$user->id)}}" enctype="multipart/form-data" role="form">
 
                             @csrf
                             <input type="hidden" name="_method" value="PATCH">
@@ -84,6 +84,24 @@
                                   <div class="tab-pane fade show active" id="perfil" role="tabpanel" aria-labelledby="pills-perfil-tab">
 
                                      <label for="">
+                                         <p class="text-white"><strong>Nombre Completo</strong></p>
+                                     </label>
+
+                                    <div class="input-group form-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">
+                                                 <img class="" src="{{ asset('img/icon/white/nombre.png') }}" width="25px" >
+                                            </span>
+                                        </div>
+
+                                        <input type="text" class="form-control" id="name" name="name" value="{{$user->name}}" style="border-radius: 0  10px 10px 0;">
+
+                                         @if ($errors->has('name'))
+                                            <span class="text-danger">{{ $errors->first('name') }}</span>
+                                        @endif
+                                    </div>
+
+                                     <label for="">
                                          <p class="text-white"><strong>Correo</strong></p>
                                      </label>
 
@@ -94,6 +112,10 @@
                                             </span>
                                         </div>
                                         <input type="text" class="form-control" id="email" name="email" value="{{$user->email}}" style="border-radius: 0  10px 10px 0;">
+
+                                         @if ($errors->has('email'))
+                                            <span class="text-danger">{{ $errors->first('email') }}</span>
+                                        @endif
                                     </div>
 
                                      <label for="">
@@ -107,6 +129,9 @@
                                             </span>
                                         </div>
                                         <input type="text" class="form-control" id="telefono" name="telefono" placeholder="5500550055" value="{{$user->telefono}}" style="border-radius: 0  10px 10px 0;">
+                                         @if ($errors->has('telefono'))
+                                            <span class="text-danger">{{ $errors->first('telefono') }}</span>
+                                        @endif
                                     </div>
 
                                      <label for="">
@@ -120,6 +145,9 @@
                                             </span>
                                         </div>
                                         <input type="date" class="form-control" placeholder="MM/DD/YYY"  style="border-radius: 0  10px 10px 0;" id='fecha_nacimiento' name="fecha_nacimiento" value="{{$user->fecha_nacimiento}}">
+                                         @if ($errors->has('fecha_nacimiento'))
+                                            <span class="text-danger">{{ $errors->first('fecha_nacimiento') }}</span>
+                                        @endif
                                     </div>
 
                                      <label for="">
@@ -133,6 +161,9 @@
                                             </span>
                                         </div>
                                         <input type="text" class="form-control" placeholder="Direccion" style="border-radius: 0  10px 10px 0;" id='direccion' name="direccion" value="{{$user->direccion}}">
+                                         @if ($errors->has('Direccion'))
+                                            <span class="text-danger">{{ $errors->first('Direccion') }}</span>
+                                        @endif
                                     </div>
 
                                      <label for="">
@@ -148,7 +179,7 @@
 
                                         <select class="form-control" id="referencia" name="referencia">
                                             @foreach($users as $item)
-                                                <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                                <option selected value="{{ $item->id }}">{{ $item->name }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -246,6 +277,9 @@
                                             </span>
                                         </div>
                                         <input type="password" class="form-control" placeholder="****" id="password" name="password" style="border-radius: 0  10px 10px 0;">
+                                         @if ($errors->has('password'))
+                                            <span class="text-danger">{{ $errors->first('password') }}</span>
+                                        @endif
                                     </div>
 
                                      <label for="">
@@ -259,6 +293,9 @@
                                             </span>
                                         </div>
                                         <input type="password" class="form-control" name="password_confirmation"  autocomplete="new-password" placeholder="Confirmar Contraseña" id="password-confirm" style="border-radius: 0  10px 10px 0;">
+                                         @if ($errors->has('password_confirmation'))
+                                            <span class="text-danger">{{ $errors->first('password_confirmation') }}</span>
+                                        @endif
                                     </div>
 
                                       <div class="col-12 text-center mt-5 mb-5">

@@ -200,13 +200,16 @@ Route::patch('admin/automovil/update/{id}','AutomovilController@update_admin')->
 |--------------------------------------------------------------------------*/
 
 /* Create Empresa_Auto */
-Route::get('admin/empresa/crear','EmpresasController@create_empresa')->name('create_empresa.empresa');
-Route::post('admin/empresa/crear','EmpresasController@store_empresa')->name('store_empresa.empresa');
+Route::get('admin/empresa/auto/crear','EmpresasController@create_empresa')->name('create_empresa.empresa');
+Route::post('admin/empresa/auto/crear','EmpresasController@store_empresa')->name('store_empresa.empresa');
 
 /* Create Empresa_Admin */
 Route::get('admin/empresa/index','EmpresasController@index_admin')->name('index_admin.empresa');
 Route::get('admin/empresa/create','EmpresasController@create_admin')->name('create_admin.empresa');
 Route::post('admin/empresa/create','EmpresasController@store_admin')->name('store_admin.empresa');
+
+Route::get('admin/empresa/edit/{id}','EmpresasController@edit_admin')->name('edit_admin.empresa');
+Route::patch('admin/empresa/update/{id}','EmpresasController@update_admin')->name('update_admin.empresa');
 
 /*|--------------------------------------------------------------------------
 |SEGUROS view
