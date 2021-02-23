@@ -30,7 +30,7 @@
                               </div>
 
                               <div class="col-2 car-modal " style="height: 60px;background-color: #24DAF7;border: 1px solid #24DAF7">
-                                   <a href="{{ route('create_servicio.servicio') }}" >
+                                   <a href="{{ route('view.servicio') }}" >
                                        <p class="text-center mt-2" style="font: normal normal bold 25px/33px Segoe UI;color: #FFFFFF">
                                            <img src="{{ asset('img/icon/white/documento (2).png') }}" alt="Icon documento" width="25px">
                                        </p>

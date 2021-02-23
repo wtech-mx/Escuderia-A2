@@ -227,10 +227,14 @@ Route::get('admin/services/mecanica', function () {
     return view('admin/services/mecanica');
 })->middleware(['auth'])->name('mecanica');
 
+Route::get('admin/servicio/view','MecanicaController@view')->name('view.servicio');
 Route::get('admin/servicio/crear','MecanicaController@create_servicio')->name('create_servicio.servicio');
 Route::post('admin/servicio/crear','MecanicaController@store_servicio')->name('store_servicio.servicio');
+
+/* Rutas para el select */
 Route::get('admin/servicio/crear/{id}', 'MecanicaController@GetSubCatAgainstMainCatEdit');
 Route::get('admin/servicio/crear/empresa/{id}', 'MecanicaController@GetEmpreAgainstMainCatEdit');
+
 /*|--------------------------------------------------------------------------
 |Documents
 |--------------------------------------------------------------------------*/
