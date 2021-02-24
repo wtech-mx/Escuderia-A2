@@ -83,6 +83,12 @@ class MecanicaController extends Controller
         $mecanica->current_autobn2 = $request->get('current_autobn2');
         $mecanica->current_autobn = $request->get('current_autobn');
 
+        /* User/Auto Frenos */
+        $mecanica->id_userfr = $request->get('id_userfr');
+        $mecanica->id_empresafr = $request->get('id_empresafr');
+        $mecanica->current_autofr2 = $request->get('current_autofr2');
+        $mecanica->current_autofr = $request->get('current_autofr');
+
         /* User/Auto aceite */
         $mecanica->id_userac = $request->get('id_userac');
         $mecanica->id_empresaac = $request->get('id_empresaac');
@@ -107,11 +113,6 @@ class MecanicaController extends Controller
         $mecanica->current_autobt2 = $request->get('current_autobt2');
         $mecanica->current_autobt = $request->get('current_autobt');
 
-        /* User/Auto Frenos */
-        $mecanica->id_userfr = $request->get('id_userfr');
-        $mecanica->id_empresafr = $request->get('id_empresafr');
-        $mecanica->current_autofr2 = $request->get('current_autofr2');
-        $mecanica->current_autofr = $request->get('current_autofr');
 
         $mecanica->llantas_delanteras = $request->get('llantas_delanteras');
         $mecanica->llantas_traseras = $request->get('llantas_traseras');

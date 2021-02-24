@@ -21,19 +21,10 @@
   <component name="ChangeListManager">
     <list default="true" id="936a45dc-4f36-4130-a52f-695b08d602c5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AutomovilController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AutomovilController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DocumentosController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DocumentosController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DocumentosLugarExpController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DocumentosLugarExpController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DocumentosOtroController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DocumentosOtroController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DocumentosVencimientoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DocumentosVencimientoController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/documents/view-exp-ts-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/documents/view-exp-ts-admin.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/documents/view-lugar-ts-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/documents/view-lugar-ts-admin.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/documents/view-otro-ts-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/documents/view-otro-ts-admin.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/documents/view-vencimiento-ts-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/documents/view-vencimiento-ts-admin.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/garaje/add-bussines-modal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/garaje/add-bussines-modal.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/garaje/create-garaje-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/garaje/create-garaje-admin.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/garaje/edit-garaje-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/garaje/edit-garaje-admin.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/garaje/view-garaje-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/garaje/view-garaje-admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MecanicaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MecanicaController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_01_27_233801_create_servicios_mecanica_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_01_27_235702_create_mecanica_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_01_27_235702_create_mecanica_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/ServiciosMecanicaSeeder.php" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -190,7 +181,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/admin/garaje" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -250,6 +241,8 @@
       <workItem from="1613838747345" duration="26692000" />
       <workItem from="1613917392620" duration="18167000" />
       <workItem from="1614002923815" duration="14307000" />
+      <workItem from="1614090354796" duration="286000" />
+      <workItem from="1614135183794" duration="3032000" />
     </task>
     <servers />
   </component>
@@ -267,23 +260,5 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="1010" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1614042976630">
-      <screen x="0" y="0" width="2560" height="1040" />
-    </state>
-    <state x="1010" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.2560.1040/-2560.0.2560.1040@0.0.2560.1040" timestamp="1614042976630" />
-    <state x="1114" y="439" key="NewPhpFileDialog" timestamp="1614031104545">
-      <screen x="0" y="0" width="2560" height="1040" />
-    </state>
-    <state x="1114" y="439" key="NewPhpFileDialog/0.0.2560.1040/-2560.0.2560.1040@0.0.2560.1040" timestamp="1614031104545" />
-    <state x="781" y="164" key="SettingsEditor" timestamp="1614065462608">
-      <screen x="0" y="0" width="2560" height="1040" />
-    </state>
-    <state x="781" y="164" key="SettingsEditor/0.0.2560.1040/-2560.0.2560.1040@0.0.2560.1040" timestamp="1614065462608" />
-    <state x="92" y="92" width="2376" height="856" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1614065594689">
-      <screen x="0" y="0" width="2560" height="1040" />
-    </state>
-    <state x="92" y="92" width="2376" height="856" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.0.2560.1040/-2560.0.2560.1040@0.0.2560.1040" timestamp="1614065594689" />
   </component>
 </project>
