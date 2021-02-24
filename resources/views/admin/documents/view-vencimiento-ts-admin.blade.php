@@ -137,51 +137,53 @@
                                         Agregar Datos
                                     </p>
                                   </div>
-                                   <form method="POST" action="{{route('store_admin.view-vencimiento-ts-admin', $automovil->id)}}" enctype="multipart/form-data" role="form">
-                                         @csrf
-                                        <div class="col-12 mt-3">
-                                        <label for="">
-                                            <p class="text-dark"><strong>Elegir Img</strong></p>
-                                        </label>
 
-                                          <div class=" custom-file mb-3">
-                                            <input type="file" class="custom-file-input input-group-text" name="img" value="{{ old('img') }}>
-                                            <label class="custom-file-label">Elegir img...</label>
-                                                @if ($errors->has('img'))
-                                                    <span class="text-danger">{{ $errors->first('img') }}</span>
-                                                @endif
-                                          </div>
+                                       <form method="POST" action="{{route('store_admin.view-vencimiento-ts-admin', $automovil->id)}}" enctype="multipart/form-data" role="form">
+                                             @csrf
 
-                                            <label for="">
-                                                <p class="text-dark"><strong>Fecha de Expedicion</strong></p>
-                                            </label>
+                                            <div class="col-12 mt-3">
+                                                <label for="">
+                                                    <p class="text-dark"><strong>Elegir Img</strong></p>
+                                                </label>
 
-                                                <div class="input-group form-group">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text">
-                                                             <img class="" src="{{ asset('img/icon/white/calendario (1).png') }}" width="25px" >
-                                                        </span>
-                                                    </div>
-                                                     <input type="date" class="form-control" placeholder="MM/DD/YYY"  style="border-radius: 0  10px 10px 0;"  name="fecha_vencimiento" value="{{ old('fecha_vencimiento') }}>
-                                                    @if ($errors->has('fecha_vencimiento'))
-                                                        <span class="text-danger">{{ $errors->first('fecha_vencimiento') }}</span>
-                                                    @endif
-                                                </div>
+                                                  <div class=" custom-file mb-3">
+                                                    <input type="file" class="custom-file-input input-group-text" name="img" value="{{ old('img') }}>
+                                                    <label class="custom-file-label">Elegir img...</label>
+                                                        @if ($errors->has('img'))
+                                                            <span class="text-danger">{{ $errors->first('img') }}</span>
+                                                        @endif
+                                                  </div>
 
-                                            <p class="text-center mt-3">
-                                                Agregar <br>
-                                                <strong> Fecha de vencimiento de Tarjeta de Circulación</strong>
-                                            </p>
+                                                  <label for="">
+                                                        <p class="text-dark"><strong>Fecha de Expedicion</strong></p>
+                                                    </label>
 
-                                                <button type="submit" class="btn btn-success btn-save text-white">
-                                                    <img class="d-inline" src="{{ asset('img/icon/white/save-file-option (1).png') }}" alt="Icon documento" width="30px">
-                                                    Guardar
-                                                </button>
-                                        </div>
-                                   </form>
+                                                  <div class="input-group form-group">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text">
+                                                                     <img class="" src="{{ asset('img/icon/white/calendario (1).png') }}" width="25px" >
+                                                                </span>
+                                                            </div>
+                                                             <input type="date" class="form-control" placeholder="MM/DD/YYY"  style="border-radius: 0  10px 10px 0;"  name="fecha_vencimiento" value="{{ old('fecha_vencimiento') }}>
+                                                            @if ($errors->has('fecha_vencimiento'))
+                                                                <span class="text-danger">{{ $errors->first('fecha_vencimiento') }}</span>
+                                                            @endif
+                                                        </div>
+
+                                                  <p class="text-center mt-3">
+                                                        Agregar <br>
+                                                        <strong> Fecha de vencimiento de Tarjeta de Circulación</strong>
+                                                    </p>
+
+                                                  <button type="submit" class="btn btn-success btn-save text-white">
+                                                      <img class="d-inline" src="{{ asset('img/icon/white/save-file-option (1).png') }}" alt="Icon documento" width="30px">
+                                                        Guardar
+                                                  </button>
+                                            </div>
+                                       </form>
+                                </div>
 
                               </div>
-
 
                             </div>
                           </div>
