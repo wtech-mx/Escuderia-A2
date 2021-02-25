@@ -72,7 +72,7 @@
                                                           </div>
 
                                                           <div class="col-6">
-                                                            <img class="d-inline mb-2" src="{{ asset('img/icon/seguros/'.$item->seguro) }}" alt="Icon documento" width="150px">
+                                                            <img class="d-inline mb-2" src="{{ asset('img/icon/seguros/'.$item->seguro.'.png') }}" alt="Icon documento" width="150px">
                                                           </div>
                                                       </div>
 
@@ -110,7 +110,7 @@
                                                       </div>
 
                                                       <div class="col-6">
-                                                        <img class="d-inline mb-2" src="{{ asset('img/icon/car.png') }}" alt="Icon documento" width="150px">
+                                                         <img class="d-inline mb-2" src="{{ asset('img/icon/seguros/'.$item->seguro.'.png') }}" alt="Icon documento" width="150px">
                                                       </div>
                                                   </div>
 

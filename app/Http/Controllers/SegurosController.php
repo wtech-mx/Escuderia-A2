@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use DB;
 use Session;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Arr;
+
 
 class SegurosController extends Controller
 {
@@ -110,67 +112,8 @@ class SegurosController extends Controller
      function index_admin(){
 
         $seguros = Seguros::where('id_empresa', '=', NULL)->get();
-        $seguros2 = Seguros::where('id_user', '=', NULL)->get();
 
-//        switch($seguros){
-//            case( $seguros->seguro == 'aba' ):
-//                $img = 'aba.png';
-//            break;
-//            case( $seguros->seguro == 'afirme' ):
-//                $img = 'afirme.png';
-//            break;
-//            case( $seguros->seguro == 'aig' ):
-//                $img = 'aig.png';
-//            break;
-//            case( $seguros->seguro == 'ana' ):
-//                $img = 'ana.png';
-//            break;
-//            case( $seguros->seguro == 'atlas' ):
-//                $img = 'atlas.png';
-//            break;
-//            case( $seguros->seguro == 'axa' ):
-//                $img = 'axa.png';
-//            break;
-//            case( $seguros->seguro == 'banorte' ):
-//                $img = 'banorte.png';
-//            break;
-//            case( $seguros->seguro == 'general' ):
-//                $img = 'general.png';
-//            break;
-//            case( $seguros->seguro == 'sura' ):
-//                $img = 'sura.png';
-//            break;
-//            case( $seguros->seguro == 'vexmas' ):
-//                $img = 'vexmas.png';
-//            break;
-//            case( $seguros->seguro == 'gnp' ):
-//               $img = 'gnp.png';
-//            break;
-//            case( $seguros->seguro == 'hdi' ):
-//                $img = 'hdi.png';
-//            break;
-//            case( $seguros->seguro == 'inbursa' ):
-//                $img = 'inbursa.png';
-//            break;
-//            case( $seguros->seguro == 'latino' ):
-//                $img = 'latino.png';
-//            break;
-//            case( $seguros->seguro == 'mapfre' ):
-//                $img = 'mapfre.png';
-//            break;
-//            case( $seguros->seguro == 'qualitas' ):
-//                $img = 'qualitas.png';
-//            break;
-//            case( $seguros->seguro == 'potosi' ):
-//                $img = 'potosi.png';
-//            break;
-//            case( $seguros->seguro == 'miituo' ):
-//                $img = 'miituo.png';
-//            break;
-//            case( $seguros->seguro == 'zurich' ):
-//                $img = 'zurich.png';
-//            break;
-//        }
+        $seguros2 = Seguros::where('id_user', '=', NULL)->get();
 
         return view('admin.seguros.view-seguros-admin',compact('seguros','seguros2'));
     }
@@ -178,6 +121,7 @@ class SegurosController extends Controller
     public function edit_admin($id){
 
        $seguro = Seguros::findOrFail($id);
+
         switch($seguro){
             case( $seguro->seguro == 'aba' ):
                 $img = 'aba.png';
