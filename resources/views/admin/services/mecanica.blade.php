@@ -8,6 +8,38 @@
 
                 <div class="row bg-down-blue-border" style="background: #050F55 0% 0% no-repeat padding-box;">
 
+                    @if(Session::has('marca'))
+                        <script>
+                            Swal.fire({
+                              title: 'Exito!!',
+                              html:
+                                'Se ha agragado la <b>MARCA</b>, ' +
+                                'Exitosamente',
+                              // text: 'Se ha agragado la "MARCA" Exitosamente',
+                              imageUrl: '{{ asset('img/icon/color/dairy-products.png') }}',
+                              background: '#fff',
+                              imageWidth: 150,
+                              imageHeight: 150,
+                              imageAlt: 'Custom image',
+                            })
+                        </script>
+                    @endif
+
+                    @if(Session::has('success'))
+                        <script>
+                            Swal.fire({
+                              title: 'Exito!!',
+                              html:
+                                'Se ha creado el <b>servicio</b>, ' +
+                                'Exitosamente',
+                              imageUrl: '{{ asset('img/icon/color/check-up.png') }}',
+                              imageWidth: 150,
+                              imageHeight: 150,
+                              imageAlt: 'Custom image',
+                            })
+                        </script>
+                    @endif
+
                     <div class="col-2  mt-5">
                         <div class="d-flex justify-content-start">
                                 <div class="text-center text-white">

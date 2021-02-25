@@ -162,19 +162,19 @@
                                             </div>
                                   </div>
 
-                                  <div class="col-9 p-4">
 
+                           <div class="col-12 p-4">
+                                <div class="d-flex">
+                                  <div class="mr-auto">
                                          <label for="">
                                              <p class="text-white"><strong>Marca</strong></p>
                                          </label>
-
                                             <div class="input-group form-group ">
                                                 <div class="input-group-prepend " >
                                                     <span class="input-group-text input-services" >
                                                          <img class="" src="{{ asset('img/icon/white/edificio-de-oficinas.png') }}" width="25px" >
                                                     </span>
                                                 </div>
-
                                              <select class="form-control input-edit-car" id="id_marca" name="id_marca" value="{{ old('id_marca') }}">
                                                 <option>Selecciona la marca</option>
                                                 @foreach($marca as $item)
@@ -183,16 +183,19 @@
                                              </select>
                                             </div>
                                   </div>
-
-                                  <div class="col-3 p-4">
+                                  <div class="mr-auto">
                                          <label for="">
-                                             <p class="text-white"><strong>-</strong></p>
+                                             <p class="text-white"><strong>Marca</strong></p>
                                          </label>
+                                            <div class="input-group form-group ">
                                              <!-- Button trigger modal -->
                                             <a  class="btn bg-white" data-toggle="modal" data-target="#Marca">
                                                 <img class="" src="{{ asset('img/icon/black/boton-circular-plus (1).png') }}" width="25px" >
                                             </a>
+                                            </div>
                                   </div>
+                                </div>
+                           </div>
 
                                   <div class="col-12 p-4">
                                          <label for="">

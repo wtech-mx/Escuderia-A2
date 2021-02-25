@@ -5,6 +5,22 @@
 
 <div class="row bg-blue" style="background-image: linear-gradient(to bottom, #246af7, #315ffb, #4351fe, #573ffe, #6b24fc);">
 
+                        @if(Session::has('success'))
+                        <script>
+                            Swal.fire({
+                              title: 'Exito!!',
+                              html:
+                                'Se ha agragado la <b>Póliza de Seguro </b>, ' +
+                                'Exitosamente',
+                              // text: 'Se ha agragado la "MARCA" Exitosamente',
+                              imageUrl: '{{ asset('img/icon/color/obediente.png') }}',
+                              background: '#fff',
+                              imageWidth: 150,
+                              imageHeight: 150,
+                              imageAlt: 'obediente IMG',
+                            })
+                        </script>
+                        @endif
 
                         <div class="col-2  mt-4">
                             <div class="d-flex justify-content-start">

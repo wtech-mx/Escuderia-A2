@@ -8,6 +8,23 @@
 
                 <div class="row bg-profile" style="z-index: 100000">
 
+                        @if(Session::has('success'))
+                        <script>
+                            Swal.fire({
+                              title: 'Exito!!',
+                              html:
+                                'Se ha agragado la <b>FACTURA</b>, ' +
+                                'Exitosamente',
+                              // text: 'Se ha agragado la "MARCA" Exitosamente',
+                              imageUrl: '{{ asset('img/icon/color/factura.png') }}',
+                              background: '#fff',
+                              imageWidth: 150,
+                              imageHeight: 150,
+                              imageAlt: 'Facturas IMG',
+                            })
+                        </script>
+                        @endif
+
                     <div class="col-2">
                         <div class="d-flex justify-content-start">
                                 <div class="text-center text-white">

@@ -48,6 +48,8 @@ class UserController extends Controller
         $user->password = Hash::make($request->password);
 
         $user->save();
+
+        Session::flash('user', 'Se ha guardado sus datos con exito');
         return redirect()->route('create_admin.automovil');
     }
 

@@ -117,7 +117,7 @@ class CreateMecanicaTable extends Migration
                 ->inDelete('set null');
 
             $table->foreign('id_marca')
-                ->references('id')->on('marca')
+                ->references('id')->on('marca_product')
                 ->inDelete('RESTRICT');
 
             $table->timestamps();

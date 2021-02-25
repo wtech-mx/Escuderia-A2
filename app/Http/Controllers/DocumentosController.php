@@ -67,10 +67,12 @@ class DocumentosController extends Controller
          /* Trae Autos de Usuarios */
         $automovil = Automovil::where('id_empresa', '=', NULL)->get();
 
-        return view('admin.documents.view-documents-admin',compact('automovil'));
+        $automovil2 = Automovil::where('id_user', '=', NULL)->get();
+
+        return view('admin.documents.view-documents-admin',compact('automovil','automovil2'));
     }
 
-        public function create_admin($id)
+   public function create_admin($id)
     {
         /* Trae los datos el auto en el que esta */
         $automovil = DB::table('automovil')

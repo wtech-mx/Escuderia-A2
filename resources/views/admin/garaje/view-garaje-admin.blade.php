@@ -6,6 +6,22 @@
 
                 <div class="row bg-blue" style="background: #050F55 0% 0% no-repeat padding-box;">
 
+                    @if(Session::has('auto'))
+                        <script>
+                            Swal.fire({
+                              title: 'Exito!!',
+                              html:
+                                'Se ha agragado el <b>VEHICULO</b>, ' +
+                                'Exitosamente',
+                              // text: 'Se ha agragado la "MARCA" Exitosamente',
+                              imageUrl: '{{ asset('img/icon/color/coche (6).png') }}',
+                              background: '#fff',
+                              imageWidth: 150,
+                              imageHeight: 150,
+                              imageAlt: 'USUARIO IMG',
+                            })
+                        </script>
+                    @endif
 
                         <div class="col-2  mt-4">
                             <div class="d-flex justify-content-start">

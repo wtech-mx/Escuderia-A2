@@ -6,6 +6,22 @@
 
 <div class="row bg-blue" style="background-image: linear-gradient(to bottom, #24b6f7, #009fff, #0086ff, #0066ff, #243afc);">
 
+                        @if(Session::has('success'))
+                        <script>
+                            Swal.fire({
+                              title: 'Exito!!',
+                              html:
+                                'Se ha agragado el <b>DOCUMENTO</b>, ' +
+                                'Exitosamente',
+                              // text: 'Se ha agragado la "MARCA" Exitosamente',
+                              imageUrl: '{{ asset('img/icon/color/dosier.png') }}',
+                              background: '#fff',
+                              imageWidth: 150,
+                              imageHeight: 150,
+                              imageAlt: 'USUARIO IMG',
+                            })
+                        </script>
+                        @endif
 
                         <div class="col-2  mt-4">
                             <div class="d-flex justify-content-start">

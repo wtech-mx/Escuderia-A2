@@ -152,6 +152,7 @@ class AutomovilController extends Controller
         $automovil = Automovil::where('id_empresa', '=', NULL)->get();
 
         $automovil2 = Automovil::where('id_user', '=', NULL)->get();
+
         return view('admin.garaje.view-garaje-admin',compact('automovil', 'automovil2'));
     }
 
@@ -180,6 +181,7 @@ class AutomovilController extends Controller
             'numero_serie' => 'required|max:191',
             'color' => 'required|max:191',
             'placas' => 'required|max:191',
+
         ]);
 
         $automovil = new Automovil;
@@ -206,9 +208,10 @@ class AutomovilController extends Controller
         $seguro->id_user = $automovil->id_user;
         $seguro->id_empresa = $automovil->id_empresa;
         $seguro->current_auto = $automovil->id;
+
         $seguro->save();
 
-        Session::flash('success', 'Se ha guardado sus datos con exito');
+        Session::flash('auto', 'Se ha guardado sus datos con exito');
 
         return redirect()->route('index_admin.automovil', compact('automovil'));
     }

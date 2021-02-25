@@ -43,7 +43,7 @@ class MecanicaController extends Controller
          $empresa = DB::table('empresa')
             ->get();
 
-         $marca = DB::table('marca')
+         $marca = DB::table('marca_product')
             ->get();
 
          $automovil = DB::table('automovil')
@@ -137,7 +137,10 @@ class MecanicaController extends Controller
     		$mecanica->video2=time().".".$file->getClientOriginalExtension();
     	}
 
+
         $mecanica->save();
+
+        Session::flash('success', 'Se ha guardado sus datos con exito');
         return redirect()->back();
     }
 

@@ -6,6 +6,39 @@
 
 <div class="row bg-blue" style="background-image: linear-gradient(to bottom, #24f7bc, #00edda, #00e1f0, #00d3fb, #24c4fc);">
 
+                    @if(Session::has('empresa'))
+                        <script>
+                            Swal.fire({
+                              title: 'Exito!!',
+                              html:
+                                'Se ha agragado la <b>EMPRESA</b>, ' +
+                                'Exitosamente',
+                              // text: 'Se ha agragado la "MARCA" Exitosamente',
+                              imageUrl: '{{ asset('img/icon/color/edificio-de-oficinas (3).png') }}',
+                              background: '#fff',
+                              imageWidth: 150,
+                              imageHeight: 150,
+                              imageAlt: 'EMPRESA IMG',
+                            })
+                        </script>
+                    @endif
+
+                    @if(Session::has('user'))
+                        <script>
+                            Swal.fire({
+                              title: 'Exito!!',
+                              html:
+                                'Se ha agragado el <b>USUARIO</b>, ' +
+                                'Exitosamente',
+                              // text: 'Se ha agragado la "MARCA" Exitosamente',
+                              imageUrl: '{{ asset('img/icon/color/empresario.png') }}',
+                              background: '#fff',
+                              imageWidth: 150,
+                              imageHeight: 150,
+                              imageAlt: 'USUARIO IMG',
+                            })
+                        </script>
+                    @endif
 
                         <div class="col-2  mt-4">
                             <div class="d-flex justify-content-start">
@@ -237,7 +270,7 @@
                                                 </div>
 
                                                 <select class="form-control" id="id_empresa" name="id_empresa">
-                                                     <option>Seleccione empresa</option>
+                                                     <option value="">Seleccione empresa</option>
                                                      @foreach($empresa as $item)
                                                         <option value="{{$item->id}}">{{$item->nombre}}</option>
                                                      @endforeach

@@ -65,7 +65,9 @@ class ExpfacturasController extends Controller
 
         $automovil = Automovil::where('id_empresa', '=', NULL)->get();
 
-        return view('admin.exp-fisico.view-exp-fisico-admin',compact('automovil'));
+        $automovil2 = Automovil::where('id_user', '=', NULL)->get();
+
+        return view('admin.exp-fisico.view-exp-fisico-admin',compact('automovil','automovil2'));
     }
 
         public function create_admin($id)

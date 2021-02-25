@@ -52,6 +52,7 @@ class EmpresasController extends Controller
 
         $empresa->save();
 
+    	Session::flash('empresa', 'Se ha guardado sus datos con exito');
        return redirect()->route('create_admin.automovil');
     }
 

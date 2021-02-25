@@ -59,6 +59,7 @@
                                   <div class="row">
                                     @foreach ($seguros as $item)
                                         <div class="col-12 mt-4">
+
                                             <a class="card-text" href="{{ route('edit_admin.seguro',$item->id) }}" style="text-decoration: none;color: #000000">
                                                 <div class="card card-slide-garaje" >
                                                   <div class="card-body p-2" >
@@ -71,7 +72,7 @@
                                                           </div>
 
                                                           <div class="col-6">
-                                                            <img class="d-inline mb-2" src="{{ asset('img/icon/car.png') }}" alt="Icon documento" width="150px">
+                                                            <img class="d-inline mb-2" src="{{ asset('img/icon/seguros/'.$item->seguro) }}" alt="Icon documento" width="150px">
                                                           </div>
                                                       </div>
 

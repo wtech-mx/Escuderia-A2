@@ -5,6 +5,22 @@
 
 <div class="row bg-blue" style="background-image: linear-gradient(to bottom, #246af7, #315ffb, #4351fe, #573ffe, #6b24fc);">
 
+                        @if(Session::has('success'))
+                        <script>
+                            Swal.fire({
+                              title: 'Exito!!',
+                              html:
+                                'Se ha agragado la <b>Tenencia</b>, ' +
+                                'Exitosamente',
+                              // text: 'Se ha agragado la "MARCA" Exitosamente',
+                              imageUrl: '{{ asset('img/icon/color/cuenta.png') }}',
+                              background: '#fff',
+                              imageWidth: 150,
+                              imageHeight: 150,
+                              imageAlt: 'Tenencias IMG',
+                            })
+                        </script>
+                        @endif
 
                         <div class="col-2  mt-4">
                             <div class="d-flex justify-content-start">
@@ -49,7 +65,7 @@
                             <div class="col-6">
                                 <a type="button" class="" data-toggle="modal" data-target="#modal-doc-{{$item->id}}">
                                     <p class="text-center">
-                                         <img class="d-inline mb-2" src="{{asset('exp-tenencias/'.$item->tenencia)}}" alt="{{$item->tenencia}}" width="100px">
+                                         <img class="d-inline mb-2" src="{{asset('exp-tenencia/'.$item->tenencia)}}" alt="{{$item->tenencia}}" width="100px">
                                     </p>
                                 </a>
                             </div>
@@ -68,7 +84,7 @@
 
                                   <div class="modal-body">
                                       <p class="text-center">
-                                          <img class="" src="{{asset('exp-tenencias/'.$item->tenencia)}}" alt="{{$item->tenencia}}" width="100%">
+                                          <img class="" src="{{asset('exp-tenencia/'.$item->tenencia)}}" alt="{{$item->tenencia}}" width="100%">
                                       </p>
                                   </div>
 
