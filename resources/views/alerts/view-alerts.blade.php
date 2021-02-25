@@ -57,10 +57,10 @@
 
                         </div>
 
-	<script>
-        Push.create("Hello world!", {
-            body: "How's it hangin'?",
-            icon: '/icon.png',
+     <script>
+        Push.create("Hola Alejandro estas es una Alerta!", {
+            body: "Asi se veran'?",
+            icon: '{{ asset('/icon-512x512.ico') }}',
             timeout: 6000,
             onClick: function () {
                 window.focus();

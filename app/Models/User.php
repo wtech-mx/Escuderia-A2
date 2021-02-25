@@ -52,7 +52,7 @@ class User extends Authenticatable
     public function Automovil()
     {
         //relationship of many users to many posts
-        return $this->hasMany(Automovil::class);
+        return $this->belongsTo(Automovil::class, 'current_auto');
     }
 
     public function DocumentosVencimiento()
