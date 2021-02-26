@@ -8,7 +8,7 @@
                     <div class="col-md-12 mt-3 mb-3">
 
                         <div class="d-flex justify-content-center mt-2" >
-                            <img class="img-responsive" width="45%" src="https://eago.com.mx/general/1595621309.png" />
+                            <img class="img-responsive" width="45%" src="{{ asset('logo.png') }}" />
                         </div>
 
                     </div>
@@ -69,7 +69,7 @@
 
                         <p class="text-center mt-3 text-white">
                             No tienes una cuenta?
-                            <a  class="text-center " href="{{ route('register') }}" style="color: #0092c5">Registrate</a>
+                            <a  class="text-center " href="{{ route('register') }}" style="color: #00e12f">Registrate</a>
                         </p>
 
                     </div>
