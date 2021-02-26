@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class TarjetaCirculacion extends Model
 {
     use HasFactory;
+
     protected $table = "tarjeta_circulacion";
     protected $primarykey = "id";
 

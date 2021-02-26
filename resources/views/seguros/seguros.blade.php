@@ -75,7 +75,7 @@
                                 </div>
 
                                 <select class="form-control" id="seguro" name="seguro">
-                                  <option value="{{$seguro->seguro}}" selected>{{$seguro->seguro}}</option>
+                                  <option selected value="{{$seguro->seguro}}" selected>{{$seguro->seguro}}</option>
                                   <option value="aba">aba</option>
                                   <option value="afirme">afirme</option>
                                   <option value="aig">aig</option>
@@ -100,7 +100,7 @@
                             </div>
 
                              <label for="">
-                                 <p class="text-white"><strong>Fecha de Expiracion</strong></p>
+                                 <p class="text-white"><strong>Fecha de Expedicion</strong></p>
                              </label>
 
                             <div class="input-group form-group">
@@ -137,7 +137,7 @@
                                 </div>
 
                                 <select class="form-control" id="tipo_cobertura" name="tipo_cobertura">
-                                  <option value="{{$seguro->tipo_cobertura}}" selected>{{$seguro->tipo_cobertura}}</option>
+                                  <option selected value="{{$seguro->tipo_cobertura}}" selected>{{$seguro->tipo_cobertura}}</option>
                                   <option value="Amplia">Amplia</option>
                                   <option value="Limitada">Limitada</option>
                                 </select>
