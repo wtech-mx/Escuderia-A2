@@ -4,8 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
-use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Str;
+
 use App\Models\Automovil;
 use App\Models\Seguros;
 use App\Models\User;
@@ -70,6 +69,12 @@ class AutomovilController extends Controller
         $automovil->color = $request->get('color');
         $automovil->placas = $request->get('placas');
 
+    	if ($request->hasFile('img')) {
+    		$file=$request->file('img');
+    		$file->move(public_path().'/img-auto',time().".".$file->getClientOriginalExtension());
+    		$automovil->img=time().".".$file->getClientOriginalExtension();
+    	}
+
         $automovil->id_user = auth()->user()->id;
         $automovil->save();
 
@@ -124,6 +129,12 @@ class AutomovilController extends Controller
         $automovil->numero_serie = $request->get('numero_serie');
         $automovil->color = $request->get('color');
         $automovil->placas = $request->get('placas');
+
+    	if ($request->hasFile('img')) {
+    		$file=$request->file('img');
+    		$file->move(public_path().'/img-auto',time().".".$file->getClientOriginalExtension());
+    		$automovil->img=time().".".$file->getClientOriginalExtension();
+    	}
 
         $automovil->update();
 
@@ -197,7 +208,13 @@ class AutomovilController extends Controller
         $automovil->numero_serie = $request->get('numero_serie');
         $automovil->color = $request->get('color');
         $automovil->placas = $request->get('placas');
-//dd($automovil);
+
+    	if ($request->hasFile('img')) {
+    		$file=$request->file('img');
+    		$file->move(public_path().'/img-auto',time().".".$file->getClientOriginalExtension());
+    		$automovil->img=time().".".$file->getClientOriginalExtension();
+    	}
+
         $automovil->save();
 
         $seguro = new  Seguros;
@@ -258,6 +275,12 @@ class AutomovilController extends Controller
         $automovil->numero_serie = $request->get('numero_serie');
         $automovil->color = $request->get('color');
         $automovil->placas = $request->get('placas');
+
+    	if ($request->hasFile('img')) {
+    		$file=$request->file('img');
+    		$file->move(public_path().'/img-auto',time().".".$file->getClientOriginalExtension());
+    		$automovil->img=time().".".$file->getClientOriginalExtension();
+    	}
 
         $automovil->update();
 

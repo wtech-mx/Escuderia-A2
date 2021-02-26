@@ -91,7 +91,7 @@
                                                      <a type="button" class="" data-toggle="modal" data-target="#modal-estatus-{{$item->id}}">
                                                         <div class="card card-slide-garaje">
                                                           <div class="card-body" >
-                                                              <img class="d-inline mb-2" src="{{ asset('img/icon/car2.png') }}" alt="Icon documento" width="150px">
+                                                              <img class="d-inline mb-2" src="{{ asset('img-auto/'.$item->img) }}"  width="100px" height="100px">
                                                               <p class="card-text"><strong>{{$item->submarca}}</strong></p>
                                                               <p class="card-text" style="font-size: 12px"><strong>{{$item->kilometraje}} KM Recorridos</strong></p>
                                                           </div>

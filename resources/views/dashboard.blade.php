@@ -9,15 +9,31 @@
                 <link href="{{ asset('css/login-form.css') }}" rel="stylesheet">
 
                 <div class="row bg-img-log" style="background-image: url({{ asset('img/bg-log.png') }});">
-                    <div class="col-md-12 mt-3 mb-3">
 
-                            <div class="d-flex flex-row-reverse">
-                              <div class="p-2">
-                                   <a href="{{ route('view-alerts') }}">
-                                      <img class="img-thumbnail" src="{{ asset('img/icon/color/campana.png') }}" width="40px" style="border-radius: 50px">
-                                  </a>
-                              </div>
-                            </div>
+                    <div class="col-2">
+                        <div class="d-flex justify-content-start">
+                                <div class="text-center text-white bg-white" style="border-radius: 50px;padding: 5px">
+                                  <img class="rounded-circle" src="{{ asset('img-perfil/'.$user->img) }}" width="40px" >
+                                </div>
+                        </div>
+                    </div>
+
+                    <div class="col-8">
+                        <h5 class="text-center text-white ml-4 mr-4 ">
+                            <strong>Hola : {{$user->name}}</strong> <br> <br>
+{{--                             <strong>Auto Activo: {{$user->Automovil->submarca}}</strong>--}}
+                        </h5>
+                    </div>
+
+                    <div class="col-2">
+                        <div class="d-flex justify-content-start">
+                                <div class="text-center text-white bg-white" style="border-radius: 50px;padding: 5px">
+                                  <img class="" src="{{ asset('img/icon/color/campana.png') }}" width="30px" >
+                                </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 mt-3 mb-3">
 
                             <div class="card" style="border-radius: 15px;position: relative;top: 15px;opacity: 0.7;">
                               <div class="card-body" >
@@ -87,7 +103,7 @@
                     </div>
 
                     <div class="col-6 mt-4">
-                        <a href="{{ route('view-documents') }}" class="text-dark">
+                        <a href="{{ route('tarjeta_circulacion') }}" class="text-dark">
                             <div class="card" style="border-radius: 15px">
                               <div class="card-body" >
                                   <img class="d-inline mb-2" src="{{ asset('img/icon/black/documento.png') }}" alt="Icon documento" width="50px">
@@ -128,15 +144,6 @@
                               </div>
                             </div>
                         </a>
-                    </div>
-
-                    <div class="col-6 mt-4 mb-4">
-                        <div class="card" style="border-radius: 15px">
-                          <div class="card-body" >
-                              <img class="d-inline mb-2" src="{{ asset('img/icon/black/documento (1).png') }}" alt="Icon Tenencia" width="50px">
-                              <p class="card-text"><strong>Tenencia</strong></p>
-                          </div>
-                        </div>
                     </div>
 
                 </div>

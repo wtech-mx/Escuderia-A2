@@ -3,14 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use App\Models\Automovil;
 use Illuminate\Http\Request;
 use DB;
+use Illuminate\Support\Facades\Auth;
 use Session;
 
-use App\Providers\RouteServiceProvider;
-use Illuminate\Auth\Events\Registered;
-use Illuminate\Support\Facades\Auth;
+
 use Illuminate\Support\Facades\Hash;
 
 
@@ -19,6 +17,19 @@ class UserController extends Controller
 
      public function __construct(){
         $this->middleware('auth');
+    }
+
+/*|--------------------------------------------------------------------------
+|USER DASHBOARD
+|--------------------------------------------------------------------------*/
+
+    public function dashboard()
+    {
+
+        $user = User::where('id','=',auth()->user()->id)
+        ->first();
+
+        return view('dashboard',compact('user'));
     }
 /*|--------------------------------------------------------------------------
 |Create User Auto_Admin
@@ -89,6 +100,7 @@ class UserController extends Controller
         $users = DB::table('users')
         ->get();
 
+        dd($user);
         $user->update();
 
         Session::flash('success', 'Se ha guardado sus datos con exito');

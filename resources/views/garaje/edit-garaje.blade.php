@@ -31,8 +31,11 @@
                             </div>
                         </div>
 
-                        <div class="col-12 mb3">
-                            <img class="d-inline mb-2" src="{{ asset('img/icon/car2.png') }}" alt="Icon documento" width="500px">
+                        <div class="col-12 mt-3">
+                            <p class="text-center">
+                                <img class="" src="{{ asset('img-auto/'.$automovil->img) }}"  width="200px">
+                            </p>
+
                             <p class="text-left title-car">
                                 <strong>{{$automovil->submarca}}</strong>
                             </p>
@@ -135,6 +138,18 @@
                         <div class="col-12">
                             <div class="input-group form-group">
                                 <div class="input-group-prepend " >
+                                    <span class="input-group-text span-edit-car" >
+                                         <img class="" src="{{ asset('img/icon/black/placa.png') }}" width="35px">
+                                          <a class="input-a-text">Num Placas</a>
+                                    </span>
+                                </div>
+                                <input type="text" class="form-control input-edit-car input-edit-car" value="{{$automovil->placas}}" id="placas" name="placas">
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="input-group form-group">
+                                <div class="input-group-prepend " >
                                     <span class="input-group-text span-edit-car">
                                          <img class="" src="{{ asset('img/icon/black/color-palette.png') }}" width="35px">
                                          <a class="input-a-text">Color</a>
@@ -147,13 +162,19 @@
                         <div class="col-12">
                             <div class="input-group form-group">
                                 <div class="input-group-prepend " >
-                                    <span class="input-group-text span-edit-car" >
-                                         <img class="" src="{{ asset('img/icon/black/placa.png') }}" width="35px">
-                                          <a class="input-a-text">Num Placas</a>
+                                    <span class="input-group-text span-edit-car">
+                                         <img class="" src="{{ asset('img/icon/black/camara-fotografica.png') }}" width="35px">
+                                         <a class="input-a-text">Foto</a>
                                     </span>
                                 </div>
-                                <input type="text" class="form-control input-edit-car input-edit-car" value="{{$automovil->placas}}" id="placas" name="placas">
+                                <input  type="file"  class="form-control input-edit-car" id='img' name="img" value="{{$automovil->img}}">
                             </div>
+                        </div>
+
+                        <div class="col-12">
+                            <p class="text-center">
+                                  <img class="d-inline mb-2" src="{{ asset('img-auto/'.$automovil->img) }}"  width="150px">
+                            </p>
                         </div>
 
                         <div class="col-12 text-center mt-3 mb-5">

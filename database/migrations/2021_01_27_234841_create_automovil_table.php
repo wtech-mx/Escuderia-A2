@@ -28,6 +28,7 @@ class CreateAutomovilTable extends Migration
             $table->string('color');
             $table->string('placas');
             $table->string('kilometraje');
+            $table->string('img')->nullable();
 
             $table->foreign('id_user')
                 ->references('id')->on('users')

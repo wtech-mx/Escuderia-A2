@@ -26,10 +26,11 @@ Route::get('/', function () {
 |Dashboard
 |--------------------------------------------------------------------------*/
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+//Route::get('/dashboard', function () {
+//    return view('dashboard');
+//})->middleware(['auth'])->name('dashboard');
 
+Route::get('dashboard','UserController@dashboard')->name('dashboard');
 
 /*|--------------------------------------------------------------------------
 |garaje view
@@ -139,6 +140,13 @@ Route::get('/exp-fisico/view-exp-fisico', function () {
     return view('exp-fisico/view-exp-fisico');
 })->middleware(['auth'])->name('view-exp-fisico');
 
+/*|--------------------------------------------------------------------------
+|Tarjeta circulacion
+|--------------------------------------------------------------------------*/
+
+Route::get('/tarjeta-circulacion/tarjeta_circulacion', function () {
+    return view('tarjeta-circulacion/tarjeta_circulacion');
+})->middleware(['auth'])->name('tarjeta_circulacion');
 
 /*|--------------------------------------------------------------------------
 |Comparte y Gana
