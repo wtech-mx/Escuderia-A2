@@ -8,7 +8,7 @@
                     <div class="col-md-12 mt-3 mb-3">
 
                         <div class="d-flex justify-content-center mt-2" >
-                            <img class="img-responsive" width="45%" src="{{ asset('logo.png') }}" />
+                            <img class="img-responsive" width="45%" src="https://eago.com.mx/general/1595621309.png" />
                         </div>
 
                     </div>
@@ -20,7 +20,7 @@
                 <div class="row bg-down-blue" >
                     <div class="col-12 p-5">
 
-                        <h1 class="text-center  p-3" style="color: #00e12f">
+                        <h1 class="text-center text-white p-3">
                             <strong>Registro</strong>
                         </h1>
 
@@ -55,7 +55,7 @@
                         </div>
 
                         <div class="wrap-input100 validate-input m-b-20 mt-3" data-validate="Escribe email">
-                            <input id="password-confirm" type="password" class="input100" name="password_confirmation" required autocomplete="new-password" placeholder="Repetir Contraseña">
+                            <input id="password-confirm" type="password" class="input100" name="password_confirmation" required autocomplete="new-password" placeholder="Repetor Contraseña">
                             <span class="focus-input100"></span>
                         </div>
 
@@ -78,7 +78,7 @@
 
                         <p class="text-center mt-3 text-white">
                             Ya tienes una cuenta?
-                            <a  class="text-center " href="{{ route('login') }}" style="color: #00e12f">Iniciar sesion</a>
+                            <a  class="text-center " href="{{ route('login') }}" style="color: #0092c5">Iniciar sesion</a>
                         </p>
 
                     </div>
