@@ -103,7 +103,7 @@
                     </div>
 
                     <div class="col-6 mt-4">
-                        <a href="{{ route('tarjeta_circulacion') }}" class="text-dark">
+                        <a href="{{ route('index.tc') }}" class="text-dark">
                             <div class="card" style="border-radius: 15px">
                               <div class="card-body" >
                                   <img class="d-inline mb-2" src="{{ asset('img/icon/black/documento.png') }}" alt="Icon documento" width="50px">

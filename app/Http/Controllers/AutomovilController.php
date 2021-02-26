@@ -8,6 +8,7 @@ use DB;
 use App\Models\Automovil;
 use App\Models\Seguros;
 use App\Models\User;
+use App\Models\TarjetaCirculacion;
 use Session;
 
 class AutomovilController extends Controller
@@ -90,6 +91,11 @@ class AutomovilController extends Controller
         $seguro->id_user = $user->id;
         $seguro->current_auto = $automovil->id;
         $seguro->save();
+
+        $tarjeta_circulacion = new  TarjetaCirculacion;
+        $tarjeta_circulacion->id_user = $user->id;
+        $tarjeta_circulacion->current_auto = $automovil->id;
+        $tarjeta_circulacion->save();
 
         Session::flash('success', 'Se ha guardado sus datos con exito');
 
@@ -227,6 +233,11 @@ class AutomovilController extends Controller
         $seguro->current_auto = $automovil->id;
 
         $seguro->save();
+
+        $tarjeta_circulacion = new  TarjetaCirculacion;
+        $tarjeta_circulacion->id_user = $automovil->id_user;
+        $tarjeta_circulacion->current_auto = $automovil->id;
+        $tarjeta_circulacion->save();
 
         Session::flash('auto', 'Se ha guardado sus datos con exito');
 

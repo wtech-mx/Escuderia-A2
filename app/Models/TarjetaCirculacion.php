@@ -20,6 +20,7 @@ class TarjetaCirculacion extends Model
         'tipo_placa',
         'lugar_expedicion',
         'fecha_emision',
+        'num_placa',
     ];
 
     protected $guarded=[
