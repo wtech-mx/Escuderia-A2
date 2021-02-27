@@ -15,6 +15,7 @@ class TarjetaCirculacion extends Model
         'id_user',
         'id_empresa',
         'current_auto',
+        'id_tc',
         'nombre',
         'tipo_placa',
         'lugar_expedicion',
@@ -34,6 +35,11 @@ class TarjetaCirculacion extends Model
         public function Automovil()
     {
        return $this->belongsTo(Automovil::class,'current_auto');
+    }
+
+        public function ImgTc()
+    {
+       return $this->belongsTo(ImgTc::class,'id_tc');
     }
 
 }

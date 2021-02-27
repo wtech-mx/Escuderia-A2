@@ -68,7 +68,8 @@ class AutomovilController extends Controller
         $automovil->año = $request->get('año');
         $automovil->numero_serie = $request->get('numero_serie');
         $automovil->color = $request->get('color');
-        $automovil->placas = $request->get('placas');
+        $placa = strtoupper($request->get('placas'));
+        $automovil->placas = $placa;
 
     	if ($request->hasFile('img')) {
     		$file=$request->file('img');
@@ -134,7 +135,8 @@ class AutomovilController extends Controller
         $automovil->año = $request->get('año');
         $automovil->numero_serie = $request->get('numero_serie');
         $automovil->color = $request->get('color');
-        $automovil->placas = $request->get('placas');
+        $placa = strtoupper($request->get('placas'));
+        $automovil->placas = $placa;
 
     	if ($request->hasFile('img')) {
     		$file=$request->file('img');
@@ -213,7 +215,8 @@ class AutomovilController extends Controller
         $automovil->año = $request->get('año');
         $automovil->numero_serie = $request->get('numero_serie');
         $automovil->color = $request->get('color');
-        $automovil->placas = $request->get('placas');
+        $placa = strtoupper($request->get('placas'));
+        $automovil->placas = $placa;
 
     	if ($request->hasFile('img')) {
     		$file=$request->file('img');
@@ -285,7 +288,8 @@ class AutomovilController extends Controller
         $automovil->año = $request->get('año');
         $automovil->numero_serie = $request->get('numero_serie');
         $automovil->color = $request->get('color');
-        $automovil->placas = $request->get('placas');
+        $placa = strtoupper($request->get('placas'));
+        $automovil->placas = $placa;
 
     	if ($request->hasFile('img')) {
     		$file=$request->file('img');

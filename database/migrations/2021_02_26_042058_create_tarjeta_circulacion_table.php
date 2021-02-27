@@ -17,11 +17,13 @@ class CreateTarjetaCirculacionTable extends Migration
             $table->id();
 
             $table->unsignedBigInteger('id_user')->nullable();
-             $table->integer('current_auto')->unsigned()->index()->nullable();
+            $table->integer('current_auto')->unsigned()->index()->nullable();
+
             $table->foreign('id_user')
                 ->references('id')->on('users')
                 ->inDelete('set null');
 
+            $table->integer('id_tc')->unsigned()->index()->nullable();
 
             $table->string('nombre')->nullable();
             $table->string('tipo_placa')->nullable();

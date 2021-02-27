@@ -69,11 +69,18 @@ Route::patch('seguro/update/{id}','SegurosController@update')->name('update.segu
 Route::get('seguro/index','SegurosController@index')->name('index.seguro');
 
 /*|--------------------------------------------------------------------------
-|Documents
+|tarjeta-circulacion img
 |--------------------------------------------------------------------------*/
 
-Route::patch('tarjeta-circulacion/update/{id}','TarjetaCirculacionControllerController@update')->name('update.tc');
-Route::get('tarjeta-circulacion/index','TarjetaCirculacionControllerController@index')->name('index.tc');
+Route::patch('tarjeta-circulacion/update/{id}','TarjetaCirculacionController@update')->name('update.tc');
+Route::get('tarjeta-circulacion/index','TarjetaCirculacionController@index')->name('index.tc');
+
+//Route::get('tarjeta-circulacion/index','TarjetaCirculacionController@index')->name('index.img-tc');
+Route::post('tarjeta-circulacion/index','ImgTcController@store')->name('store.img-tc');
+
+/*|--------------------------------------------------------------------------
+|Documents
+|--------------------------------------------------------------------------*/
 
 Route::get('documents/view/exp','DocumentosController@index')->name('index.exp-doc-tc');
 Route::get('documents/crear/exp-tc','DocumentosController@create')->name('create.exp-doc-tc');

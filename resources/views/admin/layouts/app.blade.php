@@ -31,6 +31,8 @@
     <link href="{{ asset('fonts/all.min.css') }}" rel="stylesheet">
     <link href="{{ asset('fonts/font-awesome.min.js') }}" rel="stylesheet">
     <link href="{{ asset('fonts/all.min.js') }}" rel="stylesheet">
+    <!-- CSS only -->
+>
 
      <!-- personalizados js -->
     <script src="{{ asset('js/push.js') }}"></script>
@@ -45,7 +47,6 @@
             <div class="wrap-login100" style="@yield('bg-color')">
 
                 <div class="container-fluid">
-
                         @yield('content')
                        @include('layouts.tab-bar')
                 </div>

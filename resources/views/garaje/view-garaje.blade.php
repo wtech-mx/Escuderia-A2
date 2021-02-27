@@ -2,12 +2,13 @@
 
 @section('content')
 
+
 <p style="display: none">{{$userId = Auth::id()}}</p>
 
                 <link href="{{ asset('css/garje.css') }}" rel="stylesheet">
 
                 <div class="row bg-blue" style="background: #050F55 0% 0% no-repeat padding-box;">
-
+@include('garaje.modal-estatus')
                     @if(Session::has('success'))
                         <script>
                             Swal.fire(
@@ -242,8 +243,8 @@
                     </div>
 
 @endforeach
-@include('garaje.modal-estatus')
-                </div>
+
+</div>
 
 
 

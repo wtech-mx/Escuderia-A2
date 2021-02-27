@@ -107,7 +107,7 @@
                             <div class="card" style="border-radius: 15px">
                               <div class="card-body" >
                                   <img class="d-inline mb-2" src="{{ asset('img/icon/black/documento.png') }}" alt="Icon documento" width="50px">
-                                  <p class="card-text"><strong>Documentacion</strong></p>
+                                  <p class="card-text"><strong>T. de Circulacion</strong></p>
                               </div>
                             </div>
                          </a>

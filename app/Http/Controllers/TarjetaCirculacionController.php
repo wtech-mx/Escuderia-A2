@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Session;
 use DB;
 
-class TarjetaCirculacionControllerController extends Controller
+class TarjetaCirculacionController extends Controller
 {
 /*|--------------------------------------------------------------------------
 |Create TarjetaCirculacion Usuario

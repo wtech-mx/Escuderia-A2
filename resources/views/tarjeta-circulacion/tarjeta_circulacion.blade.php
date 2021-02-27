@@ -32,6 +32,7 @@ $corte = substr($tarjeta_circulacion->Automovil->placas,2, -3);
                                     </div>
                             </div>
                         </div>
+
                         @if(Session::has('success'))
                             <script>
                                 Swal.fire({
@@ -57,23 +58,26 @@ $corte = substr($tarjeta_circulacion->Automovil->placas,2, -3);
                                             <div class="card mx-auto">
                                                 <p class="heading">Tarjeta de Circulacion</p>
 
+                                                <p class="text-muted">Datos del Auto</p>
+
                                                     <div class="form-group pt-2">
                                                         <div class="row d-flex">
 
                                                             <div class="col-sm-6">
                                                                 <p class="text-warning mb-2">Marca</p>
-                                                                <input type="text" placeholder="MM/YYYY" value="{{$tarjeta_circulacion->Automovil->id_marca}}">
+                                                                <input type="text" placeholder="MM/YYYY" value="{{$tarjeta_circulacion->Automovil->id_marca}}" readonly >
                                                             </div>
 
                                                             <div class="col-sm-6">
                                                                 <p class="text-warning mb-2">Submarca</p>
-                                                                <input type="text" value="{{$tarjeta_circulacion->Automovil->submarca}}">
+                                                                <input type="text" value="{{$tarjeta_circulacion->Automovil->submarca}}" readonly>
                                                             </div>
 
                                                             <div class="col-sm-12 mt-3">
                                                                 <p class="text-warning mb-2">Placa</p>
-                                                                <input type="text"  placeholder="arf-515" id="num_placa" name="num_placa" value="{{$corte}}">
+                                                                <input type="text"  placeholder="arf-515" id="num_placa" name="num_placa" value="{{$tarjeta_circulacion->Automovil->placas}}" readonly>
                                                             </div>
+
 
 
                                                         </div>
@@ -88,8 +92,10 @@ $corte = substr($tarjeta_circulacion->Automovil->placas,2, -3);
                                                         <input type="text" name="nombre" id="nombre" placeholder="Nombre" value="{{$tarjeta_circulacion->nombre}}">
                                                     </div>
 
+                                                    <p class="text-muted mt-3">Tarjeta de Circulacion </p>
+
                                                     <div class="form-group">
-                                                        <p class="text-warning mb-2">Tipo_placar</p>
+                                                        <p class="text-warning mb-2">Tipo_placa</p>
                                                         <select class="form-control" id="tipo_placa" name="tipo_placa">
                                                                <option value="{{$tarjeta_circulacion->tipo_placa}}" selected>{{$tarjeta_circulacion->tipo_placa}}</option>
                                                                 <option value="Particular">Particular</option>
@@ -104,7 +110,7 @@ $corte = substr($tarjeta_circulacion->Automovil->placas,2, -3);
                                                     </div>
 
                                                     <div class="form-group">
-                                                        <p class="text-warning mb-2">lugar_expedicion </p>
+                                                        <p class="text-warning mb-2">Lugar_expedicion </p>
                                                         <select class="form-control" id="lugar_expedicion" name="lugar_expedicion">
                                                             <option value="{{$tarjeta_circulacion->lugar_expedicion}}" selected>{{$tarjeta_circulacion->lugar_expedicion}}</option>
                                                             @include('tarjeta-circulacion.estados')
@@ -124,9 +130,17 @@ $corte = substr($tarjeta_circulacion->Automovil->placas,2, -3);
                                                                 <input type="date" name="fecha_vencimiento" id="fecha_vencimiento" placeholder="MM/YYYY" value="{{$tarjeta_circulacion->fecha_vencimiento}}">
                                                             </div>
 
-                                                            <div class="col-sm-12 mt-3">
-                                                                <p class="text-warning mb-2">Ultimo dígito placa</p>
+                                                            <div class="col-sm-6 mt-3">
+                                                                <p class="text-warning mb-2">Ultimos dígito placa</p>
                                                                 <input type="text"  placeholder="arf-515" id="num_placa" name="num_placa" value="{{$corte}}">
+                                                            </div>
+
+                                                            <div class="col-sm-6 mt-3">
+                                                                <p class="text-warning mb-2">Agregar imagen</p>
+                                                                <!-- Button trigger modal -->
+                                                                <button type="button" class="btn ml-5" data-toggle="modal" data-target="#exampleModal" style="background: #FFFFFF !important;">
+                                                                 <img class="d-inline mb-2" src="{{ asset('img/icon/black/boton-circular-plus (1).png') }}" width="30px">
+                                                                </button>
                                                             </div>
 
                                                             <div class="col-sm-12 mt-5">
@@ -135,6 +149,8 @@ $corte = substr($tarjeta_circulacion->Automovil->placas,2, -3);
                                                                 </button>
                                                             </div>
 
+
+
                                                         </div>
                                                     </div>
 
@@ -142,6 +158,13 @@ $corte = substr($tarjeta_circulacion->Automovil->placas,2, -3);
 
                                             </div>
                                         </div>
+
+                                        <div class="col-12">
+                                            <img class="rounded-circle" src="{{ asset('img-tc/'.$tarjeta_circulacion->ImgTc->img) }}" height="150px" width="50px">
+                                        </div>
+
+
+@include('tarjeta-circulacion.modal-ts-img')
 
 </div>
 
