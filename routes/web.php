@@ -260,6 +260,10 @@ Route::get('admin/servicio/crear/empresa/{id}', 'MecanicaController@GetEmpreAgai
 /* Trae todos todos los autos */
 Route::get('admin/documents/index/','DocumentosController@index_admin')->name('index_admin.view-documents-admin');
 
+Route::get('admin/tarjeta-circulacion/index/','TarjetaCirculacionController@indextc_admin')->name('indextc_admin.tarjeta-circulacion');
+Route::get('admin/tarjeta-circulacion/crear','TarjetaCirculacionController@create_admin')->name('create_admin.tarjeta-circulacion');
+Route::post('admin/tarjeta-circulacion/crear','TarjetaCirculacionController@store_admin')->name('store_admin.tarjeta-circulacion');
+
 /* Trae datos de Fecha_expedicion */
 Route::get('admin/documents/view/{id}','DocumentosController@create_admin')->name('create_admin.view-exp-ts-admin');
 Route::post('admin/documents/crear/{id}','DocumentosController@store_admin')->name('store_admin.view-exp-ts-admin');

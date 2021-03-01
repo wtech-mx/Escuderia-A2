@@ -98,6 +98,11 @@ class AutomovilController extends Controller
         $tarjeta_circulacion->current_auto = $automovil->id;
         $tarjeta_circulacion->save();
 
+        $id = auth()->user()->id;
+        $user = User::findOrFail($id);
+        $user->current_auto = $automovil->id;
+        $user->update();
+
         Session::flash('success', 'Se ha guardado sus datos con exito');
 
         return redirect()->route('index.automovil', compact('automovil'));
@@ -200,7 +205,6 @@ class AutomovilController extends Controller
             'numero_serie' => 'required|max:191',
             'color' => 'required|max:191',
             'placas' => 'required|max:191',
-
         ]);
 
         $automovil = new Automovil;
