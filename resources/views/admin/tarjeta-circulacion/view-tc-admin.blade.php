@@ -57,16 +57,6 @@
                             </a>
                         </div>
 
-                        <div class="col-6 mt-4 d-inline">
-                            <h5 class="text-white text-tittle-app mr-3 d-inline" style="font: normal normal bold 15px/20px Segoe UI">
-                                Agregar
-                            </h5>
-
-                            <a class="btn" href="{{ route('create_admin.tarjeta-circulacion') }}">
-                                <img class="" src="{{ asset('img/icon/white/plus.png') }}" width="30px" >
-                            </a>
-                        </div>
-
                         <div class="col-12">
 
                         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="60000">
@@ -93,32 +83,21 @@
 
 
                                   <div class="row">
-                                    @foreach ($tarjeta_circulacion as $item)
                                         <div class="col-12 mt-4">
                                             <div class="card card-slide-garaje" >
                                               <div class="card-body p-2" >
 
                                                   <div class="row">
                                                       <div class="col-6 mt-3">
-                                                          <a class="card-text" href="#"><strong style="font: normal normal bold 20px/27px Segoe UI;">{{$item->User->name}}</strong></a>
-                                                          <p class="card-text" style="font-size: 12px"><strong>{{$item->nombre}}</strong></p>
-                                                          <p class="card-text" style="font-size: 12px"><strong>{{$item->current_auto}}</strong></p>
+                                                          <a class="card-text" href="{{ route('edit_admin.tarjeta-circulacion',$tarjeta_circulacion->id) }}"><strong style="font: normal normal bold 20px/27px Segoe UI;">{{$tarjeta_circulacion->User->name}}</strong></a>
+                                                          <p class="card-text" style="font-size: 12px"><strong>{{$tarjeta_circulacion->nombre}}</strong></p>
+                                                          <p class="card-text" style="font-size: 12px"><strong>{{$tarjeta_circulacion->current_auto}}</strong></p>
                                                       </div>
-
-                                                    <div class="col-6">
-                                                        @if($item->id_tc == NULL)
-
-                                                            @else
-                                                            <img class="d-inline mb-2" src="{{ asset('img-tc/'.$item->ImgTc->img) }}"  width="150px">
-                                                        @endif
-                                                    </div>
-
                                                   </div>
 
                                               </div>
                                             </div>
                                         </div>
-                                    @endforeach
                                   </div>
 
                                 </div>

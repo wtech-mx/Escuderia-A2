@@ -2,9 +2,11 @@
 
 @section('content')
 @php
+
 $corte = substr($tarjeta_circulacion->Automovil->placas,2, -3);
 $corte2 = substr($tarjeta_circulacion->Automovil->placas,2, -4);
 $letras = strlen($tarjeta_circulacion->Automovil->placas);
+
 @endphp
 <link href="{{ asset('css/tarjeta-circulacion.css') }}" rel="stylesheet">
 
@@ -85,7 +87,7 @@ $letras = strlen($tarjeta_circulacion->Automovil->placas);
                                                         </div>
                                                     </div>
 
-                                                <form class="card-details" method="POST" action="{{route('update.tc',$tarjeta_circulacion->id)}}" enctype="multipart/form-data" role="form">
+                                                <form class="card-details" method="POST" action="{{route('update_admin.tarjeta-circulacion',$tarjeta_circulacion->id)}}" enctype="multipart/form-data" role="form">
                                                     @csrf
                                                     <input type="hidden" name="_method" value="PATCH">
 

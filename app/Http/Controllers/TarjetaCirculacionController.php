@@ -48,29 +48,31 @@ class TarjetaCirculacionController extends Controller
 |--------------------------------------------------------------------------*/
     public function indextc_admin(){
 
-        $tarjeta_circulacion = TarjetaCirculacion::get();
+        $tarjeta_circulacion = TarjetaCirculacion::first();
 
         return view('admin.tarjeta-circulacion.view-tc-admin',compact('tarjeta_circulacion'));
     }
 
-    public function create_admin(){
+    public function  edit_admin($id){
 
-         $user = DB::table('users')
-            ->where('role','=', '0')
-            ->get();
+        $auto = DB::table('users')
+        ->where('current_auto','=',auth()->user()->current_auto)
+        ->first();
 
-        return view('admin.tarjeta-circulacion.view-tc-admin',compact('user'));
+        $tarjeta_circulacion = TarjetaCirculacion::where('current_auto','=',$auto->current_auto)->first();
+
+        return view('admin.tarjeta-circulacion.tarjeta_circulacion',compact('tarjeta_circulacion'));
     }
 
-    public function store_admin(Request $request,$id){
+    function update_admin(Request $request, $id){
 
-         $validate = $this->validate($request,[
+        $validate = $this->validate($request, [
             'nombre' => 'required|max:191',
             'tipo_placa' => 'required|max:191',
             'lugar_expedicion' => 'required|max:191',
         ]);
 
-        $tarjeta_circulacion = new TarjetaCirculacion;
+        $tarjeta_circulacion = TarjetaCirculacion::findOrFail($id);
         $tarjeta_circulacion->id_user = $request->get('id_user');
         $tarjeta_circulacion->current_auto = $request->get('current_auto');
         $tarjeta_circulacion->nombre = $request->get('nombre');
@@ -80,10 +82,11 @@ class TarjetaCirculacionController extends Controller
         $tarjeta_circulacion->fecha_vencimiento = $request->get('fecha_vencimiento');
         $tarjeta_circulacion->num_placa = $request->get('num_placa');
 
-        $tarjeta_circulacion->save();
+        $tarjeta_circulacion->update();
+
 
         Session::flash('success', 'Se ha guardado sus datos con exito');
-        return redirect()->route('index_admin.tarjeta-circulacion', compact('tarjeta_circulacion'));
 
+        return redirect()->route('indextc_admin.tarjeta-circulacion', compact('tarjeta_circulacion'));
     }
 }
