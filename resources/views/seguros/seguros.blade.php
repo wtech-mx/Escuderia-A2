@@ -100,7 +100,7 @@
                             </div>
 
                              <label for="">
-                                 <p class="text-white"><strong>Fecha de Expiracion</strong></p>
+                                 <p class="text-white"><strong>Fecha de Expedicion</strong></p>
                              </label>
 
                             <div class="input-group form-group">
