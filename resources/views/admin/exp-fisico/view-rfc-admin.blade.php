@@ -25,7 +25,7 @@
                         <div class="col-2  mt-4">
                             <div class="d-flex justify-content-start">
                                     <div class="text-center text-white">
-                                        <a href="javascript:history.back()" style="background-color: transparent;clip-path: none">
+                                        <a href="{{ route('index_admin.view-exp-fisico-admin') }}" style="background-color: transparent;clip-path: none">
                                             <img class="" src="{{ asset('img/icon/white/left-arrow.png') }}" width="25px" >
                                         </a>
                                     </div>

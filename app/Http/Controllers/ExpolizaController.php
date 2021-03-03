@@ -7,6 +7,7 @@ use DB;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Str;
 use App\Models\ExpPoliza;
+use App\Models\TarjetaCirculacion;
 use Session;
 
 class ExpolizaController extends Controller
@@ -24,7 +25,9 @@ class ExpolizaController extends Controller
         ->where('current_auto','=',auth()->user()->current_auto)
         ->get();
 
-        return view('exp-fisico.view-poliza',compact('exp_poliza'));
+        $img = TarjetaCirculacion::where('current_auto','=',$user->current_auto)->first();
+
+        return view('exp-fisico.view-poliza',compact('exp_poliza', 'img'));
     }
 
     public function create(){

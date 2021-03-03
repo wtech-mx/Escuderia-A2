@@ -3,7 +3,7 @@
                     <div class="navbar">
 
                         <div class="navbar__item -blue">
-                            <a href="{{ route('dashboard') }}">
+                            <a href="{{ route('admin-view-dashboard') }}">
                             <span class="navbar__icon">
                                 <img class="" src="{{ asset('img/icon/color/icon-home.png') }}" width="25px" >
                             </span>
@@ -11,15 +11,23 @@
                         </div>
 
                         <div class="navbar__item -orange">
-                            <a href="{{ route('view-win-share') }}">
+                            <a href="{{ route('index_admin.automovil') }}">
                             <span class="navbar__icon">
-                                 <img class="" src="{{ asset('img/icon/color/trophy.png') }}" width="25px" >
+                                 <img class="" src="{{ asset('img/icon/color/rueda.png') }}" width="25px" >
                             </span>
                             </a>
                         </div>
 
+                            <div class="navbar__item -navy-blue">
+                                <a data-toggle="modal" data-target="#Servicios">
+                                <span class="navbar__icon">
+                                      <img class="" src="{{ asset('img/icon/color/add.png') }}" width="25px" >
+                                </span>
+                                </a>
+                            </div>
+
                         <div class="navbar__item -yellow">
-                            <a href="{{ route('index.tc') }}">
+                            <a href="{{ route('indextc_admin.tarjeta-circulacion') }}">
                             <span class="navbar__icon">
                                  <img class="" src="{{ asset('img/icon/color/document.png') }}" width="25px" >
                             </span>
@@ -27,7 +35,7 @@
                         </div>
 
                         <div class="navbar__item -purple">
-                            <a href="{{ route('edit.profile', $userId) }}">
+                            <a href="{{ route('index_admin.user') }}">
                                 <span class="navbar__icon">
                                     <img class="" src="{{ asset('img/icon/color/user.png') }}" width="25px" >
                                 </span>
@@ -43,4 +51,5 @@
                         </div>
 
                     </div>
+                    @include('admin.modal-services')
                 </div>

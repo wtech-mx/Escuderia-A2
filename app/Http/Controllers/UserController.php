@@ -29,7 +29,12 @@ class UserController extends Controller
         $user = User::where('id','=',auth()->user()->id)
         ->first();
 
-        return view('dashboard',compact('user'));
+            if($user->role == '0'){
+                return view('dashboard',compact('user'));
+            }else{
+                return view('admin.dashboard',compact('user'));
+            }
+
     }
 /*|--------------------------------------------------------------------------
 |Create User Auto_Admin

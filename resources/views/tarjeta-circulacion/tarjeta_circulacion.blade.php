@@ -1,13 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-@php
-
-$corte = substr($tarjeta_circulacion->Automovil->placas,2, -3);
-$corte2 = substr($tarjeta_circulacion->Automovil->placas,2, -4);
-$letras = strlen($tarjeta_circulacion->Automovil->placas);
-
-@endphp
 <link href="{{ asset('css/tarjeta-circulacion.css') }}" rel="stylesheet">
 
 <div class="row bg-blue" style="background-image: linear-gradient(to bottom, #24b6f7, #009fff, #0086ff, #0066ff, #243afc);">
@@ -16,7 +9,7 @@ $letras = strlen($tarjeta_circulacion->Automovil->placas);
                         <div class="col-2  mt-4">
                             <div class="d-flex justify-content-start">
                                     <div class="text-center text-white">
-                                        <a href="javascript:history.back()" style="background-color: transparent;clip-path: none">
+                                        <a href="{{ route('dashboard') }}" style="background-color: transparent;clip-path: none">
                                             <img class="" src="{{ asset('img/icon/white/left-arrow.png') }}" width="25px" >
                                         </a>
                                     </div>
@@ -87,7 +80,7 @@ $letras = strlen($tarjeta_circulacion->Automovil->placas);
                                                         </div>
                                                     </div>
 
-                                                <form class="card-details" method="POST" action="{{route('update_admin.tarjeta-circulacion',$tarjeta_circulacion->id)}}" enctype="multipart/form-data" role="form">
+                                                <form class="card-details" method="POST" action="{{route('update.tc',$tarjeta_circulacion->id)}}" enctype="multipart/form-data" role="form">
                                                     @csrf
                                                     <input type="hidden" name="_method" value="PATCH">
 
@@ -136,11 +129,7 @@ $letras = strlen($tarjeta_circulacion->Automovil->placas);
 
                                                             <div class="col-sm-6 mt-3">
                                                                 <p class="text-warning mb-2">Ultimos dígito placa</p>
-                                                                @if($letras == '6')
-                                                                    <input type="text"  placeholder="arf-515" id="num_placa" name="num_placa" value="{{$corte}}">
-                                                                  @else
-                                                                    <input type="text"  placeholder="arf-515" id="num_placa" name="num_placa" value="{{$corte2}}">
-                                                                @endif
+                                                                    <input type="text"  placeholder="arf-515" id="num_placa" name="num_placa" >
                                                             </div>
 
                                                             <div class="col-sm-6 mt-3">
@@ -165,14 +154,6 @@ $letras = strlen($tarjeta_circulacion->Automovil->placas);
                                                 </form>
 
                                             </div>
-                                        </div>
-
-                                        <div class="col-12">
-                                            @if($tarjeta_circulacion->id_tc == NULL)
-
-                                                @else
-                                                <img class="rounded-circle" src="{{ asset('img-tc/'.$tarjeta_circulacion->ImgTc->img) }}" height="150px" width="50px">
-                                            @endif
                                         </div>
 
 @include('tarjeta-circulacion.modal-ts-img')

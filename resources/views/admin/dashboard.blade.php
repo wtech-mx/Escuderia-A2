@@ -56,10 +56,7 @@
                 <div class="row bg-down-blue" style="z-index:1000;background: transparent linear-gradient(180deg, #24DAF7 0%, #24F7BC 100%) 0% 0% no-repeat padding-box;">
                     <div class="col-12 p-4">
                         <h6 class="text-center text-white">
-                           <strong style="font: normal normal bold 25px/33px Segoe UI;"> ¿Qué haremos hoy?</strong> <br>
-                            <a href="{{ route('dashboard') }}">
-                                Modo User
-                            </a>
+                           <strong style="font: normal normal bold 25px/33px Segoe UI;"> ¿Qué haremos hoy?</strong>
                         </h6>
                     </div>
 
@@ -112,7 +109,7 @@
                             <div class="card" style="border-radius: 15px">
                               <div class="card-body" >
                                   <img class="d-inline mb-2" src="{{ asset('img/icon/white/documents (1).png') }}" alt="Icon Exp Fisico" width="50px">
-                                  <p class="card-text"><strong>Documentacion</strong></p>
+                                  <p class="card-text"><strong>T. Circulacion</strong></p>
                               </div>
                             </div>
                         </a>

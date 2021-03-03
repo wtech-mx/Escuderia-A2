@@ -35,6 +35,7 @@ class TarjetaCirculacionController extends Controller
         $tarjeta_circulacion->fecha_emision = $request->get('fecha_emision');
         $tarjeta_circulacion->fecha_vencimiento = $request->get('fecha_vencimiento');
         $tarjeta_circulacion->num_placa = $request->get('num_placa');
+        $tarjeta_circulacion->current_auto = auth()->user()->current_auto;
 
         $tarjeta_circulacion->update();
 

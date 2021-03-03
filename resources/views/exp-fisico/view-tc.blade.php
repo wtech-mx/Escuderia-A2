@@ -9,7 +9,7 @@
                         <div class="col-2  mt-4">
                             <div class="d-flex justify-content-start">
                                     <div class="text-center text-white">
-                                        <a href="javascript:history.back()" style="background-color: transparent;clip-path: none">
+                                        <a href="{{ route('view-exp-fisico') }}" style="background-color: transparent;clip-path: none">
                                             <img class="" src="{{ asset('img/icon/white/left-arrow.png') }}" width="25px" >
                                         </a>
                                     </div>
@@ -44,17 +44,16 @@
                             </div>
                         </div>
 
-                    @if ($exp_tc->count())
-                        @foreach($exp_tc as $item)
+                    @if ($img->ImgTc->count())
                             <div class="col-6">
-                                <a type="button" class="" data-toggle="modal" data-target="#modal-doc-{{$item->id}}">
+                                <a type="button" class="" data-toggle="modal" data-target="#modal-doc-{{$img->ImgTc->id}}">
                                     <p class="text-center">
-                                            <img class="d-inline mb-2" src="{{asset('exp-tc/'.$item->tc)}}" alt="{{$item->tc}}" width="100px">
+                                            <img class="d-inline mb-2" src="{{asset('img-tc/'.$img->ImgTc->img)}}" alt="{{$img->ImgTc->img}}" width="100px">
                                     </p>
                                 </a>
                             </div>
                             <!-- Modal -->
-                            <div class="modal fade" id="modal-doc-{{$item->id}}" tabindex="-1" role="dialog" aria-labelledby="modal-doc-{{$item->id}}" aria-hidden="true">
+                            <div class="modal fade" id="modal-doc-{{$img->ImgTc->id}}" tabindex="-1" role="dialog" aria-labelledby="modal-doc-{{$img->ImgTc->id}}" aria-hidden="true">
                               <div class="modal-dialog  modal-sm modal-dialog-centered" role="document">
                                 <div class="modal-content">
 
@@ -65,17 +64,15 @@
                                             </button>
                                       </div>
                                     </div>
-
                                   <div class="modal-body">
                                       <p class="text-center">
-                                          <img class="" src="{{asset('exp-tc/'.$item->tc)}}" alt="{{$item->tc}}" width="100%">
+                                          <img class="" src="{{asset('img-tc/'.$img->ImgTc->img)}}" alt="{{$img->ImgTc->img}}" width="100%">
                                       </p>
                                   </div>
 
                                 </div>
                               </div>
                             </div>
-                        @endforeach
                     @else
 
                         <div class="col-12 mb3">

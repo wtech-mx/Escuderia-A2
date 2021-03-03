@@ -1,11 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-@php
-$corte = substr($tarjeta_circulacion->Automovil->placas,2, -3);
-$corte2 = substr($tarjeta_circulacion->Automovil->placas,2, -4);
-$letras = strlen($tarjeta_circulacion->Automovil->placas);
-@endphp
 <link href="{{ asset('css/tarjeta-circulacion.css') }}" rel="stylesheet">
 
 <div class="row bg-blue" style="background-image: linear-gradient(to bottom, #24b6f7, #009fff, #0086ff, #0066ff, #243afc);">
@@ -14,7 +9,7 @@ $letras = strlen($tarjeta_circulacion->Automovil->placas);
                         <div class="col-2  mt-4">
                             <div class="d-flex justify-content-start">
                                     <div class="text-center text-white">
-                                        <a href="javascript:history.back()" style="background-color: transparent;clip-path: none">
+                                        <a href="{{ route('indextc_admin.tarjeta-circulacion') }}" style="background-color: transparent;clip-path: none">
                                             <img class="" src="{{ asset('img/icon/white/left-arrow.png') }}" width="25px" >
                                         </a>
                                     </div>

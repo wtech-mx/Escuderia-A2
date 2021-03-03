@@ -7,6 +7,7 @@ use DB;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Str;
 use App\Models\ExpTc;
+use App\Models\TarjetaCirculacion;
 use Session;
 
 class ExptcController extends Controller
@@ -24,7 +25,9 @@ class ExptcController extends Controller
         ->where('current_auto','=',auth()->user()->current_auto)
         ->get();
 
-        return view('exp-fisico.view-tc',compact('exp_tc'));
+        $img = TarjetaCirculacion::where('current_auto','=',$user->current_auto)->first();
+
+        return view('exp-fisico.view-tc',compact('exp_tc', 'img'));
     }
 
     public function create(){

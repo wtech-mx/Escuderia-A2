@@ -42,7 +42,7 @@
 </head>
 
 <body>
-<p style="display: none">{{$userId = Auth::id()}}</p>
+<p style="display: none">{{$userId =  Auth::id()}}</p>
     <div id="app" class="w-100 h-100">
 
         <div class="container-login100" >
@@ -54,7 +54,12 @@
                     @yield('content')
 
                         @if((Auth::check()))
+                            <p style="display: none">{{$userId2 = auth()->user()->role}}</p>
+                            @if($userId2 == 0)
                             @include('layouts.tab-bar')
+                        @else
+                             @include('layouts.tab-bar-admin')
+                             @endif
                         @else
 
                     @endif
