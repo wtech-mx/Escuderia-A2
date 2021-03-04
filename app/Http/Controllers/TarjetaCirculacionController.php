@@ -45,22 +45,18 @@ class TarjetaCirculacionController extends Controller
     }
 
 /*|--------------------------------------------------------------------------
-|Create TarjetaCirculacion Usuario
+|Create TarjetaCirculacion Admin
 |--------------------------------------------------------------------------*/
     public function indextc_admin(){
 
-        $tarjeta_circulacion = TarjetaCirculacion::first();
+        $tarjeta_circulacion = TarjetaCirculacion::get();
 
         return view('admin.tarjeta-circulacion.view-tc-admin',compact('tarjeta_circulacion'));
     }
 
     public function  edit_admin($id){
 
-        $auto = DB::table('users')
-        ->where('current_auto','=',auth()->user()->current_auto)
-        ->first();
-
-        $tarjeta_circulacion = TarjetaCirculacion::where('current_auto','=',$auto->current_auto)->first();
+        $tarjeta_circulacion = TarjetaCirculacion::findOrFail($id);
 
         return view('admin.tarjeta-circulacion.tarjeta_circulacion',compact('tarjeta_circulacion'));
     }

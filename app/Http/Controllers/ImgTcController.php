@@ -11,26 +11,6 @@ use Session;
 class ImgTcController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -65,48 +45,32 @@ class ImgTcController extends Controller
         return redirect()->route('index.tc', compact('img_tc'));
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\ImgTc  $imgTc
-     * @return \Illuminate\Http\Response
-     */
-    public function show(ImgTc $imgTc)
-    {
-        //
-    }
+    public function store_admin(Request $request){
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\ImgTc  $imgTc
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(ImgTc $imgTc)
-    {
-        //
-    }
+        $validate = $this->validate($request,[
+            'img' => 'required|mimes:jpeg,bpm,jpg,png|max:900',
+        ]);
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\ImgTc  $imgTc
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, ImgTc $imgTc)
-    {
-        //
-    }
+        $img_tc = new ImgTc;
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\ImgTc  $imgTc
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(ImgTc $imgTc)
-    {
-        //
+    	if ($request->hasFile('img')) {
+    		$file=$request->file('img');
+    		$file->move(public_path().'/img-tc',time().".".$file->getClientOriginalExtension());
+    		$img_tc->img=time().".".$file->getClientOriginalExtension();
+    	}
+
+    	$img_tc->id_tc = $request->get('id_tc');
+    	$id_tc = $img_tc->id_tc;
+
+    	$img_tc->save();
+
+    	$tarjeta_circulacion = TarjetaCirculacion::find($id_tc);
+    	$tarjeta_circulacion->id_tc = $img_tc->id;
+
+    	$tarjeta_circulacion->update();
+
+        Session::flash('success', 'Se ha guardado sus datos con exito');
+
+        return redirect()->route('indextc_admin.tarjeta-circulacion', compact('img_tc'));
     }
 }

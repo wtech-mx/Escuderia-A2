@@ -58,6 +58,10 @@ class ExptcController extends Controller
 
         return redirect()->route('index.exp-tc', compact('exp_tc'));
     }
+/*|--------------------------------------------------------------------------
+|Create Seguro Admin_Admin
+|--------------------------------------------------------------------------*/
+
 
         public function create_admin($id)
     {

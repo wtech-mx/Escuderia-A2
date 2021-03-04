@@ -10,7 +10,7 @@
                     </p>
                 </div>
 
-                <form method="POST" action="{{route('store.img-tc')}}" enctype="multipart/form-data" role="form">
+                <form method="POST" action="{{route('store_admin.tarjeta-circulacion')}}" enctype="multipart/form-data" role="form">
                     @csrf
                     <div class="col-12 mt-3">
 

@@ -15,7 +15,7 @@
                     <div class="col-12 mt-3">
 
                         <label for="">
-                            <p class="text-white"><strong>Elegir Img Poliza</strong></p>
+                            <p class="text-white"><strong>Elegir Img Poliza Admin</strong></p>
                         </label>
 
                         <div class=" custom-file mb-3">
@@ -23,7 +23,12 @@
                             <label class="custom-file-label">Elegir img...</label>
                         </div>
 
-<input type="file" class="custom-file-input input-group-text" name="poliza" id="poliza" value="{{$seguro->id}}">
+                            <div class="input-group form-group">
+                                <input type="hidden" class="form-control" placeholder="Costo" style="border-radius: 0  10px 10px 0;" id='id_user' name="id_user" value="{{$seguro->id_user}}">
+                            </div>
+                            <div class="input-group form-group">
+                                <input type="hidden" class="form-control" placeholder="Costo" style="border-radius: 0  10px 10px 0;" id='current_auto' name="current_auto" value="{{$seguro->current_auto}}">
+                            </div>
 
                         <button type="submit mt-5" class="btn btn-success btn-save text-white" style="background-color: #38c172 !important;">
                             <img class="d-inline" src="{{ asset('img/icon/white/save-file-option (1).png') }}" alt="Icon documento" width="30px">

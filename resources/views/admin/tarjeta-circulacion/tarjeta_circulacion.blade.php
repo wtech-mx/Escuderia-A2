@@ -56,7 +56,6 @@
                                                 <p class="heading">Tarjeta de Circulacion</p>
 
                                                 <p class="text-muted">Datos del Auto</p>
-
                                                     <div class="form-group pt-2">
                                                         <div class="row d-flex">
 
@@ -75,15 +74,13 @@
                                                                 <input type="text"  placeholder="arf-515" id="num_placa" name="num_placa" value="{{$tarjeta_circulacion->Automovil->placas}}" readonly>
                                                             </div>
 
-
-
                                                         </div>
                                                     </div>
-
-                                                <form class="card-details" method="POST" action="{{route('update.tc',$tarjeta_circulacion->id)}}" enctype="multipart/form-data" role="form">
+                                                <form class="card-details" method="POST" action="{{route('update_admin.tarjeta-circulacion',$tarjeta_circulacion->id)}}" enctype="multipart/form-data" role="form">
                                                     @csrf
                                                     <input type="hidden" name="_method" value="PATCH">
-
+                                                        <input type="hidden" id="id_user" name="id_user" value="{{$tarjeta_circulacion->Automovil->id_user}}" readonly>
+                                                        <input type="hidden" id="current_auto" name="current_auto" value="{{$tarjeta_circulacion->Automovil->id}}" readonly>
                                                     <div class="form-group">
                                                         <p class="text-warning mb-2">Nombre</p>
                                                         <input type="text" name="nombre" id="nombre" placeholder="Nombre" value="{{$tarjeta_circulacion->nombre}}">
@@ -129,11 +126,7 @@
 
                                                             <div class="col-sm-6 mt-3">
                                                                 <p class="text-warning mb-2">Ultimos dígito placa</p>
-                                                                @if($letras == '6')
-                                                                    <input type="text"  placeholder="arf-515" id="num_placa" name="num_placa" value="{{$corte}}">
-                                                                  @else
-                                                                    <input type="text"  placeholder="arf-515" id="num_placa" name="num_placa" value="{{$corte2}}">
-                                                                @endif
+                                                                    <input type="text"  placeholder="arf-515" id="num_placa" name="num_placa" value="{{$tarjeta_circulacion->num_placa}}">
                                                             </div>
 
                                                             <div class="col-sm-6 mt-3">
@@ -160,15 +153,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-12">
-                                            @if($tarjeta_circulacion->id_tc == NULL)
-
-                                                @else
-                                                <img class="rounded-circle" src="{{ asset('img-tc/'.$tarjeta_circulacion->ImgTc->img) }}" height="150px" width="50px">
-                                            @endif
-                                        </div>
-
-@include('tarjeta-circulacion.modal-ts-img')
+@include('admin.tarjeta-circulacion.modal-ts-img')
 
 </div>
 

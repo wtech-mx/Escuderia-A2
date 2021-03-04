@@ -236,7 +236,6 @@ Route::get('admin/seguros/index','SegurosController@index_admin')->name('index_a
 Route::get('admin/seguro/edit/{id}','SegurosController@edit_admin')->name('edit_admin.seguro');
 Route::patch('admin/seguro/update/{id}','SegurosController@update_admin')->name('update_admin.seguro');
 
-
 /*|--------------------------------------------------------------------------
 |Sevicios
 |--------------------------------------------------------------------------*/
@@ -263,20 +262,7 @@ Route::get('admin/tarjeta-circulacion/index/','TarjetaCirculacionController@inde
 Route::get('admin/tarjeta-circulacion/edit/{id}','TarjetaCirculacionController@edit_admin')->name('edit_admin.tarjeta-circulacion');
 Route::patch('admin/tarjeta-circulacion/update/{id}','TarjetaCirculacionController@update_admin')->name('update_admin.tarjeta-circulacion');
 
-/* Trae datos de Fecha_expedicion */
-Route::get('admin/documents/view/{id}','DocumentosController@create_admin')->name('create_admin.view-exp-ts-admin');
-Route::post('admin/documents/crear/{id}','DocumentosController@store_admin')->name('store_admin.view-exp-ts-admin');
-
-/* Trae datos de vencimiento */
-Route::get('admin/documents/vencimiento/view/{id}','DocumentosVencimientoController@create_admin')->name('create_admin.view-vencimiento-ts-admin');
-Route::post('admin/documents/vencimiento/crear/{id}','DocumentosVencimientoController@store_admin')->name('store_admin.view-vencimiento-ts-admin');
-
-Route::get('admin/documents/lugar/view/{id}','DocumentosLugarExpController@create_admin')->name('create_admin.view-lugar-ts-admin');
-Route::post('admin/documents/lugar/crear/{id}','DocumentosLugarExpController@store_admin')->name('store_admin.view-lugar-ts-admin');
-
-Route::get('admin/documents/otro/view/{id}','DocumentosOtroController@create_admin')->name('create_admin.view-otro-ts-admin');
-Route::post('admin/documents/otro/crear/{id}','DocumentosOtroController@store_admin')->name('store_admin.view-otro-ts-admin');
-
+Route::post('admin/tarjeta-circulacion/create/','ImgTcController@store_admin')->name('store_admin.tarjeta-circulacion');
 
 /*|--------------------------------------------------------------------------
 |Expedientes Fisicos
