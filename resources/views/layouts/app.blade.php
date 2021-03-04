@@ -28,7 +28,6 @@
     <link href="{{ asset('css/btn-save.css') }}" rel="stylesheet">
     <link href="{{ asset('css/alerts.css') }}" rel="stylesheet">
 
-
     <link href="{{ asset('fonts/font-awesome.min.css') }}" rel="stylesheet">
     <link href="{{ asset('fonts/all.min.css') }}" rel="stylesheet">
     <link href="{{ asset('fonts/font-awesome.min.js') }}" rel="stylesheet">
@@ -58,7 +57,7 @@
                             @if($userId2 == 0)
                             @include('layouts.tab-bar')
                         @else
-                             @include('layouts.tab-bar-admin')
+                             @include('admin.layouts.tab-bar')
                              @endif
                         @else
 
