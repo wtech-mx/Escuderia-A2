@@ -19,4 +19,11 @@ class Marca extends Model
     protected $guarded=[
 
     ];
+
+
+        public function Automovil()
+    {
+       return $this->belongsTo(Automovil::class);
+    }
+
 }

@@ -31,6 +31,11 @@ class Automovil extends Model
 
     ];
 
+        public function Marca()
+    {
+       return $this->belongsTo(Marca::class,'id_marca');
+    }
+
 
     public function User()
     {

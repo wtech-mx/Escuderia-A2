@@ -21,35 +21,12 @@
   <component name="ChangeListManager">
     <list default="true" id="936a45dc-4f36-4130-a52f-695b08d602c5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ExpolizaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ExpolizaController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ExptcController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ExptcController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ImgTcController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ImgTcController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TarjetaCirculacionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TarjetaCirculacionController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_01_27_231248_create_documentos_exp_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_02_13_203245_create_documentos_vencimiento_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_02_13_203430_create_documentos_lugarexp_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_02_13_203454_create_documentos_otro_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/documents/view-documents-admin.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/documents/view-exp-ts-admin.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/documents/view-lugar-ts-admin.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/documents/view-otro-ts-admin.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/documents/view-vencimiento-ts-admin.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/seguros/modal-poladmin-img.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/seguros/modal-poladmin-img.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/tarjeta-circulacion/create_tarjeta_circulacion.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/tarjeta-circulacion/modal-ts-img.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/tarjeta-circulacion/modal-ts-img.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Automovil.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Automovil.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Marca.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Marca.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/seguros/create-seguros-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/seguros/create-seguros-admin.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/tarjeta-circulacion/tarjeta_circulacion.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/tarjeta-circulacion/tarjeta_circulacion.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/tarjeta-circulacion/view-tc-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/tarjeta-circulacion/view-tc-admin.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/documents/estados.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/documents/modal-doc-expedicion.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/documents/modal-doc.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/documents/modal-otro.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/documents/modal-vencimiento.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/documents/view-documents.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/documents/view-exp-ts.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/documents/view-lugar-ts.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/documents/view-otro-ts.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/documents/view-vencimiento-ts.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/tab-bar-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/tab-bar-admin.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -219,16 +196,16 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\xaamp\htdocs\Escuderia-A2\public\img" />
+      <recent name="D:\xaamp\htdocs\Escuderia-A2\public\css" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\Escuderia-A2\resources\views\admin\seguros" />
       <recent name="C:\xampp\htdocs\Escuderia-A2\resources\views\layouts" />
       <recent name="C:\xampp\htdocs\Escuderia-A2\resources\views\seguros" />
       <recent name="C:\xampp\htdocs\Escuderia-A2\resources\views\admin\tarjeta-circulacion" />
       <recent name="C:\xampp\htdocs\Escuderia-A2\resources\views\admin\garaje" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\xaamp\htdocs\Escuderia-A2\public\img" />
-      <recent name="D:\xaamp\htdocs\Escuderia-A2\public\css" />
     </key>
   </component>
   <component name="RunManager">
@@ -296,5 +273,15 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="988" y="237" width="583" height="566" key="find.popup" timestamp="1614824479532">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state x="988" y="237" width="583" height="566" key="find.popup/0.0.2560.1040/-2560.0.2560.1040@0.0.2560.1040" timestamp="1614824479532" />
+    <state x="303" y="229" width="672" height="678" key="search.everywhere.popup" timestamp="1614822427004">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state x="303" y="229" width="672" height="678" key="search.everywhere.popup/0.0.2560.1040/-2560.0.2560.1040@0.0.2560.1040" timestamp="1614822427004" />
   </component>
 </project>

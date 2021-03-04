@@ -7,7 +7,7 @@
 
 
                 <div class="row bg-profile" style="z-index: 100000">
-@include('admin.seguros.modal-poladmin-img')
+                @include('admin.seguros.modal-poladmin-img')
                         @if(Session::has('success'))
                         <script>
                             Swal.fire({
@@ -189,10 +189,10 @@
                                  <p class="text-white"><strong>Foto Poliza Seguro</strong></p>
                              </label>
 
-                            <div class="col-12">
-                                         <button type="button" class="btn ml-5" data-toggle="modal" data-target="#exampleModalpoliza" style="background: #FFFFFF !important;">
-                                            <img class="d-inline mb-2" src="{{ asset('img/icon/black/boton-circular-plus (1).png') }}" width="30px">
-                                         </button>
+                            <div class="col-12 text-center">
+                                    <button type="button" class="btn" data-toggle="modal" data-target="#exampleModalpoliza" style="background: transparent !important;">
+                                        <img class="d-inline mb-2" src="{{ asset('img/icon/white/boton-circular-plus.png') }}" width="50px">
+                                    </button>
                             </div>
 
 

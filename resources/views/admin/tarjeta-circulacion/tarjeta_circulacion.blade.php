@@ -61,7 +61,7 @@
 
                                                             <div class="col-sm-6">
                                                                 <p class="text-warning mb-2">Marca</p>
-                                                                <input type="text" placeholder="MM/YYYY" value="{{$tarjeta_circulacion->Automovil->id_marca}}" readonly >
+                                                                <input type="text" placeholder="MM/YYYY" value="{{$tarjeta_circulacion->Automovil->Marca->nombre}}" readonly >
                                                             </div>
 
                                                             <div class="col-sm-6">

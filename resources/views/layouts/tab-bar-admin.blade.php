@@ -13,7 +13,7 @@
                         <div class="navbar__item -orange">
                             <a href="{{ route('index_admin.automovil') }}">
                             <span class="navbar__icon">
-                                 <img class="" src="{{ asset('img/icon/color/rueda.png') }}" width="25px" >
+                                 <img class="" src="{{ asset('img/icon/color/sedan.png') }}" width="25px" >
                             </span>
                             </a>
                         </div>
