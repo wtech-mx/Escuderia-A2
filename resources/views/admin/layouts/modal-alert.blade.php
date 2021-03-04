@@ -15,14 +15,6 @@
             </div>
         </div>
 
-          <script !src="">
-            $('#datetimepicker1').datetimepicker({
-                defaultDate: new Date(),
-                format: 'DD/MM/YYYY hh:mm:ss A',
-                sideBySide: true
-            });
-          </script>
-
           <div class="row">
               <div class="col-12 ">
                   <div class="card car-modal-ss" >
@@ -32,16 +24,28 @@
 
                               <div class="form-group col-8">
                                   <label for="">Titulo</label>
-                                  <input class="form-control" type="text" name="titulo" id="titulo">
+                                  <input class="form-control" type="text" name="titulo" id="titulo" placeholder="Titulo de la alerta">
                               </div>
 
                               <div class="form-group col-4">
                                   <label for="">Duracion</label>
-                                  <input class="form-control" type="number" name="tiempo" id="tiempo" >
+                                  <input class="form-control" type="number" name="tiempo" id="tiempo" placeholder="Duracionde alaerta">
+                              </div>
+
+                              <div class="form-group col-12">
+                                  <label for="">Selecionar Usuario</label>
+                                      <select class="form-control" id="id_user" name="id_user">
+                                          <option value="">Seleccione usuario</option>
+                                      </select>
                               </div>
 
                               <label for="">Description</label>
                               <textarea class="form-control" name="descripcion" id="descripcion" cols="30" rows="3"></textarea>
+
+                              <button type="submit" class="btn btn-lg btn-success btn-save mt-4">
+                                  <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}" width="20px" >
+                                  Guardar
+                              </button>
 
                           </div>
                       </div>
