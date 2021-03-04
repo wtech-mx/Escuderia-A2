@@ -21,10 +21,12 @@
   <component name="ChangeListManager">
     <list default="true" id="936a45dc-4f36-4130-a52f-695b08d602c5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ExpolizaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ExpolizaController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ExptcController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ExptcController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/layouts/tab-bar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/layouts/tab-bar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/exp-fisico/view-tc-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/exp-fisico/view-tc-admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/seguros/modal-poladmin-img.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/seguros/modal-poladmin-img.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/tarjeta-circulacion/view-tc-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/tarjeta-circulacion/view-tc-admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

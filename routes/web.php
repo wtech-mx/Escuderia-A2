@@ -130,6 +130,7 @@ Route::get('exp_poliza/view/exp-poliza','ExpolizaController@index')->name('index
 Route::get('exp_poliza/crear/exp-poliza','ExpolizaController@create')->name('create.exp-poliza');
 Route::post('exp_poliza/crear/exp-poliza','ExpolizaController@store')->name('store.exp-poliza');
 
+
 Route::get('exp_reemplacamiento/view','ExpreemplacaminetoController@index')->name('index.exp-reemplacamiento');
 Route::get('exp_reemplacamiento/crear','ExpreemplacaminetoController@create')->name('create.exp-reemplacamiento');
 Route::post('exp_reemplacamiento/crear','ExpreemplacaminetoController@store')->name('store.exp-reemplacamiento');
@@ -235,7 +236,7 @@ Route::patch('admin/empresa/update/{id}','EmpresasController@update_admin')->nam
 Route::get('admin/seguros/index','SegurosController@index_admin')->name('index_admin.seguros');
 Route::get('admin/seguro/edit/{id}','SegurosController@edit_admin')->name('edit_admin.seguro');
 Route::patch('admin/seguro/update/{id}','SegurosController@update_admin')->name('update_admin.seguro');
-
+Route::post('admin/exp_poliza/crear','ExpolizaController@store_admin')->name('store_admin.exp-poliza');
 /*|--------------------------------------------------------------------------
 |Sevicios
 |--------------------------------------------------------------------------*/
