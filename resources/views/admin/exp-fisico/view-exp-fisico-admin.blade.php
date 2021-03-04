@@ -79,7 +79,6 @@
                                                           <div class="col-6 mt-3">
                                                               <p class="card-text"><strong style="font: normal normal bold 20px/27px Segoe UI;">{{$item->submarca}}</strong></p>
                                                               <p class="card-text" style="font-size: 12px"><strong>{{$item->User->name}}</strong></p>
-                                                              <p class="card-text" style="font-size: 12px"><strong>{{$item->id}}</strong></p>
                                                           </div>
 
                                                           <div class="col-6">
