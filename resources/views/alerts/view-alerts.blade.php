@@ -57,17 +57,17 @@
 
                         </div>
 
-     <script>
-        Push.create("Hola Alejandro estas es una Alerta!", {
-            body: "Asi se veran'?",
-            icon: '{{ asset('/icon-512x512.ico') }}',
-            timeout: 6000,
-            onClick: function () {
-                window.focus();
-                this.close();
-            }
-        });
-	</script>
+                     <script>
+                        Push.create("Hola Alejandro estas es una Alerta!", {
+                            body: "Asi se veran'?",
+                            icon: '{{ asset('/icon-512x512.ico') }}',
+                            timeout: 6000,
+                            onClick: function () {
+                                window.focus();
+                                this.close();
+                            }
+                        });
+                    </script>
 
 
                 </div>
