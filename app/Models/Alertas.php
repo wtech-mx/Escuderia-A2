@@ -11,6 +11,7 @@ class Alertas extends Model
 
     protected $table = "Alertas";
     protected $primarykey = "id";
+    public $timestamps = false;
 
     protected $fillable = [
         'id_user',
@@ -19,6 +20,8 @@ class Alertas extends Model
         'descripcion',
         'img',
         'tiempo',
+        'fecha_inicio',
+        'fecha_fin',
     ];
 
     public function User()

@@ -1,9 +1,24 @@
-
+                        @if(Session::has('alert'))
+                            <script>
+                                Swal.fire({
+                                  title: 'Exito!!',
+                                  html:
+                                    'Se ha enviado tu  <b>Alerta</b>, ' +
+                                    'Exitosamente',
+                                  // text: 'Se ha agragado la "MARCA" Exitosamente',
+                                  imageUrl: '{{ asset('img/icon/color/alert.png') }}',
+                                  background: '#fff',
+                                  imageWidth: 150,
+                                  imageHeight: 150,
+                                  imageAlt: 'USUARIO IMG',
+                                })
+                            </script>
+                        @endif
                 <div class="row bg-blue">
                     <div class="navbar">
 
                         <div class="navbar__item -blue">
-                            <a href="{{ route('admin-view-dashboard') }}">
+                            <a href="{{ route('index.alert') }}">
                             <span class="navbar__icon">
                                 <img class="" src="{{ asset('img/icon/color/icon-home.png') }}" width="25px" >
                             </span>

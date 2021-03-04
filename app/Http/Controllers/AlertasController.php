@@ -4,80 +4,58 @@ namespace App\Http\Controllers;
 
 use App\Models\Alertas;
 use Illuminate\Http\Request;
+use DB;
+use Session;
 
 class AlertasController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        //
+          $user = DB::table('users')
+            ->where('role','=', '0')
+            ->get();
+          return view('admin.dashboard', compact('user'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function show()
     {
-        //
+          $alert = DB::table('alertas')
+            ->get();
+
+          $user = DB::table('users')
+            ->where('role','=', '0')
+            ->get();
+          return view('admin.alerts.view-alerts-admin', compact('alert', 'user'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $alert = new Alertas;
+        $alert->id_user = $request->get('id_user');
+        $alert->id_empresa = $request->get('id_empresa');
+        $alert->titulo = $request->get('titulo');
+        $alert->descripcion = $request->get('descripcion');
+        $alert->fecha_inicio = $request->get('fecha_inicio');
+        $alert->fecha_fin = $request->get('fecha_fin');
+        $alert->tiempo = $request->get('tiempo').'00';
+        $alert->save();
+
+        Session::flash('alert', 'Se ha enviado con exito');
+        return back();
+
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Alertas  $alertas
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Alertas $alertas)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Alertas  $alertas
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Alertas $alertas)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Alertas  $alertas
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, Alertas $alertas)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Alertas  $alertas
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Alertas $alertas)
     {
         //

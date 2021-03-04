@@ -177,7 +177,10 @@ class AutomovilController extends Controller
 
         $automovil2 = Automovil::where('id_user', '=', NULL)->get();
 
-        return view('admin.garaje.view-garaje-admin',compact('automovil', 'automovil2'));
+          $user = DB::table('users')
+            ->where('role','=', '0')
+            ->get();
+        return view('admin.garaje.view-garaje-admin',compact('automovil', 'automovil2', 'user'));
     }
 
     public function create_admin(){

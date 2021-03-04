@@ -183,10 +183,13 @@ Route::get('/alerts/view-alerts', function () {
 |--------------------------------------------------------------------------*/
 
 
-Route::get('admin/dashboard', function () {
-    return view('admin/dashboard');
-})->middleware(['auth'])->name('admin-view-dashboard');
 
+/*|--------------------------------------------------------------------------
+|Alert view
+|--------------------------------------------------------------------------*/
+Route::get('admin/dashboard','AlertasController@index')->name('index.alert');
+Route::get('admin/alertas','AlertasController@show')->name('show.alert');
+Route::post('admin/alert/create','AlertasController@store')->name('store.alert');
 
 /*|--------------------------------------------------------------------------
 |User view

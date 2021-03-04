@@ -61,7 +61,7 @@
                     </div>
 
                     <div class="col-6">
-                         <a href="{{ route('view-alerts') }}">
+                         <a href="{{ route('show.alert') }}">
                             <div class="card" style="border-radius: 15px">
                               <div class="card-body" >
                                   <img class="d-inline mb-2" src="{{ asset('img/icon/white/campana (1).png') }}" alt="Icon User" width="50px">

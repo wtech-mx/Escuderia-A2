@@ -43,7 +43,7 @@
                     <div class="col-2  mt-5">
                         <div class="d-flex justify-content-start">
                                 <div class="text-center text-white">
-                                    <a href="{{ route('admin-view-dashboard') }}" style="background-color: transparent;clip-path: none">
+                                    <a href="{{ route('index.alert') }}" style="background-color: transparent;clip-path: none">
                                         <img class="" src="{{ asset('img/icon/white/left-arrow.png') }}" width="25px" >
                                     </a>
                                 </div>

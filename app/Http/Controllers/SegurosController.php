@@ -115,7 +115,11 @@ class SegurosController extends Controller
 
         $seguros2 = Seguros::where('id_user', '=', NULL)->get();
 
-        return view('admin.seguros.view-seguros-admin',compact('seguros','seguros2'));
+        $user = DB::table('users')
+            ->where('role','=', '0')
+            ->get();
+
+        return view('admin.seguros.view-seguros-admin',compact('seguros','seguros2', 'user'));
     }
 
     public function edit_admin($id){
