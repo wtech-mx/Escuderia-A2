@@ -29,49 +29,149 @@
                         </div>
 
 
+                        <div class="col-6 mt-4">
+                            <a class="btn mb-3 mr-1" href="#carouselExampleControls" role="button" data-slide="prev">
+                                <img class="" src="{{ asset('img/icon/white/flecha-izquierda.png') }}" width="25px" >
+                            </a>
+
+                            <a class="btn mb-3 " href="#carouselExampleControls" role="button" data-slide="next">
+                                <img class="" src="{{ asset('img/icon/white/flecha-correcta.png') }}" width="25px" >
+                            </a>
+                        </div>
+
+                        <div class="col-6 mt-4 d-inline">
+                            <h5 class="text-white text-tittle-app mr-3 d-inline" style="font: normal normal bold 15px/20px Segoe UI">
+                                Agregar
+                            </h5>
+
+                            <a type="button"  data-toggle="modal" data-target="#alert-modal">
+                                <img class="" src="{{ asset('img/icon/white/plus.png') }}" width="30px" >
+                            </a>
+                        </div>
+
                         <div class="col-12">
 
-                            <table class="table text-white mt-5">
+                            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="90000">
 
-                              <thead>
-                                <tr>
-                                  <th scope="col"></th>
-                                  <th scope="col">Usuario</th>
-                                  <th scope="col">Titulo</th>
-                                  <th scope="col">Descripcion</th>
-                                  <th scope="col">Fecha Inicio</th>
-                                </tr>
-                              </thead>
+                                  <div class="carousel-inner">
 
-                              <tbody>
-                                <tr>
-                                    @foreach($alert as $item)
-                                      <th scope="row">{{$item->id}}</th>
-                                      <td>{{$item->id_user}}</td>
-                                      <td>{{$item->titulo}}</td>
-                                      <td>{{$item->descripcion}}</td>
-                                      <td>{{$item->fecha_inicio}}</td>
-                                    @endforeach
-                                </tr>
-                              </tbody>
+                                    {{-- ----------------------------------------------------------------------------}}
+                                    {{-- |Vehculos de user--}}
+                                    {{-- |----------------------------------------------------------------------------}}
 
-                            </table>
+                                    <div class="carousel-item active">
+                                        <h5 class="text-center text-white mt-4 ml-4 mr-4 ">
+                                            <strong>Alertas Servicios</strong>
+                                        </h5>
+
+                                    @if(Session::has('success'))
+                                        <script>
+                                            Swal.fire(
+                                                'Exito!',
+                                                'Se ha guardado exitosamiente.',
+                                                'success'
+                                            )
+                                        </script>
+                                    @endif
+
+
+                                      <div class="row">
+                                        <div class="col-12">
+                                            <table class="table text-white ">
+                                              <thead>
+                                                <tr>
+                                                  <th scope="col"></th>
+                                                  <th scope="col">Servicio</th>
+                                                  <th scope="col">Km</th>
+                                                  <th scope="col">Fecha</th>
+                                                  <th scope="col">cambio</th>
+                                                </tr>
+                                              </thead>
+
+                                              <tbody>
+                                                <tr>
+                                                  <th scope="row">1</th>
+                                                  <td>Mark</td>
+                                                  <td>Otto</td>
+                                                  <td>@mdo</td>
+                                                  <td>@mdo</td>
+                                                </tr>
+                                              </tbody>
+                                            </table>
+                                        </div>
+                                      </div>
+
+                                    </div>
+
+                                    {{-- ----------------------------------------------------------------------------}}
+                                    {{-- |Vehculos de empresa--}}
+                                    {{-- |----------------------------------------------------------------------------}}
+
+                                    <div class="carousel-item ">
+
+                                        <h5 class="text-center text-white mt-4 ml-4 mr-4 ">
+                                            <strong>Alertas Personalizadas</strong>
+                                        </h5>
+
+                                      <div class="row">
+
+                                            <div class="col-12">
+                                                <table class="table text-white">
+
+                                                  <thead>
+                                                    <tr>
+                                                      <th scope="col">Usuario</th>
+                                                      <th scope="col">Titulo</th>
+                                                      <th scope="col">Descripcion</th>
+                                                      <th scope="col">Fecha Inicio</th>
+                                                    </tr>
+                                                  </thead>
+
+                                                  <tbody>
+                                                    <tr>
+                                                        @foreach($alert as $item)
+
+                                                        @php
+                                                        $originalDate = $item->fecha_inicio;
+                                                        $newDate = date("d/m/Y", strtotime($originalDate));
+                                                        @endphp
+
+                                                          <td>{{$item->User->name}}</td>
+                                                          <td>{{$item->titulo}}</td>
+                                                          <td>{{$item->descripcion}}</td>
+                                                          <td>{{$newDate}}</td>
+                                                        @endforeach
+                                                    </tr>
+                                                  </tbody>
+
+                                                </table>
+                                            </div>
+
+                                      </div>
+
+                                    </div>
+
+                                  </div>
+
+                            </div>
 
                         </div>
 
+                    @foreach($alert as $item)
                      <script>
-                         @foreach($alert as $item)
-                        Push.create('{{$item->titulo}}', {
-                            body: '{{$item->descripcion}}',
-                            icon: '{{ asset('/icon-512x512.ico') }}',
-                            timeout: 6000,
-                            onClick: function () {
-                                window.focus();
-                                this.close();
-                            }
-                        });
-                        @endforeach
+
+                            Push.create('{{$item->titulo}}', {
+                                body: '{{$item->descripcion}}',
+                                icon: '{{ asset('/icon-512x512.ico') }}',
+                                timeout: 6000,
+                                onClick: function () {
+                                    window.focus();
+                                    this.close();
+                                }
+                            });
+
                     </script>
+                    @endforeach
 
 
 

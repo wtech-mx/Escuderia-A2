@@ -69,100 +69,101 @@
 
                         <div class="col-12">
 
-                        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="60000">
-                              <div class="carousel-inner">
+                            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="60000">
 
-                                {{-- ----------------------------------------------------------------------------}}
-                                {{-- |Vehculos de user--}}
-                                {{-- |----------------------------------------------------------------------------}}
+                                  <div class="carousel-inner">
 
-                                <div class="carousel-item active">
-                                    <h5 class="text-center text-white mt-4 ml-4 mr-4 ">
-                                        <strong>Vehiculos Personales</strong>
-                                    </h5>
+                                    {{-- ----------------------------------------------------------------------------}}
+                                    {{-- |Vehculos de user--}}
+                                    {{-- |----------------------------------------------------------------------------}}
 
-                                @if(Session::has('success'))
-                                    <script>
-                                        Swal.fire(
-                                            'Exito!',
-                                            'Se ha guardado exitosamiente.',
-                                            'success'
-                                        )
-                                    </script>
-                                @endif
+                                    <div class="carousel-item active">
+                                        <h5 class="text-center text-white mt-4 ml-4 mr-4 ">
+                                            <strong>Vehiculos Personales</strong>
+                                        </h5>
+
+                                    @if(Session::has('success'))
+                                        <script>
+                                            Swal.fire(
+                                                'Exito!',
+                                                'Se ha guardado exitosamiente.',
+                                                'success'
+                                            )
+                                        </script>
+                                    @endif
 
 
-                                  <div class="row">
-                                    @foreach ($automovil as $item)
-                                        <div class="col-12 mt-4">
-                                            <div class="card card-slide-garaje" >
-                                              <div class="card-body p-2" >
+                                      <div class="row">
+                                        @foreach ($automovil as $item)
+                                            <div class="col-12 mt-4">
+                                                <div class="card card-slide-garaje" >
+                                                  <div class="card-body p-2" >
 
-                                                  <div class="row">
-                                                      <div class="col-6 mt-3">
-                                                          <a class="card-text" href="{{ route('edit_admin.automovil',$item->id) }}"><strong style="font: normal normal bold 20px/27px Segoe UI;">{{$item->User->name}}</strong></a>
-                                                          <p class="card-text" style="font-size: 12px"><strong>{{$item->submarca}}</strong></p>
-                                                          <p class="card-text" style="font-size: 12px"><strong>{{$item->kilometraje}} KM Recorridos</strong></p>
-                                                      </div>
-
-                                                      <div class="col-6">
-                                                        <img class="d-inline mb-2" src="{{ asset('img-auto/'.$item->img) }}"  width="150px">
-                                                      </div>
-                                                  </div>
-
-                                              </div>
-                                            </div>
-                                        </div>
-                                    @endforeach
-                                  </div>
-
-                                </div>
-
-                                {{-- ----------------------------------------------------------------------------}}
-                                {{-- |Vehculos de empresa--}}
-                                {{-- |----------------------------------------------------------------------------}}
-
-                                <div class="carousel-item ">
-
-                                    <h5 class="text-center text-white mt-4 ml-4 mr-4 ">
-                                        <strong>Vehiculos Empresas</strong>
-                                    </h5>
-
-                                  <div class="row">
-
-                                        <div class="col-12 mt-4">
-                                            @foreach ($automovil2 as $item)
-                                                <div class="col-12 mt-4">
-                                                    <div class="card card-slide-garaje" >
-                                                      <div class="card-body p-2" >
-
-                                                          <div class="row">
-                                                              <div class="col-6 mt-3">
-                                                                  <a class="card-text" href="{{ route('edit_admin.automovil',$item->id) }}"><strong style="font: normal normal bold 20px/27px Segoe UI;">{{$item->Empresa->nombre}}</strong></a>
-                                                                  <p class="card-text" style="font-size: 12px"><strong>{{$item->submarca}}</strong></p>
-                                                                  <p class="card-text" style="font-size: 12px"><strong>{{$item->kilometraje}} KM Recorridos</strong></p>
-                                                              </div>
-
-                                                              <div class="col-6">
-                                                                <img class="d-inline mb-2" src="{{ asset('img-auto/'.$item->img) }}"  width="150px">
-                                                              </div>
+                                                      <div class="row">
+                                                          <div class="col-6 mt-3">
+                                                              <a class="card-text" href="{{ route('edit_admin.automovil',$item->id) }}"><strong style="font: normal normal bold 20px/27px Segoe UI;">{{$item->User->name}}</strong></a>
+                                                              <p class="card-text" style="font-size: 12px"><strong>{{$item->submarca}}</strong></p>
+                                                              <p class="card-text" style="font-size: 12px"><strong>{{$item->kilometraje}} KM Recorridos</strong></p>
                                                           </div>
 
+                                                          <div class="col-6">
+                                                            <img class="d-inline mb-2" src="{{ asset('img-auto/'.$item->img) }}"  width="150px">
+                                                          </div>
                                                       </div>
-                                                    </div>
+
+                                                  </div>
                                                 </div>
-                                            @endforeach
-                                        </div>
+                                            </div>
+                                        @endforeach
+                                      </div>
+
+                                    </div>
+
+                                    {{-- ----------------------------------------------------------------------------}}
+                                    {{-- |Vehculos de empresa--}}
+                                    {{-- |----------------------------------------------------------------------------}}
+
+                                    <div class="carousel-item ">
+
+                                        <h5 class="text-center text-white mt-4 ml-4 mr-4 ">
+                                            <strong>Vehiculos Empresas</strong>
+                                        </h5>
+
+                                      <div class="row">
+
+                                            <div class="col-12 mt-4">
+                                                @foreach ($automovil2 as $item)
+                                                    <div class="col-12 mt-4">
+                                                        <div class="card card-slide-garaje" >
+                                                          <div class="card-body p-2" >
+
+                                                              <div class="row">
+                                                                  <div class="col-6 mt-3">
+                                                                      <a class="card-text" href="{{ route('edit_admin.automovil',$item->id) }}"><strong style="font: normal normal bold 20px/27px Segoe UI;">{{$item->Empresa->nombre}}</strong></a>
+                                                                      <p class="card-text" style="font-size: 12px"><strong>{{$item->submarca}}</strong></p>
+                                                                      <p class="card-text" style="font-size: 12px"><strong>{{$item->kilometraje}} KM Recorridos</strong></p>
+                                                                  </div>
+
+                                                                  <div class="col-6">
+                                                                    <img class="d-inline mb-2" src="{{ asset('img-auto/'.$item->img) }}"  width="150px">
+                                                                  </div>
+                                                              </div>
+
+                                                          </div>
+                                                        </div>
+                                                    </div>
+                                                @endforeach
+                                            </div>
+
+                                      </div>
+
+                                    </div>
 
                                   </div>
 
-                                </div>
-
-                              </div>
+                            </div>
 
                         </div>
-
-                    </div>
 
                 </div>
 

@@ -6,6 +6,7 @@ use App\Models\Alertas;
 use Illuminate\Http\Request;
 use DB;
 use Session;
+use Carbon\Carbon;
 
 class AlertasController extends Controller
 {
@@ -13,19 +14,35 @@ class AlertasController extends Controller
     public function index()
     {
           $user = DB::table('users')
-            ->where('role','=', '0')
+            ->where('role','=', 0)
             ->get();
+
           return view('admin.dashboard', compact('user'));
     }
 
     public function show()
     {
-          $alert = DB::table('alertas')
-            ->get();
+          $alert = Alertas::get();
 
           $user = DB::table('users')
             ->where('role','=', '0')
             ->get();
+
+            // obtener la hora actual  - 2015-12-19 10:10:54
+            $current = Carbon::now();
+            $current = new Carbon();
+
+            // get hoy - 2015-12-19 00:00:00
+            $today = Carbon::today();
+
+            // get ayer - 2015-12-18 00:00:00
+            $yesterday = Carbon::yesterday();
+
+            // get mañana - 2015-12-20 00:00:00
+            $tomorrow = Carbon::tomorrow();
+
+
+
           return view('admin.alerts.view-alerts-admin', compact('alert', 'user'));
     }
 
