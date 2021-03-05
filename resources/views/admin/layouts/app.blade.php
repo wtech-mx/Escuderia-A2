@@ -32,12 +32,17 @@
     <link href="{{ asset('fonts/all.min.css') }}" rel="stylesheet">
     <link href="{{ asset('fonts/font-awesome.min.js') }}" rel="stylesheet">
     <link href="{{ asset('fonts/all.min.js') }}" rel="stylesheet">
-    <!-- CSS only -->
->
+
 
      <!-- personalizados js -->
     <script src="{{ asset('js/push.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <!--User script -->
+    <script
+        src="https://code.jquery.com/jquery-3.2.1.js"
+        integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+        crossorigin="anonymous">
+    </script>
 
 
 </head>
@@ -51,7 +56,7 @@
 
                 <div class="container-fluid">
                         @yield('content')
-                       @include('layouts.tab-bar')
+                       @include('admin.layouts.tab-bar')
                 </div>
             </div>
 
@@ -60,5 +65,19 @@
     </div>
 
 </body>
+            <div id="seccionRecargar">
+                    @include('admin.layouts.alert')
+	        </div>
 
+
+                <script type="text/javascript">
+                    $(document).ready(function(){
+                        setInterval(
+                                function(){
+                                    console.log('entro');
+                                    $('#seccionRecargar').load('{{ route('alerts.alert') }}');
+                                },60000
+                            );
+                    });
+                </script>
 </html>

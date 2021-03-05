@@ -6,7 +6,7 @@ use App\Models\Alertas;
 use Illuminate\Http\Request;
 use DB;
 use Session;
-use Carbon\Carbon;
+
 
 class AlertasController extends Controller
 {
@@ -19,7 +19,7 @@ class AlertasController extends Controller
             ->where('role','=', '0')
             ->get();
 
-          // obtener la hora actual  - 2015-12-19 10:10:54
+         // obtener la hora actual  - 2015-12-19 10:10:54
           $current = Carbon::now()->toDateTimeString();
           $alert2 = Alertas::
             where('id_user', '=', auth()->user()->id)

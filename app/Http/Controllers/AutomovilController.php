@@ -10,6 +10,8 @@ use App\Models\Seguros;
 use App\Models\User;
 use App\Models\TarjetaCirculacion;
 use Session;
+use Carbon\Carbon;
+use App\Models\Alertas;
 
 class AutomovilController extends Controller
 {
@@ -35,7 +37,14 @@ class AutomovilController extends Controller
         $users = DB::table('users')
         ->get();
 
-        return view('garaje.view-garaje',compact('carro', 'automovil', 'users'));
+        // obtener la hora actual  - 2015-12-19 10:10:54
+          $current = Carbon::now()->toDateTimeString();
+          $alert2 = Alertas::
+            where('id_user', '=', auth()->user()->id)
+            ->where('fecha_inicio','<=', $current)
+            ->get();
+
+        return view('garaje.view-garaje',compact('carro', 'automovil', 'users', 'alert2'));
     }
 
     public function create(){
@@ -180,7 +189,15 @@ class AutomovilController extends Controller
           $user = DB::table('users')
             ->where('role','=', '0')
             ->get();
-        return view('admin.garaje.view-garaje-admin',compact('automovil', 'automovil2', 'user'));
+
+        // obtener la hora actual  - 2015-12-19 10:10:54
+          $current = Carbon::now()->toDateTimeString();
+          $alert2 = Alertas::
+            where('id_user', '=', auth()->user()->id)
+            ->where('fecha_inicio','<=', $current)
+            ->get();
+
+        return view('admin.garaje.view-garaje-admin',compact('automovil', 'automovil2', 'user', 'alert2'));
     }
 
     public function create_admin(){

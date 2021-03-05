@@ -57,18 +57,7 @@
                 <div class="container-fluid">
 
                     @yield('content')
-
-                        @if((Auth::check()))
-                            <p style="display: none">{{$userId2 = auth()->user()->role}}</p>
-                            @if($userId2 == 0)
-                            @include('layouts.tab-bar')
-                        @else
-                             @include('admin.layouts.tab-bar')
-                             @endif
-                        @else
-
-                    @endif
-
+                    @include('layouts.tab-bar')
 
                 </div>
             </div>
@@ -78,14 +67,19 @@
     </div>
 </body>
 
+                @foreach($alert2 as $item)
+                     <script>
+                        Push.create('{{$item->titulo}}', {
+                            body: '{{$item->descripcion}}',
+                            icon: '{{ asset('/icon-512x512.ico') }}',
+                            timeout: 6000,
+                            onClick: function () {
+                                window.focus();
+                                this.close();
+                            }
+                        });
+                    </script>
+                @endforeach
+
 </html>
 
-{{--    <script type="text/javascript">--}}
-{{--        $(document).ready(function(){--}}
-{{--            setInterval(--}}
-{{--                    function(){--}}
-{{--                        $('#seccionRecargar').load({{ route('show.alert') }});--}}
-{{--                    },2000--}}
-{{--                );--}}
-{{--        });--}}
-{{--    </script>--}}

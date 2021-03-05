@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('admin.layouts.app')
 
 @section('bg-color', 'background-image: linear-gradient(to bottom, #050f55, #050f55, #050f55, #050f55, #050f55);')
 
@@ -43,7 +43,7 @@
                     <div class="col-2  mt-5">
                         <div class="d-flex justify-content-start">
                                 <div class="text-center text-white">
-                                    <a href="{{ route('index.alert') }}" style="background-color: transparent;clip-path: none">
+                                    <a href="{{ route('index.dashboard') }}" style="background-color: transparent;clip-path: none">
                                         <img class="" src="{{ asset('img/icon/white/left-arrow.png') }}" width="25px" >
                                     </a>
                                 </div>
