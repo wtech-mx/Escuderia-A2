@@ -10,11 +10,25 @@
 
                 <div class="row bg-img-log" style="background-image: url({{ asset('img/bg-log.png') }});">
 
-                    <div class="col-2">
+                    <div class="col-2 ">
                         <div class="d-flex justify-content-start">
-                                <div class="text-center text-white bg-white" style="border-radius: 50px;padding: 5px">
-                                  <img class="rounded-circle" src="{{ asset('img-perfil/'.$users->img) }}" width="40px" >
+                              <li class="nav-item dropdown" style="text-decoration: none">
+                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                                    <div class="text-center text-white bg-white" style="border-radius: 50px;padding: 5px">
+                                      <img class="rounded-circle" src="{{ asset('img-perfil/'.$users->img) }}" width="40px" >
+                                    </div>
+                                </a>
+                                <div class="dropdown-menu">
+                                    <a class="text-dark" href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            Cerrar Sesion
+                                    </a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                    </form>
                                 </div>
+                              </li>
                         </div>
                     </div>
 
