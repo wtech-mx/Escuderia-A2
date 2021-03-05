@@ -30,7 +30,13 @@ Route::get('/', function () {
 //    return view('dashboard');
 //})->middleware(['auth'])->name('dashboard');
 
-Route::get('dashboard','UserController@dashboard')->name('dashboard');
+Route::get('dashboard','DashboardController@index')->name('index.dashboard');
+
+/*|--------------------------------------------------------------------------
+|Alert view
+|--------------------------------------------------------------------------*/
+Route::get('admin/alertas','AlertasController@index')->name('index.alert');
+Route::post('admin/alert/create','AlertasController@store')->name('store.alert');
 
 /*|--------------------------------------------------------------------------
 |garaje view
@@ -182,16 +188,6 @@ Route::get('/alerts/view-alerts', function () {
 |Admin
 |--------------------------------------------------------------------------*/
 
-
-
-/*|--------------------------------------------------------------------------
-|Alert view
-|--------------------------------------------------------------------------*/
-Route::get('admin/dashboard','AlertasController@index')->name('index.alert');
-//Route::get('admin/dashboard','AlertasController@show_dashboard')->name('show_dashboard.alert');
-
-Route::get('admin/alertas','AlertasController@show')->name('show.alert');
-Route::post('admin/alert/create','AlertasController@store')->name('store.alert');
 
 /*|--------------------------------------------------------------------------
 |User view

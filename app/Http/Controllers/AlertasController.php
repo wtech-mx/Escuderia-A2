@@ -13,17 +13,6 @@ class AlertasController extends Controller
 
     public function index()
     {
-          $user = DB::table('users')
-            ->where('role','=', 0)
-            ->get();
-
-          $alert = Alertas::get();
-
-          return view('admin.dashboard', compact('user','alert'));
-    }
-
-    public function show()
-    {
           $alert = Alertas::get();
 
           $user = DB::table('users')
@@ -40,23 +29,9 @@ class AlertasController extends Controller
           return view('admin.alerts.view-alerts-admin', compact('alert', 'user', 'alert2'));
     }
 
-//    public function show_dashboard()
-//    {
-//          $alert = Alertas::get();
-//
-//          $user = DB::table('users')
-//            ->where('role','=', '0')
-//            ->get();
-//
-//          // obtener la hora actual  - 2015-12-19 10:10:54
-//            $current = Carbon::now()->toDateTimeString();
-//          $alert2 = Alertas::
-//            where('id_user', '=', auth()->user()->id)
-//            ->where('fecha_inicio','<=', $current)
-//            ->get();
-//
-//          return view('admin.dashboard', compact('alert', 'user', 'alert2'));
-//    }
+    public function show()
+    {
+    }
 
     public function store(Request $request)
     {

@@ -18,7 +18,7 @@
                     <div class="navbar">
 
                         <div class="navbar__item -blue">
-                            <a href="{{ route('index.alert') }}">
+                            <a href="{{ route('index.dashboard') }}">
                             <span class="navbar__icon">
                                 <img class="" src="{{ asset('img/icon/color/icon-home.png') }}" width="25px" >
                             </span>

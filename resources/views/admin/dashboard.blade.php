@@ -8,22 +8,27 @@
                 <link href="{{ asset('css/dashboard-admin.css') }}" rel="stylesheet">
 
                 <div class="row " style="background-color: #050F55;">
-                    <div class="col-md-12 mt-3 mb-3">
-                            <div class="d-flex justify-content-between">
+                    <div class="col-2 mt-5">
+                        <div class="d-flex justify-content-start">
+                                <div class="text-center text-white bg-white" style="border-radius: 50px;padding: 5px">
+                                  <img class="rounded-circle" src="{{ asset('img-perfil/'.$users->img) }}" width="40px" >
+                                </div>
+                        </div>
+                    </div>
 
-                              <div class="p-2">
-                                  -
-                              </div>
-                              <div class="p-2">
-                                   <h2 style="font: normal normal bold 25px/33px Segoe UI;color: #FFFFFF;" >Alertas</h2>
-                              </div>
-                              <div class="p-2">
-                                   <a href="{{ route('view-alerts') }}">
-                                      <img class="img-thumbnail" src="{{ asset('img/icon/color/campana.png') }}" width="40px" style="border-radius: 50px">
-                                  </a>
-                              </div>
+                    <div class="col-8 mt-5">
+                        <h5 class="text-center text-white ml-4 mr-4 ">
+                            <strong>Hola : {{$users->name}}</strong> <br> <br>
+{{--                             <strong>Auto Activo: {{$user->Automovil->submarca}}</strong>--}}
+                        </h5>
+                    </div>
 
-                            </div>
+                    <div class="col-2 mt-5">
+                        <div class="d-flex justify-content-start">
+                                <div class="text-center text-white bg-white" style="border-radius: 50px;padding: 5px">
+                                  <img class="" src="{{ asset('img/icon/color/campana.png') }}" width="30px" >
+                                </div>
+                        </div>
                     </div>
 
                         <div class="col-6 mt-4">
@@ -113,22 +118,6 @@
                                                     </tr>
                                                   </thead>
 
-                                                  <tbody>
-
-                                                    @foreach($alert as $item)
-                                                    <tr>
-                                                        @php
-                                                        $originalDate = $item->fecha_inicio;
-                                                        $newDate = date("d/m/Y", strtotime($originalDate));
-                                                        @endphp
-
-                                                          <td>{{$item->User->name}}</td>
-                                                          <td>{{$item->titulo}}</td>
-                                                          <td>{{$item->descripcion}}</td>
-                                                          <td>{{$newDate}}</td>
-                                                    </tr>
-                                                     @endforeach
-                                                  </tbody>
 
                                                 </table>
                                             </div>
@@ -153,7 +142,7 @@
                     </div>
 
                     <div class="col-6">
-                         <a href="{{ route('show.alert') }}">
+                         <a href="{{ route('index.alert') }}">
                             <div class="card" style="border-radius: 15px">
                               <div class="card-body" >
                                   <img class="d-inline mb-2" src="{{ asset('img/icon/white/campana (1).png') }}" alt="Icon User" width="50px">
