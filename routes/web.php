@@ -188,6 +188,8 @@ Route::get('/alerts/view-alerts', function () {
 |Alert view
 |--------------------------------------------------------------------------*/
 Route::get('admin/dashboard','AlertasController@index')->name('index.alert');
+//Route::get('admin/dashboard','AlertasController@show_dashboard')->name('show_dashboard.alert');
+
 Route::get('admin/alertas','AlertasController@show')->name('show.alert');
 Route::post('admin/alert/create','AlertasController@store')->name('store.alert');
 

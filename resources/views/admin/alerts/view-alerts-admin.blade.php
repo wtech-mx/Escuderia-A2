@@ -44,13 +44,20 @@
                                 Agregar
                             </h5>
 
-<?php
-	echo rand(1,800);
- ?>
                             <a type="button"  data-toggle="modal" data-target="#alert-modal">
                                 <img class="" src="{{ asset('img/icon/white/plus.png') }}" width="30px" >
                             </a>
                         </div>
+
+                    @if(Session::has('success'))
+                        <script>
+                            Swal.fire(
+                                'Exito!',
+                                'Se ha guardado exitosamiente.',
+                                'success'
+                            )
+                        </script>
+                    @endif
 
                         <div class="col-12">
 
@@ -66,17 +73,6 @@
                                         <h5 class="text-center text-white mt-4 ml-4 mr-4 ">
                                             <strong>Alertas Servicios</strong>
                                         </h5>
-
-                                    @if(Session::has('success'))
-                                        <script>
-                                            Swal.fire(
-                                                'Exito!',
-                                                'Se ha guardado exitosamiente.',
-                                                'success'
-                                            )
-                                        </script>
-                                    @endif
-
 
                                       <div class="row">
                                         <div class="col-12">
@@ -132,9 +128,8 @@
 
                                                   <tbody>
 
-                                                        @foreach($alert as $item)
+                                                    @foreach($alert as $item)
                                                     <tr>
-
                                                         @php
                                                         $originalDate = $item->fecha_inicio;
                                                         $newDate = date("d/m/Y", strtotime($originalDate));
@@ -144,9 +139,8 @@
                                                           <td>{{$item->titulo}}</td>
                                                           <td>{{$item->descripcion}}</td>
                                                           <td>{{$newDate}}</td>
-
                                                     </tr>
-                                                             @endforeach
+                                                     @endforeach
                                                   </tbody>
 
                                                 </table>
@@ -168,7 +162,7 @@
                             Push.create('{{$item->titulo}}', {
                                 body: '{{$item->descripcion}}',
                                 icon: '{{ asset('/icon-512x512.ico') }}',
-                                timeout: 6000,
+                                timeout: {{$item->tiempo}},
                                 onClick: function () {
                                     window.focus();
                                     this.close();
@@ -177,8 +171,6 @@
 
                     </script>
                     @endforeach
-
-
 
                 </div>
 

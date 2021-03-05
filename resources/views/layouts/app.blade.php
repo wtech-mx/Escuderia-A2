@@ -76,18 +76,16 @@
         </div>
 
     </div>
-  <div id="seccionRecargar"></div>
-
-
 </body>
 
 </html>
-    <script type="text/javascript">
-        $(document).ready(function(){
-            setInterval(
-                    function(){
-                        $('#seccionRecargar').load({{ route('show.alert') }});
-                    },2000
-                );
-        });
-    </script>
+
+{{--    <script type="text/javascript">--}}
+{{--        $(document).ready(function(){--}}
+{{--            setInterval(--}}
+{{--                    function(){--}}
+{{--                        $('#seccionRecargar').load({{ route('show.alert') }});--}}
+{{--                    },2000--}}
+{{--                );--}}
+{{--        });--}}
+{{--    </script>--}}
