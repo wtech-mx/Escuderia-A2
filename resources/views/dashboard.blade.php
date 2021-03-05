@@ -13,14 +13,14 @@
                     <div class="col-2">
                         <div class="d-flex justify-content-start">
                                 <div class="text-center text-white bg-white" style="border-radius: 50px;padding: 5px">
-                                  <img class="rounded-circle" src="{{ asset('img-perfil/'.$user->img) }}" width="40px" >
+                                  <img class="rounded-circle" src="{{ asset('img-perfil/'.$users->img) }}" width="40px" >
                                 </div>
                         </div>
                     </div>
 
                     <div class="col-8">
                         <h5 class="text-center text-white ml-4 mr-4 ">
-                            <strong>Hola : {{$user->name}}</strong> <br> <br>
+                            <strong>Hola : {{$users->name}}</strong> <br> <br>
 {{--                             <strong>Auto Activo: {{$user->Automovil->submarca}}</strong>--}}
                         </h5>
                     </div>
@@ -67,7 +67,7 @@
                     </div>
 
                     <div class="col-6">
-                         <a href="{{ route('admin-view-dashboard') }}">
+                         <a href="#">
                             <div class="card" style="border-radius: 15px">
                               <div class="card-body" >
                                   <img class="d-inline mb-2" src="{{ asset('img/icon/black/campana.png') }}" alt="Icon User" width="50px">

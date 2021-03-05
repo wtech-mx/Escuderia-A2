@@ -31,8 +31,8 @@ class CreateAlertasTable extends Migration
             $table->text('descripcion');
             $table->string('img');
             $table->integer('tiempo');
-            $table->date('fecha_inicio');
-            $table->date('fecha_fin');
+            $table->dateTime('fecha_inicio');
+            $table->dateTime('fecha_fin');
 
         });
     }

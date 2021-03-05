@@ -28,22 +28,14 @@ class AlertasController extends Controller
             ->where('role','=', '0')
             ->get();
 
-            // obtener la hora actual  - 2015-12-19 10:10:54
-            $current = Carbon::now();
-            $current = new Carbon();
+          // obtener la hora actual  - 2015-12-19 10:10:54
+            $current = Carbon::now()->toDateTimeString();
+          $alert2 = Alertas::
+            where('id_user', '=', auth()->user()->id)
+            ->where('fecha_inicio','<=', $current)
+            ->get();
 
-            // get hoy - 2015-12-19 00:00:00
-            $today = Carbon::today();
-
-            // get ayer - 2015-12-18 00:00:00
-            $yesterday = Carbon::yesterday();
-
-            // get mañana - 2015-12-20 00:00:00
-            $tomorrow = Carbon::tomorrow();
-
-
-
-          return view('admin.alerts.view-alerts-admin', compact('alert', 'user'));
+          return view('admin.alerts.view-alerts-admin', compact('alert', 'user', 'alert2'));
     }
 
     public function store(Request $request)

@@ -37,6 +37,12 @@
      <!-- personalizados js -->
     <script src="{{ asset('js/push.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <!--User script -->
+    <script
+        src="https://code.jquery.com/jquery-3.2.1.js"
+        integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+        crossorigin="anonymous">
+    </script>
 
 </head>
 
@@ -70,7 +76,18 @@
         </div>
 
     </div>
+  <div id="seccionRecargar"></div>
+
 
 </body>
 
 </html>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            setInterval(
+                    function(){
+                        $('#seccionRecargar').load({{ route('show.alert') }});
+                    },2000
+                );
+        });
+    </script>

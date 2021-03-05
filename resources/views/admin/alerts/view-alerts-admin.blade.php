@@ -44,6 +44,9 @@
                                 Agregar
                             </h5>
 
+<?php
+	echo rand(1,800);
+ ?>
                             <a type="button"  data-toggle="modal" data-target="#alert-modal">
                                 <img class="" src="{{ asset('img/icon/white/plus.png') }}" width="30px" >
                             </a>
@@ -128,8 +131,9 @@
                                                   </thead>
 
                                                   <tbody>
-                                                    <tr>
+
                                                         @foreach($alert as $item)
+                                                    <tr>
 
                                                         @php
                                                         $originalDate = $item->fecha_inicio;
@@ -140,8 +144,9 @@
                                                           <td>{{$item->titulo}}</td>
                                                           <td>{{$item->descripcion}}</td>
                                                           <td>{{$newDate}}</td>
-                                                        @endforeach
+
                                                     </tr>
+                                                             @endforeach
                                                   </tbody>
 
                                                 </table>
@@ -157,7 +162,7 @@
 
                         </div>
 
-                    @foreach($alert as $item)
+                    @foreach($alert2 as $item)
                      <script>
 
                             Push.create('{{$item->titulo}}', {

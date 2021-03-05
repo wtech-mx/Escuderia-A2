@@ -46,12 +46,12 @@
 
                               <div class="form-group col-6">
                                   <label for="">fecha inicio</label>
-                                  <input class="form-control" type="date" name="fecha_inicio" id="fecha_inicio" placeholder="DD/MM/YYYY" >
+                                  <input class="form-control" type="datetime-local" name="fecha_inicio" id="fecha_inicio" placeholder="DD/MM/YYYY" >
                               </div>
 
                               <div class="form-group col-6">
                                   <label for="">fecha fin</label>
-                                  <input class="form-control" type="date" name="fecha_fin" id="fecha_fin" placeholder="DD/MM/YYYY">
+                                  <input class="form-control" type="datetime-local" name="fecha_fin" id="fecha_fin" placeholder="DD/MM/YYYY">
                               </div>
 
                               <label for="">Description</label>

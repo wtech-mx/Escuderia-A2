@@ -26,13 +26,17 @@ class UserController extends Controller
     public function dashboard()
     {
 
-        $user = User::where('id','=',auth()->user()->id)
+        $users = User::where('id','=',auth()->user()->id)
         ->first();
 
-            if($user->role == '0'){
-                return view('dashboard',compact('user'));
+        $user = DB::table('users')
+            ->where('role','=', 0)
+            ->get();
+
+            if($users->role == 0){
+                return view('dashboard',compact('users', 'user'));
             }else{
-                return view('admin.dashboard',compact('user'));
+                return view('admin.dashboard',compact('users', 'user'));
             }
 
     }
