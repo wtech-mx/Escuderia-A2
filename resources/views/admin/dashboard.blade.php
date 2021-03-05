@@ -8,28 +8,42 @@
                 <link href="{{ asset('css/dashboard-admin.css') }}" rel="stylesheet">
 
                 <div class="row " style="background-color: #050F55;">
-                    <div class="col-2 mt-5">
-                        <div class="d-flex justify-content-start">
-                                <div class="text-center text-white bg-white" style="border-radius: 50px;padding: 5px">
-                                  <img class="rounded-circle" src="{{ asset('img-perfil/'.$users->img) }}" width="40px" >
-                                </div>
-                        </div>
-                    </div>
 
-                    <div class="col-8 mt-5">
-                        <h5 class="text-center text-white ml-4 mr-4 ">
-                            <strong>Hola : {{$users->name}}</strong> <br> <br>
-{{--                             <strong>Auto Activo: {{$user->Automovil->submarca}}</strong>--}}
-                        </h5>
-                    </div>
-
-                    <div class="col-2 mt-5">
-                        <div class="d-flex justify-content-start">
-                                <div class="text-center text-white bg-white" style="border-radius: 50px;padding: 5px">
-                                  <img class="" src="{{ asset('img/icon/color/campana.png') }}" width="30px" >
-                                </div>
+                        <div class="col-2 mt-4">
+                            <div class="d-flex justify-content-start">
+                                  <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <div class="text-center text-white bg-white" style="border-radius: 50px;padding: 5px">
+                                          <img class="rounded-circle" src="{{ asset('img-perfil/'.$users->img) }}" width="40px" >
+                                        </div>
+                                    </a>
+                                    <div class="dropdown-menu">
+                                        <a class="text-dark" href="{{ route('logout') }}"
+                                                onclick="event.preventDefault();
+                                                         document.getElementById('logout-form').submit();">
+                                                Cerrar Sesion
+                                        </a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                {{ csrf_field() }}
+                                        </form>
+                                    </div>
+                                  </li>
+                            </div>
                         </div>
-                    </div>
+
+                        <div class="col-8 mt-5">
+                            <h5 class="text-center text-white ml-4 mr-4">
+                                <strong>Hola : {{$users->name}}</strong> <br> <br>
+                            </h5>
+                        </div>
+
+                        <div class="col-2 mt-5">
+                            <div class="d-flex justify-content-start">
+                                    <div class="text-center text-white bg-white" style="border-radius: 50px;padding: 5px">
+                                      <img class="" src="{{ asset('img/icon/color/campana.png') }}" width="30px" >
+                                    </div>
+                            </div>
+                        </div>
 
                         <div class="col-6 mt-4">
                             <a class="btn mb-3 mr-1" href="#carouselExampleControls" role="button" data-slide="prev">
