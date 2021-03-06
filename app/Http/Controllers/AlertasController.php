@@ -43,6 +43,8 @@ class AlertasController extends Controller
         $alert->fecha_inicio = $request->get('fecha_inicio');
         $alert->fecha_fin = $request->get('fecha_fin');
         $alert->tiempo = $request->get('tiempo').'00';
+        $alert->status = 0;
+
         $alert->save();
 
         Session::flash('alert', 'Se ha enviado con exito');
