@@ -10,6 +10,8 @@ use App\Models\Automovil;
 use App\Models\Mecanica;
 use App\Models\User;
 use Session;
+use Carbon\Carbon;
+use App\Models\Alertas;
 
 class MecanicaController extends Controller
 {
@@ -32,7 +34,17 @@ class MecanicaController extends Controller
 
         $mecanica_bateria = Mecanica::where('servicio','=','7')->get();
 
-        return view('admin.services.view-mecanica',compact('mecanica_llantas','mecanica_banda','mecanica_freno','mecanica_aceite','mecanica_afinacion', 'mecanica_amortiguadores', 'mecanica_bateria'));
+        $users = DB::table('users')
+        ->get();
+                          // obtener la hora actual  - 2015-12-19 10:10:54
+          $current = Carbon::now()->toDateTimeString();
+          $alert2 = Alertas::
+            where('id_user', '=', auth()->user()->id)
+            ->where('fecha_inicio','<=', $current)
+              ->where('status', '=', 0)
+            ->get();
+
+        return view('admin.services.view-mecanica',compact('mecanica_llantas','mecanica_banda','mecanica_freno','mecanica_aceite','mecanica_afinacion', 'mecanica_amortiguadores', 'mecanica_bateria', 'alert2', 'users'));
     }
     public function create_servicio()
     {
@@ -49,7 +61,17 @@ class MecanicaController extends Controller
          $automovil = DB::table('automovil')
             ->get();
 
-        return view('admin.services.mecanica',compact('empresa', 'marca', 'automovil', 'user'));
+                $users = DB::table('users')
+        ->get();
+                          // obtener la hora actual  - 2015-12-19 10:10:54
+          $current = Carbon::now()->toDateTimeString();
+          $alert2 = Alertas::
+            where('id_user', '=', auth()->user()->id)
+            ->where('fecha_inicio','<=', $current)
+              ->where('status', '=', 0)
+            ->get();
+
+        return view('admin.services.mecanica',compact('empresa', 'marca', 'automovil', 'user', 'alert2', 'users'));
     }
 
     /* Trae los automoviles con el user seleccionado  */

@@ -8,7 +8,8 @@ use App\Models\ImgTc;
 use Illuminate\Http\Request;
 use Session;
 use DB;
-
+use Carbon\Carbon;
+use App\Models\Alertas;
 class TarjetaCirculacionController extends Controller
 {
 /*|--------------------------------------------------------------------------
@@ -22,7 +23,17 @@ class TarjetaCirculacionController extends Controller
 
         $tarjeta_circulacion = TarjetaCirculacion::where('current_auto','=',$auto->current_auto)->first();
 
-        return view('tarjeta-circulacion.tarjeta_circulacion',compact('tarjeta_circulacion'));
+                        $users = DB::table('users')
+        ->get();
+                          // obtener la hora actual  - 2015-12-19 10:10:54
+          $current = Carbon::now()->toDateTimeString();
+          $alert2 = Alertas::
+            where('id_user', '=', auth()->user()->id)
+            ->where('fecha_inicio','<=', $current)
+              ->where('status', '=', 0)
+            ->get();
+
+        return view('tarjeta-circulacion.tarjeta_circulacion',compact('tarjeta_circulacion', 'users', 'alert2'));
     }
 
     public function update(Request $request,$id){
@@ -51,14 +62,33 @@ class TarjetaCirculacionController extends Controller
 
         $tarjeta_circulacion = TarjetaCirculacion::get();
 
-        return view('admin.tarjeta-circulacion.view-tc-admin',compact('tarjeta_circulacion'));
+                        $users = DB::table('users')
+        ->get();
+                          // obtener la hora actual  - 2015-12-19 10:10:54
+          $current = Carbon::now()->toDateTimeString();
+          $alert2 = Alertas::
+            where('id_user', '=', auth()->user()->id)
+            ->where('fecha_inicio','<=', $current)
+              ->where('status', '=', 0)
+            ->get();
+
+        return view('admin.tarjeta-circulacion.view-tc-admin',compact('tarjeta_circulacion', 'users', 'alert2'));
     }
 
     public function  edit_admin($id){
 
         $tarjeta_circulacion = TarjetaCirculacion::findOrFail($id);
+                        $users = DB::table('users')
+        ->get();
+                          // obtener la hora actual  - 2015-12-19 10:10:54
+          $current = Carbon::now()->toDateTimeString();
+          $alert2 = Alertas::
+            where('id_user', '=', auth()->user()->id)
+            ->where('fecha_inicio','<=', $current)
+              ->where('status', '=', 0)
+            ->get();
 
-        return view('admin.tarjeta-circulacion.tarjeta_circulacion',compact('tarjeta_circulacion'));
+        return view('admin.tarjeta-circulacion.tarjeta_circulacion',compact('tarjeta_circulacion', 'users', 'alert2'));
     }
 
     function update_admin(Request $request, $id){

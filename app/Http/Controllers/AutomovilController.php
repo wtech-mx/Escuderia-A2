@@ -42,6 +42,7 @@ class AutomovilController extends Controller
           $alert2 = Alertas::
             where('id_user', '=', auth()->user()->id)
             ->where('fecha_inicio','<=', $current)
+            ->where('status', '=', 0)
             ->get();
 
         return view('garaje.view-garaje',compact('carro', 'automovil', 'users', 'alert2'));
@@ -51,7 +52,21 @@ class AutomovilController extends Controller
          $marca = DB::table('marca')
             ->get();
 
-        return view('garaje.create-garaje',compact('marca'));
+                  $user = DB::table('users')
+            ->where('role','=', '0')
+            ->get();
+
+        $users = DB::table('users')
+        ->get();
+                          // obtener la hora actual  - 2015-12-19 10:10:54
+          $current = Carbon::now()->toDateTimeString();
+          $alert2 = Alertas::
+            where('id_user', '=', auth()->user()->id)
+            ->where('fecha_inicio','<=', $current)
+              ->where('status', '=', 0)
+            ->get();
+
+        return view('garaje.create-garaje',compact('marca', 'users', 'alert2'));
     }
 
     public function store(Request $request){
@@ -124,7 +139,17 @@ class AutomovilController extends Controller
         $marca = DB::table('marca')
             ->get();
 
-        return view('garaje.edit-garaje',compact('automovil', 'marca'));
+                $users = DB::table('users')
+        ->get();
+                          // obtener la hora actual  - 2015-12-19 10:10:54
+          $current = Carbon::now()->toDateTimeString();
+          $alert2 = Alertas::
+            where('id_user', '=', auth()->user()->id)
+            ->where('fecha_inicio','<=', $current)
+              ->where('status', '=', 0)
+            ->get();
+
+        return view('garaje.edit-garaje',compact('automovil', 'marca', 'users', 'alert2'));
     }
 
     function update(Request $request, $id){
@@ -194,6 +219,7 @@ class AutomovilController extends Controller
           $current = Carbon::now()->toDateTimeString();
           $alert2 = Alertas::
             where('id_user', '=', auth()->user()->id)
+              ->where('status', '=', 0)
             ->where('fecha_inicio','<=', $current)
             ->get();
 
@@ -211,7 +237,15 @@ class AutomovilController extends Controller
          $empresa = DB::table('empresa')
             ->get();
 
-        return view('admin.garaje.create-garaje-admin',compact('marca', 'user', 'empresa'));
+                          // obtener la hora actual  - 2015-12-19 10:10:54
+          $current = Carbon::now()->toDateTimeString();
+          $alert2 = Alertas::
+            where('id_user', '=', auth()->user()->id)
+            ->where('fecha_inicio','<=', $current)
+              ->where('status', '=', 0)
+            ->get();
+
+        return view('admin.garaje.create-garaje-admin',compact('marca', 'user', 'empresa', 'user', 'alert2'));
     }
 
     public function store_admin(Request $request){
@@ -285,7 +319,16 @@ class AutomovilController extends Controller
             ->where('role','=', '0')
             ->get();
 
-        return view('admin.garaje.edit-garaje-admin',compact('automovil', 'marca', 'user','empresa'));
+
+        // obtener la hora actual  - 2015-12-19 10:10:54
+          $current = Carbon::now()->toDateTimeString();
+          $alert2 = Alertas::
+            where('id_user', '=', auth()->user()->id)
+              ->where('status', '=', 0)
+            ->where('fecha_inicio','<=', $current)
+            ->get();
+
+        return view('admin.garaje.edit-garaje-admin',compact('automovil', 'marca', 'user','empresa', 'alert2'));
     }
 
     function update_admin(Request $request, $id){

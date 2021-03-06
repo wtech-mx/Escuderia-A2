@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Str;
 use App\Models\ExpReemplacamiento;
 use Session;
+use Carbon\Carbon;
+use App\Models\Alertas;
 
 class ExpreemplacaminetoController extends Controller
 {
@@ -24,12 +26,28 @@ class ExpreemplacaminetoController extends Controller
         ->where('current_auto','=',auth()->user()->current_auto)
         ->get();
 
-        return view('exp-fisico.view-reemplacamiento',compact('exp_reemplacamiento'));
+          // obtener la hora actual  - 2015-12-19 10:10:54
+          $current = Carbon::now()->toDateTimeString();
+          $alert2 = Alertas::
+            where('id_user', '=', auth()->user()->id)
+            ->where('fecha_inicio','<=', $current)
+              ->where('status', '=', 0)
+            ->get();
+
+        return view('exp-fisico.view-reemplacamiento',compact('exp_reemplacamiento', 'alert2'));
     }
 
     public function create(){
 
-        return view('exp-fisico.view-reemplacamiento');
+                          // obtener la hora actual  - 2015-12-19 10:10:54
+          $current = Carbon::now()->toDateTimeString();
+          $alert2 = Alertas::
+            where('id_user', '=', auth()->user()->id)
+            ->where('fecha_inicio','<=', $current)
+              ->where('status', '=', 0)
+            ->get();
+
+        return view('exp-fisico.view-reemplacamiento', compact('alert2'));
     }
 
     public function store(Request $request){
@@ -69,7 +87,15 @@ class ExpreemplacaminetoController extends Controller
         ->where('current_auto','=', $exp_auto)
         ->get();
 
-        return view('admin.exp-fisico.view-reemplacamiento-admin',compact('exp_reemplacamiento','automovil'));
+                          // obtener la hora actual  - 2015-12-19 10:10:54
+          $current = Carbon::now()->toDateTimeString();
+          $alert2 = Alertas::
+            where('id_user', '=', auth()->user()->id)
+            ->where('fecha_inicio','<=', $current)
+              ->where('status', '=', 0)
+            ->get();
+
+        return view('admin.exp-fisico.view-reemplacamiento-admin',compact('exp_reemplacamiento','automovil', 'alert2'));
     }
 
     public function store_admin(Request $request,$id){

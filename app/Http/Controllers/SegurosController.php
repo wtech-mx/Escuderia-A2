@@ -8,7 +8,8 @@ use DB;
 use Session;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Arr;
-
+use Carbon\Carbon;
+use App\Models\Alertas;
 
 class SegurosController extends Controller
 {
@@ -84,8 +85,17 @@ class SegurosController extends Controller
                 $img = 'zurich.png';
             break;
         }
+                        $users = DB::table('users')
+        ->get();
+                          // obtener la hora actual  - 2015-12-19 10:10:54
+          $current = Carbon::now()->toDateTimeString();
+          $alert2 = Alertas::
+            where('id_user', '=', auth()->user()->id)
+            ->where('fecha_inicio','<=', $current)
+              ->where('status', '=', 0)
+            ->get();
 
-        return view('seguros.seguros',compact('seguro', 'img'));
+        return view('seguros.seguros',compact('seguro', 'img', 'alert2','users'));
     }
 
     public function update(Request $request,$id){
@@ -119,7 +129,17 @@ class SegurosController extends Controller
             ->where('role','=', '0')
             ->get();
 
-        return view('admin.seguros.view-seguros-admin',compact('seguros','seguros2', 'user'));
+                        $users = DB::table('users')
+        ->get();
+                          // obtener la hora actual  - 2015-12-19 10:10:54
+          $current = Carbon::now()->toDateTimeString();
+          $alert2 = Alertas::
+            where('id_user', '=', auth()->user()->id)
+            ->where('fecha_inicio','<=', $current)
+              ->where('status', '=', 0)
+            ->get();
+
+        return view('admin.seguros.view-seguros-admin',compact('seguros','seguros2', 'user', 'users', 'alert2'));
     }
 
     public function edit_admin($id){
@@ -186,7 +206,17 @@ class SegurosController extends Controller
             break;
         }
 
-        return view('admin.seguros.create-seguros-admin',compact('seguro','img'));
+                        $users = DB::table('users')
+        ->get();
+                          // obtener la hora actual  - 2015-12-19 10:10:54
+          $current = Carbon::now()->toDateTimeString();
+          $alert2 = Alertas::
+            where('id_user', '=', auth()->user()->id)
+            ->where('fecha_inicio','<=', $current)
+              ->where('status', '=', 0)
+            ->get();
+
+        return view('admin.seguros.create-seguros-admin',compact('seguro','img', 'users', 'alert2'));
     }
 
     public function update_admin(Request $request,$id)

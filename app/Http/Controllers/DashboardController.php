@@ -26,19 +26,20 @@ class DashboardController extends Controller
             ->where('role','=', 0)
             ->get();
 
+
         // obtener la hora actual  - 2015-12-19 10:10:54
           $current = Carbon::now()->toDateTimeString();
           $alert2 = Alertas::
             where('id_user', '=', auth()->user()->id)
+            ->where('status', '=', 0)
             ->where('fecha_inicio','<=', $current)
             ->get();
 
-            if($users->role == 0){
-                return view('dashboard',compact('users', 'user', 'alert2'));
-            }else{
-                return view('admin.dashboard',compact('users', 'user', 'alert2'));
-            }
-
+                        if($users->role == 0){
+                            return view('dashboard',compact('users', 'user', 'alert2'));
+                        }else{
+                            return view('admin.dashboard',compact('users', 'user', 'alert2'));
+                        }
     }
 
        public function alerts()
@@ -51,13 +52,32 @@ class DashboardController extends Controller
           $current = Carbon::now()->toDateTimeString();
           $alert2 = Alertas::
             where('id_user', '=', auth()->user()->id)
+            ->where('status', '=', 0)
             ->where('fecha_inicio','<=', $current)
             ->get();
 
-            if($users->role == 0){
-                return view('layouts.app',compact('alert2'));
-            }else{
-                return view('admin.layouts.alert',compact( 'alert2'));
+            $alert3 = Alertas::
+            where('id_user', '=', auth()->user()->id)
+            ->where('fecha_inicio','<=', $current)
+            ->where('status', '=', 0)
+            ->first();
+
+            if($alert3 == NULL){
+                if($users->role == 0){
+                    return view('layouts.app',compact('alert2'));
+                }else{
+                    return view('admin.layouts.alert',compact( 'alert2'));
+                }
+             }else {
+                $alert3->status = 1;
+                if($users->role == 0){
+                    $alert3->save();
+                    return view('layouts.app',compact('alert2'));
+                }else{
+                    $alert3->save();
+                    return view('admin.layouts.alert',compact( 'alert2'));
+                }
+
             }
 
     }

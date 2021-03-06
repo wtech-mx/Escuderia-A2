@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Str;
 use App\Models\ExpFactura;
 use Session;
+use Carbon\Carbon;
+use App\Models\Alertas;
 
 class ExpfacturasController extends Controller
 {
@@ -25,12 +27,31 @@ class ExpfacturasController extends Controller
         ->where('current_auto','=',auth()->user()->current_auto)
         ->get();
 
-        return view('exp-fisico.view-factura',compact('exp_factura'));
+        // obtener la hora actual  - 2015-12-19 10:10:54
+          $current = Carbon::now()->toDateTimeString();
+          $alert2 = Alertas::
+            where('id_user', '=', auth()->user()->id)
+            ->where('fecha_inicio','<=', $current)
+              ->where('status', '=', 0)
+            ->get();
+
+        return view('exp-fisico.view-factura',compact('exp_factura', 'alert2', 'user'));
     }
 
     public function create(){
+         $user = DB::table('users')
+            ->where('role','=', '0')
+            ->get();
 
-        return view('exp-fisico.view-factura');
+          // obtener la hora actual  - 2015-12-19 10:10:54
+          $current = Carbon::now()->toDateTimeString();
+          $alert2 = Alertas::
+            where('id_user', '=', auth()->user()->id)
+            ->where('fecha_inicio','<=', $current)
+              ->where('status', '=', 0)
+            ->get();
+
+        return view('exp-fisico.view-factura',compact('user', 'alert2'));
     }
 
     public function store(Request $request){
@@ -70,7 +91,15 @@ class ExpfacturasController extends Controller
             ->where('role','=', '0')
             ->get();
 
-        return view('admin.exp-fisico.view-exp-fisico-admin',compact('automovil','automovil2', 'user'));
+                          // obtener la hora actual  - 2015-12-19 10:10:54
+          $current = Carbon::now()->toDateTimeString();
+          $alert2 = Alertas::
+            where('id_user', '=', auth()->user()->id)
+            ->where('fecha_inicio','<=', $current)
+              ->where('status', '=', 0)
+            ->get();
+
+        return view('admin.exp-fisico.view-exp-fisico-admin',compact('automovil','automovil2', 'user', 'alert2'));
     }
 
         public function create_admin($id)
@@ -86,7 +115,19 @@ class ExpfacturasController extends Controller
         ->where('current_auto','=', $exp_auto)
         ->get();
 
-        return view('admin.exp-fisico.view-factura-admin',compact('exp_factura','automovil'));
+         $user = DB::table('users')
+            ->where('role','=', '0')
+            ->get();
+
+                          // obtener la hora actual  - 2015-12-19 10:10:54
+          $current = Carbon::now()->toDateTimeString();
+          $alert2 = Alertas::
+            where('id_user', '=', auth()->user()->id)
+            ->where('fecha_inicio','<=', $current)
+              ->where('status', '=', 0)
+            ->get();
+
+        return view('admin.exp-fisico.view-factura-admin',compact('exp_factura','automovil', 'user', 'alert2'));
     }
 
     public function store_admin(Request $request,$id){

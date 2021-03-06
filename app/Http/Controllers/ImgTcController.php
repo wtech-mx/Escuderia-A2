@@ -6,7 +6,8 @@ use App\Models\ImgTc;
 use App\Models\TarjetaCirculacion;
 use Illuminate\Http\Request;
 use Session;
-
+use Carbon\Carbon;
+use App\Models\Alertas;
 
 class ImgTcController extends Controller
 {

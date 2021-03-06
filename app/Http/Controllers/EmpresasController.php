@@ -10,6 +10,8 @@ use Session;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
+use Carbon\Carbon;
+use App\Models\Alertas;
 
 class EmpresasController extends Controller
 {
@@ -30,6 +32,7 @@ class EmpresasController extends Controller
           $alert2 = Alertas::
             where('id_user', '=', auth()->user()->id)
             ->where('fecha_inicio','<=', $current)
+            ->where('status', '=', 0)
             ->get();
 
         return view('admin.garaje.create-garaje-admin',compact('user', 'alert2'));
@@ -79,6 +82,7 @@ class EmpresasController extends Controller
           $alert2 = Alertas::
             where('id_user', '=', auth()->user()->id)
             ->where('fecha_inicio','<=', $current)
+              ->where('status', '=', 0)
             ->get();
 
         return view('admin.empresas.view-empresas-admin',compact('empresa','user', 'alert2'));
@@ -90,7 +94,15 @@ class EmpresasController extends Controller
             ->where('role','=', '0')
             ->get();
 
-        return view('admin.empresas.add-empresa-admin',compact('user'));
+                          // obtener la hora actual  - 2015-12-19 10:10:54
+          $current = Carbon::now()->toDateTimeString();
+          $alert2 = Alertas::
+            where('id_user', '=', auth()->user()->id)
+            ->where('fecha_inicio','<=', $current)
+              ->where('status', '=', 0)
+            ->get();
+
+        return view('admin.empresas.add-empresa-admin',compact('user', 'alert2'));
     }
 
     public function store_admin(Request $request)
@@ -131,7 +143,15 @@ class EmpresasController extends Controller
         $user = DB::table('users')
         ->get();
 
-        return view('admin.empresas.edit-empresa-admin',compact('empresa','empresas','user'));
+                          // obtener la hora actual  - 2015-12-19 10:10:54
+          $current = Carbon::now()->toDateTimeString();
+          $alert2 = Alertas::
+            where('id_user', '=', auth()->user()->id)
+            ->where('fecha_inicio','<=', $current)
+              ->where('status', '=', 0)
+            ->get();
+
+        return view('admin.empresas.edit-empresa-admin',compact('empresa','empresas','user', 'alert2'));
     }
 
     public function update_admin(Request $request,$id)

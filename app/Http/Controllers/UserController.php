@@ -26,7 +26,17 @@ class UserController extends Controller
 |--------------------------------------------------------------------------*/
     public function create()
     {
-        return view('admin.garaje.create-garaje-admin');
+                        $users = DB::table('users')
+        ->get();
+                          // obtener la hora actual  - 2015-12-19 10:10:54
+          $current = Carbon::now()->toDateTimeString();
+          $alert2 = Alertas::
+            where('id_user', '=', auth()->user()->id)
+            ->where('fecha_inicio','<=', $current)
+              ->where('status', '=', 0)
+            ->get();
+
+        return view('admin.garaje.create-garaje-admin', compact('users', 'alert2'));
     }
 
     public function store_auto(Request $request)
@@ -108,7 +118,15 @@ class UserController extends Controller
         $users = DB::table('users')
             ->get();
 
-        return view('profile.profile', compact('user','users'));
+                          // obtener la hora actual  - 2015-12-19 10:10:54
+          $current = Carbon::now()->toDateTimeString();
+          $alert2 = Alertas::
+            where('id_user', '=', auth()->user()->id)
+            ->where('fecha_inicio','<=', $current)
+              ->where('status', '=', 0)
+            ->get();
+
+        return view('profile.profile', compact('user','users', 'alert2'));
     }
 
 /*|--------------------------------------------------------------------------
@@ -117,8 +135,17 @@ class UserController extends Controller
      function index_admin(){
 
         $user = User::where('role', '=', '0')->get();
+                        $users = DB::table('users')
+        ->get();
+                          // obtener la hora actual  - 2015-12-19 10:10:54
+          $current = Carbon::now()->toDateTimeString();
+          $alert2 = Alertas::
+            where('id_user', '=', auth()->user()->id)
+            ->where('fecha_inicio','<=', $current)
+              ->where('status', '=', 0)
+            ->get();
 
-        return view('admin.user.view-user-admin',compact('user'));
+        return view('admin.user.view-user-admin',compact('user', 'users', 'alert2'));
     }
 
     public function create_admin()
@@ -126,8 +153,17 @@ class UserController extends Controller
 
         $user = DB::table('users')
         ->get();
+                        $users = DB::table('users')
+        ->get();
+                          // obtener la hora actual  - 2015-12-19 10:10:54
+          $current = Carbon::now()->toDateTimeString();
+          $alert2 = Alertas::
+            where('id_user', '=', auth()->user()->id)
+            ->where('fecha_inicio','<=', $current)
+              ->where('status', '=', 0)
+            ->get();
 
-        return view('admin.user.add-user-admin',compact('user'));
+        return view('admin.user.add-user-admin',compact('user', 'users', 'alert2'));
     }
 
     public function store_admin(Request $request)
@@ -167,8 +203,15 @@ class UserController extends Controller
 
         $users = DB::table('users')
         ->get();
+                          // obtener la hora actual  - 2015-12-19 10:10:54
+          $current = Carbon::now()->toDateTimeString();
+          $alert2 = Alertas::
+            where('id_user', '=', auth()->user()->id)
+            ->where('fecha_inicio','<=', $current)
+              ->where('status', '=', 0)
+            ->get();
 
-        return view('admin.user.edit-user-admin',compact('user','users'));
+        return view('admin.user.edit-user-admin',compact('user','users', 'alert2'));
     }
 
     public function update_admin(Request $request,$id)

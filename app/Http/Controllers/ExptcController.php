@@ -9,6 +9,8 @@ use Illuminate\Support\Str;
 use App\Models\ExpTc;
 use App\Models\TarjetaCirculacion;
 use Session;
+use Carbon\Carbon;
+use App\Models\Alertas;
 
 class ExptcController extends Controller
 {
@@ -25,14 +27,29 @@ class ExptcController extends Controller
         ->where('current_auto','=',auth()->user()->current_auto)
         ->get();
 
+                   // obtener la hora actual  - 2015-12-19 10:10:54
+          $current = Carbon::now()->toDateTimeString();
+          $alert2 = Alertas::
+            where('id_user', '=', auth()->user()->id)
+            ->where('fecha_inicio','<=', $current)
+              ->where('status', '=', 0)
+            ->get();
+
         $img = TarjetaCirculacion::where('current_auto','=',$user->current_auto)->first();
 
-        return view('exp-fisico.view-tc',compact('exp_tc', 'img'));
+        return view('exp-fisico.view-tc',compact('exp_tc', 'img', 'alert2'));
     }
 
     public function create(){
+                          // obtener la hora actual  - 2015-12-19 10:10:54
+          $current = Carbon::now()->toDateTimeString();
+          $alert2 = Alertas::
+            where('id_user', '=', auth()->user()->id)
+            ->where('fecha_inicio','<=', $current)
+              ->where('status', '=', 0)
+            ->get();
 
-        return view('exp-fisico.view-tc');
+        return view('exp-fisico.view-tc', compact('alert2'));
     }
 
     public function store(Request $request){
@@ -74,7 +91,15 @@ class ExptcController extends Controller
         ->where('id_tc','=', $automovil->id)
         ->get();
 
-        return view('admin.exp-fisico.view-tc-admin',compact('exp_tc','automovil'));
+                          // obtener la hora actual  - 2015-12-19 10:10:54
+          $current = Carbon::now()->toDateTimeString();
+          $alert2 = Alertas::
+            where('id_user', '=', auth()->user()->id)
+            ->where('fecha_inicio','<=', $current)
+              ->where('status', '=', 0)
+            ->get();
+
+        return view('admin.exp-fisico.view-tc-admin',compact('exp_tc','automovil', 'alert2'));
     }
 
     public function store_admin(Request $request,$id){

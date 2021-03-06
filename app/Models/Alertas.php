@@ -22,6 +22,7 @@ class Alertas extends Model
         'tiempo',
         'fecha_inicio',
         'fecha_fin',
+        'status',
     ];
 
     public function User()

@@ -8,7 +8,8 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Str;
 use App\Models\ExpTenencias;
 use Session;
-
+use Carbon\Carbon;
+use App\Models\Alertas;
 class ExptenenciasController extends Controller
 {
      function index(){
@@ -24,12 +25,27 @@ class ExptenenciasController extends Controller
         ->where('current_auto','=',auth()->user()->current_auto)
         ->get();
 
-        return view('exp-fisico.view-tenencia',compact('exp_tenencias'));
+         // obtener la hora actual  - 2015-12-19 10:10:54
+          $current = Carbon::now()->toDateTimeString();
+          $alert2 = Alertas::
+            where('id_user', '=', auth()->user()->id)
+            ->where('fecha_inicio','<=', $current)
+              ->where('status', '=', 0)
+            ->get();
+
+        return view('exp-fisico.view-tenencia',compact('exp_tenencias', 'alert2'));
     }
 
     public function create(){
+                          // obtener la hora actual  - 2015-12-19 10:10:54
+          $current = Carbon::now()->toDateTimeString();
+          $alert2 = Alertas::
+            where('id_user', '=', auth()->user()->id)
+            ->where('fecha_inicio','<=', $current)
+              ->where('status', '=', 0)
+            ->get();
 
-        return view('exp-fisico.view-tenencia');
+        return view('exp-fisico.view-tenencia',compact('alert2'));
     }
 
     public function store(Request $request){
@@ -69,7 +85,15 @@ class ExptenenciasController extends Controller
         ->where('current_auto','=', $exp_auto)
         ->get();
 
-        return view('admin.exp-fisico.view-tenencia-admin',compact('exp_tenencias','automovil'));
+                          // obtener la hora actual  - 2015-12-19 10:10:54
+          $current = Carbon::now()->toDateTimeString();
+          $alert2 = Alertas::
+            where('id_user', '=', auth()->user()->id)
+            ->where('fecha_inicio','<=', $current)
+              ->where('status', '=', 0)
+            ->get();
+
+        return view('admin.exp-fisico.view-tenencia-admin',compact('exp_tenencias','automovil', 'alert2'));
     }
 
     public function store_admin(Request $request,$id){

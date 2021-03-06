@@ -9,6 +9,8 @@ use Illuminate\Support\Str;
 use App\Models\ExpPoliza;
 use App\Models\TarjetaCirculacion;
 use Session;
+use Carbon\Carbon;
+use App\Models\Alertas;
 
 class ExpolizaController extends Controller
 {
@@ -25,14 +27,29 @@ class ExpolizaController extends Controller
         ->where('current_auto','=',auth()->user()->current_auto)
         ->get();
 
+         // obtener la hora actual  - 2015-12-19 10:10:54
+          $current = Carbon::now()->toDateTimeString();
+          $alert2 = Alertas::
+            where('id_user', '=', auth()->user()->id)
+            ->where('fecha_inicio','<=', $current)
+              ->where('status', '=', 0)
+            ->get();
+
         $img = TarjetaCirculacion::where('current_auto','=',$user->current_auto)->first();
 
-        return view('exp-fisico.view-poliza',compact('exp_poliza', 'img'));
+        return view('exp-fisico.view-poliza',compact('exp_poliza', 'img', 'alert2'));
     }
 
     public function create(){
+                          // obtener la hora actual  - 2015-12-19 10:10:54
+          $current = Carbon::now()->toDateTimeString();
+          $alert2 = Alertas::
+            where('id_user', '=', auth()->user()->id)
+            ->where('fecha_inicio','<=', $current)
+              ->where('status', '=', 0)
+            ->get();
 
-        return view('exp-fisico.view-poliza');
+        return view('exp-fisico.view-poliza', compact('alert2'));
     }
 
     public function store(Request $request){
@@ -71,8 +88,15 @@ class ExpolizaController extends Controller
         $exp_poliza = DB::table('exp_poliza')
         ->where('current_auto','=', $exp_auto)
         ->get();
+                          // obtener la hora actual  - 2015-12-19 10:10:54
+          $current = Carbon::now()->toDateTimeString();
+          $alert2 = Alertas::
+            where('id_user', '=', auth()->user()->id)
+            ->where('fecha_inicio','<=', $current)
+              ->where('status', '=', 0)
+            ->get();
 
-        return view('admin.exp-fisico.view-poliza-admin',compact('exp_poliza','automovil'));
+        return view('admin.exp-fisico.view-poliza-admin',compact('exp_poliza','automovil', 'alert2'));
     }
 
     public function store_admin(Request $request){

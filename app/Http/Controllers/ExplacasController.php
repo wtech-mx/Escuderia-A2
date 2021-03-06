@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Str;
 use App\Models\ExpPlacas;
 use Session;
+use Carbon\Carbon;
+use App\Models\Alertas;
 
 class ExplacasController extends Controller
 {
@@ -24,12 +26,28 @@ class ExplacasController extends Controller
         ->where('current_auto','=',auth()->user()->current_auto)
         ->get();
 
-        return view('exp-fisico.view-bp',compact('exp_placas'));
+        // obtener la hora actual  - 2015-12-19 10:10:54
+          $current = Carbon::now()->toDateTimeString();
+          $alert2 = Alertas::
+            where('id_user', '=', auth()->user()->id)
+            ->where('fecha_inicio','<=', $current)
+              ->where('status', '=', 0)
+            ->get();
+
+
+        return view('exp-fisico.view-bp',compact('exp_placas', 'alert2'));
     }
 
     public function create(){
+          // obtener la hora actual  - 2015-12-19 10:10:54
+          $current = Carbon::now()->toDateTimeString();
+          $alert2 = Alertas::
+            where('id_user', '=', auth()->user()->id)
+            ->where('fecha_inicio','<=', $current)
+              ->where('status', '=', 0)
+            ->get();
 
-        return view('exp-fisico.view-bp');
+        return view('exp-fisico.view-bp', compact('alert2'));
     }
 
     public function store(Request $request){
@@ -68,8 +86,15 @@ class ExplacasController extends Controller
         $exp_placas = DB::table('exp_placas')
         ->where('current_auto','=', $exp_auto)
         ->get();
+                          // obtener la hora actual  - 2015-12-19 10:10:54
+          $current = Carbon::now()->toDateTimeString();
+          $alert2 = Alertas::
+            where('id_user', '=', auth()->user()->id)
+            ->where('fecha_inicio','<=', $current)
+              ->where('status', '=', 0)
+            ->get();
 
-        return view('admin.exp-fisico.view-bp-admin',compact('exp_placas','automovil'));
+        return view('admin.exp-fisico.view-bp-admin',compact('exp_placas','automovil', 'alert2'));
     }
 
     public function store_admin(Request $request,$id){

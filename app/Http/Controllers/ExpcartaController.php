@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Str;
 use App\Models\ExpCarta;
 use Session;
+use Carbon\Carbon;
+use App\Models\Alertas;
 
 class ExpcartaController extends Controller
 {
@@ -24,12 +26,29 @@ class ExpcartaController extends Controller
         ->where('current_auto','=',auth()->user()->current_auto)
         ->get();
 
-        return view('exp-fisico.view-cr',compact('exp_carta'));
+         // obtener la hora actual  - 2015-12-19 10:10:54
+          $current = Carbon::now()->toDateTimeString();
+          $alert2 = Alertas::
+            where('id_user', '=', auth()->user()->id)
+            ->where('fecha_inicio','<=', $current)
+              ->where('status', '=', 0)
+            ->get();
+
+        return view('exp-fisico.view-cr',compact('exp_carta', 'alert2'));
     }
 
     public function create(){
+                         $users = DB::table('users')
+        ->get();
+                          // obtener la hora actual  - 2015-12-19 10:10:54
+          $current = Carbon::now()->toDateTimeString();
+          $alert2 = Alertas::
+            where('id_user', '=', auth()->user()->id)
+            ->where('fecha_inicio','<=', $current)
+              ->where('status', '=', 0)
+            ->get();
 
-        return view('exp-fisico.view-cr');
+        return view('exp-fisico.view-cr', 'alert2', 'user');
     }
 
     public function store(Request $request){
@@ -70,8 +89,15 @@ class ExpcartaController extends Controller
         $exp_carta = DB::table('exp_carta')
         ->where('current_auto','=', $exp_auto)
         ->get();
+              // obtener la hora actual  - 2015-12-19 10:10:54
+          $current = Carbon::now()->toDateTimeString();
+          $alert2 = Alertas::
+            where('id_user', '=', auth()->user()->id)
+            ->where('fecha_inicio','<=', $current)
+              ->where('status', '=', 0)
+            ->get();
 
-        return view('admin.exp-fisico.view-cr-admin',compact('exp_carta','automovil'));
+        return view('admin.exp-fisico.view-cr-admin',compact('exp_carta','automovil', 'alert2'));
     }
 
     public function store_admin(Request $request,$id){
