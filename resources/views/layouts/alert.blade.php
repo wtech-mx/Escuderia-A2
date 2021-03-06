@@ -1,3 +1,4 @@
+             @auth
                 @foreach($alert2 as $item)
                      <script>
                         Push.create('{{$item->titulo}}', {
@@ -10,3 +11,4 @@
                         });
                     </script>
                 @endforeach
+            @endauth

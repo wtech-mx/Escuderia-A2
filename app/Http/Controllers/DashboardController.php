@@ -44,18 +44,20 @@ class DashboardController extends Controller
 
        public function alerts()
     {
-
+        //Traer nombre y foto
         $users = User::where('id','=',auth()->user()->id)
         ->first();
 
         // obtener la hora actual  - 2015-12-19 10:10:54
           $current = Carbon::now()->toDateTimeString();
+        //Trae la alerta
           $alert2 = Alertas::
             where('id_user', '=', auth()->user()->id)
             ->where('status', '=', 0)
             ->where('fecha_inicio','<=', $current)
             ->get();
 
+          //Trae la alerta al controlador
             $alert3 = Alertas::
             where('id_user', '=', auth()->user()->id)
             ->where('fecha_inicio','<=', $current)
@@ -64,6 +66,7 @@ class DashboardController extends Controller
 
             if($alert3 == NULL){
                 if($users->role == 0){
+                    die();
                     return view('layouts.app',compact('alert2'));
                 }else{
                     return view('admin.layouts.alert',compact( 'alert2'));
