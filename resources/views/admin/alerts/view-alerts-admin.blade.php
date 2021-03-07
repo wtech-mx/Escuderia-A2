@@ -152,12 +152,15 @@
 
                                   </div>
 
+
                             </div>
+
+                            <a href="{{ route('eventos.index') }}">
+                                calendario
+                            </a>
 
                         </div>
 
                 </div>
-
-
 
 @endsection

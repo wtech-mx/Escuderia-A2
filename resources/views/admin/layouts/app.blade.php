@@ -46,6 +46,8 @@
         crossorigin="anonymous">
     </script>
 
+    @yield('scripts')
+
 </head>
 
 <body>
