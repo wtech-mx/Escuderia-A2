@@ -53,7 +53,7 @@
               $("#btnModificar").prop("disabled",false);
               $("#btnBorrar").prop("disabled",false);
               $('#txtID').val(info.event.id);
-              $('#txtTitulo').val(info.event.title);
+              $('#txtTitulo').val(info.event.titulo);
 
                 mes = (info.event.start.getMonth()+1)
                 dia = (info.event.start.getDay())
@@ -71,9 +71,10 @@
                 horario =(hora+":"+minutos);
 
               $('#txtFecha').val(anio+"-"+mes+"-"+dia);
+              $('#txtID_User').val(info.event.id_user);
               $('#txtHora').val(horario);
               $('#txtColor').val(info.event.backgroundColor);
-              $('#txtDescription').val(info.event.extendedProps.description);
+              $('#txtDescription').val(info.event.extendedProps.descripcion);
               $('#exampleModal').modal();
             },
 
@@ -101,8 +102,9 @@
         function recolectarDatosGUI(method){
             nuevoEvento={
                 id:$('#txtID').val(),
-                title:$('#txtTitulo').val(),
-                description:$('#txtDescription').val(),
+                titulo:$('#txtTitulo').val(),
+                id_user:$('#txtID_User').val(),
+                descripcion:$('#txtDescription').val(),
                 color:$('#txtColor').val(),
                 textColor:'#ffffff',
                 start:$('#txtFecha').val()+$('#txtHora').val(),
@@ -135,6 +137,7 @@
         function limpiarFormulario(){
               $('#txtID').val("");
               $('#txtTitulo').val("");
+              $('#txtID_User').val("");
               $('#txtFecha').val("");
               $('#txtHora').val("");
               $('#txtColor').val("");

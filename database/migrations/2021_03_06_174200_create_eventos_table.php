@@ -15,6 +15,16 @@ class CreateEventosTable extends Migration
     {
         Schema::create('eventos', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('id_user')->nullable();
+            $table->unsignedBigInteger('id_empresa')->nullable();
+
+            $table->foreign('id_user')
+                ->references('id')->on('users')
+                ->inDelete('set null');
+
+            $table->foreign('id_empresa')
+                ->references('id')->on('empresa')
+                ->inDelete('set null');
 
             $table->string('title');
 

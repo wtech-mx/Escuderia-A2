@@ -24,14 +24,9 @@
                       <div class="card-body" >
                           <div class="form-row">
 
-                              <div class="form-group col-8">
+                              <div class="form-group col-12">
                                   <label for="">Titulo</label>
                                   <input class="form-control" type="text" name="titulo" id="titulo" placeholder="Titulo de la alerta">
-                              </div>
-
-                              <div class="form-group col-4">
-                                  <label for="">Duracion</label>
-                                  <input class="form-control" type="number" name="tiempo" id="tiempo" placeholder="Duracionde alaerta">
                               </div>
 
                               <div class="form-group col-12">
@@ -44,15 +39,14 @@
                                       </select>
                               </div>
 
-                              <div class="form-group col-6">
+                              <div class="form-group col-12">
                                   <label for="">fecha inicio</label>
                                   <input class="form-control" type="datetime-local" name="start" id="start" placeholder="DD/MM/YYYY" >
                               </div>
+                                  <input class="form-control" type="hidden" name="end" id="end" placeholder="DD/MM/YYYY">
 
-                              <div class="form-group col-6">
-                                  <label for="">fecha fin</label>
-                                  <input class="form-control" type="datetime-local" name="end" id="end" placeholder="DD/MM/YYYY">
-                              </div>
+                                  <input class="form-control" type="hidden" name="color" id="color" value="16A085">
+
 
                               <label for="">Description</label>
                               <textarea class="form-control" name="descripcion" id="descripcion" cols="30" rows="3"></textarea>

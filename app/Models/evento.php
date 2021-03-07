@@ -15,8 +15,10 @@ class evento extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'title',
-        'description',
+        'titulo',
+        'id_user',
+        'id_empresa',
+        'descripcion',
         'color',
         'textColor',
         'start',

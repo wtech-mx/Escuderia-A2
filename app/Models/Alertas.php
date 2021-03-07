@@ -19,11 +19,17 @@ class Alertas extends Model
         'titulo',
         'descripcion',
         'img',
-        'tiempo',
+        'color',
         'start',
         'end',
         'status',
     ];
+
+    public function scopeTitulo($query,$titulo)
+    {
+        if ($titulo)
+            return $query->where('titulo','LIKE',"%$titulo%");
+    }
 
     public function User()
     {

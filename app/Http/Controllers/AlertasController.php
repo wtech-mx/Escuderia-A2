@@ -12,9 +12,12 @@ use App\Models\evento;
 class AlertasController extends Controller
 {
 
-    public function index()
+    public function index(Request $request)
     {
-          $alert = Alertas::get();
+          $titulo = $request->get('titulo');
+          $alert = Alertas::orderBy('id','DESC')
+              ->titulo($titulo)
+              ->paginate(2);
 
           $user = DB::table('users')
             ->where('role','=', '0')
@@ -42,8 +45,8 @@ class AlertasController extends Controller
         $alert->titulo = $request->get('titulo');
         $alert->descripcion = $request->get('descripcion');
         $alert->start = $request->get('start');
-        $alert->end = $request->get('end');
-        $alert->tiempo = $request->get('tiempo').'00';
+        $alert->end = $request->get('start');
+        $alert->color = '#'.$request->get('color');
         $alert->status = 0;
 
         $alert->save();
@@ -68,7 +71,9 @@ class AlertasController extends Controller
         //
     }
 
-    // Calendario
+/*|--------------------------------------------------------------------------
+/|                  CALENDARIO
+|--------------------------------------------------------------------------*/
 
         public function index_eventos()
     {
@@ -94,8 +99,7 @@ class AlertasController extends Controller
     {
         $datosEvento = request()->except(['_token','_method']);
         evento::insert($datosEvento);
-
-
+        print_r($datosEvento);
     }
 
         public function show_eventos()
