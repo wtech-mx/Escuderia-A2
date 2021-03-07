@@ -41,7 +41,7 @@ class AutomovilController extends Controller
           $current = Carbon::now()->toDateTimeString();
           $alert2 = Alertas::
             where('id_user', '=', auth()->user()->id)
-            ->where('fecha_inicio','<=', $current)
+            ->where('start','<=', $current)
             ->where('status', '=', 0)
             ->get();
 
@@ -62,7 +62,7 @@ class AutomovilController extends Controller
           $current = Carbon::now()->toDateTimeString();
           $alert2 = Alertas::
             where('id_user', '=', auth()->user()->id)
-            ->where('fecha_inicio','<=', $current)
+            ->where('start','<=', $current)
               ->where('status', '=', 0)
             ->get();
 
@@ -145,7 +145,7 @@ class AutomovilController extends Controller
           $current = Carbon::now()->toDateTimeString();
           $alert2 = Alertas::
             where('id_user', '=', auth()->user()->id)
-            ->where('fecha_inicio','<=', $current)
+            ->where('start','<=', $current)
               ->where('status', '=', 0)
             ->get();
 
@@ -220,7 +220,7 @@ class AutomovilController extends Controller
           $alert2 = Alertas::
             where('id_user', '=', auth()->user()->id)
               ->where('status', '=', 0)
-            ->where('fecha_inicio','<=', $current)
+            ->where('start','<=', $current)
             ->get();
 
         return view('admin.garaje.view-garaje-admin',compact('automovil', 'automovil2', 'user', 'alert2'));
@@ -241,7 +241,7 @@ class AutomovilController extends Controller
           $current = Carbon::now()->toDateTimeString();
           $alert2 = Alertas::
             where('id_user', '=', auth()->user()->id)
-            ->where('fecha_inicio','<=', $current)
+            ->where('start','<=', $current)
               ->where('status', '=', 0)
             ->get();
 
@@ -325,7 +325,7 @@ class AutomovilController extends Controller
           $alert2 = Alertas::
             where('id_user', '=', auth()->user()->id)
               ->where('status', '=', 0)
-            ->where('fecha_inicio','<=', $current)
+            ->where('start','<=', $current)
             ->get();
 
         return view('admin.garaje.edit-garaje-admin',compact('automovil', 'marca', 'user','empresa', 'alert2'));

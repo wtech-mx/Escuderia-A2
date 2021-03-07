@@ -32,7 +32,7 @@ class DashboardController extends Controller
           $alert2 = Alertas::
             where('id_user', '=', auth()->user()->id)
             ->where('status', '=', 0)
-            ->where('fecha_inicio','<=', $current)
+            ->where('start','<=', $current)
             ->get();
 
                         if($users->role == 0){
@@ -54,13 +54,13 @@ class DashboardController extends Controller
           $alert2 = Alertas::
             where('id_user', '=', auth()->user()->id)
             ->where('status', '=', 0)
-            ->where('fecha_inicio','<=', $current)
+            ->where('start','<=', $current)
             ->get();
 
           //Trae la alerta al controlador
             $alert3 = Alertas::
             where('id_user', '=', auth()->user()->id)
-            ->where('fecha_inicio','<=', $current)
+            ->where('start','<=', $current)
             ->where('status', '=', 0)
             ->first();
 

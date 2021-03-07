@@ -26,11 +26,11 @@ class EventosController extends Controller
           $current = Carbon::now()->toDateTimeString();
           $alert2 = Alertas::
             where('id_user', '=', auth()->user()->id)
-            ->where('fecha_inicio','<=', $current)
+            ->where('start','<=', $current)
             ->where('status', '=', 0)
             ->get();
 
-        return view('admin.eventos.index',compact('alert2','user'));
+        return view('admin.alerts.view-alerts-admin',compact('alert2','user'));
     }
 
     /**
@@ -65,8 +65,19 @@ class EventosController extends Controller
      */
     public function show()
     {
-        $data['eventos'] = evento::all();
-        return response()->json($data['eventos']);
+        //Trae datos de db to jason
+        $json = $data['eventos'] = evento::all();
+        $json2 = $data2['alertas'] = Alertas::all();
+
+        //los convieerte en array
+        $decode = json_decode($json);
+        $decode2 = json_decode($json2);
+
+        //Une los array en uno solo
+        $resultado = array_merge ($decode, $decode2);
+
+        //retorna a la vista sn json
+        return response()->json($resultado);
 
     }
 

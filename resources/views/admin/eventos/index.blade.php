@@ -1,5 +1,3 @@
-@extends('admin.layouts.app')
-
 @section('scripts')
  <link href="{{ asset('fullcalendar/core/main.css') }}" rel="stylesheet">
  <link href="{{ asset('fullcalendar/daygrid/main.css') }}" rel="stylesheet">
@@ -20,24 +18,15 @@
         var calendar = new FullCalendar.Calendar(calendarEl, {
 
           defaultDate:new Date(2021,02,01),
-           plugins: [ 'dayGrid', 'timeGrid', 'list','interaction' ],
+           plugins: [ 'dayGrid', 'list','interaction' ],
             // defaultView:'timeGridWeek'
 
             header:{
-              left:'prev,next today Miboton',
+              left:'prev,next today',
               center:'title',
               right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth'
             },
-
-            customButtons:{
-              Miboton:{
-                  text:"Boton",
-                  click:function (){
-                      // alert('Hola perro');
-                      $('#exampleModal').modal('toggle');
-                  }
-              }
-            },
+            
 
             dateClick:function (info) {
 
@@ -144,7 +133,7 @@
                     {
                        type:"POST",
                         {{--url:"{{ url('/') }}"+accion,--}}
-                         url: "{{route('eventos.store')}}"+accion,
+                         url: "{{route('eventos.store_eventos')}}"+accion,
                         data:ObjEvento,
                         success:function (msg){
                               console.log(msg);
@@ -171,9 +160,6 @@
     </script>
 
 @endsection
-
-@section('content')
-
 
 
                 <div class="row" style="">
@@ -238,4 +224,3 @@
           </div>
         </div>
 
-@endsection

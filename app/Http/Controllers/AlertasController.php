@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use DB;
 use Session;
 use Carbon\Carbon;
+use App\Models\evento;
 
 class AlertasController extends Controller
 {
@@ -23,7 +24,7 @@ class AlertasController extends Controller
           $current = Carbon::now()->toDateTimeString();
           $alert2 = Alertas::
             where('id_user', '=', auth()->user()->id)
-            ->where('fecha_inicio','<=', $current)
+            ->where('start','<=', $current)
             ->get();
 
           return view('admin.alerts.view-alerts-admin', compact('alert', 'user', 'alert2'));
@@ -40,8 +41,8 @@ class AlertasController extends Controller
         $alert->id_empresa = $request->get('id_empresa');
         $alert->titulo = $request->get('titulo');
         $alert->descripcion = $request->get('descripcion');
-        $alert->fecha_inicio = $request->get('fecha_inicio');
-        $alert->fecha_fin = $request->get('fecha_fin');
+        $alert->start = $request->get('start');
+        $alert->end = $request->get('end');
         $alert->tiempo = $request->get('tiempo').'00';
         $alert->status = 0;
 
@@ -65,5 +66,68 @@ class AlertasController extends Controller
     public function destroy(Alertas $alertas)
     {
         //
+    }
+
+    // Calendario
+
+        public function index_eventos()
+    {
+
+        $user = DB::table('users')
+        ->where('id','=',auth()->user()->id)
+        ->get();
+
+        // obtener la hora actual  - 2015-12-19 10:10:54
+          $current = Carbon::now()->toDateTimeString();
+          $alert2 = Alertas::
+            where('id_user', '=', auth()->user()->id)
+            ->where('start','<=', $current)
+            ->where('status', '=', 0)
+            ->get();
+
+          $alert = Alertas::get();
+
+        return view('admin.alerts.view-alerts-admin',compact('alert2','user', 'alert'));
+    }
+
+        public function store_eventos(Request $request)
+    {
+        $datosEvento = request()->except(['_token','_method']);
+        evento::insert($datosEvento);
+
+
+    }
+
+        public function show_eventos()
+    {
+
+        //Trae datos de db to jason
+        $json = $data['eventos'] = evento::all();
+        $json2 = $data2['alertas'] = Alertas::all();
+
+        //los convieerte en array
+        $decode = json_decode($json);
+        $decode2 = json_decode($json2);
+
+        //Une los array en uno solo
+        $resultado = array_merge ($decode, $decode2);
+
+        //retorna a la vista sn json
+        return response()->json($resultado);
+
+    }
+
+        public function update_eventos(Request $request, $id)
+    {
+        $datosEvento = request()->except(['_token','_method']);
+        $respuesta = evento::where('id','=',$id)->update($datosEvento);
+
+    }
+
+        public function destroy_eventos($id)
+    {
+        $eventos = evento::findOrFail($id);
+        evento::destroy($id);
+        return response()->json($id);
     }
 }

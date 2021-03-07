@@ -31,7 +31,7 @@ class ExpolizaController extends Controller
           $current = Carbon::now()->toDateTimeString();
           $alert2 = Alertas::
             where('id_user', '=', auth()->user()->id)
-            ->where('fecha_inicio','<=', $current)
+            ->where('start','<=', $current)
               ->where('status', '=', 0)
             ->get();
 
@@ -45,7 +45,7 @@ class ExpolizaController extends Controller
           $current = Carbon::now()->toDateTimeString();
           $alert2 = Alertas::
             where('id_user', '=', auth()->user()->id)
-            ->where('fecha_inicio','<=', $current)
+            ->where('start','<=', $current)
               ->where('status', '=', 0)
             ->get();
 
@@ -92,7 +92,7 @@ class ExpolizaController extends Controller
           $current = Carbon::now()->toDateTimeString();
           $alert2 = Alertas::
             where('id_user', '=', auth()->user()->id)
-            ->where('fecha_inicio','<=', $current)
+            ->where('start','<=', $current)
               ->where('status', '=', 0)
             ->get();
 

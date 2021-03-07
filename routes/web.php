@@ -45,15 +45,15 @@ Route::get('dashboarda','DashboardController@alerts')->name('alerts.alert');
 |Calendario
 |--------------------------------------------------------------------------*/
 
-Route::get('admin/eventos', 'EventosController@index')->name('eventos.index');
+Route::get('admin/eventos', 'AlertasController@index_eventos')->name('eventos.index_eventos');
 
-Route::post('admin/eventos', 'EventosController@store')->name('eventos.store');
+Route::post('admin/eventos', 'AlertasController@store_eventos')->name('eventos.store_eventos');
 
-Route::get('admin/eventos/show', 'EventosController@show')->name('eventos.show');
+Route::get('admin/eventos/show', 'AlertasController@show_eventos')->name('eventos.show_eventos');
 
-Route::delete('admin/eventos/destroy/{id}', 'EventosController@destroy')->name('eventos.destroy');
+Route::delete('admin/eventos/destroy/{id}', 'AlertasController@destroy_eventos')->name('eventos.destroy_eventos');
 
-Route::patch('admin/eventos/update/{id}', 'EventosController@update')->name('eventos.update');
+Route::patch('admin/eventos/update/{id}', 'AlertasController@update_eventos')->name('eventos.update_eventos');
 /*|--------------------------------------------------------------------------
 |garaje view
 |--------------------------------------------------------------------------*/

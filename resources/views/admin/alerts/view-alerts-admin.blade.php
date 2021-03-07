@@ -131,7 +131,7 @@
                                                     @foreach($alert as $item)
                                                     <tr>
                                                         @php
-                                                        $originalDate = $item->fecha_inicio;
+                                                        $originalDate = $item->start;
                                                         $newDate = date("d/m/Y", strtotime($originalDate));
                                                         @endphp
 
@@ -155,10 +155,7 @@
 
                             </div>
 
-                            <a href="{{ route('eventos.index') }}">
-                                calendario
-                            </a>
-
+                            @include('admin.eventos.index')
                         </div>
 
                 </div>

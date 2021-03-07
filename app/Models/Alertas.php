@@ -20,8 +20,8 @@ class Alertas extends Model
         'descripcion',
         'img',
         'tiempo',
-        'fecha_inicio',
-        'fecha_fin',
+        'start',
+        'end',
         'status',
     ];
 
