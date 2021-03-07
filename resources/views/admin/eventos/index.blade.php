@@ -19,6 +19,7 @@
 
     $int3 = date('d') ;
     $D = (int)$int3;
+    
    @endphp
 
 <script>
@@ -27,7 +28,7 @@
 
         var calendar = new FullCalendar.Calendar(calendarEl, {
 
-          defaultDate:new Date(2020,03,06),
+          defaultDate:new Date({{$Y}}, {{$M}}, {{$D}}),
            plugins: [ 'dayGrid', 'list','interaction' ],
 
             header:{
