@@ -1,0 +1,13 @@
+html,body{
+    margin: 0;
+    padding: 0;
+    font-size: 13px;
+}
+
+#calendar{
+    max-width: 900px;
+    margin: 40px auto;
+    background-color: #FFFFFF;
+    padding: 10px;
+    border-radius: 20px;
+}

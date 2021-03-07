@@ -29,11 +29,13 @@
     <link href="{{ asset('css/modal.css') }}" rel="stylesheet">
     <link href="{{ asset('css/btn-save.css') }}" rel="stylesheet">
     <link href="{{ asset('css/alerts.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/calendario.css') }}" rel="stylesheet">
 
     <link href="{{ asset('fonts/font-awesome.min.css') }}" rel="stylesheet">
     <link href="{{ asset('fonts/all.min.css') }}" rel="stylesheet">
     <link href="{{ asset('fonts/font-awesome.min.js') }}" rel="stylesheet">
     <link href="{{ asset('fonts/all.min.js') }}" rel="stylesheet">
+
 
 
      <!-- personalizados js -->

@@ -14,6 +14,7 @@
                             </div>
                         </div>
 
+
                         <div class="col-8  mt-4">
                                     <h5 class="text-center text-white ml-4 mr-4 ">
                                         <strong>Alertas y Calendario</strong>
@@ -28,136 +29,40 @@
                             </div>
                         </div>
 
+                </div>
 
-                        <div class="col-6 mt-4">
-                            <a class="btn mb-3 mr-1" href="#carouselExampleControls" role="button" data-slide="prev">
-                                <img class="" src="{{ asset('img/icon/white/flecha-izquierda.png') }}" width="25px" >
-                            </a>
 
-                            <a class="btn mb-3 " href="#carouselExampleControls" role="button" data-slide="next">
-                                <img class="" src="{{ asset('img/icon/white/flecha-correcta.png') }}" width="25px" >
-                            </a>
+                <div class="row  bg-blue" style="background: #050F55 0% 0% no-repeat padding-box;">
+
+                    <div class="col-12 mt-5">
+                        <div class="d-flex justify-content-center">
+                            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">
+                                        Calendario
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">
+                                        Alertas
+                                    </a>
+                                </li>
+                            </ul>
                         </div>
 
-                        <div class="col-6 mt-4 d-inline">
-                            <h5 class="text-white text-tittle-app mr-3 d-inline" style="font: normal normal bold 15px/20px Segoe UI">
-                                Agregar
-                            </h5>
+                        <div class="tab-content" id="pills-tabContent">
+                          <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                               @include('admin.eventos.index')
+                          </div>
 
-                            <a type="button"  data-toggle="modal" data-target="#alert-modal">
-                                <img class="" src="{{ asset('img/icon/white/plus.png') }}" width="30px" >
-                            </a>
+                          <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                                @include('admin.alerts.alertas')
+                          </div>
                         </div>
-
-                    @if(Session::has('success'))
-                        <script>
-                            Swal.fire(
-                                'Exito!',
-                                'Se ha guardado exitosamiente.',
-                                'success'
-                            )
-                        </script>
-                    @endif
-
-                        <div class="col-12">
-
-                            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="90000">
-
-                                  <div class="carousel-inner">
-
-                                    {{-- ----------------------------------------------------------------------------}}
-                                    {{-- |Vehculos de user--}}
-                                    {{-- |----------------------------------------------------------------------------}}
-
-                                    <div class="carousel-item active">
-                                        <h5 class="text-center text-white mt-4 ml-4 mr-4 ">
-                                            <strong>Alertas Servicios</strong>
-                                        </h5>
-
-                                      <div class="row">
-                                        <div class="col-12">
-                                            <table class="table text-white ">
-                                              <thead>
-                                                <tr>
-                                                  <th scope="col"></th>
-                                                  <th scope="col">Servicio</th>
-                                                  <th scope="col">Km</th>
-                                                  <th scope="col">Fecha</th>
-                                                  <th scope="col">cambio</th>
-                                                </tr>
-                                              </thead>
-
-                                              <tbody>
-                                                <tr>
-                                                  <th scope="row">1</th>
-                                                  <td>Mark</td>
-                                                  <td>Otto</td>
-                                                  <td>@mdo</td>
-                                                  <td>@mdo</td>
-                                                </tr>
-                                              </tbody>
-                                            </table>
-                                        </div>
-                                      </div>
-
-                                    </div>
-
-                                    {{-- ----------------------------------------------------------------------------}}
-                                    {{-- |Vehculos de empresa--}}
-                                    {{-- |----------------------------------------------------------------------------}}
-
-                                    <div class="carousel-item ">
-
-                                        <h5 class="text-center text-white mt-4 ml-4 mr-4 ">
-                                            <strong>Alertas Personalizadas</strong>
-                                        </h5>
-
-                                      <div class="row">
-
-                                            <div class="col-12">
-                                                <table class="table text-white">
-
-                                                  <thead>
-                                                    <tr>
-                                                      <th scope="col">Usuario</th>
-                                                      <th scope="col">Titulo</th>
-                                                      <th scope="col">Descripcion</th>
-                                                      <th scope="col">Fecha Inicio</th>
-                                                    </tr>
-                                                  </thead>
-
-                                                  <tbody>
-
-                                                    @foreach($alert as $item)
-                                                    <tr>
-                                                        @php
-                                                        $originalDate = $item->start;
-                                                        $newDate = date("d/m/Y", strtotime($originalDate));
-                                                        @endphp
-
-                                                          <td>{{$item->User->name}}</td>
-                                                          <td>{{$item->titulo}}</td>
-                                                          <td>{{$item->descripcion}}</td>
-                                                          <td>{{$newDate}}</td>
-                                                    </tr>
-                                                     @endforeach
-                                                  </tbody>
-
-                                                </table>
-                                            </div>
-
-                                      </div>
-
-                                    </div>
-
-                                  </div>
-
-
-                            </div>
-
-                            @include('admin.eventos.index')
-                        </div>
+                    </div>
 
                 </div>
+
 
 @endsection

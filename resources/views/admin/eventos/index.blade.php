@@ -10,16 +10,25 @@
  <script src="{{ asset('fullcalendar/timeGrid/main.js') }}"></script>
  <script src="{{ asset('fullcalendar/list/main.js') }}"></script>
 
-<script>
+    @php
+    $int = date('Y') ;
+    $Y = (int)$int;
 
+    $int2 = date('m') ;
+    $M = (int)$int2;
+
+    $int3 = date('d') ;
+    $D = (int)$int3;
+   @endphp
+
+<script>
       document.addEventListener('DOMContentLoaded', function() {
         var calendarEl = document.getElementById('calendar');
 
         var calendar = new FullCalendar.Calendar(calendarEl, {
 
-          defaultDate:new Date(2021,02,01),
+          defaultDate:new Date(2020,03,06),
            plugins: [ 'dayGrid', 'list','interaction' ],
-            // defaultView:'timeGridWeek'
 
             header:{
               left:'prev,next today',
@@ -31,13 +40,10 @@
             dateClick:function (info) {
 
               limpiarFormulario();
-
               $('#txtFecha').val(info.dateStr);
-
               $("#btnAgregar").prop("disabled",false);
               $("#btnModificar").prop("disabled",true);
               $("#btnBorrar").prop("disabled",true);
-
               $('#exampleModal').modal('toggle');
             },
 
@@ -46,19 +52,6 @@
               $("#btnAgregar").prop("disabled",true);
               $("#btnModificar").prop("disabled",false);
               $("#btnBorrar").prop("disabled",false);
-
-              // datos base
-              console.log(info);
-              console.log(info.event.title);
-              console.log(info.event.start);
-              console.log(info.event.end);
-
-              console.log(info.event.textColor);
-              console.log(info.event.backgroundColor);
-
-              //propiedades extendidas
-              console.log(info.event.extendedProps.description);
-
               $('#txtID').val(info.event.id);
               $('#txtTitulo').val(info.event.title);
 
@@ -75,24 +68,19 @@
                 minutos = (minutos<10)?"0"+minutos:minutos;
                 hora = (hora<10)?"0"+hora:hora;
 
-
                 horario =(hora+":"+minutos);
 
               $('#txtFecha').val(anio+"-"+mes+"-"+dia);
               $('#txtHora').val(horario);
               $('#txtColor').val(info.event.backgroundColor);
-
               $('#txtDescription').val(info.event.extendedProps.description);
-
               $('#exampleModal').modal();
             },
-
 
             events:"{{ url('/admin/eventos/show')  }}"
 
         });
         calendar.setOption('locale','Es');
-
         calendar.render();
 
         $('#btnAgregar').click(function(){
@@ -132,14 +120,12 @@
             $.ajax(
                     {
                        type:"POST",
-                        {{--url:"{{ url('/') }}"+accion,--}}
                          url: "{{route('eventos.store_eventos')}}"+accion,
                         data:ObjEvento,
                         success:function (msg){
                               console.log(msg);
                               $('#exampleModal').modal('toggle');
                               calendar.refetchEvents();
-
                              },
                         error:function(){alert("hay un error");}
                     }
@@ -154,7 +140,6 @@
               $('#txtColor').val("");
               $('#txtDescription').val("");
         }
-
       });
 
     </script>
@@ -165,12 +150,15 @@
                 <div class="row" style="">
 
                     <div class="col"></div>
-                        <div class="col-9">
-                            <div id='calendar'></div>
+                        <div class="col-12">
+                            <div class="container">
+                                <div id='calendar'></div>
+                            </div>
                         </div>
                     <div class="col"></div>
 
                 </div>
 
-@include('admin.eventos.modal')
+
+                @include('admin.eventos.modal')
 
