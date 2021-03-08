@@ -58,9 +58,13 @@ class TarjetaCirculacionController extends Controller
 /*|--------------------------------------------------------------------------
 |Create TarjetaCirculacion Admin
 |--------------------------------------------------------------------------*/
-    public function indextc_admin(){
+    public function indextc_admin(Request $request){
 
-        $tarjeta_circulacion = TarjetaCirculacion::get();
+        $nombre = $request->get('nombre');
+
+        $tarjeta_circulacion = TarjetaCirculacion::orderBy('id','DESC')
+            ->nombre($nombre)
+            ->get();
 
         $user = DB::table('users')
         ->get();

@@ -80,30 +80,22 @@
                                         </h5>
 
                                       <div class="row">
-                                            <div class="col-12">
 
-                                                <div class="page-header">
+                                            {{  Form::open(['route' => 'index.alert' , 'method' => 'GET' , 'class'=>'form-inline pull-right'] )  }}
+                                            <div class="d-flex justify-content-center mt-5">
 
-                                                    <h1 class="text-white">
+                                                         <div class="form-group">
+                                                              {{ Form::text('titulo', null,['class' => 'form-control','placeholder' => 'titulo'])  }}
+                                                         </div>
 
-                                                    {{  Form::open(['route' => 'index.alert' , 'method' => 'GET' , 'class'=>'form-inline pull-right'] )  }}
+                                                        <button type="submit" class="btn btn-default">
+                                                            <img class="" src="{{ asset('img/icon/white/search.png') }}" width="25px" >
+                                                        </button>
 
-                                                    <div class="form-group">
-                                                        {{ Form::text('titulo', null,['class' => 'form-control','placeholder' => 'titulo'])  }}
-                                                    </div>
-
-                                                        <div class="form-group">
-                                                            <button type="submit" class="btn btn-default">
-                                                                <img class="" src="{{ asset('img/icon/white/search.png') }}" width="25px" >
-                                                            </button>
-                                                        </div>
-
-                                                    {{Form::close()}}
-
-                                                    </h1>
-
-                                                </div>
                                             </div>
+                                            {{Form::close()}}
+
+
                                             <div class="col-12">
                                                 <table class="table text-white">
 
@@ -134,7 +126,7 @@
                                                   </tbody>
 
                                                 </table>
-                                                {{ $alert->render() }}
+{{--                                                {{ $alert->render() }}--}}
                                             </div>
 
                                       </div>

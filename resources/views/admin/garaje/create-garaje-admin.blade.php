@@ -104,7 +104,7 @@
                           <div class="tab-pane fade show active" id="auto" role="tabpanel" aria-labelledby="pills-auto-tab">
 
 
-                            <div class="col-12">
+                            <div class="col-12 mb-3">
                                 <div class="input-group form-group">
                                     <div class="input-group-prepend " >
                                         <span class="input-group-text span-edit-car">
@@ -124,7 +124,7 @@
                                         @endif
                             </div>
 
-                            <div class="col-12">
+                            <div class="col-12 mb-3">
                                 <div class="input-group form-group">
                                     <div class="input-group-prepend " >
                                         <span class="input-group-text span-edit-car">
@@ -139,7 +139,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-12">
+                            <div class="col-12 mb-3">
                                 <div class="input-group form-group">
                                     <div class="input-group-prepend " >
                                         <span class="input-group-text span-edit-car">
@@ -154,7 +154,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-12">
+                            <div class="col-12 mb-3">
                                 <div class="input-group form-group">
                                     <div class="input-group-prepend " >
                                         <span class="input-group-text span-edit-car">
@@ -170,7 +170,7 @@
                             </div>
 
 
-                            <div class="col-12">
+                            <div class="col-12 mb-3">
                                 <div class="input-group form-group">
                                     <div class="input-group-prepend " >
                                         <span class="input-group-text span-edit-car">
@@ -185,7 +185,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-12">
+                            <div class="col-12 mb-3">
                                 <div class="input-group form-group">
                                     <div class="input-group-prepend " >
                                         <span class="input-group-text span-edit-car">
@@ -200,7 +200,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-12">
+                            <div class="col-12 mb-3">
                                 <div class="input-group form-group">
                                     <div class="input-group-prepend " >
                                         <span class="input-group-text span-edit-car">
@@ -215,7 +215,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-12">
+                            <div class="col-12 mb-3">
                                 <div class="input-group form-group">
                                     <div class="input-group-prepend " >
                                         <span class="input-group-text span-edit-car" >
@@ -230,7 +230,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-12">
+                            <div class="col-12 mb-3">
                                 <div class="input-group form-group">
                                     <div class="input-group-prepend " >
                                         <span class="input-group-text span-edit-car">
@@ -245,7 +245,7 @@
                                 </div>
                             </div>
 
-                        <div class="col-12">
+                        <div class="col-12 mb-3">
                             <div class="input-group form-group">
                                 <div class="input-group-prepend " >
                                     <span class="input-group-text span-edit-car">
@@ -331,7 +331,7 @@
 
                                     </div>
 
-                                     <button type="submit" class="btn btn-lg btn-success btn-save ">
+                                     <button type="submit" class="btn btn-lg btn-success btn-save mt-5">
                                            <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}" width="20px" >
                                                 Guardar
                                      </button>

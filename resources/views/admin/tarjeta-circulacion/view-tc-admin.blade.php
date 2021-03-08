@@ -57,6 +57,20 @@
                             </a>
                         </div>
 
+                            {{  Form::open(['route' => 'indextc_admin.tarjeta-circulacion' , 'method' => 'GET' , 'class'=>'form-inline pull-right'] )  }}
+                            <div class="d-flex justify-content-center mt-5">
+
+                                <div class="form-group">
+                                    {{ Form::text('nombre', null,['class' => 'form-control','placeholder' => 'Busqueda de nombre'])  }}
+                                </div>
+
+                                <button type="submit" class="btn btn-default">
+                                    <img class="" src="{{ asset('img/icon/white/search.png') }}" width="25px" >
+                                </button>
+
+                            </div>
+                            {{Form::close()}}
+
                         <div class="col-12">
 
                         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="60000">
@@ -100,6 +114,7 @@
                                             </div>
                                         </div>
                                       @endforeach
+{{--                                      {{ $tarjeta_circulacion->render() }}--}}
                                   </div>
 
                                 </div>

@@ -23,6 +23,13 @@ class TarjetaCirculacion extends Model
         'num_placa',
     ];
 
+        public function scopeNombre($query,$nombre)
+    {
+        if ($nombre)
+            return $query->where('nombre','LIKE',"%$nombre%");
+    }
+
+
     protected $guarded=[
 
     ];

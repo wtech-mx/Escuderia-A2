@@ -41,16 +41,6 @@
                             </a>
                         </div>
 
-                        <div class="col-6 mt-4 d-inline">
-                            <h5 class="text-white text-tittle-app mr-3 d-inline" style="font: normal normal bold 15px/20px Segoe UI">
-                                Agregar
-                            </h5>
-
-                            <a class="btn" href="">
-                                <img class="" src="{{ asset('img/icon/white/plus.png') }}" width="30px" >
-                            </a>
-                        </div>
-
                         <div class="col-12">
 
                         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="90000">
@@ -98,25 +88,25 @@
                                                   <div class="d-flex justify-content-between">
 
                                                       <a href="{{ route('create_admin.view-factura-admin',$item->id) }}">
-                                                        <span class="badge badge-primary" style="font-size: 70%;">
+                                                        <span class="badge bg-primary" style="font-size: 70%;">
                                                           Facturas
                                                         </span>
                                                       </a>
 
                                                        <a href="{{ route('create_admin.view-tenencia-admin',$item->id) }}">
-                                                        <span class="badge badge-primary" style="font-size: 70%;">
+                                                        <span class="badge bg-primary" style="font-size: 70%;">
                                                            Tenencias
                                                         </span>
                                                       </a>
 
                                                        <a href="{{ route('create_admin.view-cr-admin',$item->id) }}">
-                                                        <span class="badge badge-primary" style="font-size: 70%;">
+                                                        <span class="badge bg-primary" style="font-size: 70%;">
                                                             Carta Responsiva
                                                         </span>
                                                       </a>
 
                                                        <a href="{{ route('create_admin.view-poliza-admin',$item->id) }}">
-                                                        <span class="badge badge-primary" style="font-size: 70%;">
+                                                        <span class="badge bg-primary" style="font-size: 70%;">
                                                             Póliza de Seguro
                                                         </span>
                                                       </a>
@@ -126,19 +116,19 @@
                                                   <div class="d-flex justify-content-between">
 
                                                        <a href="{{ route('create_admin.view-tc-admin',$item->id) }}">
-                                                        <span class="badge badge-secondary" style="font-size: 70%;">
+                                                        <span class="badge bg-secondary" style="font-size: 70%;">
                                                             tarjeta de circulacion
                                                         </span>
                                                       </a>
 
                                                        <a href="{{ route('create_admin.view-reemplacamiento-admin',$item->id) }}">
-                                                        <span class="badge badge-secondary" style="font-size: 70%;">
+                                                        <span class="badge bg-secondary" style="font-size: 70%;">
                                                             Reemplacamiento
                                                         </span>
                                                       </a>
 
                                                        <a href="{{ route('create_admin.view-bp-admin',$item->id) }}">
-                                                        <span class="badge badge-secondary" style="font-size: 70%;">
+                                                        <span class="badge bg-secondary" style="font-size: 70%;">
                                                             Baja de placas
                                                         </span>
                                                       </a>
@@ -148,19 +138,19 @@
                                                   <div class="d-flex justify-content-between">
 
                                                        <a href="{{ route('create_admin.view-ine-admin',$item->id) }}">
-                                                        <span class="badge badge-success" style="font-size: 70%;">
+                                                        <span class="badge bg-success" style="font-size: 70%;">
                                                             INE
                                                         </span>
                                                       </a>
 
                                                        <a href="{{ route('create_admin.view-cd-admin',$item->id) }}">
-                                                        <span class="badge badge-success" style="font-size: 70%;">
+                                                        <span class="badge bg-success" style="font-size: 70%;">
                                                             Comprobante de domicilio
                                                         </span>
                                                       </a>
 
                                                        <a href="{{ route('create_admin.view-rfc-admin',$item->id) }}">
-                                                        <span class="badge badge-success" style="font-size: 70%;">
+                                                        <span class="badge bg-success" style="font-size: 70%;">
                                                             RFC
                                                         </span>
                                                       </a>

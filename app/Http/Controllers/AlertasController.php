@@ -17,7 +17,7 @@ class AlertasController extends Controller
           $titulo = $request->get('titulo');
           $alert = Alertas::orderBy('id','DESC')
               ->titulo($titulo)
-              ->paginate(2);
+              ->paginate(6);
 
           $user = DB::table('users')
             ->where('role','=', '0')

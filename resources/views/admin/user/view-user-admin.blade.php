@@ -48,31 +48,8 @@
 
                             </div>
                         </div>
-                                            <div class="col-12">
 
-                                                <div class="page-header">
-
-                                                    <h1 class="text-white">
-
-                                                    {{  Form::open(['route' => 'index_admin.user' , 'method' => 'GET' , 'class'=>'form-inline pull-right'] )  }}
-
-                                                    <div class="form-group">
-                                                        {{ Form::text('name', null,['class' => 'form-control','placeholder' => 'name'])  }}
-                                                    </div>
-
-                                                        <div class="form-group">
-                                                            <button type="submit" class="btn btn-default">
-                                                                <img class="" src="{{ asset('img/icon/white/search.png') }}" width="25px" >
-                                                            </button>
-                                                        </div>
-
-                                                    {{Form::close()}}
-
-                                                    </h1>
-
-                                                </div>
-                                            </div>
-                                @if(Session::has('success'))
+                                    @if(Session::has('success'))
                                     <script>
                                         Swal.fire(
                                             'Exito!',
@@ -80,7 +57,21 @@
                                             'success'
                                         )
                                     </script>
-                                @endif
+                                    @endif
+
+                                    {{  Form::open(['route' => 'index_admin.user' , 'method' => 'GET' , 'class'=>'form-inline pull-right'] )  }}
+                                        <div class="d-flex justify-content-center mt-5">
+
+                                                 <div class="form-group">
+                                                     {{ Form::text('name', null,['class' => 'form-control','placeholder' => 'Busqueda por nombre'])  }}
+                                                 </div>
+
+                                                <button type="submit" class="btn btn-default">
+                                                    <img class="" src="{{ asset('img/icon/white/search.png') }}" width="25px" >
+                                                </button>
+
+                                        </div>
+                                    {{Form::close()}}
 
                                     @foreach ($user as $item)
                                         <div class="col-12 mt-4">
@@ -112,8 +103,10 @@
                                         </div>
                                     @endforeach
 
-                                  </div>
-                </div>
+{{--                                     {{ $user->render() }}--}}
+
+               </div>
+
 
 
 

@@ -26,7 +26,7 @@ class UserController extends Controller
 |--------------------------------------------------------------------------*/
     public function create()
     {
-                        $users = DB::table('users')
+        $users = DB::table('users')
         ->get();
                           // obtener la hora actual  - 2015-12-19 10:10:54
           $current = Carbon::now()->toDateTimeString();
@@ -100,7 +100,6 @@ class UserController extends Controller
         $users = DB::table('users')
         ->get();
 
-        dd($user);
         $user->update();
 
         Session::flash('success', 'Se ha guardado sus datos con exito');
@@ -135,9 +134,11 @@ class UserController extends Controller
      function index_admin(Request $request){
 
         $name = $request->get('name');
-        $user = User::where('role', '=', '0')
+
+        $user = User::orderBy('id','DESC')
+            ->where('role', '=', '0')
             ->name($name)
-            ->get();
+            ->paginate(6);
 
         $users = DB::table('users')
         ->get();
@@ -146,7 +147,7 @@ class UserController extends Controller
           $alert2 = Alertas::
             where('id_user', '=', auth()->user()->id)
             ->where('start','<=', $current)
-              ->where('status', '=', 0)
+            ->where('status', '=', 0)
             ->get();
 
         return view('admin.user.view-user-admin',compact('user', 'users', 'alert2'));

@@ -57,6 +57,21 @@
                                     </h5>
 
                                   <div class="row">
+
+                                        {{  Form::open(['route' => 'index_admin.seguros' , 'method' => 'GET' , 'class'=>'form-inline pull-right'] )  }}
+                                        <div class="d-flex justify-content-center mt-5">
+
+                                                     <div class="form-group">
+                                                          {{ Form::text('seguro', null,['class' => 'form-control','placeholder' => 'Busqueda de seguro'])  }}
+                                                     </div>
+
+                                                    <button type="submit" class="btn btn-default">
+                                                        <img class="" src="{{ asset('img/icon/white/search.png') }}" width="25px" >
+                                                    </button>
+
+                                        </div>
+                                        {{Form::close()}}
+
                                     @foreach ($seguros as $item)
                                         <div class="col-12 mt-4">
 
@@ -96,6 +111,20 @@
                                     </h5>
 
                                   <div class="row">
+
+                                        {{  Form::open(['route' => 'index_admin.seguros' , 'method' => 'GET' , 'class'=>'form-inline pull-right'] )  }}
+                                        <div class="d-flex justify-content-center mt-5">
+
+                                                     <div class="form-group">
+                                                          {{ Form::text('seguro', null,['class' => 'form-control','placeholder' => 'Busqueda de seguro'])  }}
+                                                     </div>
+
+                                                    <button type="submit" class="btn btn-default">
+                                                        <img class="" src="{{ asset('img/icon/white/search.png') }}" width="25px" >
+                                                    </button>
+
+                                        </div>
+                                        {{Form::close()}}
 
                                     @foreach ($seguros2 as $item)
                                         <div class="col-12 mt-4">

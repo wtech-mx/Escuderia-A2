@@ -18,6 +18,8 @@ class ExpFactura extends Model
         'factura',
     ];
 
+
+
     protected $guarded=[
 
     ];

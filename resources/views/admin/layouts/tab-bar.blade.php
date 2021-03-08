@@ -58,7 +58,8 @@
                         </div>
 
                         <div class="navbar__item -camel">
-                            <a type="button"  data-toggle="modal" data-target="#alert-modal">
+                            <a href="{{ route('index.alert') }}">
+{{--                            <a type="button"  data-toggle="modal" data-target="#alert-modal">--}}
                                 <span class="navbar__icon">
                                     <img class="" src="{{ asset('img/icon/color/campana.png') }}" width="25px" >
                                 </span>

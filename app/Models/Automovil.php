@@ -33,6 +33,12 @@ class Automovil extends Model
             return $query->where('submarca','LIKE',"%$submarca%");
     }
 
+        public function scopePlacas($query,$placas)
+    {
+        if ($placas)
+            return $query->where('placas','LIKE',"%$placas%");
+    }
+
     protected $guarded=[
 
     ];

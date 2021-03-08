@@ -85,9 +85,11 @@ class SegurosController extends Controller
                 $img = 'zurich.png';
             break;
         }
-                        $users = DB::table('users')
+
+        $users = DB::table('users')
         ->get();
-                          // obtener la hora actual  - 2015-12-19 10:10:54
+
+          // obtener la hora actual  - 2015-12-19 10:10:54
           $current = Carbon::now()->toDateTimeString();
           $alert2 = Alertas::
             where('id_user', '=', auth()->user()->id)
@@ -119,24 +121,33 @@ class SegurosController extends Controller
 /*|--------------------------------------------------------------------------
 |Create Seguro Admin_Admin
 |--------------------------------------------------------------------------*/
-     function index_admin(){
+     function index_admin(Request $request){
 
-        $seguros = Seguros::where('id_empresa', '=', NULL)->get();
+        $seguro = $request->get('seguro');
 
-        $seguros2 = Seguros::where('id_user', '=', NULL)->get();
+        $seguros = Seguros::orderBy('id','DESC')
+            ->where('id_empresa', '=', NULL)
+            ->seguro($seguro)
+            ->get();
 
-        $user = DB::table('users')
+        $seguros2 = Seguros::orderBy('id','DESC')
+            ->where('id_user', '=', NULL)
+            ->seguro($seguro)
+            ->get();
+
+          $user = DB::table('users')
             ->where('role','=', '0')
             ->get();
 
-                        $users = DB::table('users')
-        ->get();
-                          // obtener la hora actual  - 2015-12-19 10:10:54
+
+          $users = DB::table('users')
+          ->get();
+
+           // obtener la hora actual  - 2015-12-19 10:10:54
           $current = Carbon::now()->toDateTimeString();
-          $alert2 = Alertas::
-            where('id_user', '=', auth()->user()->id)
+          $alert2 = Alertas::where('id_user', '=', auth()->user()->id)
             ->where('start','<=', $current)
-              ->where('status', '=', 0)
+            ->where('status', '=', 0)
             ->get();
 
         return view('admin.seguros.view-seguros-admin',compact('seguros','seguros2', 'user', 'users', 'alert2'));

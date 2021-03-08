@@ -208,12 +208,20 @@ class AutomovilController extends Controller
     function index_admin(Request $request){
 
         $submarca = $request->get('submarca');
+        $placas = $request->get('placas');
 
-        $automovil = Automovil::where('id_empresa', '=', NULL)
+        $automovil = Automovil::orderBy('id','DESC')
+            ->where('id_empresa', '=', NULL)
             ->submarca($submarca)
-            ->get();
+            ->placas($placas)
+            ->paginate(6);
 
-        $automovil2 = Automovil::where('id_user', '=', NULL)->get();
+        $automovil2 = Automovil::orderBy('id','DESC')
+            ->where('id_user', '=', NULL)
+            ->submarca($submarca)
+            ->placas($placas)
+            ->paginate(6);
+//            ->get();
 
           $user = DB::table('users')
             ->where('role','=', '0')

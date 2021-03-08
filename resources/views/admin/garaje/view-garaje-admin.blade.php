@@ -69,7 +69,7 @@
 
                         <div class="col-12">
 
-                            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="60000">
+                            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="90000">
 
                                   <div class="carousel-inner">
 
@@ -81,30 +81,25 @@
                                         <h5 class="text-center text-white mt-4 ml-4 mr-4 ">
                                             <strong>Vehiculos Personales</strong>
                                         </h5>
-                                            <div class="col-12">
 
-                                                <div class="page-header">
+                                        {{  Form::open(['route' => 'index_admin.automovil' , 'method' => 'GET' , 'class'=>'form-inline pull-right'] )  }}
+                                        <div class="d-flex justify-content-center mt-5">
 
-                                                    <h1 class="text-white">
+                                                     <div class="form-group">
+                                                          {{ Form::text('submarca', null,['class' => 'form-control','placeholder' => 'Busqueda de submarca'])  }}
+                                                     </div>
 
-                                                    {{  Form::open(['route' => 'index_admin.automovil' , 'method' => 'GET' , 'class'=>'form-inline pull-right'] )  }}
+                                                     <div class="form-group">
+                                                          {{ Form::text('placas', null,['class' => 'form-control','placeholder' => 'Busqueda de placas'])  }}
+                                                     </div>
 
-                                                    <div class="form-group">
-                                                        {{ Form::text('submarca', null,['class' => 'form-control','placeholder' => 'submarca'])  }}
-                                                    </div>
+                                                    <button type="submit" class="btn btn-default">
+                                                        <img class="" src="{{ asset('img/icon/white/search.png') }}" width="25px" >
+                                                    </button>
 
-                                                        <div class="form-group">
-                                                            <button type="submit" class="btn btn-default">
-                                                                <img class="" src="{{ asset('img/icon/white/search.png') }}" width="25px" >
-                                                            </button>
-                                                        </div>
+                                        </div>
+                                        {{Form::close()}}
 
-                                                    {{Form::close()}}
-
-                                                    </h1>
-
-                                                </div>
-                                            </div>
 
                                     @if(Session::has('success'))
                                         <script>
@@ -126,8 +121,20 @@
                                                       <div class="row">
                                                           <div class="col-6 mt-3">
                                                               <a class="card-text" href="{{ route('edit_admin.automovil',$item->id) }}"><strong style="font: normal normal bold 20px/27px Segoe UI;">{{$item->User->name}}</strong></a>
-                                                              <p class="card-text" style="font-size: 12px"><strong>{{$item->submarca}}</strong></p>
-                                                              <p class="card-text" style="font-size: 12px"><strong>{{$item->kilometraje}} KM Recorridos</strong></p>
+
+                                                                <div class="d-flex justify-content-start">
+                                                                   <p class="text-center"><strong>Submarca: </strong>{{$item->submarca}}</p>
+                                                                    <br>
+                                                                   <p class="text-center"><strong>-    Tipo:    -</strong>{{$item->tipo}}</p>
+                                                                </div>
+
+                                                                <div class="d-flex justify-content-start">
+                                                                   <p class="text-center"><strong> Año: </strong>{{$item->año}}</p>
+                                                                    <br>
+                                                                  <p class="text-center"><strong> Placas: </strong>{{$item->placas}}</p>
+                                                                </div>
+
+                                                              <p class="card-text" style="font-size: 12px"><strong>KM Recorridos: </strong> {{$item->kilometraje}} KM</p>
                                                           </div>
 
                                                           <div class="col-6">
@@ -140,6 +147,8 @@
                                             </div>
                                         @endforeach
                                       </div>
+
+{{--                                      {{ $automovil->render() }}--}}
 
                                     </div>
 
@@ -155,17 +164,48 @@
 
                                       <div class="row">
 
+                                        {{  Form::open(['route' => 'index_admin.automovil' , 'method' => 'GET' , 'class'=>'form-inline pull-right'] )  }}
+                                        <div class="d-flex justify-content-center mt-5">
+
+                                                     <div class="form-group">
+                                                          {{ Form::text('submarca', null,['class' => 'form-control','placeholder' => 'Busqueda de submarca'])  }}
+                                                     </div>
+
+                                                     <div class="form-group">
+                                                          {{ Form::text('placas', null,['class' => 'form-control','placeholder' => 'Busqueda de placas'])  }}
+                                                     </div>
+
+                                                    <button type="submit" class="btn btn-default">
+                                                        <img class="" src="{{ asset('img/icon/white/search.png') }}" width="25px" >
+                                                    </button>
+
+                                        </div>
+                                        {{Form::close()}}
+
                                             <div class="col-12 mt-4">
                                                 @foreach ($automovil2 as $item)
                                                     <div class="col-12 mt-4">
                                                         <div class="card card-slide-garaje" >
                                                           <div class="card-body p-2" >
 
-                                                              <div class="row">
-                                                                  <div class="col-6 mt-3">
+                                                              <div class="row ">
+
+                                                                   <div class="col-6 mt-3 ">
                                                                       <a class="card-text" href="{{ route('edit_admin.automovil',$item->id) }}"><strong style="font: normal normal bold 20px/27px Segoe UI;">{{$item->Empresa->nombre}}</strong></a>
-                                                                      <p class="card-text" style="font-size: 12px"><strong>{{$item->submarca}}</strong></p>
-                                                                      <p class="card-text" style="font-size: 12px"><strong>{{$item->kilometraje}} KM Recorridos</strong></p>
+
+                                                                    <div class="d-flex justify-content-start">
+                                                                       <p class="text-center"><strong>Submarca: </strong>{{$item->submarca}}</p>
+                                                                        <br>
+                                                                       <p class="text-center"><strong>-    Tipo:    -</strong>{{$item->tipo}}</p>
+                                                                    </div>
+
+                                                                    <div class="d-flex justify-content-start">
+                                                                       <p class="text-center"><strong> Año: </strong>{{$item->año}}</p>
+                                                                        <br>
+                                                                      <p class="text-center"><strong> Placas: </strong>{{$item->placas}}</p>
+                                                                    </div>
+
+                                                                      <p class="card-text" style="font-size: 12px"><strong>KM Recorridos: </strong> {{$item->kilometraje}} KM</p>
                                                                   </div>
 
                                                                   <div class="col-6">

@@ -24,6 +24,12 @@ class Seguros extends Model
         'current_auto',
     ];
 
+        public function scopeSeguro($query,$seguro)
+    {
+        if ($seguro)
+            return $query->where('seguro','LIKE',"%$seguro%");
+    }
+
     protected $guarded=[
 
     ];
