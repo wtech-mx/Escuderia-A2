@@ -27,6 +27,12 @@ class Automovil extends Model
         'kilometraje',
     ];
 
+        public function scopeSubmarca($query,$submarca)
+    {
+        if ($submarca)
+            return $query->where('submarca','LIKE',"%$submarca%");
+    }
+
     protected $guarded=[
 
     ];

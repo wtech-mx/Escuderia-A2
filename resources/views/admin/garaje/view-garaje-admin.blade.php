@@ -81,6 +81,30 @@
                                         <h5 class="text-center text-white mt-4 ml-4 mr-4 ">
                                             <strong>Vehiculos Personales</strong>
                                         </h5>
+                                            <div class="col-12">
+
+                                                <div class="page-header">
+
+                                                    <h1 class="text-white">
+
+                                                    {{  Form::open(['route' => 'index_admin.automovil' , 'method' => 'GET' , 'class'=>'form-inline pull-right'] )  }}
+
+                                                    <div class="form-group">
+                                                        {{ Form::text('submarca', null,['class' => 'form-control','placeholder' => 'submarca'])  }}
+                                                    </div>
+
+                                                        <div class="form-group">
+                                                            <button type="submit" class="btn btn-default">
+                                                                <img class="" src="{{ asset('img/icon/white/search.png') }}" width="25px" >
+                                                            </button>
+                                                        </div>
+
+                                                    {{Form::close()}}
+
+                                                    </h1>
+
+                                                </div>
+                                            </div>
 
                                     @if(Session::has('success'))
                                         <script>

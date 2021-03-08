@@ -62,7 +62,7 @@ class TarjetaCirculacionController extends Controller
 
         $tarjeta_circulacion = TarjetaCirculacion::get();
 
-                        $users = DB::table('users')
+        $user = DB::table('users')
         ->get();
                           // obtener la hora actual  - 2015-12-19 10:10:54
           $current = Carbon::now()->toDateTimeString();
@@ -72,7 +72,7 @@ class TarjetaCirculacionController extends Controller
               ->where('status', '=', 0)
             ->get();
 
-        return view('admin.tarjeta-circulacion.view-tc-admin',compact('tarjeta_circulacion', 'users', 'alert2'));
+        return view('admin.tarjeta-circulacion.view-tc-admin',compact('tarjeta_circulacion', 'user', 'alert2'));
     }
 
     public function  edit_admin($id){

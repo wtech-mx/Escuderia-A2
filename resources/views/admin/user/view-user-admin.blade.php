@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('admin.layouts.app')
 
 @section('content')
 
@@ -48,7 +48,30 @@
 
                             </div>
                         </div>
+                                            <div class="col-12">
 
+                                                <div class="page-header">
+
+                                                    <h1 class="text-white">
+
+                                                    {{  Form::open(['route' => 'index_admin.user' , 'method' => 'GET' , 'class'=>'form-inline pull-right'] )  }}
+
+                                                    <div class="form-group">
+                                                        {{ Form::text('name', null,['class' => 'form-control','placeholder' => 'name'])  }}
+                                                    </div>
+
+                                                        <div class="form-group">
+                                                            <button type="submit" class="btn btn-default">
+                                                                <img class="" src="{{ asset('img/icon/white/search.png') }}" width="25px" >
+                                                            </button>
+                                                        </div>
+
+                                                    {{Form::close()}}
+
+                                                    </h1>
+
+                                                </div>
+                                            </div>
                                 @if(Session::has('success'))
                                     <script>
                                         Swal.fire(

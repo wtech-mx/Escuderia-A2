@@ -132,10 +132,14 @@ class UserController extends Controller
 /*|--------------------------------------------------------------------------
 |Create User Admin_Admin
 |--------------------------------------------------------------------------*/
-     function index_admin(){
+     function index_admin(Request $request){
 
-        $user = User::where('role', '=', '0')->get();
-                        $users = DB::table('users')
+        $name = $request->get('name');
+        $user = User::where('role', '=', '0')
+            ->name($name)
+            ->get();
+
+        $users = DB::table('users')
         ->get();
                           // obtener la hora actual  - 2015-12-19 10:10:54
           $current = Carbon::now()->toDateTimeString();

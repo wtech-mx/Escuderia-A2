@@ -205,9 +205,13 @@ class AutomovilController extends Controller
 |Garaje edit - Admin
 |--------------------------------------------------------------------------*/
 
-    function index_admin(){
+    function index_admin(Request $request){
 
-        $automovil = Automovil::where('id_empresa', '=', NULL)->get();
+        $submarca = $request->get('submarca');
+
+        $automovil = Automovil::where('id_empresa', '=', NULL)
+            ->submarca($submarca)
+            ->get();
 
         $automovil2 = Automovil::where('id_user', '=', NULL)->get();
 
