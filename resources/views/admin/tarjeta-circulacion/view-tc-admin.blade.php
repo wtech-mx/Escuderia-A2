@@ -106,7 +106,7 @@
                                                       <div class="col-6 mt-3">
                                                           <a class="card-text" href="{{ route('edit_admin.tarjeta-circulacion',$item->id) }}"><strong style="font: normal normal bold 20px/27px Segoe UI;">{{$item->User->name}}</strong></a>
                                                           <p class="card-text" style="font-size: 12px"><strong>{{$item->nombre}}</strong></p>
-                                                          <p class="card-text" style="font-size: 12px"><strong>{{$item->User->Automovil->Marca->nombre}}</strong></p>
+                                                          <p class="card-text" style="font-size: 12px"><strong>{{$item->Automovil->Marca->nombre}}</strong></p>
                                                       </div>
                                                   </div>
 

@@ -80,11 +80,11 @@ class ExptcController extends Controller
 |--------------------------------------------------------------------------*/
 
 
-        public function create_admin($id)
+     public function create_admin($id)
     {
         /* Trae los datos el auto en el que esta */
-        $automovil = DB::table('tarjeta_circulacion')
-        ->where('current_auto','=',$id)
+        $automovil = DB::table('automovil')
+        ->where('id','=',$id)
         ->first();
 
         $exp_tc = DB::table('img_tcs')
