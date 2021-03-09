@@ -14,12 +14,13 @@
     $int = date('Y') ;
     $Y = (int)$int;
 
-    $int2 = date('m') ;
+    $int2 = date('m')-1;
     $M = (int)$int2;
+
 
     $int3 = date('d') ;
     $D = (int)$int3;
-    
+
    @endphp
 
 <script>
@@ -36,6 +37,16 @@
               center:'title',
               right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth'
             },
+
+            // customButtons:{
+            //   Miboton:{
+            //       text:"Boton",
+            //       click:function (){
+            //           alert('Hola perro');
+            //           $('#exampleModal').modal('toggle');
+            //       }
+            //   }
+            // },
 
 
             dateClick:function (info) {
