@@ -38,16 +38,6 @@
               right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth'
             },
 
-            // customButtons:{
-            //   Miboton:{
-            //       text:"Boton",
-            //       click:function (){
-            //           alert('Hola perro');
-            //           $('#exampleModal').modal('toggle');
-            //       }
-            //   }
-            // },
-
             dateClick:function (info) {
 
               limpiarFormulario();
@@ -65,7 +55,6 @@
               $("#btnModificar").prop("disabled",false);
               $("#btnBorrar").prop("disabled",false);
               $('#txtID').val(info.event.id);
-              $('#titulo').val(info.event.titulo);
 
                 mes = (info.event.start.getMonth()+1)
                 dia = (info.event.start.getDay())
@@ -82,6 +71,7 @@
 
                 horario =("-"+hora+":"+minutos);
 
+              $('#title').val(info.event.title);
               $('#txtFecha').val(anio+"-"+mes+"-"+dia+"-");
               $('#id_user').val(info.event.id_user);
               $('#txtHora').val(horario);
@@ -121,7 +111,7 @@
 
             nuevoEvento={
                 id:$('#txtID').val(),
-                titulo:$('#titulo').val(),
+                title:$('#title').val(),
                 id_user:$('#id_user').val(),
                 descripcion:$('#descripcion').val(),
                 status:$('#status').val()+statusDefault,
@@ -155,7 +145,7 @@
 
         function limpiarFormulario(){
               $('#txtID').val("");
-              $('#titulo').val("");
+              $('#title').val("");
               $('#id_user').val("");
               $('#txtFecha').val("");
               $('#txtHora').val("");

@@ -31,7 +31,7 @@
 
                       <div class="form-group col-12">
                           <label for="">Titulo</label>
-                          <input class="form-control" type="text" name="titulo" id="titulo">
+                          <input class="form-control" type="text" name="title" id="title">
                       </div>
 
                       <div class="form-group col-12">
