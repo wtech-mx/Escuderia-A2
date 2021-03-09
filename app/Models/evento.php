@@ -20,7 +20,6 @@ class evento extends Model
         'id_empresa',
         'descripcion',
         'color',
-        'textColor',
         'start',
         'end',
     ];

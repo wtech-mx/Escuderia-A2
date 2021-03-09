@@ -97,9 +97,9 @@ class AlertasController extends Controller
 
         public function store_eventos(Request $request)
     {
-        $datosEvento = request()->except(['_token','_method']);
-        evento::insert($datosEvento);
+        $datosEvento = request()->except(['_token','_method'],[]);
         print_r($datosEvento);
+        Alertas::insert($datosEvento);
     }
 
         public function show_eventos()
@@ -124,14 +124,14 @@ class AlertasController extends Controller
         public function update_eventos(Request $request, $id)
     {
         $datosEvento = request()->except(['_token','_method']);
-        $respuesta = evento::where('id','=',$id)->update($datosEvento);
+        $respuesta = Alertas::where('id','=',$id)->update($datosEvento);
 
     }
 
         public function destroy_eventos($id)
     {
-        $eventos = evento::findOrFail($id);
-        evento::destroy($id);
+        $eventos = Alertas::findOrFail($id);
+        Alertas::destroy($id);
         return response()->json($id);
     }
 }

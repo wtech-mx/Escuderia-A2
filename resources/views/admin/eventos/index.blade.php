@@ -48,7 +48,6 @@
             //   }
             // },
 
-
             dateClick:function (info) {
 
               limpiarFormulario();
@@ -57,6 +56,7 @@
               $("#btnModificar").prop("disabled",true);
               $("#btnBorrar").prop("disabled",true);
               $('#exampleModal').modal('toggle');
+
             },
 
             eventClick:function (info) {
@@ -65,7 +65,7 @@
               $("#btnModificar").prop("disabled",false);
               $("#btnBorrar").prop("disabled",false);
               $('#txtID').val(info.event.id);
-              $('#txtTitulo').val(info.event.titulo);
+              $('#titulo').val(info.event.titulo);
 
                 mes = (info.event.start.getMonth()+1)
                 dia = (info.event.start.getDay())
@@ -80,19 +80,21 @@
                 minutos = (minutos<10)?"0"+minutos:minutos;
                 hora = (hora<10)?"0"+hora:hora;
 
-                horario =(hora+":"+minutos);
+                horario =("-"+hora+":"+minutos);
 
-              $('#txtFecha').val(anio+"-"+mes+"-"+dia);
-              $('#txtID_User').val(info.event.id_user);
+              $('#txtFecha').val(anio+"-"+mes+"-"+dia+"-");
+              $('#id_user').val(info.event.id_user);
               $('#txtHora').val(horario);
-              $('#txtColor').val(info.event.backgroundColor);
-              $('#txtDescription').val(info.event.extendedProps.descripcion);
+              $('#color').val(info.event.backgroundColor);
+              $('#descripcion').val(info.event.extendedProps.descripcion);
+              $('#status').val(info.event.extendedProps.status);
               $('#exampleModal').modal();
             },
 
             events:"{{ url('/admin/eventos/show')  }}"
 
         });
+
         calendar.setOption('locale','Es');
         calendar.render();
 
@@ -112,13 +114,18 @@
         });
 
         function recolectarDatosGUI(method){
+
+            colorAlert =("#2ECC71");
+            statusDefault = 0;
+            espace = ("-");
+
             nuevoEvento={
                 id:$('#txtID').val(),
-                titulo:$('#txtTitulo').val(),
-                id_user:$('#txtID_User').val(),
-                descripcion:$('#txtDescription').val(),
-                color:$('#txtColor').val(),
-                textColor:'#ffffff',
+                titulo:$('#titulo').val(),
+                id_user:$('#id_user').val(),
+                descripcion:$('#descripcion').val(),
+                status:$('#status').val()+statusDefault,
+                color:$('#color').val()+colorAlert,
                 start:$('#txtFecha').val()+$('#txtHora').val(),
                 end:$('#txtFecha').val()+$('#txtHora').val(),
 
@@ -148,12 +155,13 @@
 
         function limpiarFormulario(){
               $('#txtID').val("");
-              $('#txtTitulo').val("");
-              $('#txtID_User').val("");
+              $('#titulo').val("");
+              $('#id_user').val("");
               $('#txtFecha').val("");
               $('#txtHora').val("");
-              $('#txtColor').val("");
-              $('#txtDescription').val("");
+              $('#color').val("");
+              $('#descripcion').val("");
+              $('#status').val("");
         }
       });
 
