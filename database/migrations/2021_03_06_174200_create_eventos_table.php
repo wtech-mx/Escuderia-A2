@@ -26,9 +26,9 @@ class CreateEventosTable extends Migration
                 ->references('id')->on('empresa')
                 ->inDelete('set null');
 
-            $table->string('title');
+            $table->string('titulo');
 
-            $table->text('description');
+            $table->text('descripcion');
 
             $table->string('color');
 
