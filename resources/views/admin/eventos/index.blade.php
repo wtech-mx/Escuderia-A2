@@ -1,42 +1,36 @@
 @section('scripts')
- <link href="{{ asset('fullcalendar/core/main.css') }}" rel="stylesheet">
- <link href="{{ asset('fullcalendar/daygrid/main.css') }}" rel="stylesheet">
- <link href="{{ asset('fullcalendar/list/main.css') }}" rel="stylesheet">
- <link href="{{ asset('fullcalendar/timeGrid/main.css') }}" rel="stylesheet">
 
- <script src="{{ asset('fullcalendar/core/main.js') }}"></script>
- <script src="{{ asset('fullcalendar/interaction/main.js') }}"></script>
- <script src="{{ asset('fullcalendar/daygrid/main.js') }}"></script>
- <script src="{{ asset('fullcalendar/timeGrid/main.js') }}"></script>
- <script src="{{ asset('fullcalendar/list/main.js') }}"></script>
+<link href='{{ asset('lib/main.css') }}' rel='stylesheet' />
+<script src='{{ asset('lib/main.js') }}'></script>
 
     @php
-    $int = date('Y') ;
-    $Y = (int)$int;
-
-    $int2 = date('m')-1;
-    $M = (int)$int2;
-
-
-    $int3 = date('d') ;
-    $D = (int)$int3;
-
+    $Y = date('Y') ;
+    $M = date('m');
+    $D = date('d') ;
+    $Fecha = $Y."-".$M."-".$D;
    @endphp
 
 <script>
       document.addEventListener('DOMContentLoaded', function() {
+
         var calendarEl = document.getElementById('calendar');
 
         var calendar = new FullCalendar.Calendar(calendarEl, {
 
-          defaultDate:new Date({{$Y}}, {{$M}}, {{$D}}),
-           plugins: [ 'dayGrid', 'list','interaction' ],
+            height: 'auto',
+            initialDate: '{{$Fecha}}',
+            initialView: 'listMonth',
 
-            header:{
+            headerToolbar:{
               left:'prev,next today',
               center:'title',
-              right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth'
+              right: 'listMonth,dayGridMonth'
             },
+
+          views: {
+            dayGridMonth: { buttonText: 'MES' },
+            listMonth: { buttonText: 'LISTA' }
+          },
 
             dateClick:function (info) {
 
@@ -63,18 +57,9 @@
                 mes = (mes<10)?"0"+mes:mes;
                 dia = (dia<10)?"0"+dia:dia;
 
-                minutos = info.event.start.getMinutes();
-                hora = info.event.start.getHours();
-
-                minutos = (minutos<10)?"0"+minutos:minutos;
-                hora = (hora<10)?"0"+hora:hora;
-
-                horario =("-"+hora+":"+minutos);
-
               $('#title').val(info.event.title);
-              $('#txtFecha').val(anio+"-"+mes+"-"+dia+"-");
+              $('#txtFecha').val(anio+"-"+mes+"-"+dia);
               $('#id_user').val(info.event.id_user);
-              $('#txtHora').val(horario);
               $('#color').val(info.event.backgroundColor);
               $('#descripcion').val(info.event.extendedProps.descripcion);
               $('#status').val(info.event.extendedProps.status);
@@ -99,16 +84,13 @@
         });
 
         $('#btnModificar').click(function(){
-            ObjEvento= recolectarDatosGUI('PATCH');
+            ObjEvento= editarDatosGUI('PATCH');
             EnviarInformacion('/update/'+$('#txtID').val(), ObjEvento);
         });
 
         function recolectarDatosGUI(method){
-
             colorAlert =("#2ECC71");
             statusDefault = 0;
-            espace = ("-");
-
             nuevoEvento={
                 id:$('#txtID').val(),
                 title:$('#title').val(),
@@ -116,15 +98,31 @@
                 descripcion:$('#descripcion').val(),
                 status:$('#status').val()+statusDefault,
                 color:$('#color').val()+colorAlert,
-                start:$('#txtFecha').val()+$('#txtHora').val(),
-                end:$('#txtFecha').val()+$('#txtHora').val(),
+                start:$('#txtFecha').val(),
+                end:$('#txtFecha').val(),
 
                 '_token':$("meta[name='csrf-token']").attr("content"),
                 '_method':method
             }
             console.log(nuevoEvento)
             return (nuevoEvento);
+        }
 
+        function editarDatosGUI(method){
+            nuevoEvento={
+                id:$('#txtID').val(),
+                title:$('#title').val(),
+                id_user:$('#id_user').val(),
+                descripcion:$('#descripcion').val(),
+                status:$('#status').val(),
+                color:$('#color').val(),
+                start:$('#txtFecha').val(),
+                end:$('#txtFecha').val(),
+                '_token':$("meta[name='csrf-token']").attr("content"),
+                '_method':method
+            }
+            console.log(nuevoEvento)
+            return (nuevoEvento);
         }
 
         function EnviarInformacion(accion,ObjEvento){
@@ -148,7 +146,6 @@
               $('#title').val("");
               $('#id_user').val("");
               $('#txtFecha').val("");
-              $('#txtHora').val("");
               $('#color').val("");
               $('#descripcion').val("");
               $('#status').val("");

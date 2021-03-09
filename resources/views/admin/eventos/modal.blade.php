@@ -17,8 +17,7 @@
                       <input class="form-control" type="hidden" name="txtID" id="txtID">
 
                       <div class="form-group col-12">
-                        <label for="">Fecha</label>
-                        <input class="form-control" type="text" name="txtFecha" id="txtFecha">
+                        <input class="form-control" type="hidden" name="txtFecha" id="txtFecha">
                       </div>
 
                       <div class="form-group col-12">
@@ -34,10 +33,10 @@
                           <input class="form-control" type="text" name="title" id="title">
                       </div>
 
-                      <div class="form-group col-12">
-                          <label for="">Hora</label>
-                          <input class="form-control" type="time" name="txtHora" id="txtHora" min="07:00" max="19:00" step="600">
-                      </div>
+{{--                      <div class="form-group col-12">--}}
+{{--                          <label for="">Hora</label>--}}
+{{--                          <input class="form-control" type="time" name="txtHora" id="txtHora" min="07:00" max="19:00" step="600">--}}
+{{--                      </div>--}}
 
                       <div class="form-group col-12">
                          <label for="">Selecionar Usuario</label>
