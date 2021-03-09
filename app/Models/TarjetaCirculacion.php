@@ -38,6 +38,10 @@ class TarjetaCirculacion extends Model
     {
        return $this->belongsTo(User::class,'id_user');
     }
+        public function Empresa()
+    {
+       return $this->belongsTo(Empresa::class,'id_empresa');
+    }
 
         public function Automovil()
     {

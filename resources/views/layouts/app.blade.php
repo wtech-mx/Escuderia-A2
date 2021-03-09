@@ -79,7 +79,7 @@
                                 function(){
                                     console.log('entro');
                                     $('#seccionRecargar').load('{{ route('alerts.alert') }}');
-                                },10000
+                                },20000
                             );
                     });
                 </script>

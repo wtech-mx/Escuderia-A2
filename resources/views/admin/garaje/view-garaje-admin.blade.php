@@ -101,15 +101,15 @@
                                         {{Form::close()}}
 
 
-                                    @if(Session::has('success'))
-                                        <script>
-                                            Swal.fire(
-                                                'Exito!',
-                                                'Se ha guardado exitosamiente.',
-                                                'success'
-                                            )
-                                        </script>
-                                    @endif
+                                        @if(Session::has('success'))
+                                            <script>
+                                                Swal.fire(
+                                                    'Exito!',
+                                                    'Se ha guardado exitosamiente.',
+                                                    'success'
+                                                )
+                                            </script>
+                                        @endif
 
 
                                       <div class="row">

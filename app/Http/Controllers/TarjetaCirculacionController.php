@@ -64,11 +64,17 @@ class TarjetaCirculacionController extends Controller
 
         $tarjeta_circulacion = TarjetaCirculacion::orderBy('id','DESC')
             ->nombre($nombre)
+            ->where('id_empresa','=', NULL)
+            ->get();
+
+        $tarjeta_circulacion2 = TarjetaCirculacion::orderBy('id','DESC')
+            ->where('id_user','=', NULL)
             ->get();
 
         $user = DB::table('users')
         ->get();
-                          // obtener la hora actual  - 2015-12-19 10:10:54
+
+        // obtener la hora actual  - 2015-12-19 10:10:54
           $current = Carbon::now()->toDateTimeString();
           $alert2 = Alertas::
             where('id_user', '=', auth()->user()->id)
@@ -76,7 +82,7 @@ class TarjetaCirculacionController extends Controller
               ->where('status', '=', 0)
             ->get();
 
-        return view('admin.tarjeta-circulacion.view-tc-admin',compact('tarjeta_circulacion', 'user', 'alert2'));
+        return view('admin.tarjeta-circulacion.view-tc-admin',compact('tarjeta_circulacion', 'user', 'alert2', 'tarjeta_circulacion2'));
     }
 
     public function  edit_admin($id){

@@ -97,7 +97,15 @@ class SegurosController extends Controller
               ->where('status', '=', 0)
             ->get();
 
-        return view('seguros.seguros',compact('seguro', 'img', 'alert2','users'));
+                    //Trae la alerta Seguro
+          $seguro_alerta = Seguros::
+            where('id_user', '=', auth()->user()->id)
+            ->where('estatus', '=', 0)
+            ->where('fecha_vencimiento','<=', $current)
+            ->get();
+
+
+        return view('seguros.seguros',compact('seguro', 'img', 'alert2','users', 'seguro_alerta'));
     }
 
     public function update(Request $request,$id){
@@ -112,9 +120,17 @@ class SegurosController extends Controller
         $seguro->costo_anual = $request->get('costo_anual');
 
         $seguro->update();
+        // obtener la hora actual  - 2015-12-19 10:10:54
+          $current = Carbon::now()->toDateTimeString();
+                    //Trae la alerta Seguro
+          $seguro_alerta = Seguros::
+            where('id_user', '=', auth()->user()->id)
+            ->where('estatus', '=', 0)
+            ->where('fecha_vencimiento','<=', $current)
+            ->get();
 
         Session::flash('success', 'Se ha guardado sus datos con exito');
-        return redirect()->route('index.seguro', compact('seguro'));
+        return redirect()->route('index.seguro', compact('seguro', 'seguro_alerta'));
 
     }
 

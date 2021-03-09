@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Empresa;
 use DB;
@@ -125,7 +124,6 @@ class EmpresasController extends Controller
     		$file->move(public_path().'/img-empresa',time().".".$file->getClientOriginalExtension());
     		$empresa->img=time().".".$file->getClientOriginalExtension();
     	}
-
 
         $empresa->save();
 

@@ -82,18 +82,18 @@
 
                                 <div class="carousel-item active">
                                     <h5 class="text-center text-white mt-4 ml-4 mr-4 ">
-                                        <strong>Tarjetas Circulacion</strong>
+                                        <strong>Tarjetas Circulacion Usuario</strong>
                                     </h5>
 
-                                @if(Session::has('success'))
-                                    <script>
-                                        Swal.fire(
-                                            'Exito!',
-                                            'Se ha guardado exitosamiente.',
-                                            'success'
-                                        )
-                                    </script>
-                                @endif
+                                    @if(Session::has('success'))
+                                        <script>
+                                            Swal.fire(
+                                                'Exito!',
+                                                'Se ha guardado exitosamiente.',
+                                                'success'
+                                            )
+                                        </script>
+                                    @endif
 
 
                                   <div class="row">
@@ -116,7 +116,48 @@
                                       @endforeach
 {{--                                      {{ $tarjeta_circulacion->render() }}--}}
                                   </div>
+                                </div>
 
+                                 {{-- ----------------------------------------------------------------------------}}
+                                 {{-- |Vehculos de empresa--}}
+                                 {{-- |----------------------------------------------------------------------------}}
+
+                                <div class="carousel-item">
+                                    <h5 class="text-center text-white mt-4 ml-4 mr-4 ">
+                                        <strong>Tarjetas Circulacion Empresa</strong>
+                                    </h5>
+
+                                    @if(Session::has('success'))
+                                        <script>
+                                            Swal.fire(
+                                                'Exito!',
+                                                'Se ha guardado exitosamiente.',
+                                                'success'
+                                            )
+                                        </script>
+                                    @endif
+
+
+                                  <div class="row">
+                                      @foreach ($tarjeta_circulacion2 as $item)
+                                        <div class="col-12 mt-4">
+                                            <div class="card card-slide-garaje" >
+                                              <div class="card-body p-2" >
+
+                                                  <div class="row">
+                                                      <div class="col-6 mt-3">
+                                                          <a class="card-text" href="{{ route('edit_admin.tarjeta-circulacion',$item->id) }}"><strong style="font: normal normal bold 20px/27px Segoe UI;">{{$item->Empresa->nombre}}</strong></a>
+                                                          <p class="card-text" style="font-size: 12px"><strong>{{$item->nombre}}</strong></p>
+                                                          <p class="card-text" style="font-size: 12px"><strong>{{$item->Automovil->Marca->nombre}}</strong></p>
+                                                      </div>
+                                                  </div>
+
+                                              </div>
+                                            </div>
+                                        </div>
+                                      @endforeach
+{{--                                      {{ $tarjeta_circulacion->render() }}--}}
+                                  </div>
                                 </div>
 
                               </div>

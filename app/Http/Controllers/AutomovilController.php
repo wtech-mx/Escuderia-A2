@@ -45,7 +45,14 @@ class AutomovilController extends Controller
             ->where('status', '=', 0)
             ->get();
 
-        return view('garaje.view-garaje',compact('carro', 'automovil', 'users', 'alert2'));
+          //Trae la alerta Seguro
+          $seguro_alerta = Seguros::
+            where('id_user', '=', auth()->user()->id)
+            ->where('estatus', '=', 0)
+            ->where('fecha_vencimiento','<=', $current)
+            ->get();
+
+        return view('garaje.view-garaje',compact('carro', 'automovil', 'users', 'alert2', 'seguro_alerta'));
     }
 
     public function create(){
@@ -66,7 +73,14 @@ class AutomovilController extends Controller
               ->where('status', '=', 0)
             ->get();
 
-        return view('garaje.create-garaje',compact('marca', 'users', 'alert2'));
+          //Trae la alerta Seguro
+          $seguro_alerta = Seguros::
+            where('id_user', '=', auth()->user()->id)
+            ->where('estatus', '=', 0)
+            ->where('fecha_vencimiento','<=', $current)
+            ->get();
+
+        return view('garaje.create-garaje',compact('marca', 'users', 'alert2', 'seguro_alerta'));
     }
 
     public function store(Request $request){
@@ -309,6 +323,7 @@ class AutomovilController extends Controller
 
         $tarjeta_circulacion = new  TarjetaCirculacion;
         $tarjeta_circulacion->id_user = $automovil->id_user;
+        $tarjeta_circulacion->id_empresa = $automovil->id_empresa;
         $tarjeta_circulacion->current_auto = $automovil->id;
         $tarjeta_circulacion->save();
 
