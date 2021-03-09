@@ -20,6 +20,9 @@
             height: 'auto',
             initialDate: '{{$Fecha}}',
             initialView: 'listMonth',
+            navLinks: false,
+            editable: true,
+            dayMaxEvents: 3,
 
             headerToolbar:{
               left:'prev,next today',

@@ -29,11 +29,10 @@ class CreateAlertasTable extends Migration
 
             $table->string('title');
             $table->text('descripcion');
-            $table->string('img');
             $table->integer('color');
             $table->integer('status');
-            $table->dateTime('start');
-            $table->dateTime('end');
+            $table->date('start');
+            $table->date('end');
 
         });
     }
