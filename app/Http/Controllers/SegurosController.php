@@ -101,7 +101,7 @@ class SegurosController extends Controller
           $seguro_alerta = Seguros::
             where('id_user', '=', auth()->user()->id)
             ->where('estatus', '=', 0)
-            ->where('fecha_vencimiento','<=', $current)
+            ->where('end','<=', $current)
             ->get();
 
 
@@ -113,8 +113,8 @@ class SegurosController extends Controller
         $seguro = Seguros::findOrFail($id);
 
         $seguro->seguro = $request->get('seguro');
-        $seguro->fecha_expedicion = $request->get('fecha_expedicion');
-        $seguro->fecha_vencimiento = $request->get('fecha_vencimiento');
+        $seguro->start = $request->get('start');
+        $seguro->end = $request->get('end');
         $seguro->tipo_cobertura = $request->get('tipo_cobertura');
         $seguro->costo = $request->get('costo');
         $seguro->costo_anual = $request->get('costo_anual');
@@ -126,7 +126,7 @@ class SegurosController extends Controller
           $seguro_alerta = Seguros::
             where('id_user', '=', auth()->user()->id)
             ->where('estatus', '=', 0)
-            ->where('fecha_vencimiento','<=', $current)
+            ->where('end','<=', $current)
             ->get();
 
         Session::flash('success', 'Se ha guardado sus datos con exito');
@@ -252,12 +252,12 @@ class SegurosController extends Controller
         $seguro = Seguros::findOrFail($id);
 
         $seguro->seguro = $request->get('seguro');
-        $seguro->fecha_expedicion = $request->get('fecha_expedicion');
-        $seguro->fecha_vencimiento = $request->get('fecha_vencimiento');
+        $seguro->start = $request->get('start');
+        $seguro->end = $request->get('end');
         $seguro->tipo_cobertura = $request->get('tipo_cobertura');
         $seguro->costo = $request->get('costo');
         $seguro->costo_anual = $request->get('costo_anual');
-
+        
         $seguro->update();
 
         Session::flash('success2', 'Se ha actualizado sus datos con exito');

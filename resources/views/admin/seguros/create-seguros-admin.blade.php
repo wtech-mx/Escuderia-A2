@@ -116,7 +116,7 @@
                             </div>
 
                              <label for="">
-                                 <p class="text-white"><strong>Fecha de Expiracion</strong></p>
+                                 <p class="text-white"><strong>Fecha de expedicion</strong></p>
                              </label>
 
                             <div class="input-group form-group">
@@ -125,7 +125,7 @@
                                          <img class="" src="{{ asset('img/icon/white/calendario (1).png') }}" width="25px" >
                                     </span>
                                 </div>
-                                 <input type="date" class="form-control" placeholder="MM/DD/YYY"  style="border-radius: 0  10px 10px 0;" id='fecha_expedicion' name="fecha_expedicion" value="{{$seguro->fecha_expedicion}}">
+                                 <input type="date" class="form-control" placeholder="MM/DD/YYY"  style="border-radius: 0  10px 10px 0;" id='start' name="start" value="{{$seguro->start}}">
                             </div>
 
                              <label for="">
@@ -138,7 +138,7 @@
                                          <img class="" src="{{ asset('img/icon/white/calendario (5).png') }}" width="25px" >
                                     </span>
                                 </div>
-                                 <input type="date" class="form-control" placeholder="MM/DD/YYY"  style="border-radius: 0  10px 10px 0;" id='fecha_vencimiento' name="fecha_vencimiento" value="{{$seguro->fecha_vencimiento}}">
+                                 <input type="date" class="form-control" placeholder="MM/DD/YYY"  style="border-radius: 0  10px 10px 0;" id='end' name="end" value="{{$seguro->end}}">
                             </div>
 
                              <label for="">

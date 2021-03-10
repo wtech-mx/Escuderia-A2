@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Alertas;
+use App\Models\Seguros;
 use Illuminate\Http\Request;
 use DB;
 use Session;
@@ -108,13 +109,15 @@ class AlertasController extends Controller
         //Trae datos de db to jason
         $json = $data['eventos'] = evento::all();
         $json2 = $data2['alertas'] = Alertas::all();
+        $json3 = $data2['seguros'] = Seguros::all();
 
         //los convieerte en array
         $decode = json_decode($json);
         $decode2 = json_decode($json2);
+        $decode3 = json_decode($data2);
 
         //Une los array en uno solo
-        $resultado = array_merge ($decode, $decode2);
+        $resultado = array_merge ($decode, $decode2,$decode3);
 
         //retorna a la vista sn json
         return response()->json($resultado);

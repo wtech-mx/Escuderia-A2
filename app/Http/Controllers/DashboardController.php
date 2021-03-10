@@ -40,7 +40,7 @@ class DashboardController extends Controller
           $seguro_alerta = Seguros::
             where('id_user', '=', auth()->user()->id)
             ->where('estatus', '=', 0)
-            ->where('fecha_vencimiento','<=', $current)
+            ->where('end','<=', $current)
             ->get();
 
                         if($users->role == 0){
@@ -76,13 +76,13 @@ class DashboardController extends Controller
           $seguro_alerta = Seguros::
             where('id_user', '=', auth()->user()->id)
             ->where('estatus', '=', 0)
-            ->where('fecha_vencimiento','<=', $current)
+            ->where('end','<=', $current)
             ->get();
           //Trae la alerta Seguro Controlador
           $seguro_alerta2 = Seguros::
             where('id_user', '=', auth()->user()->id)
             ->where('estatus', '=', 0)
-            ->where('fecha_vencimiento','<=', $current)
+            ->where('end','<=', $current)
             ->first();
 
 

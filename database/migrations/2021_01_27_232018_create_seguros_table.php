@@ -20,8 +20,8 @@ class CreateSegurosTable extends Migration
             $table->unsignedBigInteger('id_empresa')->nullable();
             $table->string('current_auto')->nullable();
             $table->string('seguro')->nullable();
-            $table->date('fecha_expedicion')->nullable();
-            $table->date('fecha_vencimiento')->nullable();
+            $table->date('start')->nullable();
+            $table->date('end')->nullable();
             $table->string('tipo_cobertura')->nullable();
             $table->string('costo')->nullable();
             $table->string('costo_anual')->nullable();
