@@ -109,12 +109,13 @@ class AlertasController extends Controller
         //Trae datos de db to jason
         $json = $data['eventos'] = evento::all();
         $json2 = $data2['alertas'] = Alertas::all();
-        $json3 = $data2['seguros'] = Seguros::all();
+        $json3 = $data3['seguros'] = Seguros::all()->makeHidden('end');
 
         //los convieerte en array
         $decode = json_decode($json);
         $decode2 = json_decode($json2);
-        $decode3 = json_decode($data2);
+        $decode3 = json_decode($json3);
+
 
         //Une los array en uno solo
         $resultado = array_merge ($decode, $decode2,$decode3);
@@ -128,7 +129,6 @@ class AlertasController extends Controller
     {
         $datosEvento = request()->except(['_token','_method']);
         $respuesta = Alertas::where('id','=',$id)->update($datosEvento);
-
     }
 
         public function destroy_eventos($id)

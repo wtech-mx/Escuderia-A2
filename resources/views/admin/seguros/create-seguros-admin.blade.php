@@ -125,7 +125,7 @@
                                          <img class="" src="{{ asset('img/icon/white/calendario (1).png') }}" width="25px" >
                                     </span>
                                 </div>
-                                 <input type="date" class="form-control" placeholder="MM/DD/YYY"  style="border-radius: 0  10px 10px 0;" id='start' name="start" value="{{$seguro->start}}">
+                                 <input type="date" class="form-control" placeholder="MM/DD/YYY"  style="border-radius: 0  10px 10px 0;" id='fecha_expedicion' name="fecha_expedicion" value="{{$seguro->fecha_expedicion}}">
                             </div>
 
                              <label for="">

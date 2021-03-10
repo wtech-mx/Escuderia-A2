@@ -16,6 +16,7 @@ class Seguros extends Model
         'id_user',
         'id_empresa',
         'seguro',
+        'fecha_expedicion',
         'start',
         'end',
         'tipo_cobertura',
@@ -24,7 +25,11 @@ class Seguros extends Model
         'current_auto',
     ];
 
-        public function scopeSeguro($query,$seguro)
+    public static function except(string $string)
+    {
+    }
+
+    public function scopeSeguro($query,$seguro)
     {
         if ($seguro)
             return $query->where('seguro','LIKE',"%$seguro%");
