@@ -117,7 +117,7 @@
                                                         $newDate = date("d/m/Y", strtotime($originalDate));
                                                         @endphp
 
-                                                          <td>{{$item->User->name}}</td>
+                                                          <td></td>
                                                           <td>{{$item->titulo}}</td>
                                                           <td>{{$item->descripcion}}</td>
                                                           <td>{{$newDate}}</td>

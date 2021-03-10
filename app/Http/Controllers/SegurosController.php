@@ -113,7 +113,8 @@ class SegurosController extends Controller
         $seguro = Seguros::findOrFail($id);
 
         $seguro->seguro = $request->get('seguro');
-        $seguro->start = $request->get('start');
+        $seguro->fecha_expedicion = $request->get('fecha_expedicion');
+        $seguro->start = $request->get('end');
         $seguro->end = $request->get('end');
         $seguro->tipo_cobertura = $request->get('tipo_cobertura');
         $seguro->costo = $request->get('costo');
@@ -252,12 +253,13 @@ class SegurosController extends Controller
         $seguro = Seguros::findOrFail($id);
 
         $seguro->seguro = $request->get('seguro');
-        $seguro->start = $request->get('start');
+        $seguro->fecha_expedicion = $request->get('fecha_expedicion');
+        $seguro->start = $request->get('end');
         $seguro->end = $request->get('end');
         $seguro->tipo_cobertura = $request->get('tipo_cobertura');
         $seguro->costo = $request->get('costo');
         $seguro->costo_anual = $request->get('costo_anual');
-        
+
         $seguro->update();
 
         Session::flash('success2', 'Se ha actualizado sus datos con exito');

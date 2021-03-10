@@ -94,6 +94,7 @@
         function recolectarDatosGUI(method){
             colorAlert =("#2ECC71");
             statusDefault = 0;
+
             nuevoEvento={
                 id:$('#txtID').val(),
                 title:$('#title').val(),
