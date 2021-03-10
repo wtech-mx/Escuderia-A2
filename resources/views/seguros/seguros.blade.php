@@ -67,6 +67,22 @@
                                  <p class="text-white"><strong>Seguro</strong></p>
                              </label>
 
+                            {{--Datos para el calendario--}}
+
+                            <div class="input-group form-group">
+                                <input type="hidden" class="form-control" id='title' name="title" value="{{$seguro->User->name}}">
+                            </div>
+
+                             <div class="input-group form-group">
+                                <input type="hidden" class="form-control" id='descripcion' name="descripcion" value="{{$seguro->Automovil->submarca}}">
+                            </div>
+
+                             <div class="input-group form-group">
+                                <input type="hidden" class="form-control" id='color' name="color" value="#8E44AD">
+                            </div>
+
+                            {{--Datos para el calendario--}}
+
                              <div class="col-sm-6 mt-3">
                                          <!-- Button trigger modal -->
                                          <button type="button" class="btn ml-5" data-toggle="modal" data-target="#exampleModalpoliza" style="background: #FFFFFF !important;">

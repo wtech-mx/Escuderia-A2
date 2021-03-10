@@ -120,6 +120,11 @@ class SegurosController extends Controller
         $seguro->costo = $request->get('costo');
         $seguro->costo_anual = $request->get('costo_anual');
 
+        //datos para el calednario
+        $seguro->title = $request->get('title');
+        $seguro->color = $request->get('color');
+        $seguro->descripcion = $request->get('descripcion');
+
         $seguro->update();
         // obtener la hora actual  - 2015-12-19 10:10:54
           $current = Carbon::now()->toDateTimeString();
@@ -259,6 +264,11 @@ class SegurosController extends Controller
         $seguro->tipo_cobertura = $request->get('tipo_cobertura');
         $seguro->costo = $request->get('costo');
         $seguro->costo_anual = $request->get('costo_anual');
+
+        //datos para el calednario
+        $seguro->title = $request->get('title');
+        $seguro->color = $request->get('color');
+        $seguro->descripcion = $request->get('descripcion');
 
         $seguro->update();
 

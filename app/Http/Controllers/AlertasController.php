@@ -84,6 +84,7 @@ class AlertasController extends Controller
         ->get();
 
         // obtener la hora actual  - 2015-12-19 10:10:54
+
           $current = Carbon::now()->toDateTimeString();
           $alert2 = Alertas::
             where('id_user', '=', auth()->user()->id)
@@ -105,7 +106,6 @@ class AlertasController extends Controller
 
         public function show_eventos()
     {
-
         //Trae datos de db to jason
         $json = $data['eventos'] = evento::all();
         $json2 = $data2['alertas'] = Alertas::all();
@@ -115,7 +115,6 @@ class AlertasController extends Controller
         $decode = json_decode($json);
         $decode2 = json_decode($json2);
         $decode3 = json_decode($json3);
-
 
         //Une los array en uno solo
         $resultado = array_merge ($decode, $decode2,$decode3);

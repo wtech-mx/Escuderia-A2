@@ -43,7 +43,6 @@
               $("#btnModificar").prop("disabled",true);
               $("#btnBorrar").prop("disabled",true);
               $('#exampleModal').modal('toggle');
-
             },
 
             eventClick:function (info) {
@@ -67,9 +66,11 @@
               $('#descripcion').val(info.event.extendedProps.descripcion);
               $('#status').val(info.event.extendedProps.status);
               $('#exampleModal').modal();
+
+                 console.log(info);
             },
 
-            events:"{{ url('/admin/eventos/show')  }}"
+            events:"{{ url('/admin/eventos/show')  }}",
 
         });
 
