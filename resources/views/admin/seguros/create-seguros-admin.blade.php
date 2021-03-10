@@ -84,7 +84,7 @@
                              </label>
 
                             {{--Datos para el calendario--}}
-
+                        @if($seguro->id_empresa == NULL)
                             <div class="input-group form-group">
                                 <input type="hidden" class="form-control" id='title' name="title" value="{{$seguro->User->name}}">
                             </div>
@@ -96,7 +96,19 @@
                              <div class="input-group form-group">
                                 <input type="hidden" class="form-control" id='color' name="color" value="#8E44AD">
                             </div>
+                        @else
+                            <div class="input-group form-group">
+                                <input type="hidden" class="form-control" id='title' name="title" value="{{$seguro->Empresa->nombre}}">
+                            </div>
 
+                             <div class="input-group form-group">
+                                <input type="hidden" class="form-control" id='descripcion' name="descripcion" value="{{$seguro->Automovil->submarca}}">
+                            </div>
+
+                             <div class="input-group form-group">
+                                <input type="hidden" class="form-control" id='color' name="color" value="#8E44AD">
+                            </div>
+                        @endif
                             {{--Datos para el calendario--}}
 
                             <div class="input-group form-group">

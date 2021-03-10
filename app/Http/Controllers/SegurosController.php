@@ -97,7 +97,7 @@ class SegurosController extends Controller
               ->where('status', '=', 0)
             ->get();
 
-                    //Trae la alerta Seguro
+         //Trae la alerta Seguro
           $seguro_alerta = Seguros::
             where('id_user', '=', auth()->user()->id)
             ->where('estatus', '=', 0)

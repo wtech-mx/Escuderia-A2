@@ -28,9 +28,9 @@ class CreateSegurosTable extends Migration
             $table->string('costo_anual')->nullable();
             $table->integer('estatus');
 
-            $table->string('title');
-            $table->text('descripcion');
-            $table->string('color');
+            $table->string('title')->nullable();
+            $table->text('descripcion')->nullable();
+            $table->string('color')->nullable();
 
             $table->foreign('id_user')
                 ->references('id')->on('users')
