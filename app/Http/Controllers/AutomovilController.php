@@ -49,7 +49,7 @@ class AutomovilController extends Controller
           $seguro_alerta = Seguros::
             where('id_user', '=', auth()->user()->id)
             ->where('estatus', '=', 0)
-            ->where('endd','<=', $current)
+            ->where('end','<=', $current)
             ->get();
 
         return view('garaje.view-garaje',compact('carro', 'automovil', 'users', 'alert2', 'seguro_alerta'));
@@ -77,7 +77,7 @@ class AutomovilController extends Controller
           $seguro_alerta = Seguros::
             where('id_user', '=', auth()->user()->id)
             ->where('estatus', '=', 0)
-            ->where('endd','<=', $current)
+            ->where('end','<=', $current)
             ->get();
 
         return view('garaje.create-garaje',compact('marca', 'users', 'alert2', 'seguro_alerta'));
@@ -128,6 +128,7 @@ class AutomovilController extends Controller
         $seguro->costo = '100';
         $seguro->costo_anual = '100';
         $seguro->id_user = $user->id;
+        $seguro->estatus = 0;
         $seguro->current_auto = $automovil->id;
         $seguro->save();
 
@@ -314,6 +315,7 @@ class AutomovilController extends Controller
         $seguro->seguro = 'gnp';
         $seguro->tipo_cobertura = 'total';
         $seguro->costo = '100';
+        $seguro->estatus = 0;
         $seguro->costo_anual = '100';
         $seguro->id_user = $automovil->id_user;
         $seguro->id_empresa = $automovil->id_empresa;

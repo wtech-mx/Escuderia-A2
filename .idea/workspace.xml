@@ -20,8 +20,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="936a45dc-4f36-4130-a52f-695b08d602c5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/services/view-mecanica-empresa.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/services/view-mecanica-user.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_01_27_232018_create_seguros_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_01_27_232018_create_seguros_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AutomovilController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AutomovilController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MecanicaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MecanicaController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/services/view-mecanica.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/services/view-mecanica.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/seguros/seguros.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/seguros/seguros.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,7 +185,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../webpush" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/admin/services" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -195,11 +200,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\Escuderia-A2\resources\views\admin\services" />
       <recent name="C:\xampp\htdocs\Escuderia-A2\resources\views\layouts" />
       <recent name="C:\xampp\htdocs\Escuderia-A2\resources\views\admin\seguros" />
       <recent name="C:\xampp\htdocs\Escuderia-A2\resources\views\seguros" />
       <recent name="C:\xampp\htdocs\Escuderia-A2\resources\views\admin\tarjeta-circulacion" />
-      <recent name="C:\xampp\htdocs\Escuderia-A2\resources\views\admin\garaje" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\xaamp\htdocs\Escuderia-A2\public\img" />
@@ -277,15 +282,5 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="348" y="237" width="583" height="566" key="find.popup" timestamp="1615266537391">
-      <screen x="0" y="0" width="2560" height="1040" />
-    </state>
-    <state x="348" y="237" width="583" height="566" key="find.popup/0.0.2560.1040/-2560.0.2560.1040@0.0.2560.1040" timestamp="1615266537391" />
-    <state x="303" y="229" width="672" height="678" key="search.everywhere.popup" timestamp="1615312187639">
-      <screen x="0" y="0" width="2560" height="1040" />
-    </state>
-    <state x="303" y="229" width="672" height="678" key="search.everywhere.popup/0.0.2560.1040/-2560.0.2560.1040@0.0.2560.1040" timestamp="1615312187639" />
   </component>
 </project>

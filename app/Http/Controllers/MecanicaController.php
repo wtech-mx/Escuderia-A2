@@ -20,19 +20,26 @@ class MecanicaController extends Controller
 |--------------------------------------------------------------------------*/
     public function view(){
 
-        $mecanica_llantas = Mecanica::where('servicio','=','1')->get();
+        $mecanica_llantas_user = Mecanica::where('servicio','=','1')->where('id_empresa','=', NULL)->get();
+        $mecanica_llantas_empresa = Mecanica::where('servicio','=','1')->where('id_user','=', NULL)->get();
 
-        $mecanica_banda = Mecanica::where('servicio','=','2')->get();
+        $mecanica_banda_user = Mecanica::where('servicio','=','2')->where('id_empresa','=', NULL)->get();
+        $mecanica_banda_empresa = Mecanica::where('servicio','=','2')->where('id_user','=', NULL)->get();
 
-        $mecanica_freno = Mecanica::where('servicio','=','3')->get();
+        $mecanica_freno_user = Mecanica::where('servicio','=','3')->where('id_empresa','=', NULL)->get();
+        $mecanica_freno_empresa = Mecanica::where('servicio','=','3')->where('id_user','=', NULL)->get();
 
-        $mecanica_aceite = Mecanica::where('servicio','=','4')->get();
+        $mecanica_aceite_user = Mecanica::where('servicio','=','4')->where('id_empresa','=', NULL)->get();
+        $mecanica_aceite_empresa = Mecanica::where('servicio','=','4')->where('id_user','=', NULL)->get();
 
-        $mecanica_afinacion = Mecanica::where('servicio','=','5')->get();
+        $mecanica_afinacion_user = Mecanica::where('servicio','=','5')->where('id_empresa','=', NULL)->get();
+        $mecanica_afinacion_empresa = Mecanica::where('servicio','=','5')->where('id_user','=', NULL)->get();
 
-        $mecanica_amortiguadores = Mecanica::where('servicio','=','6')->get();
+        $mecanica_amortiguadores_user = Mecanica::where('servicio','=','6')->where('id_empresa','=', NULL)->get();
+        $mecanica_amortiguadores_empresa = Mecanica::where('servicio','=','6')->where('id_user','=', NULL)->get();
 
-        $mecanica_bateria = Mecanica::where('servicio','=','7')->get();
+        $mecanica_bateria_user = Mecanica::where('servicio','=','7')->where('id_empresa','=', NULL)->get();
+        $mecanica_bateria_empresa = Mecanica::where('servicio','=','7')->where('id_user','=', NULL)->get();
 
         $users = DB::table('users')
         ->get();
@@ -44,7 +51,7 @@ class MecanicaController extends Controller
               ->where('status', '=', 0)
             ->get();
 
-        return view('admin.services.view-mecanica',compact('mecanica_llantas','mecanica_banda','mecanica_freno','mecanica_aceite','mecanica_afinacion', 'mecanica_amortiguadores', 'mecanica_bateria', 'alert2', 'users'));
+        return view('admin.services.view-mecanica',compact('mecanica_llantas_user','mecanica_llantas_empresa', 'mecanica_banda_user', 'mecanica_banda_empresa','mecanica_freno_user','mecanica_freno_empresa','mecanica_aceite_user','mecanica_aceite_empresa','mecanica_afinacion_user','mecanica_afinacion_empresa', 'mecanica_amortiguadores_user', 'mecanica_amortiguadores_empresa', 'mecanica_bateria_user', 'mecanica_bateria_empresa', 'alert2', 'users'));
     }
     public function create_servicio()
     {
