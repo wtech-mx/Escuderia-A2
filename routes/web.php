@@ -38,6 +38,7 @@ Route::get('dashboard','DashboardController@index')->name('index.dashboard');
 Route::get('admin/alertas','AlertasController@index')->name('index.alert');
 Route::post('admin/alert/create','AlertasController@store')->name('store.alert');
 
+
 Route::get('dashboarda','DashboardController@alerts')->name('alerts.alert');
 
 

@@ -54,6 +54,7 @@
 </head>
 
 <body>
+<p style="display: none">{{$userId =  Auth::id()}}</p>
     <div id="app" class="w-100 h-100">
 
         <div class="container-login100" >
@@ -81,7 +82,7 @@
                         setInterval(
                                 function(){
                                     console.log('entro');
-                                    $('#seccionRecargar').load('{{ route('alerts.alert') }}');
+                                    $('#seccionRecargar').load('{{ route('alerts.alert',$userId) }}');
                                 },60000
                             );
                     });

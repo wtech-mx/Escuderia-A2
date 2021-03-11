@@ -85,29 +85,28 @@ class DashboardController extends Controller
             ->where('end','<=', $current)
             ->first();
 
+            if($alert3 == NULL){
 
-
-            if($alert3 == NULL || $seguro_alerta2 == NULL){
-                if($users->role == 0){
-                    dd($seguro_alerta);
-                    return view('layouts.app',compact('alert2', 'seguro_alerta'));
-                }else{
-                    return view('admin.layouts.alert',compact( 'alert2', 'seguro_alerta'));
-                }
              }else {
                 $alert3->status = 1;
+                 $alert3->save();
+            }
+
+            if($seguro_alerta2 == NULL){
+
+             }else {
                 $seguro_alerta2->estatus = 1;
+                 $seguro_alerta2->save();
+            }
+
                 if($users->role == 0){
-                    $alert3->save();
-                    $seguro_alerta2->save();
+                    die();
                     return view('layouts.app',compact('alert2', 'seguro_alerta'));
                 }else{
-                    $alert3->save();
                     return view('admin.layouts.alert',compact( 'alert2', 'seguro_alerta'));
                 }
 
-            }
-
     }
+
 
 }
