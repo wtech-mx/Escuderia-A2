@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\View;
+
 use App\Models\Alertas;
 use App\Models\Seguros;
 use Illuminate\Http\Request;

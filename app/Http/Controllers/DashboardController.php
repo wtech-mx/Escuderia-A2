@@ -43,11 +43,11 @@ class DashboardController extends Controller
             ->where('end','<=', $current)
             ->get();
 
-                        if($users->role == 0){
-                            return view('dashboard',compact('users', 'user', 'alert2', 'seguro_alerta'));
-                        }else{
-                            return view('admin.dashboard',compact('users', 'user', 'alert2', 'seguro_alerta'));
-                        }
+          if($users->role == 0){
+              return view('dashboard',compact('users', 'user', 'alert2', 'seguro_alerta'));
+          }else{
+              return view('admin.dashboard',compact('users', 'user', 'alert2', 'seguro_alerta'));
+          }
     }
 
        public function alerts()
@@ -101,6 +101,7 @@ class DashboardController extends Controller
 
                 if($users->role == 0){
                     die();
+
                     return view('layouts.app',compact('alert2', 'seguro_alerta'));
                 }else{
                     return view('admin.layouts.alert',compact( 'alert2', 'seguro_alerta'));
