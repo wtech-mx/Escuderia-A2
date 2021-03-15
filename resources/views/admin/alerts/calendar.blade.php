@@ -67,10 +67,9 @@
               $('#status').val(info.event.extendedProps.status);
               $('#exampleModal').modal();
 
-                 console.log(info);
             },
 
-            events:"{{ url('/admin/eventos/show')  }}",
+            events:"{{ route('calendar.show_calendar') }}",
 
         });
 
@@ -105,11 +104,9 @@
                 color:$('#color').val()+colorAlert,
                 start:$('#txtFecha').val(),
                 end:$('#txtFecha').val(),
-
                 '_token':$("meta[name='csrf-token']").attr("content"),
                 '_method':method
             }
-            console.log(nuevoEvento)
             return (nuevoEvento);
         }
 
@@ -121,8 +118,8 @@
                 descripcion:$('#descripcion').val(),
                 status:$('#status').val(),
                 color:$('#color').val(),
-                start:$('#txtFecha').val(),
-                end:$('#txtFecha').val(),
+                // start:$('#txtFecha').val(),
+                // end:$('#txtFecha').val(),
                 '_token':$("meta[name='csrf-token']").attr("content"),
                 '_method':method
             }
@@ -134,7 +131,7 @@
             $.ajax(
                     {
                        type:"POST",
-                         url: "{{route('eventos.store_eventos')}}"+accion,
+                         url: "{{route('calendar.store_calendar')}}"+accion,
                         data:ObjEvento,
                         success:function (msg){
                               console.log(msg);
@@ -161,7 +158,6 @@
 
 @endsection
 
-
                 <div class="row" style="">
 
                     <div class="col"></div>
@@ -174,6 +170,5 @@
 
                 </div>
 
-
-                @include('admin.eventos.modal')
+                @include('admin.alerts.modal')
 

@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use DB;
 use Session;
 use Carbon\Carbon;
-use App\Models\evento;
+
 
 class AlertasController extends Controller
 {
@@ -34,10 +34,6 @@ class AlertasController extends Controller
           return view('admin.alerts.view-alerts-admin', compact('alert', 'user', 'alert2'));
     }
 
-    public function show()
-    {
-    }
-
     public function store(Request $request)
     {
         $alert = new Alertas;
@@ -57,26 +53,11 @@ class AlertasController extends Controller
 
     }
 
-    public function edit(Alertas $alertas)
-    {
-        //
-    }
-
-    public function update(Request $request, Alertas $alertas)
-    {
-        //
-    }
-
-    public function destroy(Alertas $alertas)
-    {
-        //
-    }
-
 /*|--------------------------------------------------------------------------
-/|                  CALENDARIO
+/|  CALENDARIO
 |--------------------------------------------------------------------------*/
 
-        public function index_eventos()
+        public function index_calendar()
     {
 
         $user = DB::table('users')
@@ -96,14 +77,14 @@ class AlertasController extends Controller
         return view('admin.alerts.view-alerts-admin',compact('alert2','user', 'alert'));
     }
 
-        public function store_eventos(Request $request)
+        public function store_calendar(Request $request)
     {
         $datosEvento = request()->except(['_token','_method'],[]);
 
         Alertas::insert($datosEvento);
     }
 
-        public function show_eventos()
+        public function show_calendar()
     {
         //Trae datos de db to jason
         $json2 = $data2['alertas'] = Alertas::all();
@@ -121,13 +102,13 @@ class AlertasController extends Controller
 
     }
 
-        public function update_eventos(Request $request, $id)
+        public function update_calendar(Request $request, $id)
     {
         $datosEvento = request()->except(['_token','_method']);
         $respuesta = Alertas::where('id','=',$id)->update($datosEvento);
     }
 
-        public function destroy_eventos($id)
+        public function destroy_calendar($id)
     {
         Alertas::destroy($id);
         return response()->json($id);

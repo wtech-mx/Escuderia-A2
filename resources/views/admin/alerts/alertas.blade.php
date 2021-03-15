@@ -1,6 +1,3 @@
-
-
-
                             <div class="d-flex justify-content-between">
 
                                 <div class="col-6 mt-4">
@@ -118,7 +115,7 @@
                                                         @endphp
 
                                                           <td></td>
-                                                          <td>{{$item->titulo}}</td>
+                                                          <td>{{$item->title}}</td>
                                                           <td>{{$item->descripcion}}</td>
                                                           <td>{{$newDate}}</td>
                                                     </tr>
