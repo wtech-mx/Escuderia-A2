@@ -84,7 +84,6 @@ class AlertasController extends Controller
         ->get();
 
         // obtener la hora actual  - 2015-12-19 10:10:54
-
           $current = Carbon::now()->toDateTimeString();
           $alert2 = Alertas::
             where('id_user', '=', auth()->user()->id)
@@ -100,24 +99,22 @@ class AlertasController extends Controller
         public function store_eventos(Request $request)
     {
         $datosEvento = request()->except(['_token','_method'],[]);
-        print_r($datosEvento);
+
         Alertas::insert($datosEvento);
     }
 
         public function show_eventos()
     {
         //Trae datos de db to jason
-        $json = $data['eventos'] = evento::all();
         $json2 = $data2['alertas'] = Alertas::all();
         $json3 = $data3['seguros'] = Seguros::all()->makeHidden('end');
 
         //los convieerte en array
-        $decode = json_decode($json);
         $decode2 = json_decode($json2);
         $decode3 = json_decode($json3);
 
         //Une los array en uno solo
-        $resultado = array_merge ($decode, $decode2,$decode3);
+        $resultado = array_merge ($decode2,$decode3);
 
         //retorna a la vista sn json
         return response()->json($resultado);
@@ -132,7 +129,6 @@ class AlertasController extends Controller
 
         public function destroy_eventos($id)
     {
-        $eventos = Alertas::findOrFail($id);
         Alertas::destroy($id);
         return response()->json($id);
     }
