@@ -52,7 +52,14 @@ class AutomovilController extends Controller
             ->where('end','<=', $current)
             ->get();
 
-        return view('garaje.view-garaje',compact('carro', 'automovil', 'users', 'alert2', 'seguro_alerta'));
+          //Trae la alerta Tc
+          $tc_alerta = TarjetaCirculacion::
+            where('id_user', '=', auth()->user()->id)
+            ->where('estatus', '=', 0)
+            ->where('end','<=', $current)
+            ->get();
+
+        return view('garaje.view-garaje',compact('carro', 'automovil', 'users', 'alert2', 'seguro_alerta', 'tc_alerta'));
     }
 
     public function create(){
@@ -135,6 +142,7 @@ class AutomovilController extends Controller
         $tarjeta_circulacion = new  TarjetaCirculacion;
         $tarjeta_circulacion->id_user = $user->id;
         $tarjeta_circulacion->current_auto = $automovil->id;
+        $tarjeta_circulacion->estatus = 0;
         $tarjeta_circulacion->save();
 
         $id = auth()->user()->id;
@@ -334,7 +342,13 @@ class AutomovilController extends Controller
         $tarjeta_circulacion->id_user = $automovil->id_user;
         $tarjeta_circulacion->id_empresa = $automovil->id_empresa;
         $tarjeta_circulacion->current_auto = $automovil->id;
+        $tarjeta_circulacion->estatus = 0;
         $tarjeta_circulacion->save();
+
+        $id = $automovil->id_user;
+        $user = User::findOrFail($id);
+        $user->current_auto = $automovil->id;
+        $user->update();
 
         Session::flash('auto', 'Se ha guardado sus datos con exito');
 

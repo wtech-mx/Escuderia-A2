@@ -145,7 +145,7 @@
 
                                                             <div class="col-sm-6 mt-3">
                                                                 <p class="text-warning mb-2">Ultimos dígito placa</p>
-                                                                    <input type="text"  placeholder="arf-515" id="num_placa" name="num_placa" >
+                                                                    <input type="text"  placeholder="arf-515" id="num_placa" name="num_placa" value="{{$tarjeta_circulacion->num_placa}}">
                                                             </div>
 
                                                             <div class="col-sm-6 mt-3">

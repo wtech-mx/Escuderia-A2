@@ -22,6 +22,7 @@ class SeguroSeeder extends Seeder
             'seguro' => 'gnp',
             'costo' => '10',
             'costo_anual' => '1000',
+            'estatus' => '0',
         ]);
 
         DB::table('seguros')->insert([
