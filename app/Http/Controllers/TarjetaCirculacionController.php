@@ -57,10 +57,18 @@ class TarjetaCirculacionController extends Controller
         $tarjeta_circulacion->nombre = $request->get('nombre');
         $tarjeta_circulacion->tipo_placa = $request->get('tipo_placa');
         $tarjeta_circulacion->lugar_expedicion = $request->get('lugar_expedicion');
+
         $tarjeta_circulacion->fecha_emision = $request->get('fecha_emision');
+        $tarjeta_circulacion->start = $request->get('end');
         $tarjeta_circulacion->end = $request->get('end');
+
         $tarjeta_circulacion->num_placa = $request->get('num_placa');
         $tarjeta_circulacion->current_auto = auth()->user()->current_auto;
+
+        //datos para el calednario
+        $tarjeta_circulacion->title = $request->get('title');
+        $tarjeta_circulacion->color = $request->get('color');
+        $tarjeta_circulacion->descripcion = $request->get('descripcion');
 
         $tarjeta_circulacion->update();
 
@@ -148,14 +156,21 @@ class TarjetaCirculacionController extends Controller
         ]);
 
         $tarjeta_circulacion = TarjetaCirculacion::findOrFail($id);
-        $tarjeta_circulacion->id_user = $request->get('id_user');
-        $tarjeta_circulacion->current_auto = $request->get('current_auto');
         $tarjeta_circulacion->nombre = $request->get('nombre');
         $tarjeta_circulacion->tipo_placa = $request->get('tipo_placa');
         $tarjeta_circulacion->lugar_expedicion = $request->get('lugar_expedicion');
+
         $tarjeta_circulacion->fecha_emision = $request->get('fecha_emision');
+        $tarjeta_circulacion->start = $request->get('end');
         $tarjeta_circulacion->end = $request->get('end');
+
         $tarjeta_circulacion->num_placa = $request->get('num_placa');
+        $tarjeta_circulacion->current_auto = auth()->user()->current_auto;
+
+        //datos para el calednario
+        $tarjeta_circulacion->title = $request->get('title');
+        $tarjeta_circulacion->color = $request->get('color');
+        $tarjeta_circulacion->descripcion = $request->get('descripcion');
 
         $tarjeta_circulacion->update();
 

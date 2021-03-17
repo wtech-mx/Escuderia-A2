@@ -78,6 +78,23 @@
                                                     </div>
                                                 <form class="card-details" method="POST" action="{{route('update_admin.tarjeta-circulacion',$tarjeta_circulacion->id)}}" enctype="multipart/form-data" role="form">
                                                     @csrf
+
+                                                    {{--Datos para el calendario--}}
+
+                                                    <div class="input-group form-group">
+                                                        <input type="hidden" class="form-control" id='title' name="title" value="{{$tarjeta_circulacion->User->name}}">
+                                                    </div>
+
+                                                     <div class="input-group form-group">
+                                                        <input type="hidden" class="form-control" id='descripcion' name="descripcion" value="{{$tarjeta_circulacion->Automovil->submarca}}">
+                                                    </div>
+
+                                                     <div class="input-group form-group">
+                                                        <input type="hidden" class="form-control" id='color' name="color" value="#F1C40F">
+                                                    </div>
+
+                                                    {{--Datos para el calendario--}}
+
                                                     <input type="hidden" name="_method" value="PATCH">
                                                         <input type="hidden" id="id_user" name="id_user" value="{{$tarjeta_circulacion->Automovil->id_user}}" readonly>
                                                         <input type="hidden" id="current_auto" name="current_auto" value="{{$tarjeta_circulacion->Automovil->id}}" readonly>

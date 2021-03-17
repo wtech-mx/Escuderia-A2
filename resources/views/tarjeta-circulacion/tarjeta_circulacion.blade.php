@@ -84,6 +84,22 @@
                                                     @csrf
                                                     <input type="hidden" name="_method" value="PATCH">
 
+                                                    {{--Datos para el calendario--}}
+
+                                                    <div class="input-group form-group">
+                                                        <input type="hidden" class="form-control" id='title' name="title" value="{{$tarjeta_circulacion->User->name}}">
+                                                    </div>
+
+                                                     <div class="input-group form-group">
+                                                        <input type="hidden" class="form-control" id='descripcion' name="descripcion" value="{{$tarjeta_circulacion->Automovil->submarca}}">
+                                                    </div>
+
+                                                     <div class="input-group form-group">
+                                                        <input type="hidden" class="form-control" id='color' name="color" value="#F1C40F">
+                                                    </div>
+
+                                                    {{--Datos para el calendario--}}
+
                                                     <div class="form-group">
                                                         <p class="text-warning mb-2">Nombre</p>
                                                         <input type="text" name="nombre" id="nombre" placeholder="Nombre" value="{{$tarjeta_circulacion->nombre}}">

@@ -1,6 +1,7 @@
 @section('scripts')
 
 <link href='{{ asset('lib/main.css') }}' rel='stylesheet' />
+
 <script src='{{ asset('lib/main.js') }}'></script>
 
     @php
@@ -66,6 +67,7 @@
               $('#descripcion').val(info.event.extendedProps.descripcion);
               $('#status').val(info.event.extendedProps.status);
               $('#exampleModal').modal();
+              console.log(info);
 
             },
 
@@ -78,7 +80,9 @@
 
         $('#btnAgregar').click(function(){
             ObjEvento= recolectarDatosGUI('POST');
+            {{--EnviarInformacion('{{route('calendar.index_calendar')}}', ObjEvento);--}}
             EnviarInformacion('', ObjEvento);
+            console.log(ObjEvento);
         });
 
         $('#btnBorrar').click(function(){
@@ -107,6 +111,7 @@
                 '_token':$("meta[name='csrf-token']").attr("content"),
                 '_method':method
             }
+            console.log(nuevoEvento);
             return (nuevoEvento);
         }
 

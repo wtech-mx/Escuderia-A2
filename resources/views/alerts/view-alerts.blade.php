@@ -1,6 +1,5 @@
 @extends('layouts.app')
 
-
 @section('content')
 
                 <div class="row bg-blue" style="background: #050F55 0% 0% no-repeat padding-box;">
@@ -31,9 +30,9 @@
 
                 </div>
 
-    <div class="row bg-blue" style="background: #050F55 0% 0% no-repeat padding-box;">
-        @include('alerts.calendar')
-    </div>
+                <div class="row bg-blue" style="background: #050F55 0% 0% no-repeat padding-box;">
+                    @include('alerts.calendar')
+                </div>
 
 
 @endsection

@@ -120,9 +120,11 @@ class SegurosController extends Controller
         $seguro = Seguros::findOrFail($id);
 
         $seguro->seguro = $request->get('seguro');
+
         $seguro->fecha_expedicion = $request->get('fecha_expedicion');
         $seguro->start = $request->get('end');
         $seguro->end = $request->get('end');
+
         $seguro->tipo_cobertura = $request->get('tipo_cobertura');
         $seguro->costo = $request->get('costo');
         $seguro->costo_anual = $request->get('costo_anual');

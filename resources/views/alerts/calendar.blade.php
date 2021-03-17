@@ -1,6 +1,7 @@
 @section('scripts')
 
 <link href='{{ asset('lib/main.css') }}' rel='stylesheet' />
+
 <script src='{{ asset('lib/main.js') }}'></script>
 
     @php
@@ -43,6 +44,7 @@
               $("#btnModificar").prop("disabled",true);
               $("#btnBorrar").prop("disabled",true);
               $('#exampleModal').modal('toggle');
+              console.log(info);
             },
 
             eventClick:function (info) {
@@ -66,6 +68,7 @@
               $('#descripcion').val(info.event.extendedProps.descripcion);
               $('#status').val(info.event.extendedProps.status);
               $('#exampleModal').modal();
+              console.log(info);
 
             },
 
@@ -78,6 +81,7 @@
 
         $('#btnAgregar').click(function(){
             ObjEvento= recolectarDatosGUI('POST');
+            {{--EnviarInformacion('{{route('calendar.index_calendar_user')}}', ObjEvento);--}}
             EnviarInformacion('', ObjEvento);
         });
 
@@ -107,6 +111,7 @@
                 '_token':$("meta[name='csrf-token']").attr("content"),
                 '_method':method
             }
+            console.log(nuevoEvento);
             return (nuevoEvento);
         }
 
@@ -170,5 +175,5 @@
 
                 </div>
 
-                @include('admin.alerts.modal')
+                 @include('alerts.modal')
 

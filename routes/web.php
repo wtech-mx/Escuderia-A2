@@ -26,10 +26,6 @@ Route::get('/', function () {
 |Dashboard
 |--------------------------------------------------------------------------*/
 
-//Route::get('/dashboard', function () {
-//    return view('dashboard');
-//})->middleware(['auth'])->name('dashboard');
-
 Route::get('dashboard','DashboardController@index')->name('index.dashboard');
 
 /*|--------------------------------------------------------------------------
@@ -60,15 +56,16 @@ Route::patch('admin/calendar/update/{id}', 'AlertasController@update_calendar')-
 |Calendario Usuario
 |--------------------------------------------------------------------------*/
 
-Route::get('calendar', 'AlertasController@index_calendar_user')->name('calendar.index_calendar_user');
+Route::get('user/calendar', 'AlertasController@index_calendar_user')->name('calendar.index_calendar_user');
 
-Route::get('calendar/show', 'AlertasController@show_calendar_user')->name('calendar.show_calendar_user');
+Route::post('user/calendar', 'AlertasController@store_calendar_user')->name('calendar.store_calendar_user');
 
-Route::delete('admin/calendar/destroy/{id}', 'AlertasController@destroy_calendar_user')->name('calendar.destroy_calendar_user');
+Route::get('user/calendar/show', 'AlertasController@show_calendar_user')->name('calendar.show_calendar_user');
 
-Route::patch('admin/calendar/update/{id}', 'AlertasController@update_calendar_user')->name('calendar.update_calendar_user');
+Route::delete('user/calendar/destroy/{id}', 'AlertasController@destroy_calendar_user')->name('calendar.destroy_calendar_user');
 
-Route::post('admin/calendar', 'AlertasController@store_calendar_user')->name('calendar.store_calendar_user');
+Route::patch('user/calendar/update/{id}', 'AlertasController@update_calendar_user')->name('calendar.update_calendar_user');
+
 /*|--------------------------------------------------------------------------
 |garaje view
 |--------------------------------------------------------------------------*/

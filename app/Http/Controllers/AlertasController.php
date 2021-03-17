@@ -67,6 +67,7 @@ class AlertasController extends Controller
         $alert->save();
 
         Session::flash('alert', 'Se ha enviado con exito');
+
         return back();
 
     }
@@ -194,15 +195,22 @@ class AlertasController extends Controller
         public function show_calendar_user()
     {
         //Trae datos de db to jason
-        $json2 = $data2['alertas'] = Alertas::where('id_user', '=', auth()->user()->id)->get();
-        $json3 = $data3['seguros'] = Seguros::all()->makeHidden('end')->where('id_user', '=', auth()->user()->id);
+        $json2 = $data2['alertas'] = Alertas::where('id_user', '=', auth()->user()->id)
+            ->get();
+
+        $json3 = $data3['seguros'] = Seguros::all()->makeHidden('end')
+            ->where('id_user', '=', auth()->user()->id);
+
+        $json4 = $data3['tarjeta_circulacion'] = TarjetaCirculacion::all()->makeHidden('end')
+            ->where('id_user', '=', auth()->user()->id);
 
         //los convieerte en array
         $decode2 = json_decode($json2);
         $decode3 = json_decode($json3);
+        $decode4 = json_decode($json4);
 
         //Une los array en uno solo
-        $resultado = array_merge ($decode2,$decode3);
+        $resultado = array_merge ($decode2,$decode3,$decode4);
 
         //retorna a la vista sn json
         return response()->json($resultado);
@@ -212,6 +220,12 @@ class AlertasController extends Controller
         public function update_calendar_user(Request $request, $id)
         {
             $datosEvento = request()->except(['_token','_method']);
+
+//            $respuesta = Alertas::all()->makeHidden('id_user')
+//                ->where('id','=',$id)
+//                ->where('id_user', '=', auth()->user()->id)
+//                ->update($datosEvento);
+//
             $respuesta = Alertas::where('id','=',$id)->update($datosEvento);
         }
 
