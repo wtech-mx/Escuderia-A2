@@ -43,7 +43,7 @@ Route::get('dashboarda','DashboardController@alerts')->name('alerts.alert');
 
 
 /*|--------------------------------------------------------------------------
-|Calendario
+|Calendario Admin
 |--------------------------------------------------------------------------*/
 
 Route::get('admin/calendar', 'AlertasController@index_calendar')->name('calendar.index_calendar');
@@ -55,6 +55,20 @@ Route::get('admin/calendar/show', 'AlertasController@show_calendar')->name('cale
 Route::delete('admin/calendar/destroy/{id}', 'AlertasController@destroy_calendar')->name('calendar.destroy_calendar');
 
 Route::patch('admin/calendar/update/{id}', 'AlertasController@update_calendar')->name('calendar.update_calendar');
+
+/*|--------------------------------------------------------------------------
+|Calendario Usuario
+|--------------------------------------------------------------------------*/
+
+Route::get('calendar', 'AlertasController@index_calendar_user')->name('calendar.index_calendar_user');
+
+Route::get('calendar/show', 'AlertasController@show_calendar_user')->name('calendar.show_calendar_user');
+
+Route::delete('admin/calendar/destroy/{id}', 'AlertasController@destroy_calendar_user')->name('calendar.destroy_calendar_user');
+
+Route::patch('admin/calendar/update/{id}', 'AlertasController@update_calendar_user')->name('calendar.update_calendar_user');
+
+Route::post('admin/calendar', 'AlertasController@store_calendar_user')->name('calendar.store_calendar_user');
 /*|--------------------------------------------------------------------------
 |garaje view
 |--------------------------------------------------------------------------*/

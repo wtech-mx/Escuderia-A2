@@ -73,33 +73,33 @@ class DashboardController extends Controller
             ->where('status', '=', 0)
             ->where('start','<=', $current)
             ->get();
-          //Trae la alerta al controlador
+        //Trae la alerta al controlador
           $alert3 = Alertas::
             where('id_user', '=', auth()->user()->id)
             ->where('start','<=', $current)
             ->where('status', '=', 0)
             ->first();
 
-          //Trae la alerta Seguro
+        //Trae la alerta Seguro
           $seguro_alerta = Seguros::
             where('id_user', '=', auth()->user()->id)
             ->where('estatus', '=', 0)
             ->where('end','<=', $current)
             ->get();
-          //Trae la alerta Seguro Controlador
+        //Trae la alerta Seguro Controlador
           $seguro_alerta2 = Seguros::
             where('id_user', '=', auth()->user()->id)
             ->where('estatus', '=', 0)
             ->where('end','<=', $current)
             ->first();
 
-          //Trae la alerta Tc
+        //Trae la alerta Tc
           $tc_alerta = TarjetaCirculacion::
             where('id_user', '=', auth()->user()->id)
             ->where('estatus', '=', 0)
             ->where('end','<=', $current)
             ->get();
-          //Trae la alerta Tc Controlador
+        //Trae la alerta Tc Controlador
           $tc_alerta2 = TarjetaCirculacion::
             where('id_user', '=', auth()->user()->id)
             ->where('estatus', '=', 0)

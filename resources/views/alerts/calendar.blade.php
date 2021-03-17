@@ -69,7 +69,7 @@
 
             },
 
-            events:"{{ route('calendar.show_calendar') }}",
+            events:"{{ route('calendar.show_calendar_user') }}",
 
         });
 

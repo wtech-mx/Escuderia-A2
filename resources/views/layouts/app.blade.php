@@ -34,6 +34,7 @@
     <link href="{{ asset('fonts/all.min.css') }}" rel="stylesheet">
     <link href="{{ asset('fonts/font-awesome.min.js') }}" rel="stylesheet">
     <link href="{{ asset('fonts/all.min.js') }}" rel="stylesheet">
+    <link href="{{ asset('css/calendario.css') }}" rel="stylesheet">
 
 
      <!-- personalizados js -->
@@ -46,6 +47,7 @@
         crossorigin="anonymous">
     </script>
 
+    @yield('scripts')
 </head>
 
 <body>

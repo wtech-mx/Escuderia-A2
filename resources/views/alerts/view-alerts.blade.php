@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+
 @section('content')
 
                 <div class="row bg-blue" style="background: #050F55 0% 0% no-repeat padding-box;">
@@ -28,37 +29,11 @@
                             </div>
                         </div>
 
-
-                        <div class="col-12">
-
-                            <table class="table text-white mt-5">
-
-                              <thead>
-                                <tr>
-                                  <th scope="col"></th>
-                                  <th scope="col">Servicio</th>
-                                  <th scope="col">Km</th>
-                                  <th scope="col">Fecha</th>
-                                  <th scope="col">cambio</th>
-                                </tr>
-                              </thead>
-
-                              <tbody>
-                                <tr>
-                                  <th scope="row">1</th>
-                                  <td>Mark</td>
-                                  <td>Otto</td>
-                                  <td>@mdo</td>
-                                  <td>@mdo</td>
-                                </tr>
-                              </tbody>
-
-                            </table>
-
-                        </div>
-
                 </div>
 
+    <div class="row bg-blue" style="background: #050F55 0% 0% no-repeat padding-box;">
+        @include('alerts.calendar')
+    </div>
 
 
 @endsection

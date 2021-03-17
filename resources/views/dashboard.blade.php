@@ -81,7 +81,7 @@
                     </div>
 
                     <div class="col-6">
-                         <a href="#">
+                         <a href="{{ route('calendar.index_calendar_user') }}">
                             <div class="card" style="border-radius: 15px">
                               <div class="card-body" >
                                   <img class="d-inline mb-2" src="{{ asset('img/icon/black/campana.png') }}" alt="Icon User" width="50px">

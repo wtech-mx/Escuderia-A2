@@ -72,7 +72,7 @@ class AlertasController extends Controller
     }
 
 /*|--------------------------------------------------------------------------
-/|  CALENDARIO
+/|  CALENDARIO Admin
 |--------------------------------------------------------------------------*/
 
         public function index_calendar()
@@ -145,4 +145,80 @@ class AlertasController extends Controller
         Alertas::destroy($id);
         return response()->json($id);
     }
+
+/*|--------------------------------------------------------------------------
+/|  CALENDARIO User
+|--------------------------------------------------------------------------*/
+
+        public function index_calendar_user()
+    {
+
+        $user = DB::table('users')
+        ->where('id','=',auth()->user()->id)
+        ->get();
+
+        // obtener la hora actual  - 2015-12-19 10:10:54
+          $current = Carbon::now()->toDateTimeString();
+          $alert2 = Alertas::
+            where('id_user', '=', auth()->user()->id)
+            ->where('start','<=', $current)
+            ->where('status', '=', 0)
+            ->get();
+
+          $alert = Alertas::get();
+
+          //Trae la alerta Seguro
+          $seguro_alerta = Seguros::
+            where('id_user', '=', auth()->user()->id)
+            ->where('estatus', '=', 0)
+            ->where('end','<=', $current)
+            ->get();
+
+          //Trae la alerta Tc
+          $tc_alerta = TarjetaCirculacion::
+            where('id_user', '=', auth()->user()->id)
+            ->where('estatus', '=', 0)
+            ->where('end','<=', $current)
+            ->get();
+
+        return view('alerts.view-alerts',compact('alert2','user', 'alert','seguro_alerta','tc_alerta'));
+    }
+
+        public function store_calendar_user(Request $request)
+    {
+        $datosEvento = request()->except(['_token','_method'],[]);
+
+        Alertas::insert($datosEvento);
+    }
+
+        public function show_calendar_user()
+    {
+        //Trae datos de db to jason
+        $json2 = $data2['alertas'] = Alertas::where('id_user', '=', auth()->user()->id)->get();
+        $json3 = $data3['seguros'] = Seguros::all()->makeHidden('end')->where('id_user', '=', auth()->user()->id);
+
+        //los convieerte en array
+        $decode2 = json_decode($json2);
+        $decode3 = json_decode($json3);
+
+        //Une los array en uno solo
+        $resultado = array_merge ($decode2,$decode3);
+
+        //retorna a la vista sn json
+        return response()->json($resultado);
+
+    }
+
+        public function update_calendar_user(Request $request, $id)
+        {
+            $datosEvento = request()->except(['_token','_method']);
+            $respuesta = Alertas::where('id','=',$id)->update($datosEvento);
+        }
+
+        public function destroy_calendar_user($id)
+        {
+            Alertas::destroy($id);
+            return response()->json($id);
+        }
+
 }
