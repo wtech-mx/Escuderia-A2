@@ -87,7 +87,14 @@ class AutomovilController extends Controller
             ->where('end','<=', $current)
             ->get();
 
-        return view('garaje.create-garaje',compact('marca', 'users', 'alert2', 'seguro_alerta'));
+          //Trae la alerta Tc
+          $tc_alerta = TarjetaCirculacion::
+            where('id_user', '=', auth()->user()->id)
+            ->where('estatus', '=', 0)
+            ->where('end','<=', $current)
+            ->get();
+
+        return view('garaje.create-garaje',compact('marca', 'users', 'alert2', 'seguro_alerta', 'tc_alerta'));
     }
 
     public function store(Request $request){
@@ -179,7 +186,14 @@ class AutomovilController extends Controller
             ->where('end','<=', $current)
             ->get();
 
-        return view('garaje.edit-garaje',compact('automovil', 'marca', 'users', 'alert2', 'seguro_alerta'));
+          //Trae la alerta Tc
+          $tc_alerta = TarjetaCirculacion::
+            where('id_user', '=', auth()->user()->id)
+            ->where('estatus', '=', 0)
+            ->where('end','<=', $current)
+            ->get();
+
+        return view('garaje.edit-garaje',compact('automovil', 'marca', 'users', 'alert2', 'seguro_alerta', 'tc_alerta'));
     }
 
     function update(Request $request, $id){
