@@ -170,9 +170,7 @@ Route::get('exp_tenencias/view','ExptenenciasController@index')->name('index.exp
 Route::get('exp_tenencias/crear','ExptenenciasController@create')->name('create.exp-tenencias');
 Route::post('exp_tenencias/crear','ExptenenciasController@store')->name('store.exp-tenencias');
 
-Route::get('/exp-fisico/view-exp-fisico', function () {
-    return view('exp-fisico/view-exp-fisico');
-})->middleware(['auth'])->name('view-exp-fisico');
+Route::get('exp-fisico/view-exp-fisico','ExpController@index')->name('index_exp');
 
 /*|--------------------------------------------------------------------------
 |Tarjeta circulacion

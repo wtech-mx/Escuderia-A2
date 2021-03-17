@@ -34,9 +34,10 @@ class CreateTarjetaCirculacionTable extends Migration
             $table->string('tipo_placa')->nullable();
             $table->string('lugar_expedicion')->nullable();
             $table->string('fecha_emision' )->nullable();
-            $table->string('fecha_vencimiento' )->nullable();
+            $table->string('end' )->nullable();
             $table->integer('num_placa' )->nullable();
             $table->string('img')->nullable();
+            $table->integer('estatus');
             $table->timestamps();
         });
     }

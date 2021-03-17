@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Auth;
 use Session;
 use Carbon\Carbon;
 use App\Models\Alertas;
+use App\Models\Seguros;
+use App\Models\TarjetaCirculacion;
 
 
 use Illuminate\Support\Facades\Hash;
@@ -36,7 +38,14 @@ class UserController extends Controller
               ->where('status', '=', 0)
             ->get();
 
-        return view('admin.garaje.create-garaje-admin', compact('users', 'alert2'));
+          //Trae la alerta Seguro
+          $seguro_alerta = Seguros::
+            where('id_user', '=', auth()->user()->id)
+            ->where('estatus', '=', 0)
+            ->where('end','<=', $current)
+            ->get();
+
+        return view('admin.garaje.create-garaje-admin', compact('users', 'alert2','seguro_alerta'));
     }
 
     public function store_auto(Request $request)
@@ -125,7 +134,21 @@ class UserController extends Controller
               ->where('status', '=', 0)
             ->get();
 
-        return view('profile.profile', compact('user','users', 'alert2'));
+          //Trae la alerta Seguro
+          $seguro_alerta = Seguros::
+            where('id_user', '=', auth()->user()->id)
+            ->where('estatus', '=', 0)
+            ->where('end','<=', $current)
+            ->get();
+
+          //Trae la alerta Tc
+          $tc_alerta = TarjetaCirculacion::
+            where('id_user', '=', auth()->user()->id)
+            ->where('estatus', '=', 0)
+            ->where('end','<=', $current)
+            ->get();
+
+        return view('profile.profile', compact('user','users', 'alert2', 'seguro_alerta','tc_alerta'));
     }
 
 /*|--------------------------------------------------------------------------
@@ -150,7 +173,21 @@ class UserController extends Controller
             ->where('status', '=', 0)
             ->get();
 
-        return view('admin.user.view-user-admin',compact('user', 'users', 'alert2'));
+                             //Trae la alerta Seguro
+          $seguro_alerta = Seguros::
+            where('id_user', '=', auth()->user()->id)
+            ->where('estatus', '=', 0)
+            ->where('end','<=', $current)
+            ->get();
+
+          //Trae la alerta Tc
+          $tc_alerta = TarjetaCirculacion::
+            where('id_user', '=', auth()->user()->id)
+            ->where('estatus', '=', 0)
+            ->where('end','<=', $current)
+            ->get();
+
+        return view('admin.user.view-user-admin',compact('user', 'users', 'alert2','seguro_alerta','tc_alerta'));
     }
 
     public function create_admin()
@@ -168,7 +205,21 @@ class UserController extends Controller
               ->where('status', '=', 0)
             ->get();
 
-        return view('admin.user.add-user-admin',compact('user', 'users', 'alert2'));
+         //Trae la alerta Seguro
+          $seguro_alerta = Seguros::
+            where('id_user', '=', auth()->user()->id)
+            ->where('estatus', '=', 0)
+            ->where('end','<=', $current)
+            ->get();
+
+         //Trae la alerta Tc
+          $tc_alerta = TarjetaCirculacion::
+            where('id_user', '=', auth()->user()->id)
+            ->where('estatus', '=', 0)
+            ->where('end','<=', $current)
+            ->get();
+
+        return view('admin.user.add-user-admin',compact('user', 'users', 'alert2','seguro_alerta','tc_alerta'));
     }
 
     public function store_admin(Request $request)
@@ -216,7 +267,21 @@ class UserController extends Controller
               ->where('status', '=', 0)
             ->get();
 
-        return view('admin.user.edit-user-admin',compact('user','users', 'alert2'));
+          //Trae la alerta Seguro
+          $seguro_alerta = Seguros::
+            where('id_user', '=', auth()->user()->id)
+            ->where('estatus', '=', 0)
+            ->where('end','<=', $current)
+            ->get();
+
+          //Trae la alerta Tc
+          $tc_alerta = TarjetaCirculacion::
+            where('id_user', '=', auth()->user()->id)
+            ->where('estatus', '=', 0)
+            ->where('end','<=', $current)
+            ->get();
+
+        return view('admin.user.edit-user-admin',compact('user','users', 'alert2','seguro_alerta','tc_alerta'));
     }
 
     public function update_admin(Request $request,$id)

@@ -164,7 +164,14 @@ class AutomovilController extends Controller
               ->where('status', '=', 0)
             ->get();
 
-        return view('garaje.edit-garaje',compact('automovil', 'marca', 'users', 'alert2'));
+          //Trae la alerta Seguro
+          $seguro_alerta = Seguros::
+            where('id_user', '=', auth()->user()->id)
+            ->where('estatus', '=', 0)
+            ->where('end','<=', $current)
+            ->get();
+
+        return view('garaje.edit-garaje',compact('automovil', 'marca', 'users', 'alert2', 'seguro_alerta'));
     }
 
     function update(Request $request, $id){

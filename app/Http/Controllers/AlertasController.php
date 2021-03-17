@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\View;
 
 use App\Models\Alertas;
 use App\Models\Seguros;
+use App\Models\TarjetaCirculacion;
 use Illuminate\Http\Request;
 use DB;
 use Session;
@@ -34,7 +35,21 @@ class AlertasController extends Controller
             ->where('start','<=', $current)
             ->get();
 
-          return view('admin.alerts.view-alerts-admin', compact('alert', 'user', 'alert2'));
+          //Trae la alerta Seguro
+          $seguro_alerta = Seguros::
+            where('id_user', '=', auth()->user()->id)
+            ->where('estatus', '=', 0)
+            ->where('end','<=', $current)
+            ->get();
+
+          //Trae la alerta Tc
+          $tc_alerta = TarjetaCirculacion::
+            where('id_user', '=', auth()->user()->id)
+            ->where('estatus', '=', 0)
+            ->where('end','<=', $current)
+            ->get();
+
+          return view('admin.alerts.view-alerts-admin', compact('alert', 'user', 'alert2','seguro_alerta','tc_alerta'));
     }
 
     public function store(Request $request)
@@ -77,7 +92,21 @@ class AlertasController extends Controller
 
           $alert = Alertas::get();
 
-        return view('admin.alerts.view-alerts-admin',compact('alert2','user', 'alert'));
+          //Trae la alerta Seguro
+          $seguro_alerta = Seguros::
+            where('id_user', '=', auth()->user()->id)
+            ->where('estatus', '=', 0)
+            ->where('end','<=', $current)
+            ->get();
+
+          //Trae la alerta Tc
+          $tc_alerta = TarjetaCirculacion::
+            where('id_user', '=', auth()->user()->id)
+            ->where('estatus', '=', 0)
+            ->where('end','<=', $current)
+            ->get();
+
+        return view('admin.alerts.view-alerts-admin',compact('alert2','user', 'alert','seguro_alerta','tc_alerta'));
     }
 
         public function store_calendar(Request $request)

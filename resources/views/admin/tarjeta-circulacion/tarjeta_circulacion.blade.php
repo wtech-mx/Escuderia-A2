@@ -121,7 +121,7 @@
 
                                                             <div class="col-sm-6">
                                                                 <p class="text-warning mb-2">Fecha de vencimiento</p>
-                                                                <input type="date" name="fecha_vencimiento" id="fecha_vencimiento" placeholder="MM/YYYY" value="{{$tarjeta_circulacion->fecha_vencimiento}}">
+                                                                <input type="date" name="end" id="end" placeholder="MM/YYYY" value="{{$tarjeta_circulacion->end}}">
                                                             </div>
 
                                                             <div class="col-sm-6 mt-3">

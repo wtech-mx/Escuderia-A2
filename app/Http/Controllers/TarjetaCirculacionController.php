@@ -10,6 +10,7 @@ use Session;
 use DB;
 use Carbon\Carbon;
 use App\Models\Alertas;
+use App\Models\Seguros;
 class TarjetaCirculacionController extends Controller
 {
 /*|--------------------------------------------------------------------------
@@ -33,7 +34,20 @@ class TarjetaCirculacionController extends Controller
               ->where('status', '=', 0)
             ->get();
 
-        return view('tarjeta-circulacion.tarjeta_circulacion',compact('tarjeta_circulacion', 'users', 'alert2'));
+         //Trae la alerta Seguro
+          $seguro_alerta = Seguros::
+            where('id_user', '=', auth()->user()->id)
+            ->where('estatus', '=', 0)
+            ->where('end','<=', $current)
+            ->get();
+          //Trae la alerta Tc
+          $tc_alerta = TarjetaCirculacion::
+            where('id_user', '=', auth()->user()->id)
+            ->where('estatus', '=', 0)
+            ->where('end','<=', $current)
+            ->get();
+
+        return view('tarjeta-circulacion.tarjeta_circulacion',compact('tarjeta_circulacion', 'users', 'alert2','seguro_alerta','tc_alerta'));
     }
 
     public function update(Request $request,$id){
@@ -44,7 +58,7 @@ class TarjetaCirculacionController extends Controller
         $tarjeta_circulacion->tipo_placa = $request->get('tipo_placa');
         $tarjeta_circulacion->lugar_expedicion = $request->get('lugar_expedicion');
         $tarjeta_circulacion->fecha_emision = $request->get('fecha_emision');
-        $tarjeta_circulacion->fecha_vencimiento = $request->get('fecha_vencimiento');
+        $tarjeta_circulacion->end = $request->get('end');
         $tarjeta_circulacion->num_placa = $request->get('num_placa');
         $tarjeta_circulacion->current_auto = auth()->user()->current_auto;
 
@@ -81,8 +95,20 @@ class TarjetaCirculacionController extends Controller
             ->where('start','<=', $current)
               ->where('status', '=', 0)
             ->get();
+         //Trae la alerta Seguro
+          $seguro_alerta = Seguros::
+            where('id_user', '=', auth()->user()->id)
+            ->where('estatus', '=', 0)
+            ->where('end','<=', $current)
+            ->get();
+          //Trae la alerta Tc
+          $tc_alerta = TarjetaCirculacion::
+            where('id_user', '=', auth()->user()->id)
+            ->where('estatus', '=', 0)
+            ->where('end','<=', $current)
+            ->get();
 
-        return view('admin.tarjeta-circulacion.view-tc-admin',compact('tarjeta_circulacion', 'user', 'alert2', 'tarjeta_circulacion2'));
+        return view('admin.tarjeta-circulacion.view-tc-admin',compact('tarjeta_circulacion', 'user', 'alert2', 'tarjeta_circulacion2','seguro_alerta','tc_alerta'));
     }
 
     public function  edit_admin($id){
@@ -97,8 +123,20 @@ class TarjetaCirculacionController extends Controller
             ->where('start','<=', $current)
               ->where('status', '=', 0)
             ->get();
+         //Trae la alerta Seguro
+          $seguro_alerta = Seguros::
+            where('id_user', '=', auth()->user()->id)
+            ->where('estatus', '=', 0)
+            ->where('end','<=', $current)
+            ->get();
+          //Trae la alerta Tc
+          $tc_alerta = TarjetaCirculacion::
+            where('id_user', '=', auth()->user()->id)
+            ->where('estatus', '=', 0)
+            ->where('end','<=', $current)
+            ->get();
 
-        return view('admin.tarjeta-circulacion.tarjeta_circulacion',compact('tarjeta_circulacion', 'users', 'alert2'));
+        return view('admin.tarjeta-circulacion.tarjeta_circulacion',compact('tarjeta_circulacion', 'users', 'alert2','seguro_alerta','tc_alerta'));
     }
 
     function update_admin(Request $request, $id){
@@ -116,7 +154,7 @@ class TarjetaCirculacionController extends Controller
         $tarjeta_circulacion->tipo_placa = $request->get('tipo_placa');
         $tarjeta_circulacion->lugar_expedicion = $request->get('lugar_expedicion');
         $tarjeta_circulacion->fecha_emision = $request->get('fecha_emision');
-        $tarjeta_circulacion->fecha_vencimiento = $request->get('fecha_vencimiento');
+        $tarjeta_circulacion->end = $request->get('end');
         $tarjeta_circulacion->num_placa = $request->get('num_placa');
 
         $tarjeta_circulacion->update();

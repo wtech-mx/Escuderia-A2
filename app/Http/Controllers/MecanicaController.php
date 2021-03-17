@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Str;
 use App\Models\Automovil;
 use App\Models\Mecanica;
+use App\Models\TarjetaCirculacion;
 use App\Models\User;
 use Session;
 use Carbon\Carbon;
@@ -51,7 +52,20 @@ class MecanicaController extends Controller
               ->where('status', '=', 0)
             ->get();
 
-        return view('admin.services.view-mecanica',compact('mecanica_llantas_user','mecanica_llantas_empresa', 'mecanica_banda_user', 'mecanica_banda_empresa','mecanica_freno_user','mecanica_freno_empresa','mecanica_aceite_user','mecanica_aceite_empresa','mecanica_afinacion_user','mecanica_afinacion_empresa', 'mecanica_amortiguadores_user', 'mecanica_amortiguadores_empresa', 'mecanica_bateria_user', 'mecanica_bateria_empresa', 'alert2', 'users'));
+         //Trae la alerta Seguro
+          $seguro_alerta = Seguros::
+            where('id_user', '=', auth()->user()->id)
+            ->where('estatus', '=', 0)
+            ->where('end','<=', $current)
+            ->get();
+          //Trae la alerta Tc
+          $tc_alerta = TarjetaCirculacion::
+            where('id_user', '=', auth()->user()->id)
+            ->where('estatus', '=', 0)
+            ->where('end','<=', $current)
+            ->get();
+
+        return view('admin.services.view-mecanica',compact('mecanica_llantas_user','seguro_alerta','tc_alerta','mecanica_llantas_empresa', 'mecanica_banda_user', 'mecanica_banda_empresa','mecanica_freno_user','mecanica_freno_empresa','mecanica_aceite_user','mecanica_aceite_empresa','mecanica_afinacion_user','mecanica_afinacion_empresa', 'mecanica_amortiguadores_user', 'mecanica_amortiguadores_empresa', 'mecanica_bateria_user', 'mecanica_bateria_empresa', 'alert2', 'users'));
     }
     public function create_servicio()
     {
@@ -77,8 +91,20 @@ class MecanicaController extends Controller
             ->where('start','<=', $current)
               ->where('status', '=', 0)
             ->get();
+         //Trae la alerta Seguro
+          $seguro_alerta = Seguros::
+            where('id_user', '=', auth()->user()->id)
+            ->where('estatus', '=', 0)
+            ->where('end','<=', $current)
+            ->get();
+          //Trae la alerta Tc
+          $tc_alerta = TarjetaCirculacion::
+            where('id_user', '=', auth()->user()->id)
+            ->where('estatus', '=', 0)
+            ->where('end','<=', $current)
+            ->get();
 
-        return view('admin.services.mecanica',compact('empresa', 'marca', 'automovil', 'user', 'alert2', 'users'));
+        return view('admin.services.mecanica',compact('empresa', 'marca', 'automovil', 'user', 'alert2', 'users','seguro_alerta','tc_alerta'));
     }
 
     /* Trae los automoviles con el user seleccionado  */

@@ -10,7 +10,7 @@
                         <div class="col-2  mt-4">
                             <div class="d-flex justify-content-start">
                                     <div class="text-center text-white">
-                                        <a href="{{ route('view-exp-fisico') }}" style="background-color: transparent;clip-path: none">
+                                        <a href="{{ route('index_exp') }}" style="background-color: transparent;clip-path: none">
                                             <img class="" src="{{ asset('img/icon/white/left-arrow.png') }}" width="25px" >
                                         </a>
                                     </div>

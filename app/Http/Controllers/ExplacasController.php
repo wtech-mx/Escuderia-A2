@@ -10,6 +10,8 @@ use App\Models\ExpPlacas;
 use Session;
 use Carbon\Carbon;
 use App\Models\Alertas;
+use App\Models\Seguros;
+use App\Models\TarjetaCirculacion;
 
 class ExplacasController extends Controller
 {
@@ -34,8 +36,20 @@ class ExplacasController extends Controller
               ->where('status', '=', 0)
             ->get();
 
+         //Trae la alerta Seguro
+          $seguro_alerta = Seguros::
+            where('id_user', '=', auth()->user()->id)
+            ->where('estatus', '=', 0)
+            ->where('end','<=', $current)
+            ->get();
+          //Trae la alerta Tc
+          $tc_alerta = TarjetaCirculacion::
+            where('id_user', '=', auth()->user()->id)
+            ->where('estatus', '=', 0)
+            ->where('end','<=', $current)
+            ->get();
 
-        return view('exp-fisico.view-bp',compact('exp_placas', 'alert2'));
+        return view('exp-fisico.view-bp',compact('exp_placas', 'alert2', 'seguro_alerta','tc_alerta'));
     }
 
     public function create(){
@@ -46,8 +60,20 @@ class ExplacasController extends Controller
             ->where('start','<=', $current)
               ->where('status', '=', 0)
             ->get();
+          //Trae la alerta Seguro
+          $seguro_alerta = Seguros::
+            where('id_user', '=', auth()->user()->id)
+            ->where('estatus', '=', 0)
+            ->where('end','<=', $current)
+            ->get();
+          //Trae la alerta Tc
+          $tc_alerta = TarjetaCirculacion::
+            where('id_user', '=', auth()->user()->id)
+            ->where('estatus', '=', 0)
+            ->where('end','<=', $current)
+            ->get();
 
-        return view('exp-fisico.view-bp', compact('alert2'));
+        return view('exp-fisico.view-bp', compact('alert2','seguro_alerta','tc_alerta'));
     }
 
     public function store(Request $request){
@@ -93,8 +119,20 @@ class ExplacasController extends Controller
             ->where('start','<=', $current)
               ->where('status', '=', 0)
             ->get();
+          //Trae la alerta Seguro
+          $seguro_alerta = Seguros::
+            where('id_user', '=', auth()->user()->id)
+            ->where('estatus', '=', 0)
+            ->where('end','<=', $current)
+            ->get();
+          //Trae la alerta Tc
+          $tc_alerta = TarjetaCirculacion::
+            where('id_user', '=', auth()->user()->id)
+            ->where('estatus', '=', 0)
+            ->where('end','<=', $current)
+            ->get();
 
-        return view('admin.exp-fisico.view-bp-admin',compact('exp_placas','automovil', 'alert2'));
+        return view('admin.exp-fisico.view-bp-admin',compact('exp_placas','automovil', 'alert2','seguro_alerta','tc_alerta'));
     }
 
     public function store_admin(Request $request,$id){

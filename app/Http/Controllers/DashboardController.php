@@ -10,6 +10,7 @@ use Session;
 use Carbon\Carbon;
 use App\Models\Alertas;
 use App\Models\Seguros;
+use App\Models\TarjetaCirculacion;
 
 class DashboardController extends Controller
 {
@@ -43,10 +44,17 @@ class DashboardController extends Controller
             ->where('end','<=', $current)
             ->get();
 
+          //Trae la alerta Tc
+          $tc_alerta = TarjetaCirculacion::
+            where('id_user', '=', auth()->user()->id)
+            ->where('estatus', '=', 0)
+            ->where('end','<=', $current)
+            ->get();
+
           if($users->role == 0){
-              return view('dashboard',compact('users', 'user', 'alert2', 'seguro_alerta'));
+              return view('dashboard',compact('users', 'user', 'alert2', 'seguro_alerta','tc_alerta'));
           }else{
-              return view('admin.dashboard',compact('users', 'user', 'alert2', 'seguro_alerta'));
+              return view('admin.dashboard',compact('users', 'user', 'alert2', 'seguro_alerta','tc_alerta'));
           }
     }
 
@@ -85,26 +93,41 @@ class DashboardController extends Controller
             ->where('end','<=', $current)
             ->first();
 
-            if($alert3 == NULL){
+          //Trae la alerta Tc
+          $tc_alerta = TarjetaCirculacion::
+            where('id_user', '=', auth()->user()->id)
+            ->where('estatus', '=', 0)
+            ->where('end','<=', $current)
+            ->get();
+          //Trae la alerta Tc Controlador
+          $tc_alerta2 = TarjetaCirculacion::
+            where('id_user', '=', auth()->user()->id)
+            ->where('estatus', '=', 0)
+            ->where('end','<=', $current)
+            ->first();
 
-             }else {
+
+            if($alert3 != NULL){
                 $alert3->status = 1;
                  $alert3->save();
-            }
+             }
 
-            if($seguro_alerta2 == NULL){
-
-             }else {
-                $seguro_alerta2->estatus = 1;
+            if($seguro_alerta2 != NULL){
+                 $seguro_alerta2->estatus = 1;
                  $seguro_alerta2->save();
-            }
+             }
+
+            if($tc_alerta2 != NULL){
+                 $tc_alerta2->estatus = 1;
+                 $tc_alerta2->save();
+             }
 
                 if($users->role == 0){
                     die();
+                    return view('layouts.app',compact('alert2', 'seguro_alerta','tc_alerta'));
 
-                    return view('layouts.app',compact('alert2', 'seguro_alerta'));
                 }else{
-                    return view('admin.layouts.alert',compact( 'alert2', 'seguro_alerta'));
+                    return view('admin.layouts.alert',compact( 'alert2', 'seguro_alerta','tc_alerta'));
                 }
 
     }

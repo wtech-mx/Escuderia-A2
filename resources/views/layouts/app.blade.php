@@ -71,13 +71,13 @@
                 <div id="seccionRecargar">
                         @include('layouts.alert')
                 </div>
+
                 <script type="text/javascript">
                     $(document).ready(function(){
                         setInterval(
                                 function(){
-                                    console.log('entro');
                                     $('#seccionRecargar').load('{{ route('alerts.alert') }}');
-                                },60000
+                                },20000
                             );
                     });
                 </script>
