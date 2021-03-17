@@ -83,13 +83,6 @@
 
                             {{--Datos para el calendario--}}
 
-                             <div class="col-sm-6 mt-3">
-                                         <!-- Button trigger modal -->
-                                         <button type="button" class="btn ml-5" data-toggle="modal" data-target="#exampleModalpoliza" style="background: #FFFFFF !important;">
-                                            <img class="d-inline mb-2" src="{{ asset('img/icon/black/boton-circular-plus (1).png') }}" width="30px">
-                                         </button>
-                            </div>
-
                             <div class="input-group form-group">
                                 <div class="input-group-prepend " >
                                     <span class="input-group-text" >
@@ -191,6 +184,19 @@
                                 </div>
                                 <input type="number" class="form-control" placeholder="$0000" style="border-radius: 0  10px 10px 0;" id='costo_anual' name="costo_anual" value="{{$seguro->costo_anual}}">
                             </div>
+
+                             <label for="">
+                                 <p class="text-white mt-3"><strong>Foto Poliza Seguro</strong></p>
+                             </label>
+
+                             <div class="col-12 mt-3">
+                                 <div class="d-flex justify-content-center">
+                                         <button type="button" class="btn" data-toggle="modal" data-target="#exampleModalpoliza" style="background: transparent !important;">
+                                             <img class="d-inline mb-2" src="{{ asset('img/icon/white/boton-circular-plus.png') }}" width="50px">
+                                         </button>
+                                 </div>
+                            </div>
+
 
                     </div>
 

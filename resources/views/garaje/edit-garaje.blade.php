@@ -47,7 +47,7 @@
        <form method="POST" action="{{route('update.automovil',$automovil->id)}}" enctype="multipart/form-data" role="form">
              @csrf
            <input type="hidden" name="_method" value="PATCH">
-                        <div class="col-12">
+                        <div class="col-12 mt-3">
                             <div class="input-group form-group">
                                 <div class="input-group-prepend " >
                                     <span class="input-group-text span-edit-car">
@@ -63,7 +63,7 @@
                             </div>
                         </div>
 
-                        <div class="col-12">
+                        <div class="col-12 mt-3">
                             <div class="input-group form-group">
                                 <div class="input-group-prepend " >
                                     <span class="input-group-text span-edit-car">
@@ -75,7 +75,7 @@
                             </div>
                         </div>
 
-                        <div class="col-12">
+                        <div class="col-12 mt-3">
                             <div class="input-group form-group">
                                 <div class="input-group-prepend " >
                                     <span class="input-group-text span-edit-car">
@@ -87,7 +87,7 @@
                             </div>
                         </div>
 
-                        <div class="col-12">
+                        <div class="col-12 mt-3">
                             <div class="input-group form-group">
                                 <div class="input-group-prepend " >
                                     <span class="input-group-text span-edit-car">
@@ -99,7 +99,7 @@
                             </div>
                         </div>
 
-                        <div class="col-12">
+                        <div class="col-12 mt-3">
                             <div class="input-group form-group">
                                 <div class="input-group-prepend " >
                                     <span class="input-group-text span-edit-car">
@@ -111,7 +111,7 @@
                             </div>
                         </div>
 
-                        <div class="col-12">
+                        <div class="col-12 mt-3">
                             <div class="input-group form-group">
                                 <div class="input-group-prepend " >
                                     <span class="input-group-text span-edit-car">
@@ -123,7 +123,7 @@
                             </div>
                         </div>
 
-                        <div class="col-12">
+                        <div class="col-12 mt-3">
                             <div class="input-group form-group">
                                 <div class="input-group-prepend " >
                                     <span class="input-group-text span-edit-car">
@@ -135,7 +135,7 @@
                             </div>
                         </div>
 
-                        <div class="col-12">
+                        <div class="col-12 mt-3">
                             <div class="input-group form-group">
                                 <div class="input-group-prepend " >
                                     <span class="input-group-text span-edit-car" >
@@ -147,7 +147,7 @@
                             </div>
                         </div>
 
-                        <div class="col-12">
+                        <div class="col-12 mt-3">
                             <div class="input-group form-group">
                                 <div class="input-group-prepend " >
                                     <span class="input-group-text span-edit-car">
@@ -159,7 +159,7 @@
                             </div>
                         </div>
 
-                        <div class="col-12">
+                        <div class="col-12 mt-3">
                             <div class="input-group form-group">
                                 <div class="input-group-prepend " >
                                     <span class="input-group-text span-edit-car">
@@ -171,7 +171,7 @@
                             </div>
                         </div>
 
-                        <div class="col-12">
+                        <div class="col-12 mt-3">
                             <p class="text-center">
                                   <img class="d-inline mb-2" src="{{ asset('img-auto/'.$automovil->img) }}"  width="150px">
                             </p>

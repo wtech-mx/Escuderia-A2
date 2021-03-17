@@ -214,7 +214,7 @@
                             </div>
 
                              <label for="">
-                                 <p class="text-white"><strong>Foto Poliza Seguro</strong></p>
+                                 <p class="text-white mt-3"><strong>Foto Poliza Seguro</strong></p>
                              </label>
 
                             <div class="col-12 text-center">

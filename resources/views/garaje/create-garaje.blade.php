@@ -42,7 +42,7 @@
                         </div>
        <form method="POST" action="{{route('store.automovil')}}" enctype="multipart/form-data" role="form">
              @csrf
-                        <div class="col-12">
+                        <div class="col-12 mt-3">
                             <div class="input-group form-group">
                                 <div class="input-group-prepend " >
                                     <span class="input-group-text span-edit-car">
@@ -59,7 +59,7 @@
                             </div>
                         </div>
 
-                        <div class="col-12">
+                        <div class="col-12 mt-3 ">
                             <div class="input-group form-group">
                                 <div class="input-group-prepend " >
                                     <span class="input-group-text span-edit-car">
@@ -71,7 +71,7 @@
                             </div>
                         </div>
 
-                        <div class="col-12" style="display: none">
+                        <div class="col-12 mt-3" style="display: none">
                             <div class="input-group form-group">
                                 <div class="input-group-prepend " >
                                     <span class="input-group-text span-edit-car">
@@ -83,7 +83,7 @@
                             </div>
                         </div>
 
-                        <div class="col-12">
+                        <div class="col-12 mt-3">
                             <div class="input-group form-group">
                                 <div class="input-group-prepend " >
                                     <span class="input-group-text span-edit-car">
@@ -95,7 +95,7 @@
                             </div>
                         </div>
 
-                        <div class="col-12">
+                        <div class="col-12 mt-3">
                             <div class="input-group form-group">
                                 <div class="input-group-prepend " >
                                     <span class="input-group-text span-edit-car">
@@ -107,7 +107,7 @@
                             </div>
                         </div>
 
-                        <div class="col-12">
+                        <div class="col-12 mt-3">
                             <div class="input-group form-group">
                                 <div class="input-group-prepend " >
                                     <span class="input-group-text span-edit-car">
@@ -119,7 +119,7 @@
                             </div>
                         </div>
 
-                        <div class="col-12">
+                        <div class="col-12 mt-3">
                             <div class="input-group form-group">
                                 <div class="input-group-prepend " >
                                     <span class="input-group-text span-edit-car">
@@ -131,7 +131,7 @@
                             </div>
                         </div>
 
-                        <div class="col-12">
+                        <div class="col-12 mt-3">
                             <div class="input-group form-group">
                                 <div class="input-group-prepend " >
                                     <span class="input-group-text span-edit-car">
@@ -143,7 +143,7 @@
                             </div>
                         </div>
 
-                        <div class="col-12">
+                        <div class="col-12 mt-3">
                             <div class="input-group form-group">
                                 <div class="input-group-prepend " >
                                     <span class="input-group-text span-edit-car" >
@@ -155,7 +155,7 @@
                             </div>
                         </div>
 
-                        <div class="col-12">
+                        <div class="col-12 mt-3">
                             <div class="input-group form-group">
                                 <div class="input-group-prepend " >
                                     <span class="input-group-text span-edit-car">
@@ -167,7 +167,7 @@
                             </div>
                         </div>
 
-                        <div class="col-12">
+                        <div class="col-12 mt-3">
                             <div class="input-group form-group">
                                 <div class="input-group-prepend " >
                                     <span class="input-group-text span-edit-car">
