@@ -5,7 +5,7 @@
 
                 <link href="{{ asset('css/garje.css') }}" rel="stylesheet">
 
-                <div class="row" style="background: #050F55 0% 0% no-repeat padding-box;">
+                <div class="row bg-down-blue" style="border-radius: 0 0 0 0;">
 
 
                         <div class="col-2  mt-4">
