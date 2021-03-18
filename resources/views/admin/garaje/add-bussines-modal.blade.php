@@ -6,13 +6,13 @@
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
 
-      <div class="modal-body" style="background: #050F55 0% 0% no-repeat padding-box;border-radius: 30px;">
+      <div class="modal-body bg-down-blue" style="border-radius: 30px;">
 
           <div class="row">
               <div class="col-12">
 
                 <h2 class="text-center text-white mt-3">
-                    Auto de empresa
+                    Auto de empresas
                 </h2>
 
                   <p class="text-center mt-3">
@@ -27,13 +27,13 @@
                             <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
 
                               <li class="nav-item mr-2">
-                                <a class="nav-link active a-perso" id="pills-perfil-tab" data-toggle="pill" href="#perfil" role="tab" aria-controls="perfil" aria-selected="true" style="background-color: #24F1C3;color: #000;font-weight: bold;border-radius: 5px 10px 10px 5px;clip-path: polygon(0% 0%, 0% 100%, 85% 100%, 100% 50%, 85% 0%);">
+                                <a class="nav-link active a-perso" id="pills-perfil-tab" data-toggle="pill" href="#perfil" role="tab" aria-controls="perfil" aria-selected="true" >
                                     Datos de Empresa
                                 </a>
                               </li>
 
                               <li class="nav-item">
-                                <a class="nav-link a-perso" id="pills-Seguridad-tab" data-toggle="pill" href="#pills-Seguridad" role="tab" aria-controls="pills-Seguridad" aria-selected="false" style="background-color: #24C4FB;color: #fff;font-weight: bold;border-radius: 5px 10px 10px 5px;clip-path: polygon(0% 0%, 15% 50%,0% 100%, 75% 100%, 100% 50%, 75% 0%);">
+                                <a class="nav-link a-perso" id="pills-Seguridad-tab" data-toggle="pill" href="#pills-Seguridad" role="tab" aria-controls="pills-Seguridad" aria-selected="false" >
                                     Seguridad
                                 </a>
                               </li>
@@ -147,7 +147,7 @@
 
                                   <div class="col-12 text-center mt-5 mb-5">
 
-                                      <button class="btn btn-lg btn-success btn-save mb-5">
+                                      <button class="btn btn-lg btn-save-neon text-white">
                                           <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}" width="20px" >
                                           Guardar
                                       </button>
@@ -173,7 +173,7 @@
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
 
-       <div class="modal-body" style="background: #050F55 0% 0% no-repeat padding-box;border-radius: 30px;">
+       <div class="modal-body bg-down-blue" style="border-radius: 30px;">
                   <div class="row">
               <div class="col-12">
 
@@ -193,13 +193,13 @@
                             <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
 
                               <li class="nav-item mr-2">
-                                <a class="nav-link active a-perso" id="pills-perfil-tab" data-toggle="pill" href="#perfil2" role="tab" aria-controls="perfil2" aria-selected="true" style="background-color: #24F1C3;color: #000;font-weight: bold;border-radius: 5px 10px 10px 5px;clip-path: polygon(0% 0%, 0% 100%, 85% 100%, 100% 50%, 85% 0%);">
+                                <a class="nav-link active a-perso" id="pills-perfil-tab" data-toggle="pill" href="#perfil2" role="tab" aria-controls="perfil2" aria-selected="true" >
                                     Datos de perfil
                                 </a>
                               </li>
 
                               <li class="nav-item">
-                                <a class="nav-link a-perso" id="pills-Seguridad2-tab" data-toggle="pill" href="#pills-Seguridad2" role="tab" aria-controls="pills-Seguridad2" aria-selected="false" style="background-color: #24C4FB;color: #fff;font-weight: bold;border-radius: 5px 10px 10px 5px;clip-path: polygon(0% 0%, 15% 50%,0% 100%, 75% 100%, 100% 50%, 75% 0%);">
+                                <a class="nav-link a-perso" id="pills-Seguridad2-tab" data-toggle="pill" href="#pills-Seguridad2" role="tab" aria-controls="pills-Seguridad2" aria-selected="false">
                                     Seguridad
                                 </a>
                               </li>
@@ -373,7 +373,7 @@
 
                                   <div class="col-12 text-center mt-5 mb-5">
 
-                                      <button class="btn btn-lg btn-success btn-save mb-5">
+                                      <button class="btn btn-lg btn-save-neon text-white">
                                           <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}" width="20px" >
                                           Guardar
                                       </button>

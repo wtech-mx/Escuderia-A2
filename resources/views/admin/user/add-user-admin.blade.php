@@ -47,36 +47,37 @@
                 </div>
 
 
-                <div class="row bg-down-blue-border" style="background: #050F55 0% 0% no-repeat padding-box;">
+                <div class="row bg-image" >
                                         <div class="col-12 mt-5">
 
                                             <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
 
                                               <li class="nav-item mr-2">
-                                                <a class="nav-link active a-perso" id="pills-perfil-tab" data-toggle="pill" href="#perfil2" role="tab" aria-controls="perfil2" aria-selected="true" style="background-color: #24F1C3;color: #000;font-weight: bold;border-radius: 5px 10px 10px 5px;clip-path: polygon(0% 0%, 0% 100%, 85% 100%, 100% 50%, 85% 0%);">
+                                                <a class="nav-link active a-perso" id="pills-perfil-tab" data-toggle="pill" href="#perfil2" role="tab" aria-controls="perfil2" aria-selected="true" >
                                                     Datos de perfil
                                                 </a>
                                               </li>
 
                                               <li class="nav-item">
-                                                <a class="nav-link a-perso" id="pills-Seguridad2-tab" data-toggle="pill" href="#pills-Seguridad2" role="tab" aria-controls="pills-Seguridad2" aria-selected="false" style="background-color: #24C4FB;color: #fff;font-weight: bold;border-radius: 5px 10px 10px 5px;clip-path: polygon(0% 0%, 15% 50%,0% 100%, 75% 100%, 100% 50%, 75% 0%);">
+                                                <a class="nav-link a-perso" id="pills-Seguridad2-tab" data-toggle="pill" href="#pills-Seguridad2" role="tab" aria-controls="pills-Seguridad2" aria-selected="false">
                                                     Seguridad
                                                 </a>
                                               </li>
 
                                             </ul>
-                                     <form method="POST" action="{{route('store_admin.user')}}" enctype="multipart/form-data" role="form">
-                                         @csrf
 
-                                        @if(Session::has('success'))
-                                            <script>
-                                                Swal.fire(
-                                                    'Exito!',
-                                                    'Se ha guardado exitosamiente.',
-                                                    'success'
-                                                )
-                                            </script>
-                                        @endif
+                                            <form method="POST" action="{{route('store_admin.user')}}" enctype="multipart/form-data" role="form">
+                                             @csrf
+
+                                            @if(Session::has('success'))
+                                                <script>
+                                                    Swal.fire(
+                                                        'Exito!',
+                                                        'Se ha guardado exitosamiente.',
+                                                        'success'
+                                                    )
+                                                </script>
+                                            @endif
 
                                             <div class="tab-content" id="pills-tabContent">
 
@@ -88,7 +89,7 @@
 
                                                 <div class="input-group form-group">
                                                     <div class="input-group-prepend">
-                                                        <span class="input-group-text input-modal" style="background: transparent linear-gradient(180deg, #24F7BC 0%, #24C4FC 100%) 0% 0% no-repeat padding-box;border: none;">
+                                                        <span class="input-group-text input-modal" >
                                                              <img class="" src="{{ asset('img/icon/white/email.png') }}" width="25px" >
                                                         </span>
                                                     </div>
@@ -103,7 +104,7 @@
 
                                                 <div class="input-group form-group">
                                                     <div class="input-group-prepend">
-                                                        <span class="input-group-text input-modal" style="background: transparent linear-gradient(180deg, #24F7BC 0%, #24C4FC 100%) 0% 0% no-repeat padding-box;border: none;">
+                                                        <span class="input-group-text input-modal" >
                                                              <img class="" src="{{ asset('img/icon/white/email.png') }}" width="25px" >
                                                         </span>
                                                     </div>
@@ -116,7 +117,7 @@
 
                                                 <div class="input-group form-group">
                                                     <div class="input-group-prepend">
-                                                        <span class="input-group-text input-modal" style="background: transparent linear-gradient(180deg, #24F7BC 0%, #24C4FC 100%) 0% 0% no-repeat padding-box;border: none;">
+                                                        <span class="input-group-text input-modal" >
                                                              <img class="" src="{{ asset('img/icon/white/call.png') }}" width="25px" >
                                                         </span>
                                                     </div>
@@ -130,7 +131,7 @@
 
                                                 <div class="input-group form-group">
                                                     <div class="input-group-prepend " >
-                                                        <span class="input-group-text input-modal" style="background: transparent linear-gradient(180deg, #24F7BC 0%, #24C4FC 100%) 0% 0% no-repeat padding-box;border: none;">
+                                                        <span class="input-group-text input-modal" >
                                                              <img class="" src="{{ asset('img/icon/white/marcador-de-posicion.png') }}" width="25px" >
                                                         </span>
                                                     </div>
@@ -143,7 +144,7 @@
 
                                             <div class="input-group form-group">
                                                 <div class="input-group-prepend " >
-                                                    <span class="input-group-text input-modal" style="background: transparent linear-gradient(180deg, #24F7BC 0%, #24C4FC 100%) 0% 0% no-repeat padding-box;border: none;">
+                                                    <span class="input-group-text input-modal" >
                                                          <img class="" type="date" src="{{ asset('img/icon/white/calendario (2).png') }}" width="25px" >
                                                     </span>
                                                 </div>
@@ -156,7 +157,7 @@
 
                                                 <div class="input-group form-group">
                                                     <div class="input-group-prepend " >
-                                                        <span class="input-group-text input-modal" style="background: transparent linear-gradient(180deg, #24F7BC 0%, #24C4FC 100%) 0% 0% no-repeat padding-box;border: none;">
+                                                        <span class="input-group-text input-modal" >
                                                              <img class="" src="{{ asset('img/icon/white/referencia (1).png') }}" width="25px" >
                                                         </span>
                                                     </div>
@@ -181,7 +182,7 @@
                                                  <p class="text-white"><strong>Genero</strong></p>
                                              </label>
 
-                                          <div class="col-12 text-center">
+                                          <div class="col-12 text-center mb-5">
 
                                             <div class="input-group form-group d-inline">
 
@@ -231,7 +232,7 @@
 
                                                 <div class="input-group form-group">
                                                     <div class="input-group-prepend">
-                                                        <span class="input-group-text input-modal"style="background: transparent linear-gradient(180deg, #24F7BC 0%, #24C4FC 100%) 0% 0% no-repeat padding-box;border: none;">
+                                                        <span class="input-group-text input-modal">
                                                              <img class="" src="{{ asset('img/icon/white/padlock.png') }}" width="25px" >
                                                         </span>
                                                     </div>
@@ -244,7 +245,7 @@
 
                                                 <div class="input-group form-group">
                                                     <div class="input-group-prepend">
-                                                        <span class="input-group-text input-modal"style="background: transparent linear-gradient(180deg, #24F7BC 0%, #24C4FC 100%) 0% 0% no-repeat padding-box;border: none;">
+                                                        <span class="input-group-text input-modal">
                                                              <img class="" src="{{ asset('img/icon/white/password.png') }}" width="25px" >
                                                         </span>
                                                     </div>
@@ -253,7 +254,7 @@
 
                                                   <div class="col-12 text-center mt-5 mb-5">
 
-                                                      <button class="btn btn-lg btn-success btn-save mb-5">
+                                                      <button class="btn btn-lg btn-save-neon text-white">
                                                           <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}" width="20px" >
                                                           Actualizar
                                                       </button>
@@ -264,6 +265,7 @@
 
                                             </div>
                                      </form>
+
                                         </div>
                                     </div>
 

@@ -4,7 +4,7 @@
 
      <link href="{{ asset('css/edit-garaje.css') }}" rel="stylesheet">
 
-<div class="row bg-blue" style="background-image: linear-gradient(to bottom, #24f7bc, #00edda, #00e1f0, #00d3fb, #24c4fc);">
+<div class="row bg-blue" style="background-image: linear-gradient(to bottom, #00d62e, #2ce048, #43eb5f, #56f574, #68ff88);">
 
                     @if(Session::has('empresa'))
                         <script>
@@ -331,7 +331,7 @@
 
                                     </div>
 
-                                     <button type="submit" class="btn btn-lg btn-success btn-save mt-5">
+                                     <button type="submit" class="btn btn-lg btn-save-dark text-white mt-5">
                                            <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}" width="20px" >
                                                 Guardar
                                      </button>

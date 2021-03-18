@@ -1,5 +1,6 @@
 .card{
-    background-color: #050F55 ;
+    /*background-color: #050F55 ;*/
+    background-image: url('../img/bg-medida.png');
     border: 1px solid #050F55;
 }
 .car-modal{

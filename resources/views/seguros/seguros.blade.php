@@ -61,7 +61,7 @@ $newDate = date("d/m/Y", strtotime($originalDate));
                     </script>
                 @endif
 
-                <div class="row  bg-down-image-border" >
+                <div class="row bg-image" >
                     <div class="col-12 mt-5">
 
                             <p class="text-left text-white" style="font: normal normal bold 20px/27px Segoe UI;">

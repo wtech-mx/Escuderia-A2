@@ -1,5 +1,7 @@
 @extends('admin.layouts.app')
 
+@section('bg-color', 'background-color: #000000;')
+
 @section('content')
 
                 <link href="{{ asset('css/login-form.css') }}" rel="stylesheet">
@@ -37,7 +39,8 @@
 
                     <div class="col-8">
                                 <h5 class="text-center text-white ml-4 mr-4 ">
-                                    <strong>Seguro</strong>
+                                    <strong>Seguro - </strong>
+{{--                                    <strong>Seguro - {{$seguro->User->name}}</strong>--}}
                                 </h5>
                     </div>
 
@@ -51,7 +54,7 @@
 
                     <div class="col-12 p-3">
                         <p class="text-center">
-                            <img class="" src="{{ asset('img/icon/seguros/'.$img) }}" width="150px" >
+                            <img class="" src="{{ asset('img/icon/seguros/'.$img) }}" width="150px" ><br>
                         </p>
                     </div>
 
@@ -72,7 +75,7 @@
                     </script>
                 @endif
 
-                <div class="row bg-down-blue-border" style="background: #050F55 0% 0% no-repeat padding-box;">
+                <div class="row bg-image" >
                     <div class="col-12 mt-5">
 
                             <p class="text-left text-white" style="font: normal normal bold 20px/27px Segoe UI;">
@@ -227,7 +230,7 @@
                     </div>
 
                     <div class="col-12 text-center mt-5 mb-5">
-                        <button class="btn btn-lg btn-success btn-save ">
+                        <button class="btn btn-lg btn-save-neon text-white">
                             <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}" width="20px" >
                             Actualizar
                         </button>

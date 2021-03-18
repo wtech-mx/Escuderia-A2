@@ -4,7 +4,7 @@
 
 <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
 
-<div class="row bg-blue" style="background-image: linear-gradient(to bottom, #246af7, #315ffb, #4351fe, #573ffe, #6b24fc);">
+<div class="row bg-down-blue" style="border-radius: 0 0 0 0;">
 
                         @if(Session::has('success'))
                         <script>

@@ -7,7 +7,7 @@
                 <link href="{{ asset('css/login-form.css') }}" rel="stylesheet">
                 <link href="{{ asset('css/dashboard-admin.css') }}" rel="stylesheet">
 
-                <div class="row " style="background-color: #050F55;">
+                <div class="row " style="background-image: url('../img/bg-medida.png');">
 
                         <div class="col-2 mt-4">
                             <div class="d-flex justify-content-start">
@@ -45,110 +45,11 @@
                             </div>
                         </div>
 
-                        <div class="col-6 mt-4">
-                            <a class="btn mb-3 mr-1" href="#carouselExampleControls" role="button" data-slide="prev">
-                                <img class="" src="{{ asset('img/icon/white/flecha-izquierda.png') }}" width="25px" >
-                            </a>
-
-                            <a class="btn mb-3 " href="#carouselExampleControls" role="button" data-slide="next">
-                                <img class="" src="{{ asset('img/icon/white/flecha-correcta.png') }}" width="25px" >
-                            </a>
-                        </div>
-
-                        <div class="col-6 mt-4 d-inline">
-                            <h5 class="text-white text-tittle-app mr-3 d-inline" style="font: normal normal bold 15px/20px Segoe UI">
-                                Agregar
-                            </h5>
-
-                            <a type="button"  data-toggle="modal" data-target="#alert-modal">
-                                <img class="" src="{{ asset('img/icon/white/plus.png') }}" width="30px" >
-                            </a>
-                        </div>
-
-                        <div class="col-12">
-
-                            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="90000">
-
-                                  <div class="carousel-inner">
-
-                                    {{-- ----------------------------------------------------------------------------}}
-                                    {{-- |Vehculos de user--}}
-                                    {{-- |----------------------------------------------------------------------------}}
-
-                                    <div class="carousel-item active">
-                                        <h5 class="text-center text-white mt-4 ml-4 mr-4 ">
-                                            <strong>Alertas Servicios</strong>
-                                        </h5>
-
-                                      <div class="row">
-                                        <div class="col-12">
-                                            <table class="table text-white ">
-                                              <thead>
-                                                <tr>
-                                                  <th scope="col"></th>
-                                                  <th scope="col">Servicio</th>
-                                                  <th scope="col">Km</th>
-                                                  <th scope="col">Fecha</th>
-                                                  <th scope="col">cambio</th>
-                                                </tr>
-                                              </thead>
-
-                                              <tbody>
-                                                <tr>
-                                                  <th scope="row">1</th>
-                                                  <td>Mark</td>
-                                                  <td>Otto</td>
-                                                  <td>@mdo</td>
-                                                  <td>@mdo</td>
-                                                </tr>
-                                              </tbody>
-                                            </table>
-                                        </div>
-                                      </div>
-
-                                    </div>
-
-                                    {{-- ----------------------------------------------------------------------------}}
-                                    {{-- |Vehculos de empresa--}}
-                                    {{-- |----------------------------------------------------------------------------}}
-
-                                    <div class="carousel-item ">
-
-                                        <h5 class="text-center text-white mt-4 ml-4 mr-4 ">
-                                            <strong>Alertas Personalizadas</strong>
-                                        </h5>
-
-                                      <div class="row">
-
-                                            <div class="col-12">
-                                                <table class="table text-white">
-
-                                                  <thead>
-                                                    <tr>
-                                                      <th scope="col">Usuario</th>
-                                                      <th scope="col">Titulo</th>
-                                                      <th scope="col">Descripcion</th>
-                                                      <th scope="col">Fecha Inicio</th>
-                                                    </tr>
-                                                  </thead>
-
-
-                                                </table>
-                                            </div>
-
-                                      </div>
-
-                                    </div>
-
-                                  </div>
-
-                            </div>
-
-                        </div>
+                        @include('admin.alerts.calendar')
 
                 </div>
 
-                <div class="row bg-down-blue" style="z-index:1000;background: transparent linear-gradient(180deg, #24DAF7 0%, #24F7BC 100%) 0% 0% no-repeat padding-box;">
+                <div class="row " style="z-index:1000;background-image: linear-gradient(to bottom, #00d62e, #2ce048, #43eb5f, #56f574, #68ff88);">
                     <div class="col-12 p-4">
                         <h6 class="text-center text-white">
                            <strong style="font: normal normal bold 25px/33px Segoe UI;"> ¿Qué haremos hoy?</strong>
@@ -159,7 +60,7 @@
                          <a href="{{ route('index.alert') }}">
                             <div class="card" style="border-radius: 15px">
                               <div class="card-body" >
-                                  <img class="d-inline mb-2" src="{{ asset('img/icon/white/campana (1).png') }}" alt="Icon User" width="50px">
+                                  <img class="d-inline mb-2" src="{{ asset('img/icon/white/notification.png') }}" alt="Icon User" width="50px">
                                   <p class="card-text text-white"><strong>Alertas</strong></p>
                               </div>
                             </div>

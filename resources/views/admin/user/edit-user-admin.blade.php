@@ -46,7 +46,7 @@
                     </div>
                 </div>
 
-                <div class="row bg-down-blue-border" style="background: #050F55 0% 0% no-repeat padding-box;">
+                <div class="row bg-image" >
                     <div class="col-12 mt-5">
                         <form method="POST" action="{{route('update_admin.user',$user->id)}}" enctype="multipart/form-data" role="form">
 
@@ -256,7 +256,7 @@
 
 
                                       <div class="col-12 text-center mt-3 mb-5">
-                                          <button class="btn btn-lg btn-success btn-save ">
+                                          <button class="btn btn-lg btn-save-neon text-white">
                                               <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}" width="20px" >
                                               Actualizar
                                          </button>
@@ -300,7 +300,7 @@
 
                                       <div class="col-12 text-center mt-5 mb-5">
 
-                                          <button class="btn btn-lg btn-success btn-save ">
+                                          <button class="btn btn-lg btn-save-neon text-white">
                                               <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}" width="20px" >
                                               Actualizar
                                           </button>
