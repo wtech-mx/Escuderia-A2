@@ -2,7 +2,7 @@
 
 @section('content')
 
-                <div class="row bg-blue" style="background: #050F55 0% 0% no-repeat padding-box;">
+                <div class="row bg-image" >
 
                         <div class="col-2  mt-4">
                             <div class="d-flex justify-content-start">
@@ -30,7 +30,7 @@
 
                 </div>
 
-                <div class="row bg-blue" style="background: #050F55 0% 0% no-repeat padding-box;">
+                <div class="row bg-image" >
                     @include('alerts.calendar')
                 </div>
 

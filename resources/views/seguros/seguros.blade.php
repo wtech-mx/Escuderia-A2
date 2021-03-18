@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('bg-color', 'background-color: #000000;')
+
 @section('content')
 
                 <link href="{{ asset('css/login-form.css') }}" rel="stylesheet">
@@ -7,7 +9,7 @@
 
 
                 <div class="row bg-profile" style="z-index: 100000">
-@include('seguros.modal-pol-img')
+                @include('seguros.modal-pol-img')
                     <div class="col-2">
                         <div class="d-flex justify-content-start">
                                 <div class="text-center text-white">
@@ -56,7 +58,7 @@
                     </script>
                 @endif
 
-                <div class="row bg-down-blue-border" style="background: #050F55 0% 0% no-repeat padding-box;">
+                <div class="row  bg-down-image-border" >
                     <div class="col-12 mt-5">
 
                             <p class="text-left text-white" style="font: normal normal bold 20px/27px Segoe UI;">
@@ -201,10 +203,10 @@
                     </div>
 
                     <div class="col-12 text-center mt-5 mb-5">
-                        <button class="btn btn-lg btn-success btn-save ">
+                        <s class="btn btn-lg btn-save-neon text-white">
                             <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}" width="20px" >
                             Actualizar
-                        </button>
+                        </s>
                     </div>
 
                 </div>

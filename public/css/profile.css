@@ -1,6 +1,6 @@
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
-    background-color: #24F1C3 ;
+    background-color: #00f936 ;
     color: #000;
     font-weight: bold;
     border-radius: 5px 10px 10px 5px;
@@ -8,7 +8,7 @@
 }
 
 .a-perso{
-    background-color: #24C4FB  ;
+    background-color: #007E1B  ;
     color: #fff;
     font-weight: bold;
     border-radius: 5px 10px 10px 5px;
@@ -16,7 +16,8 @@
 }
 
 .input-group-text{
-    background: transparent linear-gradient(180deg, #24F7BC 0%, #24C4FC 100%) 0% 0% no-repeat padding-box;
+    /*background: transparent linear-gradient(180deg, #24F7BC 0%, #24C4FC 100%) 0% 0% no-repeat padding-box;*/
+    background-image: linear-gradient(to bottom, #00d62e, #2ce048, #43eb5f, #56f574, #68ff88);
     border: none;
 }
 

@@ -82,7 +82,7 @@
                         setInterval(
                                 function(){
                                     $('#seccionRecargar').load('{{ route('alerts.alert') }}');
-                                },20000
+                                },600000
                             );
                     });
                 </script>

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('bg-color', 'background-image: linear-gradient(to bottom, #050f55, #050f55, #050f55, #050f55, #050f55);')
+@section('bg-color', 'background-color: #000000;')
 
 @section('content')
 <p style="display: none">{{$userId = Auth::id()}}</p>
@@ -46,7 +46,7 @@
                     </div>
                 </div>
 
-                <div class="row bg-down-blue-border" style="background: #050F55 0% 0% no-repeat padding-box;">
+                <div class="row bg-down-image-border">
                     <div class="col-12 mt-5">
                         <form method="POST" action="{{route('update.user',$userId)}}" enctype="multipart/form-data" role="form">
 

@@ -1,6 +1,6 @@
 .btn-garaje{
     border-radius: 5px;
-    background-image: linear-gradient(to bottom, #24f7bc, #00edda, #00e1f0, #00d3fb, #24c4fc);
+    background-image: linear-gradient(to bottom, #00d62e, #2ce048, #43eb5f, #56f574, #68ff88);
     padding: 5px;
 }
 
@@ -10,7 +10,7 @@
 
 .btn-garaje-2{
     border-radius: 5px;
-    background-image: linear-gradient(to bottom, #f4d03f, #f2b937, #eda233, #e68c32, #dc7633);
+    background-image: linear-gradient(to bottom, #00d62e, #2ce048, #43eb5f, #56f574, #68ff88);
     padding: 5px;
 }
 

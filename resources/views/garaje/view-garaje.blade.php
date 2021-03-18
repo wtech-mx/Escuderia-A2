@@ -7,7 +7,7 @@
 
                 <link href="{{ asset('css/garje.css') }}" rel="stylesheet">
 
-                <div class="row bg-blue" style="background: #050F55 0% 0% no-repeat padding-box;">
+                <div class="row bg-image" >
 
                     @include('garaje.modal-estatus')
                     @if(Session::has('success'))
@@ -80,7 +80,7 @@
                                           @foreach($users as $item2)
                                              @if($item2->current_auto == $item->id)
                                                     <div class="col-6  mt-4">
-                                                            <div class="card card-slide-garaje" style="background-image: linear-gradient(to bottom, #24f7bc, #00edda, #00e1f0, #00d3fb, #24c4fc);">
+                                                            <div class="card card-slide-garaje" style="background-image: linear-gradient(to bottom, #00d62e, #2ce048, #43eb5f, #56f574, #68ff88);">
                                                               <div class="card-body" >
                                                                   <img class="d-inline mb-2" src="{{ asset('img/icon/car2.png') }}" alt="Icon documento" width="150px">
                                                                   <p class="card-text"><strong>{{$item->submarca}}</strong></p>

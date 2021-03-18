@@ -78,7 +78,7 @@
 
                         <p class="text-center mt-3 text-white">
                             Ya tienes una cuenta?
-                            <a  class="text-center " href="{{ route('login') }}" style="color: #0092c5">Iniciar sesion</a>
+                            <a  class="text-center " href="{{ route('login') }}" style="color: #00f936">Iniciar sesion</a>
                         </p>
 
                     </div>
