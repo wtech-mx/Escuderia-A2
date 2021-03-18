@@ -237,7 +237,7 @@
                              <div class="col-12 mt-3">
                                  <div class="d-flex justify-content-center">
                                      <a type="button" class="btn ml-5" data-toggle="modal" data-target="#exampleModal" >
-                                         <img class="d-inline mb-2" src="{{ asset('img/icon/black/boton-circular-plus (1).png') }}" width="30px">
+                                         <img class="d-inline mb-2" src="{{ asset('img/icon/white/add.png') }}" width="30px">
                                      </a>
                                  </div>
                             </div>
