@@ -40,33 +40,33 @@ $newDate = date("d/m/Y", strtotime($originalDate));
         </div>
 
 
-        <form class="card-details" method="POST" action="{{route('update.tc',$tarjeta_circulacion->id)}}" enctype="multipart/form-data" role="form">
-
-            @csrf
-
-            <input type="hidden" name="_method" value="PATCH">
-
-                @if(Session::has('success'))
-                            <script>
-                                Swal.fire({
-                                  title: 'Exito!!',
-                                  html:
-                                    'Se ha actualizado tu  <b>Tarjeta de Circulación</b>, ' +
-                                    'Exitosamente',
-                                  // text: 'Se ha agragado la "MARCA" Exitosamente',
-                                  imageUrl: '{{ asset('img/icon/color/dosier.png') }}',
-                                  background: '#fff',
-                                  imageWidth: 150,
-                                  imageHeight: 150,
-                                  imageAlt: 'USUARIO IMG',
-                                })
-                            </script>
-                        @endif
 
                 <div class="row  bg-down-image-border" >
 
                     <div class="col-12">
 
+                    <form class="card-details" method="POST" action="{{route('update.tc',$tarjeta_circulacion->id)}}" enctype="multipart/form-data" role="form">
+
+                        @csrf
+
+                        <input type="hidden" name="_method" value="PATCH">
+
+                            @if(Session::has('success'))
+                                        <script>
+                                            Swal.fire({
+                                              title: 'Exito!!',
+                                              html:
+                                                'Se ha actualizado tu  <b>Tarjeta de Circulación</b>, ' +
+                                                'Exitosamente',
+                                              // text: 'Se ha agragado la "MARCA" Exitosamente',
+                                              imageUrl: '{{ asset('img/icon/color/dosier.png') }}',
+                                              background: '#fff',
+                                              imageWidth: 150,
+                                              imageHeight: 150,
+                                              imageAlt: 'USUARIO IMG',
+                                            })
+                                        </script>
+                                    @endif
                         <p class="text-left text-white mt-5 mb-5" style="font: normal normal bold 20px/27px Segoe UI;">
                             <strong>Detalles de Tarjeta de Circulacion</strong>
                         </p>
@@ -245,20 +245,23 @@ $newDate = date("d/m/Y", strtotime($originalDate));
                                  </div>
                             </div>
 
+                                            <div class="col-12 text-center mt-5 mb-5">
+                                                <button class="btn btn-lg btn-save-neon text-white">
+                                                    <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}" width="20px" >
+                                                    Actualizar
+                                                </button>
+                                            </div>
+
+                        </form>
+                        @include('tarjeta-circulacion.modal-ts-img')
                     </div>
 
-                    <div class="col-12 text-center mt-5 mb-5">
-                        <button class="btn btn-lg btn-save-neon text-white">
-                            <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}" width="20px" >
-                            Actualizar
-                        </button>
-                    </div>
-                     @include('tarjeta-circulacion.modal-ts-img')
+
                 </div>
 
 
 
-       </form>
+
 
 
 @endsection

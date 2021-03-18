@@ -23,11 +23,11 @@ class CreateVerificacionTable extends Migration
                 ->inDelete('set null');
 
             $table->string('title');
-            $table->text('descripcion');
+            $table->text('descripcion')->nullable();
             $table->string('color');
             $table->integer('estatus');
-            $table->date('start');
-            $table->date('end');
+            $table->date('start')->nullable();
+            $table->date('end')->nullable();
 
         });
     }

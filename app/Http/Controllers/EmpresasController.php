@@ -11,6 +11,8 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
 use Carbon\Carbon;
 use App\Models\Alertas;
+use App\Models\Seguros;
+use App\Models\TarjetaCirculacion;
 
 class EmpresasController extends Controller
 {

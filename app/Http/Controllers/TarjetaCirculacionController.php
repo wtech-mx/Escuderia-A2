@@ -25,16 +25,16 @@ class TarjetaCirculacionController extends Controller
 
         $tarjeta_circulacion = TarjetaCirculacion::where('current_auto','=',$auto->current_auto)->first();
 
-                        $users = DB::table('users')
+        $users = DB::table('users')
         ->get();
-                          // obtener la hora actual  - 2015-12-19 10:10:54
+
+       // obtener la hora actual  - 2015-12-19 10:10:54
           $current = Carbon::now()->toDateTimeString();
           $alert2 = Alertas::
             where('id_user', '=', auth()->user()->id)
             ->where('start','<=', $current)
               ->where('status', '=', 0)
             ->get();
-
          //Trae la alerta Seguro
           $seguro_alerta = Seguros::
             where('id_user', '=', auth()->user()->id)
@@ -72,6 +72,21 @@ class TarjetaCirculacionController extends Controller
         $tarjeta_circulacion->descripcion = $request->get('descripcion');
 
         $tarjeta_circulacion->update();
+
+/*            $verificacion = Verificacion::findOrFail($id);
+            switch($tarjeta_circulacion) {
+                case($tarjeta_circulacion->num_placao == 5 ):
+
+                    $verificacion->descripcion = 'Su verificacion le toca en el mes de Enero y Febrero';
+
+                break;
+                case($tarjeta_circulacion->seguro == 3):
+                     $verificacion->descripcion = 'Su verificacion le toca en el mes de Febrero y Marzo';
+                break;
+            }
+        dd($verificacion->descripcion);
+
+        $verificacion->update();*/
 
         Session::flash('success', 'Se ha guardado sus datos con exito');
         return redirect()->route('index.tc', compact('tarjeta_circulacion'));
@@ -173,14 +188,6 @@ class TarjetaCirculacionController extends Controller
         $tarjeta_circulacion->color = $request->get('color');
         $tarjeta_circulacion->descripcion = $request->get('descripcion');
         $tarjeta_circulacion->update();
-
-        $verificacion = new  Verificacion;
-        $verificacion->id_tc = $tarjeta_circulacion->id;
-        $verificacion->title = 'Verificacion';
-        $verificacion->descripcion = $request->get('descripcion');
-        $verificacion->color = '#E67E22';
-        $verificacion->estatus = 0;
-        $verificacion->save();
 
 
         Session::flash('success', 'Se ha guardado sus datos con exito');

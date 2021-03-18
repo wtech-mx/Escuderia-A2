@@ -38,7 +38,6 @@ class ImgTcController extends Controller
 
     	$tarjeta_circulacion = TarjetaCirculacion::find($id_tc);
     	$tarjeta_circulacion->id_tc = $img_tc->id;
-
     	$tarjeta_circulacion->update();
 
         Session::flash('success', 'Se ha guardado sus datos con exito');

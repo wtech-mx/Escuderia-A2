@@ -44,16 +44,16 @@
                             </div>
                         </div>
 
-                    @if ($img->ImgTc->count())
+                    @if ($exp_tc->count())
                             <div class="col-6">
-                                <a type="button" class="" data-toggle="modal" data-target="#modal-doc-{{$img->ImgTc->id}}">
+                                <a type="button" class="" data-toggle="modal" data-target="#modal-doc-{{$exp_tc->id}}">
                                     <p class="text-center">
-                                            <img class="d-inline mb-2" src="{{asset('img-tc/'.$img->ImgTc->img)}}" alt="{{$img->ImgTc->img}}" width="100px">
+                                            <img class="d-inline mb-2" src="{{asset('img-tc/'.$exp_tc->img)}}" alt="{{$exp_tc->img}}" width="100px">
                                     </p>
                                 </a>
                             </div>
                             <!-- Modal -->
-                            <div class="modal fade" id="modal-doc-{{$img->ImgTc->id}}" tabindex="-1" role="dialog" aria-labelledby="modal-doc-{{$img->ImgTc->id}}" aria-hidden="true">
+                            <div class="modal fade" id="modal-doc-{{$exp_tc->id}}" tabindex="-1" role="dialog" aria-labelledby="modal-doc-{{$exp_tc->id}}" aria-hidden="true">
                               <div class="modal-dialog  modal-sm modal-dialog-centered" role="document">
                                 <div class="modal-content">
 
@@ -66,7 +66,7 @@
                                     </div>
                                   <div class="modal-body">
                                       <p class="text-center">
-                                          <img class="" src="{{asset('img-tc/'.$img->ImgTc->img)}}" alt="{{$img->ImgTc->img}}" width="100%">
+                                          <img class="" src="{{asset('img-tc/'.$exp_tc->img)}}" alt="{{$exp_tc->img}}" width="100%">
                                       </p>
                                   </div>
 
@@ -74,7 +74,6 @@
                               </div>
                             </div>
                     @else
-
                         <div class="col-12 mb3">
                             <p class="text-center title-car">
                             <img class="d-inline mb-2" src="{{ asset('img/icon/white/paper (1).png') }}" alt="Icon documento" width="150px">
@@ -100,7 +99,6 @@
                                 Escanea tu Expediente
                             </p>
                         </div>
-
                     @endif
 
                         <!-- Modal -->

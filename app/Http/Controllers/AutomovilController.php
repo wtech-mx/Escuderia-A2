@@ -12,6 +12,7 @@ use App\Models\TarjetaCirculacion;
 use Session;
 use Carbon\Carbon;
 use App\Models\Alertas;
+use App\Models\Verificacion;
 
 class AutomovilController extends Controller
 {
@@ -156,6 +157,13 @@ class AutomovilController extends Controller
         $user = User::findOrFail($id);
         $user->current_auto = $automovil->id;
         $user->update();
+
+        $verificacion = new  Verificacion;
+        $verificacion->id_tc = $tarjeta_circulacion->id;
+        $verificacion->title = 'Verificacion';
+        $verificacion->color = '#E67E22';
+        $verificacion->estatus = 0;
+        $verificacion->save();
 
         Session::flash('success', 'Se ha guardado sus datos con exito');
 

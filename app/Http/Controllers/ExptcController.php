@@ -49,7 +49,7 @@ class ExptcController extends Controller
             ->where('end','<=', $current)
             ->get();
 
-        $img = TarjetaCirculacion::where('current_auto','=',$user->current_auto)->first();
+        $img = TarjetaCirculacion::where('current_auto','=',$user->current_auto)->get();
 
         return view('exp-fisico.view-tc',compact('exp_tc', 'img', 'alert2','seguro_alerta','tc_alerta'));
     }
@@ -92,10 +92,16 @@ class ExptcController extends Controller
     		$exp_tc->tc=time().".".$file->getClientOriginalExtension();
     	}
 
+        $exp_tc->id_tc = $request->get('id_tc');
         $exp_tc->id_user = auth()->user()->id;
     	$exp_tc->current_auto = auth()->user()->current_auto;
 
         $exp_tc->save();
+
+        $id_tc = $exp_tc->id_tc;
+        $tarjeta_circulacion = TarjetaCirculacion::find($id_tc);
+    	$tarjeta_circulacion->id_tc = $exp_tc->id;
+    	$tarjeta_circulacion->update();
 
         Session::flash('success', 'Se ha guardado sus datos con exito');
 

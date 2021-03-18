@@ -6,11 +6,11 @@
 
                 <div class="col-12">
                     <p class="text-center text-dark" style="font: normal normal bold 23px/31px Segoe UI;">
-                        Agregar Datos
+                        Agregar Imagen
                     </p>
                 </div>
 
-                <form method="POST" action="{{route('store.img-tc')}}" enctype="multipart/form-data" role="form">
+                <form method="POST" action="{{route('store.exp-tc')}}" enctype="multipart/form-data" role="form">
                     @csrf
                     <div class="col-12 mt-3">
 
@@ -23,12 +23,12 @@
                         </label>
 
                         <div class=" custom-file mb-3">
-                            <input type="file" class="custom-file-input input-group-text" name="img" id="img">
+                            <input type="file" class="custom-file-input input-group-text" name="tc" id="tc">
                             <label class="custom-file-label">Elegir img...</label>
                         </div>
 
-                        <button type="submit mt-5" class="btn btn-success btn-save text-dark" style="background-color: #38c172 !important;">
-                            <img class="d-inline" src="{{ asset('img/icon/white/save-file-option (1).png') }}" alt="Icon documento" width="30px">
+                        <button class="btn btn-lg btn-save-neon text-white">
+                            <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}" width="20px" >
                             Guardar
                         </button>
 
