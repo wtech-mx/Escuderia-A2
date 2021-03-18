@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="row bg-blue" style="background-image: linear-gradient(to bottom, #00d62e, #2ce048, #43eb5f, #56f574, #68ff88);">
+<div class="row bg-down-blue" style="border-radius: 0 0 0 0;">
                         <div class="col-2  mt-4">
                             <div class="d-flex justify-content-start">
                                     <div class="text-center text-white">
@@ -30,10 +30,10 @@
                         <div class="col-6 mt-5">
                             <p class="text-center">
                                 <a href="{{ route('index.exp-factura') }}">
-                                    <img class="d-inline mb-2" src="{{ asset('img/icon/black/boton-circular-plus (1).png') }}" alt="Icon boton-circular-plus (1)" width="30px">
+                                    <img class="d-inline mb-2" src="{{ asset('img/icon/white/boton-circular-plus.png') }}" alt="Icon boton-circular-plus" width="30px">
                                 </a>
                             </p>
-                            <p class="text-center text-dark">
+                            <p class="text-center text-white">
                                Facturas
                             </p>
                         </div>
@@ -41,10 +41,10 @@
                         <div class="col-6 mt-5">
                             <p class="text-center">
                                 <a href="{{ route('index.exp-tenencias') }}">
-                                    <img class="d-inline mb-2" src="{{ asset('img/icon/black/boton-circular-plus (1).png') }}" alt="Icon boton-circular-plus (1)" width="30px">
+                                    <img class="d-inline mb-2" src="{{ asset('img/icon/white/boton-circular-plus.png') }}" alt="Icon boton-circular-plus" width="30px">
                                 </a>
                             </p>
-                            <p class="text-center text-dark">
+                            <p class="text-center text-white">
                                Tenencias
                             </p>
                         </div>
@@ -52,10 +52,10 @@
                         <div class="col-6 mt-5">
                             <p class="text-center">
                                 <a href="{{ route('index.exp-cr') }}">
-                                    <img class="d-inline mb-2" src="{{ asset('img/icon/black/boton-circular-plus (1).png') }}" alt="Icon boton-circular-plus (1)" width="30px">
+                                    <img class="d-inline mb-2" src="{{ asset('img/icon/white/boton-circular-plus.png') }}" alt="Icon boton-circular-plus" width="30px">
                                 </a>
                             </p>
-                            <p class="text-center text-dark">
+                            <p class="text-center text-white">
                                Carta Responsiva/ Identificacion
                             </p>
                         </div>
@@ -63,10 +63,10 @@
                         <div class="col-6 mt-5">
                             <p class="text-center">
                                 <a href="{{ route('index.exp-poliza') }}">
-                                    <img class="d-inline mb-2" src="{{ asset('img/icon/black/boton-circular-plus (1).png') }}" alt="Icon boton-circular-plus (1)" width="30px">
+                                    <img class="d-inline mb-2" src="{{ asset('img/icon/white/boton-circular-plus.png') }}" alt="Icon boton-circular-plus" width="30px">
                                 </a>
                             </p>
-                            <p class="text-center text-dark">
+                            <p class="text-center text-white">
                                 Póliza de Seguro
                             </p>
                         </div>
@@ -74,10 +74,10 @@
                         <div class="col-6 mt-5">
                             <p class="text-center">
                                 <a href="{{ route('index.exp-tc') }}">
-                                    <img class="d-inline mb-2" src="{{ asset('img/icon/black/boton-circular-plus (1).png') }}" alt="Icon boton-circular-plus (1)" width="30px">
+                                    <img class="d-inline mb-2" src="{{ asset('img/icon/white/boton-circular-plus.png') }}" alt="Icon boton-circular-plus" width="30px">
                                 </a>
                             </p>
-                            <p class="text-center text-dark">
+                            <p class="text-center text-white">
                                Copia de tarjeta de circulacion
                             </p>
                         </div>
@@ -85,10 +85,10 @@
                         <div class="col-6 mt-5">
                             <p class="text-center">
                                 <a href="{{ route('index.exp-reemplacamiento') }}">
-                                    <img class="d-inline mb-2" src="{{ asset('img/icon/black/boton-circular-plus (1).png') }}" alt="Icon boton-circular-plus (1)" width="30px">
+                                    <img class="d-inline mb-2" src="{{ asset('img/icon/white/boton-circular-plus.png') }}" alt="Icon boton-circular-plus" width="30px">
                                 </a>
                             </p>
-                            <p class="text-center text-dark">
+                            <p class="text-center text-white">
                               Reemplacamiento
                             </p>
                         </div>
@@ -96,10 +96,10 @@
                         <div class="col-6 mt-5">
                             <p class="text-center">
                                 <a href="{{ route('index.exp-bp') }}">
-                                    <img class="d-inline mb-2" src="{{ asset('img/icon/black/boton-circular-plus (1).png') }}" alt="Icon boton-circular-plus (1)" width="30px">
+                                    <img class="d-inline mb-2" src="{{ asset('img/icon/white/boton-circular-plus.png') }}" alt="Icon boton-circular-plus" width="30px">
                                 </a>
                             </p>
-                            <p class="text-center text-dark">
+                            <p class="text-center text-white">
                                Baja de placas
                             </p>
                         </div>
@@ -107,10 +107,10 @@
                         <div class="col-6 mt-5">
                             <p class="text-center">
                                 <a href="{{ route('index.exp-ine') }}">
-                                    <img class="d-inline mb-2" src="{{ asset('img/icon/black/boton-circular-plus (1).png') }}" alt="Icon boton-circular-plus (1)" width="30px">
+                                    <img class="d-inline mb-2" src="{{ asset('img/icon/white/boton-circular-plus.png') }}" alt="Icon boton-circular-plus" width="30px">
                                 </a>
                             </p>
-                            <p class="text-center text-dark">
+                            <p class="text-center text-white">
                               INE
                             </p>
                         </div>
@@ -118,10 +118,10 @@
                         <div class="col-6 mt-5">
                             <p class="text-center">
                                 <a href="{{ route('index.exp-cd') }}">
-                                    <img class="d-inline mb-2" src="{{ asset('img/icon/black/boton-circular-plus (1).png') }}" alt="Icon boton-circular-plus (1)" width="30px">
+                                    <img class="d-inline mb-2" src="{{ asset('img/icon/white/boton-circular-plus.png') }}" alt="Icon boton-circular-plus" width="30px">
                                 </a>
                             </p>
-                            <p class="text-center text-dark">
+                            <p class="text-center text-white">
                               Comprobante de domicilio
                             </p>
                         </div>
@@ -129,10 +129,10 @@
                         <div class="col-6 mt-5">
                             <p class="text-center">
                                 <a href="{{ route('index.exp-rfc') }}">
-                                    <img class="d-inline mb-2" src="{{ asset('img/icon/black/boton-circular-plus (1).png') }}" alt="Icon boton-circular-plus (1)" width="30px">
+                                    <img class="d-inline mb-2" src="{{ asset('img/icon/white/boton-circular-plus.png') }}" alt="Icon boton-circular-plus" width="30px">
                                 </a>
                             </p>
-                            <p class="text-center text-dark">
+                            <p class="text-center text-white">
                               RFC
                             </p>
                         </div>
