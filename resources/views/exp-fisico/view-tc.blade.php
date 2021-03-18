@@ -45,15 +45,16 @@
                         </div>
 
                     @if ($exp_tc->count())
+                        @foreach($exp_tc as $item)
                             <div class="col-6">
-                                <a type="button" class="" data-toggle="modal" data-target="#modal-doc-{{$exp_tc->id}}">
+                                <a type="button" class="" data-toggle="modal" data-target="#modal-doc-{{$item->id}}">
                                     <p class="text-center">
-                                            <img class="d-inline mb-2" src="{{asset('img-tc/'.$exp_tc->img)}}" alt="{{$exp_tc->img}}" width="100px">
+                                            <img class="d-inline mb-2" src="{{asset('img-tc/'.$item->tc)}}" alt="{{$item->tc}}" width="100px">
                                     </p>
                                 </a>
                             </div>
                             <!-- Modal -->
-                            <div class="modal fade" id="modal-doc-{{$exp_tc->id}}" tabindex="-1" role="dialog" aria-labelledby="modal-doc-{{$exp_tc->id}}" aria-hidden="true">
+                            <div class="modal fade" id="modal-doc-{{$item->id}}" tabindex="-1" role="dialog" aria-labelledby="modal-doc-{{$item->id}}" aria-hidden="true">
                               <div class="modal-dialog  modal-sm modal-dialog-centered" role="document">
                                 <div class="modal-content">
 
@@ -66,13 +67,14 @@
                                     </div>
                                   <div class="modal-body">
                                       <p class="text-center">
-                                          <img class="" src="{{asset('img-tc/'.$exp_tc->img)}}" alt="{{$exp_tc->img}}" width="100%">
+                                          <img class="" src="{{asset('img-tc/'.$item->tc)}}" alt="{{$item->tc}}" width="100%">
                                       </p>
                                   </div>
 
                                 </div>
                               </div>
                             </div>
+                        @endforeach
                     @else
                         <div class="col-12 mb3">
                             <p class="text-center title-car">
