@@ -1,4 +1,4 @@
-
+<p style="display: none">{{$userId = Auth::id()}}</p>
                 <div class="row bg-blue">
                     <div class="navbar">
 
@@ -11,7 +11,7 @@
                         </div>
 
                         <div class="navbar__item -orange">
-                            <a href="{{ route('view-win-share') }}">
+                            <a href="#">
                             <span class="navbar__icon">
                                  <img class="" src="{{ asset('img/icon/color/trophy.png') }}" width="25px" >
                             </span>
@@ -27,7 +27,7 @@
                         </div>
 
                         <div class="navbar__item -purple">
-                            <a href="#">
+                            <a href="{{ route('edit.profile', $userId) }}">
                                 <span class="navbar__icon">
                                     <img class="" src="{{ asset('img/icon/color/user.png') }}" width="25px" >
                                 </span>
@@ -35,7 +35,7 @@
                         </div>
 
                         <div class="navbar__item -camel">
-                            <a href="{{ route('view-alerts') }}">
+                            <a href="{{ route('calendar.index_calendar_user') }}">
                             <span class="navbar__icon">
                                 <img class="" src="{{ asset('img/icon/color/campana.png') }}" width="25px" >
                             </span>

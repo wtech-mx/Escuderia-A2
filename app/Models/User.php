@@ -71,4 +71,9 @@ class User extends Authenticatable
        return $this->hasMany(Seguros::class,'id_user');
     }
 
+    public function TarjetaCirculacion()
+    {
+       return $this->hasMany(TarjetaCirculacion::class,'id_user');
+    }
+
 }

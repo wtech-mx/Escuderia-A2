@@ -11,6 +11,7 @@ use DB;
 use Carbon\Carbon;
 use App\Models\Alertas;
 use App\Models\Seguros;
+use App\Models\Verificacion;
 class TarjetaCirculacionController extends Controller
 {
 /*|--------------------------------------------------------------------------
@@ -122,7 +123,7 @@ class TarjetaCirculacionController extends Controller
     public function  edit_admin($id){
 
         $tarjeta_circulacion = TarjetaCirculacion::findOrFail($id);
-                        $users = DB::table('users')
+        $users = DB::table('users')
         ->get();
                           // obtener la hora actual  - 2015-12-19 10:10:54
           $current = Carbon::now()->toDateTimeString();
@@ -165,14 +166,21 @@ class TarjetaCirculacionController extends Controller
         $tarjeta_circulacion->end = $request->get('end');
 
         $tarjeta_circulacion->num_placa = $request->get('num_placa');
-        $tarjeta_circulacion->current_auto = auth()->user()->current_auto;
+        $tarjeta_circulacion->current_auto = $request->get('current_auto');
 
         //datos para el calednario
         $tarjeta_circulacion->title = $request->get('title');
         $tarjeta_circulacion->color = $request->get('color');
         $tarjeta_circulacion->descripcion = $request->get('descripcion');
-
         $tarjeta_circulacion->update();
+
+        $verificacion = new  Verificacion;
+        $verificacion->id_tc = $tarjeta_circulacion->id;
+        $verificacion->title = 'Verificacion';
+        $verificacion->descripcion = $request->get('descripcion');
+        $verificacion->color = '#E67E22';
+        $verificacion->estatus = 0;
+        $verificacion->save();
 
 
         Session::flash('success', 'Se ha guardado sus datos con exito');

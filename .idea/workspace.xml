@@ -19,21 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="936a45dc-4f36-4130-a52f-695b08d602c5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/exp-fisico/view-bp.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/exp-fisico/view-bp.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/exp-fisico/view-cd.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/exp-fisico/view-cd.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/exp-fisico/view-cr.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/exp-fisico/view-cr.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/exp-fisico/view-exp-fisico.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/exp-fisico/view-exp-fisico.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/exp-fisico/view-factura.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/exp-fisico/view-factura.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/exp-fisico/view-ine.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/exp-fisico/view-ine.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/exp-fisico/view-poliza.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/exp-fisico/view-poliza.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/exp-fisico/view-reemplacamiento.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/exp-fisico/view-reemplacamiento.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/exp-fisico/view-rfc.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/exp-fisico/view-rfc.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/exp-fisico/view-tc.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/exp-fisico/view-tc.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/exp-fisico/view-tenencia.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/exp-fisico/view-tenencia.blade.php" afterDir="false" />
-    </list>
+    <list default="true" id="936a45dc-4f36-4130-a52f-695b08d602c5" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

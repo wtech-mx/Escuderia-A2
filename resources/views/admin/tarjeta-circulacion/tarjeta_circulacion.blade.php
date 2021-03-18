@@ -103,6 +103,10 @@
                                                         <input type="text" name="nombre" id="nombre" placeholder="Nombre" value="{{$tarjeta_circulacion->nombre}}">
                                                     </div>
 
+                                                    <div class="form-group">
+                                                        <input type="hidden" name="current_auto" id="current_auto" placeholder="Nombre" value="{{$tarjeta_circulacion->Automovil->id}}">
+                                                    </div>
+
                                                     <p class="text-muted mt-3">Tarjeta de Circulacion </p>
 
                                                     <div class="form-group">

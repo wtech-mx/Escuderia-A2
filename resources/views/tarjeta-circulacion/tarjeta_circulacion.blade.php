@@ -6,7 +6,10 @@
 
         <link href="{{ asset('css/login-form.css') }}" rel="stylesheet">
         <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
-
+<?php
+$originalDate = $tarjeta_circulacion->end;
+$newDate = date("d/m/Y", strtotime($originalDate));
+?>
 
         <div class="row bg-down-image-border" >
                 @include('seguros.modal-pol-img')
@@ -70,11 +73,11 @@
 
                         {{--Datos para el calendario--}}
                         <div class="input-group form-group">
-                            <input type="hidden" class="form-control" id='title' name="title" value="{{$tarjeta_circulacion->User->name}}">
+                            <input type="hidden" class="form-control" id='title' name="title" value="{{$tarjeta_circulacion->Automovil->Marca->nombre}}">
                         </div>
 
                         <div class="input-group form-group">
-                            <input type="hidden" class="form-control" id='descripcion' name="descripcion" value="{{$tarjeta_circulacion->Automovil->submarca}}">
+                            <input type="hidden" class="form-control" id='descripcion' name="descripcion" value="Su Seguro expira el dia: {{$newDate}}">
                         </div>
 
                         <div class="input-group form-group">

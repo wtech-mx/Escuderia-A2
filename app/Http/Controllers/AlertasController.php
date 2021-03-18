@@ -122,13 +122,15 @@ class AlertasController extends Controller
         //Trae datos de db to jason
         $json2 = $data2['alertas'] = Alertas::all();
         $json3 = $data3['seguros'] = Seguros::all()->makeHidden('end');
+        $json4 = $data3['tarjeta_circulacion'] = TarjetaCirculacion::all()->makeHidden('end');
 
         //los convieerte en array
         $decode2 = json_decode($json2);
         $decode3 = json_decode($json3);
+        $decode4 = json_decode($json4);
 
         //Une los array en uno solo
-        $resultado = array_merge ($decode2,$decode3);
+        $resultado = array_merge ($decode2,$decode3,$decode4);
 
         //retorna a la vista sn json
         return response()->json($resultado);
@@ -154,8 +156,7 @@ class AlertasController extends Controller
         public function index_calendar_user()
     {
 
-        $user = DB::table('users')
-        ->where('id','=',auth()->user()->id)
+        $user = DB::table('tarjeta_circulacion')
         ->get();
 
         // obtener la hora actual  - 2015-12-19 10:10:54

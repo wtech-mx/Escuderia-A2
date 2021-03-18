@@ -4,7 +4,7 @@
             <div class="modal-content">
 
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Datos del Evento</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Datos de la Alerta</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
@@ -17,7 +17,7 @@
                       <input class="form-control" type="hidden" name="txtID" id="txtID">
 
                       <div class="form-group col-12">
-                        <input class="form-control" type="hidden" name="txtFecha" id="txtFecha">
+                        <input class="form-control" type="date" name="txtFecha" id="txtFecha">
                       </div>
 
                       <div class="form-group col-12">
@@ -30,27 +30,25 @@
 
                       <div class="form-group col-12">
                           <label for="">Titulo</label>
-                          <input class="form-control" type="text" name="title" id="title">
+                          <input class="form-control" type="text" name="title" id="title" disabled>
                       </div>
 
-{{--                      <div class="form-group col-12">--}}
-{{--                          <label for="">Hora</label>--}}
-{{--                          <input class="form-control" type="time" name="txtHora" id="txtHora" min="07:00" max="19:00" step="600">--}}
-{{--                      </div>--}}
+{{--                      <div class="form-group col-12">
+                          <label for="">Hora</label>
+                          <input class="form-control" type="time" name="txtHora" id="txtHora" min="07:00" max="19:00" step="600">
+                      </div>--}}
+
 
                       <div class="form-group col-12">
-                         <label for="">Selecionar Usuario</label>
-                              <select class="form-control" id="id_user" name="id_user">
-                                   <option value="">Seleccione usuario</option>
-                                       @foreach($user as $item)
-                                          <option value="{{$item->id}}">{{$item->name}}</option>
-                                       @endforeach
-                              </select>
+                            @foreach($user as $item)
+                                <input class="form-control" type="hidden" name="id_user" id="id_user" value="{{$item->id_user}}" disabled>
+                                 @break
+                            @endforeach
                       </div>
 
 
-                      <label for="">Description</label>
-                      <textarea class="form-control" name="descripcion" id="descripcion" cols="30" rows="3"></textarea>
+                      <label for="">Descripcion</label>
+                      <textarea class="form-control" name="descripcion" id="descripcion" cols="30" rows="3" disabled></textarea>
                       <br>
 
                   </div>
@@ -58,9 +56,7 @@
               </div>
 
               <div class="modal-footer">
-                  <button class="btn btn-success" id="btnAgregar">Agregar</button>
                   <button class="btn btn-warning" id="btnModificar">Modificar</button>
-                  <button class="btn btn-danger" id="btnBorrar">Borrar</button>
 
               </div>
             </div>

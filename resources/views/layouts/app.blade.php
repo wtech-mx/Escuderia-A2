@@ -64,8 +64,9 @@
                 <div class="container-fluid">
 
                     @yield('content')
-                    @include('layouts.tab-bar')
-
+                    @auth
+                        @include('layouts.tab-bar')
+                    @endauth
                 </div>
             </div>
 
@@ -73,6 +74,7 @@
 
     </div>
 </body>
+
                 <div id="seccionRecargar">
                         @include('layouts.alert')
                 </div>
