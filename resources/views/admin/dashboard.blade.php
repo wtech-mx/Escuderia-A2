@@ -1,8 +1,15 @@
 @extends('admin.layouts.app')
 
-@section('bg-color', 'background-image:none')
+@section('bg-blue', 'background-color:#68fe87')
 
 @section('content')
+
+
+                <style>
+                    .bg-blue{
+                        background-color:#68fe87
+                    }
+                </style>
 
                 <link href="{{ asset('css/login-form.css') }}" rel="stylesheet">
                 <link href="{{ asset('css/dashboard-admin.css') }}" rel="stylesheet">
@@ -45,11 +52,21 @@
                             </div>
                         </div>
 
+                        <div class="col-12 p-3 ">
+                            <div class=" d-flex justify-content-between bg-white p-2 rounded-pill">
+                                <span class="badge badge-pill" style="background-color: #2ECC71">Noticia</span>
+                                <span class="badge badge-pill" style="background-color: #8E44AD">Seguro</span>
+                                <span class="badge badge-pill" style="background-color: #F1C40F;color: #000000">Tarjeta Circulacion</span>
+                                <span class="badge badge-pill" style="background-color: #FF0000">Verificacion</span>
+                                <span class="badge badge-pill" style="background-color: #2980B9">Servicos</span>
+                            </div>
+                        </div>
+
                         @include('admin.alerts.calendar')
 
                 </div>
 
-                <div class="row " style="z-index:1000;background-image: linear-gradient(to bottom, #00d62e, #2ce048, #43eb5f, #56f574, #68ff88);">
+                <div class="row " style="z-index:1000;background-image: linear-gradient(to bottom, #00d62e, #2ce048, #43eb5f, #56f574, #68ff88);border-radius: 30px 30px 0 0;">
                     <div class="col-12 p-4">
                         <h6 class="text-center text-white">
                            <strong style="font: normal normal bold 25px/33px Segoe UI;"> ¿Qué haremos hoy?</strong>

@@ -53,6 +53,17 @@
 
                         <div class="tab-content" id="pills-tabContent">
                           <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+
+                                <div class="col-12 mt-3 p-4">
+                                    <div class=" d-flex justify-content-between bg-white p-2 rounded-pill">
+                                        <span class="badge badge-pill" style="background-color: #2ECC71">Noticia</span>
+                                        <span class="badge badge-pill" style="background-color: #8E44AD">Seguro</span>
+                                        <span class="badge badge-pill" style="background-color: #F1C40F;color: #000000">Tarjeta Circulacion</span>
+                                        <span class="badge badge-pill" style="background-color: #FF0000">Verificacion</span>
+                                        <span class="badge badge-pill" style="background-color: #2980B9">Servicos</span>
+                                    </div>
+                                </div>
+
                                @include('admin.alerts.calendar')
                           </div>
 
