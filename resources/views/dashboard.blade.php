@@ -47,26 +47,34 @@
                         </div>
                     </div>
 
-                    <div class="col-md-12 mt-3 mb-3">
+                    <style>
+                        #calendar{
+                            margin: 0px auto;
+                        }
+                    </style>
 
-                            <div class="card" style="border-radius: 15px;position: relative;top: 15px;opacity: 0.7;">
-                              <div class="card-body" >
-                                  <h4 class="card-text d-inline mr-4 ">
-                                     <strong>Servicio de mecanica</strong>
-                                  </h4>
-                                  <button class="btn" style="border-radius: 10px;background-color: #050f55">
-                                      <img class="d-inline mb-2" src="{{ asset('img/icon/white/call.png')}}" alt="Icon User" width="15px">
-                                  </button>
-                              </div>
-                            </div>
+                    <div class="col-md-12">
 
-                            <div class="card" style="border-radius: 15px">
-                              <div class="card-body" >
-                                  <p class="card-text">
-                                      <strong>CDMX | Calle 25, esquina con Av. Patri TEL : 5510079878</strong>
-                                  </p>
-                              </div>
-                            </div>
+{{--                            <div class="card" style="border-radius: 15px;position: relative;top: 15px;opacity: 0.7;">--}}
+{{--                              <div class="card-body" >--}}
+{{--                                  <h4 class="card-text d-inline mr-4 ">--}}
+{{--                                     <strong>Servicio de mecanica</strong>--}}
+{{--                                  </h4>--}}
+{{--                                  <button class="btn" style="border-radius: 10px;background-color: #050f55">--}}
+{{--                                      <img class="d-inline mb-2" src="{{ asset('img/icon/white/call.png')}}" alt="Icon User" width="15px">--}}
+{{--                                  </button>--}}
+{{--                              </div>--}}
+{{--                            </div>--}}
+
+{{--                            <div class="card" style="border-radius: 15px">--}}
+{{--                              <div class="card-body" >--}}
+{{--                                  <p class="card-text">--}}
+{{--                                      <strong>CDMX | Calle 25, esquina con Av. Patri TEL : 5510079878</strong>--}}
+{{--                                  </p>--}}
+{{--                              </div>--}}
+{{--                            </div>--}}
+
+                         @include('alerts.calendar')
 
                     </div>
                 </div>

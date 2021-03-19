@@ -73,21 +73,6 @@ class TarjetaCirculacionController extends Controller
 
         $tarjeta_circulacion->update();
 
-/*            $verificacion = Verificacion::findOrFail($id);
-            switch($tarjeta_circulacion) {
-                case($tarjeta_circulacion->num_placao == 5 ):
-
-                    $verificacion->descripcion = 'Su verificacion le toca en el mes de Enero y Febrero';
-
-                break;
-                case($tarjeta_circulacion->seguro == 3):
-                     $verificacion->descripcion = 'Su verificacion le toca en el mes de Febrero y Marzo';
-                break;
-            }
-        dd($verificacion->descripcion);
-
-        $verificacion->update();*/
-
         Session::flash('success', 'Se ha guardado sus datos con exito');
         return redirect()->route('index.tc', compact('tarjeta_circulacion'));
 

@@ -32,6 +32,7 @@
 
                 <div class="row bg-image" >
                     @include('alerts.calendar')
+                    @include('alerts.modal')
                 </div>
 
 

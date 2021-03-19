@@ -54,13 +54,13 @@
                             <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
 
                               <li class="nav-item mr-2">
-                                <a class="nav-link active a-perso" id="pills-perfil-tab" data-toggle="pill" href="#perfil" role="tab" aria-controls="perfil" aria-selected="true" style="background-color: #24F1C3;color: #000;font-weight: bold;border-radius: 5px 10px 10px 5px;clip-path: polygon(0% 0%, 0% 100%, 85% 100%, 100% 50%, 85% 0%);">
+                                <a class="nav-link active a-perso" id="pills-perfil-tab" data-toggle="pill" href="#perfil" role="tab" aria-controls="perfil" aria-selected="true" >
                                     Datos de perfil
                                 </a>
                               </li>
 
                               <li class="nav-item">
-                                <a class="nav-link a-perso" id="pills-Seguridad-tab" data-toggle="pill" href="#pills-Seguridad" role="tab" aria-controls="pills-Seguridad" aria-selected="false" style="background-color: #24C4FB;color: #fff;font-weight: bold;border-radius: 5px 10px 10px 5px;clip-path: polygon(0% 0%, 15% 50%,0% 100%, 75% 100%, 100% 50%, 75% 0%);">
+                                <a class="nav-link a-perso" id="pills-Seguridad-tab" data-toggle="pill" href="#pills-Seguridad" role="tab" aria-controls="pills-Seguridad" aria-selected="false">
                                     Seguridad
                                 </a>
                               </li>
@@ -80,11 +80,11 @@
 
                                 <div class="input-group form-group">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text input-modal" style="background: transparent linear-gradient(180deg, #24F7BC 0%, #24C4FC 100%) 0% 0% no-repeat padding-box;border: none;">
+                                        <span class="input-group-text input-modal" >
                                              <img class="" src="{{ asset('img/icon/white/edificio-de-oficinas.png') }}" width="25px" >
                                         </span>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="Nombre" id="nombre" name="nombre" style="border-radius: 0  10px 10px 0;">
+                                    <input type="text" class="form-control" placeholder="Nombre" id="nombre" name="nombre" >
                                 </div>
 
                                  <label for="">
@@ -93,11 +93,11 @@
 
                                 <div class="input-group form-group">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text input-modal" style="background: transparent linear-gradient(180deg, #24F7BC 0%, #24C4FC 100%) 0% 0% no-repeat padding-box;border: none;">
+                                        <span class="input-group-text input-modal" >
                                              <img class="" src="{{ asset('img/icon/white/email.png') }}" width="25px" >
                                         </span>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="correo@correo.com" id="email" name="email" style="border-radius: 0  10px 10px 0;">
+                                    <input type="text" class="form-control" placeholder="correo@correo.com" id="email" name="email" >
                                 </div>
 
                                  <label for="">
@@ -106,11 +106,11 @@
 
                                 <div class="input-group form-group">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text input-modal" style="background: transparent linear-gradient(180deg, #24F7BC 0%, #24C4FC 100%) 0% 0% no-repeat padding-box;border: none;">
+                                        <span class="input-group-text input-modal" >
                                              <img class="" src="{{ asset('img/icon/white/call.png') }}" width="25px" >
                                         </span>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="55 5555-0000" id="telefono" name="telefono" style="border-radius: 0  10px 10px 0;">
+                                    <input type="text" class="form-control" placeholder="55 5555-0000" id="telefono" name="telefono" >
                                 </div>
 
 
@@ -120,11 +120,11 @@
 
                                 <div class="input-group form-group">
                                     <div class="input-group-prepend " >
-                                        <span class="input-group-text input-modal" style="background: transparent linear-gradient(180deg, #24F7BC 0%, #24C4FC 100%) 0% 0% no-repeat padding-box;border: none;" >
+                                        <span class="input-group-text input-modal"  >
                                              <img class="" src="{{ asset('img/icon/white/marcador-de-posicion.png') }}" width="25px" >
                                         </span>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="Direccion" style="border-radius: 0  10px 10px 0;" id="direccion" name="direccion">
+                                    <input type="text" class="form-control" placeholder="Direccion"  id="direccion" name="direccion">
                                 </div>
 
                                  <label for="">
@@ -133,7 +133,7 @@
 
                                 <div class="input-group form-group">
                                     <div class="input-group-prepend " >
-                                        <span class="input-group-text input-modal" style="background: transparent linear-gradient(180deg, #24F7BC 0%, #24C4FC 100%) 0% 0% no-repeat padding-box;border: none;" >
+                                        <span class="input-group-text input-modal"  >
                                              <img class="" src="{{ asset('img/icon/white/referencia (1).png') }}" width="25px" >
                                         </span>
                                     </div>
@@ -165,11 +165,11 @@
 
                                 <div class="input-group form-group">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text input-modal" style="background: transparent linear-gradient(180deg, #24F7BC 0%, #24C4FC 100%) 0% 0% no-repeat padding-box;border: none;">
+                                        <span class="input-group-text input-modal" >
                                              <img class="" src="{{ asset('img/icon/white/padlock.png') }}" width="25px" >
                                         </span>
                                     </div>
-                                    <input type="password" class="form-control" placeholder="****" id="password" name="password" style="border-radius: 0  10px 10px 0;">
+                                    <input type="password" class="form-control" placeholder="****" id="password" name="password" >
                                 </div>
 
                                  <label for="">
@@ -178,16 +178,16 @@
 
                                 <div class="input-group form-group">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text input-modal" style="background: transparent linear-gradient(180deg, #24F7BC 0%, #24C4FC 100%) 0% 0% no-repeat padding-box;border: none;">
+                                        <span class="input-group-text input-modal" >
                                              <img class="" src="{{ asset('img/icon/white/password.png') }}" width="25px" >
                                         </span>
                                     </div>
-                                    <input type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="Confirmar Contraseña" id="password-confirm" style="border-radius: 0  10px 10px 0;">
+                                    <input type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="Confirmar Contraseña" id="password-confirm" >
                                 </div>
 
                                   <div class="col-12 text-center mt-5 mb-5">
 
-                                      <button class="btn btn-lg btn-success btn-save mb-5">
+                                      <button class="btn btn-lg btn-save-neon text-white">
                                           <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}" width="20px" >
                                           Actualizar
                                       </button>

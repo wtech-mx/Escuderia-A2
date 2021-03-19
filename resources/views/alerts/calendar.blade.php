@@ -174,6 +174,3 @@
                     <div class="col"></div>
 
                 </div>
-
-                 @include('alerts.modal')
-

@@ -1,6 +1,7 @@
 @extends('admin.layouts.app')
 
 @section('content')
+
 <link href="{{ asset('css/tarjeta-circulacion.css') }}" rel="stylesheet">
 
 <div class="row bg-blue" style="background-image: linear-gradient(to bottom, #24b6f7, #009fff, #0086ff, #0066ff, #243afc);">
@@ -80,6 +81,8 @@
                                                     @csrf
 
                                                     {{--Datos para el calendario--}}
+
+
 
                                                     <div class="input-group form-group">
                                                         <input type="hidden" class="form-control" id='title' name="title" value="{{$tarjeta_circulacion->User->name}}">
@@ -177,10 +180,5 @@
 @include('admin.tarjeta-circulacion.modal-ts-img')
 
 </div>
-
-
-
-
-
 
 @endsection
