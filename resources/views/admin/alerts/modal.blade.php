@@ -25,10 +25,14 @@
                       </div>
 
                       <div class="form-group col-12" >
+                          <input type="hidden" class="form-control" name="image" id="image">
+                      </div>
+
+                      <div class="form-group col-12" >
                           <input class="form-control" type="hidden" name="status" id="status" >
                       </div>
 
-                      <div class="form-group col-12">
+                      <div class="form-group col-12 mb-3">
                           <label for="">Titulo</label>
                           <input class="form-control" type="text" name="title" id="title">
                       </div>
@@ -38,7 +42,7 @@
 {{--                          <input class="form-control" type="time" name="txtHora" id="txtHora" min="07:00" max="19:00" step="600">--}}
 {{--                      </div>--}}
 
-                      <div class="form-group col-12">
+                      <div class="form-group col-12 mb-3">
                          <label for="">Selecionar Usuario</label>
                               <select class="form-control" id="id_user" name="id_user">
                                    <option value="">Seleccione usuario</option>
@@ -51,7 +55,17 @@
 
                       <label for="">Description</label>
                       <textarea class="form-control" name="descripcion" id="descripcion" cols="30" rows="3"></textarea>
-                      <br>
+
+
+                      <div class="form-group col-12 mt-3">
+                          <label for="">¿Esta tarea ya esta realizada?</label>
+
+                          <select class="form-control" id="check" name="check">
+                              <option value="0">Pendiente</option>
+                              <option value="1">Realizado</option>
+                          </select>
+                      </div>
+
 
                   </div>
 
