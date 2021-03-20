@@ -65,7 +65,8 @@ $newDate = date("d/m/Y", strtotime($originalDate));
                                               imageAlt: 'USUARIO IMG',
                                             })
                                         </script>
-                                    @endif
+                            @endif
+
                         <p class="text-left text-white mt-5 mb-5" style="font: normal normal bold 20px/27px Segoe UI;">
                             <strong>Detalles de Tarjeta de Circulacion</strong>
                         </p>

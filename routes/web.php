@@ -95,6 +95,8 @@ Route::patch('automovil/index/current_auto/{id}','AutomovilController@current_au
 Route::patch('profile/update/{id}','UserController@update')->name('update.user');
 Route::get('profile/edit/{id}','UserController@edit')->name('edit.profile');
 
+Route::patch('profile/update/password/{id}','UserController@update_password')->name('update_password.user');
+
 /*|--------------------------------------------------------------------------
 |Seguros
 |--------------------------------------------------------------------------*/
@@ -230,6 +232,7 @@ Route::post('admin/usuario/crear','UserController@store_admin')->name('store_adm
 
 Route::get('admin/usuario/edit/{id}','UserController@edit_admin')->name('edit_admin.user');
 Route::patch('admin/usuario/update/{id}','UserController@update_admin')->name('update_admin.user');
+Route::patch('admin/usuario/update/password/{id}','UserController@update_admin_password')->name('update_admin_password.user');
 
 /*|--------------------------------------------------------------------------
 |garaje edit - Admin

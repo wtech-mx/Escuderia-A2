@@ -82,7 +82,15 @@
                                                     <div class="col-6  mt-4">
                                                             <div class="card card-slide-garaje" style="background-image: linear-gradient(to bottom, #00d62e, #2ce048, #43eb5f, #56f574, #68ff88);">
                                                               <div class="card-body" >
-                                                                  <img class="d-inline mb-2" src="{{ asset('img/icon/car2.png') }}" alt="Icon documento" width="150px">
+                                                                   @if($item->img == NULL)
+                                                                      <div class="col-6">
+                                                                        <img class="d-inline mb-2" src="{{ asset('img/icon/car.png') }}"  width="80px">
+                                                                      </div>
+                                                                    @else
+                                                                      <div class="col-6">
+                                                                        <img class="d-inline mb-2" src="{{ asset('img-auto/'.$item->img) }}"  width="80px">
+                                                                      </div>
+                                                                    @endif
                                                                   <p class="card-text"><strong>{{$item->submarca}}</strong></p>
                                                                   <p class="card-text" style="font-size: 12px"><strong>{{$item->kilometraje}} KM Recorridos</strong></p>
                                                               </div>
@@ -93,7 +101,11 @@
                                                      <a type="button" class="" data-toggle="modal" data-target="#modal-estatus-{{$item->id}}">
                                                         <div class="card card-slide-garaje">
                                                           <div class="card-body" >
-                                                              <img class="d-inline mb-2" src="{{ asset('img-auto/'.$item->img) }}"  width="100px" height="100px">
+                                                                   @if($item->img == NULL)
+                                                                        <img class="d-inline mb-2" src="{{ asset('img/icon/car3.png') }}"  width="80px">
+                                                                    @else
+                                                                        <img class="d-inline mb-2" src="{{ asset('img-auto/'.$item->img) }}"  width="80px">
+                                                                    @endif
                                                               <p class="card-text"><strong>{{$item->submarca}}</strong></p>
                                                               <p class="card-text" style="font-size: 12px"><strong>{{$item->kilometraje}} KM Recorridos</strong></p>
                                                           </div>

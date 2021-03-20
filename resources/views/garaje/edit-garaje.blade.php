@@ -32,7 +32,11 @@
 
                         <div class="col-12 mt-3">
                             <p class="text-center">
-                                <img class="" src="{{ asset('img-auto/'.$automovil->img) }}"  width="200px">
+                                @if($automovil->img == NULL)
+                                    <img class="d-inline mb-2" src="{{ asset('img/icon/car3.png') }}"  width="150px">
+                                @else
+                                    <img class="d-inline mb-2" src="{{ asset('img-auto/'.$automovil->img) }}"  width="150px">
+                               @endif
                             </p>
 
                             <p class="text-left title-car">
@@ -172,7 +176,11 @@
 
                         <div class="col-12 mt-3">
                             <p class="text-center">
-                                  <img class="d-inline mb-2" src="{{ asset('img-auto/'.$automovil->img) }}"  width="150px">
+                                @if($automovil->img == NULL)
+                                    <img class="d-inline mb-2" src="{{ asset('img/icon/car3.png') }}"  width="90px">
+                                @else
+                                    <img class="d-inline mb-2" src="{{ asset('img-auto/'.$automovil->img) }}"  width="90px">
+                               @endif
                             </p>
                         </div>
 
