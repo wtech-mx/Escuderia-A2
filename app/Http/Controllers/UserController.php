@@ -98,7 +98,6 @@ class UserController extends Controller
         $user->direccion = $request->get('direccion');
         $user->referencia = $request->get('referencia');
         $user->genero = $request->get('genero');
-        $user->password = Hash::make($request->password);
 
     	if ($request->hasFile('img')) {
     		$file=$request->file('img');
@@ -149,6 +148,20 @@ class UserController extends Controller
             ->get();
 
         return view('profile.profile', compact('user','users', 'alert2', 'seguro_alerta','tc_alerta'));
+    }
+
+    public function update_password(Request $request,$id)
+    {
+
+        $user = User::findOrFail($id);
+
+        $user->password = Hash::make($request->password);
+
+        $user->update();
+
+        Session::flash('success', 'Se ha actualizado su contraseña con exito');
+         return redirect()->route('index_admin.user');
+
     }
 
 /*|--------------------------------------------------------------------------
@@ -296,15 +309,12 @@ class UserController extends Controller
         $user->direccion = $request->get('direccion');
         $user->referencia = $request->get('referencia');
         $user->genero = $request->get('genero');
-        $user->password = Hash::make($request->password);
 
     	if ($request->hasFile('img')) {
     		$file=$request->file('img');
     		$file->move(public_path().'/img-perfil',time().".".$file->getClientOriginalExtension());
     		$user->img=time().".".$file->getClientOriginalExtension();
     	}
-
-
 
         $user->update();
 
@@ -314,5 +324,18 @@ class UserController extends Controller
 
     }
 
+    public function update_admin_password(Request $request,$id)
+    {
+
+        $user = User::findOrFail($id);
+
+        $user->password = Hash::make($request->password);
+
+        $user->update();
+
+        Session::flash('success', 'Se ha actualizado su contraseña con exito');
+         return redirect()->route('index_admin.user');
+
+    }
 
 }

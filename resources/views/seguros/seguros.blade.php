@@ -13,6 +13,23 @@ $newDate = date("d/m/Y", strtotime($originalDate));
 ?>
                 <div class="row bg-profile" style="z-index: 100000">
                 @include('seguros.modal-pol-img')
+                        @if(Session::has('success'))
+                        <script>
+                            Swal.fire({
+                              title: 'Exito!!',
+                              html:
+                                'Se ha agragado el <b>Seguro</b>, ' +
+                                'Exitosamente',
+                              // text: 'Se ha agragado la "MARCA" Exitosamente',
+                              imageUrl: '{{ asset('img/icon/color/factura.png') }}',
+                              background: '#fff',
+                              imageWidth: 150,
+                              imageHeight: 150,
+                              imageAlt: 'Facturas IMG',
+                            })
+                        </script>
+                        @endif
+
                     <div class="col-2">
                         <div class="d-flex justify-content-start">
                                 <div class="text-center text-white">
@@ -25,7 +42,8 @@ $newDate = date("d/m/Y", strtotime($originalDate));
 
                     <div class="col-8">
                                 <h5 class="text-center text-white ml-4 mr-4 ">
-                                    <strong>Seguro</strong>
+                                    <strong>Seguro - </strong>
+{{--                                    <strong>Seguro - {{$seguro->User->name}}</strong>--}}
                                 </h5>
                     </div>
 
@@ -39,17 +57,16 @@ $newDate = date("d/m/Y", strtotime($originalDate));
 
                     <div class="col-12 p-3">
                         <p class="text-center">
-                            <img class="" src="{{ asset('img/icon/seguros/'.$img) }}" width="150px" >
+                            <img class="" src="{{ asset('img/icon/seguros/'.$img) }}" width="150px" ><br>
                         </p>
                     </div>
 
                 </div>
 
 
-        <form method="POST" action="{{route('update.seguro',$seguro->id)}}" enctype="multipart/form-data" role="form">
-
-            @csrf
-            <input type="hidden" name="_method" value="PATCH">
+       <form method="POST" action="{{route('update.seguro',$seguro->id)}}" enctype="multipart/form-data" role="form">
+             @csrf
+           <input type="hidden" name="_method" value="PATCH">
 
                 @if(Session::has('success'))
                     <script>
@@ -73,19 +90,31 @@ $newDate = date("d/m/Y", strtotime($originalDate));
                              </label>
 
                             {{--Datos para el calendario--}}
-
+                        @if($seguro->id_empresa == NULL)
                             <div class="input-group form-group">
                                 <input type="hidden" class="form-control" id='title' name="title" value="{{$seguro->Automovil->Marca->nombre}}">
                             </div>
 
                              <div class="input-group form-group">
-                                <input type="hidden" class="form-control" id='descripcion' name="descripcion" value="Su tarjeta circulacion expira el dia: {{$newDate}}">
+                                <input type="hidden" class="form-control" id='descripcion' name="descripcion" value="Su Seguro expira el dia: {{$newDate}}">
                             </div>
 
                              <div class="input-group form-group">
                                 <input type="hidden" class="form-control" id='color' name="color" value="#8E44AD">
                             </div>
+                        @else
+                            <div class="input-group form-group">
+                                <input type="hidden" class="form-control" id='title' name="title" value="{{$seguro->Empresa->nombre}}">
+                            </div>
 
+                             <div class="input-group form-group">
+                                <input type="hidden" class="form-control" id='descripcion' name="descripcion" value="Su Seguro expira el dia: {{$newDate}}">
+                            </div>
+
+                             <div class="input-group form-group">
+                                <input type="hidden" class="form-control" id='color' name="color" value="#8E44AD">
+                            </div>
+                        @endif
                             {{--Datos para el calendario--}}
 
                             <div class="input-group form-group">
@@ -95,7 +124,7 @@ $newDate = date("d/m/Y", strtotime($originalDate));
                                     </span>
                                 </div>
 
-                                <select class="form-control" id="seguro" name="seguro">
+                                <select class="form-control" id="seguro" name="seguro" >
                                   <option value="{{$seguro->seguro}}" selected>{{$seguro->seguro}}</option>
                                   <option value="aba">aba</option>
                                   <option value="afirme">afirme</option>
@@ -116,12 +145,12 @@ $newDate = date("d/m/Y", strtotime($originalDate));
                                   <option value="potosi">potosi</option>
                                   <option value="miituo">miituo</option>
                                   <option value="zurich">zurich</option>
-
                                 </select>
+
                             </div>
 
                              <label for="">
-                                 <p class="text-white"><strong>Fecha de Expedicion</strong></p>
+                                 <p class="text-white"><strong>Fecha de expedicion</strong></p>
                              </label>
 
                             <div class="input-group form-group">
@@ -130,7 +159,7 @@ $newDate = date("d/m/Y", strtotime($originalDate));
                                          <img class="" src="{{ asset('img/icon/white/calendario (1).png') }}" width="25px" >
                                     </span>
                                 </div>
-                                 <input type="date" class="form-control" placeholder="MM/DD/YYY"  style="border-radius: 0  10px 10px 0;" id='start' name="start" value="{{$seguro->start}}">
+                                 <input type="date" class="form-control" placeholder="MM/DD/YYY"  style="border-radius: 0  10px 10px 0;" id='fecha_expedicion' name="fecha_expedicion" value="{{$seguro->fecha_expedicion}}">
                             </div>
 
                              <label for="">
@@ -194,25 +223,24 @@ $newDate = date("d/m/Y", strtotime($originalDate));
                                  <p class="text-white mt-3"><strong>Foto Poliza Seguro</strong></p>
                              </label>
 
-                             <div class="col-12 mt-3">
-                                 <div class="d-flex justify-content-center">
-                                         <button type="button" class="btn" data-toggle="modal" data-target="#exampleModalpoliza" style="background: transparent !important;">
-                                             <img class="d-inline mb-2" src="{{ asset('img/icon/white/boton-circular-plus.png') }}" width="50px">
-                                         </button>
-                                 </div>
+                            <div class="col-12 text-center">
+                                    <button type="button" class="btn" data-toggle="modal" data-target="#exampleModalpoliza" style="background: transparent !important;">
+                                        <img class="d-inline mb-2" src="{{ asset('img/icon/white/boton-circular-plus.png') }}" width="50px">
+                                    </button>
                             </div>
 
 
                     </div>
 
                     <div class="col-12 text-center mt-5 mb-5">
-                        <s class="btn btn-lg btn-save-neon text-white">
+                        <button class="btn btn-lg btn-save-neon text-white">
                             <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}" width="20px" >
                             Actualizar
-                        </s>
+                        </button>
                     </div>
 
                 </div>
        </form>
 
 @endsection
+

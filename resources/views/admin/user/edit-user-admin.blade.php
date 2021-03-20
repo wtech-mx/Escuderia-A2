@@ -52,10 +52,6 @@
 
                 <div class="row bg-image" >
                     <div class="col-12 mt-5">
-                        <form method="POST" action="{{route('update_admin.user',$user->id)}}" enctype="multipart/form-data" role="form">
-
-                            @csrf
-                            <input type="hidden" name="_method" value="PATCH">
 
                                 @if(Session::has('success'))
                                     <script>
@@ -83,10 +79,11 @@
 
                                 </ul>
 
-                                <div class="tab-content" id="pills-tabContent">
-
-                                  <div class="tab-pane fade show active" id="perfil" role="tabpanel" aria-labelledby="pills-perfil-tab">
-
+                             <div class="tab-content" id="pills-tabContent">
+                               <div class="tab-pane fade show active" id="perfil" role="tabpanel" aria-labelledby="pills-perfil-tab">
+                                 <form method="POST" action="{{route('update_admin.user',$user->id)}}" enctype="multipart/form-data" role="form">
+                                    @csrf
+                                    <input type="hidden" name="_method" value="PATCH">
                                      <label for="">
                                          <p class="text-white"><strong>Nombre Completo</strong></p>
                                      </label>
@@ -192,7 +189,7 @@
                                          <p class="text-white"><strong>Genero</strong></p>
                                      </label>
 
-                                  <div class="col-12 text-center">
+                                    <div class="col-12 text-center">
 
                                     <div class="input-group form-group d-inline">
 
@@ -265,11 +262,13 @@
                                               Actualizar
                                          </button>
                                       </div>
+                                 </form>
+                               </div>
 
-                                  </div>
-
-                                  <div class="tab-pane fade" id="pills-Seguridad" role="tabpanel" aria-labelledby="pills-Seguridad-tab">
-
+                               <div class="tab-pane fade" id="pills-Seguridad" role="tabpanel" aria-labelledby="pills-Seguridad-tab">
+                                <form method="POST" action="{{route('update_admin_password.user',$user->id)}}" enctype="multipart/form-data" role="form">
+                                    @csrf
+                                    <input type="hidden" name="_method" value="PATCH">
                                      <label for="">
                                          <p class="text-white"><strong>Contraseña</strong></p>
                                      </label>
@@ -310,13 +309,10 @@
                                           </button>
 
                                       </div>
+                                </form>
+                              </div>
+                             </div>
 
-                                  </div>
-
-                                </div>
-
-
-                        </form>
                     </div>
 
                 </div>

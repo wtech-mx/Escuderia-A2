@@ -53,10 +53,6 @@
 
                 <div class="row bg-down-image-border">
                     <div class="col-12 mt-5">
-                        <form method="POST" action="{{route('update.user',$userId)}}" enctype="multipart/form-data" role="form">
-
-                            @csrf
-                            <input type="hidden" name="_method" value="PATCH">
 
                                 @if(Session::has('success'))
                                     <script>
@@ -87,12 +83,15 @@
                                 <div class="tab-content" id="pills-tabContent">
 
                                   <div class="tab-pane fade show active" id="perfil" role="tabpanel" aria-labelledby="pills-perfil-tab">
+                                    <form method="POST" action="{{route('update.user',$userId)}}" enctype="multipart/form-data" role="form">
 
-                                     <label for="">
+                                        @csrf
+                                        <input type="hidden" name="_method" value="PATCH">
+                                        <label for="">
                                          <p class="text-white"><strong>Nombre Completo</strong></p>
                                      </label>
 
-                                    <div class="input-group form-group">
+                                        <div class="input-group form-group">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">
                                                  <img class="" src="{{ asset('img/icon/white/nombre.png') }}" width="25px" >
@@ -106,11 +105,11 @@
                                         @endif
                                     </div>
 
-                                     <label for="">
+                                        <label for="">
                                          <p class="text-white"><strong>Correo</strong></p>
                                      </label>
 
-                                    <div class="input-group form-group">
+                                        <div class="input-group form-group">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">
                                                  <img class="" src="{{ asset('img/icon/white/email.png') }}" width="25px" >
@@ -123,162 +122,164 @@
                                         @endif
                                     </div>
 
-                                     <label for="">
-                                         <p class="text-white"><strong>Telefono</strong></p>
-                                     </label>
+                                        <label for="">
+                                             <p class="text-white"><strong>Telefono</strong></p>
+                                         </label>
 
-                                    <div class="input-group form-group">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text">
-                                                 <img class="" src="{{ asset('img/icon/white/call.png') }}" width="25px" >
-                                            </span>
-                                        </div>
-                                        <input type="text" class="form-control" id="telefono" name="telefono" placeholder="5500550055" value="{{$user->telefono}}" style="border-radius: 0  10px 10px 0;">
+                                        <div class="input-group form-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">
+                                                     <img class="" src="{{ asset('img/icon/white/call.png') }}" width="25px" >
+                                                </span>
+                                            </div>
+                                            <input type="text" class="form-control" id="telefono" name="telefono" placeholder="5500550055" value="{{$user->telefono}}" style="border-radius: 0  10px 10px 0;">
 
-                                         @if ($errors->has('telefono'))
-                                            <span class="text-danger">{{ $errors->first('telefono') }}</span>
-                                        @endif
-                                    </div>
-
-                                     <label for="">
-                                         <p class="text-white"><strong>Fecha de nacimiento</strong></p>
-                                     </label>
-
-                                    <div class="input-group form-group">
-                                        <div class="input-group-prepend " >
-                                            <span class="input-group-text" >
-                                                 <img class="" type="date" src="{{ asset('img/icon/white/calendario (2).png') }}" width="25px" >
-                                            </span>
-                                        </div>
-                                        <input type="date" class="form-control" placeholder="MM/DD/YYY"  style="border-radius: 0  10px 10px 0;" id='fecha_nacimiento' name="fecha_nacimiento" value="{{$user->fecha_nacimiento}}">
-
-                                         @if ($errors->has('fecha_nacimiento'))
-                                            <span class="text-danger">{{ $errors->first('fecha_nacimiento') }}</span>
-                                        @endif
-                                    </div>
-
-                                     <label for="">
-                                         <p class="text-white"><strong>Direccion</strong></p>
-                                     </label>
-
-                                    <div class="input-group form-group">
-                                        <div class="input-group-prepend " >
-                                            <span class="input-group-text" >
-                                                 <img class="" src="{{ asset('img/icon/white/marcador-de-posicion.png') }}" width="25px" >
-                                            </span>
-                                        </div>
-                                        <input type="text" class="form-control" placeholder="Direccion" style="border-radius: 0  10px 10px 0;" id='direccion' name="direccion" value="{{$user->direccion}}">
-
-                                         @if ($errors->has('Direccion'))
-                                            <span class="text-danger">{{ $errors->first('Direccion') }}</span>
-                                        @endif
-                                    </div>
-
-                                     <label for="">
-                                         <p class="text-white"><strong>Referencia</strong></p>
-                                     </label>
-
-                                    <div class="input-group form-group">
-                                        <div class="input-group-prepend " >
-                                            <span class="input-group-text" >
-                                                 <img class="" src="{{ asset('img/icon/white/referencia (1).png') }}" width="25px" >
-                                            </span>
+                                             @if ($errors->has('telefono'))
+                                                <span class="text-danger">{{ $errors->first('telefono') }}</span>
+                                            @endif
                                         </div>
 
-                                        <select class="form-control" id="referencia" name="referencia">
-                                            @foreach($users as $item)
-                                                <option value="{{ $item->id }}">{{ $item->name }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
+                                        <label for="">
+                                             <p class="text-white"><strong>Fecha de nacimiento</strong></p>
+                                         </label>
 
-                                     <label for="">
-                                         <p class="text-white"><strong>Genero</strong></p>
-                                     </label>
+                                        <div class="input-group form-group">
+                                            <div class="input-group-prepend " >
+                                                <span class="input-group-text" >
+                                                     <img class="" type="date" src="{{ asset('img/icon/white/calendario (2).png') }}" width="25px" >
+                                                </span>
+                                            </div>
+                                            <input type="date" class="form-control" placeholder="MM/DD/YYY"  style="border-radius: 0  10px 10px 0;" id='fecha_nacimiento' name="fecha_nacimiento" value="{{$user->fecha_nacimiento}}">
 
-                                  <div class="col-12 text-center">
+                                             @if ($errors->has('fecha_nacimiento'))
+                                                <span class="text-danger">{{ $errors->first('fecha_nacimiento') }}</span>
+                                            @endif
+                                        </div>
 
-                                    <div class="input-group form-group d-inline">
+                                        <label for="">
+                                             <p class="text-white"><strong>Direccion</strong></p>
+                                         </label>
 
-                                        <div class="d-flex justify-content-between">
+                                        <div class="input-group form-group">
+                                            <div class="input-group-prepend " >
+                                                <span class="input-group-text" >
+                                                     <img class="" src="{{ asset('img/icon/white/marcador-de-posicion.png') }}" width="25px" >
+                                                </span>
+                                            </div>
+                                            <input type="text" class="form-control" placeholder="Direccion" style="border-radius: 0  10px 10px 0;" id='direccion' name="direccion" value="{{$user->direccion}}">
 
-                                            <div class="form-check form-check-inline d-block">
-                                                @if($user->genero == 'Masculino')
-                                                    <div class="d-flex justify-content-center">
-                                                        <input class="form-check-input d-block" type="radio" name="genero" id="genero" value="Masculino" checked>
-                                                    </div>
-                                                @else
-                                                    <div class="d-flex justify-content-center">
-                                                        <input class="form-check-input d-block" type="radio" name="genero" id="genero" value="Masculino">
-                                                    </div>
-                                                @endif
-                                                <label class="form-check-label text-white" for="inlineRadio1">
-                                                    Masculino
-                                                </label>
+                                             @if ($errors->has('Direccion'))
+                                                <span class="text-danger">{{ $errors->first('Direccion') }}</span>
+                                            @endif
+                                        </div>
+
+                                        <label for="">
+                                             <p class="text-white"><strong>Referencia</strong></p>
+                                         </label>
+
+                                        <div class="input-group form-group">
+                                            <div class="input-group-prepend " >
+                                                <span class="input-group-text" >
+                                                     <img class="" src="{{ asset('img/icon/white/referencia (1).png') }}" width="25px" >
+                                                </span>
                                             </div>
 
-                                            <div class="form-check form-check-inline d-block">
-                                                @if($user->genero == 'Femenino')
-                                                    <div class="d-flex justify-content-center">
-                                                        <input class="form-check-input  d-block" type="radio" name="genero" id="genero" value="Femenino" checked>
-                                                    </div>
-                                                @else
-                                                    <div class="d-flex justify-content-center">
-                                                        <input class="form-check-input  d-block" type="radio" name="genero" id="genero" value="Femenino">
-                                                    </div>
-                                                @endif
-                                              <label class="form-check-label text-white" for="inlineRadio2">
-                                                  Femenino
-                                              </label>
-                                            </div>
-
-                                            <div class="form-check form-check-inline d-block">
-                                                @if($user->genero == 'Otro')
-                                                    <div class="d-flex justify-content-center">
-                                                        <input class="form-check-input d-block" type="radio" name="genero" id="genero" value="Otro" checked>
-                                                    </div>
-                                                @else
-                                                    <div class="d-flex justify-content-center">
-                                                        <input class="form-check-input d-block" type="radio" name="genero" id="genero" value="Otro" >
-                                                    </div>
-                                                @endif
-                                              <label class="form-check-label text-white" for="inlineRadio3">
-                                                  Otro
-                                              </label>
-                                            </div>
-
+                                            <select class="form-control" id="referencia" name="referencia">
+                                                @foreach($users as $item)
+                                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                                @endforeach
+                                            </select>
                                         </div>
 
-                                    </div>
+                                        <label for="">
+                                             <p class="text-white"><strong>Genero</strong></p>
+                                         </label>
 
-                                  </div>
+                                        <div class="col-12 text-center">
 
-                                     <label for="" class="mt-3">
-                                         <p class="text-white"><strong>Foto de Perfil</strong></p>
-                                     </label>
+                                            <div class="input-group form-group d-inline">
 
-                                    <div class="custom-file">
-                                      <input type="file" class="custom-file-input"  id='img' name="img" value="{{$user->img}}">
-                                      <label class="custom-file-label" for="img">Selecciona imagen</label>
-                                    </div>
+                                                <div class="d-flex justify-content-between">
 
+                                                    <div class="form-check form-check-inline d-block">
+                                                        @if($user->genero == 'Masculino')
+                                                            <div class="d-flex justify-content-center">
+                                                                <input class="form-check-input d-block" type="radio" name="genero" id="genero" value="Masculino" checked>
+                                                            </div>
+                                                        @else
+                                                            <div class="d-flex justify-content-center">
+                                                                <input class="form-check-input d-block" type="radio" name="genero" id="genero" value="Masculino">
+                                                            </div>
+                                                        @endif
+                                                        <label class="form-check-label text-white" for="inlineRadio1">
+                                                            Masculino
+                                                        </label>
+                                                    </div>
 
-                                      <div class="col-12 text-center mt-3 mb-5">
-                                          <button class="btn btn-lg btn-save-neon text-white">
-                                              <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}" width="20px" >
-                                              Actualizar
-                                         </button>
-                                      </div>
+                                                    <div class="form-check form-check-inline d-block">
+                                                        @if($user->genero == 'Femenino')
+                                                            <div class="d-flex justify-content-center">
+                                                                <input class="form-check-input  d-block" type="radio" name="genero" id="genero" value="Femenino" checked>
+                                                            </div>
+                                                        @else
+                                                            <div class="d-flex justify-content-center">
+                                                                <input class="form-check-input  d-block" type="radio" name="genero" id="genero" value="Femenino">
+                                                            </div>
+                                                        @endif
+                                                      <label class="form-check-label text-white" for="inlineRadio2">
+                                                          Femenino
+                                                      </label>
+                                                    </div>
 
+                                                    <div class="form-check form-check-inline d-block">
+                                                        @if($user->genero == 'Otro')
+                                                            <div class="d-flex justify-content-center">
+                                                                <input class="form-check-input d-block" type="radio" name="genero" id="genero" value="Otro" checked>
+                                                            </div>
+                                                        @else
+                                                            <div class="d-flex justify-content-center">
+                                                                <input class="form-check-input d-block" type="radio" name="genero" id="genero" value="Otro" >
+                                                            </div>
+                                                        @endif
+                                                      <label class="form-check-label text-white" for="inlineRadio3">
+                                                          Otro
+                                                      </label>
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+
+                                          </div>
+
+                                        <label for="" class="mt-3">
+                                                 <p class="text-white"><strong>Foto de Perfil</strong></p>
+                                             </label>
+
+                                        <div class="custom-file">
+                                              <input type="file" class="custom-file-input"  id='img' name="img" value="{{$user->img}}">
+                                              <label class="custom-file-label" for="img">Selecciona imagen</label>
+                                            </div>
+
+                                        <div class="col-12 text-center mt-3 mb-5">
+                                           <button class="btn btn-lg btn-save-neon text-white">
+                                                <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}" width="20px" >
+                                                  Actualizar
+                                           </button>
+                                        </div>
+                                    </form>
                                   </div>
 
                                   <div class="tab-pane fade" id="pills-Seguridad" role="tabpanel" aria-labelledby="pills-Seguridad-tab">
+                                    <form method="POST" action="{{route('update_password.user',$userId)}}" enctype="multipart/form-data" role="form">
 
-                                     <label for="">
+                                        @csrf
+                                        <input type="hidden" name="_method" value="PATCH">
+                                        <label for="">
                                          <p class="text-white"><strong>Contraseña</strong></p>
                                      </label>
 
-                                    <div class="input-group form-group">
+                                        <div class="input-group form-group">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">
                                                  <img class="" src="{{ asset('img/icon/white/padlock.png') }}" width="25px" >
@@ -290,11 +291,11 @@
                                         @endif
                                     </div>
 
-                                     <label for="">
+                                        <label for="">
                                          <p class="text-white"><strong>Confirmar Contraseña </strong></p>
                                      </label>
 
-                                    <div class="input-group form-group">
+                                        <div class="input-group form-group">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">
                                                  <img class="" src="{{ asset('img/icon/white/password.png') }}" width="25px" >
@@ -308,15 +309,13 @@
 
                                     </div>
 
-                                      <div class="col-12 text-center mt-5 mb-5">
-
-                                          <button class="btn btn-lg btn-save-neon text-white">
-                                              <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}" width="20px" >
-                                              Actualizar
-                                          </button>
-
-                                      </div>
-
+                                          <div class="col-12 text-center mt-5 mb-5">
+                                              <button class="btn btn-lg btn-save-neon text-white">
+                                                  <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}" width="20px" >
+                                                  Actualizar
+                                              </button>
+                                          </div>
+                                    </form>
                                   </div>
 
                                 </div>
