@@ -78,20 +78,20 @@
                 let arrayOfDomNodes = []
                 let contenedorEventWrap = document.createElement('div');
 
-                arg.event.extendedProps.image;
+                let titleArg = arg.event.title;
+                let imageArg = arg.event.extendedProps.image;
+                let checkArg = arg.event.extendedProps.check;
 
-                arg.event.title;
+                if (checkArg == 1){
+                    let imgEvent = '<img width="16px" height="16px" style="margin-left: 10px" src="'+imageArg+'" >';
+                    let titleEvent ='<p> '+ titleArg+'</p>';
 
-                  let imgEvent = '<img width="16px" height="16px" style="margin-left: 10px" src="'+arg.event.extendedProps.image+'" >'
-                  let titleEvent ='<p> '+ arg.event.title+'</p>'
+                    contenedorEventWrap.classList = "d-flex ml-5";
+                    contenedorEventWrap.innerHTML = imgEvent+titleEvent;
 
-                  contenedorEventWrap.classList = "d-flex ml-5";
-
-                  contenedorEventWrap.innerHTML = imgEvent+titleEvent;
-
-
-                arrayOfDomNodes = [contenedorEventWrap ]
-                return { domNodes: arrayOfDomNodes }
+                    arrayOfDomNodes = [contenedorEventWrap ]
+                    return { domNodes: arrayOfDomNodes }
+                }
 
               },
         });
