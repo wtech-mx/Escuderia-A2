@@ -65,7 +65,7 @@
                             <div class="col-6">
                                 <a type="button" class="" data-toggle="modal" data-target="#modal-doc-{{$item->id}}">
                                     <p class="text-center">
-                                            <img class="d-inline mb-2" src="{{asset('exp-bp/'.$item->placa)}}" alt="{{$item->placa}}" width="100px">
+                                            <img class="d-inline mb-2" src="{{asset('exp-placa/'.$item->placa)}}" alt="{{$item->placa}}" width="100px">
                                     </p>
                                 </a>
                             </div>
@@ -84,7 +84,7 @@
 
                                   <div class="modal-body">
                                       <p class="text-center">
-                                          <img class="" src="{{asset('exp-bp/'.$item->placa)}}" alt="{{$item->placa}}" width="100%">
+                                          <img class="" src="{{asset('exp-placa/'.$item->placa)}}" alt="{{$item->placa}}" width="100%">
                                       </p>
                                   </div>
 
@@ -134,7 +134,7 @@
                                         Agregar Imagen
                                     </p>
                                   </div>
-                               <form method="POST" action="{{route('store.exp-bp')}}" enctype="multipart/form-data" role="form">
+                               <form method="POST" action="{{route('store_admin.view-bp-admin', $automovil->id)}}" enctype="multipart/form-data" role="form">
                                          @csrf
                                 <div class="col-12 mt-3">
                                           <div class=" custom-file mb-3">

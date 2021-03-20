@@ -156,7 +156,6 @@ class ExplacasController extends Controller
         ->first();
 
         $exp->current_auto = $automovil->id;
-
         $exp->id_user = $automovil->id_user;
 
         $exp->save();

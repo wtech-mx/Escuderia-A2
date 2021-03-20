@@ -367,6 +367,13 @@ class AutomovilController extends Controller
         $tarjeta_circulacion->estatus = 0;
         $tarjeta_circulacion->save();
 
+        $verificacion = new  Verificacion;
+        $verificacion->id_user = $automovil->id_user;
+        $verificacion->id_empresa = $automovil->id_empresa;
+        $verificacion->current_auto = $automovil->id;
+        $verificacion->estatus = 0;
+        $verificacion->save();
+
         $id = $automovil->id_user;
         $user = User::findOrFail($id);
         $user->current_auto = $automovil->id;

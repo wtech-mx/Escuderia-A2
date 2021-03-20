@@ -112,15 +112,15 @@ class ExptcController extends Controller
 |--------------------------------------------------------------------------*/
 
 
-     public function create_admin($id)
+    public function create_admin($id)
     {
         /* Trae los datos el auto en el que esta */
         $automovil = DB::table('automovil')
         ->where('id','=',$id)
         ->first();
 
-        $exp_tc = DB::table('img_tcs')
-        ->where('id_tc','=', $automovil->id)
+        $exp_tc = DB::table('exp_tc')
+        ->where('current_auto','=', $automovil->id)
         ->get();
 
                           // obtener la hora actual  - 2015-12-19 10:10:54

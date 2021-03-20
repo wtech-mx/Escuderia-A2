@@ -15,7 +15,7 @@
                             Swal.fire({
                               title: 'Exito!!',
                               html:
-                                'Se ha agragado la <b>FACTURA</b>, ' +
+                                'Se ha agragado el <b>Seguro</b>, ' +
                                 'Exitosamente',
                               // text: 'Se ha agragado la "MARCA" Exitosamente',
                               imageUrl: '{{ asset('img/icon/color/factura.png') }}',

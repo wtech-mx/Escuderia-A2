@@ -25,7 +25,7 @@ $newDate = date("d/m/Y", strtotime($originalDate));
 
                     <div class="col-8 mt-5">
                                 <h5 class="text-center text-white ml-4 mr-4 ">
-                                    <strong>Seguro</strong>
+                                    <strong>Tarjeta de Circulacion</strong>
                                 </h5>
                     </div>
 

@@ -65,7 +65,7 @@
                             <div class="col-6">
                                 <a type="button" class="" data-toggle="modal" data-target="#modal-doc-{{$item->id}}">
                                     <p class="text-center">
-                                            <img class="d-inline mb-2" src="{{asset('exp-tc/'.$item->img)}}" alt="{{$item->img}}" width="100px">
+                                            <img class="d-inline mb-2" src="{{asset('exp-tc/'.$item->tc)}}" alt="{{$item->tc}}" width="100px">
                                     </p>
                                 </a>
                             </div>
@@ -84,7 +84,7 @@
 
                                   <div class="modal-body">
                                       <p class="text-center">
-                                          <img class="" src="{{asset('exp-tc/'.$item->img)}}" alt="{{$item->img}}" width="100%">
+                                          <img class="" src="{{asset('exp-tc/'.$item->tc)}}" alt="{{$item->tc}}" width="100%">
                                       </p>
                                   </div>
 

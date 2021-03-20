@@ -91,9 +91,11 @@
                                                               <p class="card-text" style="font-size: 12px"><strong>{{$item->email}}</strong></p>
                                                           </div>
 
-                                                          <div class="col-6">
-                                                              <img class="d-inline" src="{{ asset('img-perfil/'.$item->img) }}" alt="Icon documento" width="110px">
-                                                          </div>
+                                                            @if($item->img == NULL)
+                                                                <img class="rounded-circle" src="{{ asset('img/icon/black/user.png') }}" height="80px" width="80px">
+                                                            @else
+                                                                <img class="rounded-circle" src="{{ asset('img-perfil/'.$item->img) }}" height="80px" width="80px">
+                                                            @endif
 
                                                       </div>
 

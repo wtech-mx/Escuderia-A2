@@ -9,6 +9,7 @@ use Illuminate\Support\Str;
 use App\Models\Automovil;
 use App\Models\Mecanica;
 use App\Models\TarjetaCirculacion;
+use App\Models\Seguros;
 use App\Models\User;
 use Session;
 use Carbon\Carbon;

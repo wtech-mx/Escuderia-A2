@@ -335,5 +335,12 @@ Route::post('admin/exp-fisico/tenencia/crear/{id}','ExptenenciasController@store
 |--------------------------------------------------------------------------*/
 Route::post('admin/servicio/crear/marca','MarcaController@store')->name('store.marca');
 
+/*|--------------------------------------------------------------------------
+|VERIFICACION view
+|--------------------------------------------------------------------------*/
+Route::get('admin/verificacion/index','VerificacionController@index_admin')->name('index_admin.verificacion');
+Route::get('admin/verificacion/edit/{id}','VerificacionController@edit_admin')->name('edit_admin.verificacion');
+Route::patch('admin/verificacion/update/{id}','VerificacionController@update_admin')->name('update_admin.verificacion');
+
 
 require __DIR__.'/auth.php';

@@ -16,16 +16,32 @@ class CreateVerificacionTable extends Migration
         Schema::create('verificacion', function (Blueprint $table) {
             $table->id();
 
-            $table->unsignedBigInteger('id_tc')->nullable();
+            $table->unsignedBigInteger('id_user')->nullable();
 
-            $table->foreign('id_tc')
-                ->references('id')->on('tarjeta_circulacion')
+            $table->foreign('id_user')
+                ->references('id')->on('users')
                 ->inDelete('set null');
 
-            $table->string('title');
+            $table->unsignedBigInteger('id_empresa')->nullable();
+
+            $table->foreign('id_empresa')
+                ->references('id')->on('empresa')
+                ->inDelete('set null');
+
+            $table->unsignedBigInteger('current_auto')->nullable();
+
+            $table->foreign('current_auto')
+                ->references('id')->on('automovil')
+                ->inDelete('set null');
+
+            $table->date('primer_semestre')->nullable();
+            $table->date('segundo_semestre')->nullable();
+
+            $table->string('title')->nullable();
             $table->text('descripcion')->nullable();
-            $table->string('color');
-            $table->integer('estatus');
+            $table->string('color')->nullable();
+            $table->integer('estatus')->nullable();
+            $table->integer('check')->nullable();
             $table->date('start')->nullable();
             $table->date('end')->nullable();
 

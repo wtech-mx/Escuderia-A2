@@ -14,12 +14,32 @@ class Verificacion extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'id_tc',
+        'id_user',
+        'id_empresa',
+        'current_auto',
+        'primer_semestre',
+        'segundo_semestre',
         'title',
         'descripcion',
         'color',
         'start',
+        'check',
         'end',
         'status',
     ];
+
+    public function User()
+    {
+       return $this->belongsTo(User::class,'id_user');
+    }
+
+    public function Empresa()
+    {
+       return $this->belongsTo(Empresa::class,'id_empresa');
+    }
+
+        public function Automovil()
+    {
+       return $this->belongsTo(Automovil::class,'current_auto');
+    }
 }

@@ -38,7 +38,11 @@
 
                     <div class="col-12 p-3">
                         <p class="text-center">
-                            <img class="rounded-circle" src="{{ asset('img-perfil/'.$user->img) }}" height="150px" width="150px">
+                            @if($user->img == NULL)
+                                <img class="rounded-circle" src="{{ asset('img/icon/white/hombre (1).png') }}" height="150px" width="150px">
+                            @else
+                                <img class="rounded-circle" src="{{ asset('img-perfil/'.$user->img) }}" height="150px" width="150px">
+                            @endif
                             <h4 class="text-center text-white">
                                 <strong>{{$user->name}}</strong>
                             </h4>
