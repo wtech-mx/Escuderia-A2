@@ -139,7 +139,7 @@
                         </a>
                     </div>
 
-                    <div class="col-6 mt-4 mb-4">
+                    <div class="col-6 mt-4">
                         <a href="{{ route('index_admin.seguros') }}" class="text-white">
                             <div class="card" style="border-radius: 15px">
                               <div class="card-body" >
@@ -150,7 +150,7 @@
                         </a>
                     </div>
 
-                    <div class="col-6 mt-4 mb-4">
+                    <div class="col-6 mt-4">
                         <a href="{{ route('index_admin.empresa') }}" class="text-white">
 
                             <div class="card" style="border-radius: 15px">

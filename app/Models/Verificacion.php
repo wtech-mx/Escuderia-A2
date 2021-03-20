@@ -42,4 +42,10 @@ class Verificacion extends Model
     {
        return $this->belongsTo(Automovil::class,'current_auto');
     }
+
+        public function TarjetaCirculacion()
+    {
+       return $this->belongsTo(TarjetaCirculacion::class,'id_tc');
+    }
+
 }

@@ -28,11 +28,12 @@ class CreateAlertasTable extends Migration
                 ->inDelete('set null');
 
 
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->string('title');
             $table->text('descripcion');
             $table->string('color');
             $table->integer('status');
+            $table->integer('check')->nullable();;
             $table->date('start');
             $table->date('end');
 

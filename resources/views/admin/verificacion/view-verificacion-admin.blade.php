@@ -71,6 +71,16 @@
                                                               <p class="card-text" style="font-size: 12px"><strong>{{$item->Automovil->submarca}}</strong></p>
                                                           </div>
 
+                                                           @if($item->Automovil->img == NULL)
+                                                              <div class="col-6 mt-3">
+                                                                <img class="d-inline mb-2" src="{{ asset('img/icon/car2.png') }}"  width="150px">
+                                                              </div>
+                                                            @else
+                                                              <div class="col-6">
+                                                                <img class="d-inline mb-2" src="{{ asset('img-auto/'.$item->img) }}"  width="150px">
+                                                              </div>
+                                                            @endif
+
                                                       </div>
 
                                                   </div>
