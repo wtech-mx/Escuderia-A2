@@ -11,6 +11,8 @@
     $Fecha = $Y."-".$M."-".$D;
    @endphp
 
+
+
 <script>
       document.addEventListener('DOMContentLoaded', function() {
 
@@ -44,7 +46,6 @@
               $("#btnModificar").prop("disabled",true);
               $("#btnBorrar").prop("disabled",true);
               $('#exampleModal').modal('toggle');
-              console.log(info);
             },
 
             eventClick:function (info) {
@@ -68,12 +69,31 @@
               $('#descripcion').val(info.event.extendedProps.descripcion);
               $('#status').val(info.event.extendedProps.status);
               $('#exampleModal').modal();
-              console.log(info);
-
             },
 
             events:"{{ route('calendar.show_calendar_user') }}",
 
+              eventContent: function(arg) {
+
+                let arrayOfDomNodes = []
+                let contenedorEventWrap = document.createElement('div');
+
+                arg.event.extendedProps.image;
+
+                arg.event.title;
+
+                  let imgEvent = '<img width="16px" height="16px" style="margin-left: 10px" src="'+arg.event.extendedProps.image+'" >'
+                  let titleEvent ='<p> '+ arg.event.title+'</p>'
+
+                  contenedorEventWrap.classList = "d-flex ml-5";
+
+                  contenedorEventWrap.innerHTML = imgEvent+titleEvent;
+
+
+                arrayOfDomNodes = [contenedorEventWrap ]
+                return { domNodes: arrayOfDomNodes }
+
+              },
         });
 
         calendar.setOption('locale','Es');
@@ -111,7 +131,6 @@
                 '_token':$("meta[name='csrf-token']").attr("content"),
                 '_method':method
             }
-            console.log(nuevoEvento);
             return (nuevoEvento);
         }
 
@@ -128,7 +147,6 @@
                 '_token':$("meta[name='csrf-token']").attr("content"),
                 '_method':method
             }
-            console.log(nuevoEvento)
             return (nuevoEvento);
         }
 
@@ -162,6 +180,7 @@
     </script>
 
 @endsection
+
 
                 <div class="row" style="">
 

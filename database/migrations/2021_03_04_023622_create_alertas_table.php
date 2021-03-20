@@ -27,6 +27,8 @@ class CreateAlertasTable extends Migration
                 ->references('id')->on('empresa')
                 ->inDelete('set null');
 
+
+            $table->string('image');
             $table->string('title');
             $table->text('descripcion');
             $table->string('color');
