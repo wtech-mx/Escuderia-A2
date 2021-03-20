@@ -66,12 +66,34 @@
               $('#color').val(info.event.backgroundColor);
               $('#descripcion').val(info.event.extendedProps.descripcion);
               $('#status').val(info.event.extendedProps.status);
+              $('#check').val(info.event.extendedProps.check);
+              $('#image').val(info.event.extendedProps.image);
               $('#exampleModal').modal();
-              console.log(info);
-
             },
 
             events:"{{ route('calendar.show_calendar') }}",
+
+              eventContent: function(arg) {
+
+                let arrayOfDomNodes = []
+                let contenedorEventWrap = document.createElement('div');
+
+                let titleArg = arg.event.title;
+                let imageArg = arg.event.extendedProps.image;
+                let checkArg = arg.event.extendedProps.check;
+
+                if (checkArg == 1){
+                    let imgEvent = '<img width="16px" height="16px" style="margin-left: 10px" src="'+imageArg+'" >';
+                    let titleEvent ='<p> '+ titleArg+'</p>';
+
+                    contenedorEventWrap.classList = "d-flex ml-5";
+                    contenedorEventWrap.innerHTML = imgEvent+titleEvent;
+
+                    arrayOfDomNodes = [contenedorEventWrap ]
+                    return { domNodes: arrayOfDomNodes }
+                }
+
+              },
 
         });
 
@@ -82,7 +104,6 @@
             ObjEvento= recolectarDatosGUI('POST');
             {{--EnviarInformacion('{{route('calendar.index_calendar')}}', ObjEvento);--}}
             EnviarInformacion('', ObjEvento);
-            console.log(ObjEvento);
         });
 
         $('#btnBorrar').click(function(){
@@ -98,6 +119,8 @@
         function recolectarDatosGUI(method){
             colorAlert =("#2ECC71");
             statusDefault = 0;
+            checkDefault = 0;
+            imageDefault = ("{{asset('img/icon/color/comprobado.png') }}");
 
             nuevoEvento={
                 id:$('#txtID').val(),
@@ -105,13 +128,15 @@
                 id_user:$('#id_user').val(),
                 descripcion:$('#descripcion').val(),
                 status:$('#status').val()+statusDefault,
+                check:$('#check').val()+checkDefault,
+                image:$('#image').val()+imageDefault,
                 color:$('#color').val()+colorAlert,
                 start:$('#txtFecha').val(),
                 end:$('#txtFecha').val(),
                 '_token':$("meta[name='csrf-token']").attr("content"),
                 '_method':method
             }
-            console.log(nuevoEvento);
+
             return (nuevoEvento);
         }
 
@@ -122,13 +147,15 @@
                 id_user:$('#id_user').val(),
                 descripcion:$('#descripcion').val(),
                 status:$('#status').val(),
+                check:$('#check').val(),
+                image:$('#image').val(),
                 color:$('#color').val(),
                 // start:$('#txtFecha').val(),
                 // end:$('#txtFecha').val(),
                 '_token':$("meta[name='csrf-token']").attr("content"),
                 '_method':method
             }
-            console.log(nuevoEvento)
+
             return (nuevoEvento);
         }
 
@@ -156,6 +183,8 @@
               $('#color').val("");
               $('#descripcion').val("");
               $('#status').val("");
+              $('#check').val("");
+              $('#image').val("");
         }
       });
 
