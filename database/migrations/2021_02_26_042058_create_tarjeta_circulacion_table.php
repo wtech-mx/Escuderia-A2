@@ -41,6 +41,7 @@ class CreateTarjetaCirculacionTable extends Migration
             $table->integer('num_placa' )->nullable();
             $table->string('img')->nullable();
             $table->integer('estatus');
+            $table->integer('check')->nullable();
 
             $table->string('title')->nullable();
             $table->text('descripcion')->nullable();

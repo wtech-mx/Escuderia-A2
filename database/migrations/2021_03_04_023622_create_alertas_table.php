@@ -33,7 +33,7 @@ class CreateAlertasTable extends Migration
             $table->text('descripcion');
             $table->string('color');
             $table->integer('status');
-            $table->integer('check')->nullable();;
+            $table->integer('check')->nullable();
             $table->date('start');
             $table->date('end');
 

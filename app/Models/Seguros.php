@@ -11,6 +11,7 @@ class Seguros extends Model
 
     protected $table = "seguros";
     protected $primarykey = "id";
+    public $timestamps = false;
 
     protected $fillable = [
         'id_user',

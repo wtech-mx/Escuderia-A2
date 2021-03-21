@@ -10,6 +10,7 @@ class TarjetaCirculacion extends Model
     use HasFactory;
     protected $table = "tarjeta_circulacion";
     protected $primarykey = "id";
+    public $timestamps = false;
 
     protected $fillable = [
         'id_user',

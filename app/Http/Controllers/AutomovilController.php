@@ -159,9 +159,8 @@ class AutomovilController extends Controller
         $user->update();
 
         $verificacion = new  Verificacion;
-        $verificacion->id_tc = $tarjeta_circulacion->id;
-        $verificacion->title = 'Verificacion';
-        $verificacion->color = '#E67E22';
+        $verificacion->id_user = $id;
+        $verificacion->current_auto = $automovil->id;
         $verificacion->estatus = 0;
         $verificacion->save();
 
