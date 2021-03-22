@@ -49,6 +49,8 @@
 
 {{--    <script src="{{ asset('js/app.js') }}" defer></script>--}}
 
+    @laravelPWA
+
     @yield('scripts')
 
 </head>
@@ -63,7 +65,8 @@
 
                 <div class="container-fluid">
                         @yield('content')
-                       @include('admin.layouts.tab-bar')
+                        @include('admin.layouts.tab-bar')
+{{--                        @include('admin.layouts.offline')--}}
                 </div>
             </div>
 
