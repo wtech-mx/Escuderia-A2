@@ -18,9 +18,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/offline', function () {
-return view('modules/laravelpwa/offline');
-});
+//Route::get('/offline', function () {
+//return view('modules/laravelpwa/offline');
+//});
+
+Route::get('offline','OfflineController@index')->name('index.offline');
 
 /*|--------------------------------------------------------------------------
 |Usuario

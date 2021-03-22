@@ -39,6 +39,7 @@
 
      <!-- personalizados js -->
     <script src="{{ asset('js/push.js') }}"></script>
+    <script src="{{ asset('js/offline.js') }}"></script>
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
@@ -68,7 +69,7 @@
                     @yield('content')
                     @auth
                         @include('layouts.tab-bar')
-{{--                        @include('layouts.offline')--}}
+                        @include('layouts.offline')
                     @endauth
                 </div>
             </div>
