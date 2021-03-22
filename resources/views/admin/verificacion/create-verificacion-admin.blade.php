@@ -86,7 +86,7 @@
                             </div>
 
                              <div class="input-group form-group">
-                                <input type="hidden" class="form-control" id='descripcion' name="descripcion" value="Le toca verificar en...">
+                                <input type="hidden" class="form-control" id='descripcion' name="descripcion" value="Le toca verificar el dia {{$verificacion->primer_semestre}}">
                             </div>
 
                              <div class="input-group form-group">

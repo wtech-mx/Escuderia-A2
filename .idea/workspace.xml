@@ -20,11 +20,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="936a45dc-4f36-4130-a52f-695b08d602c5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/emails/myTestMail.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AlertasController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AlertasController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DashboardController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/VerificacionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/VerificacionController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/alerts/alertas.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/alerts/alertas.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/verificacion/create-verificacion-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/verificacion/create-verificacion-admin.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -274,7 +276,7 @@
       <workItem from="1616196247107" duration="631000" />
       <workItem from="1616213435292" duration="5600000" />
       <workItem from="1616254057524" duration="20024000" />
-      <workItem from="1616354147339" duration="10764000" />
+      <workItem from="1616354147339" duration="15303000" />
     </task>
     <servers />
   </component>

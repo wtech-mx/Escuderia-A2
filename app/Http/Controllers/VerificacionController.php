@@ -96,6 +96,8 @@ class VerificacionController extends Controller
         $verificacion->title = $request->get('title');
         $verificacion->color = $request->get('color');
         $verificacion->descripcion = $request->get('descripcion');
+        $verificacion->start = $request->get('primer_semestre');
+        $verificacion->end = $request->get('primer_semestre');
         $verificacion->estatus = $request->get('estatus');
         $verificacion->check = $request->get('check');
 

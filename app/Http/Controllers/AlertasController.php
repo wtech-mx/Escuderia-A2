@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\View;
 use App\Models\Alertas;
 use App\Models\Seguros;
 use App\Models\TarjetaCirculacion;
+use App\Models\Verificacion;
 use Illuminate\Http\Request;
 use DB;
 use Session;
@@ -123,14 +124,16 @@ class AlertasController extends Controller
         $json2 = $data2['alertas'] = Alertas::all();
         $json3 = $data3['seguros'] = Seguros::all()->makeHidden('end');
         $json4 = $data3['tarjeta_circulacion'] = TarjetaCirculacion::all()->makeHidden('end');
+        $json5 = $data5['verificacion'] = Verificacion::all()->makeHidden('end');
 
         //los convieerte en array
         $decode2 = json_decode($json2);
         $decode3 = json_decode($json3);
         $decode4 = json_decode($json4);
+        $decode5 = json_decode($json5);
 
         //Une los array en uno solo
-        $resultado = array_merge ($decode2,$decode3,$decode4);
+        $resultado = array_merge ($decode2,$decode3,$decode4,$decode5);
 
         //retorna a la vista sn json
         return response()->json($resultado);
@@ -202,16 +205,20 @@ class AlertasController extends Controller
         $json3 = $data3['seguros'] = Seguros::all()->makeHidden('end')
             ->where('id_user', '=', auth()->user()->id);
 
-        $json4 = $data3['tarjeta_circulacion'] = TarjetaCirculacion::all()->makeHidden('end')
+        $json4 = $data4['tarjeta_circulacion'] = TarjetaCirculacion::all()->makeHidden('end')
+            ->where('id_user', '=', auth()->user()->id);
+
+        $json5 = $data5['verificacion'] = Verificacion::all()->makeHidden('end')
             ->where('id_user', '=', auth()->user()->id);
 
         //los convieerte en array
         $decode2 = json_decode($json2);
         $decode3 = json_decode($json3);
         $decode4 = json_decode($json4);
+        $decode5 = json_decode($json5);
 
         //Une los array en uno solo
-        $resultado = array_merge ($decode2,$decode3,$decode4);
+        $resultado = array_merge ($decode2,$decode3,$decode4,$decode5);
 
         //retorna a la vista sn json
         return response()->json($resultado);
