@@ -345,5 +345,10 @@ Route::get('admin/verificacion/index','VerificacionController@index_admin')->nam
 Route::get('admin/verificacion/edit/{id}','VerificacionController@edit_admin')->name('edit_admin.verificacion');
 Route::patch('admin/verificacion/update/{id}','VerificacionController@update_admin')->name('update_admin.verificacion');
 
+/*|--------------------------------------------------------------------------
+|Correo view
+|--------------------------------------------------------------------------*/
+Route::get('send-mail', [DashboardController::class, 'alerta']);
+
 
 require __DIR__.'/auth.php';

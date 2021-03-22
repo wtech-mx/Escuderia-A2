@@ -12,6 +12,9 @@ use App\Models\Alertas;
 use App\Models\Seguros;
 use App\Models\TarjetaCirculacion;
 
+use \App\Mail\MyTestMail;
+
+
 class DashboardController extends Controller
 {
     public function __construct(){
@@ -108,16 +111,34 @@ class DashboardController extends Controller
 
 
             if($alert3 != NULL){
+                    $details = [
+                        'title' => 'Alerta',
+                        'body' => $alert3->descripcion
+                    ];
+                    \Mail::to($users->email)->send(new MyTestMail($details));
+
                 $alert3->status = 1;
                  $alert3->save();
              }
 
             if($seguro_alerta2 != NULL){
+                    $details = [
+                        'title' => 'Seguro',
+                        'body' => $seguro_alerta2->descripcion
+                    ];
+                    \Mail::to($users->email)->send(new MyTestMail($details));
+
                  $seguro_alerta2->estatus = 1;
                  $seguro_alerta2->save();
              }
 
             if($tc_alerta2 != NULL){
+                    $details = [
+                        'title' => 'Tarjeta Circulacion',
+                        'body' => $tc_alerta2->descripcion
+                    ];
+                    \Mail::to($users->email)->send(new MyTestMail($details));
+
                  $tc_alerta2->estatus = 1;
                  $tc_alerta2->save();
              }
