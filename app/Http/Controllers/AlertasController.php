@@ -229,13 +229,27 @@ class AlertasController extends Controller
         public function update_calendar_user(Request $request, $id)
         {
             $datosEvento = request()->except(['_token','_method']);
-
+            $color = $datosEvento['color'];
 //            $respuesta = Alertas::all()->makeHidden('id_user')
 //                ->where('id','=',$id)
 //                ->where('id_user', '=', auth()->user()->id)
 //                ->update($datosEvento);
 //
-            $respuesta = Alertas::where('id','=',$id)->update($datosEvento);
+          switch($color) {
+              case($color == "#2ECC71"):
+                  $respuesta = Alertas::where('id','=',$id)->update($datosEvento);
+                  break;
+              case($color == '#2980B9'):
+                  $respuesta = Seguros::where('id', '=', $id)->update($datosEvento);
+                  break;
+              case($color == '#F1C40F'):
+                  $respuesta = TarjetaCirculacion::where('id', '=', $id)->update($datosEvento);
+                  break;
+              case($color == '#FF0000'):
+                  $respuesta = Verificacion::where('id', '=', $id)->update($datosEvento);
+                  break;
+          }
+
         }
 
         public function destroy_calendar_user($id)

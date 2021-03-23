@@ -84,7 +84,7 @@
 
                 if (checkArg == 1){
                     let imgEvent = '<img width="16px" height="16px" style="margin-left: 10px" src="'+imageArg+'" >';
-                    let titleEvent ='<p> '+ titleArg+'</p>';
+                    let titleEvent ='<p> </p>';
 
                     contenedorEventWrap.classList = "d-flex ml-5";
                     contenedorEventWrap.innerHTML = imgEvent+titleEvent;

@@ -6,7 +6,10 @@
 
                 <link href="{{ asset('css/login-form.css') }}" rel="stylesheet">
                 <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
-
+<?php
+$originalDate = $seguro->end;
+$newDate = date("d/m/Y", strtotime($originalDate));
+?>
 
                 <div class="row bg-profile" style="z-index: 100000">
                 @include('admin.seguros.modal-poladmin-img')
@@ -87,31 +90,18 @@
                              </label>
 
                             {{--Datos para el calendario--}}
-                        @if($seguro->id_empresa == NULL)
                             <div class="input-group form-group">
-                                <input type="hidden" class="form-control" id='title' name="title" value="{{$seguro->User->name}}">
-                            </div>
-
-                             <div class="input-group form-group">
-                                <input type="hidden" class="form-control" id='descripcion' name="descripcion" value="{{$seguro->Automovil->submarca}}">
-                            </div>
-
-                             <div class="input-group form-group">
-                                <input type="hidden" class="form-control" id='color' name="color" value="#8E44AD">
-                            </div>
-                        @else
                             <div class="input-group form-group">
-                                <input type="hidden" class="form-control" id='title' name="title" value="{{$seguro->Empresa->nombre}}">
+                                <input type="hidden" class="form-control" id='title' name="title" value="{{$seguro->Automovil->placas}}">
                             </div>
 
                              <div class="input-group form-group">
-                                <input type="hidden" class="form-control" id='descripcion' name="descripcion" value="{{$seguro->Automovil->submarca}}">
+                                <input type="hidden" class="form-control" id='descripcion' name="descripcion" value="Su Seguro expira el dia: {{$newDate}}">
                             </div>
 
                              <div class="input-group form-group">
-                                <input type="hidden" class="form-control" id='color' name="color" value="#8E44AD">
+                                <input type="hidden" class="form-control" id='color' name="color" value="#2980B9">
                             </div>
-                        @endif
                             {{--Datos para el calendario--}}
 
                             <div class="input-group form-group">

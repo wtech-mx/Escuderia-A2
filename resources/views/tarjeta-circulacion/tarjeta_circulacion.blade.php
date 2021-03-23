@@ -73,11 +73,11 @@ $newDate = date("d/m/Y", strtotime($originalDate));
 
                         {{--Datos para el calendario--}}
                         <div class="input-group form-group">
-                            <input type="hidden" class="form-control" id='title' name="title" value="{{$tarjeta_circulacion->Automovil->Marca->nombre}}">
+                            <input type="hidden" class="form-control" id='title' name="title" value="{{$tarjeta_circulacion->Automovil->placas}}">
                         </div>
 
                         <div class="input-group form-group">
-                            <input type="hidden" class="form-control" id='descripcion' name="descripcion" value="Su Seguro expira el dia: {{$newDate}}">
+                            <input type="hidden" class="form-control" id='descripcion' name="descripcion" value="Su tarjeta de circulacion expira el dia: {{$newDate}}">
                         </div>
 
                         <div class="input-group form-group">

@@ -90,9 +90,8 @@ $newDate = date("d/m/Y", strtotime($originalDate));
                              </label>
 
                             {{--Datos para el calendario--}}
-                        @if($seguro->id_empresa == NULL)
                             <div class="input-group form-group">
-                                <input type="hidden" class="form-control" id='title' name="title" value="{{$seguro->Automovil->Marca->nombre}}">
+                                <input type="hidden" class="form-control" id='title' name="title" value="{{$seguro->Automovil->placas}}">
                             </div>
 
                              <div class="input-group form-group">
@@ -100,21 +99,9 @@ $newDate = date("d/m/Y", strtotime($originalDate));
                             </div>
 
                              <div class="input-group form-group">
-                                <input type="hidden" class="form-control" id='color' name="color" value="#8E44AD">
-                            </div>
-                        @else
-                            <div class="input-group form-group">
-                                <input type="hidden" class="form-control" id='title' name="title" value="{{$seguro->Empresa->nombre}}">
+                                <input type="hidden" class="form-control" id='color' name="color" value="#2980B9">
                             </div>
 
-                             <div class="input-group form-group">
-                                <input type="hidden" class="form-control" id='descripcion' name="descripcion" value="Su Seguro expira el dia: {{$newDate}}">
-                            </div>
-
-                             <div class="input-group form-group">
-                                <input type="hidden" class="form-control" id='color' name="color" value="#8E44AD">
-                            </div>
-                        @endif
                             {{--Datos para el calendario--}}
 
                             <div class="input-group form-group">

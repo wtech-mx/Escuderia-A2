@@ -6,7 +6,10 @@
 
                 <link href="{{ asset('css/login-form.css') }}" rel="stylesheet">
                 <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
-
+<?php
+$originalDate = $verificacion->primer_semestre;
+$newDate = date("d/m/Y", strtotime($originalDate));
+?>
 
                 <div class="row bg-profile" style="z-index: 100000">
                         @if(Session::has('success'))
@@ -80,31 +83,17 @@
                                 <strong>Detalles de Verificacion</strong>
                             </p>
                             {{--Datos para el calendario--}}
-                        @if($verificacion->id_empresa == NULL)
                             <div class="input-group form-group">
-                                <input type="hidden" class="form-control" id='title' name="title" value="{{$verificacion->User->name}}">
+                                <input type="hidden" class="form-control" id='title' name="title" value="{{$verificacion->Automovil->placas}}">
                             </div>
 
                              <div class="input-group form-group">
-                                <input type="hidden" class="form-control" id='descripcion' name="descripcion" value="Le toca verificar el dia {{$verificacion->primer_semestre}}">
+                                <input type="hidden" class="form-control" id='descripcion' name="descripcion" value="Le toca verificar el dia {{$newDate}}">
                             </div>
 
                              <div class="input-group form-group">
                                 <input type="hidden" class="form-control" id='color' name="color" value="#FF0000">
                             </div>
-                        @else
-{{--                            <div class="input-group form-group">
-                                <input type="hidden" class="form-control" id='title' name="title" value="{{$seguro->Empresa->nombre}}">
-                            </div>
-
-                             <div class="input-group form-group">
-                                <input type="hidden" class="form-control" id='descripcion' name="descripcion" value="{{$seguro->Automovil->submarca}}">
-                            </div>
-
-                             <div class="input-group form-group">
-                                <input type="hidden" class="form-control" id='color' name="color" value="#8E44AD">
-                            </div>--}}
-                        @endif
                             {{--Datos para el calendario--}}
 
                                 <input type="hidden" class="form-control" id='id_user' name="id_user" value="{{$verificacion->id_user}}">
