@@ -67,7 +67,7 @@
               $('#id_user').val(info.event.id_user);
               $('#color').val(info.event.backgroundColor);
               $('#descripcion').val(info.event.extendedProps.descripcion);
-              $('#status').val(info.event.extendedProps.status);
+              $('#estatus').val(info.event.extendedProps.estatus);
               $('#exampleModal').modal();
             },
 
@@ -117,14 +117,14 @@
 
         function recolectarDatosGUI(method){
             colorAlert =("#2ECC71");
-            statusDefault = 0;
+            estatusDefault = 0;
 
             nuevoEvento={
                 id:$('#txtID').val(),
                 title:$('#title').val(),
                 id_user:$('#id_user').val(),
                 descripcion:$('#descripcion').val(),
-                status:$('#status').val()+statusDefault,
+                estatus:$('#estatus').val()+estatusDefault,
                 color:$('#color').val()+colorAlert,
                 start:$('#txtFecha').val(),
                 end:$('#txtFecha').val(),
@@ -140,7 +140,7 @@
                 title:$('#title').val(),
                 id_user:$('#id_user').val(),
                 descripcion:$('#descripcion').val(),
-                status:$('#status').val(),
+                estatus:$('#estatus').val(),
                 color:$('#color').val(),
                 // start:$('#txtFecha').val(),
                 // end:$('#txtFecha').val(),
@@ -173,7 +173,7 @@
               $('#txtFecha').val("");
               $('#color').val("");
               $('#descripcion').val("");
-              $('#status').val("");
+              $('#estatus').val("");
         }
       });
 

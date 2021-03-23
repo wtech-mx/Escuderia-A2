@@ -36,7 +36,7 @@ class DashboardController extends Controller
           $current = Carbon::now()->toDateTimeString();
           $alert2 = Alertas::
             where('id_user', '=', auth()->user()->id)
-            ->where('status', '=', 0)
+            ->where('estatus', '=', 0)
             ->where('start','<=', $current)
             ->get();
 
@@ -80,14 +80,14 @@ class DashboardController extends Controller
         //Trae la alerta
           $alert2 = Alertas::
             where('id_user', '=', auth()->user()->id)
-            ->where('status', '=', 0)
+            ->where('estatus', '=', 0)
             ->where('start','<=', $current)
             ->get();
         //Trae la alerta al controlador
           $alert3 = Alertas::
             where('id_user', '=', auth()->user()->id)
             ->where('start','<=', $current)
-            ->where('status', '=', 0)
+            ->where('estatus', '=', 0)
             ->first();
 
         //Trae la alerta Seguro
@@ -137,7 +137,7 @@ class DashboardController extends Controller
                     ];
                     \Mail::to($users->email)->send(new MyTestMail($details));
 
-                $alert3->status = 1;
+                $alert3->estatus = 1;
                  $alert3->save();
              }
 

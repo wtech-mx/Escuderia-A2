@@ -33,7 +33,7 @@ class ExpdomicilioController extends Controller
           $alert2 = Alertas::
             where('id_user', '=', auth()->user()->id)
             ->where('start','<=', $current)
-              ->where('status', '=', 0)
+              ->where('estatus', '=', 0)
             ->get();
 
          //Trae la alerta Seguro
@@ -58,7 +58,7 @@ class ExpdomicilioController extends Controller
           $alert2 = Alertas::
             where('id_user', '=', auth()->user()->id)
             ->where('start','<=', $current)
-              ->where('status', '=', 0)
+              ->where('estatus', '=', 0)
             ->get();
 
         return view('exp-fisico.view-cd', 'alert2');
@@ -106,7 +106,7 @@ class ExpdomicilioController extends Controller
           $alert2 = Alertas::
             where('id_user', '=', auth()->user()->id)
             ->where('start','<=', $current)
-              ->where('status', '=', 0)
+              ->where('estatus', '=', 0)
             ->get();
          //Trae la alerta Seguro
           $seguro_alerta = Seguros::

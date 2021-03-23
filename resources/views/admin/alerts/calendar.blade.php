@@ -65,7 +65,7 @@
               $('#id_user').val(info.event.id_user);
               $('#color').val(info.event.backgroundColor);
               $('#descripcion').val(info.event.extendedProps.descripcion);
-              $('#status').val(info.event.extendedProps.status);
+              $('#estatus').val(info.event.extendedProps.estatus);
               $('#check').val(info.event.extendedProps.check);
               $('#image').val(info.event.extendedProps.image);
               $('#exampleModal').modal();
@@ -118,7 +118,7 @@
 
         function recolectarDatosGUI(method){
             colorAlert =("#2ECC71");
-            statusDefault = 0;
+            estatusDefault = 0;
             checkDefault = 0;
             imageDefault = ("{{asset('img/icon/color/comprobado.png') }}");
 
@@ -127,7 +127,7 @@
                 title:$('#title').val(),
                 id_user:$('#id_user').val(),
                 descripcion:$('#descripcion').val(),
-                status:$('#status').val()+statusDefault,
+                estatus:$('#estatus').val()+estatusDefault,
                 check:$('#check').val()+checkDefault,
                 image:$('#image').val()+imageDefault,
                 color:$('#color').val()+colorAlert,
@@ -146,7 +146,7 @@
                 title:$('#title').val(),
                 id_user:$('#id_user').val(),
                 descripcion:$('#descripcion').val(),
-                status:$('#status').val(),
+                estatus:$('#estatus').val(),
                 check:$('#check').val(),
                 image:$('#image').val(),
                 color:$('#color').val(),
@@ -182,7 +182,7 @@
               $('#txtFecha').val("");
               $('#color').val("");
               $('#descripcion').val("");
-              $('#status').val("");
+              $('#estatus').val("");
               $('#check').val("");
               $('#image').val("");
         }

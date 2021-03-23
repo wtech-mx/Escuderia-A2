@@ -33,7 +33,7 @@ class EmpresasController extends Controller
           $alert2 = Alertas::
             where('id_user', '=', auth()->user()->id)
             ->where('start','<=', $current)
-            ->where('status', '=', 0)
+            ->where('estatus', '=', 0)
             ->get();
 
         return view('admin.garaje.create-garaje-admin',compact('user', 'alert2'));
@@ -83,7 +83,7 @@ class EmpresasController extends Controller
           $alert2 = Alertas::
             where('id_user', '=', auth()->user()->id)
             ->where('start','<=', $current)
-              ->where('status', '=', 0)
+              ->where('estatus', '=', 0)
             ->get();
 
           //Trae la alerta Seguro
@@ -114,7 +114,7 @@ class EmpresasController extends Controller
           $alert2 = Alertas::
             where('id_user', '=', auth()->user()->id)
             ->where('start','<=', $current)
-              ->where('status', '=', 0)
+              ->where('estatus', '=', 0)
             ->get();
 
           //Trae la alerta Seguro
@@ -176,7 +176,7 @@ class EmpresasController extends Controller
           $alert2 = Alertas::
             where('id_user', '=', auth()->user()->id)
             ->where('start','<=', $current)
-              ->where('status', '=', 0)
+              ->where('estatus', '=', 0)
             ->get();
 
           //Trae la alerta Seguro

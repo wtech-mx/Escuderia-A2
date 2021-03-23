@@ -20,13 +20,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="936a45dc-4f36-4130-a52f-695b08d602c5" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AlertasController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AlertasController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AutomovilController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AutomovilController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DashboardController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EmpresasController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EmpresasController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ExpController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ExpController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ExpcartaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ExpcartaController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ExpdomicilioController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ExpdomicilioController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ExpfacturasController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ExpfacturasController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ExpineController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ExpineController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ExplacasController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ExplacasController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ExpolizaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ExpolizaController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ExpreemplacaminetoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ExpreemplacaminetoController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ExprfcController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ExprfcController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ExptcController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ExptcController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ExptenenciasController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ExptenenciasController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MecanicaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MecanicaController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SegurosController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SegurosController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TarjetaCirculacionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TarjetaCirculacionController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/VerificacionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/VerificacionController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/alerts/alertas.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/alerts/alertas.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/verificacion/create-verificacion-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/verificacion/create-verificacion-admin.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_04_023622_create_alertas_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_04_023622_create_alertas_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/lib/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/lib/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/alerts/calendar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/alerts/calendar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/alerts/modal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/alerts/modal.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/alerts/calendar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/alerts/calendar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/alerts/modal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/alerts/modal.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,6 +192,7 @@
       <path value="$PROJECT_DIR$/vendor/fruitcake/laravel-telescope-toolbar" />
       <path value="$PROJECT_DIR$/vendor/laravelcollective/html" />
       <path value="$PROJECT_DIR$/vendor/davejamesmiller/laravel-breadcrumbs" />
+      <path value="$PROJECT_DIR$/vendor/silviolleite/laravelpwa" />
       <path value="$PROJECT_DIR$/vendor/alymosul/laravel-exponent-push-notifications" />
       <path value="$PROJECT_DIR$/vendor/alymosul/exponent-server-sdk-php" />
     </include_path>

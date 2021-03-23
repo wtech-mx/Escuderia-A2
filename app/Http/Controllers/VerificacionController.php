@@ -34,7 +34,7 @@ class VerificacionController extends Controller
           $current = Carbon::now()->toDateTimeString();
           $alert2 = Alertas::where('id_user', '=', auth()->user()->id)
             ->where('start','<=', $current)
-            ->where('status', '=', 0)
+            ->where('estatus', '=', 0)
             ->get();
          //Trae la alerta Seguro
           $seguro_alerta = Seguros::
@@ -63,7 +63,7 @@ class VerificacionController extends Controller
           $alert2 = Alertas::
             where('id_user', '=', auth()->user()->id)
             ->where('start','<=', $current)
-              ->where('status', '=', 0)
+              ->where('estatus', '=', 0)
             ->get();
         //Trae la alerta Seguro
           $seguro_alerta = Seguros::

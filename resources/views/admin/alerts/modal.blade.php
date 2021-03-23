@@ -29,7 +29,7 @@
                       </div>
 
                       <div class="form-group col-12" >
-                          <input class="form-control" type="hidden" name="status" id="status" >
+                          <input class="form-control" type="hidden" name="estatus" id="estatus" >
                       </div>
 
                       <div class="form-group col-12 mb-3">

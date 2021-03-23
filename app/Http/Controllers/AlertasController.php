@@ -33,6 +33,7 @@ class AlertasController extends Controller
           $current = Carbon::now()->toDateTimeString();
           $alert2 = Alertas::
             where('id_user', '=', auth()->user()->id)
+            ->where('estatus', '=', 0)
             ->where('start','<=', $current)
             ->get();
 
@@ -63,7 +64,7 @@ class AlertasController extends Controller
         $alert->start = $request->get('start');
         $alert->end = $request->get('start');
         $alert->color = '#'.$request->get('color');
-        $alert->status = 0;
+        $alert->estatus = 0;
 
         $alert->save();
 
@@ -89,7 +90,7 @@ class AlertasController extends Controller
           $alert2 = Alertas::
             where('id_user', '=', auth()->user()->id)
             ->where('start','<=', $current)
-            ->where('status', '=', 0)
+            ->where('estatus', '=', 0)
             ->get();
 
           $alert = Alertas::get();
@@ -167,7 +168,7 @@ class AlertasController extends Controller
           $alert2 = Alertas::
             where('id_user', '=', auth()->user()->id)
             ->where('start','<=', $current)
-            ->where('status', '=', 0)
+            ->where('estatus', '=', 0)
             ->get();
 
           $alert = Alertas::get();
