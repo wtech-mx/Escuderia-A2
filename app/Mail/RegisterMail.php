@@ -8,7 +8,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use App\Models\User;
 
-class MyTestMail extends Mailable
+class RegisterMail extends Mailable
 {
     use Queueable, SerializesModels;
     public $details;
@@ -30,12 +30,8 @@ class MyTestMail extends Mailable
 
     public function build()
     {
-        $users = User::where('id','=',auth()->user()->id)
-        ->get();
-        $user = User::where('id','=',auth()->user()->id)
-        ->first();
-
-        return $this->subject('Correo para '.$user->name)
-                    ->view('emails.myTestMail', compact('users'));
+        return $this->view('emails.register')
+                    ->from('contacto@checkngo.com.mx', 'Registro Checkngo')
+                    ->subject('Bienvenido!');
     }
 }

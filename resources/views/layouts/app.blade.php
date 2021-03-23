@@ -27,6 +27,7 @@
     <link href="{{ asset('css/btn-save.css') }}" rel="stylesheet">
     <link href="{{ asset('css/alerts.css') }}" rel="stylesheet">
     <link href="{{ asset('css/calendario.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/pwa.css') }}" rel="stylesheet">
 
     <link href="{{ asset('fonts/font-awesome.min.css') }}" rel="stylesheet">
     <link href="{{ asset('fonts/all.min.css') }}" rel="stylesheet">
@@ -68,6 +69,13 @@
 
                     @yield('content')
                     @auth
+                        <!-- Install button, hidden by default -->
+                        <div id="installContainer" class="ocultar">
+                          <button id="butInstall" class="pwa-btn" type="button">
+                            Install
+                          </button>
+                        </div>
+
                         @include('layouts.tab-bar')
                         @include('layouts.offline')
                     @endauth

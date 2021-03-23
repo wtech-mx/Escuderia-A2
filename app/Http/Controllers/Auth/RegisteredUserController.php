@@ -9,6 +9,8 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use \App\Mail\RegisterMail;
+use Illuminate\Support\Facades\Mail;
 
 class RegisteredUserController extends Controller
 {
@@ -38,13 +40,34 @@ class RegisteredUserController extends Controller
             'password' => 'required|string|confirmed|min:8',
         ]);
 
-        Auth::login($user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-        ]));
+       Auth::login($userreg = new User([
+//        $userreg = new User([
+         'name' => $request->get('name'),
+         'email'=> $request->get('email'),
+         'password' => Hash::make($request['password']),
+         ]));
 
-        event(new Registered($user));
+        $email = $request->get('email');
+
+        $subject = 'Bienvenido : '.$email ;
+
+        $details = array(
+         'name' => $request->get('name'),
+         'email' => $request->get('email'),
+         'password' => $request->get('password'),
+         );
+
+//        \Mail::send('emails.register', $details, function($message) use ($email, $subject) {
+//            $message->to($email)->subject($subject);
+//        });
+
+        Mail::send('emails.register', $details, function ($message) use ($details,$subject) {
+            $message->to($details['email'], $details['name'], $details['password'])
+                ->subject($subject)
+                ->from('contacto@checkngo.com.mx', 'Registro Checkngo');
+        });
+
+         $userreg->save();
 
         return redirect(RouteServiceProvider::HOME);
     }
