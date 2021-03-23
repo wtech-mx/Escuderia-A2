@@ -24,6 +24,8 @@
                             <strong>Registro</strong>
                         </h1>
 
+{{--                         <input id="role" type="hidden" name="role" value="0">--}}
+
                         <div class="wrap-input100 validate-input m-b-20" data-validate="Escribe Nombre">
                             <input id="name" type="text" class="input100 @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus  placeholder="Nombre">
                             <span class="focus-input100"></span>

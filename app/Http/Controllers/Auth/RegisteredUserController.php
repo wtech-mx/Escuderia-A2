@@ -40,11 +40,11 @@ class RegisteredUserController extends Controller
             'password' => 'required|string|confirmed|min:8',
         ]);
 
-       Auth::login($userreg = new User([
-//        $userreg = new User([
-         'name' => $request->get('name'),
-         'email'=> $request->get('email'),
-         'password' => Hash::make($request['password']),
+        Auth::login($userreg = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'role' => 0,
          ]));
 
         $email = $request->get('email');
@@ -57,6 +57,8 @@ class RegisteredUserController extends Controller
          'password' => $request->get('password'),
          );
 
+        event(new Registered($userreg));
+
 //        \Mail::send('emails.register', $details, function($message) use ($email, $subject) {
 //            $message->to($email)->subject($subject);
 //        });
@@ -66,8 +68,6 @@ class RegisteredUserController extends Controller
                 ->subject($subject)
                 ->from('contacto@checkngo.com.mx', 'Registro Checkngo');
         });
-
-         $userreg->save();
 
         return redirect(RouteServiceProvider::HOME);
     }
