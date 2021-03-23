@@ -65,6 +65,35 @@
             <div class="wrap-login100" style="@yield('bg-color')">
 
                 <div class="container-fluid">
+
+                    <style>
+                        .ocultar {
+                          display: none !important;
+                        }
+
+                        #installContainer {
+                          position: absolute;
+                          bottom: 1em;
+                          display: flex;
+                          justify-content: center;
+                          width: 100%;
+                        }
+
+                        #installContainer .pwa-btn {
+                          background-color: inherit;
+                          border: 1px solid white;
+                          color: white;
+                          font-size: 1em;
+                          padding: 0.75em;
+                        }
+                    </style>
+                        <!-- Install button, hidden by default -->
+                        <div id="installContainer" class="ocultar">
+                          <button id="butInstall" class="pwa-btn" type="button">
+                            Install
+                          </button>
+                        </div>
+
                         @yield('content')
                         @include('admin.layouts.tab-bar')
                         @include('admin.layouts.offline')

@@ -187,6 +187,7 @@ var filesToCache = [
 
 // Cache on install
 self.addEventListener("install", event => {
+    console.log('[ServiceWorker] Install');
     this.skipWaiting();
     event.waitUntil(
         caches.open(staticCacheName)
@@ -195,6 +196,7 @@ self.addEventListener("install", event => {
             })
     )
 });
+
 
 // Clear cache on activate
 self.addEventListener('activate', event => {

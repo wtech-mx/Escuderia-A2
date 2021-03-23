@@ -32,6 +32,10 @@
 
 <script type="text/javascript">
     // Initialize the service worker
+
+    const divInstall = document.getElementById('installContainer');
+    const butInstall = document.getElementById('butInstall');
+
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('/serviceworker.js', {
             scope: '/dashboard'
@@ -43,5 +47,12 @@
             console.log('Laravel PWA: ServiceWorker registration failed: ', err);
         });
     }
+
+    if (window.location.protocol === 'http:') {
+      const requireHTTPS = document.getElementById('requireHTTPS');
+      const link = requireHTTPS.querySelector('a');
+      link.href = window.location.href.replace('http://', 'https://');
+      requireHTTPS.classList.remove('hidden');
+}
 
 </script>
