@@ -34,8 +34,12 @@
             },
 
           views: {
-            dayGridMonth: { buttonText: 'MES' },
-            listMonth: { buttonText: 'LISTA' }
+            dayGridMonth: {
+                buttonText: 'left-single-arrow'
+            },
+            listMonth: {
+                buttonText: 'LISTA'
+            }
           },
 
             dateClick:function (info) {

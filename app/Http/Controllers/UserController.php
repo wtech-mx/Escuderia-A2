@@ -194,12 +194,12 @@ class UserController extends Controller
             Mail::send('emails.actualizacion-password', $details, function ($message) use ($details,$subject) {
                 $message->to($details['email'], $details['password'])
                     ->subject($subject)
-                    ->from('contacto@checkngo.com.mx', 'Actualizacion de contraseña checkngo');
+                    ->from('contacto@checkngo.com.mx', 'Actualizacion de contrasena checkngo');
             });
 
         }
 
-         Session::flash('success', 'Se ha actualizado su contraseña con exito');
+         Session::flash('success', 'Se ha actualizado su contrasena con exito');
          return Redirect::back();
 
     }
@@ -385,12 +385,12 @@ class UserController extends Controller
             Mail::send('emails.actualizacion-password', $details, function ($message) use ($details,$subject) {
                 $message->to($details['email'], $details['password'])
                     ->subject($subject)
-                    ->from('contacto@checkngo.com.mx', 'Actualizacion de contraseña checkngo');
+                    ->from('contacto@checkngo.com.mx', 'Actualizacion de contrasena checkngo');
             });
 
         }
 
-        Session::flash('success', 'Se ha actualizado su contraseña con exito');
+        Session::flash('success', 'Se ha actualizado su contrasena con exito');
          return redirect()->route('index_admin.user');
 
     }
