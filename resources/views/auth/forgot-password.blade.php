@@ -4,7 +4,7 @@
 
            <link href="{{ asset('css/login-form.css') }}" rel="stylesheet">
 
-           <form method="POST" action="{{ route('password.update') }}">
+           <form method="POST" action="{{ route('password.email') }}">
 
            @csrf
 

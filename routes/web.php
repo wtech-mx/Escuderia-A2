@@ -20,7 +20,7 @@ Route::get('/', function () {
 
 
 
-Route::post('forgot-password', 'PasswordResetLinkController@store')->name('password.email');
+Route::post('forgot-password', 'Auth\PasswordResetLinkController@store')->name('password.email');
 
 Route::post('update-password', 'Auth\NewPasswordController@store')->name('password.update');
 

@@ -44,7 +44,7 @@
                         </div>
 
                         <div class="wrap-input100 validate-input m-b-20 mt-3" data-validate="Escribe email">
-                            <input id="password-confirm" type="password" class="input100" name="password_confirmation" required autocomplete="new-password" placeholder="Repetor Contraseña">
+                            <input id="password-confirm" type="password" class="input100" name="password_confirmation" required autocomplete="new-password" placeholder="Repetir Contraseña">
                             <span class="focus-input100"></span>
                         </div>
 
