@@ -9,26 +9,30 @@
                 <link href="{{ asset('css/login-form.css') }}" rel="stylesheet">
 
                 <div class="row bg-img-log" style="background-image: url({{ asset('img/bg-log.png') }});">
-
                     <div class="col-2 ">
                         <div class="d-flex justify-content-start">
-                              <li class="nav-item dropdown" style="text-decoration: none">
-                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                                    <div class="text-center text-white bg-white" style="border-radius: 50px;padding: 5px">
+                               <a class="btn" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
+                                   <div class="text-center text-white bg-white" style="border-radius: 50px;padding: 5px">
                                       <img class="rounded-circle" src="{{ asset('img-perfil/'.$users->img) }}" width="40px" >
+                                   </div>
+                               </a>
+
+                                <div class="row">
+                                  <div class="col">
+                                    <div class="collapse multi-collapse" id="multiCollapseExample1">
+                                      <div class="card card-body">
+                                          <a class="text-dark" href="{{ route('logout') }}"
+                                             onclick="event.preventDefault();
+                                               document.getElementById('logout-form').submit();">
+                                              <img class="rounded-circle" src="{{ asset('img/icon/black/exit.png') }}" width="15" >
+                                          </a>
+                                          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                              {{ csrf_field() }}
+                                          </form>
+                                      </div>
                                     </div>
-                                </a>
-                                <div class="dropdown-menu">
-                                    <a class="text-dark" href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            Cerrar Sesion
-                                    </a>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                    </form>
+                                  </div>
                                 </div>
-                              </li>
                         </div>
                     </div>
 
