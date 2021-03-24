@@ -1,36 +1,41 @@
-<x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
+@extends('layouts.app')
 
-        <div class="mb-4 text-sm text-gray-600">
-            {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
-        </div>
+@section('content')
 
-        <!-- Session Status -->
-        <x-auth-session-status class="mb-4" :status="session('status')" />
+                <link href="{{ asset('css/login-form.css') }}" rel="stylesheet">
 
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
+           <form method="POST" action="{{ route('password.email') }}">
+           @csrf
 
-        <form method="POST" action="{{ route('password.email') }}">
-            @csrf
+                <div class="row bg-down-blue" >
+                    <div class="col-md-12 mt-3 mb-3">
+                        <div class="d-flex justify-content-center mt-2" >
+                             <img  class="img-responsive" width="45%" src="{{ asset('img/logo-check.png') }}" alt="logo check go">
+                        </div>
+                    </div>
 
-            <!-- Email Address -->
-            <div>
-                <x-label for="email" :value="__('Email')" />
+                    <div class="col-12p-5">
 
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
-            </div>
+                        <h1 class="text-center text-white p-3">
+                            <strong>¿Olvidate tu contraseña?</strong>
+                        </h1>
 
-            <div class="flex items-center justify-end mt-4">
-                <x-button>
-                    {{ __('Email Password Reset Link') }}
-                </x-button>
-            </div>
-        </form>
-    </x-auth-card>
-</x-guest-layout>
+                        <div class="wrap-input100 validate-input m-b-20" data-validate="Enter email">
+                            <input id="email" type="email" class="input100 @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Email" >
+                            <span class="focus-input100"></span>
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                        </div>
+
+                        <button class="btn btn-lg btn-is mt-3 mb-5 text-white" type="submit">
+                            Recuperar
+                        </button>
+
+                    </div>
+                </div>
+           </form>
+
+@endsection

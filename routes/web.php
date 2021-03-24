@@ -18,9 +18,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//Route::get('/offline', function () {
-//return view('modules/laravelpwa/offline');
-//});
+
+
+Route::post('forgot-password', 'PasswordResetLinkController@store')->name('password.email');
+Route::post('update-password', 'NewPasswordController@store')->name('password.update');
 
 Route::get('offline','OfflineController@index')->name('index.offline');
 
