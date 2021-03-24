@@ -6,12 +6,13 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 use Session;
 use Carbon\Carbon;
 use App\Models\Alertas;
 use App\Models\Seguros;
 use App\Models\TarjetaCirculacion;
-
+use Illuminate\Support\Facades\Mail;
 
 use Illuminate\Support\Facades\Hash;
 
@@ -177,12 +178,29 @@ class UserController extends Controller
 
         $user = User::findOrFail($id);
 
-        $user->password = Hash::make($request->password);
+         $user->password = Hash::make($request->password);
+         $pass = $user->password = $request->password;
+         $email = $user->email;
 
-        $user->update();
+        $details = array(
+         'email' => $email,
+         'password' => $pass,
+         );
 
-        Session::flash('success', 'Se ha actualizado su contraseña con exito');
-         return redirect()->route('index_admin.user');
+         $subject = 'Cambio de clave : '.$email ;
+
+        if ($user->update() == TRUE){
+
+            Mail::send('emails.actualizacion-password', $details, function ($message) use ($details,$subject) {
+                $message->to($details['email'], $details['password'])
+                    ->subject($subject)
+                    ->from('contacto@checkngo.com.mx', 'Actualizacion de contraseña checkngo');
+            });
+
+        }
+
+         Session::flash('success', 'Se ha actualizado su contraseña con exito');
+         return Redirect::back();
 
     }
 

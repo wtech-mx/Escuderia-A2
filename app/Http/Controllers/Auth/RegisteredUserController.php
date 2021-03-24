@@ -59,10 +59,6 @@ class RegisteredUserController extends Controller
 
         event(new Registered($userreg));
 
-//        \Mail::send('emails.register', $details, function($message) use ($email, $subject) {
-//            $message->to($email)->subject($subject);
-//        });
-
         Mail::send('emails.register', $details, function ($message) use ($details,$subject) {
             $message->to($details['email'], $details['name'], $details['password'])
                 ->subject($subject)
