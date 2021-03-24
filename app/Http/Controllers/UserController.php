@@ -369,9 +369,26 @@ class UserController extends Controller
 
         $user = User::findOrFail($id);
 
-        $user->password = Hash::make($request->password);
+         $user->password = Hash::make($request->password);
+         $pass = $user->password = $request->password;
+         $email = $user->email;
 
-        $user->update();
+         $details = array(
+          'email' => $email,
+          'password' => $pass,
+          );
+
+         $subject = 'Cambio de clave : '.$email ;
+
+         if ($user->update() == TRUE){
+
+            Mail::send('emails.actualizacion-password', $details, function ($message) use ($details,$subject) {
+                $message->to($details['email'], $details['password'])
+                    ->subject($subject)
+                    ->from('contacto@checkngo.com.mx', 'Actualizacion de contraseña checkngo');
+            });
+
+        }
 
         Session::flash('success', 'Se ha actualizado su contraseña con exito');
          return redirect()->route('index_admin.user');
