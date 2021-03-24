@@ -8,13 +8,13 @@
                     <div class="col-md-12 mt-3 mb-3">
 
                         <div class="d-flex justify-content-center mt-2" >
-                            <img class="img-responsive" width="45%" src="https://eago.com.mx/general/1595621309.png" />
+                            <img class="img-responsive" width="45%" src="{{ asset('img/logo-check.png') }}" />
                         </div>
 
                     </div>
                 </div>
 
-           <form method="POST" action="{{ route('register') }}" style="">
+                <form method="POST" action="{{ route('register') }}" style="">
            @csrf
 
                 <div class="row bg-down-blue" >
@@ -60,6 +60,36 @@
                             <input id="password-confirm" type="password" class="input100" name="password_confirmation" required autocomplete="new-password" placeholder="Repetor Contraseña">
                             <span class="focus-input100"></span>
                         </div>
+
+                        <div class="d-flex justify-content-between m-b-20 mt-5">
+
+                            <div class="form-check form-check-inline ">
+                              <input class="form-check-input" type="radio" name="radio" id="radio" value="radio" required>
+                              <label class="form-check-label text-white" for="inlineRadio1">Estoy de acuerdo</label>
+                            </div>
+
+                            <p>
+                              <a class="" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" style="color: #00f936">
+                                Ver terminos y condiciones
+                              </a>
+                            </p>
+
+                        </div>
+
+                        <style>
+                            .form-check-input:checked {
+                                background-color: #00f936;
+                                border-color: #0E7E27;
+                            }
+                        </style>
+
+                            <div class="collapse" id="collapseExample">
+                              <div class="card card-body">
+                                @include('auth.terminos')
+                              </div>
+                            </div>
+
+
 
                         <button class="btn btn-lg btn-is mt-3 text-white" type="submit">
                             Iniciar sesion
