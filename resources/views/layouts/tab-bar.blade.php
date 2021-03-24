@@ -1,4 +1,5 @@
-<p style="display: none">{{$userId = Auth::id()}}</p>
+                <p style="display: none">{{$userId = Auth::id()}}</p>
+
                 <div class="row bg-blue">
                     <div class="navbar">
 

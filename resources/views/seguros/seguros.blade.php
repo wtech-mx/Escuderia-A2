@@ -219,7 +219,7 @@ $newDate = date("d/m/Y", strtotime($originalDate));
 
                     </div>
 
-                    <div class="col-12 text-center mt-5 mb-5">
+                    <div class="col-12 text-center mt-5 " style="margin-bottom: 8rem !important;">
                         <button class="btn btn-lg btn-save-neon text-white">
                             <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}" width="20px" >
                             Actualizar

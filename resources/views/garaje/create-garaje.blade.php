@@ -30,7 +30,7 @@
                             </div>
                         </div>
 
-                        <div class="col-12 mb3">
+                        <div class="col-12 mb-3">
                             <img class="d-inline mb-2" src="{{ asset('img/icon/car2.png') }}" alt="Icon documento" width="500px">
                             <p class="text-left title-car">
                                 <strong>Agreaga tu Carro</strong>
@@ -40,8 +40,10 @@
                                 <strong>0 KM Recorridos</strong>
                             </p>
                         </div>
+
        <form method="POST" action="{{route('store.automovil')}}" enctype="multipart/form-data" role="form">
-             @csrf
+                        @csrf
+
                         <div class="col-12 mt-3">
                             <div class="input-group form-group">
                                 <div class="input-group-prepend " >
@@ -179,7 +181,7 @@
                             </div>
                         </div>
 
-                        <div class="col-12 text-center mt-3 mb-5">
+                        <div class="col-12 text-center mt-5 " style="margin-bottom: 8rem !important;">
                              <button type="submit" class="btn btn-lg btn-save-dark text-white">
                                    <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}" width="20px" >
                                         Guardar

@@ -3,7 +3,7 @@
 @section('content')
 
 
-<div class="row bg-down-blue" style="border-radius: 0 0 0 0;">
+<div class="row bg-down-blue " style="border-radius: 0 0 0 0; height: 100vh;">
                         <div class="col-2  mt-4">
                             <div class="d-flex justify-content-start">
                                     <div class="text-center text-white">

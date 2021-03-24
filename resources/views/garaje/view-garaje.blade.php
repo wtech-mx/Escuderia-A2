@@ -220,7 +220,7 @@
                 {{-- ----------------------}}
 
                     <div class="col-4 mb-3">
-                            <div class="card" style="border-radius: 15px">
+                            <div class="card" style="border-radius: 15px;margin-bottom: 8rem !important;">
                               <div class="card-body" >
                                   <p class="card-text text-center text-garaje">
                                        <img class="d-inline mb-2" src="{{ asset('img/icon/black/barcode.png') }}" alt="Icon documento" width="50px">
@@ -232,7 +232,7 @@
                     </div>
 
                     <div class="col-4 mb-3">
-                            <div class="card" style="border-radius: 15px">
+                            <div class="card" style="border-radius: 15px;margin-bottom: 8rem !important;">
                               <div class="card-body" >
                                   <p class="card-text text-center text-garaje">
                                        <img class="d-inline mb-2" src="{{ asset('img/icon/black/llantas.png') }}" alt="Icon documento" width="50px">
@@ -244,7 +244,7 @@
                     </div>
 
                     <div class="col-4 mb-3">
-                            <div class="card" style="border-radius: 15px">
+                            <div class="card" style="border-radius: 15px;margin-bottom: 8rem !important;">
                               <div class="card-body" >
                                   <p class="card-text text-center text-garaje">
                                       <img class="d-inline mb-2" src="{{ asset('img/icon/black/placa.png') }}" alt="Icon documento" width="50px">

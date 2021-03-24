@@ -47,9 +47,12 @@
                                 <strong>{{$automovil->kilometraje}} KM Recorridos</strong>
                             </p>
                         </div>
+
        <form method="POST" action="{{route('update.automovil',$automovil->id)}}" enctype="multipart/form-data" role="form">
-             @csrf
-           <input type="hidden" name="_method" value="PATCH">
+                        @csrf
+
+                        <input type="hidden" name="_method" value="PATCH">
+
                         <div class="col-12 mt-3">
                             <div class="input-group form-group">
                                 <div class="input-group-prepend " >
@@ -184,13 +187,13 @@
                             </p>
                         </div>
 
-                        <div class="col-12 text-center mt-3 mb-5">
+                        <div class="col-12 text-center mt-3" style="margin-bottom: 8rem !important;">
                              <button type="submit" class="btn btn-lg btn-save-dark text-white">
                                    <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}" width="20px" >
                                         Guardar
                              </button>
                         </div>
-    </form>
+       </form>
 
 </div>
 

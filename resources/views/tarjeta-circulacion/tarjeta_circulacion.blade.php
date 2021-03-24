@@ -245,12 +245,12 @@ $newDate = date("d/m/Y", strtotime($originalDate));
                                  </div>
                             </div>
 
-                                            <div class="col-12 text-center mt-5 mb-5">
-                                                <button class="btn btn-lg btn-save-neon text-white">
-                                                    <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}" width="20px" >
-                                                    Actualizar
-                                                </button>
-                                            </div>
+                            <div class="col-12 text-center mt-5" style="margin-bottom: 8rem !important;">
+                                <button class="btn btn-lg btn-save-neon text-white">
+                                    <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}" width="20px" >
+                                    Actualizar
+                                </button>
+                            </div>
 
                         </form>
                         @include('tarjeta-circulacion.modal-ts-img')

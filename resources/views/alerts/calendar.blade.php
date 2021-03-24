@@ -35,7 +35,7 @@
 
           views: {
             dayGridMonth: {
-                buttonText: 'left-single-arrow'
+                buttonText: 'MES'
             },
             listMonth: {
                 buttonText: 'LISTA'
