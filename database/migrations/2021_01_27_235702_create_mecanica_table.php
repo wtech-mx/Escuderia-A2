@@ -120,6 +120,15 @@ class CreateMecanicaTable extends Migration
                 ->references('id')->on('marca_product')
                 ->inDelete('RESTRICT');
 
+            /*Calendario*/
+            $table->string('image')->nullable();
+            $table->string('title');
+            $table->string('color');
+            $table->integer('estatus');
+            $table->integer('check')->nullable();
+            $table->date('start');
+            $table->date('end');
+
             $table->timestamps();
         });
     }

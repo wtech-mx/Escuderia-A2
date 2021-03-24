@@ -13,6 +13,7 @@ use Session;
 use Carbon\Carbon;
 use App\Models\Alertas;
 use App\Models\Verificacion;
+use App\Models\VerificacionSegunda;
 
 class AutomovilController extends Controller
 {
@@ -373,9 +374,14 @@ class AutomovilController extends Controller
         $verificacion->estatus = 0;
         $verificacion->save();
 
+        $verificacion_segunda = new  VerificacionSegunda;
+        $verificacion_segunda->id_verificacion = $verificacion->id;
+        $verificacion_segunda->save();
+
         $id = $automovil->id_user;
         $user = User::findOrFail($id);
         $user->current_auto = $automovil->id;
+        $verificacion->estatus = 0;
         $user->update();
 
         Session::flash('auto', 'Se ha guardado sus datos con exito');

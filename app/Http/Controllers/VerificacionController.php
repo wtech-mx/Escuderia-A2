@@ -10,6 +10,7 @@ use Carbon\Carbon;
 use App\Models\Alertas;
 use App\Models\Verificacion;
 use App\Models\TarjetaCirculacion;
+use App\Models\VerificacionSegunda;
 
 class VerificacionController extends Controller
 {
@@ -90,7 +91,6 @@ class VerificacionController extends Controller
         $verificacion->id_empresa = $request->get('id_empresa');
         $verificacion->current_auto = $request->get('current_auto');
         $verificacion->primer_semestre = $request->get('primer_semestre');
-        $verificacion->segundo_semestre = $request->get('segundo_semestre');
 
         //datos para el calednario
         $verificacion->title = $request->get('title');
@@ -102,6 +102,20 @@ class VerificacionController extends Controller
         $verificacion->check = $request->get('check');
 
         $verificacion->update();
+
+
+        $verificacion_segunda = new VerificacionSegunda;
+
+        $verificacion_segunda->id_verificacion = $id;
+        $verificacion_segunda->title = $verificacion->title;
+        $verificacion_segunda->color = $verificacion->color;
+        $verificacion_segunda->descripcion = $request->get('descripcion');
+        $verificacion_segunda->start = $request->get('segundo_semestre');
+        $verificacion_segunda->end = $request->get('segundo_semestre');
+        $verificacion_segunda->estatus = $request->get('estatus');
+        $verificacion_segunda->check = $request->get('check');
+
+        $verificacion_segunda->update();
 
         Session::flash('success2', 'Se ha actualizado sus datos con exito');
         return redirect()->back();

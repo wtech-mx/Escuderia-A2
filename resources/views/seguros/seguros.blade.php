@@ -99,7 +99,7 @@ $newDate = date("d/m/Y", strtotime($originalDate));
                             </div>
 
                              <div class="input-group form-group">
-                                <input type="hidden" class="form-control" id='color' name="color" value="#2980B9">
+                                <input type="hidden" class="form-control" id='color' name="color" value="#8E44AD">
                             </div>
 
                             {{--Datos para el calendario--}}

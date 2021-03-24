@@ -333,7 +333,7 @@ ul.social li{
           		<tr>
           			<td class="logo" style="text-align: center;">
 			            <h1><a href="#">Checkngo</a></h1>
-                        <h1><a href="#">Hola , {{ $email }}</a></h1>
+                        <h1><a href="#">Hola , {{ $nombre }}</a></h1>
 			          </td>
           		</tr>
           	</table>
@@ -352,10 +352,10 @@ ul.social li{
             		<td>
             			<div class="text" style="padding: 0 2.5em; text-align: center;">
             				<h2>¡Nos alegra que estés aquí!</h2>
-            				<h3>A continuación se muestran los detalles de su cuenta: </h3>
-                            <p style="color: #000000;font-weight: bold"><strong>Nombre: </strong> {{ $name }} </p>
-                            <p style="color: #000000;font-weight: bold"><strong>Email: </strong> {{ $email }} </p>
-                            <p style="color: #000000;font-weight: bold"><strong>Clave: </strong> {{ $password }}</p>
+            				<h3>Checkngo te ha mandado una alerta: </h3>
+                            <p style="color: #000000;font-weight: bold"><strong>Titulo: </strong> {{ $titulo }}</p>
+                            <p style="color: #000000;font-weight: bold"><strong>Descripción: </strong> {{ $descripcion }} </p>
+
             			</div>
             		</td>
             	</tr>

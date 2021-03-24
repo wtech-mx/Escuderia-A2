@@ -25,7 +25,7 @@ class Verificacion extends Model
         'start',
         'check',
         'end',
-        'status',
+        'estatus',
     ];
 
     public function User()

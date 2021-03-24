@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateVerificacionTable extends Migration
+class CreateVerificacionSegundaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,28 +13,15 @@ class CreateVerificacionTable extends Migration
      */
     public function up()
     {
-        Schema::create('verificacion', function (Blueprint $table) {
+        Schema::create('verificacion_segunda', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('id_verificacion')->nullable();
 
-            $table->unsignedBigInteger('id_user')->nullable();
-
-            $table->foreign('id_user')
-                ->references('id')->on('users')
+            $table->foreign('id_verificacion')
+                ->references('id')->on('verificacion')
                 ->inDelete('set null');
 
-            $table->unsignedBigInteger('id_empresa')->nullable();
-
-            $table->foreign('id_empresa')
-                ->references('id')->on('empresa')
-                ->inDelete('set null');
-
-            $table->unsignedBigInteger('current_auto')->nullable();
-
-            $table->foreign('current_auto')
-                ->references('id')->on('automovil')
-                ->inDelete('set null');
-
-            $table->date('primer_semestre')->nullable();
+            $table->date('segundo_semestre')->nullable();
 
             $table->string('title')->nullable();
             $table->text('descripcion')->nullable();
@@ -44,6 +31,7 @@ class CreateVerificacionTable extends Migration
             $table->date('start')->nullable();
             $table->date('end')->nullable();
 
+            $table->timestamps();
         });
     }
 
@@ -54,6 +42,6 @@ class CreateVerificacionTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('verificacion');
+        Schema::dropIfExists('verificacion_segunda');
     }
 }

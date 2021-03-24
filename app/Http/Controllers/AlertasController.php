@@ -117,6 +117,7 @@ class AlertasController extends Controller
         $datosEvento = request()->except(['_token','_method'],[]);
 
         Alertas::insert($datosEvento);
+
     }
 
         public function show_calendar()
@@ -193,8 +194,26 @@ class AlertasController extends Controller
         public function store_calendar_user(Request $request)
     {
         $datosEvento = request()->except(['_token','_method'],[]);
+/*        $titulo = $datosEvento['title'];
+        $descripcion = $datosEvento['descripcion'];*/
 
-        Alertas::insert($datosEvento);
+       Alertas::insert($datosEvento);
+//
+//        $email = $alerta->User->email;
+//        $subject = 'Bienvenido: '.$email ;
+//
+//        $details = array(
+//         'email' => $email,
+//         'titulo' => $titulo,
+//         'descripcion' => $descripcion,
+//         'nombre' => $datosEvento->User->name,
+//         );
+//
+//        Mail::send('emails.alertaAdmin', $details, function ($message) use ($details,$subject) {
+//            $message->to($details['email'], $details['titulo'], $details['descripcion'], $details['nombre'])
+//                ->subject($subject)
+//                ->from('contacto@checkngo.com.mx', 'Detalle de Alerta');
+//        });
     }
 
         public function show_calendar_user()
@@ -239,7 +258,7 @@ class AlertasController extends Controller
               case($color == "#2ECC71"):
                   $respuesta = Alertas::where('id','=',$id)->update($datosEvento);
                   break;
-              case($color == '#2980B9'):
+              case($color == '#8E44AD'):
                   $respuesta = Seguros::where('id', '=', $id)->update($datosEvento);
                   break;
               case($color == '#F1C40F'):

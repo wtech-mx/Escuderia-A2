@@ -31,12 +31,12 @@
               right: 'listMonth,dayGridMonth'
             },
 
-          views: {
+            views: {
             dayGridMonth: { buttonText: 'MES' },
             listMonth: { buttonText: 'LISTA' }
           },
 
-            dateClick:function (info) {
+              dateClick:function (info) {
 
               limpiarFormulario();
               $('#txtFecha').val(info.dateStr);
@@ -46,7 +46,7 @@
               $('#exampleModal').modal('toggle');
             },
 
-            eventClick:function (info) {
+              eventClick:function (info) {
 
               $("#btnAgregar").prop("disabled",true);
               $("#btnModificar").prop("disabled",false);
@@ -62,7 +62,7 @@
 
               $('#title').val(info.event.title);
               $('#txtFecha').val(anio+"-"+mes+"-"+dia);
-              $('#id_user').val(info.event.id_user);
+              $('#id_user').val(info.event.extendedProps.id_user);
               $('#color').val(info.event.backgroundColor);
               $('#descripcion').val(info.event.extendedProps.descripcion);
               $('#estatus').val(info.event.extendedProps.estatus);

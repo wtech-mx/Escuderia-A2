@@ -333,7 +333,7 @@ ul.social li{
           		<tr>
           			<td class="logo" style="text-align: center;">
 			            <h1><a href="#">Checkngo</a></h1>
-                        <h1><a href="#">Hola , {{ $email }}</a></h1>
+                        <h1><a href="#">Hola , {{ $nombreU }}</a></h1>
 			          </td>
           		</tr>
           	</table>
@@ -352,10 +352,13 @@ ul.social li{
             		<td>
             			<div class="text" style="padding: 0 2.5em; text-align: center;">
             				<h2>¡Nos alegra que estés aquí!</h2>
-            				<h3>A continuación se muestran los detalles de su cuenta: </h3>
-                            <p style="color: #000000;font-weight: bold"><strong>Nombre: </strong> {{ $name }} </p>
-                            <p style="color: #000000;font-weight: bold"><strong>Email: </strong> {{ $email }} </p>
-                            <p style="color: #000000;font-weight: bold"><strong>Clave: </strong> {{ $password }}</p>
+            				<h3>A continuación se muestran los datos de tu Tarjeta de Circulacion: </h3>
+                            <p style="color: #000000;font-weight: bold"><strong>Placas Auto: </strong> {{ $auto }}</p>
+                            <p style="color: #000000;font-weight: bold"><strong>Nombre Tarjeta: </strong> {{ $nombre }}</p>
+                            <p style="color: #000000;font-weight: bold"><strong>Tipo Placa: </strong> {{ $tipo_placa }} </p>
+                            <p style="color: #000000;font-weight: bold"><strong>Fecha Emision: </strong> {{ $fecha_emision }}</p>
+                            <p style="color: #000000;font-weight: bold"><strong>Lugar Expedicion: </strong> {{ $lugar_expedicion }}</p>
+                            <p style="color: #000000;font-weight: bold"><strong>Vigencia: </strong> {{ $end }}</p>
             			</div>
             		</td>
             	</tr>

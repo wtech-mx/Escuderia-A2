@@ -333,7 +333,7 @@ ul.social li{
           		<tr>
           			<td class="logo" style="text-align: center;">
 			            <h1><a href="#">Checkngo</a></h1>
-                        <h1><a href="#">Hola , {{ $email }}</a></h1>
+                        <h1><a href="#">Hola , {{ $nombre }}</a></h1>
 			          </td>
           		</tr>
           	</table>
@@ -352,10 +352,15 @@ ul.social li{
             		<td>
             			<div class="text" style="padding: 0 2.5em; text-align: center;">
             				<h2>¡Nos alegra que estés aquí!</h2>
-            				<h3>A continuación se muestran los detalles de su cuenta: </h3>
-                            <p style="color: #000000;font-weight: bold"><strong>Nombre: </strong> {{ $name }} </p>
-                            <p style="color: #000000;font-weight: bold"><strong>Email: </strong> {{ $email }} </p>
-                            <p style="color: #000000;font-weight: bold"><strong>Clave: </strong> {{ $password }}</p>
+            				<h3>A continuación se muestran los datos de tu Seguro: </h3>
+                            <p style="color: #000000;font-weight: bold"><strong>Placas Automovil: </strong> {{ $auto }}</p>
+                            <p style="color: #000000;font-weight: bold"><strong>Seguro: </strong> {{ $seguro }} </p>
+                            <p style="color: #000000;font-weight: bold"><strong>Tipo Cobertura: </strong> {{ $tipo_cobertura }}</p>
+                            <p style="color: #000000;font-weight: bold"><strong>Costo: </strong> {{ $costo }}</p>
+                            <p style="color: #000000;font-weight: bold"><strong>Costo Anual: </strong> {{ $costo_anual }}</p>
+                            <p style="color: #000000;font-weight: bold"><strong>Fecha Expedicion: </strong> {{ $fecha_expedicion }} </p>
+                            <p style="color: #000000;font-weight: bold"><strong>Fecha Vigencia: </strong> {{ $end }}</p>
+
             			</div>
             		</td>
             	</tr>

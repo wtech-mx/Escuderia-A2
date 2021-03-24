@@ -68,6 +68,7 @@ class MecanicaController extends Controller
 
         return view('admin.services.view-mecanica',compact('mecanica_llantas_user','seguro_alerta','tc_alerta','mecanica_llantas_empresa', 'mecanica_banda_user', 'mecanica_banda_empresa','mecanica_freno_user','mecanica_freno_empresa','mecanica_aceite_user','mecanica_aceite_empresa','mecanica_afinacion_user','mecanica_afinacion_empresa', 'mecanica_amortiguadores_user', 'mecanica_amortiguadores_empresa', 'mecanica_bateria_user', 'mecanica_bateria_empresa', 'alert2', 'users'));
     }
+
     public function create_servicio()
     {
           $user = DB::table('users')
@@ -193,6 +194,13 @@ class MecanicaController extends Controller
     		$mecanica->video2=time().".".$file->getClientOriginalExtension();
     	}
 
+        /* Calendario */
+        $mecanica->title = $request->get('title');
+        $mecanica->color = "#2980B9";
+        $mecanica->estatus = 0;
+        $mecanica->check = 0;
+        $mecanica->start = $request->get('start');
+        $mecanica->end = $request->get('start');
 
         $mecanica->save();
 

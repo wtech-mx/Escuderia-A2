@@ -11,6 +11,7 @@ use Illuminate\Support\Arr;
 use Carbon\Carbon;
 use App\Models\Alertas;
 use App\Models\TarjetaCirculacion;
+use Illuminate\Support\Facades\Mail;
 
 class SegurosController extends Controller
 {
@@ -143,6 +144,27 @@ class SegurosController extends Controller
             ->where('estatus', '=', 0)
             ->where('end','<=', $current)
             ->get();
+
+        $email = $seguro->User->email;
+        $subject = 'Bienvenido : '.$email ;
+
+        $details = array(
+         'seguro' => $request->get('seguro'),
+         'fecha_expedicion' => $request->get('fecha_expedicion'),
+         'tipo_cobertura' => $request->get('tipo_cobertura'),
+         'costo' => $request->get('costo'),
+         'costo_anual' => $request->get('costo_anual'),
+         'end' => $request->get('end'),
+         'email' => $email,
+         'auto' => $seguro->Automovil->placas,
+         'nombre' => $seguro->User->name,
+         );
+
+        Mail::send('emails.seguroAdmin', $details, function ($message) use ($details,$subject) {
+            $message->to($details['email'], $details['seguro'], $details['fecha_expedicion'], $details['tipo_cobertura'], $details['costo'], $details['costo_anual'], $details['end'], $details['auto'], $details['nombre'])
+                ->subject($subject)
+                ->from('contacto@checkngo.com.mx', 'Detalles de Seguro');
+        });
 
         Session::flash('success', 'Se ha guardado sus datos con exito');
         return redirect()->route('index.seguro', compact('seguro', 'seguro_alerta'));
@@ -304,6 +326,27 @@ class SegurosController extends Controller
         $seguro->descripcion = $request->get('descripcion');
 
         $seguro->update();
+
+        $email = $seguro->User->email;
+        $subject = 'Bienvenido : '.$email ;
+
+        $details = array(
+         'seguro' => $request->get('seguro'),
+         'fecha_expedicion' => $request->get('fecha_expedicion'),
+         'tipo_cobertura' => $request->get('tipo_cobertura'),
+         'costo' => $request->get('costo'),
+         'costo_anual' => $request->get('costo_anual'),
+         'end' => $request->get('end'),
+         'email' => $email,
+         'auto' => $seguro->Automovil->placas,
+         'nombre' => $seguro->User->name,
+         );
+
+        Mail::send('emails.seguroAdmin', $details, function ($message) use ($details,$subject) {
+            $message->to($details['email'], $details['seguro'], $details['fecha_expedicion'], $details['tipo_cobertura'], $details['costo'], $details['costo_anual'], $details['end'], $details['auto'], $details['nombre'])
+                ->subject($subject)
+                ->from('contacto@checkngo.com.mx', 'Detalles de Seguro');
+        });
 
         Session::flash('success2', 'Se ha actualizado sus datos con exito');
         return redirect()->back();
