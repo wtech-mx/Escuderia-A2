@@ -34,7 +34,7 @@
                         </div>
 
                         <div class="wrap-input100 validate-input m-b-20 mt-3" data-validate="Enter password">
-                            <input id="password" type="password" class="input100 @error('password') is-invalid @enderror" name="password" value="{{old('password', $request->password)}}" required autocomplete="password" autofocus placeholder="Email" >
+                            <input id="password" type="password" class="input100 @error('password') is-invalid @enderror" name="password" value="{{old('password', $request->password)}}" required autocomplete="password" autofocus placeholder="password" >
                             <span class="focus-input100"></span>
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">

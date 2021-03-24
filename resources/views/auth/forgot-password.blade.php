@@ -2,9 +2,10 @@
 
 @section('content')
 
-                <link href="{{ asset('css/login-form.css') }}" rel="stylesheet">
+           <link href="{{ asset('css/login-form.css') }}" rel="stylesheet">
 
-           <form method="POST" action="{{ route('password.email') }}">
+           <form method="POST" action="{{ route('password.update') }}">
+
            @csrf
 
                 <div class="row bg-down-blue" >

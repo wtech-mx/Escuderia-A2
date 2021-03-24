@@ -21,7 +21,8 @@ Route::get('/', function () {
 
 
 Route::post('forgot-password', 'PasswordResetLinkController@store')->name('password.email');
-Route::post('update-password', 'NewPasswordController@store')->name('password.update');
+
+Route::post('update-password', 'Auth\NewPasswordController@store')->name('password.update');
 
 Route::get('offline','OfflineController@index')->name('index.offline');
 
