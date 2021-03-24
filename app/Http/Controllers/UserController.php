@@ -178,8 +178,8 @@ class UserController extends Controller
 
         $user = User::findOrFail($id);
 
-         $user->password = Hash::make($request->password);
          $pass = $user->password = $request->password;
+         $user->password = Hash::make($request->password);
          $email = $user->email;
 
         $details = array(
@@ -369,14 +369,14 @@ class UserController extends Controller
 
         $user = User::findOrFail($id);
 
-         $user->password = Hash::make($request->password);
          $pass = $user->password = $request->password;
+         $user->password = Hash::make($request->password);
          $email = $user->email;
 
-         $details = array(
-          'email' => $email,
-          'password' => $pass,
-          );
+        $details = array(
+         'email' => $email,
+         'password' => $pass,
+         );
 
          $subject = 'Cambio de clave : '.$email ;
 
