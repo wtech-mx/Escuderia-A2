@@ -20,6 +20,7 @@ class Seguros extends Model
         'fecha_expedicion',
         'start',
         'end',
+        'image',
         'tipo_cobertura',
         'costo',
         'costo_anual',

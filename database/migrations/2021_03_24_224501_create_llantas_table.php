@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateVerificacionSegundaTable extends Migration
+class CreateLlantasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,13 @@ class CreateVerificacionSegundaTable extends Migration
      */
     public function up()
     {
-        Schema::create('verificacion_segunda', function (Blueprint $table) {
+        Schema::create('llantas', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_verificacion')->nullable();
 
-            $table->foreign('id_verificacion')
-                ->references('id')->on('verificacion')
+            $table->unsignedBigInteger('id_mecanica')->nullable();
+
+            $table->foreign('id_mecanica')
+                ->references('id')->on('mecanica')
                 ->inDelete('set null');
 
             $table->unsignedBigInteger('id_user')->nullable();
@@ -26,8 +27,6 @@ class CreateVerificacionSegundaTable extends Migration
             $table->foreign('id_user')
                 ->references('id')->on('users')
                 ->inDelete('set null');
-
-            $table->date('segundo_semestre')->nullable();
 
             $table->string('title')->nullable();
             $table->text('descripcion')->nullable();
@@ -49,6 +48,6 @@ class CreateVerificacionSegundaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('verificacion_segunda');
+        Schema::dropIfExists('llantas');
     }
 }

@@ -9,6 +9,7 @@ use Illuminate\Support\Str;
 use App\Models\Automovil;
 use App\Models\Mecanica;
 use App\Models\TarjetaCirculacion;
+use App\Models\Llantas;
 use App\Models\Seguros;
 use App\Models\User;
 use Session;
@@ -68,7 +69,6 @@ class MecanicaController extends Controller
 
         return view('admin.services.view-mecanica',compact('mecanica_llantas_user','seguro_alerta','tc_alerta','mecanica_llantas_empresa', 'mecanica_banda_user', 'mecanica_banda_empresa','mecanica_freno_user','mecanica_freno_empresa','mecanica_aceite_user','mecanica_aceite_empresa','mecanica_afinacion_user','mecanica_afinacion_empresa', 'mecanica_amortiguadores_user', 'mecanica_amortiguadores_empresa', 'mecanica_bateria_user', 'mecanica_bateria_empresa', 'alert2', 'users'));
     }
-
     public function create_servicio()
     {
           $user = DB::table('users')
@@ -228,11 +228,61 @@ class MecanicaController extends Controller
 
         $mecanica->color = "#2980B9";
         $mecanica->estatus = 0;
+        $mecanica->image = $request->get('image');
         $mecanica->check = 0;
         $mecanica->start = $request->get('start');
         $mecanica->end = $request->get('start');
 
         $mecanica->save();
+
+        $llantas = new Llantas;
+                /* Calendario */
+        switch($mecanica) {
+              //Llantas
+              case($mecanica->servicio == '1'):
+                 $llantas->id_user = $mecanica->id_user;
+                 $llantas->title = $mecanica->Automovil2->placas;
+              break;
+              //Banda
+              case($mecanica->servicio == '2'):
+                 $llantas->id_user = $mecanica->id_userbn;
+                 $llantas->title = $mecanica->Automovilbn->placas;
+              break;
+              //Frenos
+              case($mecanica->servicio == '3'):
+                  $llantas->id_user = $mecanica->id_userfr;
+                  $llantas->title = $mecanica->Automovilfr->placas;
+              break;
+              //Aceite
+              case($mecanica->servicio == '4'):
+                  $llantas->id_user = $mecanica->id_userac;
+                  $llantas->title = $mecanica->Automovilac->placas;
+              break;
+              //Afinacion
+              case($mecanica->servicio == '5'):
+                  $llantas->id_user = $mecanica->id_useraf;
+                  $llantas->title = $mecanica->Automovilaf->placas;
+              break;
+              //Amorting
+              case($mecanica->servicio == '6'):
+                  $llantas->id_user = $mecanica->id_useram;
+                  $llantas->title = $mecanica->Automovilam->placas;
+              break;
+              //Bateria
+              case($mecanica->servicio == '7'):
+                  $llantas->id_user = $mecanica->id_userbt;
+                  $llantas->title = $mecanica->Automovilbt->placas;
+              break;
+        }
+        $llantas->id_mecanica = $mecanica->id;
+        $llantas->descripcion = $mecanica->descripcion;
+        $llantas->color = "#2980B9";
+        $llantas->image = $mecanica->image;
+        $llantas->estatus = 0;
+        $llantas->check = 0;
+        $llantas->start = $mecanica->start;
+        $llantas->end = $mecanica->end;
+        $llantas->save();
 
         Session::flash('success', 'Se ha guardado sus datos con exito');
         return redirect()->back();

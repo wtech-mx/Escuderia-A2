@@ -218,7 +218,7 @@
                                             </div>
                                              <input type="date" class="form-control" placeholder="MM/DD/YYY"  style="border-radius: 0  10px 10px 0;" id='start' name="start">
                                         </div>
-
+<input type="hidden" class="form-control" id='image' name="image" value="{{asset('img/icon/color/comprobado.png') }}">
                                          <label for="">
                                              <p class="text-white"><strong>Video Interior</strong></p>
                                          </label>

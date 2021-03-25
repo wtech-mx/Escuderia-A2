@@ -205,7 +205,7 @@
                                                 </div>
                                                 <input type="text" class="form-control" placeholder="Km actual" style="border-radius: 0  10px 10px 0;" id="km_actual" name="km_actual" value="{{ old('km_actual') }}">
                                             </div>
-
+<input type="hidden" class="form-control" id='image' name="image" value="{{asset('img/icon/color/comprobado.png') }}">
                                          <label for="">
                                              <p class="text-white"><strong>Fecha Programada</strong></p>
                                          </label>

@@ -9,7 +9,7 @@ use App\Models\Alertas;
 use App\Models\Seguros;
 use App\Models\TarjetaCirculacion;
 use App\Models\VerificacionSegunda;
-use App\Models\Mecanica;
+use App\Models\Llantas;
 use App\Models\Verificacion;
 use Illuminate\Http\Request;
 use DB;
@@ -129,7 +129,7 @@ class AlertasController extends Controller
         $json3 = $data3['seguros'] = Seguros::all()->makeHidden('end');
         $json4 = $data3['tarjeta_circulacion'] = TarjetaCirculacion::all()->makeHidden('end');
         $json5 = $data5['verificacion'] = Verificacion::all()->makeHidden('end');
-        $json6 = $data6['mecanica'] = Mecanica::all()->makeHidden('end');
+        $json6 = $data6['mecanica'] = Llantas::all()->makeHidden('end');
         $json7 = $data7['verificacion_segunda'] = VerificacionSegunda::all()->makeHidden('end');
 
         //los convieerte en array
@@ -237,7 +237,7 @@ class AlertasController extends Controller
         $json5 = $data5['verificacion'] = Verificacion::all()->makeHidden('end')
             ->where('id_user', '=', auth()->user()->id);
 
-        $json6 = $data6['mecanica'] = Mecanica::all()->makeHidden('end')
+        $json6 = $data6['mecanica'] = Llantas::all()->makeHidden('end')
             ->where('id_user', '=', auth()->user()->id);
 
         $json7 = $data7['verificacion_segunda'] = VerificacionSegunda::all()->makeHidden('end')
@@ -285,7 +285,7 @@ class AlertasController extends Controller
                       $respuesta5 = Verificacion::where('id', '=', $id)->update($datosEvento);
                   break;
               case($color == '#2980B9'):
-                  $respuesta = Mecanica::where('id', '=', $id)->update($datosEvento);
+                  $respuesta = Llantas::where('id', '=', $id)->update($datosEvento);
                   break;
           }
 

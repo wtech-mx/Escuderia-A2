@@ -22,6 +22,13 @@ class TarjetaCirculacion extends Model
         'lugar_expedicion',
         'fecha_emision',
         'num_placa',
+        'image',
+        'title',
+        'descripcion',
+        'color',
+        'start',
+        'check',
+        'end',
     ];
 
         public function scopeNombre($query,$nombre)

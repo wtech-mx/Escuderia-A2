@@ -25,6 +25,7 @@ class Verificacion extends Model
         'start',
         'check',
         'end',
+        'image',
         'estatus',
     ];
 
