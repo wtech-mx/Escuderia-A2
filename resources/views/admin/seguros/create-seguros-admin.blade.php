@@ -6,15 +6,55 @@
 
                 <link href="{{ asset('css/login-form.css') }}" rel="stylesheet">
                 <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
-<?php
-$originalDate = $seguro->end;
-$newDate = date("d/m/Y", strtotime($originalDate));
-?>
+    <?php
+    $originalDate = $seguro->end;
+    $newDate = date("d/m/Y", strtotime($originalDate));
+    ?>
     @php
         $fechaEntera = strtotime($seguro->end);
                 $anio = date("Y", $fechaEntera);
-                $mes = date("m", $fechaEntera);
                 $dia = date("d", $fechaEntera);
+        $fechames = strtotime($seguro->end);
+                $mes = date("m", $fechames);
+
+                        switch($mes) {
+                          case ($mes == 1):
+                            $letrames = "January";
+                            break;
+                          case ($mes == 2):
+                            $letrames = "February";
+                            break;
+                          case ($mes == 3):
+                            $letrames = "March";
+                            break;
+                          case ($mes == 4):
+                            $letrames = "April";
+                            break;
+                          case ($mes == 5):
+                            $letrames = "May";
+                            break;
+                          case ($mes == 6):
+                            $letrames = "June";
+                            break;
+                          case ($mes == 7):
+                            $letrames = "October";
+                            break;
+                          case ($mes == 8):
+                            $letrames = "August";
+                            break;
+                          case ($mes == 9):
+                            $letrames = "September";
+                            break;
+                          case ($mes == 10):
+                            $letrames = "October";
+                            break;
+                          case ($mes == 11):
+                            $letrames = "November";
+                            break;
+                          case ($mes == 12):
+                            $letrames = "December";
+                            break;
+                        }
     @endphp
                 <div class="row bg-profile" style="z-index: 100000">
                 @include('admin.seguros.modal-poladmin-img')
@@ -224,6 +264,19 @@ $newDate = date("d/m/Y", strtotime($originalDate));
                                  <label for="">
                                      <p class="text-white mt-3"><strong>Foto Poliza Seguro</strong></p>
                                  </label>
+                                        <div class="third-width">
+                                          <label for="deadline-day">Day:</label>
+                                               <input type="hidden" id="deadline-day" value="{{$dia}}">
+                                           </div>
+
+                                            <div class="third-width"><label for="deadline-month">Month:</label>
+                                                <input type="hidden" id="deadline-month" value="{{$letrames}}">
+                                            </div>
+
+                                            <div class="third-width">
+                                              <label for="deadline-year">Year:</label>
+                                                <input type="hidden" id="deadline-year" value="{{$anio}}">
+                                            </div>
 
                                 <div class="col-12 text-center">
                                         <button type="button" class="btn" data-toggle="modal" data-target="#exampleModalpoliza" style="background: transparent !important;">
@@ -269,13 +322,13 @@ $newDate = date("d/m/Y", strtotime($originalDate));
 
                 const taskForm = document.getElementById('task-form');
 
-                const title = "{{$seguro->title}}";
+                const title = document.getElementById('title');
 
-                const day = {{$dia}};
+                const day = document.getElementById('deadline-day');
 
-                const month = "{{$mes}}";
+                const month = document.getElementById('deadline-month');
 
-                const year = {{$anio}};
+                const year = document.getElementById('deadline-year');
 
                 const submit = document.getElementById('submit');
 
