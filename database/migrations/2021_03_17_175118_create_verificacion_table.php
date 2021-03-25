@@ -43,6 +43,7 @@ class CreateVerificacionTable extends Migration
             $table->integer('check')->nullable();
             $table->date('start')->nullable();
             $table->date('end')->nullable();
+            $table->string('image')->nullable();
 
         });
     }

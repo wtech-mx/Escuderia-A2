@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\View;
 use App\Models\Alertas;
 use App\Models\Seguros;
 use App\Models\TarjetaCirculacion;
+use App\Models\VerificacionSegunda;
 use App\Models\Mecanica;
 use App\Models\Verificacion;
 use Illuminate\Http\Request;
@@ -129,6 +130,7 @@ class AlertasController extends Controller
         $json4 = $data3['tarjeta_circulacion'] = TarjetaCirculacion::all()->makeHidden('end');
         $json5 = $data5['verificacion'] = Verificacion::all()->makeHidden('end');
         $json6 = $data6['mecanica'] = Mecanica::all()->makeHidden('end');
+        $json7 = $data7['verificacion_segunda'] = VerificacionSegunda::all()->makeHidden('end');
 
         //los convieerte en array
         $decode2 = json_decode($json2);
@@ -136,9 +138,10 @@ class AlertasController extends Controller
         $decode4 = json_decode($json4);
         $decode5 = json_decode($json5);
         $decode6 = json_decode($json6);
+        $decode7 = json_decode($json7);
 
         //Une los array en uno solo
-        $resultado = array_merge ($decode2,$decode3,$decode4,$decode5,$decode6);
+        $resultado = array_merge ($decode2,$decode3,$decode4,$decode5,$decode6,$decode7);
 
         //retorna a la vista sn json
         return response()->json($resultado);
@@ -237,15 +240,19 @@ class AlertasController extends Controller
         $json6 = $data6['mecanica'] = Mecanica::all()->makeHidden('end')
             ->where('id_user', '=', auth()->user()->id);
 
+        $json7 = $data7['verificacion_segunda'] = VerificacionSegunda::all()->makeHidden('end')
+            ->where('id_user', '=', auth()->user()->id);
+
         //los convieerte en array
         $decode2 = json_decode($json2);
         $decode3 = json_decode($json3);
         $decode4 = json_decode($json4);
         $decode5 = json_decode($json5);
         $decode6 = json_decode($json6);
+        $decode7 = json_decode($json7);
 
         //Une los array en uno solo
-        $resultado = array_merge ($decode2,$decode3,$decode4,$decode5,$decode6);
+        $resultado = array_merge ($decode2,$decode3,$decode4,$decode5,$decode6,$decode7);
 
         //retorna a la vista sn json
         return response()->json($resultado);
@@ -256,6 +263,7 @@ class AlertasController extends Controller
         {
             $datosEvento = request()->except(['_token','_method']);
             $color = $datosEvento['color'];
+            $title = $datosEvento['title'];
 //            $respuesta = Alertas::all()->makeHidden('id_user')
 //                ->where('id','=',$id)
 //                ->where('id_user', '=', auth()->user()->id)
@@ -272,7 +280,9 @@ class AlertasController extends Controller
                   $respuesta = TarjetaCirculacion::where('id', '=', $id)->update($datosEvento);
                   break;
               case($color == '#FF0000'):
-                  $respuesta = Verificacion::where('id', '=', $id)->update($datosEvento);
+                      $respuesta = VerificacionSegunda::where('id', '=', $id)->update($datosEvento);
+
+                      $respuesta5 = Verificacion::where('id', '=', $id)->update($datosEvento);
                   break;
               case($color == '#2980B9'):
                   $respuesta = Mecanica::where('id', '=', $id)->update($datosEvento);

@@ -20,6 +20,12 @@ class CreateVerificacionSegundaTable extends Migration
             $table->foreign('id_verificacion')
                 ->references('id')->on('verificacion')
                 ->inDelete('set null');
+            
+            $table->unsignedBigInteger('id_user')->nullable();
+
+            $table->foreign('id_user')
+                ->references('id')->on('users')
+                ->inDelete('set null');
 
             $table->date('segundo_semestre')->nullable();
 
@@ -28,6 +34,7 @@ class CreateVerificacionSegundaTable extends Migration
             $table->string('color')->nullable();
             $table->integer('estatus')->nullable();
             $table->integer('check')->nullable();
+            $table->string('image')->nullable();
             $table->date('start')->nullable();
             $table->date('end')->nullable();
 

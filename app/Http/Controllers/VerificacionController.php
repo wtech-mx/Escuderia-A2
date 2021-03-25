@@ -56,7 +56,9 @@ class VerificacionController extends Controller
     public function edit_admin($id){
 
        $verificacion = Verificacion::findOrFail($id);
-        $verificacion_segunda = VerificacionSegunda::first();
+
+       $verificacion_segunda = VerificacionSegunda::first();
+
        $users = DB::table('users')
         ->get();
         // obtener la hora actual  - 2015-12-19 10:10:54
@@ -82,35 +84,6 @@ class VerificacionController extends Controller
         return view('admin.verificacion.create-verificacion-admin',compact('verificacion','verificacion_segunda', 'users', 'alert2', 'seguro_alerta','tc_alerta'));
     }
 
-    public function edit_admin2($id){
-
-       $verificacion = VerificacionSegunda::findOrFail($id);
-
-       $users = DB::table('users')
-        ->get();
-        // obtener la hora actual  - 2015-12-19 10:10:54
-          $current = Carbon::now()->toDateTimeString();
-          $alert2 = Alertas::
-            where('id_user', '=', auth()->user()->id)
-            ->where('start','<=', $current)
-              ->where('estatus', '=', 0)
-            ->get();
-        //Trae la alerta Seguro
-          $seguro_alerta = Seguros::
-            where('id_user', '=', auth()->user()->id)
-            ->where('estatus', '=', 0)
-            ->where('end','<=', $current)
-            ->get();
-        //Trae la alerta Tc
-          $tc_alerta = TarjetaCirculacion::
-            where('id_user', '=', auth()->user()->id)
-            ->where('estatus', '=', 0)
-            ->where('end','<=', $current)
-            ->get();
-
-        return view('admin.verificacion.create-verificacion-admin',compact('verificacion', 'users', 'alert2', 'seguro_alerta','tc_alerta'));
-    }
-
     public function update_admin(Request $request,$id)
     {
 
@@ -124,34 +97,41 @@ class VerificacionController extends Controller
         //datos para el calednario
         $verificacion->title = $request->get('title');
         $verificacion->color = $request->get('color');
+        $verificacion->image = $request->get('image');
         $verificacion->descripcion = $request->get('descripcion');
         $verificacion->start = $request->get('primer_semestre');
         $verificacion->end = $request->get('primer_semestre');
         $verificacion->estatus = $request->get('estatus');
         $verificacion->check = $request->get('check');
 
+
         $verificacion->update();
+
+
 
         Session::flash('success2', 'Se ha actualizado sus datos con exito');
         return redirect()->back();
     }
 
-    public function update_admin2(Request $request,$id)
+    public function update_periodo2(Request $request,$id)
     {
 
-        $verificacion_segunda = new findOrFail($id);
+        $verificacion_segunda = new VerificacionSegunda;
 
         $verificacion_segunda->id_verificacion = $id;
-        $verificacion_segunda->title = 'sss';
-        $verificacion_segunda->color = '#2980B9';
-        $verificacion_segunda->descripcion = 'ddd';
+        $verificacion_segunda->title = $request->get('title');
+        $verificacion_segunda->color = '#FF0000';
+        $verificacion_segunda->descripcion = $request->get('descripcion');
         $verificacion_segunda->segundo_semestre = $request->get('segundo_semestre');
         $verificacion_segunda->start = $request->get('segundo_semestre');
         $verificacion_segunda->end = $request->get('segundo_semestre');
         $verificacion_segunda->estatus = 0;
         $verificacion_segunda->check = 0;
+        $verificacion_segunda->image = $request->get('image');
 
-        $verificacion_segunda->update();
+        $verificacion_segunda->save();
 
+        Session::flash('success2', 'Se ha actualizado sus datos con exito2');
+        return redirect()->back();
     }
 }

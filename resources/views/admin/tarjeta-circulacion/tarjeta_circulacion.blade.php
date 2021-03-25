@@ -83,6 +83,8 @@ $newDate = date("d/m/Y", strtotime($originalDate));
                         <div class="input-group form-group">
                             <input type="hidden" class="form-control" id='color' name="color" value="#F1C40F">
                         </div>
+
+                        <input type="hidden" class="form-control" id='image' name="image" value="{{asset('img/icon/color/comprobado.png') }}">
                         {{--Datos para el calendario--}}
 
                         <input type="hidden" id="id_user" name="id_user" value="{{$tarjeta_circulacion->Automovil->id_user}}" readonly>

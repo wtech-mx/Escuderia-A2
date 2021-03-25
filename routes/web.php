@@ -354,6 +354,7 @@ Route::get('admin/verificacion/index','VerificacionController@index_admin')->nam
 Route::get('admin/verificacion/edit/{id}','VerificacionController@edit_admin')->name('edit_admin.verificacion');
 Route::patch('admin/verificacion/update/{id}','VerificacionController@update_admin')->name('update_admin.verificacion');
 
+Route::post('admin/periodo2/update/{id}','VerificacionController@update_periodo2')->name('update_periodo2.verificacion');
 /*|--------------------------------------------------------------------------
 |Correo view
 |--------------------------------------------------------------------------*/

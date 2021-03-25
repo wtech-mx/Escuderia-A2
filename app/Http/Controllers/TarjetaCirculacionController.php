@@ -72,6 +72,7 @@ class TarjetaCirculacionController extends Controller
         $tarjeta_circulacion->title = $request->get('title');
         $tarjeta_circulacion->color = $request->get('color');
         $tarjeta_circulacion->descripcion = $request->get('descripcion');
+        $tarjeta_circulacion->image = $request->get('image');
 
         $tarjeta_circulacion->update();
 
@@ -194,6 +195,7 @@ class TarjetaCirculacionController extends Controller
         $tarjeta_circulacion->title = $request->get('title');
         $tarjeta_circulacion->color = $request->get('color');
         $tarjeta_circulacion->descripcion = $request->get('descripcion');
+        $tarjeta_circulacion->image = $request->get('image');
         $tarjeta_circulacion->update();
 
         $email = $tarjeta_circulacion->User->email;

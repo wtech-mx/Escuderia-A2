@@ -102,6 +102,8 @@ $newDate = date("d/m/Y", strtotime($originalDate));
                              <div class="input-group form-group">
                                 <input type="hidden" class="form-control" id='color' name="color" value="#8E44AD">
                             </div>
+
+                            <input type="hidden" class="form-control" id='image' name="image" value="{{asset('img/icon/color/comprobado.png') }}">
                             {{--Datos para el calendario--}}
 
                             <div class="input-group form-group">
