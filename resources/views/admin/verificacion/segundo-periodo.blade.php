@@ -1,5 +1,3 @@
-
-    <div class="row bg-image" >
                     @if(Session::has('success2'))
                         <script>
                             Swal.fire(
@@ -9,10 +7,11 @@
                             )
                         </script>
                     @endif
-                    <form method="POST" action="{{route('update_periodo2.verificacion',$verificacion_segunda->id_verificacion)}}" enctype="multipart/form-data" role="form">
-                                 @csrf
 
-                    <div class="col-12 mt-5">
+                    <form class="p-5" method="POST" action="{{route('update_periodo2.verificacion',$verificacion_segunda->id_verificacion)}}" enctype="multipart/form-data" role="form">
+                    @csrf
+
+                    <div class="col-12 mt-1">
 
                             <p class="text-left text-white" style="font: normal normal bold 20px/27px Segoe UI;">
                                 <strong>Segundo Periodo de Verificacion</strong>
@@ -63,5 +62,5 @@
                         </button>
                     </div>
                     </form>
-                </div>
+
 

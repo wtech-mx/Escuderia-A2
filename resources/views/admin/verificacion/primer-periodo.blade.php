@@ -1,5 +1,5 @@
 
-   <div class="row bg-image" >
+
                     @if(Session::has('success2'))
                         <script>
                             Swal.fire(
@@ -9,13 +9,14 @@
                             )
                         </script>
                     @endif
-                    <form method="POST" action="{{route('update_admin.verificacion',$verificacion->id)}}" enctype="multipart/form-data" role="form">
+
+                    <form class="p-5" method="POST" action="{{route('update_admin.verificacion',$verificacion->id)}}" enctype="multipart/form-data" role="form">
                                  @csrf
                        <input type="hidden" name="_method" value="PATCH">
-                        <div class="col-12 mt-5">
+                        <div class="col-12 mt-1">
 
                                     <p class="text-left text-white" style="font: normal normal bold 20px/27px Segoe UI;">
-                                        <strong>Detalles de Verificacion</strong>
+                                        <strong>Primer Periodo de Verificacion</strong>
                                     </p>
                                     {{--Datos para el calendario--}}
                                     <div class="input-group form-group">
@@ -37,7 +38,7 @@
                                      <input type="hidden" class="form-control" id='id_empresa' name="id_empresa" value="{{$verificacion->id_empresa}}">
                                      <input type="hidden" class="form-control" id='current_auto' name="current_auto" value="{{$verificacion->current_auto}}">
 
-                                     <label for="">
+                                     <label class="mt-3" for="">
                                          <p class="text-white"><strong>Placas</strong></p>
                                      </label>
 
@@ -45,27 +46,28 @@
                                         <input type="text" class="form-control" placeholder="arf-515" id="num_placa" name="num_placa" value="{{$verificacion->Automovil->placas}}" readonly>
                                     </div>
 
-                                     <label for="">
-                                     <p class="text-white"><strong>Primer Periodo</strong></p>
-                                 </label>
+                                     <label class="mt-3" for="">
+                                        <p class="text-white"><strong>Primer Periodo</strong></p>
+                                    </label>
 
                                      <div class="input-group form-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">
-                                             <img class="" src="{{ asset('img/icon/white/calendario (1).png') }}" width="25px" >
-                                        </span>
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">
+                                                 <img class="" src="{{ asset('img/icon/white/calendario (1).png') }}" width="25px" >
+                                            </span>
+                                        </div>
+                                         <input type="date" class="form-control" placeholder="MM/DD/YYY"  style="border-radius: 0  10px 10px 0;" id='primer_semestre' name="primer_semestre" value="{{$verificacion->primer_semestre}}">
                                     </div>
-                                     <input type="date" class="form-control" placeholder="MM/DD/YYY"  style="border-radius: 0  10px 10px 0;" id='primer_semestre' name="primer_semestre" value="{{$verificacion->primer_semestre}}">
-                                </div>
 
                         </div>
 
-                        <div class="col-12 text-center mt-5 mb-5">
+                        <div class="col-12 text-center mt-5 " style="margin-bottom: 8rem !important;">
                             <button class="btn btn-lg btn-save-neon text-white">
                                 <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}" width="20px" >
                                 Actualizar
                             </button>
                         </div>
+
                     </form>
-                </div>
+
 

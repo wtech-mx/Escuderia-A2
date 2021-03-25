@@ -11,8 +11,9 @@ $originalDate = $verificacion->primer_semestre;
 $newDate = date("d/m/Y", strtotime($originalDate));
 ?>
 
-                <div class="row bg-profile" style="z-index: 100000">
-                        @if(Session::has('success'))
+                <div class="row bg-profile" style="z-index: 100000;height: 10vh">
+
+                    @if(Session::has('success'))
                         <script>
                             Swal.fire({
                               title: 'Exito!!',
@@ -53,6 +54,11 @@ $newDate = date("d/m/Y", strtotime($originalDate));
                         </div>
                     </div>
 
+                </div>
+
+                <div class="row bg-image" style="height: 85vh">
+
+                <div class="col-12 mt-5">
                          <div class="col-6 mt-4">
                             <a class="btn mb-3 mr-1" href="#carouselExampleControls" role="button" data-slide="prev">
                                 <img class="" src="{{ asset('img/icon/white/flecha-izquierda.png') }}" width="25px" >
@@ -62,12 +68,6 @@ $newDate = date("d/m/Y", strtotime($originalDate));
                                 <img class="" src="{{ asset('img/icon/white/flecha-correcta.png') }}" width="25px" >
                             </a>
                         </div>
-{{--                    <div class="col-12 p-3">
-                        <p class="text-center">
-                            <img class="" src="{{ asset('img/icon/seguros/'.$img) }}" width="150px" ><br>
-                        </p>
-                    </div>--}}
-
                 </div>
 
                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="90000">
@@ -81,6 +81,8 @@ $newDate = date("d/m/Y", strtotime($originalDate));
                             @include('admin.verificacion.segundo-periodo')
                         </div>
                     </div>
+               </div>
+
                </div>
 @endsection
 
