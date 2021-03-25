@@ -37,11 +37,6 @@
                           <input class="form-control" type="text" name="title" id="title">
                       </div>
 
-{{--                      <div class="form-group col-12">--}}
-{{--                          <label for="">Hora</label>--}}
-{{--                          <input class="form-control" type="time" name="txtHora" id="txtHora" min="07:00" max="19:00" step="600">--}}
-{{--                      </div>--}}
-
                       <div class="form-group col-12 mb-3">
                          <label for="">Selecionar Usuario</label>
                               <select class="form-control" id="id_user" name="id_user">
