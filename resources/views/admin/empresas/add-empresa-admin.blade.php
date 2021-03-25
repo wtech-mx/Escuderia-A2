@@ -150,7 +150,7 @@
                                       <p class="text-white"><strong>Foto de Perfil</strong></p>
                                   </label>
 
-                                  <div class="custom-file mb-5">
+                                  <div class="custom-file " style="margin-bottom: 8rem !important;">
                                       <input type="file" class="custom-file-input"  id='img' name="img" >
                                       <label class="custom-file-label" for="img">Selecciona imagen</label>
                                   </div>
@@ -172,11 +172,11 @@
                                     <input type="password" class="form-control" placeholder="****" id="password" name="password" >
                                 </div>
 
-                                 <label for="">
+                                 <label for="" class="mt-5">
                                      <p class="text-white"><strong>Confirmar Contraseña </strong></p>
                                  </label>
 
-                                <div class="input-group form-group">
+                                <div class="input-group form-group" >
                                     <div class="input-group-prepend">
                                         <span class="input-group-text input-modal" >
                                              <img class="" src="{{ asset('img/icon/white/password.png') }}" width="25px" >
@@ -185,7 +185,7 @@
                                     <input type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="Confirmar Contraseña" id="password-confirm" >
                                 </div>
 
-                                  <div class="col-12 text-center mt-5 mb-5">
+                                  <div class="col-12 text-center mt-5 " style="margin-bottom: 9rem !important;">
 
                                       <button class="btn btn-lg btn-save-neon text-white">
                                           <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}" width="20px" >

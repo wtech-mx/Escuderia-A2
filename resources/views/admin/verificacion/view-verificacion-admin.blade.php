@@ -57,8 +57,8 @@
                                     </h5>
 
                                   <div class="row">
-
-                                    @foreach ($verificacion_user as $item)
+                                    <div class="content" style="margin-bottom: 10% !important;height: 100vh;">
+                                        @foreach ($verificacion_user as $item)
                                         <div class="col-12 mt-4">
 
                                             <a class="card-text" href="{{ route('edit_admin.verificacion',$item->id) }}" style="text-decoration: none;color: #000000">
@@ -88,6 +88,7 @@
                                             </a>
                                         </div>
                                     @endforeach
+                                    </div>
                                   </div>
 
                                 </div>

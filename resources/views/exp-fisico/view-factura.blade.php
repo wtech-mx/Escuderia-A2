@@ -97,7 +97,6 @@
                             </p>
                         </div>
 
-
                         <div class="col-12 mt-3">
                             <p class="text-center text-white">
                                 Escanea tu Expediente

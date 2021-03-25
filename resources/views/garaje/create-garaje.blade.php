@@ -31,7 +31,7 @@
                         </div>
 
                         <div class="col-12 mb-3">
-                            <img class="d-inline mb-2" src="{{ asset('img/icon/car2.png') }}" alt="Icon documento" width="500px">
+                            <img class="d-inline mb-2" src="{{ asset('img/icon/car2.png') }}" alt="Icon documento" width="350px">
                             <p class="text-left title-car">
                                 <strong>Agreaga tu Carro</strong>
                             </p>

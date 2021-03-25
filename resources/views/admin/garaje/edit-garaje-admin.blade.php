@@ -32,7 +32,7 @@
                         </div>
 
                         <div class="col-12 mb3">
-                            <img class="d-inline mb-2" src="{{ asset('img/icon/car2.png') }}" alt="Icon documento" width="500px">
+                            <img class="d-inline mb-2" src="{{ asset('img/icon/car2.png') }}" alt="Icon documento" width="350px">
                             <p class="text-left title-car">
                                 <strong>{{$automovil->submarca}}</strong>
                             </p>
@@ -198,7 +198,7 @@
                             </div>
                         </div>
 
-                        <div class="col-12 mb-3">
+                        <div class="col-12 mb-3" style="margin-bottom: 8rem !important;">
                             <p class="text-center">
                                   <img class="d-inline mb-2" src="{{ asset('img-auto/'.$automovil->img) }}"  width="150px">
                             </p>
@@ -278,7 +278,7 @@
 
                                     </div>
 
-                                     <button type="submit" class="btn btn-lg btn-save-dark text-white mt-5">
+                                     <button type="submit" class="btn btn-lg btn-save-dark text-white mt-5" style="margin-bottom: 8rem !important;">
                                            <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}" width="20px" >
                                                 Guardar
                                      </button>

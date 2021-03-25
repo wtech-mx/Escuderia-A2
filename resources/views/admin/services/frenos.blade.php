@@ -29,7 +29,7 @@
                                       </div>
 
 
-                                    <div class="tab-content" id="pills-tabContent">
+                                    <div class="tab-content p-4" id="pills-tabContent">
 
                                       <div class="tab-pane fade show active mr-4 ml-4" id="pills-Empresa-frenos" role="tabpanel" aria-labelledby="pills-Empresa-frenos-tab">
 
@@ -173,7 +173,7 @@
                                   </div>
 
                                   <div class="col-12 p-4">
-                                <div class="d-flex">
+                                <div class="d-flex justify-content-between">
                                   <div class="mr-auto">
                                          <label for="">
                                              <p class="text-white"><strong>Marca</strong></p>
@@ -292,7 +292,7 @@
                                           <label class="custom-file-label" for="customFile">Selecciona Video</label>
                                         </div>
 
-                                          <button class="btn btn-lg btn-success btn-save mt-4">
+                                          <button class="btn btn-lg btn-success btn-save-neon text-white mt-4" style="margin-bottom: 8rem !important;">
                                               <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}" width="20px" >
                                               Guardar
                                           </button>

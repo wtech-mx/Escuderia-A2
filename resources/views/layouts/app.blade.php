@@ -58,24 +58,24 @@
 </head>
 
 <body>
+
 <p style="display: none">{{$userId =  Auth::id()}}</p>
 
-                    <div class="container-fluid" style="@yield('bg-color')">
+                <div class="container-fluid" style="@yield('bg-color')">
                     @yield('content')
                     @auth
 
                         <div id="installContainer" class="ocultar">
-                          <button id="butInstall" class="pwa-btn" type="button">
-                            Install
-                          </button>
+                            <button id="butInstall" class="pwa-btn" type="button">
+                                Install
+                            </button>
                         </div>
 
                         @include('layouts.tab-bar')
                         @include('layouts.offline')
-                    </div>
+
                     @endauth
-
-
+                </div>
 
 </body>
 

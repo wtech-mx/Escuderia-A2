@@ -6,8 +6,7 @@
 
                 <link href="{{ asset('css/garje.css') }}" rel="stylesheet">
 
-                <div class="row bg-image" >
-
+                <div class="row bg-image">
 
                         <div class="col-2  mt-4">
                             <div class="d-flex justify-content-start">
@@ -73,14 +72,12 @@
                                         </div>
                                     {{Form::close()}}
 
+                                    <div class="content" style="margin-bottom: 10% !important;height: 100vh;">
                                     @foreach ($user as $item)
-                                        <div class="col-12 mt-4">
-
+                                        <div class="col-12 mt-4" >
                                                 <div class="card card-slide-garaje" >
                                                   <div class="card-body p-2" >
-
                                                       <div class="row">
-
                                                           <div class="col-6 mt-3">
                                                               <a class="card-text" href="{{ route('edit_admin.user',$item->id) }}">
                                                                   <strong style="font: normal normal bold 20px/27px Segoe UI;">
@@ -90,20 +87,17 @@
                                                               <p class="card-text" style="font-size: 12px"><strong>{{$item->telefono}}</strong></p>
                                                               <p class="card-text" style="font-size: 12px"><strong>{{$item->email}}</strong></p>
                                                           </div>
-
                                                             @if($item->img == NULL)
                                                                 <img class="rounded-circle" src="{{ asset('img/icon/black/user.png') }}" height="80px" width="80px" style="width: 80px !important;">
                                                             @else
                                                                 <img class="rounded-circle" src="{{ asset('img-perfil/'.$item->img) }}" height="80px" width="80px" style="width: 80px !important;">>
                                                             @endif
-
                                                       </div>
-
                                                   </div>
                                                 </div>
-
                                         </div>
                                     @endforeach
+                                    </div>
 
 {{--                                     {{ $user->render() }}--}}
 

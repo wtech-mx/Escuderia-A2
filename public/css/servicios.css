@@ -1,6 +1,6 @@
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link{
     background: var(--unnamed-color-24f1c3) 0% 0% no-repeat padding-box;
-    background: #24F1C3 0% 0% no-repeat padding-box;
+    background: #00f936 0% 0% no-repeat padding-box;
     opacity: 1;
     color: var(--unnamed-color-050f55);
     text-align: left;
@@ -25,7 +25,7 @@ color: #050F55;
 }
 
 .input-services{
-    background: #24F1C3 0% 0% no-repeat padding-box;
+    background: #00f936 0% 0% no-repeat padding-box;
     border-radius: 0.25rem;
     border: none;
 }

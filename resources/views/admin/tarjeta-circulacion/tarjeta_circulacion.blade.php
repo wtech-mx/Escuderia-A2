@@ -239,7 +239,7 @@ $newDate = date("d/m/Y", strtotime($originalDate));
                                  <p class="text-white mt-3"><strong>Agregar imagen</strong></p>
                              </label>
 
-                             <div class="col-12 mt-3">
+                             <div class="col-12 mt-2">
                                  <div class="d-flex justify-content-center">
                                      <a type="button" class="btn ml-5" data-toggle="modal" data-target="#exampleModal" >
                                          <img class="d-inline mb-2" src="{{ asset('img/icon/white/add.png') }}" width="30px">
@@ -247,7 +247,7 @@ $newDate = date("d/m/Y", strtotime($originalDate));
                                  </div>
                             </div>
 
-                            <div class="col-12 text-center mt-5 mb-5">
+                            <div class="col-12 text-center mt-2" style="margin-bottom: 8rem !important;">
                                 <button class="btn btn-lg btn-save-neon text-white">
                                     <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}" width="20px" >
                                     Actualizar

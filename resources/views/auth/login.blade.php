@@ -1,10 +1,10 @@
 @extends('layouts.app')
-
+@section('bg-color', 'background-color: rgb(0,131,28,1);')
 @section('content')
 
                 <link href="{{ asset('css/login-form.css') }}" rel="stylesheet">
 
-                <div class="row bg-img-log" style="background-image: url({{ asset('img/bg-log.png') }});">
+                <div class="row bg-img-log" style="background-image: url({{ asset('img/bg-log.png') }});height: 30vh !important;">
                     <div class="col-md-12 mt-3 mb-3">
 
                         <div class="d-flex justify-content-center mt-2" >
@@ -17,7 +17,7 @@
            <form method="POST" action="{{ route('login') }}">
            @csrf
 
-                <div class="row bg-down-blue" >
+                <div class="row bg-down-blue" style="height: 78vh !important;" >
                     <div class="col-12 p-5">
 
                         <h1 class="text-center text-white p-3">

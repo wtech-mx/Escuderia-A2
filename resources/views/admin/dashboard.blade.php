@@ -71,6 +71,10 @@
 
                 </div>
 
+                <div class="bg-verde">
+
+                </div>
+
                 <div class="row " style="z-index:1000;background-image: linear-gradient(to bottom, #00d62e, #2ce048, #43eb5f, #56f574, #68ff88);border-radius: 30px 30px 0 0;">
                     <div class="col-12 p-4">
                         <h6 class="text-center text-white">
@@ -167,7 +171,7 @@
                         </a>
                     </div>
 
-                    <div class="col-6 mt-4 mb-4">
+                    <div class="col-6 mt-4" style="margin-bottom: 8rem !important;">
                         <a href="{{ route('index_admin.verificacion') }}" class="text-white">
 
                             <div class="card" style="border-radius: 15px">

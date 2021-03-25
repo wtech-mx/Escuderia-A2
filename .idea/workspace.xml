@@ -21,10 +21,28 @@
   <component name="ChangeListManager">
     <list default="true" id="936a45dc-4f36-4130-a52f-695b08d602c5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AlertasController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AlertasController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MecanicaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MecanicaController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SegurosController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SegurosController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/VerificacionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/VerificacionController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/login-estilos.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/login-estilos.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/servicios.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/servicios.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/dashboard.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/empresas/add-empresa-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/empresas/add-empresa-admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/empresas/view-empresas-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/empresas/view-empresas-admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/exp-fisico/view-bp-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/exp-fisico/view-bp-admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/exp-fisico/view-cd-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/exp-fisico/view-cd-admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/exp-fisico/view-cr-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/exp-fisico/view-cr-admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/exp-fisico/view-exp-fisico-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/exp-fisico/view-exp-fisico-admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/exp-fisico/view-factura-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/exp-fisico/view-factura-admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/exp-fisico/view-ine-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/exp-fisico/view-ine-admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/exp-fisico/view-poliza-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/exp-fisico/view-poliza-admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/exp-fisico/view-reemplacamiento-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/exp-fisico/view-reemplacamiento-admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/exp-fisico/view-rfc-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/exp-fisico/view-rfc-admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/exp-fisico/view-tc-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/exp-fisico/view-tc-admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/exp-fisico/view-tenencia-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/exp-fisico/view-tenencia-admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/garaje/create-garaje-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/garaje/create-garaje-admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/garaje/edit-garaje-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/garaje/edit-garaje-admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/garaje/view-garaje-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/garaje/view-garaje-admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/seguros/create-seguros-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/seguros/create-seguros-admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/seguros/view-seguros-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/seguros/view-seguros-admin.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/services/aceite.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/services/aceite.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/services/afincacion.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/services/afincacion.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/services/amortiguadores.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/services/amortiguadores.blade.php" afterDir="false" />
@@ -32,11 +50,21 @@
       <change beforePath="$PROJECT_DIR$/resources/views/admin/services/bateria.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/services/bateria.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/services/frenos.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/services/frenos.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/services/llantas.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/services/llantas.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/verificacion/create-verificacion-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/verificacion/create-verificacion-admin.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/tab-bar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/tab-bar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/seguros/seguros.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/seguros/seguros.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/tarjeta-circulacion/tarjeta_circulacion.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/tarjeta-circulacion/tarjeta_circulacion.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/services/mecanica.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/services/mecanica.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/tarjeta-circulacion/tarjeta_circulacion.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/tarjeta-circulacion/tarjeta_circulacion.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/tarjeta-circulacion/view-tc-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/tarjeta-circulacion/view-tc-admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/user/add-user-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/user/add-user-admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/user/edit-user-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/user/edit-user-admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/user/view-user-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/user/view-user-admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/verificacion/view-verificacion-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/verificacion/view-verificacion-admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/forgot-password.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/forgot-password.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/exp-fisico/view-factura.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/exp-fisico/view-factura.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/garaje/create-garaje.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/garaje/create-garaje.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/profile/profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/profile.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -1,12 +1,12 @@
 @extends('admin.layouts.app')
 
-@section('bg-color', 'background-image: linear-gradient(to bottom, #050f55, #050f55, #050f55, #050f55, #050f55);')
+@section('bg-color', 'background-color: #0a0302')
 
 @section('content')
 
                 <link href="{{ asset('css/servicios.css') }}" rel="stylesheet">
 
-                <div class="row bg-down-blue-border" style="background: #050F55 0% 0% no-repeat padding-box;">
+                <div class="row  bg-image" >
 
                     @if(Session::has('marca'))
                         <script>
@@ -65,7 +65,7 @@
                     </div>
                 </div>
 
-                <div class="row bg-down-blue-border mt-5" style="background: #050F55 0% 0% no-repeat padding-box;">
+                <div class="row  bg-image mt-5" >
 
                     <div class="col-12 bg-white" style="height: 38px;">
 

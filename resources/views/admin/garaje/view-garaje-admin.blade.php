@@ -113,7 +113,8 @@
 
 
                                       <div class="row">
-                                        @foreach ($automovil as $item)
+                                           <div class="content" style="margin-bottom: 10% !important;height: 100vh;">
+                                                @foreach ($automovil as $item)
                                             <div class="col-12 mt-4">
                                                 <div class="card card-slide-garaje" >
                                                   <div class="card-body p-2" >
@@ -153,6 +154,7 @@
                                                 </div>
                                             </div>
                                         @endforeach
+                                           </div>
                                       </div>
 
 {{--                                      {{ $automovil->render() }}--}}
@@ -190,6 +192,7 @@
                                         {{Form::close()}}
 
                                             <div class="col-12 mt-4">
+                                                <div class="content" style="margin-bottom: 10% !important;height: 100vh;">
                                                 @foreach ($automovil2 as $item)
                                                     <div class="col-12 mt-4">
                                                         <div class="card card-slide-garaje" >
@@ -230,6 +233,7 @@
                                                         </div>
                                                     </div>
                                                 @endforeach
+                                                </div>
                                             </div>
 
                                       </div>

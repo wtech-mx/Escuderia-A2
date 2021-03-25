@@ -71,8 +71,8 @@
 
                                         </div>
                                         {{Form::close()}}
-
-                                    @foreach ($seguros as $item)
+                                    <div class="content" style="margin-bottom: 10% !important;height: 100vh;">
+                                     @foreach ($seguros as $item)
                                         <div class="col-12 mt-4">
 
                                             <a class="card-text" href="{{ route('edit_admin.seguro',$item->id) }}" style="text-decoration: none;color: #000000">
@@ -96,6 +96,8 @@
                                             </a>
                                         </div>
                                     @endforeach
+                                    </div>
+
                                   </div>
 
                                 </div>
@@ -125,8 +127,8 @@
 
                                         </div>
                                         {{Form::close()}}
-
-                                    @foreach ($seguros2 as $item)
+                                    <div class="content" style="margin-bottom: 10% !important;height: 100vh;">
+                                        @foreach ($seguros2 as $item)
                                         <div class="col-12 mt-4">
                                             <div class="card card-slide-garaje" >
                                               <div class="card-body p-2" >
@@ -147,6 +149,7 @@
                                             </div>
                                         </div>
                                     @endforeach
+                                    </div>
 
                                   </div>
 

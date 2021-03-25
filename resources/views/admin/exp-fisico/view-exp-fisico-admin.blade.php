@@ -56,7 +56,7 @@
                                     </h5>
 
                                   <div class="row">
-
+                                    <div class="content" style="margin-bottom: 10% !important;height: 100vh;">
                                         <div class="col-12">
 
                                             @foreach ($automovil as $item)
@@ -163,7 +163,7 @@
                                             @endforeach
 
                                         </div>
-
+                                    </div>
                                   </div>
 
                                 </div>
@@ -179,7 +179,7 @@
                                     </h5>
 
                                   <div class="row">
-
+                                    <div class="content" style="margin-bottom: 10% !important;height: 100vh;">
                                         <div class="col-12">
 
                                             @foreach ($automovil2 as $item)
@@ -287,7 +287,7 @@
                                             @endforeach
 
                                         </div>
-
+                                    </div>
                                   </div>
 
                                 </div>

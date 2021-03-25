@@ -59,30 +59,22 @@
 
 <body>
 <p style="display: none">{{$userId =  Auth::id()}}</p>
-    <div id="app" class="w-100 h-100">
 
-        <div class="container-login100" >
+                <div class="container-fluid" style="@yield('bg-color')">
+                @yield('content')
+                @auth
 
-            <div class="wrap-login100" style="@yield('bg-color')">
-
-                <div class="container-fluid">
-
-                        <!-- Install button, hidden by default -->
                         <div id="installContainer" class="ocultar">
                           <button id="butInstall" class="pwa-btn" type="button">
                             Install
                           </button>
                         </div>
 
-                        @yield('content')
+
                         @include('admin.layouts.tab-bar')
                         @include('admin.layouts.offline')
                 </div>
-            </div>
-
-        </div>
-
-    </div>
+                @endauth
 
 </body>
             <div id="seccionRecargar">

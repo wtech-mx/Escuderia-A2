@@ -1,8 +1,9 @@
 @extends('admin.layouts.app')
 
-@section('bg-color', 'background-image: linear-gradient(to bottom, #050f55, #050f55, #050f55, #050f55, #050f55);')
+@section('bg-color', 'background-color: #000000;')
 
 @section('content')
+
 <p style="display: none">{{$userId = Auth::id()}}</p>
 
 
@@ -11,7 +12,6 @@
 
 
                 <div class="row bg-profile" style="z-index: 100000">
-
                     <div class="col-2">
                         <div class="d-flex justify-content-start">
                                 <div class="text-center text-white">
@@ -52,8 +52,7 @@
 
                 <div class="row bg-image" >
                     <div class="col-12 mt-5">
-
-                                @if(Session::has('success'))
+                              @if(Session::has('success'))
                                     <script>
                                         Swal.fire(
                                             'Exito!',
@@ -62,8 +61,7 @@
                                         )
                                     </script>
                                 @endif
-
-                                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                              <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
 
                                   <li class="nav-item mr-2">
                                     <a class="nav-link active a-perso" id="pills-perfil-tab" data-toggle="pill" href="#perfil" role="tab" aria-controls="perfil" aria-selected="true">
@@ -83,8 +81,10 @@
                                <div class="tab-pane fade show active" id="perfil" role="tabpanel" aria-labelledby="pills-perfil-tab">
                                  <form method="POST" action="{{route('update_admin.user',$user->id)}}" enctype="multipart/form-data" role="form">
                                     @csrf
+
                                     <input type="hidden" name="_method" value="PATCH">
-                                     <label for="">
+
+                                    <label for="">
                                          <p class="text-white"><strong>Nombre Completo</strong></p>
                                      </label>
 
@@ -119,7 +119,7 @@
                                         @endif
                                     </div>
 
-                                     <label for="">
+                                    <label for="">
                                          <p class="text-white"><strong>Telefono</strong></p>
                                      </label>
 
@@ -135,7 +135,7 @@
                                         @endif
                                     </div>
 
-                                     <label for="">
+                                    <label for="">
                                          <p class="text-white"><strong>Fecha de nacimiento</strong></p>
                                      </label>
 
@@ -167,7 +167,7 @@
                                         @endif
                                     </div>
 
-                                     <label for="">
+                                    <label for="">
                                          <p class="text-white"><strong>Referencia</strong></p>
                                      </label>
 
@@ -185,7 +185,7 @@
                                         </select>
                                     </div>
 
-                                     <label for="">
+                                    <label for="">
                                          <p class="text-white"><strong>Genero</strong></p>
                                      </label>
 
@@ -246,7 +246,7 @@
 
                                   </div>
 
-                                     <label for="" class="mt-3">
+                                    <label for="" class="mt-3">
                                          <p class="text-white"><strong>Foto de Perfil</strong></p>
                                      </label>
 
@@ -255,13 +255,13 @@
                                       <label class="custom-file-label" for="img">Selecciona imagen</label>
                                     </div>
 
-
-                                      <div class="col-12 text-center mt-3 mb-5">
+                                    <div class="col-12 text-center mt-3 " style="margin-bottom: 8rem !important;">
                                           <button class="btn btn-lg btn-save-neon text-white">
                                               <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}" width="20px" >
                                               Actualizar
                                          </button>
                                       </div>
+
                                  </form>
                                </div>
 
@@ -289,7 +289,7 @@
                                          <p class="text-white"><strong>Confirmar Contraseña </strong></p>
                                      </label>
 
-                                    <div class="input-group form-group">
+                                    <div class="input-group form-group mb-5">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">
                                                  <img class="" src="{{ asset('img/icon/white/password.png') }}" width="25px" >
@@ -301,22 +301,18 @@
                                         @endif
                                     </div>
 
-                                      <div class="col-12 text-center mt-5 mb-5">
-
-                                          <button class="btn btn-lg btn-save-neon text-white">
+                                      <div class="col-12 text-center mt-5"  style="margin-bottom: 8rem !important;">
+                                          <button class="btn btn-lg btn-save-neon text-white" >
                                               <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}" width="20px" >
                                               Actualizar
                                           </button>
-
                                       </div>
+
                                 </form>
                               </div>
                              </div>
 
                     </div>
-
                 </div>
-
-
 @endsection
 

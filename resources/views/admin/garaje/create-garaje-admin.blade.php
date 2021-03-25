@@ -65,7 +65,7 @@
                         </div>
 
                         <div class="col-12 mb3">
-                            <img class="d-inline mb-2" src="{{ asset('img/icon/car2.png') }}" alt="Icon documento" width="500px">
+                            <img class="d-inline mb-2" src="{{ asset('img/icon/car2.png') }}" alt="Icon documento" width="350px">
                             <p class="text-left title-car">
                                 <strong>HAVAL F7</strong>
                             </p>
@@ -245,7 +245,7 @@
                                 </div>
                             </div>
 
-                        <div class="col-12 mb-3">
+                        <div class="col-12 " style="margin-bottom: 8rem !important;">
                             <div class="input-group form-group">
                                 <div class="input-group-prepend " >
                                     <span class="input-group-text span-edit-car">
@@ -267,7 +267,7 @@
 
                               <div class="col-12 text-center mt-5 mb-5">
 
-                                     <label for="">
+                                     <label class="mb-5" for="">
                                          <p class="subtitle-label"><strong>¿Este auto pertenece a una empresa?</strong></p>
                                      </label>
 
@@ -299,7 +299,7 @@
 
                                     </div>
 
-                                     <label for="">
+                                     <label class="mb-5" for="">
                                          <p class="subtitle-label" ><strong>¿Este auto pertenece a una persona?</strong></p>
                                      </label>
 
@@ -329,16 +329,17 @@
                                             </a>
                                         </div>
 
-                                    </div>
-
-                                     <button type="submit" class="btn btn-lg btn-save-dark text-white mt-5">
+                                     <div class="col-12" style="margin-bottom: 8rem !important;">
+                                         <button type="submit" class="btn btn-lg btn-save-dark text-white mt-5">
                                            <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}" width="20px" >
                                                 Guardar
-                                     </button>
+                                        </button>
+                                     </div>
+
+                                    </div>
+
 
                               </div>
-
-
 
                           </div>
                         </div>

@@ -309,12 +309,13 @@
 
                                     </div>
 
-                                          <div class="col-12 text-center mt-3 "  style="margin-bottom: 8rem !important;">>
-                                              <button class="btn btn-lg btn-save-neon text-white">
-                                                  <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}" width="20px" >
-                                                  Actualizar
-                                              </button>
-                                          </div>
+                                        <div class="col-12 text-center mt-3 "  style="margin-bottom: 8rem !important;">
+                                            <button class="btn btn-lg btn-save-neon text-white">
+                                                <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}" width="20px" >
+                                                Actualizar
+                                            </button>
+                                        </div>
+
                                     </form>
                                   </div>
 

@@ -4,7 +4,7 @@
 
 <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
 
-<div class="row bg-down-blue" style="border-radius: 0 0 0 0;">
+<div class="row bg-down-blue " style="border-radius: 0 0 0 0; height: 100vh;">
 
                         @if(Session::has('success'))
                         <script>
@@ -113,7 +113,6 @@
                                 </button>
                             </p>
                         </div>
-
 
                         <div class="col-12 mt-3">
                             <p class="text-center text-white">

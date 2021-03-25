@@ -97,6 +97,7 @@
 
 
                                   <div class="row">
+                                      <div class="content" style="margin-bottom: 10% !important;height: 100vh;">
                                       @foreach ($tarjeta_circulacion as $item)
                                         <div class="col-12 mt-4">
                                             <div class="card card-slide-garaje" >
@@ -115,6 +116,7 @@
                                         </div>
                                       @endforeach
 {{--                                      {{ $tarjeta_circulacion->render() }}--}}
+                                      </div>
                                   </div>
                                 </div>
 
@@ -139,6 +141,7 @@
 
 
                                   <div class="row">
+                                      <div class="content" style="margin-bottom: 10% !important;height: 100vh;">
                                       @foreach ($tarjeta_circulacion2 as $item)
                                         <div class="col-12 mt-4">
                                             <div class="card card-slide-garaje" >
@@ -157,6 +160,7 @@
                                         </div>
                                       @endforeach
 {{--                                      {{ $tarjeta_circulacion->render() }}--}}
+                                      </div>
                                   </div>
                                 </div>
 
