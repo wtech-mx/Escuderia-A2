@@ -208,6 +208,7 @@ Route::get('/win-and-share/view-win-share', function () {
     return view('win-and-share/view-win-share');
 })->middleware(['auth'])->name('view-win-share');
 
+Route::get('recompensas','RecompensasController@index')->name('index.recompensas');
 /*|--------------------------------------------------------------------------
 |Comparte y Gana
 |--------------------------------------------------------------------------*/

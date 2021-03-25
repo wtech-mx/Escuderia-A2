@@ -162,7 +162,6 @@
                                             </div>
                                   </div>
 
-
                            <div class="col-12 p-4">
                                 <div class="d-flex">
                                   <div class="mr-auto">
@@ -251,6 +250,19 @@
                                                 </div>
                                                 <input type="text" class="form-control" placeholder="km actual" style="border-radius: 0  10px 10px 0;" id="km_actual" name="km_actual" value="{{ old('km_actual') }}">
                                             </div>
+
+                                         <label for="">
+                                             <p class="text-white"><strong>Fecha Programada</strong></p>
+                                         </label>
+
+                                        <div class="input-group form-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text input-services">
+                                                     <img class="" src="{{ asset('img/icon/white/calendario (1).png') }}" width="25px" >
+                                                </span>
+                                            </div>
+                                             <input type="date" class="form-control" placeholder="MM/DD/YYY"  style="border-radius: 0  10px 10px 0;" id='start' name="start">
+                                        </div>
 
                                          <label for="">
                                              <p class="text-white"><strong>Video Interior</strong></p>

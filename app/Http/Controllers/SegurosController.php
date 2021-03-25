@@ -28,65 +28,69 @@ class SegurosController extends Controller
         where('current_auto','=',$auto->current_auto)
         ->first();
 
-          switch($seguro){
-            case( $seguro->seguro == 'aba' ):
-                $img = 'aba.png';
-            break;
-            case( $seguro->seguro == 'afirme' ):
-                $img = 'afirme.png';
-            break;
-            case( $seguro->seguro == 'aig' ):
-                $img = 'aig.png';
-            break;
-            case( $seguro->seguro == 'ana' ):
-                $img = 'ana.png';
-            break;
-            case( $seguro->seguro == 'atlas' ):
-                $img = 'atlas.png';
-            break;
-            case( $seguro->seguro == 'axa' ):
-                $img = 'axa.png';
-            break;
-            case( $seguro->seguro == 'banorte' ):
-                $img = 'banorte.png';
-            break;
-            case( $seguro->seguro == 'general' ):
-                $img = 'general.png';
-            break;
-            case( $seguro->seguro == 'sura' ):
-                $img = 'sura.png';
-            break;
-            case( $seguro->seguro == 'vexmas' ):
-                $img = 'vexmas.png';
-            break;
-            case( $seguro->seguro == 'gnp' ):
-               $img = 'gnp.png';
-            break;
-            case( $seguro->seguro == 'hdi' ):
-                $img = 'hdi.png';
-            break;
-            case( $seguro->seguro == 'inbursa' ):
-                $img = 'inbursa.png';
-            break;
-            case( $seguro->seguro == 'latino' ):
-                $img = 'latino.png';
-            break;
-            case( $seguro->seguro == 'mapfre' ):
-                $img = 'mapfre.png';
-            break;
-            case( $seguro->seguro == 'qualitas' ):
-                $img = 'qualitas.png';
-            break;
-            case( $seguro->seguro == 'potosi' ):
-                $img = 'potosi.png';
-            break;
-            case( $seguro->seguro == 'miituo' ):
-                $img = 'miituo.png';
-            break;
-            case( $seguro->seguro == 'zurich' ):
-                $img = 'zurich.png';
-            break;
-        }
+    if($seguro == NULL){
+        $img = '';
+    }else{
+        switch($seguro){
+                case( $seguro->seguro == 'aba' ):
+                    $img = 'aba.png';
+                break;
+                case( $seguro->seguro == 'afirme' ):
+                    $img = 'afirme.png';
+                break;
+                case( $seguro->seguro == 'aig' ):
+                    $img = 'aig.png';
+                break;
+                case( $seguro->seguro == 'ana' ):
+                    $img = 'ana.png';
+                break;
+                case( $seguro->seguro == 'atlas' ):
+                    $img = 'atlas.png';
+                break;
+                case( $seguro->seguro == 'axa' ):
+                    $img = 'axa.png';
+                break;
+                case( $seguro->seguro == 'banorte' ):
+                    $img = 'banorte.png';
+                break;
+                case( $seguro->seguro == 'general' ):
+                    $img = 'general.png';
+                break;
+                case( $seguro->seguro == 'sura' ):
+                    $img = 'sura.png';
+                break;
+                case( $seguro->seguro == 'vexmas' ):
+                    $img = 'vexmas.png';
+                break;
+                case( $seguro->seguro == 'gnp' ):
+                   $img = 'gnp.png';
+                break;
+                case( $seguro->seguro == 'hdi' ):
+                    $img = 'hdi.png';
+                break;
+                case( $seguro->seguro == 'inbursa' ):
+                    $img = 'inbursa.png';
+                break;
+                case( $seguro->seguro == 'latino' ):
+                    $img = 'latino.png';
+                break;
+                case( $seguro->seguro == 'mapfre' ):
+                    $img = 'mapfre.png';
+                break;
+                case( $seguro->seguro == 'qualitas' ):
+                    $img = 'qualitas.png';
+                break;
+                case( $seguro->seguro == 'potosi' ):
+                    $img = 'potosi.png';
+                break;
+                case( $seguro->seguro == 'miituo' ):
+                    $img = 'miituo.png';
+                break;
+                case( $seguro->seguro == 'zurich' ):
+                    $img = 'zurich.png';
+                break;
+            }
+    }
 
         $users = DB::table('users')
         ->get();
@@ -221,68 +225,7 @@ class SegurosController extends Controller
     public function edit_admin($id){
 
        $seguro = Seguros::findOrFail($id);
-
-        switch($seguro){
-            case( $seguro->seguro == 'aba' ):
-                $img = 'aba.png';
-            break;
-            case( $seguro->seguro == 'afirme' ):
-                $img = 'afirme.png';
-            break;
-            case( $seguro->seguro == 'aig' ):
-                $img = 'aig.png';
-            break;
-            case( $seguro->seguro == 'ana' ):
-                $img = 'ana.png';
-            break;
-            case( $seguro->seguro == 'atlas' ):
-                $img = 'atlas.png';
-            break;
-            case( $seguro->seguro == 'axa' ):
-                $img = 'axa.png';
-            break;
-            case( $seguro->seguro == 'banorte' ):
-                $img = 'banorte.png';
-            break;
-            case( $seguro->seguro == 'general' ):
-                $img = 'general.png';
-            break;
-            case( $seguro->seguro == 'sura' ):
-                $img = 'sura.png';
-            break;
-            case( $seguro->seguro == 'vexmas' ):
-                $img = 'vexmas.png';
-            break;
-            case( $seguro->seguro == 'gnp' ):
-               $img = 'gnp.png';
-            break;
-            case( $seguro->seguro == 'hdi' ):
-                $img = 'hdi.png';
-            break;
-            case( $seguro->seguro == 'inbursa' ):
-                $img = 'inbursa.png';
-            break;
-            case( $seguro->seguro == 'latino' ):
-                $img = 'latino.png';
-            break;
-            case( $seguro->seguro == 'mapfre' ):
-                $img = 'mapfre.png';
-            break;
-            case( $seguro->seguro == 'qualitas' ):
-                $img = 'qualitas.png';
-            break;
-            case( $seguro->seguro == 'potosi' ):
-                $img = 'potosi.png';
-            break;
-            case( $seguro->seguro == 'miituo' ):
-                $img = 'miituo.png';
-            break;
-            case( $seguro->seguro == 'zurich' ):
-                $img = 'zurich.png';
-            break;
-        }
-
-                        $users = DB::table('users')
+        $users = DB::table('users')
         ->get();
                           // obtener la hora actual  - 2015-12-19 10:10:54
           $current = Carbon::now()->toDateTimeString();

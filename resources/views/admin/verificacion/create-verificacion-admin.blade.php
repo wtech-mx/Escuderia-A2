@@ -131,7 +131,7 @@ $newDate = date("d/m/Y", strtotime($originalDate));
                                          <img class="" src="{{ asset('img/icon/white/calendario (5).png') }}" width="25px" >
                                     </span>
                                 </div>
-                                 <input type="date" class="form-control" placeholder="MM/DD/YYY"  style="border-radius: 0  10px 10px 0;" id='segundo_semestre' name="segundo_semestre" value="{{$verificacion->segundo_semestre}}">
+                                 <input type="date" class="form-control" placeholder="MM/DD/YYY"  style="border-radius: 0  10px 10px 0;" id='segundo_semestre' name="segundo_semestre" value="{{$verificacion_segunda->segundo_semestre}}">
                             </div>
 
                     </div>

@@ -20,24 +20,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="936a45dc-4f36-4130-a52f-695b08d602c5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/emails/alertaAdmin.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/emails/seguroAdmin.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/emails/tcAdmin.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AlertasController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AlertasController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AutomovilController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AutomovilController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DashboardController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MecanicaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MecanicaController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SegurosController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SegurosController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TarjetaCirculacionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TarjetaCirculacionController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/VerificacionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/VerificacionController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Verificacion.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Verificacion.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_01_27_235702_create_mecanica_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_01_27_235702_create_mecanica_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_17_175118_create_verificacion_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_17_175118_create_verificacion_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/alerts/calendar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/alerts/calendar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/seguros/create-seguros-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/seguros/create-seguros-admin.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/emails/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/emails/register.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/services/aceite.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/services/aceite.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/services/afincacion.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/services/afincacion.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/services/amortiguadores.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/services/amortiguadores.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/services/banda.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/services/banda.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/services/bateria.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/services/bateria.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/services/frenos.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/services/frenos.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/services/llantas.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/services/llantas.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/verificacion/create-verificacion-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/verificacion/create-verificacion-admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/tab-bar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/tab-bar.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/seguros/seguros.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/seguros/seguros.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/tarjeta-circulacion/tarjeta_circulacion.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/tarjeta-circulacion/tarjeta_circulacion.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -289,6 +288,9 @@
       <workItem from="1616213435292" duration="5600000" />
       <workItem from="1616254057524" duration="20024000" />
       <workItem from="1616354147339" duration="15303000" />
+      <workItem from="1616617129191" duration="469000" />
+      <workItem from="1616618165745" duration="2919000" />
+      <workItem from="1616626566366" duration="8916000" />
     </task>
     <servers />
   </component>

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\View;
 use App\Models\Alertas;
 use App\Models\Seguros;
 use App\Models\TarjetaCirculacion;
+use App\Models\Mecanica;
 use App\Models\Verificacion;
 use Illuminate\Http\Request;
 use DB;
@@ -127,15 +128,17 @@ class AlertasController extends Controller
         $json3 = $data3['seguros'] = Seguros::all()->makeHidden('end');
         $json4 = $data3['tarjeta_circulacion'] = TarjetaCirculacion::all()->makeHidden('end');
         $json5 = $data5['verificacion'] = Verificacion::all()->makeHidden('end');
+        $json6 = $data6['mecanica'] = Mecanica::all()->makeHidden('end');
 
         //los convieerte en array
         $decode2 = json_decode($json2);
         $decode3 = json_decode($json3);
         $decode4 = json_decode($json4);
         $decode5 = json_decode($json5);
+        $decode6 = json_decode($json6);
 
         //Une los array en uno solo
-        $resultado = array_merge ($decode2,$decode3,$decode4,$decode5);
+        $resultado = array_merge ($decode2,$decode3,$decode4,$decode5,$decode6);
 
         //retorna a la vista sn json
         return response()->json($resultado);
@@ -231,14 +234,18 @@ class AlertasController extends Controller
         $json5 = $data5['verificacion'] = Verificacion::all()->makeHidden('end')
             ->where('id_user', '=', auth()->user()->id);
 
+        $json6 = $data6['mecanica'] = Mecanica::all()->makeHidden('end')
+            ->where('id_user', '=', auth()->user()->id);
+
         //los convieerte en array
         $decode2 = json_decode($json2);
         $decode3 = json_decode($json3);
         $decode4 = json_decode($json4);
         $decode5 = json_decode($json5);
+        $decode6 = json_decode($json6);
 
         //Une los array en uno solo
-        $resultado = array_merge ($decode2,$decode3,$decode4,$decode5);
+        $resultado = array_merge ($decode2,$decode3,$decode4,$decode5,$decode6);
 
         //retorna a la vista sn json
         return response()->json($resultado);
@@ -266,6 +273,9 @@ class AlertasController extends Controller
                   break;
               case($color == '#FF0000'):
                   $respuesta = Verificacion::where('id', '=', $id)->update($datosEvento);
+                  break;
+              case($color == '#2980B9'):
+                  $respuesta = Mecanica::where('id', '=', $id)->update($datosEvento);
                   break;
           }
 

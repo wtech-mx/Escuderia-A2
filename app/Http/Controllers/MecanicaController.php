@@ -195,7 +195,37 @@ class MecanicaController extends Controller
     	}
 
         /* Calendario */
-        $mecanica->title = $request->get('title');
+        switch($mecanica) {
+              //Llantas
+              case($mecanica->servicio == '1'):
+                 $mecanica->title = $mecanica->Automovil2->placas;
+              break;
+              //Banda
+              case($mecanica->servicio == '2'):
+                 $mecanica->title = $mecanica->Automovilbn->placas;
+              break;
+              //Frenos
+              case($mecanica->servicio == '3'):
+                 $mecanica->title = $mecanica->Automovilfr->placas;
+              break;
+              //Aceite
+              case($mecanica->servicio == '4'):
+                 $mecanica->title = $mecanica->Automovilac->placas;
+              break;
+              //Afinacion
+              case($mecanica->servicio == '5'):
+                 $mecanica->title = $mecanica->Automovilaf->placas;
+              break;
+              //Amorting
+              case($mecanica->servicio == '6'):
+                 $mecanica->title = $mecanica->Automovilam->placas;
+              break;
+              //Bateria
+              case($mecanica->servicio == '7'):
+                 $mecanica->title = $mecanica->Automovilbt->placas;
+              break;
+        }
+
         $mecanica->color = "#2980B9";
         $mecanica->estatus = 0;
         $mecanica->check = 0;
