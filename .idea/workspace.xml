@@ -20,20 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="936a45dc-4f36-4130-a52f-695b08d602c5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/verificacion/primer-periodo.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/verificacion/segundo-periodo.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/firebase-messaging-sw.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/firebase.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AlertasController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AlertasController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SegurosController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SegurosController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TarjetaCirculacionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TarjetaCirculacionController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/VerificacionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/VerificacionController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_17_175118_create_verificacion_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_17_175118_create_verificacion_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_23_230617_create_verificacion_segunda_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_23_230617_create_verificacion_segunda_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/seguros/create-seguros-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/seguros/create-seguros-admin.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/tarjeta-circulacion/tarjeta_circulacion.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/tarjeta-circulacion/tarjeta_circulacion.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/verificacion/create-verificacion-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/verificacion/create-verificacion-admin.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/seguros/seguros.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/seguros/seguros.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/tarjeta-circulacion/tarjeta_circulacion.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/tarjeta-circulacion/tarjeta_circulacion.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -196,7 +186,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/alerts" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../laravel-web-push-demo-master" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -210,16 +200,17 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\xaamp\htdocs\Escuderia-A2\public\img" />
-      <recent name="D:\xaamp\htdocs\Escuderia-A2\public\css" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\Escuderia-A2\resources\views\alerts" />
       <recent name="C:\xampp\htdocs\Escuderia-A2\app\Http\Controllers" />
       <recent name="C:\xampp\htdocs\Escuderia-A2\resources\views\admin\services" />
       <recent name="C:\xampp\htdocs\Escuderia-A2\resources\views\layouts" />
       <recent name="C:\xampp\htdocs\Escuderia-A2\resources\views\admin\seguros" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\xaamp\htdocs\Escuderia-A2\public" />
+      <recent name="D:\xaamp\htdocs\Escuderia-A2\public\img" />
+      <recent name="D:\xaamp\htdocs\Escuderia-A2\public\css" />
     </key>
   </component>
   <component name="RunManager">
@@ -306,5 +297,15 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="420" y="274" key="FileChooserDialogImpl" timestamp="1616647884239">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state x="420" y="274" key="FileChooserDialogImpl/0.0.2560.1040/-2560.0.2560.1040@0.0.2560.1040" timestamp="1616647884239" />
+    <state x="474" y="439" key="NewPhpFileDialog" timestamp="1616649409808">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state x="474" y="439" key="NewPhpFileDialog/0.0.2560.1040/-2560.0.2560.1040@0.0.2560.1040" timestamp="1616649409808" />
   </component>
 </project>

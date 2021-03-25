@@ -18,6 +18,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/fcm',"NotificationController@index");
+
+Route::get('/send-notification',"NotificationController@sendNotification");
 
 
 Route::post('forgot-password', 'Auth\PasswordResetLinkController@store')->name('password.email');
