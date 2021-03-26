@@ -76,6 +76,28 @@ return [
             '1668x2388' => '/images/icons/splash-1668x2388.png',
             '2048x2732' => '/images/icons/splash-2048x2732.png',
         ],
+        'shortcuts' => [
+            [
+                'name' => 'Alertas',
+                'description' => 'Calendario de alertas',
+                'url' => 'https://checkn-go.com.mx/user/calendar',
+                'icons' => [
+                    "src" => "/img/icon/color/calendario.png",
+                    "typ"=> "image/png",
+                    "purpose" => "any maskable"
+                ]
+            ],
+            [
+                'name' => 'Segruro',
+                'description' => 'Datos de seguro de auto',
+                'url' => 'https://checkn-go.com.mx/seguro/index',
+                'icons' => [
+                    "src" => "/img/icon/color/car-seguro.png",
+                    "typ"=> "image/png",
+                    "purpose" => "any maskable"
+                ]
+            ],
+        ],
         'custom' => []
     ]
 ];
