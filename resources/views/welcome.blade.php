@@ -8,7 +8,7 @@
         <div class="col-md-12 p-5">
 
                         <h1 class="text-left mb-3 titulo-welcome">
-                            Bienvenido
+                            Bienvenido :)
                         </h1>
 
                         <h5 class="text-left titulo-subtitle ">
