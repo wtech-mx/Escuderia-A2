@@ -88,7 +88,7 @@ return [
                 ]
             ],
             [
-                'name' => 'Segruro',
+                'name' => 'Segruro de automovil',
                 'description' => 'Datos de seguro de auto',
                 'url' => 'https://checkn-go.com.mx/seguro/index',
                 'icons' => [
