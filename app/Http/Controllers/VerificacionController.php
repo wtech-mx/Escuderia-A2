@@ -31,26 +31,7 @@ class VerificacionController extends Controller
             ->where('role','=', '0')
             ->get();
 
-           // obtener la hora actual  - 2015-12-19 10:10:54
-          $current = Carbon::now()->toDateTimeString();
-          $alert2 = Alertas::where('id_user', '=', auth()->user()->id)
-            ->where('start','<=', $current)
-            ->where('estatus', '=', 0)
-            ->get();
-         //Trae la alerta Seguro
-          $seguro_alerta = Seguros::
-            where('id_user', '=', auth()->user()->id)
-            ->where('estatus', '=', 0)
-            ->where('end','<=', $current)
-            ->get();
-          //Trae la alerta Tc
-          $tc_alerta = TarjetaCirculacion::
-            where('id_user', '=', auth()->user()->id)
-            ->where('estatus', '=', 0)
-            ->where('end','<=', $current)
-            ->get();
-
-        return view('admin.verificacion.view-verificacion-admin',compact('verificacion_user','verificacion_empresa', 'user', 'alert2', 'seguro_alerta','tc_alerta'));
+        return view('admin.verificacion.view-verificacion-admin',compact('verificacion_user','verificacion_empresa', 'user'));
     }
 
     public function edit_admin($id){
@@ -61,27 +42,8 @@ class VerificacionController extends Controller
 
        $users = DB::table('users')
         ->get();
-        // obtener la hora actual  - 2015-12-19 10:10:54
-          $current = Carbon::now()->toDateTimeString();
-          $alert2 = Alertas::
-            where('id_user', '=', auth()->user()->id)
-            ->where('start','<=', $current)
-              ->where('estatus', '=', 0)
-            ->get();
-        //Trae la alerta Seguro
-          $seguro_alerta = Seguros::
-            where('id_user', '=', auth()->user()->id)
-            ->where('estatus', '=', 0)
-            ->where('end','<=', $current)
-            ->get();
-        //Trae la alerta Tc
-          $tc_alerta = TarjetaCirculacion::
-            where('id_user', '=', auth()->user()->id)
-            ->where('estatus', '=', 0)
-            ->where('end','<=', $current)
-            ->get();
 
-        return view('admin.verificacion.create-verificacion-admin',compact('verificacion','verificacion_segunda', 'users', 'alert2', 'seguro_alerta','tc_alerta'));
+        return view('admin.verificacion.create-verificacion-admin',compact('verificacion','verificacion_segunda', 'users'));
     }
 
     public function update_admin(Request $request,$id)

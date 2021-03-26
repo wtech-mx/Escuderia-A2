@@ -31,22 +31,8 @@ class UserController extends Controller
     {
         $users = DB::table('users')
         ->get();
-                          // obtener la hora actual  - 2015-12-19 10:10:54
-          $current = Carbon::now()->toDateTimeString();
-          $alert2 = Alertas::
-            where('id_user', '=', auth()->user()->id)
-            ->where('start','<=', $current)
-              ->where('estatus', '=', 0)
-            ->get();
 
-          //Trae la alerta Seguro
-          $seguro_alerta = Seguros::
-            where('id_user', '=', auth()->user()->id)
-            ->where('estatus', '=', 0)
-            ->where('end','<=', $current)
-            ->get();
-
-        return view('admin.garaje.create-garaje-admin', compact('users', 'alert2','seguro_alerta'));
+        return view('admin.garaje.create-garaje-admin', compact('users'));
     }
 
     public function store_auto(Request $request)
@@ -111,30 +97,8 @@ class UserController extends Controller
 
         $user->update();
 
-          // obtener la hora actual  - 2015-12-19 10:10:54
-          $current = Carbon::now()->toDateTimeString();
-          $alert2 = Alertas::
-            where('id_user', '=', auth()->user()->id)
-            ->where('start','<=', $current)
-              ->where('estatus', '=', 0)
-            ->get();
-
-          //Trae la alerta Seguro
-          $seguro_alerta = Seguros::
-            where('id_user', '=', auth()->user()->id)
-            ->where('estatus', '=', 0)
-            ->where('end','<=', $current)
-            ->get();
-
-          //Trae la alerta Tc
-          $tc_alerta = TarjetaCirculacion::
-            where('id_user', '=', auth()->user()->id)
-            ->where('estatus', '=', 0)
-            ->where('end','<=', $current)
-            ->get();
-
         Session::flash('success', 'Se ha guardado sus datos con exito');
-        return view('profile.profile', compact('user', 'users', 'alert2', 'seguro_alerta','tc_alerta'));
+        return view('profile.profile', compact('user', 'users'));
     }
 
     public function edit($id){
@@ -148,29 +112,7 @@ class UserController extends Controller
         $users = DB::table('users')
             ->get();
 
-                          // obtener la hora actual  - 2015-12-19 10:10:54
-          $current = Carbon::now()->toDateTimeString();
-          $alert2 = Alertas::
-            where('id_user', '=', auth()->user()->id)
-            ->where('start','<=', $current)
-              ->where('estatus', '=', 0)
-            ->get();
-
-          //Trae la alerta Seguro
-          $seguro_alerta = Seguros::
-            where('id_user', '=', auth()->user()->id)
-            ->where('estatus', '=', 0)
-            ->where('end','<=', $current)
-            ->get();
-
-          //Trae la alerta Tc
-          $tc_alerta = TarjetaCirculacion::
-            where('id_user', '=', auth()->user()->id)
-            ->where('estatus', '=', 0)
-            ->where('end','<=', $current)
-            ->get();
-
-        return view('profile.profile', compact('user','users', 'alert2', 'seguro_alerta','tc_alerta'));
+        return view('profile.profile', compact('user','users'));
     }
 
     public function update_password(Request $request,$id)
@@ -218,29 +160,8 @@ class UserController extends Controller
 
         $users = DB::table('users')
         ->get();
-                          // obtener la hora actual  - 2015-12-19 10:10:54
-          $current = Carbon::now()->toDateTimeString();
-          $alert2 = Alertas::
-            where('id_user', '=', auth()->user()->id)
-            ->where('start','<=', $current)
-            ->where('estatus', '=', 0)
-            ->get();
 
-                             //Trae la alerta Seguro
-          $seguro_alerta = Seguros::
-            where('id_user', '=', auth()->user()->id)
-            ->where('estatus', '=', 0)
-            ->where('end','<=', $current)
-            ->get();
-
-          //Trae la alerta Tc
-          $tc_alerta = TarjetaCirculacion::
-            where('id_user', '=', auth()->user()->id)
-            ->where('estatus', '=', 0)
-            ->where('end','<=', $current)
-            ->get();
-
-        return view('admin.user.view-user-admin',compact('user', 'users', 'alert2','seguro_alerta','tc_alerta'));
+        return view('admin.user.view-user-admin',compact('user', 'users'));
     }
 
     public function create_admin()
@@ -250,29 +171,8 @@ class UserController extends Controller
         ->get();
                         $users = DB::table('users')
         ->get();
-                          // obtener la hora actual  - 2015-12-19 10:10:54
-          $current = Carbon::now()->toDateTimeString();
-          $alert2 = Alertas::
-            where('id_user', '=', auth()->user()->id)
-            ->where('start','<=', $current)
-              ->where('estatus', '=', 0)
-            ->get();
 
-         //Trae la alerta Seguro
-          $seguro_alerta = Seguros::
-            where('id_user', '=', auth()->user()->id)
-            ->where('estatus', '=', 0)
-            ->where('end','<=', $current)
-            ->get();
-
-         //Trae la alerta Tc
-          $tc_alerta = TarjetaCirculacion::
-            where('id_user', '=', auth()->user()->id)
-            ->where('estatus', '=', 0)
-            ->where('end','<=', $current)
-            ->get();
-
-        return view('admin.user.add-user-admin',compact('user', 'users', 'alert2','seguro_alerta','tc_alerta'));
+        return view('admin.user.add-user-admin',compact('user', 'users'));
     }
 
     public function store_admin(Request $request)
@@ -312,29 +212,8 @@ class UserController extends Controller
 
         $users = DB::table('users')
         ->get();
-                          // obtener la hora actual  - 2015-12-19 10:10:54
-          $current = Carbon::now()->toDateTimeString();
-          $alert2 = Alertas::
-            where('id_user', '=', auth()->user()->id)
-            ->where('start','<=', $current)
-              ->where('estatus', '=', 0)
-            ->get();
 
-          //Trae la alerta Seguro
-          $seguro_alerta = Seguros::
-            where('id_user', '=', auth()->user()->id)
-            ->where('estatus', '=', 0)
-            ->where('end','<=', $current)
-            ->get();
-
-          //Trae la alerta Tc
-          $tc_alerta = TarjetaCirculacion::
-            where('id_user', '=', auth()->user()->id)
-            ->where('estatus', '=', 0)
-            ->where('end','<=', $current)
-            ->get();
-
-        return view('admin.user.edit-user-admin',compact('user','users', 'alert2','seguro_alerta','tc_alerta'));
+        return view('admin.user.edit-user-admin',compact('user','users'));
     }
 
     public function update_admin(Request $request,$id)

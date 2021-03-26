@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('template')
 @section('bg-color', 'background-color: rgb(0,131,28,1);')
 @section('content')
 

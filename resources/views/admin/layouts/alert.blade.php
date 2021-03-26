@@ -11,4 +11,7 @@
                         });
                     </script>
                 @endforeach
+                <script>
+                    console.log('popo');
+                </script>
             @endauth

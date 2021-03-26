@@ -87,70 +87,11 @@
                     $(document).ready(function(){
                         setInterval(
                                 function(){
+                                    console.log('entro');
                                     $('#seccionRecargar').load('{{ route('alerts.alert') }}');
-                                },600000
+                                },20000
                             );
                     });
                 </script>
-
-{{--        <div id="principalPanel">--}}
-{{--            @section('contentPanel')--}}
-{{--            @show--}}
-{{--        </div>--}}
-
-{{--        <script >--}}
-{{--$(document).ready(function(){--}}
-
-{{--// var tiempo = 5000;--}}
-{{--//--}}
-{{--// var interval = setInterval(function() {--}}
-{{--//   $('#addImage').trigger('click');--}}
-{{--//--}}
-{{--// }, tiempo);--}}
-{{--//--}}
-{{--// $('#addImage').click(function() {--}}
-{{--//   console.log('clic en addImage');--}}
-{{--// });--}}
-
-{{--    /* --ADD IMAGE--*/--}}
-{{--     $('#addImage').click(function(event){--}}
-{{--        $(this).ajaxPost('{{ route('post.store') }}','GET','{{ route('images.index') }}');--}}
-{{--    })--}}
-
-{{--    /* --ELEMENTALS FUNCTIONS*/--}}
-{{--    $.fn.ajaxPost = function(url,method,sectionToRender) {--}}
-
-{{--        $.ajax(--}}
-{{--                {--}}
-{{--                    type: method,--}}
-{{--                    url: url,--}}
-{{--                    dataType: 'json',--}}
-{{--                        success: function (data) {--}}
-{{--                            ajaxRenderSection(sectionToRender)--}}
-{{--                        },--}}
-{{--                        error:function(){--}}
-{{--                            alert("hay un error");--}}
-{{--                        }--}}
-{{--                }--}}
-{{--            );--}}
-{{--    }--}}
-
-{{--    function ajaxRenderSection(url) {--}}
-{{--        $.ajax({--}}
-{{--            type: 'GET',--}}
-{{--            url: url,--}}
-{{--            dataType: 'json',--}}
-{{--            success: function (data) {--}}
-{{--                $('#principalPanel').empty().append($(data));--}}
-{{--                //se toma la data en formato json,--}}
-{{--                // luego se borra el Div padre de el Sections y se pinta el json (data) como html--}}
-{{--            },--}}
-{{--            error:function(){alert("hay un error");}--}}
-{{--        });--}}
-{{--    }--}}
-
-{{--});--}}
-{{--    </script>--}}
-
 </html>
 

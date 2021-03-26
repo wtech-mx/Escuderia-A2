@@ -1,4 +1,7 @@
-             @auth
+<script>
+    console.log('Popo');
+</script>
+<h6>HOllllllllllllllllla</h6>
                 @foreach($alert2 as $item)
                      <script>
                         Push.create('{{$item->title}}', {
@@ -38,4 +41,4 @@
                         });
                     </script>
                 @endforeach
-            @endauth
+

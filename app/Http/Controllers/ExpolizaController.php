@@ -28,54 +28,14 @@ class ExpolizaController extends Controller
         ->where('current_auto','=',auth()->user()->current_auto)
         ->get();
 
-         // obtener la hora actual  - 2015-12-19 10:10:54
-          $current = Carbon::now()->toDateTimeString();
-          $alert2 = Alertas::
-            where('id_user', '=', auth()->user()->id)
-            ->where('start','<=', $current)
-              ->where('estatus', '=', 0)
-            ->get();
-
-          //Trae la alerta Seguro
-          $seguro_alerta = Seguros::
-            where('id_user', '=', auth()->user()->id)
-            ->where('estatus', '=', 0)
-            ->where('end','<=', $current)
-            ->get();
-          //Trae la alerta Tc
-          $tc_alerta = TarjetaCirculacion::
-            where('id_user', '=', auth()->user()->id)
-            ->where('estatus', '=', 0)
-            ->where('end','<=', $current)
-            ->get();
-
         $img = TarjetaCirculacion::where('current_auto','=',$user->current_auto)->first();
 
-        return view('exp-fisico.view-poliza',compact('exp_poliza', 'img', 'alert2', 'seguro_alerta','tc_alerta'));
+        return view('exp-fisico.view-poliza',compact('exp_poliza', 'img'));
     }
 
     public function create(){
-                          // obtener la hora actual  - 2015-12-19 10:10:54
-          $current = Carbon::now()->toDateTimeString();
-          $alert2 = Alertas::
-            where('id_user', '=', auth()->user()->id)
-            ->where('start','<=', $current)
-              ->where('estatus', '=', 0)
-            ->get();
-          //Trae la alerta Seguro
-          $seguro_alerta = Seguros::
-            where('id_user', '=', auth()->user()->id)
-            ->where('estatus', '=', 0)
-            ->where('end','<=', $current)
-            ->get();
-          //Trae la alerta Tc
-          $tc_alerta = TarjetaCirculacion::
-            where('id_user', '=', auth()->user()->id)
-            ->where('estatus', '=', 0)
-            ->where('end','<=', $current)
-            ->get();
 
-        return view('exp-fisico.view-poliza', compact('alert2', 'seguro_alerta','tc_alerta'));
+        return view('exp-fisico.view-poliza');
     }
 
     public function store(Request $request){
@@ -114,27 +74,8 @@ class ExpolizaController extends Controller
         $exp_poliza = DB::table('exp_poliza')
         ->where('current_auto','=', $exp_auto)
         ->get();
-                          // obtener la hora actual  - 2015-12-19 10:10:54
-          $current = Carbon::now()->toDateTimeString();
-          $alert2 = Alertas::
-            where('id_user', '=', auth()->user()->id)
-            ->where('start','<=', $current)
-              ->where('estatus', '=', 0)
-            ->get();
-          //Trae la alerta Seguro
-          $seguro_alerta = Seguros::
-            where('id_user', '=', auth()->user()->id)
-            ->where('estatus', '=', 0)
-            ->where('end','<=', $current)
-            ->get();
-          //Trae la alerta Tc
-          $tc_alerta = TarjetaCirculacion::
-            where('id_user', '=', auth()->user()->id)
-            ->where('estatus', '=', 0)
-            ->where('end','<=', $current)
-            ->get();
 
-        return view('admin.exp-fisico.view-poliza-admin',compact('exp_poliza','automovil', 'alert2', 'seguro_alerta','tc_alerta'));
+        return view('admin.exp-fisico.view-poliza-admin',compact('exp_poliza','automovil'));
     }
 
     public function store_admin(Request $request){

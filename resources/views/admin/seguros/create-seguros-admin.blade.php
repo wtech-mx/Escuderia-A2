@@ -107,7 +107,7 @@
                     </div>
 
                 </div>
-<div class="task-box text-center text-white">
+{{--<div class="task-box text-center text-white">
     <ul class="text-white" id="task-list"></ul>
 </div>
   <div class="text-white" id="toolbar">
@@ -117,9 +117,10 @@
     <button id="enable">
       Enable notifications
     </button>
-  </div>
+  </div>--}}
 
-         <form method="POST" id="task-form" action="{{route('update_admin.seguro',$seguro->id)}}" enctype="multipart/form-data" role="form">
+         <form method="POST" action="{{route('update_admin.seguro',$seguro->id)}}" enctype="multipart/form-data" role="form">
+
              @csrf
              <input type="hidden" name="_method" value="PATCH">
                 @if(Session::has('success2'))
@@ -264,19 +265,6 @@
                                  <label for="">
                                      <p class="text-white mt-3"><strong>Foto Poliza Seguro</strong></p>
                                  </label>
-                                        <div class="third-width">
-                                          <label for="deadline-day">Day:</label>
-                                               <input type="hidden" id="deadline-day" value="{{$dia}}">
-                                           </div>
-
-                                            <div class="third-width"><label for="deadline-month">Month:</label>
-                                                <input type="hidden" id="deadline-month" value="{{$letrames}}">
-                                            </div>
-
-                                            <div class="third-width">
-                                              <label for="deadline-year">Year:</label>
-                                                <input type="hidden" id="deadline-year" value="{{$anio}}">
-                                            </div>
 
                                 <div class="col-12 text-center">
                                         <button type="button" class="btn" data-toggle="modal" data-target="#exampleModalpoliza" style="background: transparent !important;">
@@ -285,8 +273,8 @@
                                 </div>
 
                             <div class="col-12 text-center mt-3 " style="margin-bottom: 8rem !important;">
-                                <button class="btn btn-lg btn-save-neon text-white" type="submit">
-                                    <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}" width="20px" >
+                                <button class="btn btn-lg btn-save-neon text-white">
+                                    <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}" width="20px" id="boton-descarga" onclick="ing();">
                                     Actualizar
                                 </button>
                             </div>
@@ -294,9 +282,31 @@
 
                     </div>
                 </div>
-         </form>
 
-<script>
+         </form>
+          {{--      <form id="task-form">
+                             <input type="hidden" class="form-control" id='title' name="title" value="{{$seguro->Automovil->placas}}">
+                             <input type="hidden" id="deadline-day" value="{{$dia}}">
+                             <input type="hidden" id="deadline-month" value="{{$letrames}}">
+                             <input type="hidden" id="deadline-year" value="{{$anio}}">
+
+                             <div class="col-4 text-center mt-3 " style="margin-bottom: 8rem !important;">
+                                <button type="submit" name="submit"  id="submit" class="btn btn-primary block full-width m-b" hidden>
+                                    <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}" width="20px" >
+                                    Actualizar
+                                </button>
+                            </div>
+                </form>--}}
+
+
+{{--<script>
+    function ing() {
+      console.log('submit');
+    }
+    $('#boton-descarga').click(function() {
+        $('#submit').click();
+    });
+
 // crear una referencia a la lista de notificaciones en la parte inferior de la aplicación;
 
                 // escribiremos los mensajes de la base de datos en esta lista por
@@ -715,6 +725,7 @@
                   // usando un setInterval para ejecutar la función checkDeadlines () cada segundo
                   setInterval(checkDeadlines, 1000);
                 }
-</script>
+
+</script>--}}
 @endsection
 

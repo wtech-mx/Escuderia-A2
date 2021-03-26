@@ -28,28 +28,7 @@ class ExpreemplacaminetoController extends Controller
         ->where('current_auto','=',auth()->user()->current_auto)
         ->get();
 
-          // obtener la hora actual  - 2015-12-19 10:10:54
-          $current = Carbon::now()->toDateTimeString();
-          $alert2 = Alertas::
-            where('id_user', '=', auth()->user()->id)
-            ->where('start','<=', $current)
-              ->where('estatus', '=', 0)
-            ->get();
-
-          //Trae la alerta Seguro
-          $seguro_alerta = Seguros::
-            where('id_user', '=', auth()->user()->id)
-            ->where('estatus', '=', 0)
-            ->where('end','<=', $current)
-            ->get();
-          //Trae la alerta Tc
-          $tc_alerta = TarjetaCirculacion::
-            where('id_user', '=', auth()->user()->id)
-            ->where('estatus', '=', 0)
-            ->where('end','<=', $current)
-            ->get();
-
-        return view('exp-fisico.view-reemplacamiento',compact('exp_reemplacamiento', 'alert2', 'seguro_alerta','tc_alerta'));
+        return view('exp-fisico.view-reemplacamiento',compact('exp_reemplacamiento'));
     }
 
     public function create(){
