@@ -75,7 +75,6 @@
                             </div>
                         @endforeach
                     @else
-
                         <div class="col-12 mb3">
                             <p class="text-center title-car">
                             <img class="d-inline mb-2" src="{{ asset('img/icon/white/paper (1).png') }}" alt="Icon documento" width="150px">

@@ -9,6 +9,7 @@
 
                 <div class="row bg-profile" style="z-index: 100000">
                 @include('seguros.modal-pol-img')
+
                         @if(Session::has('success'))
                         <script>
                             Swal.fire({
@@ -53,13 +54,13 @@
                     @if ($seguro == NULL)
                         <div class="col-12 p-3">
                             <p class="text-center">
-                                <img class="" src="{{ asset('img/logo.png') }}" width="150px" ><br>
+                                <img class="rounded-circle" src="{{ asset('img/logo.png') }}" width="100px" ><br>
                             </p>
                         </div>
                     @else
                         <div class="col-12 p-3">
                             <p class="text-center">
-                                <img class="" src="{{ asset('img/icon/seguros/'.$img) }}" width="150px" ><br>
+                                <img class="" src="{{ asset('img/icon/seguros/'.$img) }}" width="100px" ><br>
                             </p>
                         </div>
                     @endif
@@ -68,14 +69,15 @@
 
                     @if ($seguro == NULL)
 
-                        <div class="col-12 mb3">
+                        <div class="col-12 mt-5">
                             <p class="text-center title-car">
-                            <img class="d-inline mb-2" src="{{ asset('img/icon/white/paper (1).png') }}" alt="Icon documento" width="150px">
+                            <img class="d-inline mb-2" src="{{ asset('img/icon/white/seguro (1).png') }}" alt="Icon documento" width="120px">
 
                             </p>
                             <p class="text-center  text-white">
-                             <strong style="font: normal normal bold 20px/20px Segoe UI;">Aun no tienes Vehiculos! </strong>
-                                <br>Click en el botón de + para <br> agregar tu Carro
+                             <strong style="font: normal normal bold 20px/20px Segoe UI;">Aun no tienes  Seguro de auto! </strong>
+                                <br> Cree un Auto para generar su  Seguro  <br>
+                                <br>Click en el botón de + para <br> agregar
                             </p>
                         </div>
 
@@ -87,7 +89,7 @@
                             </p>
                         </div>
 
-                        <div class="col-12 mt-3">
+                        <div class="col-12" style="margin-bottom: 9rem !important;">
                             <p class="text-center text-white">
                                 Agrega tu Automovil
                             </p>

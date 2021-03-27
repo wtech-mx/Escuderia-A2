@@ -7,7 +7,6 @@
         <link href="{{ asset('css/login-form.css') }}" rel="stylesheet">
         <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
 
-
         <div class="row bg-down-image-border" >
                 @include('seguros.modal-pol-img')
                     <div class="col-2 mt-5">
@@ -36,41 +35,38 @@
 
         </div>
 
-
-
                 <div class="row  bg-down-image-border" >
 
                     @if ($tarjeta_circulacion == NULL)
 
-                        <div class="col-12 mb3">
-                            <p class="text-center title-car">
-                            <img class="d-inline mb-2" src="{{ asset('img/icon/white/paper (1).png') }}" alt="Icon documento" width="150px">
+                        <div class="row overflow-hidden" style="height: 85vh;">
 
-                            </p>
-                            <p class="text-center  text-white">
-                             <strong style="font: normal normal bold 20px/20px Segoe UI;">Aun no tienes Vehiculos! </strong>
-                                <br>Click en el botón de + para <br> agregar tu Carro
-                            </p>
-                        </div>
+                            <div class="col-12" >
+                                <p class="text-center title-car">
+                                    <img class="d-inline mb-2" src="{{ asset('img/icon/white/coche (7).png') }}" alt="Icon documento" width="150px">
+                                </p>
 
-                        <div class="col-12 mt-5">
-                            <p class="text-center">
-                                 <a type="button" class="btn " href="{{ route('create.automovil') }}">
-                                    <img class="d-inline mb-2" src="{{ asset('img/icon/white/plus.png') }}" alt="Icon documento" width="60px">
-                                </a>
-                            </p>
-                        </div>
+                                <p class="text-center  text-white">
+                                    <strong style="font: normal normal bold 20px/20px Segoe UI;">Aun no tienes Tarjeta de circulacion! </strong><br>
+                                    <br> Cree un Auto para generar su tarjeta de circulacion <br>
+                                    <br> click en el botón de + para <br> agregar tu Auto
+                                </p>
 
-                        <div class="col-12 mt-3">
-                            <p class="text-center text-white">
-                                Agrega tu Automovil
-                            </p>
+                                <p class="text-center">
+                                    <a type="button" class="btn " href="{{ route('create.automovil') }}">
+                                        <img class="d-inline" src="{{ asset('img/icon/white/plus.png') }}" alt="Icon documento" width="60px">
+                                    </a>
+                                </p>
+                            </div>
+
                         </div>
                     @else
-                        <?php
+
+                       @php
                         $originalDate = $tarjeta_circulacion->end;
                         $newDate = date("d/m/Y", strtotime($originalDate));
-                        ?>
+                        @endphp
+
                         <div class="col-12">
                             <form class="card-details" method="POST" action="{{route('update.tc',$tarjeta_circulacion->id)}}" enctype="multipart/form-data" role="form">
 
@@ -94,6 +90,7 @@
                                                 })
                                             </script>
                                         @endif
+
                             <p class="text-left text-white mt-5 mb-5" style="font: normal normal bold 20px/27px Segoe UI;">
                                 <strong>Detalles de Tarjeta de Circulacion</strong>
                             </p>

@@ -76,6 +76,7 @@
                                 <div class="carousel-item active">
 
                                   <div class="row">
+                                      @if ($automovil->count())
                                       @foreach($automovil as $item)
                                           @foreach($users as $item2)
                                              @if($item2->current_auto == $item->id)
@@ -116,6 +117,28 @@
                                               @break
                                           @endforeach
                                       @endforeach
+                                        @else
+                                        <div class="row overflow-hidden" style="height: 75vh;">
+
+                                            <div class="col-12" >
+                                                <p class="text-center title-car">
+                                                <img class="d-inline mb-2" src="{{ asset('img/icon/white/coche (7).png') }}" alt="Icon documento" width="150px">
+
+                                                </p>
+                                                <p class="text-center  text-white">
+                                                 <strong style="font: normal normal bold 20px/20px Segoe UI;">Aun no tienes Autos registrados! </strong><br>
+                                                 <br> click en el botón de + para <br> agregar tu Auto
+                                                </p>
+
+                                                <p class="text-center">
+                                                     <a type="button" class="btn " href="{{ route('create.automovil') }}">
+                                                        <img class="d-inline" src="{{ asset('img/icon/white/plus.png') }}" alt="Icon documento" width="60px">
+                                                    </a>
+                                                </p>
+                                            </div>
+
+                                        </div>
+                                    @endif
                                   </div>
 
                                 </div>
@@ -126,7 +149,7 @@
 
                     </div>
 
-@foreach ($carro as $item)
+                    @foreach ($carro as $item)
                         <div class="col-12 mt-5 mb-5">
                             <div class="d-flex justify-content-between">
                                 <h4 class="text-white text-tittle-app mr-3">
