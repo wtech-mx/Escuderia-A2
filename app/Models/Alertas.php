@@ -9,7 +9,7 @@ class Alertas extends Model
 {
     use HasFactory;
 
-    protected $table = "Alertas";
+    protected $table = "alertas";
     protected $primarykey = "id";
     public $timestamps = false;
 
