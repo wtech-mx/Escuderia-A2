@@ -46,7 +46,7 @@
 .bg-down-image-border{
     background-image: url('../img/bg-medida.png');
     position: relative;
-    z-index: 10000;
+    z-index: 1000;
 }
 
 .text-tittle-app{

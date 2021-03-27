@@ -3,6 +3,7 @@
 @section('content')
 
 <div class="row bg-down-blue" style="border-radius: 0 0 0 0;">
+
                         <div class="col-2  mt-4">
                             <div class="d-flex justify-content-start">
                                     <div class="text-center text-white">
@@ -28,7 +29,8 @@
                         </div>
 
                         @if ($automovil->count())
-                            <div class="row" style="height: 85vh;">>
+                            <div class="row" style="height: 85vh;">
+
                                 <div class="col-6 mt-5">
                                     <p class="text-center">
                                         <a href="{{ route('index.exp-factura') }}">
@@ -138,8 +140,8 @@
                                       RFC
                                     </p>
                                 </div>
-                            </div>
 
+                            </div>
                         @else
                             <div class="row overflow-hidden" style="height: 85vh;">
 
@@ -163,6 +165,7 @@
 
                             </div>
                         @endif
+
 </div>
 
 @endsection

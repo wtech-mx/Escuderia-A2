@@ -57,6 +57,6 @@
 .bg-image{
     background-image: url('../img/bg-medida.png');
     position: relative;
-    z-index: 10000;
+    z-index: 1000;
 }
 

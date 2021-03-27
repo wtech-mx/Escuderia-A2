@@ -8,7 +8,26 @@
         <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
 
         <div class="row bg-down-image-border" >
+
+            @if(Session::has('success'))
+                <script>
+                    Swal.fire({
+                        title: 'Exito!!',
+                        html:
+                            'Se ha actualizado tu  <b>Tarjeta de Circulación</b>, ' +
+                            'Exitosamente',
+                        // text: 'Se ha agragado la "MARCA" Exitosamente',
+                        imageUrl: '{{ asset('img/icon/color/dosier.png') }}',
+                        background: '#fff',
+                        imageWidth: 150,
+                        imageHeight: 150,
+                        imageAlt: 'USUARIO IMG',
+                    });
+                </script>
+            @endif
+
                 @include('seguros.modal-pol-img')
+
                     <div class="col-2 mt-5">
                         <div class="d-flex justify-content-start">
                                 <div class="text-center text-white">
@@ -71,25 +90,7 @@
                             <form class="card-details" method="POST" action="{{route('update.tc',$tarjeta_circulacion->id)}}" enctype="multipart/form-data" role="form">
 
                             @csrf
-
                             <input type="hidden" name="_method" value="PATCH">
-
-                                @if(Session::has('success'))
-                                            <script>
-                                                Swal.fire({
-                                                  title: 'Exito!!',
-                                                  html:
-                                                    'Se ha actualizado tu  <b>Tarjeta de Circulación</b>, ' +
-                                                    'Exitosamente',
-                                                  // text: 'Se ha agragado la "MARCA" Exitosamente',
-                                                  imageUrl: '{{ asset('img/icon/color/dosier.png') }}',
-                                                  background: '#fff',
-                                                  imageWidth: 150,
-                                                  imageHeight: 150,
-                                                  imageAlt: 'USUARIO IMG',
-                                                })
-                                            </script>
-                                        @endif
 
                             <p class="text-left text-white mt-5 mb-5" style="font: normal normal bold 20px/27px Segoe UI;">
                                 <strong>Detalles de Tarjeta de Circulacion</strong>
@@ -144,7 +145,6 @@
                                         </div>
                                     </div>
                                 </div>
-
 
                                 <div class="row">
                                     <div class="col-6">

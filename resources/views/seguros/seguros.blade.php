@@ -7,8 +7,9 @@
                 <link href="{{ asset('css/login-form.css') }}" rel="stylesheet">
                 <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
 
-                <div class="row bg-profile" style="z-index: 100000">
-                @include('seguros.modal-pol-img')
+                <div class="row bg-profile" >
+
+                        @include('seguros.modal-pol-img')
 
                         @if(Session::has('success'))
                         <script>
@@ -23,47 +24,47 @@
                               imageWidth: 150,
                               imageHeight: 150,
                               imageAlt: 'Facturas IMG',
-                            })
+                            });
                         </script>
                         @endif
 
-                    <div class="col-2">
-                        <div class="d-flex justify-content-start">
-                                <div class="text-center text-white">
-                                    <a href="{{ route('index.dashboard') }}" style="background-color: transparent;clip-path: none">
-                                        <img class="" src="{{ asset('img/icon/white/left-arrow.png') }}" width="25px" >
-                                    </a>
-                                </div>
+                        <div class="col-2">
+                            <div class="d-flex justify-content-start">
+                                    <div class="text-center text-white">
+                                        <a href="{{ route('index.dashboard') }}" style="background-color: transparent;clip-path: none">
+                                            <img class="" src="{{ asset('img/icon/white/left-arrow.png') }}" width="25px" >
+                                        </a>
+                                    </div>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="col-8">
-                                <h5 class="text-center text-white ml-4 mr-4 ">
-                                    <strong>Seguro - </strong>
-{{--                                    <strong>Seguro - {{$seguro->User->name}}</strong>--}}
-                                </h5>
-                    </div>
+                        <div class="col-8">
+                                    <h5 class="text-center text-white ml-4 mr-4 ">
+                                        <strong>Seguro - </strong>
+    {{--                                    <strong>Seguro - {{$seguro->User->name}}</strong>--}}
+                                    </h5>
+                        </div>
 
-                    <div class="col-2">
-                        <div class="d-flex justify-content-start">
-                                <div class="text-center text-white bg-white" style="border-radius: 50px;padding: 5px">
-                                  <img class="" src="{{ asset('img/icon/color/campana.png') }}" width="25px" >
-                                </div>
+                        <div class="col-2">
+                            <div class="d-flex justify-content-start">
+                                    <div class="text-center text-white bg-white" style="border-radius: 50px;padding: 5px">
+                                      <img class="" src="{{ asset('img/icon/color/campana.png') }}" width="25px" >
+                                    </div>
+                            </div>
                         </div>
-                    </div>
-                    @if ($seguro == NULL)
-                        <div class="col-12 p-3">
-                            <p class="text-center">
-                                <img class="rounded-circle" src="{{ asset('img/logo.png') }}" width="100px" ><br>
-                            </p>
-                        </div>
-                    @else
-                        <div class="col-12 p-3">
-                            <p class="text-center">
-                                <img class="" src="{{ asset('img/icon/seguros/'.$img) }}" width="100px" ><br>
-                            </p>
-                        </div>
-                    @endif
+                        @if ($seguro == NULL)
+                            <div class="col-12 p-3">
+                                <p class="text-center">
+                                    <img class="rounded-circle" src="{{ asset('img/logo.png') }}" width="100px" ><br>
+                                </p>
+                            </div>
+                        @else
+                            <div class="col-12 p-3">
+                                <p class="text-center">
+                                    <img class="" src="{{ asset('img/icon/seguros/'.$img) }}" width="100px" ><br>
+                                </p>
+                            </div>
+                        @endif
 
                 </div>
 
