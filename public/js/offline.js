@@ -2,19 +2,22 @@
     function isOnline() {
 
         if ( navigator.onLine ) {
+            // tenemos conexión
+             console.log('online');
 
-          const userAgent = window.navigator.userAgent.toLowerCase();
-          const ios = (/iphone|ipad|ipod/.test(userAgent));
+
+      const userAgent = window.navigator.userAgent.toLowerCase();
+      const ios = (/iphone|ipad|ipod/.test(userAgent));
 
       if (ios) {
-        // console.log("ios");
+        console.log("ios");
 
       } else {
-        // console.log("web");
+        console.log("web");
       }
         } else{
             // No tenemos conexión
-            //  console.log('Offline');
+             console.log('Offline');
 
           $(document).ready(function() {
              $("#myModal").modal("show");

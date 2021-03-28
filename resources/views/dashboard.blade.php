@@ -1,8 +1,7 @@
 @extends('layouts.app')
 
 @section('bg-color', 'background-image:none')
-
-@section('max-height', 'height: auto;')
+@section('max-height', 'max-height: 300px;')
 
 @section('content')
 
@@ -69,7 +68,7 @@
                             </div>
                         </div>
 
-                    <div class="col-12 mb-2" style="height: 400px;">
+                    <div class="col-12 mb-2" style="height: 300px;">
                          <div class="overflow-auto" style="@yield('max-height')">
                               @include('alerts.calendar')
                           </div>
@@ -80,15 +79,10 @@
                     <div class="row bg-down-blue" style="z-index:1000;top: -30px">
 
                         <div class="col-12 p-4">
-
-                        <p class="text-white" id="demo1"></p>
-
-                            <button mbsc-button id="md-snackbar-action" style="display: none">
-                                Snackbar with action
-                            </button>
-
                             <h6 class="text-center text-white">
+
                                 ¿Que estas buscando?
+
                             </h6>
                         </div>
 
