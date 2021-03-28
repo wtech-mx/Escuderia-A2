@@ -21,7 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="936a45dc-4f36-4130-a52f-695b08d602c5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/laravelpwa.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/laravelpwa.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -278,7 +278,6 @@
       <workItem from="1616618165745" duration="2919000" />
       <workItem from="1616626566366" duration="8916000" />
       <workItem from="1616881708085" duration="815000" />
-      <workItem from="1616891725539" duration="705000" />
     </task>
     <servers />
   </component>
