@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('bg-color', 'background-image:none')
+@section('max-height', 'max-height: 300px;')
 
 @section('content')
 
@@ -8,7 +9,7 @@
 
                 <link href="{{ asset('css/login-form.css') }}" rel="stylesheet">
 
-                <div class="row bg-img-log" style="z-index:1000;background-image: linear-gradient(to bottom, #00d62e, #2ce048, #43eb5f, #56f574, #68ff88);border-radius: 30px 30px 0 0;">
+                <div class="row bg-img-log" style="z-index:1000;background-image: linear-gradient(to bottom, #00d62e, #2ce048, #43eb5f, #56f574, #68ff88);">
                     <div class="col-2 ">
                         <div class="d-flex justify-content-start">
                                <a class="btn" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
@@ -67,29 +68,10 @@
                             </div>
                         </div>
 
-                    <div class="col-md-12">
-
-{{--                            <div class="card" style="border-radius: 15px;position: relative;top: 15px;opacity: 0.7;">--}}
-{{--                              <div class="card-body" >--}}
-{{--                                  <h4 class="card-text d-inline mr-4 ">--}}
-{{--                                     <strong>Servicio de mecanica</strong>--}}
-{{--                                  </h4>--}}
-{{--                                  <button class="btn" style="border-radius: 10px;background-color: #050f55">--}}
-{{--                                      <img class="d-inline mb-2" src="{{ asset('img/icon/white/call.png')}}" alt="Icon User" width="15px">--}}
-{{--                                  </button>--}}
-{{--                              </div>--}}
-{{--                            </div>--}}
-
-{{--                            <div class="card" style="border-radius: 15px">--}}
-{{--                              <div class="card-body" >--}}
-{{--                                  <p class="card-text">--}}
-{{--                                      <strong>CDMX | Calle 25, esquina con Av. Patri TEL : 5510079878</strong>--}}
-{{--                                  </p>--}}
-{{--                              </div>--}}
-{{--                            </div>--}}
-
-                         @include('alerts.calendar')
-
+                    <div class="col-12 mb-2" style="height: 300px;">
+                         <div class="overflow-auto" style="@yield('max-height')">
+                              @include('alerts.calendar')
+                          </div>
                     </div>
                 </div>
 

@@ -20,7 +20,7 @@
   z-index: 1000;
   position: fixed;
   right: 0;
-  bottom: 0;
+  bottom: -20px;
   left: 0;
 }
 

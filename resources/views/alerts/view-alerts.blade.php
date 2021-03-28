@@ -43,8 +43,13 @@
                         </div>
                     </div>
 
-                    @include('alerts.calendar')
-                    @include('alerts.modal')
+                </div>
+
+                <div class="row bg-image" style="margin-bottom: 16rem !important;">
+                    <div class="col-12">
+                        @include('alerts.calendar')
+                        @include('alerts.modal')
+                    </div>
                 </div>
 
 
