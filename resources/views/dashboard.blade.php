@@ -38,7 +38,7 @@
 
                     <div class="col-8">
                         <h5 class="text-center text-white ml-4 mr-4 ">
-                            <strong>Hola : {{$users->name}}</strong> <br> <br>
+                            <strong>Hola: {{$users->name}}</strong> <br> <br>
 {{--                             <strong>Auto Activo: {{$user->Automovil->submarca}}</strong>--}}
                         </h5>
                     </div>
