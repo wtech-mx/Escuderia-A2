@@ -173,7 +173,7 @@
                                                      <img class="" src="{{ asset('img/icon/white/bolsa-de-dinero (1).png') }}" width="25px" >
                                                 </span>
                                             </div>
-                                            <input type="text" class="form-control"  id="num_placa" name="num_placa" value="{{$tarjeta_circulacion->num_placa}}">
+                                            <input type="text" class="form-control"  id="num_placa" name="num_placa" value="{{$tarjeta_circulacion->num_placa}}" required>
                                         </div>
                                     </div>
                                 </div>
@@ -190,7 +190,7 @@
                                              <img class="" src="{{ asset('img/icon/white/calendario (5).png') }}" width="25px" >
                                         </span>
                                     </div>
-                                    <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre" value="{{$tarjeta_circulacion->nombre}}">
+                                    <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre" value="{{$tarjeta_circulacion->nombre}}" required>
                                 </div>
 
                                  <label for="">
@@ -204,7 +204,8 @@
                                         </span>
                                     </div>
 
-                                    <select class="form-control" id="tipo_placa" name="tipo_placa"><option value="{{$tarjeta_circulacion->tipo_placa}}" selected>{{$tarjeta_circulacion->tipo_placa}}</option>
+                                    <select class="form-control" id="tipo_placa" name="tipo_placa" required>
+                                        <option value="{{$tarjeta_circulacion->tipo_placa}}" selected>{{$tarjeta_circulacion->tipo_placa}}</option>
                                         <option value="Particular">Particular</option>
                                         <option value="Carga">Carga</option>
                                         <option value="Hybrido">Hybrido</option>
@@ -226,7 +227,7 @@
                                              <img class="" type="date" src="{{ asset('img/icon/white/seguro (1).png') }}" width="25px" >
                                         </span>
                                     </div>
-                                    <select class="form-control" id="lugar_expedicion" name="lugar_expedicion">
+                                    <select class="form-control" id="lugar_expedicion" name="lugar_expedicion" required>
                                         <option value="{{$tarjeta_circulacion->lugar_expedicion}}" selected>{{$tarjeta_circulacion->lugar_expedicion}}</option>
                                         @include('tarjeta-circulacion.estados')
                                     </select>
@@ -242,7 +243,7 @@
                                              <img class="" src="{{ asset('img/icon/white/calendario (1).png') }}" width="25px" >
                                         </span>
                                     </div>
-                                     <input type="date" class="form-control" name="fecha_emision" id="fecha_emision" placeholder="MM/YYYY" value="{{$tarjeta_circulacion->fecha_emision}}">
+                                     <input type="date" class="form-control" name="fecha_emision" id="fecha_emision" placeholder="MM/YYYY" value="{{$tarjeta_circulacion->fecha_emision}}" required>
                                 </div>
 
                                  <label for="">
@@ -255,7 +256,7 @@
                                              <img class="" src="{{ asset('img/icon/white/calendario (5).png') }}" width="25px" >
                                         </span>
                                     </div>
-                                     <input type="date" class="form-control" name="end" id="end" placeholder="MM/YYYY" value="{{$tarjeta_circulacion->end}}">
+                                     <input type="date" class="form-control" name="end" id="end" placeholder="MM/YYYY" value="{{$tarjeta_circulacion->end}}" required>
                                 </div>
 
                                  <label for="">
