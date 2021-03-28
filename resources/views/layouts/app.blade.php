@@ -33,6 +33,7 @@
     <link href="{{ asset('fonts/all.min.css') }}" rel="stylesheet">
 {{--    <link href="{{ asset('fonts/font-awesome.min.js') }}" rel="stylesheet">--}}
     <link href="{{ asset('fonts/all.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/mobiscroll.javascript.min.css') }}" rel="stylesheet">
 
     <!-- sweetalert2 JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
@@ -41,6 +42,8 @@
      <!-- personalizados js -->
     <script src="{{ asset('js/push.js') }}"></script>
     <script src="{{ asset('js/offline.js') }}"></script>
+
+
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
@@ -58,7 +61,6 @@
 </head>
 
 <body>
-
 <p style="display: none">{{$userId =  Auth::id()}}</p>
 
                 <div class="container-fluid" style="@yield('bg-color')">
@@ -93,5 +95,11 @@
                             );
                     });
                 </script>
+
+
+<script src="{{ asset('js/snippet-ios.js') }}"></script>
+<script src="{{ asset('js/mobiscroll.javascript.min.js') }}"></script>
+
+{{--<script src="{{ asset('js/app.js') }}"></script>--}}
 </html>
 
