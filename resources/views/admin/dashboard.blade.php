@@ -71,11 +71,10 @@
 
                 </div>
 
-                <div class="bg-verde">
+                <div class="row-content" style="position: relative;background-color: #000000;width: 360px;left: -10px"></div>
 
-                </div>
+                <div class="row " style="z-index:1000;top: -30px;background-image: linear-gradient(to bottom, #00d62e, #2ce048, #43eb5f, #56f574, #68ff88);border-radius: 30px 30px 0 0;">
 
-                <div class="row " style="z-index:1000;background-image: linear-gradient(to bottom, #00d62e, #2ce048, #43eb5f, #56f574, #68ff88);border-radius: 30px 30px 0 0;">
                     <div class="col-12 p-4">
                         <h6 class="text-center text-white">
                            <strong style="font: normal normal bold 25px/33px Segoe UI;"> ¿Qué haremos hoy?</strong>
@@ -184,7 +183,6 @@
                     </div>
 
                     @include('admin.modal-services')
-
                 </div>
 
 

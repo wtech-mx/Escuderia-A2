@@ -186,7 +186,7 @@
 @endsection
 
 
-                <div class="row" style="">
+                <div class="row" style="margin-bottom: 6rem !important;">
 
                     <div class="col"></div>
                         <div class="col-12">
