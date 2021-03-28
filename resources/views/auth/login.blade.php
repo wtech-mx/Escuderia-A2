@@ -21,7 +21,7 @@
                     <div class="col-12 p-5">
 
                         <h1 class="text-center text-white p-3">
-                            <strong>Iniciar sesion.</strong>
+                            <strong>Iniciar sesion</strong>
                         </h1>
 
                         <div class="wrap-input100 validate-input m-b-20" data-validate="Enter username or email">
