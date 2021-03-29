@@ -1,4 +1,5 @@
   function isIos() {
+
         if (ios) {
            console.log('ios');
           $(document).ready(function() {
@@ -10,6 +11,7 @@
 
     const userAgent = window.navigator.userAgent.toLowerCase();
     const ios = (/iphone|ipad|ipod/.test(userAgent));
+
 
     window.addEventListener('ios', isIos );
 
