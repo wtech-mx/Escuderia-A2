@@ -1,22 +1,7 @@
     // Detectar cambios de conexión
     function isOnline() {
 
-        if ( navigator.onLine ) {
-            // tenemos conexión
-             console.log('online');
-
-
-      const userAgent = window.navigator.userAgent.toLowerCase();
-      const ios = (/iphone|ipad|ipod/.test(userAgent));
-
-      if (ios) {
-        console.log("ios");
-
-      } else {
-        console.log("web");
-      }
-        } else{
-            // No tenemos conexión
+        if (!navigator.onLine ) {
              console.log('Offline');
 
           $(document).ready(function() {
@@ -27,7 +12,6 @@
               setTimeout(function() {
                    $("#myModal").fadeOut();
               },100000);
-
 
         }
     }

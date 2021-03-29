@@ -73,11 +73,14 @@
 
                         @include('layouts.tab-bar')
                         @include('layouts.offline')
+                        @include('modal-ios')
 
                     @endauth
                 </div>
 
 </body>
+
+<script src="{{ asset('js/ios.js') }}"></script>
 
                 <div id="seccionRecargar">
                         @include('layouts.alert')

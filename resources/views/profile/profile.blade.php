@@ -10,7 +10,7 @@
                 <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
 
 
-                <div class="row bg-profile" style="z-index: 100000">
+                <div class="row bg-profile" style="z-index: 1000">
 
                     <div class="col-2">
                         <div class="d-flex justify-content-start">
