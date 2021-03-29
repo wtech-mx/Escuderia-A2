@@ -39,6 +39,8 @@
     <!--sweetalert2 script -->
 
      <!-- personalizados js -->
+    <script src="{{ asset('js/push.js') }}"></script>
+    <script src="{{ asset('js/offline.js') }}"></script>
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
@@ -56,8 +58,6 @@
 </head>
 
 <body>
-
-                @include('modal-ios')
 
 <p style="display: none">{{$userId =  Auth::id()}}</p>
 
@@ -79,24 +79,19 @@
 
 </body>
 
-    <div id="seccionRecargar">
-        @include('layouts.alert')
-    </div>
+                <div id="seccionRecargar">
+                        @include('layouts.alert')
+                </div>
 
-    <script type="text/javascript">
-        $(document).ready(function(){
-            setInterval(
-                function(){
-                    console.log('entro');
-                    $('#seccionRecargar').load('{{ route('alerts.alert') }}');
-                },60000
-            );
-        });
-    </script>
-
-        <script src="{{ asset('js/push.js') }}"></script>
-
-{{--        <script src="{{ asset('js/snippet-ios.js') }}"></script>--}}
-
+                <script type="text/javascript">
+                    $(document).ready(function(){
+                        setInterval(
+                                function(){
+                                    console.log('entro');
+                                    $('#seccionRecargar').load('{{ route('alerts.alert') }}');
+                                },60000
+                            );
+                    });
+                </script>
 </html>
 

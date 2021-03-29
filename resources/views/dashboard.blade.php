@@ -80,7 +80,9 @@
 
                         <div class="col-12 p-4">
                             <h6 class="text-center text-white">
+
                                 ¿Que estas buscando?
+
                             </h6>
                         </div>
 
@@ -159,6 +161,8 @@
                                   </div>
                                 </div>
                             </a>
+                        </div>
+
                     </div>
 
 

@@ -1,8 +1,23 @@
-
+    // Detectar cambios de conexión
     function isOnline() {
 
-        if (!navigator.onLine) {
-          console.log('Offline');
+        if ( navigator.onLine ) {
+            // tenemos conexión
+             console.log('online');
+
+
+      const userAgent = window.navigator.userAgent.toLowerCase();
+      const ios = (/iphone|ipad|ipod/.test(userAgent));
+
+      if (ios) {
+        console.log("ios");
+
+      } else {
+        console.log("web");
+      }
+        } else{
+            // No tenemos conexión
+             console.log('Offline');
 
           $(document).ready(function() {
              $("#myModal").modal("show");
@@ -12,34 +27,10 @@
               setTimeout(function() {
                    $("#myModal").fadeOut();
               },100000);
+
+
         }
-
-
     }
     window.addEventListener('online', isOnline );
     window.addEventListener('offline', isOnline );
     isOnline();
-
-    function isIos() {
-        if (ios) {
-           console.log('ios');
-          $(document).ready(function() {
-             $("#modal-ios").modal("show");
-          });
-
-        }
-    }
-
-    const userAgent = window.navigator.userAgent.toLowerCase();
-    const ios = (/iphone|ipad|ipod/.test(userAgent));
-
-    window.addEventListener('ios', isIos );
-
-    isIos();
-
-
-
-
-
-
-
