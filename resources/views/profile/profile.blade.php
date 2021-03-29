@@ -173,23 +173,23 @@
                                             @endif
                                         </div>
 
-                                        <label for="">
-                                             <p class="text-white"><strong>Referencia</strong></p>
-                                         </label>
+{{--                                        <label for="">--}}
+{{--                                             <p class="text-white"><strong>Referencia</strong></p>--}}
+{{--                                         </label>--}}
 
-                                        <div class="input-group form-group">
-                                            <div class="input-group-prepend " >
-                                                <span class="input-group-text" >
-                                                     <img class="" src="{{ asset('img/icon/white/referencia (1).png') }}" width="25px" >
-                                                </span>
-                                            </div>
+{{--                                        <div class="input-group form-group">--}}
+{{--                                            <div class="input-group-prepend " >--}}
+{{--                                                <span class="input-group-text" >--}}
+{{--                                                     <img class="" src="{{ asset('img/icon/white/referencia (1).png') }}" width="25px" >--}}
+{{--                                                </span>--}}
+{{--                                            </div>--}}
 
-                                            <select class="form-control" id="referencia" name="referencia">
-                                                @foreach($users as $item)
-                                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
+{{--                                            <select class="form-control" id="referencia" name="referencia">--}}
+{{--                                                @foreach($users as $item)--}}
+{{--                                                    <option value="{{ $item->id }}">{{ $item->name }}</option>--}}
+{{--                                                @endforeach--}}
+{{--                                            </select>--}}
+{{--                                        </div>--}}
 
                                         <label for="">
                                              <p class="text-white"><strong>Genero</strong></p>
