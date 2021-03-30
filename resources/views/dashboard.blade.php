@@ -43,14 +43,12 @@
 {{--                             <strong>Auto Activo: {{$user->Automovil->submarca}}</strong>--}}
                         </h5>
                     </div>
-                    <div class="col-12">
-                         <button id="btn-nft-enable" onclick="initFirebaseMessagingRegistration()" class="btn btn-danger btn-xs btn-flat">Allow for Notification</button>
-                    </div>
+
                     <div class="col-2">
                         <div class="d-flex justify-content-start">
-                                <div class="text-center text-white bg-white" style="border-radius: 50px;padding: 5px">
-                                  <img class="" src="{{ asset('img/icon/color/campana.png') }}" width="30px" >
-                                </div>
+                                    <button id="btn-nft-enable" onclick="initFirebaseMessagingRegistration()"  class="text-center text-white bg-white" style="border-radius: 50px;padding: 5px">
+                                      <img class="" src="{{ asset('img/icon/color/campana.png') }}" width="30px" >
+                                    </button>
                         </div>
                     </div>
 

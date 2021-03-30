@@ -78,21 +78,6 @@
                 @endauth
 
 </body>
-{{--            <div id="seccionRecargar">--}}
-{{--                    @include('admin.layouts.alert')--}}
-{{--	        </div>--}}
-
-
-{{--                <script type="text/javascript">--}}
-{{--                    $(document).ready(function(){--}}
-{{--                        setInterval(--}}
-{{--                                function(){--}}
-{{--                                    console.log('entro');--}}
-{{--                                    $('#seccionRecargar').load('{{ route('alerts.alert',$userId) }}');--}}
-{{--                                },60000--}}
-{{--                            );--}}
-{{--                    });--}}
-{{--                </script>--}}
             <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase.js"></script>
             <script>
 
@@ -144,7 +129,6 @@
                             toastr.error('User Chat Token Error'+ err, null, {timeOut: 3000, positionClass: "toast-bottom-right"});
                         });
                  }
-
 
                 messaging.onMessage(function(payload) {
                     const noteTitle = payload.notification.title;

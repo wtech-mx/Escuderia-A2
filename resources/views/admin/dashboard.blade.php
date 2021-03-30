@@ -51,28 +51,11 @@
 
                         <div class="col-2 mt-5">
                             <div class="d-flex justify-content-start">
-                                    <div class="text-center text-white bg-white" style="border-radius: 50px;padding: 5px">
+                                    <button id="btn-nft-enable" onclick="initFirebaseMessagingRegistration()"  class="text-center text-white bg-white" style="border-radius: 50px;padding: 5px">
                                       <img class="" src="{{ asset('img/icon/color/campana.png') }}" width="30px" >
-                                    </div>
+                                    </button>
                             </div>
                         </div>
-
-                    <div class="col-12">
-                        <button id="btn-nft-enable" onclick="initFirebaseMessagingRegistration()" class="btn btn-danger btn-xs btn-flat">Allow for Notification</button>
-                         <form action="{{ route('send.notification') }}" method="POST">
-                        @csrf
-                        <div class="form-group">
-                            <label>Title</label>
-                            <input type="text" class="form-control" name="title">
-                        </div>
-                        <div class="form-group">
-                            <label>Body</label>
-                            <textarea class="form-control" name="body"></textarea>
-                          </div>
-                        <button type="submit" class="btn btn-primary">Send Notification</button>
-                    </form>
-                    </div>
-
 
                         <div class="col-12 p-3 ">
                             <div class=" d-flex justify-content-between bg-white p-2 rounded-pill">
