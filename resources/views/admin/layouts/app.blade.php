@@ -51,6 +51,7 @@
 
 {{--    <script src="{{ asset('js/app.js') }}" defer></script>--}}
 
+
     @laravelPWA
 
     @yield('scripts')
@@ -77,19 +78,83 @@
                 @endauth
 
 </body>
-            <div id="seccionRecargar">
-                    @include('admin.layouts.alert')
-	        </div>
+{{--            <div id="seccionRecargar">--}}
+{{--                    @include('admin.layouts.alert')--}}
+{{--	        </div>--}}
 
 
-                <script type="text/javascript">
-                    $(document).ready(function(){
-                        setInterval(
-                                function(){
-                                    console.log('entro');
-                                    $('#seccionRecargar').load('{{ route('alerts.alert',$userId) }}');
-                                },60000
-                            );
-                    });
-                </script>
+{{--                <script type="text/javascript">--}}
+{{--                    $(document).ready(function(){--}}
+{{--                        setInterval(--}}
+{{--                                function(){--}}
+{{--                                    console.log('entro');--}}
+{{--                                    $('#seccionRecargar').load('{{ route('alerts.alert',$userId) }}');--}}
+{{--                                },60000--}}
+{{--                            );--}}
+{{--                    });--}}
+{{--                </script>--}}
+            <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase.js"></script>
+            <script>
+
+                var firebaseConfig = {
+                    apiKey: "AIzaSyCx0ssO35wLU3d6e6C4QPrpqANdjj2L2Pc",
+                    authDomain: "checkngo-e379f.firebaseapp.com",
+                    projectId: "checkngo-e379f",
+                    storageBucket: "checkngo-e379f.appspot.com",
+                    messagingSenderId: "925533275751",
+                    appId: "1:925533275751:web:1a077ea798718e9d0c36c2",
+                    measurementId: "G-ZPD0T689L3"
+                };
+                // measurementId: G-R1KQTR3JBN
+                  // Initialize Firebase
+                firebase.initializeApp(firebaseConfig);
+                const messaging = firebase.messaging();
+
+                function initFirebaseMessagingRegistration() {
+                        messaging
+                        .requestPermission()
+                        .then(function () {
+                            return messaging.getToken()
+                        })
+                        .then(function(token) {
+                            console.log(token);
+
+                            $.ajaxSetup({
+                                headers: {
+                                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                                }
+                            });
+
+                            $.ajax({
+                                url: '{{ route("save-token") }}',
+                                type: 'POST',
+                                data: {
+                                    token: token
+                                },
+                                dataType: 'JSON',
+                                success: function (response) {
+                                    alert('Token saved successfully.');
+                                },
+                                error: function (err) {
+                                    console.log('User Chat Token Error'+ err);
+                                },
+                            });
+
+                        }).catch(function (err) {
+                            toastr.error('User Chat Token Error'+ err, null, {timeOut: 3000, positionClass: "toast-bottom-right"});
+                        });
+                 }
+
+
+                messaging.onMessage(function(payload) {
+                    const noteTitle = payload.notification.title;
+                    const noteOptions = {
+                        body: payload.notification.body,
+                        icon: payload.notification.icon,
+                    };
+                    new Notification(noteTitle, noteOptions);
+                });
+
+            </script>
+
 </html>

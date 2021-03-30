@@ -32,6 +32,8 @@ Route::get('offline','OfflineController@index')->name('index.offline');
 /*|--------------------------------------------------------------------------
 |Usuario
 |--------------------------------------------------------------------------*/
+Route::post('save-token', 'DashboardController@saveToken')->name('save-token');
+Route::post('send-notification', 'DashboardController@sendNotification')->name('send.notification');
 
 /*|--------------------------------------------------------------------------
 |Dashboard

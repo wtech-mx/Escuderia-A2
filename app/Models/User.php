@@ -29,6 +29,8 @@ class User extends Authenticatable
         'role',
         'email',
         'password',
+        'device_token'
+
     ];
         public function scopeName($query,$name)
     {
