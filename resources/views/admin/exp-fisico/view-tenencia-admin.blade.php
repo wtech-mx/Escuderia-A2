@@ -62,11 +62,20 @@
 
                     @if ($exp_tenencias->count())
                         @foreach($exp_tenencias as $item)
+                            @php
+                                $texto= substr($item->tenencia, -3);
+                            @endphp
                             <div class="col-6">
                                 <a type="button" class="" data-toggle="modal" data-target="#modal-doc-{{$item->id}}">
-                                    <p class="text-center">
-                                         <img class="d-inline mb-2" src="{{asset('exp-tenencia/'.$item->tenencia)}}" alt="{{$item->tenencia}}" width="100px">
-                                    </p>
+                                        @if($texto == 'pdf')
+                                            <p class="text-center">
+                                                <iframe width="400" height="400" src="{{asset('exp-tenencia/'.$item->tenencia)}}" frameborder="0"></iframe>
+                                            </p>
+                                        @else
+                                            <p class="text-center">
+                                                    <img class="d-inline mb-2" src="{{asset('exp-tenencia/'.$item->tenencia)}}" alt="{{$item->tenencia}}" width="100px">
+                                            </p>
+                                        @endif
                                 </a>
                             </div>
                             <!-- Modal -->

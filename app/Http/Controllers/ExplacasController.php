@@ -39,7 +39,7 @@ class ExplacasController extends Controller
     public function store(Request $request){
 
         $validate = $this->validate($request,[
-            'placa' => 'mimes:jpeg,bpm,jpg,png|max:900',
+            'placa' => 'mimes:jpeg,bpm,jpg,png,pdf|max:900',
         ]);
 
         $exp_placas = new ExpPlacas;
@@ -79,7 +79,7 @@ class ExplacasController extends Controller
     public function store_admin(Request $request,$id){
 
         $validate = $this->validate($request,[
-            'placa' => 'mimes:jpeg,bpm,jpg,png|max:900',
+            'placa' => 'mimes:jpeg,bpm,jpg,png,pdf|max:900',
         ]);
 
         $exp = new ExpPlacas;

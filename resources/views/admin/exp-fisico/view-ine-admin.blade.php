@@ -62,11 +62,20 @@
 
                     @if ($exp_ine->count())
                         @foreach($exp_ine as $item)
+                            @php
+                                $texto= substr($item->ine, -3);
+                            @endphp
                             <div class="col-6">
                                 <a type="button" class="" data-toggle="modal" data-target="#modal-doc-{{$item->id}}">
-                                    <p class="text-center">
-                                            <img class="d-inline mb-2" src="{{asset('exp-ine/'.$item->ine)}}" alt="{{$item->ine}}" width="100px">
-                                    </p>
+                                        @if($texto == 'pdf')
+                                            <p class="text-center">
+                                                <iframe width="400" height="400" src="{{asset('exp-ine/'.$item->ine)}}" frameborder="0"></iframe>
+                                            </p>
+                                        @else
+                                            <p class="text-center">
+                                                    <img class="d-inline mb-2" src="{{asset('exp-ine/'.$item->ine)}}" alt="{{$item->ine}}" width="100px">
+                                            </p>
+                                        @endif
                                 </a>
                             </div>
                             <!-- Modal -->

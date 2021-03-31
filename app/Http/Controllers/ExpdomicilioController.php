@@ -39,7 +39,7 @@ class ExpdomicilioController extends Controller
     public function store(Request $request){
 
         $validate = $this->validate($request,[
-            'domicilio' => 'mimes:jpeg,bpm,jpg,png|max:900',
+            'domicilio' => 'mimes:jpeg,bpm,jpg,png,pdf|max:900',
         ]);
 
         $exp_domicilio = new ExpDomicilio;
@@ -79,7 +79,7 @@ class ExpdomicilioController extends Controller
     public function store_admin(Request $request,$id){
 
         $validate = $this->validate($request,[
-            'domicilio' => 'mimes:jpeg,bpm,jpg,png|max:900',
+            'domicilio' => 'mimes:jpeg,bpm,jpg,png,pdf|max:900',
         ]);
 
         $exp = new ExpDomicilio;

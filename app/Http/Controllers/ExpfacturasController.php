@@ -5,14 +5,17 @@ namespace App\Http\Controllers;
 use App\Models\Automovil;
 use Illuminate\Http\Request;
 use DB;
-use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Str;
 use App\Models\ExpFactura;
+use App\Models\ExpCarta;
+use App\Models\ExpDomicilio;
+use App\Models\ExpIne;
+use App\Models\ExpPlacas;
+use App\Models\ExpPoliza;
+use App\Models\ExpReemplacamiento;
+use App\Models\ExpRfc;
+use App\Models\ExpTc;
+use App\Models\ExpTenencias;
 use Session;
-use Carbon\Carbon;
-use App\Models\Alertas;
-use App\Models\Seguros;
-use App\Models\TarjetaCirculacion;
 
 class ExpfacturasController extends Controller
 {
@@ -43,7 +46,7 @@ class ExpfacturasController extends Controller
     public function store(Request $request){
 
         $validate = $this->validate($request,[
-            'factura' => 'mimes:jpeg,bpm,jpg,png|max:900',
+            'factura' => 'mimes:jpeg,bpm,jpg,png,pdf|max:900',
         ]);
 
         $exp_factura = new ExpFactura;
@@ -77,7 +80,39 @@ class ExpfacturasController extends Controller
             ->where('role','=', '0')
             ->get();
 
-        return view('admin.exp-fisico.view-exp-fisico-admin',compact('automovil','automovil2'));
+        $factura = ExpFactura::get()->count();
+        $factura2 = ExpFactura::get();
+
+        $tenencias = ExpTenencias::get()->count();
+        $tenencias2 = ExpTenencias::get();
+
+        $carta = ExpCarta::get()->count();
+        $carta2 = ExpCarta::get();
+
+        $poliza = ExpPoliza::get()->count();
+        $poliza2 = ExpPoliza::get();
+
+        $tc = ExpTc::get()->count();
+        $tc2 = ExpTc::get();
+
+        $reemplacamiento = ExpReemplacamiento::get()->count();
+        $reemplacamiento2 = ExpReemplacamiento::get();
+
+        $placas = ExpPlacas::get()->count();
+        $placas2 = ExpPlacas::get();
+
+        $ine = ExpIne::get()->count();
+        $ine2 = ExpIne::get();
+
+        $comprobante = ExpDomicilio::get()->count();
+        $comprobante2 = ExpDomicilio::get();
+
+        $rfc = ExpRfc::get()->count();
+        $rfc2 = ExpRfc::get();
+
+        return view('admin.exp-fisico.view-exp-fisico-admin',compact('automovil','automovil2', 'factura', 'factura2',
+                          'tenencias', 'tenencias2', 'carta', 'carta2', 'poliza', 'poliza2', 'tc', 'tc2', 'reemplacamiento', 'reemplacamiento2',
+                          'placas', 'placas2', 'ine', 'ine2', 'comprobante', 'comprobante2', 'rfc', 'rfc2'));
     }
 
         public function create_admin($id)
@@ -103,7 +138,7 @@ class ExpfacturasController extends Controller
     public function store_admin(Request $request,$id){
 
         $validate = $this->validate($request,[
-            'factura' => 'mimes:jpeg,bpm,jpg,png|max:900',
+            'factura' => 'mimes:jpeg,bpm,jpg,png,pdf|max:900',
         ]);
 
         $exp = new ExpFactura;

@@ -63,11 +63,20 @@
 
                     @if ($exp_factura->count())
                         @foreach($exp_factura as $item)
+                            @php
+                                $texto= substr($item->factura, -3);
+                            @endphp
                                 <div class="col-6">
                                     <a type="button" class="" data-toggle="modal" data-target="#modal-doc-{{$item->id}}">
-                                        <p class="text-center">
-                                                <img class="d-inline mb-2" src="{{asset('exp-factura/'.$item->factura)}}" alt="{{$item->factura}}" width="100px">
-                                        </p>
+                                        @if($texto == 'pdf')
+                                            <p class="text-center">
+                                                <iframe width="140" height="140" src="{{asset('exp-factura/'.$item->factura)}}" frameborder="0" style="z-index: 10000" ></iframe>
+                                            </p>
+                                        @else
+                                            <p class="text-center">
+                                                    <img class="d-inline mb-2" src="{{asset('exp-factura/'.$item->factura)}}" alt="{{$item->factura}}" width="100px">
+                                            </p>
+                                        @endif
                                      </a>
                                 </div>
                             <!-- Modal -->
@@ -84,9 +93,15 @@
                                     </div>
 
                                   <div class="modal-body">
-                                      <p class="text-center">
-                                          <img class="" src="{{asset('exp-factura/'.$item->factura)}}" alt="{{$item->factura}}" width="100%">
-                                      </p>
+                                        @if($texto == 'pdf')
+                                            <p class="text-center">
+                                                <iframe width="140" height="140" src="{{asset('exp-factura/'.$item->factura)}}" frameborder="0" style="z-index: 10000" ></iframe>
+                                            </p>
+                                        @else
+                                            <p class="text-center">
+                                                    <img class="d-inline mb-2" src="{{asset('exp-factura/'.$item->factura)}}" alt="{{$item->factura}}" width="100px">
+                                            </p>
+                                        @endif
                                   </div>
 
                                 </div>

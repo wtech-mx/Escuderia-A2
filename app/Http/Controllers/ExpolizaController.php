@@ -41,7 +41,7 @@ class ExpolizaController extends Controller
     public function store(Request $request){
 
         $validate = $this->validate($request,[
-            'poliza' => 'mimes:jpeg,bpm,jpg,png|max:900',
+            'poliza' => 'mimes:jpeg,bpm,jpg,png,pdf|max:900',
         ]);
 
         $exp_poliza = new ExpPoliza;
@@ -81,7 +81,7 @@ class ExpolizaController extends Controller
     public function store_admin(Request $request){
 
         $validate = $this->validate($request,[
-            'poliza' => 'mimes:jpeg,bpm,jpg,png|max:900',
+            'poliza' => 'mimes:jpeg,bpm,jpg,png,pdf|max:900',
         ]);
 
         $exp = new ExpPoliza;

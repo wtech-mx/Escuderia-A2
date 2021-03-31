@@ -70,7 +70,7 @@ const messaging = firebase.messaging();
 
 })
 .catch(function (err) {
-	console.log("Unable to get permission to notify.", err);
+	console.log("No se pudo obtener permiso para notificar.", err);
 });
 
 messaging.onMessage(function(payload) {
@@ -106,16 +106,13 @@ database.on('child_added', function(data) {
             alert(this.tag);
         }
     }else{
-        alert('Please allow the notification first');
+        alert('Permita la notificación primero');
     }
 });
 
 self.addEventListener('notificationclick', function(event) {
     event.notification.close();
 });
-
-
-
 
 </script>
 

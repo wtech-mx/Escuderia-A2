@@ -39,7 +39,7 @@ class ExptenenciasController extends Controller
     public function store(Request $request){
 
         $validate = $this->validate($request,[
-            'tenencia' => 'mimes:jpeg,bpm,jpg,png|max:900',
+            'tenencia' => 'mimes:jpeg,bpm,jpg,png,pdf|max:900',
         ]);
 
         $exp_tenencias = new ExpTenencias;
@@ -80,7 +80,7 @@ class ExptenenciasController extends Controller
     public function store_admin(Request $request,$id){
 
         $validate = $this->validate($request,[
-            'tenencia' => 'mimes:jpeg,bpm,jpg,png|max:900',
+            'tenencia' => 'mimes:jpeg,bpm,jpg,png,pdf|max:900',
         ]);
 
         $exp = new ExpTenencias;

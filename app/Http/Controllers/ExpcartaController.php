@@ -48,7 +48,7 @@ class ExpcartaController extends Controller
     public function store(Request $request){
 
         $validate = $this->validate($request,[
-            'carta' => 'mimes:jpeg,bpm,jpg,png|max:900',
+            'carta' => 'mimes:jpeg,bpm,jpg,png,pdf|max:900',
         ]);
 
         $exp_carta = new ExpCarta;
@@ -90,7 +90,7 @@ class ExpcartaController extends Controller
     public function store_admin(Request $request,$id){
 
         $validate = $this->validate($request,[
-            'carta' => 'mimes:jpeg,bpm,jpg,png|max:900',
+            'carta' => 'mimes:jpeg,bpm,jpg,png,pdf|max:900',
         ]);
 
         $exp = new ExpCarta;

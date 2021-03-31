@@ -39,7 +39,7 @@ class ExprfcController extends Controller
     public function store(Request $request){
 
         $validate = $this->validate($request,[
-            'rfc' => 'mimes:jpeg,bpm,jpg,png|max:900',
+            'rfc' => 'mimes:jpeg,bpm,jpg,png,pdf|max:900',
         ]);
 
         $exp_rfc = new ExpRfc;
@@ -79,7 +79,7 @@ class ExprfcController extends Controller
     public function store_admin(Request $request,$id){
 
         $validate = $this->validate($request,[
-            'rfc' => 'mimes:jpeg,bpm,jpg,png|max:900',
+            'rfc' => 'mimes:jpeg,bpm,jpg,png,pdf|max:900',
         ]);
 
         $exp = new ExpRfc;

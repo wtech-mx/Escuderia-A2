@@ -39,7 +39,7 @@ class ExpineController extends Controller
     public function store(Request $request){
 
         $validate = $this->validate($request,[
-            'ine' => 'mimes:jpeg,bpm,jpg,png|max:900',
+            'ine' => 'mimes:jpeg,bpm,jpg,png,pdf|max:900',
         ]);
 
         $exp_ine = new ExpIne;
@@ -79,7 +79,7 @@ class ExpineController extends Controller
     public function store_admin(Request $request,$id){
 
         $validate = $this->validate($request,[
-            'ine' => 'mimes:jpeg,bpm,jpg,png|max:900',
+            'ine' => 'mimes:jpeg,bpm,jpg,png,pdf|max:900',
         ]);
 
         $exp = new ExpIne;

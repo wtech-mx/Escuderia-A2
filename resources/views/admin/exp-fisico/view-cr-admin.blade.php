@@ -62,11 +62,20 @@
 
                     @if ($exp_carta->count())
                         @foreach($exp_carta as $item)
+                            @php
+                                $texto= substr($item->carta, -3);
+                            @endphp
                             <div class="col-6">
                                     <a type="button" class="" data-toggle="modal" data-target="#modal-doc-{{$item->id}}">
-                                        <p class="text-center">
-                                            <img class="d-inline mb-2" src="{{asset('exp-carta/'.$item->carta)}}" alt="{{$item->carta}}" width="100px">
-                                        </p>
+                                        @if($texto == 'pdf')
+                                            <p class="text-center">
+                                                <iframe width="400" height="400" src="{{asset('exp-carta/'.$item->carta)}}" frameborder="0"></iframe>
+                                            </p>
+                                        @else
+                                            <p class="text-center">
+                                                    <img class="d-inline mb-2" src="{{asset('exp-carta/'.$item->carta)}}" alt="{{$item->carta}}" width="100px">
+                                            </p>
+                                        @endif
                                     </a>
                             </div>
                             <!-- Modal -->

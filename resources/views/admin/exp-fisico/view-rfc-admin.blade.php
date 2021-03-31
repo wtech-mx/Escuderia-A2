@@ -62,11 +62,20 @@
 
                     @if ($exp_rfc->count())
                         @foreach($exp_rfc as $item)
+                            @php
+                                $texto= substr($item->rfc, -3);
+                            @endphp
                             <div class="col-6">
                                  <a type="button" class="" data-toggle="modal" data-target="#modal-doc-{{$item->id}}">
-                                    <p class="text-center">
-                                            <img class="d-inline mb-2" src="{{asset('exp-rfc/'.$item->rfc)}}" alt="{{$item->rfc}}" width="100px">
-                                    </p>
+                                        @if($texto == 'pdf')
+                                            <p class="text-center">
+                                                <iframe width="400" height="400" src="{{asset('exp-rfc/'.$item->rfc)}}" frameborder="0"></iframe>
+                                            </p>
+                                        @else
+                                            <p class="text-center">
+                                                    <img class="d-inline mb-2" src="{{asset('exp-rfc/'.$item->rfc)}}" alt="{{$item->rfc}}" width="100px">
+                                            </p>
+                                        @endif
                                  </a>
                             </div>
                             <!-- Modal -->

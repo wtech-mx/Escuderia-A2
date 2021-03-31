@@ -41,7 +41,7 @@ class ExptcController extends Controller
     public function store(Request $request){
 
         $validate = $this->validate($request,[
-            'tc' => 'mimes:jpeg,bpm,jpg,png|max:900',
+            'tc' => 'mimes:jpeg,bpm,jpg,png,pdf|max:900',
         ]);
 
         $exp_tc = new ExpTc;
@@ -89,7 +89,7 @@ class ExptcController extends Controller
     public function store_admin(Request $request,$id){
 
         $validate = $this->validate($request,[
-            'tc' => 'mimes:jpeg,bpm,jpg,png|max:900',
+            'tc' => 'mimes:jpeg,bpm,jpg,png,pdf|max:900',
         ]);
 
         $exp = new ExpTc;

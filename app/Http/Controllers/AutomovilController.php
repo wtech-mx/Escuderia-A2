@@ -71,13 +71,12 @@ class AutomovilController extends Controller
 
         $automovil = new Automovil;
         $automovil->id_marca = $request->get('id_marca');
-        $automovil->estatus = $request->get('estatus');
-        $automovil->submarca = $request->get('submarca');
-        $automovil->tipo = $request->get('tipo');
+        $automovil->submarca = strtoupper($request->get('submarca'));
+        $automovil->tipo = strtoupper($request->get('tipo'));
         $automovil->kilometraje = $request->get('kilometraje');
-        $automovil->subtipo = $request->get('subtipo');
+        $automovil->subtipo = strtoupper($request->get('subtipo'));
         $automovil->año = $request->get('año');
-        $automovil->numero_serie = $request->get('numero_serie');
+        $automovil->numero_serie = strtoupper($request->get('numero_serie'));
         $automovil->color = $request->get('color');
         $placa = strtoupper($request->get('placas'));
         $automovil->placas = $placa;
@@ -97,7 +96,7 @@ class AutomovilController extends Controller
 
         $seguro = new  Seguros;
         $seguro->seguro = 'gnp';
-        $seguro->tipo_cobertura = 'total';
+        $seguro->tipo_cobertura = 'Amplia';
         $seguro->costo = '100';
         $seguro->costo_anual = '100';
         $seguro->id_user = $user->id;
@@ -155,12 +154,12 @@ class AutomovilController extends Controller
 
         $automovil = Automovil::findOrFail($id);
         $automovil->id_marca = $request->get('id_marca');
-        $automovil->submarca = $request->get('submarca');
-        $automovil->tipo = $request->get('tipo');
+        $automovil->submarca = strtoupper($request->get('submarca'));
+        $automovil->tipo = strtoupper($request->get('tipo'));
         $automovil->kilometraje = $request->get('kilometraje');
-        $automovil->subtipo = $request->get('subtipo');
+        $automovil->subtipo = strtoupper($request->get('subtipo'));
         $automovil->año = $request->get('año');
-        $automovil->numero_serie = $request->get('numero_serie');
+        $automovil->numero_serie = strtoupper($request->get('numero_serie'));
         $automovil->color = $request->get('color');
         $placa = strtoupper($request->get('placas'));
         $automovil->placas = $placa;
@@ -251,12 +250,12 @@ class AutomovilController extends Controller
         $automovil->id_empresa = $request->get('id_empresa');
         $automovil->id_marca = $request->get('id_marca');
         $automovil->estatus = $request->get('estatus');
-        $automovil->submarca = $request->get('submarca');
-        $automovil->tipo = $request->get('tipo');
+        $automovil->submarca = strtoupper($request->get('submarca'));
+        $automovil->tipo = strtoupper($request->get('tipo'));
         $automovil->kilometraje = $request->get('kilometraje');
-        $automovil->subtipo = $request->get('subtipo');
+        $automovil->subtipo = strtoupper($request->get('subtipo'));
         $automovil->año = $request->get('año');
-        $automovil->numero_serie = $request->get('numero_serie');
+        $automovil->numero_serie = strtoupper($request->get('numero_serie'));
         $automovil->color = $request->get('color');
         $placa = strtoupper($request->get('placas'));
         $automovil->placas = $placa;
@@ -271,7 +270,7 @@ class AutomovilController extends Controller
 
         $seguro = new  Seguros;
         $seguro->seguro = 'gnp';
-        $seguro->tipo_cobertura = 'total';
+        $seguro->tipo_cobertura = 'Amplia';
         $seguro->costo = '100';
         $seguro->estatus = 0;
         $seguro->costo_anual = '100';
@@ -344,12 +343,12 @@ class AutomovilController extends Controller
         $automovil->id_user = $request->get('id_user');
         $automovil->id_empresa = $request->get('id_empresa');
         $automovil->id_marca = $request->get('id_marca');
-        $automovil->submarca = $request->get('submarca');
-        $automovil->tipo = $request->get('tipo');
+        $automovil->submarca = strtoupper($request->get('submarca'));
+        $automovil->tipo = strtoupper($request->get('tipo'));
         $automovil->kilometraje = $request->get('kilometraje');
-        $automovil->subtipo = $request->get('subtipo');
+        $automovil->subtipo = strtoupper($request->get('subtipo'));
         $automovil->año = $request->get('año');
-        $automovil->numero_serie = $request->get('numero_serie');
+        $automovil->numero_serie = strtoupper($request->get('numero_serie'));
         $automovil->color = $request->get('color');
         $placa = strtoupper($request->get('placas'));
         $automovil->placas = $placa;
