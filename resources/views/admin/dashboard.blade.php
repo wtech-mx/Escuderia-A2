@@ -81,7 +81,7 @@
                         </h6>
                     </div>
 
-                    <div class="col-6">
+                    <div class="col-6 text-center">
                          <a href="{{ route('index.alert') }}">
                             <div class="card" style="border-radius: 15px">
                               <div class="card-body" >
@@ -92,7 +92,7 @@
                         </a>
                     </div>
 
-                    <div class="col-6">
+                    <div class="col-6 text-center">
                          <a href="{{ route('index_admin.user') }}">
                             <div class="card" style="border-radius: 15px">
                               <div class="card-body" >
@@ -103,7 +103,7 @@
                         </a>
                     </div>
 
-                    <div class="col-6 mt-4">
+                    <div class="col-6 text-center mt-4">
                         <a href="{{ route('index_admin.automovil') }}">
                             <div class="card" style="border-radius: 15px">
                               <div class="card-body" >
@@ -114,7 +114,7 @@
                         </a>
                     </div>
 
-                    <div class="col-6 mt-4">
+                    <div class="col-6 text-center mt-4">
                         <a  class="text-white" data-toggle="modal" data-target="#Servicios" style="cursor: pointer">
                             <div class="card" style="border-radius: 15px">
                               <div class="card-body" >
@@ -125,7 +125,7 @@
                          </a>
                     </div>
 
-                    <div class="col-6 mt-4">
+                    <div class="col-6 text-center mt-4">
                         <a href="{{ route('indextc_admin.tarjeta-circulacion') }}" class="text-white">
                             <div class="card" style="border-radius: 15px">
                               <div class="card-body" >
@@ -136,7 +136,7 @@
                         </a>
                     </div>
 
-                    <div class="col-6 mt-4">
+                    <div class="col-6 text-center mt-4">
                         <a href="{{ route('index_admin.view-exp-fisico-admin') }}" class="text-white">
                             <div class="card" style="border-radius: 15px">
                               <div class="card-body" >
@@ -147,7 +147,7 @@
                         </a>
                     </div>
 
-                    <div class="col-6 mt-4">
+                    <div class="col-6 text-center mt-4">
                         <a href="{{ route('index_admin.seguros') }}" class="text-white">
                             <div class="card" style="border-radius: 15px">
                               <div class="card-body" >
@@ -158,7 +158,7 @@
                         </a>
                     </div>
 
-                    <div class="col-6 mt-4">
+                    <div class="col-6 text-center mt-4">
                         <a href="{{ route('index_admin.empresa') }}" class="text-white">
 
                             <div class="card" style="border-radius: 15px">
@@ -170,7 +170,7 @@
                         </a>
                     </div>
 
-                    <div class="col-6 mt-4" style="margin-bottom: 8rem !important;">
+                    <div class="col-6 text-center mt-4" style="margin-bottom: 8rem !important;">
                         <a href="{{ route('index_admin.verificacion') }}" class="text-white">
 
                             <div class="card" style="border-radius: 15px">

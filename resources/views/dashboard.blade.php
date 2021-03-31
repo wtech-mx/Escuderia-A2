@@ -86,7 +86,7 @@
                             </h6>
                         </div>
 
-                        <div class="col-6">
+                        <div class="col-6 text-center">
                              <a href="{{ route('calendar.index_calendar_user') }}">
                                 <div class="card" style="border-radius: 15px">
                                   <div class="card-body" >
@@ -97,7 +97,7 @@
                             </a>
                         </div>
 
-                        <div class="col-6">
+                        <div class="col-6 text-center">
                              <a href="{{ route('edit.profile', $userId) }}">
                                 <div class="card" style="border-radius: 15px">
                                   <div class="card-body" >
@@ -108,7 +108,7 @@
                             </a>
                         </div>
 
-                        <div class="col-6 mt-4">
+                        <div class="col-6 text-center mt-4">
                             <a href="{{ route('index.automovil') }}">
                                 <div class="card" style="border-radius: 15px">
                                   <div class="card-body" >
@@ -119,7 +119,7 @@
                             </a>
                         </div>
 
-                        <div class="col-6 mt-4">
+                        <div class="col-6 text-center mt-4">
                             <a href="{{ route('index.tc') }}" class="text-dark">
                                 <div class="card" style="border-radius: 15px">
                                   <div class="card-body" >
@@ -130,7 +130,7 @@
                              </a>
                         </div>
 
-                        <div class="col-6 mt-4">
+                        <div class="col-6 text-center mt-4">
                             <a href="{{ route('index.seguro') }}" class="text-dark">
                                 <div class="card" style="border-radius: 15px">
                                   <div class="card-body" >
@@ -141,7 +141,7 @@
                              </a>
                         </div>
 
-                        <div class="col-6 mt-4">
+                        <div class="col-6 text-center mt-4">
                             <a href="{{ route('index_exp') }}" class="text-dark">
                                 <div class="card" style="border-radius: 15px">
                                   <div class="card-body" >
@@ -152,7 +152,7 @@
                             </a>
                         </div>
 
-                        <div class="col-6 mt-4 mb-5" style="margin-bottom: 8rem !important;">
+                        <div class="col-6 text-center mt-4 mb-5" style="margin-bottom: 8rem !important;">
                             <a href="{{ route('view-win-share') }}" class="text-dark">
                                 <div class="card" style="border-radius: 15px">
                                   <div class="card-body" >
