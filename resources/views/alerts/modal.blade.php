@@ -56,9 +56,20 @@
               </div>
 
               <div class="modal-footer">
-{{--                  <button class="btn btn-warning" id="btnModificar">Modificar</button>--}}
+                Solicitar servicio -
+
+                  <a href="https://wa.link/qz1lla"  class="" target="_blank">
+                      <i class="bi bi-whatsapp"></i>
+                  </a>
+                  <a href="#" class="" target="_blank">
+                      <i class="bi bi-telegram"></i>
+                  </a>
+                  <a href="tel:+55 1006 5421"  class="" target="_blank">
+                      <i class="bi bi-telephone-fill" ></i>
+                  </a>
 
               </div>
+
             </div>
           </div>
         </div>
