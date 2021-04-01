@@ -45,6 +45,7 @@
     <link href='https://use.fontawesome.com/releases/v5.7.2/css/all.css' rel='stylesheet'>
 
     <!-- Styles -->
+    <link href="{{ asset('css/btn-lateral.css') }}" rel="stylesheet">
     <link href="{{ asset('css/bg.css') }}" rel="stylesheet">
     <link href="{{ asset('css/login-estilos.css') }}" rel="stylesheet">
     <link href="{{ asset('css/tab-bar.css') }}" rel="stylesheet">
@@ -104,9 +105,6 @@
                 </div>
 
 </body>
- // Si nuestra variable de control "$exibirModal" es igual a TRUE activa nuestro modal y será visible a nuestro usuario.
-
-
 @if($exibirModal === true)
 
 <script src="{{ asset('js/ios.js') }}"></script>
