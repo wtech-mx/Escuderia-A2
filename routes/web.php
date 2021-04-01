@@ -196,6 +196,10 @@ Route::get('exp_tenencias/view','ExptenenciasController@index')->name('index.exp
 Route::get('exp_tenencias/crear','ExptenenciasController@create')->name('create.exp-tenencias');
 Route::post('exp_tenencias/crear','ExptenenciasController@store')->name('store.exp-tenencias');
 
+Route::get('exp_certificado/view','ExpCertificadoController@index')->name('index.exp-certificado');
+Route::get('exp_certificado/crear','ExpCertificadoController@create')->name('create.exp-certificado');
+Route::post('exp_certificado/crear','ExpCertificadoController@store')->name('store.exp-certificado');
+
 Route::get('exp-fisico/view-exp-fisico','ExpController@index')->name('index_exp');
 
 /*|--------------------------------------------------------------------------
@@ -346,6 +350,9 @@ Route::post('admin/exp-fisico/tc/crear/{id}','ExptcController@store_admin')->nam
 
 Route::get('admin/exp-fisico/tenencia/view/{id}','ExptenenciasController@create_admin')->name('create_admin.view-tenencia-admin');
 Route::post('admin/exp-fisico/tenencia/crear/{id}','ExptenenciasController@store_admin')->name('store_admin.view-tenencia-admin');
+
+Route::get('admin/exp-fisico/certificado/view/{id}','ExpCertificadoController@create_admin')->name('create_admin.view-certificado-admin');
+Route::post('admin/exp-fisico/certificado/crear/{id}','ExpCertificadoController@store_admin')->name('store_admin.view-certificado-admin');
 
 /*|--------------------------------------------------------------------------
 |Marca

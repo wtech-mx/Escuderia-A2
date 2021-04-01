@@ -182,7 +182,7 @@
                                             </div>
 
                                          <label for="">
-                                             <p class="text-white"><strong>Vida de llantas en KM</strong></p>
+                                             <p class="text-white"><strong>Vida de afinacion en KM</strong></p>
                                          </label>
 
                                             <div class="input-group form-group">
@@ -191,7 +191,7 @@
                                                          <img class="" src="{{ asset('img/icon/white/velocimetro.png') }}" width="25px" >
                                                     </span>
                                                 </div>
-                                                <input type="text" class="form-control" placeholder="llantas en KM" style="border-radius: 0  10px 10px 0;" id="vida_llantas" name="vida_llantas" value="{{ old('vida_llantas') }}">
+                                                <input type="text" class="form-control" placeholder="Vida de afinacion en KM" style="border-radius: 0  10px 10px 0;" id="vida_llantas" name="vida_llantas" value="{{ old('vida_llantas') }}">
                                             </div>
 
                                          <label for="">

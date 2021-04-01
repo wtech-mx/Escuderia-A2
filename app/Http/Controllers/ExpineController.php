@@ -44,6 +44,7 @@ class ExpineController extends Controller
 
         $exp_ine = new ExpIne;
 
+        $exp_ine->titulo = $request->get('titulo');
     	if ($request->hasFile('ine')) {
     		$file=$request->file('ine');
     		$file->move(public_path().'/exp-ine',time().".".$file->getClientOriginalExtension());
@@ -83,6 +84,8 @@ class ExpineController extends Controller
         ]);
 
         $exp = new ExpIne;
+
+        $exp->titulo = $request->get('titulo');
     	if ($request->hasFile('ine')) {
     		$file=$request->file('ine');
     		$file->move(public_path().'/exp-ine',time().".".$file->getClientOriginalExtension());

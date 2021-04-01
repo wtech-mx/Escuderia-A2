@@ -44,6 +44,7 @@ class ExprfcController extends Controller
 
         $exp_rfc = new ExpRfc;
 
+        $exp_rfc->titulo = $request->get('titulo');
     	if ($request->hasFile('rfc')) {
     		$file=$request->file('rfc');
     		$file->move(public_path().'/exp-rfc',time().".".$file->getClientOriginalExtension());
@@ -83,6 +84,8 @@ class ExprfcController extends Controller
         ]);
 
         $exp = new ExpRfc;
+
+        $exp->titulo = $request->get('titulo');
     	if ($request->hasFile('rfc')) {
     		$file=$request->file('rfc');
     		$file->move(public_path().'/exp-rfc',time().".".$file->getClientOriginalExtension());

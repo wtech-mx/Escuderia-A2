@@ -186,12 +186,34 @@
                                     </div>
 
                                     <label for="">
+                                         <p class="text-white"><strong>Role</strong></p>
+                                     </label>
+
+                                    <div class="input-group form-group">
+                                        <div class="input-group-prepend " >
+                                            <span class="input-group-text" >
+                                                 <img class="" src="{{ asset('img/icon/white/referencia (1).png') }}" width="25px" >
+                                            </span>
+                                        </div>
+
+                                        <select class="form-control" id="role" name="role">
+                                            @if ($item->role == 0)
+                                                <option value="{{$item->role}}" selected>Usuario</option>
+                                                @else
+                                                <option value="{{$item->role}}" selected>Admin</option>
+                                            @endif
+                                          <option value="0">Usuario</option>
+                                          <option value="1">Administrador</option>
+                                        </select>
+                                    </div>
+
+                                    <label for="">
                                          <p class="text-white"><strong>Genero</strong></p>
                                      </label>
 
                                     <div class="col-12 text-center">
 
-                                    <div class="input-group form-group d-inline">
+                                        <div class="input-group form-group d-inline">
 
                                         <div class="d-flex justify-content-between">
 
@@ -244,7 +266,7 @@
 
                                     </div>
 
-                                  </div>
+                                    </div>
 
                                     <label for="" class="mt-3">
                                          <p class="text-white"><strong>Foto de Perfil</strong></p>

@@ -19,6 +19,7 @@ class CreateExpDomicilioTable extends Migration
             $table->string('current_auto')->nullable();
             $table->string('domicilio', 900);
 
+            $table->string('titulo');
             $table->foreign('id_user')
                 ->references('id')->on('users')
                 ->inDelete('set null');

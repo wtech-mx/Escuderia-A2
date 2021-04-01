@@ -46,7 +46,7 @@ class AutomovilController extends Controller
          $marca = DB::table('marca')
             ->get();
 
-                  $user = DB::table('users')
+         $user = DB::table('users')
             ->where('role','=', '0')
             ->get();
 

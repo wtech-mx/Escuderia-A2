@@ -44,6 +44,7 @@ class ExpdomicilioController extends Controller
 
         $exp_domicilio = new ExpDomicilio;
 
+        $exp_domicilio->titulo = $request->get('titulo');
     	if ($request->hasFile('domicilio')) {
     		$file=$request->file('domicilio');
     		$file->move(public_path().'/exp-domicilio',time().".".$file->getClientOriginalExtension());
@@ -83,6 +84,7 @@ class ExpdomicilioController extends Controller
         ]);
 
         $exp = new ExpDomicilio;
+        $exp->titulo = $request->get('titulo');
     	if ($request->hasFile('domicilio')) {
     		$file=$request->file('domicilio');
     		$file->move(public_path().'/exp-domicilio',time().".".$file->getClientOriginalExtension());

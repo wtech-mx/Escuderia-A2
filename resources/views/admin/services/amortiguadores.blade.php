@@ -118,6 +118,61 @@
 
                                   </div>
 
+                                  <div class="col-12 text-center">
+
+                                            <h2 class="subtitle-form-servi p-3">
+                                                ¿Amortiguador delantero?
+                                            </h2>
+
+                                            <div class="form-check form-check-inline mr-4 ml-4">
+
+                                                <div class="d-flex justify-content-center">
+                                                    <input class="form-check-input " type="radio" name="llantas_delanteras" id="llantas_delanteras" value="1">
+                                                </div>
+
+                                                <label class="form-check-label text-white" for="inlineRadio1">
+                                                    Si
+                                                </label>
+                                            </div>
+
+                                            <div class="form-check form-check-inline mr-4 ml-4">
+                                                <div class="d-flex justify-content-center">
+                                                    <input class="form-check-input  d-block" type="radio" name="llantas_delanteras" id="llantas_delanteras" value="0">
+                                                </div>
+                                              <label class="form-check-label text-white" for="inlineRadio2">
+                                                  No
+                                              </label>
+                                            </div>
+
+                                  </div>
+
+                                  <div class="col-12 text-center">
+
+                                            <h2 class="subtitle-form-servi p-3">
+                                                ¿Amortiguador Trasero?
+                                            </h2>
+
+                                            <div class="form-check form-check-inline mr-4 ml-4">
+
+                                                <div class="d-flex justify-content-center">
+                                                    <input class="form-check-input " type="radio" name="llantas_traseras" id="llantas_traseras" value="1">
+                                                </div>
+
+                                                <label class="form-check-label text-white" for="inlineRadio1">
+                                                    Si
+                                                </label>
+                                            </div>
+
+                                            <div class="form-check form-check-inline mr-4 ml-4">
+                                                <div class="d-flex justify-content-center">
+                                                    <input class="form-check-input  d-block" type="radio" name="llantas_traseras" id="llantas_traseras" value="0">
+                                                </div>
+                                              <label class="form-check-label text-white" for="inlineRadio2">
+                                                  No
+                                              </label>
+                                            </div>
+                                  </div>
+
 
                                   <div class="col-12 p-4">
                                 <div class="d-flex justify-content-between">
@@ -182,7 +237,7 @@
                                             </div>
 
                                          <label for="">
-                                             <p class="text-white"><strong>Vida de llantas en KM</strong></p>
+                                             <p class="text-white"><strong>Vida de amortiguador en KM</strong></p>
                                          </label>
 
                                             <div class="input-group form-group">
@@ -191,7 +246,7 @@
                                                          <img class="" src="{{ asset('img/icon/white/velocimetro.png') }}" width="25px" >
                                                     </span>
                                                 </div>
-                                                <input type="text" class="form-control" placeholder="llantas en KM" style="border-radius: 0  10px 10px 0;" id="vida_llantas" name="vida_llantas" value="{{ old('vida_llantas') }}">
+                                                <input type="text" class="form-control" placeholder="amortiguador en KM" style="border-radius: 0  10px 10px 0;" id="vida_llantas" name="vida_llantas" value="{{ old('vida_llantas') }}">
                                             </div>
 
                                          <label for="">
@@ -206,7 +261,7 @@
                                                 </div>
                                                 <input type="text" class="form-control" placeholder="Km actual" style="border-radius: 0  10px 10px 0;" id="km_actual" name="km_actual" value="{{ old('km_actual') }}">
                                             </div>
-<input type="hidden" class="form-control" id='image' name="image" value="{{asset('img/icon/color/comprobado.png') }}">
+                                         <input type="hidden" class="form-control" id='image' name="image" value="{{asset('img/icon/color/comprobado.png') }}">
                                          <label for="">
                                              <p class="text-white"><strong>Fecha Programada</strong></p>
                                          </label>

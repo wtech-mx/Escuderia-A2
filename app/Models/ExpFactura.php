@@ -18,7 +18,11 @@ class ExpFactura extends Model
         'factura',
     ];
 
-
+//        public function scopeName($query,$name)
+//    {
+//        if ($name)
+//            return $query->where('name','LIKE',"%$name%");
+//    }
 
     protected $guarded=[
 

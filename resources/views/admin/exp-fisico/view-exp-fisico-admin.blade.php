@@ -46,6 +46,18 @@
                         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="90000">
                               <div class="carousel-inner">
 
+                                        <div class="d-flex justify-content-center mt-5">
+
+                                                     <div class="form-group">
+                                                          {{ Form::text('name', null,['class' => 'form-control','placeholder' => 'Busqueda de Nombre'])  }}
+                                                     </div>
+
+                                                    <button type="submit" class="btn btn-default">
+                                                        <img class="" src="{{ asset('img/icon/white/search.png') }}" width="25px" >
+                                                    </button>
+
+                                        </div>
+
                                 {{-- ----------------------------------------------------------------------------}}
                                 {{-- |Vehculos de user--}}
                                 {{-- |----------------------------------------------------------------------------}}
@@ -165,6 +177,19 @@
                                                                         Reemplacamiento {{$reemplacamiento}}
                                                                     @else
                                                                         Reemplacamiento 0
+                                                                @endif
+                                                            @break
+                                                            @endforeach
+                                                        </span>
+                                                      </a>
+
+                                                       <a href="{{ route('create_admin.view-certificado-admin',$item->id) }}">
+                                                        <span class="badge bg-secondary" style="font-size: 70%;">
+                                                            @foreach($certificado2 as $auto)
+                                                                @if($item->id == $auto->current_auto)
+                                                                        verificacion {{$certificado}}
+                                                                    @else
+                                                                        verificacion 0
                                                                 @endif
                                                             @break
                                                             @endforeach

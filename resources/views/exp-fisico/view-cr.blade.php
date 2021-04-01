@@ -46,10 +46,21 @@
 
                     @if ($exp_carta->count())
                         @foreach($exp_carta as $item)
+                            @php
+                                $texto= substr($item->carta, -3);
+                            @endphp
                             <div class="col-6">
-                                    <p class="text-center">
-                                            <img class="d-inline mb-2" src="{{asset('exp-carta/'.$item->carta)}}" alt="{{$item->carta}}" width="100px">
-                                    </p>
+                                        @if($texto == 'pdf')
+                                            <p class="text-center">
+                                                <iframe width="140" height="140" src="{{asset('exp-carta/'.$item->carta)}}" frameborder="0"></iframe>
+                                                <p class="text-center text-white">{{$item->titulo}}</p>
+                                            </p>
+                                        @else
+                                            <p class="text-center">
+                                                    <img class="d-inline mb-2" src="{{asset('exp-carta/'.$item->carta)}}" alt="{{$item->carta}}" width="100px">
+                                                <p class="text-center text-white">{{$item->titulo}}</p>
+                                            </p>
+                                        @endif
                             </div>
                         @endforeach
                     @else
@@ -68,6 +79,7 @@
                         <div class="col-12 mt-5">
                             <p class="text-center">
                                  <button type="button" class="btn " data-toggle="exampleModal" data-target="#exampleModal">
+                                     <p class="text-center">{{$item->titulo}}</p>
                                     <img class="d-inline mb-2" src="{{ asset('img/icon/white/plus.png') }}" alt="Icon documento" width="60px">
                                 </button>
                             </p>
@@ -96,6 +108,21 @@
                                   </div>
                                    <form method="POST" action="{{route('store.exp-cr')}}" enctype="multipart/form-data" role="form">
                                          @csrf
+
+                                    <div class="col-12">
+                                         <label for="">
+                                             <p class="text-white"><strong>Titulo</strong></p>
+                                         </label>
+
+                                         <div class="input-group form-group">
+                                              <div class="input-group-prepend">
+                                                  <span class="input-group-text input-modal" >
+                                                       <img class="" src="{{ asset('img/icon/white/email.png') }}" width="25px" >
+                                                  </span>
+                                              </div>
+                                                  <input type="text" class="form-control" placeholder="Titulo" id="titulo" name="titulo" style="border-radius: 0  10px 10px 0;">
+                                         </div>
+                                    </div>
                                     <div class="col-12 mt-3">
                                           <div class=" custom-file mb-3">
                                             <input type="file" class="custom-file-input input-group-text" name="carta">

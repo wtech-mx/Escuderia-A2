@@ -43,7 +43,7 @@ class ExptenenciasController extends Controller
         ]);
 
         $exp_tenencias = new ExpTenencias;
-
+        $exp_tenencias->titulo = $request->get('titulo');
     	if ($request->hasFile('tenencia')) {
     		$file=$request->file('tenencia');
     		$file->move(public_path().'/exp-tenencias',time().".".$file->getClientOriginalExtension());
@@ -84,6 +84,7 @@ class ExptenenciasController extends Controller
         ]);
 
         $exp = new ExpTenencias;
+        $exp->titulo = $request->get('titulo');
     	if ($request->hasFile('tenencia')) {
     		$file=$request->file('tenencia');
     		$file->move(public_path().'/exp-tenencia',time().".".$file->getClientOriginalExtension());

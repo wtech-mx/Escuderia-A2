@@ -18,6 +18,7 @@ class CreateExpReemplacamientoTable extends Migration
             $table->unsignedBigInteger('id_user')->nullable();
             $table->string('current_auto')->nullable();
             $table->string('reemplacamiento', 900);
+            $table->string('titulo');
 
             $table->foreign('id_user')
                 ->references('id')->on('users')

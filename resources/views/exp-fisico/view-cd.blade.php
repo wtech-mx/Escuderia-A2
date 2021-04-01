@@ -46,11 +46,22 @@
 
                     @if ($exp_domicilio->count())
                         @foreach($exp_domicilio as $item)
+                            @php
+                                $texto= substr($item->domicilio, -3);
+                            @endphp
                             <div class="col-6">
                                 <a type="button" class="" data-toggle="modal" data-target="#modal-doc-{{$item->id}}">
-                                    <p class="text-center">
-                                            <img class="d-inline mb-2" src="{{asset('exp-domicilio/'.$item->domicilio)}}" alt="{{$item->domicilio}}" width="100px">
-                                    </p>
+                                        @if($texto == 'pdf')
+                                            <p class="text-center">
+                                                <iframe width="140" height="140" src="{{asset('exp-domicilio/'.$item->domicilio)}}" frameborder="0"></iframe>
+                                                <p class="text-center text-white">{{$item->titulo}}</p>
+                                            </p>
+                                        @else
+                                            <p class="text-center">
+                                                    <img class="d-inline mb-2" src="{{asset('exp-domicilio/'.$item->domicilio)}}" alt="{{$item->domicilio}}" width="100px">
+                                                    <p class="text-center text-white">{{$item->titulo}}</p>
+                                            </p>
+                                        @endif
                                 </a>
                             </div>
                             <!-- Modal -->
@@ -68,7 +79,8 @@
 
                                   <div class="modal-body">
                                       <p class="text-center">
-                                          <img class="" src="{{asset('exp-domicilio/'.$item->domicilio)}}" alt="{{$item->domicilio}}" width="100%">
+                                         <p class="text-center">{{$item->titulo}}</p>
+                                         <img class="" src="{{asset('exp-domicilio/'.$item->domicilio)}}" alt="{{$item->domicilio}}" width="100%">
                                       </p>
                                   </div>
 

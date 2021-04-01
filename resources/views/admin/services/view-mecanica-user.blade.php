@@ -1,300 +1,134 @@
-    <div class="row bg-blue" style="background: #050F55 0% 0% no-repeat padding-box;">
-                        <div class="col-6 mt-4">
-                            <a class="btn mb-3 mr-1" href="#carouselExampleControls" role="button" data-slide="prev">
-                                <img class="" src="{{ asset('img/icon/white/flecha-izquierda.png') }}" width="25px" >
-                            </a>
 
-                            <a class="btn mb-3 " href="#carouselExampleControls" role="button" data-slide="next">
-                                <img class="" src="{{ asset('img/icon/white/flecha-correcta.png') }}" width="25px" >
-                            </a>
+                        <div class="row bg-blue" style="background: #050F55 0% 0% no-repeat padding-box;">
+                             <div class="col-6 mt-4 d-inline">
+                                 <h5 class="text-white text-tittle-app mr-3 d-inline" style="font: normal normal bold 15px/20px Segoe UI">
+                                      Agregar
+                                 </h5>
+
+                                 <a class="btn" href="{{ route('create_servicio.servicio') }}">
+                                     <img class="" src="{{ asset('img/icon/white/plus.png') }}" width="30px" >
+                                 </a>
+                             </div>
                         </div>
+                        <div class="col-12">
+                            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="60000">
+                                  <div class="carousel-inner">
 
-                        <div class="col-6 mt-4 d-inline">
-                            <h5 class="text-white text-tittle-app mr-3 d-inline" style="font: normal normal bold 15px/20px Segoe UI">
-                                Agregar
-                            </h5>
+                                    {{-- ----------------------------------------------------------------------------}}
+                                    {{-- |Servicios Llantas--}}
+                                    {{-- |----------------------------------------------------------------------------}}
 
-                            <a class="btn" href="{{ route('create_servicio.servicio') }}">
-                                <img class="" src="{{ asset('img/icon/white/plus.png') }}" width="30px" >
-                            </a>
-                        </div>
-    </div>
-<div class="col-12">
+                                    <div class="carousel-item active">
+                                        <h5 class="text-center text-white mt-4 ml-4 mr-4 ">
+                                            <strong>Servicios</strong>
+                                        </h5>
 
-                        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="60000">
-                              <div class="carousel-inner">
+                                      <div class="row">
 
-                                {{-- ----------------------------------------------------------------------------}}
-                                {{-- |Servicios Llantas--}}
-                                {{-- |----------------------------------------------------------------------------}}
+                                            <div class="carousel-item active">
 
-                                <div class="carousel-item active">
-                                    <h5 class="text-center text-white mt-4 ml-4 mr-4 ">
-                                        <strong>Servicios Llantas</strong>
-                                    </h5>
-
-                                  <div class="row">
-                                    @foreach ($mecanica_llantas_user as $item)
-                                        <div class="col-12 mt-4">
-                                            <div class="card card-slide-garaje" >
-                                              <div class="card-body p-2" >
-
-                                                  <div class="row">
-                                                      <div class="col-6 mt-3">
-                                                          <p class="card-text" style="font-size: 12px"><strong>Num. Servicio: {{$item->id}}</strong></p>
-                                                                <a class="card-text" href="#"><strong style="font: normal normal bold 20px/27px Segoe UI;">{{$item->User->name}}</strong></a>
-                                                                <p class="card-text" style="font-size: 12px"><strong>{{$item->Automovil2->submarca}}</strong></p>
-                                                      </div>
-
-                                                      <div class="col-6">
-                                                        <img class="d-inline mb-2" src="{{ asset('img/icon/car.png') }}" alt="Icon documento" width="150px">
-                                                      </div>
-                                                  </div>
-
+                                              <div class="row">
+                                                <div class="col-12">
+                                                    <table class="table text-white ">
+                                                      <thead>
+                                                        <tr>
+                                                          <th scope="col">Servicio</th>
+                                                          <th scope="col">Auto</th>
+                                                          <th scope="col">Usuario</th>
+                                                          <th scope="col">Fecha</th>
+{{--                                                          <th scope="col">Estatus</th>--}}
+                                                        </tr>
+                                                      </thead>
+                                                        @foreach ($mecanica_user as $item)
+                                                            @php
+                                                                   switch ($item) {
+                                                                        case( $item->servicio == 1 ):
+                                                                            $servicio = 'Llantas';
+                                                                        break;
+                                                                        case( $item->servicio == 2 ):
+                                                                            $servicio = 'Banda';
+                                                                        break;
+                                                                        case( $item->servicio == 3 ):
+                                                                            $servicio = 'Freno';
+                                                                        break;
+                                                                        case( $item->servicio == 4 ):
+                                                                            $servicio = 'Aceite';
+                                                                        break;
+                                                                        case( $item->servicio == 5 ):
+                                                                            $servicio = 'Afinacion';
+                                                                        break;
+                                                                        case( $item->servicio == 6 ):
+                                                                            $servicio = 'Amortig';
+                                                                        break;
+                                                                        case( $item->servicio == 7 ):
+                                                                            $servicio = 'Baterria';
+                                                                        break;
+                                                                   }
+                                                                   switch($item) {
+                                                                      case($item->servicio == '1'):
+                                                                         $user = $item->User2->name;
+                                                                         $auto = $item->Automovil2->placas;
+                                                                      break;
+                                                                      //Banda
+                                                                      case($item->servicio == '2'):
+                                                                         $user = $item->Userbn->name;
+                                                                         $auto = $item->Automovilbn->placas;
+                                                                      break;
+                                                                      //Frenos
+                                                                      case($item->servicio == '3'):
+                                                                          $user = $item->Userfr->name;
+                                                                          $auto = $item->Automovilfr->placas;
+                                                                      break;
+                                                                      //Aceite
+                                                                      case($item->servicio == '4'):
+                                                                          $user = $item->Userac->name;
+                                                                          $auto = $item->Automovilac->placas;
+                                                                      break;
+                                                                      //Afinacion
+                                                                      case($item->servicio == '5'):
+                                                                          $user = $item->Useraf->name;
+                                                                          $auto = $item->Automovilaf->placas;
+                                                                      break;
+                                                                      //Amorting
+                                                                      case($item->servicio == '6'):
+                                                                          $user = $item->Useram->name;
+                                                                          $auto = $item->Automovilam->placas;
+                                                                          $sub = $item->Automovilam->submarca;
+                                                                      break;
+                                                                      //Bateria
+                                                                      case($item->servicio == '7'):
+                                                                          $user = $item->Userbt->name;
+                                                                          $auto = $item->Automovilbt->placas;
+                                                                      break;
+                                                                   }
+                                                           @endphp
+                                                          <tbody>
+                                                            <tr>
+                                                              <td>{{$servicio}}</td>
+                                                              <td>{{$auto}} <br> {{$sub}}</td>
+                                                              <td>{{$user}}</td>
+                                                              <td>{{$item->start}}</td>
+{{--                                                              @if($item->check == 0)--}}
+{{--                                                              <td><img class="" src="{{ asset('img/icon/white/cancelar (1).png') }}" width="15px" ></td>--}}
+{{--                                                              @else--}}
+{{--                                                              <td><img class="" src="{{ asset('img/icon/color/comprobado.png') }}" width="15px" ></td>--}}
+{{--                                                              @endif--}}
+                                                            </tr>
+                                                          </tbody>
+                                                        @endforeach
+                                                    </table>
+                                                </div>
                                               </div>
+
                                             </div>
-                                        </div>
-                                    @endforeach
-                                  </div>
 
-                                </div>
+                                      </div>
 
-                                {{-- ----------------------------------------------------------------------------}}
-                                {{-- |Servicios Banda--}}
-                                {{-- |----------------------------------------------------------------------------}}
+                                    </div>
 
-                                <div class="carousel-item ">
 
-                                    <h5 class="text-center text-white mt-4 ml-4 mr-4 ">
-                                        <strong>Servicios Banda</strong>
-                                    </h5>
+                                    </div>
 
-                                  <div class="row">
-
-                                        <div class="col-12 mt-4">
-                                            @foreach ($mecanica_banda_user as $item)
-                                                <div class="col-12 mt-4">
-                                                    <div class="card card-slide-garaje" >
-                                                      <div class="card-body p-2" >
-
-                                                          <div class="row">
-                                                              <div class="col-6 mt-3">
-                                                                  <p class="card-text" style="font-size: 12px"><strong>Num. Servicio: {{$item->id}}</strong></p>
-                                                                  <a class="card-text" href="#"><strong style="font: normal normal bold 20px/27px Segoe UI;">{{$item->Userbn->name}}</strong></a>
-                                                                  <p class="card-text" style="font-size: 12px"><strong>{{$item->Automovilbn->submarca}}</strong></p>
-                                                              </div>
-
-                                                              <div class="col-6">
-                                                                <img class="d-inline mb-2" src="{{ asset('img/icon/car2.png') }}" alt="Icon documento" width="150px">
-                                                              </div>
-                                                          </div>
-
-                                                      </div>
-                                                    </div>
-                                                </div>
-                                            @endforeach
-                                        </div>
-
-                                  </div>
-
-                                </div>
-
-                                {{-- ----------------------------------------------------------------------------}}
-                                {{-- |Servicios Frenos--}}
-                                {{-- |----------------------------------------------------------------------------}}
-
-                                <div class="carousel-item ">
-
-                                    <h5 class="text-center text-white mt-4 ml-4 mr-4 ">
-                                        <strong>Servicios Frenos</strong>
-                                    </h5>
-
-                                  <div class="row">
-
-                                        <div class="col-12 mt-4">
-                                            @foreach ($mecanica_freno_user as $item)
-                                                <div class="col-12 mt-4">
-                                                    <div class="card card-slide-garaje" >
-                                                      <div class="card-body p-2" >
-
-                                                          <div class="row">
-                                                              <div class="col-6 mt-3">
-                                                                  <p class="card-text" style="font-size: 12px"><strong>Num. Servicio: {{$item->id}}</strong></p>
-                                                                  <a class="card-text" href="#"><strong style="font: normal normal bold 20px/27px Segoe UI;">{{$item->Userfr->name}}</strong></a>
-                                                                  <p class="card-text" style="font-size: 12px"><strong>{{$item->Automovilfr->submarca}}</strong></p>
-                                                              </div>
-
-                                                              <div class="col-6">
-                                                                <img class="d-inline mb-2" src="{{ asset('img/icon/car2.png') }}" alt="Icon documento" width="150px">
-                                                              </div>
-                                                          </div>
-
-                                                      </div>
-                                                    </div>
-                                                </div>
-                                            @endforeach
-                                        </div>
-
-                                  </div>
-
-                                </div>
-
-                                {{-- ----------------------------------------------------------------------------}}
-                                {{-- |Servicios Aceite--}}
-                                {{-- |----------------------------------------------------------------------------}}
-
-                                <div class="carousel-item ">
-
-                                    <h5 class="text-center text-white mt-4 ml-4 mr-4 ">
-                                        <strong>Servicios Aceite</strong>
-                                    </h5>
-
-                                  <div class="row">
-
-                                        <div class="col-12 mt-4">
-                                            @foreach ($mecanica_aceite_user as $item)
-                                                <div class="col-12 mt-4">
-                                                    <div class="card card-slide-garaje" >
-                                                      <div class="card-body p-2" >
-
-                                                          <div class="row">
-                                                              <div class="col-6 mt-3">
-                                                                  <p class="card-text" style="font-size: 12px"><strong>Num. Servicio: {{$item->id}}</strong></p>
-                                                                  <a class="card-text" href="#"><strong style="font: normal normal bold 20px/27px Segoe UI;">{{$item->Userac->name}}</strong></a>
-                                                                  <p class="card-text" style="font-size: 12px"><strong>{{$item->Automovilac->submarca}}</strong></p>
-                                                              </div>
-
-                                                              <div class="col-6">
-                                                                <img class="d-inline mb-2" src="{{ asset('img/icon/car2.png') }}" alt="Icon documento" width="150px">
-                                                              </div>
-                                                          </div>
-
-                                                      </div>
-                                                    </div>
-                                                </div>
-                                            @endforeach
-                                        </div>
-
-                                  </div>
-
-                                </div>
-
-                                {{-- ----------------------------------------------------------------------------}}
-                                {{-- |Servicios Afinacion--}}
-                                {{-- |----------------------------------------------------------------------------}}
-
-                                <div class="carousel-item ">
-
-                                    <h5 class="text-center text-white mt-4 ml-4 mr-4 ">
-                                        <strong>Servicios Afinacion</strong>
-                                    </h5>
-
-                                  <div class="row">
-
-                                        <div class="col-12 mt-4">
-                                            @foreach ($mecanica_afinacion_user as $item)
-                                                <div class="col-12 mt-4">
-                                                    <div class="card card-slide-garaje" >
-                                                      <div class="card-body p-2" >
-
-                                                          <div class="row">
-                                                              <div class="col-6 mt-3">
-                                                                  <p class="card-text" style="font-size: 12px"><strong>Num. Servicio: {{$item->id}}</strong></p>
-                                                                  <a class="card-text" href="#"><strong style="font: normal normal bold 20px/27px Segoe UI;">{{$item->Useraf->name}}</strong></a>
-                                                                  <p class="card-text" style="font-size: 12px"><strong>{{$item->Automovilaf->submarca}}</strong></p>
-                                                              </div>
-
-                                                              <div class="col-6">
-                                                                <img class="d-inline mb-2" src="{{ asset('img/icon/car2.png') }}" alt="Icon documento" width="150px">
-                                                              </div>
-                                                          </div>
-
-                                                      </div>
-                                                    </div>
-                                                </div>
-                                            @endforeach
-                                        </div>
-                                  </div>
-                                </div>
-
-                                {{-- ----------------------------------------------------------------------------}}
-                                {{-- |Servicios Amortiguadores--}}
-                                {{-- |----------------------------------------------------------------------------}}
-
-                                <div class="carousel-item ">
-
-                                    <h5 class="text-center text-white mt-4 ml-4 mr-4 ">
-                                        <strong>Servicios Amortiguadores</strong>
-                                    </h5>
-
-                                  <div class="row">
-
-                                        <div class="col-12 mt-4">
-                                            @foreach ($mecanica_amortiguadores_user as $item)
-                                                <div class="col-12 mt-4">
-                                                    <div class="card card-slide-garaje" >
-                                                      <div class="card-body p-2" >
-
-                                                          <div class="row">
-                                                              <div class="col-6 mt-3">
-                                                                  <p class="card-text" style="font-size: 12px"><strong>Num. Servicio: {{$item->id}}</strong></p>
-                                                                  <a class="card-text" href="#"><strong style="font: normal normal bold 20px/27px Segoe UI;">{{$item->Useram->name}}</strong></a>
-                                                                  <p class="card-text" style="font-size: 12px"><strong>{{$item->Automovilam->submarca}}</strong></p>
-                                                              </div>
-
-                                                              <div class="col-6">
-                                                                <img class="d-inline mb-2" src="{{ asset('img/icon/car2.png') }}" alt="Icon documento" width="150px">
-                                                              </div>
-                                                          </div>
-
-                                                      </div>
-                                                    </div>
-                                                </div>
-                                            @endforeach
-                                        </div>
-                                  </div>
-                                </div>
-
-                                {{-- ----------------------------------------------------------------------------}}
-                                {{-- |Servicios Bateria--}}
-                                {{-- |----------------------------------------------------------------------------}}
-
-                                <div class="carousel-item ">
-
-                                    <h5 class="text-center text-white mt-4 ml-4 mr-4 ">
-                                        <strong>Servicios Bateria</strong>
-                                    </h5>
-
-                                  <div class="row">
-
-                                        <div class="col-12 mt-4">
-                                            @foreach ($mecanica_bateria_user as $item)
-                                                <div class="col-12 mt-4">
-                                                    <div class="card card-slide-garaje" >
-                                                      <div class="card-body p-2" >
-
-                                                          <div class="row">
-                                                              <div class="col-6 mt-3">
-                                                                  <p class="card-text" style="font-size: 12px"><strong>Num. Servicio: {{$item->id}}</strong></p>
-                                                                  <a class="card-text" href="#"><strong style="font: normal normal bold 20px/27px Segoe UI;">{{$item->Userbt->name}}</strong></a>
-                                                                  <p class="card-text" style="font-size: 12px"><strong>{{$item->Automovilbt->submarca}}</strong></p>
-                                                              </div>
-
-                                                              <div class="col-6">
-                                                                <img class="d-inline mb-2" src="{{ asset('img/icon/car2.png') }}" alt="Icon documento" width="150px">
-                                                              </div>
-                                                          </div>
-
-                                                      </div>
-                                                    </div>
-                                                </div>
-                                            @endforeach
-                                        </div>
-                                  </div>
-                                </div>
-
-                              </div>
+                            </div>
 
                         </div>
-
-                    </div>

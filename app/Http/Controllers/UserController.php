@@ -169,7 +169,7 @@ class UserController extends Controller
 
         $user = DB::table('users')
         ->get();
-                        $users = DB::table('users')
+        $users = DB::table('users')
         ->get();
 
         return view('admin.user.add-user-admin',compact('user', 'users'));
@@ -228,6 +228,7 @@ class UserController extends Controller
         $user->direccion = $request->get('direccion');
         $user->referencia = $request->get('referencia');
         $user->genero = $request->get('genero');
+        $user->role = $request->get('role');
 
     	if ($request->hasFile('img')) {
     		$file=$request->file('img');

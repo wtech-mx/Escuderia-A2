@@ -1,32 +1,15 @@
-@extends('admin.layouts.app')
+@extends('layouts.app')
 
 @section('content')
 
-<link href="{{ asset('css/profile.css') }}" rel="stylesheet">
 
 <div class="row bg-down-blue " style="border-radius: 0 0 0 0; height: 100vh;">
 
-                        @if(Session::has('success'))
-                        <script>
-                            Swal.fire({
-                              title: 'Exito!!',
-                              html:
-                                'Se ha agragado la <b>FACTURA</b>, ' +
-                                'Exitosamente',
-                              // text: 'Se ha agragado la "MARCA" Exitosamente',
-                              imageUrl: '{{ asset('img/icon/color/factura.png') }}',
-                              background: '#fff',
-                              imageWidth: 150,
-                              imageHeight: 150,
-                              imageAlt: 'Facturas IMG',
-                            })
-                        </script>
-                        @endif
 
                         <div class="col-2  mt-4">
                             <div class="d-flex justify-content-start">
                                     <div class="text-center text-white">
-                                        <a href="{{ route('index_admin.view-exp-fisico-admin') }}" style="background-color: transparent;clip-path: none">
+                                        <a href="{{ route('index_exp') }}" style="background-color: transparent;clip-path: none">
                                             <img class="" src="{{ asset('img/icon/white/left-arrow.png') }}" width="25px" >
                                         </a>
                                     </div>
@@ -35,7 +18,7 @@
 
                         <div class="col-8  mt-4">
                                     <h5 class="text-center text-white ml-4 mr-4 ">
-                                        <strong>Facturas</strong>
+                                        <strong>Certificado Verificación</strong>
                                     </h5>
                         </div>
 
@@ -61,26 +44,26 @@
                             </div>
                         </div>
 
-                    @if ($exp_factura->count())
-                        @foreach($exp_factura as $item)
+                    @if ($exp_certificado->count())
+                        @foreach($exp_certificado as $item)
                             @php
-                                $texto= substr($item->factura, -3);
+                                $texto= substr($item->certificado, -3);
                             @endphp
-                                <div class="col-6">
-                                    <a type="button" class="" data-toggle="modal" data-target="#modal-doc-{{$item->id}}">
+                            <div class="col-6">
+                                <a type="button" class="" data-toggle="modal" data-target="#modal-doc-{{$item->id}}">
                                         @if($texto == 'pdf')
                                             <p class="text-center">
-                                                <iframe width="140" height="140" src="{{asset('exp-factura/'.$item->factura)}}" frameborder="0" style="z-index: 10000" ></iframe>
+                                                <iframe width="140" height="140" src="{{asset('exp-certificado/'.$item->certificado)}}" frameborder="0"></iframe>
                                                 <p class="text-center text-white">{{$item->titulo}}</p>
                                             </p>
                                         @else
                                             <p class="text-center">
-                                                    <img class="d-inline mb-2" src="{{asset('exp-factura/'.$item->factura)}}" alt="{{$item->factura}}" width="100px">
-                                                    <p class="text-center text-white">{{$item->titulo}}</p>
+                                                    <img class="d-inline mb-2" src="{{asset('exp-certificado/'.$item->certificado)}}" alt="{{$item->certificado}}" width="100px">
+                                                <p class="text-center text-white">{{$item->titulo}}</p>
                                             </p>
                                         @endif
-                                     </a>
-                                </div>
+                                </a>
+                            </div>
                             <!-- Modal -->
                             <div class="modal fade" id="modal-doc-{{$item->id}}" tabindex="-1" role="dialog" aria-labelledby="modal-doc-{{$item->id}}" aria-hidden="true">
                               <div class="modal-dialog  modal-sm modal-dialog-centered" role="document">
@@ -95,18 +78,10 @@
                                     </div>
 
                                   <div class="modal-body">
-                                        @if($texto == 'pdf')
-                                            <h6 class="text-center">{{$item->titulo}}</h6>
-                                            <p class="text-center">
-                                                <p class="text-center text-white">{{$item->titulo}}</p>
-                                                <iframe width="140" height="140" src="{{asset('exp-factura/'.$item->factura)}}" frameborder="0" style="z-index: 10000" ></iframe>
-                                            </p>
-                                        @else
-                                            <h6 class="text-center">{{$item->titulo}}</h6>
-                                            <p class="text-center">
-                                                    <img class="d-inline mb-2" src="{{asset('exp-factura/'.$item->factura)}}" alt="{{$item->factura}}" width="100px">
-                                            </p>
-                                        @endif
+                                      <p class="text-center">
+                                          <p class="text-center">{{$item->titulo}}</p>
+                                          <img class="" src="{{asset('exp-certificado/'.$item->certificado)}}" alt="{{$item->certificado}}" width="100%">
+                                      </p>
                                   </div>
 
                                 </div>
@@ -134,6 +109,7 @@
                             </p>
                         </div>
 
+
                         <div class="col-12 mt-3">
                             <p class="text-center text-white">
                                 Escanea tu Expediente
@@ -155,8 +131,8 @@
                                     </p>
                                   </div>
 
-                               <form method="POST" action="{{route('store_admin.view-factura-admin', $automovil->id)}}" enctype="multipart/form-data" role="form">
-                                @csrf
+                               <form method="POST" action="{{route('store.exp-certificado')}}" enctype="multipart/form-data" role="form">
+                                         @csrf
 
                                     <div class="col-12">
                                          <label for="">
@@ -172,26 +148,27 @@
                                                   <input type="text" class="form-control" placeholder="Titulo" id="titulo" name="titulo" style="border-radius: 0  10px 10px 0;">
                                          </div>
                                     </div>
-
-                                    <div class="col-12 mt-3">
-                                        <div class=" custom-file mb-3">
-                                            <input type="file" class="custom-file-input input-group-text" name="factura">
+                                <div class="col-12 mt-3">
+                                          <div class=" custom-file mb-3">
+                                            <input type="file" class="custom-file-input input-group-text" name="certificado">
                                             <label class="custom-file-label">Elegir img...</label>
-                                        </div>
+                                          </div>
 
-                                        <p class="text-center">
-                                            Agregar <br>
-                                            Facturas
-                                            <br>
+                                    <p class="text-center">
+                                        Agregar <br>
+                                        Certificado Verificación
 
-                                            <button type="submit" class="btn btn-success btn-save text-white">
-                                                <img class="d-inline" src="{{ asset('img/icon/white/save-file-option (1).png') }}" alt="Icon documento" width="30px">
-                                                Guardar
-                                            </button>
+                                        <br>
 
-                                        </p>
-                                    </div>
-                               </form>
+                                                <button type="submit" class="btn btn-success btn-save text-white">
+                                                    <img class="d-inline" src="{{ asset('img/icon/white/save-file-option (1).png') }}" alt="Icon documento" width="30px">
+                                                    Guardar
+                                                </button>
+                                    </p>
+                               </div>
+
+
+                                </div>
 
                               </div>
 

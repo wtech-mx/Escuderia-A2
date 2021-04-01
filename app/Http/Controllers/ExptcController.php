@@ -46,6 +46,7 @@ class ExptcController extends Controller
 
         $exp_tc = new ExpTc;
 
+        $exp_tc->titulo = $request->get('titulo');
     	if ($request->hasFile('tc')) {
     		$file=$request->file('tc');
     		$file->move(public_path().'/exp-tc',time().".".$file->getClientOriginalExtension());
@@ -93,6 +94,8 @@ class ExptcController extends Controller
         ]);
 
         $exp = new ExpTc;
+
+        $exp->titulo = $request->get('titulo');
     	if ($request->hasFile('tc')) {
     		$file=$request->file('tc');
     		$file->move(public_path().'/exp-tc',time().".".$file->getClientOriginalExtension());

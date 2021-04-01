@@ -46,6 +46,7 @@ class ExpolizaController extends Controller
 
         $exp_poliza = new ExpPoliza;
 
+        $exp_poliza->titulo = $request->get('titulo');
     	if ($request->hasFile('poliza')) {
     		$file=$request->file('poliza');
     		$file->move(public_path().'/exp-poliza',time().".".$file->getClientOriginalExtension());
@@ -85,6 +86,8 @@ class ExpolizaController extends Controller
         ]);
 
         $exp = new ExpPoliza;
+
+        $exp->titulo = $request->get('titulo');
     	if ($request->hasFile('poliza')) {
     		$file=$request->file('poliza');
     		$file->move(public_path().'/exp-poliza',time().".".$file->getClientOriginalExtension());

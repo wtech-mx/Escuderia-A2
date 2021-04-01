@@ -59,11 +59,11 @@
 
                         <div class="col-12 p-3 ">
                             <div class=" d-flex justify-content-between bg-white p-2 rounded-pill">
-                                <span class="badge badge-pill" style="background-color: #2ECC71">Alerta</span>
-                                <span class="badge badge-pill" style="background-color: #8E44AD">Seguro</span>
-                                <span class="badge badge-pill" style="background-color: #F1C40F;color: #000000">Tarjeta Circulacion</span>
-                                <span class="badge badge-pill" style="background-color: #FF0000">Verificacion</span>
-                                <span class="badge badge-pill" style="background-color: #2980B9">Servicos</span>
+                                <a href="{{ route('index.alert') }}"> <span class="badge badge-pill" style="background-color: #2ECC71">Alerta</span> </a>
+                                <a href="{{ route('index_admin.seguros') }}"> <span class="badge badge-pill" style="background-color: #8E44AD">Seguro</span> </a>
+                                <a href="{{ route('indextc_admin.tarjeta-circulacion') }}"> <span class="badge badge-pill" style="background-color: #F1C40F;color: #000000">Tarjeta Circulacion</span> </a>
+                                <a href="{{ route('index_admin.verificacion') }}"> <span class="badge badge-pill" style="background-color: #FF0000">Verificacion</span> </a>
+                                <a href="#"> <span class="badge badge-pill" style="background-color: #2980B9">Servicos</span> </a>
                             </div>
                         </div>
 

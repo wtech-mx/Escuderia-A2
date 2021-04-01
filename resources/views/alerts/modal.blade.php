@@ -56,7 +56,7 @@
               </div>
 
               <div class="modal-footer">
-                  <button class="btn btn-warning" id="btnModificar">Modificar</button>
+{{--                  <button class="btn btn-warning" id="btnModificar">Modificar</button>--}}
 
               </div>
             </div>

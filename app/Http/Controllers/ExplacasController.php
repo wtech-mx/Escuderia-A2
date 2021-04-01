@@ -15,7 +15,7 @@ use App\Models\TarjetaCirculacion;
 
 class ExplacasController extends Controller
 {
-      function index(){
+    function index(){
 
         $user = DB::table('users')
         ->where('id','=',auth()->user()->id)
@@ -44,6 +44,7 @@ class ExplacasController extends Controller
 
         $exp_placas = new ExpPlacas;
 
+        $exp_placas->titulo = $request->get('titulo');
     	if ($request->hasFile('placa')) {
     		$file=$request->file('placa');
     		$file->move(public_path().'/exp-bp',time().".".$file->getClientOriginalExtension());
@@ -60,7 +61,11 @@ class ExplacasController extends Controller
         return redirect()->route('index.exp-bp', compact('exp_placas'));
     }
 
-        public function create_admin($id)
+/*|--------------------------------------------------------------------------
+|Exp Placas Admin
+|--------------------------------------------------------------------------*/
+
+    public function create_admin($id)
     {
         /* Trae los datos el auto en el que esta */
         $automovil = DB::table('automovil')
@@ -83,6 +88,8 @@ class ExplacasController extends Controller
         ]);
 
         $exp = new ExpPlacas;
+
+        $exp->titulo = $request->get('titulo');
     	if ($request->hasFile('placa')) {
     		$file=$request->file('placa');
     		$file->move(public_path().'/exp-placa',time().".".$file->getClientOriginalExtension());

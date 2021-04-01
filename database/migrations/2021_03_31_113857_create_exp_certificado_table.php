@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateExpPlacasTable extends Migration
+class CreateExpCertificadoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateExpPlacasTable extends Migration
      */
     public function up()
     {
-        Schema::create('exp_placas', function (Blueprint $table) {
+        Schema::create('exp_certificado', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_user')->nullable();
             $table->string('current_auto')->nullable();
-            $table->string('placa', 900);
-
+            $table->string('certificado', 900);
             $table->string('titulo');
             $table->foreign('id_user')
                 ->references('id')->on('users')
@@ -34,6 +33,6 @@ class CreateExpPlacasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('exp_placas');
+        Schema::dropIfExists('_exp_certificado');
     }
 }

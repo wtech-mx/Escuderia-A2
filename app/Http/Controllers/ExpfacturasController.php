@@ -15,11 +15,13 @@ use App\Models\ExpReemplacamiento;
 use App\Models\ExpRfc;
 use App\Models\ExpTc;
 use App\Models\ExpTenencias;
+use App\Models\ExpCertificado;
 use Session;
 
 class ExpfacturasController extends Controller
 {
      function index(){
+
 
         $user = DB::table('users')
         ->where('id','=',auth()->user()->id)
@@ -51,6 +53,7 @@ class ExpfacturasController extends Controller
 
         $exp_factura = new ExpFactura;
 
+        $exp_factura->titulo = $request->get('titulo');
     	if ($request->hasFile('factura')) {
     		$file=$request->file('factura');
     		$file->move(public_path().'/exp-factura',time().".".$file->getClientOriginalExtension());
@@ -70,12 +73,14 @@ class ExpfacturasController extends Controller
         /*|--------------------------------------------------------------------------
         |Create Doc Admin_Admin
         |--------------------------------------------------------------------------*/
-     function index_admin(){
+     function index_admin(Request $request){
          /* Trae Autos de Usuarios */
+//        $name = $request->get('name');
 
         $automovil = Automovil::where('id_empresa', '=', NULL)->get();
 
         $automovil2 = Automovil::where('id_user', '=', NULL)->get();
+        $automo = Automovil::first();
          $user = DB::table('users')
             ->where('role','=', '0')
             ->get();
@@ -107,12 +112,15 @@ class ExpfacturasController extends Controller
         $comprobante = ExpDomicilio::get()->count();
         $comprobante2 = ExpDomicilio::get();
 
+        $certificado = ExpCertificado::get()->count();
+        $certificado2 = ExpCertificado::get();
+
         $rfc = ExpRfc::get()->count();
         $rfc2 = ExpRfc::get();
 
         return view('admin.exp-fisico.view-exp-fisico-admin',compact('automovil','automovil2', 'factura', 'factura2',
                           'tenencias', 'tenencias2', 'carta', 'carta2', 'poliza', 'poliza2', 'tc', 'tc2', 'reemplacamiento', 'reemplacamiento2',
-                          'placas', 'placas2', 'ine', 'ine2', 'comprobante', 'comprobante2', 'rfc', 'rfc2'));
+                          'placas', 'placas2', 'ine', 'ine2', 'comprobante', 'comprobante2', 'certificado', 'certificado2', 'rfc', 'rfc2'));
     }
 
         public function create_admin($id)
@@ -142,6 +150,7 @@ class ExpfacturasController extends Controller
         ]);
 
         $exp = new ExpFactura;
+        $exp->titulo = $request->get('titulo');
     	if ($request->hasFile('factura')) {
     		$file=$request->file('factura');
     		$file->move(public_path().'/exp-factura',time().".".$file->getClientOriginalExtension());

@@ -4,14 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
-use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Str;
 use App\Models\ExpReemplacamiento;
 use Session;
 use Carbon\Carbon;
 use App\Models\Alertas;
 use App\Models\Seguros;
 use App\Models\TarjetaCirculacion;
+use Image;
 
 class ExpreemplacaminetoController extends Controller
 {
@@ -64,6 +63,7 @@ class ExpreemplacaminetoController extends Controller
 
         $exp_reemplacamiento = new ExpReemplacamiento;
 
+        $exp_reemplacamiento->titulo = $request->get('titulo');
     	if ($request->hasFile('reemplacamiento')) {
     		$file=$request->file('reemplacamiento');
     		$file->move(public_path().'/exp-reemplacamiento',time().".".$file->getClientOriginalExtension());
@@ -123,6 +123,8 @@ class ExpreemplacaminetoController extends Controller
         ]);
 
         $exp = new ExpReemplacamiento;
+
+        $exp->titulo = $request->get('titulo');
     	if ($request->hasFile('reemplacamiento')) {
     		$file=$request->file('reemplacamiento');
     		$file->move(public_path().'/exp-reemplacamiento',time().".".$file->getClientOriginalExtension());

@@ -45,11 +45,22 @@
 
                     @if ($exp_tc->count())
                         @foreach($exp_tc as $item)
+                            @php
+                                $texto= substr($item->tc, -3);
+                            @endphp
                             <div class="col-6">
                                 <a type="button" class="" data-toggle="modal" data-target="#modal-doc-{{$item->id}}">
-                                    <p class="text-center">
-                                            <img class="d-inline mb-2" src="{{asset('img-tc/'.$item->tc)}}" alt="{{$item->tc}}" width="100px">
-                                    </p>
+                                        @if($texto == 'pdf')
+                                            <p class="text-center">
+                                                <iframe width="140" height="140" src="{{asset('exp-tc/'.$item->tc)}}" frameborder="0"></iframe>
+                                                <p class="text-center text-white">{{$item->titulo}}</p>
+                                            </p>
+                                        @else
+                                            <p class="text-center">
+                                                    <img class="d-inline mb-2" src="{{asset('exp-tc/'.$item->tc)}}" alt="{{$item->tc}}" width="100px">
+                                                <p class="text-center text-white">{{$item->titulo}}</p>
+                                            </p>
+                                        @endif
                                 </a>
                             </div>
                             <!-- Modal -->
@@ -66,6 +77,7 @@
                                     </div>
                                   <div class="modal-body">
                                       <p class="text-center">
+                                          <p class="text-center">{{$item->titulo}}</p>
                                           <img class="" src="{{asset('img-tc/'.$item->tc)}}" alt="{{$item->tc}}" width="100%">
                                       </p>
                                   </div>
@@ -116,6 +128,21 @@
                                   </div>
                                <form method="POST" action="{{route('store.exp-tc')}}" enctype="multipart/form-data" role="form">
                                          @csrf
+
+                                    <div class="col-12">
+                                         <label for="">
+                                             <p class="text-white"><strong>Titulo</strong></p>
+                                         </label>
+
+                                         <div class="input-group form-group">
+                                              <div class="input-group-prepend">
+                                                  <span class="input-group-text input-modal" >
+                                                       <img class="" src="{{ asset('img/icon/white/email.png') }}" width="25px" >
+                                                  </span>
+                                              </div>
+                                                  <input type="text" class="form-control" placeholder="Titulo" id="titulo" name="titulo" style="border-radius: 0  10px 10px 0;">
+                                         </div>
+                                    </div>
                                 <div class="col-12 mt-3">
                                           <div class=" custom-file mb-3">
                                             <input type="file" class="custom-file-input input-group-text" name="tc">

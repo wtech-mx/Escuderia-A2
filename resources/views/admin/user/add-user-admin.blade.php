@@ -96,8 +96,6 @@
                                                             <input type="text" class="form-control" placeholder="Nombre" id="name" name="name" style="border-radius: 0  10px 10px 0;">
                                                         </div>
 
-                                                    <input type="text" class="form-control" placeholder="role" id="role" name="role" value="0" style="display: none">
-
                                                     <label for="">
                                                              <p class="text-white"><strong>Correo</strong></p>
                                                          </label>
@@ -109,7 +107,7 @@
                                                                 </span>
                                                             </div>
                                                             <input type="text" class="form-control" placeholder="correo@correo.com" id="email" name="email" style="border-radius: 0  10px 10px 0;">
-                                                        </div>
+                                                    </div>
 
                                                     <label for="">
                                                              <p class="text-white"><strong>Telefono</strong></p>
@@ -168,6 +166,23 @@
                                                                 </select>
                                                         </div>
 
+                                                    <label for="">
+                                                         <p class="text-white"><strong>Role</strong></p>
+                                                     </label>
+
+                                                    <div class="input-group form-group">
+                                                        <div class="input-group-prepend " >
+                                                            <span class="input-group-text" >
+                                                                 <img class="" src="{{ asset('img/icon/white/referencia (1).png') }}" width="25px" >
+                                                            </span>
+                                                        </div>
+
+                                                        <select class="form-control" id="role" name="role">
+                                                          <option value="0">Usuario</option>
+                                                          <option value="1">Administrador</option>
+                                                        </select>
+                                                    </div>
+
                                                     <label for="" class="mt-3">
                                                          <p class="text-white"><strong>Foto de Perfil</strong></p>
                                                      </label>
@@ -216,6 +231,7 @@
                                                             </div>
 
                                                         </div>
+
 
                                                     </div>
 

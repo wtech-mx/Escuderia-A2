@@ -53,6 +53,8 @@ class ExpcartaController extends Controller
 
         $exp_carta = new ExpCarta;
 
+        $exp_carta->titulo = $request->get('titulo');
+
     	if ($request->hasFile('carta')) {
     		$file=$request->file('carta');
     		// dd($file);
@@ -94,6 +96,7 @@ class ExpcartaController extends Controller
         ]);
 
         $exp = new ExpCarta;
+        $exp->titulo = $request->get('titulo');
     	if ($request->hasFile('carta')) {
     		$file=$request->file('carta');
     		$file->move(public_path().'/exp-carta',time().".".$file->getClientOriginalExtension());
