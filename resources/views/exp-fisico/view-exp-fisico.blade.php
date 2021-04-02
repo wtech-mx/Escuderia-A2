@@ -29,7 +29,7 @@
                         </div>
 
                         @if ($automovil->count())
-                            <div class="row" style="height: 106vh;">
+                            <div class="row" style="height: 140vh;">
 
                                 <div class="col-6 mt-5">
                                     <p class="text-center">
@@ -141,7 +141,7 @@
                                     </p>
                                 </div>
 
-                                <div class="col-6 mt-5" style="margin-bottom: 12rem !important;">
+                                <div class="col-6 mt-5" style="margin-bottom: 6rem !important;">
                                     <p class="text-center">
                                         <a href="{{ route('index.exp-rfc') }}">
                                             <img class="d-inline mb-2" src="{{ asset('img/icon/white/boton-circular-plus.png') }}" alt="Icon boton-circular-plus" width="30px">
