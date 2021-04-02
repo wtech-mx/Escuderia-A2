@@ -1,7 +1,5 @@
 @extends('admin.layouts.app')
 
-@section('bg-blue', 'background-color:#68fe87')
-
 @section('content')
 
 
@@ -14,7 +12,7 @@
                 <link href="{{ asset('css/login-form.css') }}" rel="stylesheet">
                 <link href="{{ asset('css/dashboard-admin.css') }}" rel="stylesheet">
 
-                <div class="row " style="background-image: url('../img/bg-medida.png');">
+                <div class="row " style="background-image: url('public/img/bg-medida.png');">
 
                         <div class="col-2 mt-4">
                             <div class="d-flex justify-content-start">
