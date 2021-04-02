@@ -46,9 +46,9 @@
 
                     <div class="col-2">
                         <div class="d-flex justify-content-start">
-                                    <button id="btn-nft-enable" onclick="initFirebaseMessagingRegistration()"  class="text-center text-white bg-white" style="border-radius: 50px;padding: 5px">
-                                      <img class="" src="{{ asset('img/icon/color/campana.png') }}" width="30px" >
-                                    </button>
+                            <button id="btn-nft-enable" onclick="initFirebaseMessagingRegistration()"  class="text-center text-white bg-white" style="border-radius: 50px;padding: 5px">
+                                <img class="" src="{{ asset('img/icon/color/campana.png') }}" width="30px" >
+                            </button>
                         </div>
                     </div>
 

@@ -103,8 +103,6 @@ class AlertasController extends Controller
 
         public function show_calendar()
     {
-        $firebaseToken = User::whereNotNull('device_token')->pluck('device_token')->all();
-        $SERVER_API_KEY = 'AAAA134VBmc:APA91bEgYgTRmbbCwA5i6zIL9lMBJWtm01v0_PXtEk5DYLKhpyrlaWNkXR3dy5wOiWN4iiibLt8BDic-HalgFRJ-FW7QtTjBs_jrkGx7vUpSBgZ1ekhFa7287_D0BbV5IVc64HAJSq3z';
 
         //Trae datos de db to jason
         $json2 = $data2['alertas'] = Alertas::all();
@@ -158,6 +156,7 @@ class AlertasController extends Controller
         public function store_calendar_user(Request $request)
     {
         $datosEvento = request()->except(['_token','_method'],[]);
+
         Alertas::insert($datosEvento);
 
         $firebaseToken = User::whereNotNull('device_token')->pluck('device_token')->all();

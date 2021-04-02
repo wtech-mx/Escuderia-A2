@@ -18,10 +18,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/fcm',"NotificationController@index");
-
-Route::get('/send-notification',"NotificationController@sendNotification");
-
 
 Route::post('forgot-password', 'Auth\PasswordResetLinkController@store')->name('password.email');
 
@@ -32,8 +28,7 @@ Route::get('offline','OfflineController@index')->name('index.offline');
 /*|--------------------------------------------------------------------------
 |Usuario
 |--------------------------------------------------------------------------*/
-Route::post('save-token', 'DashboardController@saveToken')->name('save-token');
-Route::post('send-notification', 'DashboardController@sendNotification')->name('send.notification');
+Route::post('/save-token', 'DashboardController@saveToken')->name('save-token');
 
 /*|--------------------------------------------------------------------------
 |Dashboard

@@ -140,7 +140,7 @@
             <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase.js"></script>
             <script>
 
-                var firebaseConfig = {
+                const firebaseConfig = {
                     apiKey: "AIzaSyCx0ssO35wLU3d6e6C4QPrpqANdjj2L2Pc",
                     authDomain: "checkngo-e379f.firebaseapp.com",
                     projectId: "checkngo-e379f",
