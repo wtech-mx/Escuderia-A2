@@ -25,7 +25,7 @@
   height: 100%;
   top: 0;
   left: 0;
-  opacity: 0.6;
+  opacity: 0.2;
   background-image: linear-gradient(to bottom, #c0ffce, #b4ffc5, #a9ffbb, #9dffb1, #90ffa7, #81f498, #73ea88, #64df79, #50c762, #3bb04b, #249934, #00831c);
   pointer-events: none;
 }
