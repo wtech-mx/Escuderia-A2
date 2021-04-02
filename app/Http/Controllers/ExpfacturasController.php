@@ -17,6 +17,8 @@ use App\Models\ExpTc;
 use App\Models\ExpTenencias;
 use App\Models\ExpCertificado;
 use Session;
+use Intervention\Image\Facades\Image;
+use Illuminate\Support\Str;
 
 class ExpfacturasController extends Controller
 {
@@ -80,10 +82,6 @@ class ExpfacturasController extends Controller
         $automovil = Automovil::where('id_empresa', '=', NULL)->get();
 
         $automovil2 = Automovil::where('id_user', '=', NULL)->get();
-        $automo = Automovil::first();
-         $user = DB::table('users')
-            ->where('role','=', '0')
-            ->get();
 
         $factura = ExpFactura::get()->count();
         $factura2 = ExpFactura::get();
@@ -145,19 +143,21 @@ class ExpfacturasController extends Controller
 
     public function store_admin(Request $request,$id){
 
-        $validate = $this->validate($request,[
-            'factura' => 'mimes:jpeg,bpm,jpg,png,pdf|max:900',
-        ]);
+
 
         $exp = new ExpFactura;
         $exp->titulo = $request->get('titulo');
     	if ($request->hasFile('factura')) {
     		$file=$request->file('factura');
     		$file->move(public_path().'/exp-factura',time().".".$file->getClientOriginalExtension());
-    		$exp->factura=time().".".$file->getClientOriginalExtension();
+//            $imagen =    Image::make($request->file('factura'));
+//            $imagen  ->resize(274, null, function ($constraint) {
+//                    $constraint->aspectRatio();
+//                });
+    		$exp->factura =time().".".$file->getClientOriginalExtension();
     	}
-
-//    	$exp->fecha_expedicion = $request->get('fecha_expedicion');
+//        $nombre = Str::random(3) . $request->file('factura')->getClientOriginalName();
+//        $ruta = public_path().'/exp-factura/' . $nombre;
 
     	/* Compara el auto que se selecciono con la db */
         $automovil = DB::table('automovil')
@@ -168,7 +168,7 @@ class ExpfacturasController extends Controller
 
         $exp->id_user = $automovil->id_user;
 
-        $exp->save();
+       $exp->save();
 
         Session::flash('success', 'Se ha guardado sus datos con exito');
         return redirect()->back();

@@ -38,7 +38,7 @@
                                         </a>
                                     </p>
                                     <p class="text-center text-white">
-                                       Facturas
+                                       Facturas {{$factura}}
                                     </p>
                                 </div>
 
@@ -49,7 +49,7 @@
                                         </a>
                                     </p>
                                     <p class="text-center text-white">
-                                       Tenencias
+                                       Tenencias {{$tenencias}}
                                     </p>
                                 </div>
 
@@ -60,7 +60,7 @@
                                         </a>
                                     </p>
                                     <p class="text-center text-white">
-                                       Carta Responsiva/ Identificacion
+                                       Carta Responsiva/ Identificacion {{$carta}}
                                     </p>
                                 </div>
 
@@ -71,7 +71,7 @@
                                         </a>
                                     </p>
                                     <p class="text-center text-white">
-                                        Póliza de Seguro
+                                        Póliza de Seguro {{$poliza}}
                                     </p>
                                 </div>
 
@@ -82,7 +82,7 @@
                                         </a>
                                     </p>
                                     <p class="text-center text-white">
-                                       Copia de tarjeta de circulacion
+                                       Copia de tarjeta de circulacion {{$tc}}
                                     </p>
                                 </div>
 
@@ -93,7 +93,7 @@
                                         </a>
                                     </p>
                                     <p class="text-center text-white">
-                                      Reemplacamiento
+                                      Reemplacamiento {{$reemplacamiento}}
                                     </p>
                                 </div>
 
@@ -104,7 +104,7 @@
                                         </a>
                                     </p>
                                     <p class="text-center text-white">
-                                      Certificado Verificación
+                                      Certificado Verificación {{$certificado}}
                                     </p>
                                 </div>
 
@@ -115,7 +115,7 @@
                                         </a>
                                     </p>
                                     <p class="text-center text-white">
-                                       Baja de placas
+                                       Baja de placas {{$placas}}
                                     </p>
                                 </div>
 
@@ -126,7 +126,7 @@
                                         </a>
                                     </p>
                                     <p class="text-center text-white">
-                                      INE
+                                      INE {{$ine}}
                                     </p>
                                 </div>
 
@@ -137,7 +137,7 @@
                                         </a>
                                     </p>
                                     <p class="text-center text-white">
-                                      Comprobante de domicilio
+                                      Comprobante de domicilio {{$comprobante}}
                                     </p>
                                 </div>
 
@@ -148,7 +148,7 @@
                                         </a>
                                     </p>
                                     <p class="text-center text-white">
-                                      RFC
+                                      RFC {{$rfc}}
                                     </p>
                                 </div>
 

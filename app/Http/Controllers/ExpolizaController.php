@@ -79,7 +79,7 @@ class ExpolizaController extends Controller
         return view('admin.exp-fisico.view-poliza-admin',compact('exp_poliza','automovil'));
     }
 
-    public function store_admin(Request $request){
+    public function store_admin(Request $request, $id){
 
         $validate = $this->validate($request,[
             'poliza' => 'mimes:jpeg,bpm,jpg,png,pdf|max:900',
@@ -98,7 +98,7 @@ class ExpolizaController extends Controller
 
     	/* Compara el auto que se selecciono con la db */
         $automovil = DB::table('automovil')
-        ->where('id','=', $exp->current_auto)
+        ->where('id','=',$id)
         ->first();
 
         $exp->current_auto = $automovil->id;

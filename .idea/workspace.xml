@@ -21,151 +21,14 @@
   <component name="ChangeListManager">
     <list default="true" id="936a45dc-4f36-4130-a52f-695b08d602c5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/bg-log.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/bg-log.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/bg-medida.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/bg-medida.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/bg.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/bg.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/double-wrench.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/double-wrench.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/gear_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/gear_1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon-logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon-logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/black/amortiguador.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/black/amortiguador.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/black/barcode.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/black/barcode.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/black/bolsa-de-dinero.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/black/bolsa-de-dinero.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/black/boton-circular-plus (1).png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/black/boton-circular-plus (1).png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/black/calendario (3).png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/black/calendario (3).png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/black/camara-fotografica.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/black/camara-fotografica.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/black/campana.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/black/campana.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/black/cancelar.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/black/cancelar.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/black/coche (2).png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/black/coche (2).png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/black/coche (3).png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/black/coche (3).png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/black/color-palette.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/black/color-palette.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/black/days.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/black/days.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/black/descarga-arrow.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/black/descarga-arrow.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/black/documento (1).png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/black/documento (1).png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/black/documento.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/black/documento.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/black/edificio-de-oficinas (1).png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/black/edificio-de-oficinas (1).png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/black/exit.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/black/exit.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/black/expediente.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/black/expediente.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/black/gift.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/black/gift.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/black/hombre.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/black/hombre.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/black/km.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/black/km.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/black/llantas.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/black/llantas.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/black/mas.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/black/mas.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/black/paper.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/black/paper.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/black/placa.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/black/placa.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/black/plus (2).png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/black/plus (2).png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/black/presupuesto.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/black/presupuesto.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/black/proteger.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/black/proteger.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/black/referencia.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/black/referencia.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/black/save-file-option.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/black/save-file-option.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/black/seguro-de-coche.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/black/seguro-de-coche.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/black/seguro.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/black/seguro.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/black/user.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/black/user.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/car.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/car.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/car2.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/car2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/car3.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/car3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/car4.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/car4.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/color/AZSINCOPY.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/color/AZSINCOPY.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/color/Telmex_Logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/color/Telmex_Logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/color/add.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/color/add.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/color/alert.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/color/alert.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/color/alineacion-de-las-ruedas.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/color/alineacion-de-las-ruedas.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/color/amortiguador (2).png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/color/amortiguador (2).png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/color/bateria.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/color/bateria.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/color/botella-de-aceite.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/color/botella-de-aceite.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/color/calendario.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/color/calendario.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/color/campana.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/color/campana.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/color/car-seguro.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/color/car-seguro.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/color/car-service (2).png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/color/car-service (2).png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/color/carta.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/color/carta.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/color/check-up.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/color/check-up.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/color/coche (5).png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/color/coche (5).png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/color/coche (6).png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/color/coche (6).png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/color/coche (7).png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/color/coche (7).png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/color/comprobado.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/color/comprobado.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/color/comprobar.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/color/comprobar.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/color/cuenta.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/color/cuenta.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/color/cuerda.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/color/cuerda.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/color/dairy-products.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/color/dairy-products.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/color/document.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/color/document.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/color/dosier.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/color/dosier.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/color/edificio-de-oficinas (3).png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/color/edificio-de-oficinas (3).png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/color/empresario.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/color/empresario.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/color/escaner.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/color/escaner.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/color/factura.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/color/factura.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/color/frenos.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/color/frenos.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/color/icon-home.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/color/icon-home.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/color/lavado-de-autos.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/color/lavado-de-autos.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/color/letra.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/color/letra.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/color/licencia-de-conducir.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/color/licencia-de-conducir.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/color/limpieza.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/color/limpieza.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/color/logo-wibe.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/color/logo-wibe.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/color/matricula.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/color/matricula.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/color/medal.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/color/medal.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/color/motor-del-coche.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/color/motor-del-coche.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/color/neumatico.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/color/neumatico.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/color/obediente.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/color/obediente.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/color/placa.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/color/placa.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/color/register.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/color/register.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/color/rueda.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/color/rueda.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/color/sedan.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/color/sedan.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/color/support.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/color/support.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/color/tarjeta-de-identificacion.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/color/tarjeta-de-identificacion.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/color/trophy.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/color/trophy.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/color/user.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/color/user.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/color/winning.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/color/winning.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/facebook.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/facebook.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/icon-google.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/icon-google.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/share.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/share.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/white/aceite-de-coche.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/white/aceite-de-coche.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/white/add.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/white/add.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/white/amortiguador (1).png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/white/amortiguador (1).png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/white/bolsa-de-dinero (1).png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/white/bolsa-de-dinero (1).png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/white/boton-circular-plus.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/white/boton-circular-plus.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/white/calendario (1).png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/white/calendario (1).png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/white/calendario (2).png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/white/calendario (2).png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/white/calendario (5).png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/white/calendario (5).png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/white/call.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/white/call.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/white/campana (1).png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/white/campana (1).png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/white/cancelar (1).png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/white/cancelar (1).png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/white/candado.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/white/candado.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/white/car-service (1).png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/white/car-service (1).png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/white/coche (4).png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/white/coche (4).png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/white/coche (7).png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/white/coche (7).png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/white/contrato.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/white/contrato.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/white/documento (2).png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/white/documento (2).png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/white/documents (1).png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/white/documents (1).png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/white/edificio-de-oficinas (2).png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/white/edificio-de-oficinas (2).png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/white/edificio-de-oficinas.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/white/edificio-de-oficinas.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/white/editar.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/white/editar.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/white/exit.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/white/exit.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/white/flecha-correcta.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/white/flecha-correcta.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/white/freno-de-disco.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/white/freno-de-disco.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/white/fuente.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/white/fuente.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/white/garantia.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/white/garantia.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/white/grupo.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/white/grupo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/white/hombre (1).png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/white/hombre (1).png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/white/left-arrow.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/white/left-arrow.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/white/list.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/white/list.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/white/llantas (3).png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/white/llantas (3).png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/white/marca.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/white/marca.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/white/marcador-de-posicion.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/white/marcador-de-posicion.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/white/mas (1).png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/white/mas (1).png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/white/mexico.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/white/mexico.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/white/nombre.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/white/nombre.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/white/notification.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/white/notification.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/white/padlock.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/white/padlock.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/white/paper (1).png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/white/paper (1).png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/white/password.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/white/password.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/white/plus.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/white/plus.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/white/presupuesto (1).png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/white/presupuesto (1).png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/white/presupuesto (2).png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/white/presupuesto (2).png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/white/referencia (1).png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/white/referencia (1).png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/white/save-file-option (1).png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/white/save-file-option (1).png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/logo-check.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/logo-check.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/logo_sinf.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/logo_sinf.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/ts.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/ts.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ExpController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ExpController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ExpfacturasController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ExpfacturasController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ExpolizaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ExpolizaController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/exp-fisico/view-exp-fisico-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/exp-fisico/view-exp-fisico-admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/exp-fisico/view-poliza-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/exp-fisico/view-poliza-admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/exp-fisico/view-exp-fisico.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/exp-fisico/view-exp-fisico.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -420,6 +283,7 @@
       <workItem from="1616618165745" duration="2919000" />
       <workItem from="1616626566366" duration="8916000" />
       <workItem from="1616881708085" duration="815000" />
+      <workItem from="1617324922797" duration="8820000" />
     </task>
     <servers />
   </component>

@@ -101,13 +101,10 @@
 
                                                       <a href="{{ route('create_admin.view-factura-admin',$item->id) }}">
                                                         <span class="badge bg-primary" style="font-size: 70%;">
+                                                            Facturas
                                                             @foreach($factura2 as $autofac)
                                                                 @if($item->id == $autofac->current_auto)
-                                                                        Facturas {{$factura}}
-                                                                    @elseif($autofac == NULL)
-                                                                        Facturas 0
-                                                                @else
-                                                                    Facturas 0
+                                                                     {{$factura}}
                                                                 @endif
                                                             @break
                                                             @endforeach
@@ -116,11 +113,10 @@
 
                                                        <a href="{{ route('create_admin.view-tenencia-admin',$item->id) }}">
                                                         <span class="badge bg-primary" style="font-size: 70%;">
+                                                            Tenencias
                                                             @foreach($tenencias2 as $auto)
                                                                 @if($item->id == $auto->current_auto)
-                                                                        Tenencias {{$tenencias}}
-                                                                @else
-                                                                    Tenencias 0
+                                                                         {{$tenencias}}
                                                                 @endif
                                                             @break
                                                             @endforeach
@@ -129,11 +125,10 @@
 
                                                        <a href="{{ route('create_admin.view-cr-admin',$item->id) }}">
                                                         <span class="badge bg-primary" style="font-size: 70%;">
+                                                            Carta Responsiva
                                                             @foreach($carta2 as $auto)
                                                                 @if($item->id == $auto->current_auto)
-                                                                        Carta Responsiva {{$carta}}
-                                                                    @else
-                                                                        Carta Responsiva 0
+                                                                         {{$carta}}
                                                                 @endif
                                                             @break
                                                             @endforeach
@@ -142,11 +137,10 @@
 
                                                        <a href="{{ route('create_admin.view-poliza-admin',$item->id) }}">
                                                         <span class="badge bg-primary" style="font-size: 70%;">
+                                                            Póliza de Seguro
                                                             @foreach($poliza2 as $auto)
                                                                 @if($item->id == $auto->current_auto)
-                                                                        Póliza de Seguro {{$poliza}}
-                                                                    @else
-                                                                        Póliza de Seguro 0
+                                                                         {{$poliza}}
                                                                 @endif
                                                             @break
                                                             @endforeach
@@ -159,11 +153,10 @@
 
                                                        <a href="{{ route('create_admin.view-tc-admin',$item->id) }}">
                                                         <span class="badge bg-secondary" style="font-size: 70%;">
+                                                            tarjeta de circulacion
                                                             @foreach($tc2 as $auto)
                                                                 @if($item->id == $auto->current_auto)
-                                                                        tarjeta de circulacion {{$tc}}
-                                                                    @else
-                                                                        tarjeta de circulacion 0
+                                                                         {{$tc}}
                                                                 @endif
                                                             @break
                                                             @endforeach
@@ -172,11 +165,10 @@
 
                                                        <a href="{{ route('create_admin.view-reemplacamiento-admin',$item->id) }}">
                                                         <span class="badge bg-secondary" style="font-size: 70%;">
+                                                            Reemplacamiento
                                                             @foreach($reemplacamiento2 as $auto)
                                                                 @if($item->id == $auto->current_auto)
-                                                                        Reemplacamiento {{$reemplacamiento}}
-                                                                    @else
-                                                                        Reemplacamiento 0
+                                                                         {{$reemplacamiento}}
                                                                 @endif
                                                             @break
                                                             @endforeach
@@ -185,11 +177,10 @@
 
                                                        <a href="{{ route('create_admin.view-certificado-admin',$item->id) }}">
                                                         <span class="badge bg-secondary" style="font-size: 70%;">
+                                                            verificacion
                                                             @foreach($certificado2 as $auto)
                                                                 @if($item->id == $auto->current_auto)
-                                                                        verificacion {{$certificado}}
-                                                                    @else
-                                                                        verificacion 0
+                                                                         {{$certificado}}
                                                                 @endif
                                                             @break
                                                             @endforeach
@@ -198,11 +189,10 @@
 
                                                        <a href="{{ route('create_admin.view-bp-admin',$item->id) }}">
                                                         <span class="badge bg-secondary" style="font-size: 70%;">
+                                                            Baja de placas
                                                             @foreach($placas2 as $auto)
                                                                 @if($item->id == $auto->current_auto)
-                                                                        Baja de placas {{$placas}}
-                                                                    @else
-                                                                        Baja de placas 0
+                                                                         {{$placas}}
                                                                 @endif
                                                             @break
                                                             @endforeach
@@ -215,11 +205,10 @@
 
                                                        <a href="{{ route('create_admin.view-ine-admin',$item->id) }}">
                                                         <span class="badge bg-success" style="font-size: 70%;">
+                                                            INE
                                                             @foreach($ine2 as $auto)
                                                                 @if($item->id == $auto->current_auto)
-                                                                        INE {{$ine}}
-                                                                    @else
-                                                                        INE 0
+                                                                         {{$ine}}
                                                                 @endif
                                                             @break
                                                             @endforeach
@@ -228,11 +217,10 @@
 
                                                        <a href="{{ route('create_admin.view-cd-admin',$item->id) }}">
                                                         <span class="badge bg-success" style="font-size: 70%;">
+                                                            Comprobante de domicilio
                                                             @foreach($comprobante2 as $auto)
                                                                 @if($item->id == $auto->current_auto)
-                                                                        Comprobante de domicilio {{$comprobante}}
-                                                                    @else
-                                                                        Comprobante de domicilio 0
+                                                                         {{$comprobante}}
                                                                 @endif
                                                             @break
                                                             @endforeach
@@ -241,11 +229,10 @@
 
                                                        <a href="{{ route('create_admin.view-rfc-admin',$item->id) }}">
                                                         <span class="badge bg-success" style="font-size: 70%;">
+                                                            RFC
                                                             @foreach($rfc2 as $auto)
                                                                 @if($item->id == $auto->current_auto)
-                                                                        RFC {{$rfc}}
-                                                                    @else
-                                                                        RFC 0
+                                                                         {{$rfc}}
                                                                 @endif
                                                             @break
                                                             @endforeach
