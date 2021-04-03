@@ -133,6 +133,7 @@
                                                     <input type="hidden" class="form-control" id='title' name="title" value="{{$seguro->Automovil->placas}}">
                                                 </div>
 
+
                                                  <div class="input-group form-group">
                                                     <input type="hidden" class="form-control" id='descripcion' name="descripcion" value="Su Seguro expira el dia: {{$newDate}}">
                                                 </div>
