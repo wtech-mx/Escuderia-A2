@@ -183,9 +183,10 @@ class SegurosController extends Controller
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($ch, CURLOPT_POSTFIELDS, $dataString);
 
-            $response = curl_exec($ch);
-        }
 
+            $response = curl_exec($ch);
+
+        }
 
         Session::flash('success', 'Se ha guardado sus datos con exito');
         return redirect()->route('index.seguro', compact('seguro', 'seguro_alerta'));

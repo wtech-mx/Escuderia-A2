@@ -16,8 +16,10 @@ use App\Models\ExpRfc;
 use App\Models\ExpTc;
 use App\Models\ExpTenencias;
 use App\Models\ExpCertificado;
+use Illuminate\Support\Facades\Storage;
+
 use Session;
-use Intervention\Image\Facades\Image;
+use Image;
 use Illuminate\Support\Str;
 
 class ExpfacturasController extends Controller
@@ -145,38 +147,25 @@ class ExpfacturasController extends Controller
 
         $exp = new ExpFactura;
         $exp->titulo = $request->get('titulo');
+
     	if ($request->hasFile('factura')) {
-   		$file=$request->file('factura');
-    		$file->move(public_path().'/exp-factura',time().".".$file->getClientOriginalExtension());
-    		$exp->factura =time().".".$file->getClientOriginalExtension();
 
-//   		   $file = public_path().'/exp-factura/'.$name;
-//           $image = \Image::make($file);
-//           $image->resize(274, null, function ($constraint) {
-//                                  $constraint->aspectRatio();
-//                               });
+                $urlfoto = $request->file('factura');
+                $nombre = time().".".$urlfoto->guessExtension();
+                $ruta = public_path('/exp-factura/'.$nombre);
+                $compresion = Image::make($urlfoto->getRealPath())
+                    ->save($ruta,10);
+
    	}
-
-//        $nombre = Str::random(3) . $request->file('factura')->getClientOriginalName();
-//        $ruta = public_path().'/exp-factura/' . $nombre;
-//
-//            $exp->factura =    Image::make($request->file('factura'))
-//                                ->resize(274, null, function ($constraint) {
-//                                    $constraint->aspectRatio();
-//                                });
-
-
-
+         $exp->factura = $compresion->basename;
     	/* Compara el auto que se selecciono con la db */
         $automovil = DB::table('automovil')
         ->where('id','=',$id)
         ->first();
-
         $exp->current_auto = $automovil->id;
-
         $exp->id_user = $automovil->id_user;
 
-       $exp->save();
+        $exp->save();
 
         Session::flash('success', 'Se ha guardado sus datos con exito');
         return redirect()->back();
