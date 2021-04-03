@@ -143,21 +143,29 @@ class ExpfacturasController extends Controller
 
     public function store_admin(Request $request,$id){
 
-
-
         $exp = new ExpFactura;
         $exp->titulo = $request->get('titulo');
     	if ($request->hasFile('factura')) {
-    		$file=$request->file('factura');
+   		$file=$request->file('factura');
     		$file->move(public_path().'/exp-factura',time().".".$file->getClientOriginalExtension());
-//            $imagen =    Image::make($request->file('factura'));
-//            $imagen  ->resize(274, null, function ($constraint) {
-//                    $constraint->aspectRatio();
-//                });
     		$exp->factura =time().".".$file->getClientOriginalExtension();
-    	}
+
+//   		   $file = public_path().'/exp-factura/'.$name;
+//           $image = \Image::make($file);
+//           $image->resize(274, null, function ($constraint) {
+//                                  $constraint->aspectRatio();
+//                               });
+   	}
+
 //        $nombre = Str::random(3) . $request->file('factura')->getClientOriginalName();
 //        $ruta = public_path().'/exp-factura/' . $nombre;
+//
+//            $exp->factura =    Image::make($request->file('factura'))
+//                                ->resize(274, null, function ($constraint) {
+//                                    $constraint->aspectRatio();
+//                                });
+
+
 
     	/* Compara el auto que se selecciono con la db */
         $automovil = DB::table('automovil')
