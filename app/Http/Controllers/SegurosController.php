@@ -309,6 +309,7 @@ class SegurosController extends Controller
         $seguro->title = $request->get('title');
         $seguro->color = $request->get('color');
         $seguro->descripcion = $request->get('descripcion');
+        $seguro->device_token = $seguro->User->device_token;
 
         $seguro->update();
 
