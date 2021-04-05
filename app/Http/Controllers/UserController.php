@@ -8,10 +8,7 @@ use DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Session;
-use Carbon\Carbon;
-use App\Models\Alertas;
-use App\Models\Seguros;
-use App\Models\TarjetaCirculacion;
+use Image;
 use Illuminate\Support\Facades\Mail;
 
 use Illuminate\Support\Facades\Hash;
@@ -87,10 +84,13 @@ class UserController extends Controller
         $user->genero = $request->get('genero');
 
     	if ($request->hasFile('img')) {
-    		$file=$request->file('img');
-    		$file->move(public_path().'/img-perfil',time().".".$file->getClientOriginalExtension());
-    		$user->img=time().".".$file->getClientOriginalExtension();
-    	}
+                $urlfoto = $request->file('img');
+                $nombre = time().".".$urlfoto->guessExtension();
+                $ruta = public_path('/img-perfil/'.$nombre);
+                $compresion = Image::make($urlfoto->getRealPath())
+                    ->save($ruta,10);
+   	    }
+         $user->img = $compresion->basename;
 
         $users = DB::table('users')
         ->get();
@@ -195,10 +195,13 @@ class UserController extends Controller
         $user->password = Hash::make($request->password);
 
     	if ($request->hasFile('img')) {
-    		$file=$request->file('img');
-    		$file->move(public_path().'/img-perfil',time().".".$file->getClientOriginalExtension());
-    		$user->img=time().".".$file->getClientOriginalExtension();
-    	}
+                $urlfoto = $request->file('img');
+                $nombre = time().".".$urlfoto->guessExtension();
+                $ruta = public_path('/img-perfil/'.$nombre);
+                $compresion = Image::make($urlfoto->getRealPath())
+                    ->save($ruta,10);
+   	    }
+         $user->img = $compresion->basename;
 
         $user->save();
 
@@ -231,10 +234,13 @@ class UserController extends Controller
         $user->role = $request->get('role');
 
     	if ($request->hasFile('img')) {
-    		$file=$request->file('img');
-    		$file->move(public_path().'/img-perfil',time().".".$file->getClientOriginalExtension());
-    		$user->img=time().".".$file->getClientOriginalExtension();
-    	}
+                $urlfoto = $request->file('img');
+                $nombre = time().".".$urlfoto->guessExtension();
+                $ruta = public_path('/img-perfil/'.$nombre);
+                $compresion = Image::make($urlfoto->getRealPath())
+                    ->save($ruta,10);
+   	    }
+         $user->img = $compresion->basename;
 
         $user->update();
 

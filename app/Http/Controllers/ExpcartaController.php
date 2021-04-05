@@ -10,8 +10,7 @@ use App\Models\ExpCarta;
 use Session;
 use Carbon\Carbon;
 use App\Models\Alertas;
-use App\Models\Seguros;
-use App\Models\TarjetaCirculacion;
+use Image;
 
 class ExpcartaController extends Controller
 {
@@ -56,11 +55,15 @@ class ExpcartaController extends Controller
         $exp_carta->titulo = $request->get('titulo');
 
     	if ($request->hasFile('carta')) {
-    		$file=$request->file('carta');
-    		// dd($file);
-    		$file->move(public_path().'/exp-carta',time().".".$file->getClientOriginalExtension());
-    		$exp_carta->carta=time().".".$file->getClientOriginalExtension();
-    	}
+
+                $urlfoto = $request->file('carta');
+                $nombre = time().".".$urlfoto->guessExtension();
+                $ruta = public_path('/exp-carta/'.$nombre);
+                $compresion = Image::make($urlfoto->getRealPath())
+                    ->save($ruta,10);
+
+   	}
+         $exp_carta->carta = $compresion->basename;
 
         $exp_carta->id_user = auth()->user()->id;
     	$exp_carta->current_auto = auth()->user()->current_auto;
@@ -98,12 +101,13 @@ class ExpcartaController extends Controller
         $exp = new ExpCarta;
         $exp->titulo = $request->get('titulo');
     	if ($request->hasFile('carta')) {
-    		$file=$request->file('carta');
-    		$file->move(public_path().'/exp-carta',time().".".$file->getClientOriginalExtension());
-    		$exp->carta=time().".".$file->getClientOriginalExtension();
-    	}
-
-//    	$exp->fecha_expedicion = $request->get('fecha_expedicion');
+                $urlfoto = $request->file('carta');
+                $nombre = time().".".$urlfoto->guessExtension();
+                $ruta = public_path('/exp-carta/'.$nombre);
+                $compresion = Image::make($urlfoto->getRealPath())
+                    ->save($ruta,10);
+   	    }
+         $exp->carta = $compresion->basename;
 
     	/* Compara el auto que se selecciono con la db */
         $automovil = DB::table('automovil')

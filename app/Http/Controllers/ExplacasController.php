@@ -8,11 +8,7 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Str;
 use App\Models\ExpPlacas;
 use Session;
-use Carbon\Carbon;
-use App\Models\Alertas;
-use App\Models\Seguros;
-use App\Models\TarjetaCirculacion;
-
+use Image;
 class ExplacasController extends Controller
 {
     function index(){
@@ -46,10 +42,13 @@ class ExplacasController extends Controller
 
         $exp_placas->titulo = $request->get('titulo');
     	if ($request->hasFile('placa')) {
-    		$file=$request->file('placa');
-    		$file->move(public_path().'/exp-bp',time().".".$file->getClientOriginalExtension());
-    		$exp_placas->placa=time().".".$file->getClientOriginalExtension();
-    	}
+                $urlfoto = $request->file('placa');
+                $nombre = time().".".$urlfoto->guessExtension();
+                $ruta = public_path('/exp-placa/'.$nombre);
+                $compresion = Image::make($urlfoto->getRealPath())
+                    ->save($ruta,10);
+   	}
+         $exp_placas->placa = $compresion->basename;
 
         $exp_placas->id_user = auth()->user()->id;
     	$exp_placas->current_auto = auth()->user()->current_auto;
@@ -91,12 +90,13 @@ class ExplacasController extends Controller
 
         $exp->titulo = $request->get('titulo');
     	if ($request->hasFile('placa')) {
-    		$file=$request->file('placa');
-    		$file->move(public_path().'/exp-placa',time().".".$file->getClientOriginalExtension());
-    		$exp->placa=time().".".$file->getClientOriginalExtension();
-    	}
-
-//    	$exp->fecha_expedicion = $request->get('fecha_expedicion');
+                $urlfoto = $request->file('placa');
+                $nombre = time().".".$urlfoto->guessExtension();
+                $ruta = public_path('/exp-placa/'.$nombre);
+                $compresion = Image::make($urlfoto->getRealPath())
+                    ->save($ruta,10);
+   	}
+         $exp->placa = $compresion->basename;
 
     	/* Compara el auto que se selecciono con la db */
         $automovil = DB::table('automovil')

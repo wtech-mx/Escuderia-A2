@@ -10,8 +10,6 @@ use Session;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Arr;
 use Carbon\Carbon;
-use App\Models\Alertas;
-use App\Models\TarjetaCirculacion;
 use Illuminate\Support\Facades\Mail;
 
 class SegurosController extends Controller

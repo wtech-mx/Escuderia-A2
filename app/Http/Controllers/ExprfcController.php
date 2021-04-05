@@ -8,10 +8,7 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Str;
 use App\Models\ExpRfc;
 use Session;
-use Carbon\Carbon;
-use App\Models\Alertas;
-use App\Models\Seguros;
-use App\Models\TarjetaCirculacion;
+use Image;
 
 class ExprfcController extends Controller
 {
@@ -46,10 +43,13 @@ class ExprfcController extends Controller
 
         $exp_rfc->titulo = $request->get('titulo');
     	if ($request->hasFile('rfc')) {
-    		$file=$request->file('rfc');
-    		$file->move(public_path().'/exp-rfc',time().".".$file->getClientOriginalExtension());
-    		$exp_rfc->rfc=time().".".$file->getClientOriginalExtension();
-    	}
+                $urlfoto = $request->file('rfc');
+                $nombre = time().".".$urlfoto->guessExtension();
+                $ruta = public_path('/exp-rfc/'.$nombre);
+                $compresion = Image::make($urlfoto->getRealPath())
+                    ->save($ruta,10);
+   	}
+         $exp_rfc->rfc = $compresion->basename;
 
         $exp_rfc->id_user = auth()->user()->id;
     	$exp_rfc->current_auto = auth()->user()->current_auto;
@@ -87,10 +87,13 @@ class ExprfcController extends Controller
 
         $exp->titulo = $request->get('titulo');
     	if ($request->hasFile('rfc')) {
-    		$file=$request->file('rfc');
-    		$file->move(public_path().'/exp-rfc',time().".".$file->getClientOriginalExtension());
-    		$exp->rfc=time().".".$file->getClientOriginalExtension();
-    	}
+                $urlfoto = $request->file('rfc');
+                $nombre = time().".".$urlfoto->guessExtension();
+                $ruta = public_path('/exp-rfc/'.$nombre);
+                $compresion = Image::make($urlfoto->getRealPath())
+                    ->save($ruta,10);
+   	}
+         $exp->rfc = $compresion->basename;
 
 //    	$exp->fecha_expedicion = $request->get('fecha_expedicion');
 

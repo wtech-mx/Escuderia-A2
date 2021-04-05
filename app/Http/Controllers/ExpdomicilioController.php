@@ -8,10 +8,7 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Str;
 use App\Models\ExpDomicilio;
 use Session;
-use Carbon\Carbon;
-use App\Models\Alertas;
-use App\Models\Seguros;
-use App\Models\TarjetaCirculacion;
+use Image;
 
 class ExpdomicilioController extends Controller
 {
@@ -46,10 +43,13 @@ class ExpdomicilioController extends Controller
 
         $exp_domicilio->titulo = $request->get('titulo');
     	if ($request->hasFile('domicilio')) {
-    		$file=$request->file('domicilio');
-    		$file->move(public_path().'/exp-domicilio',time().".".$file->getClientOriginalExtension());
-    		$exp_domicilio->domicilio=time().".".$file->getClientOriginalExtension();
-    	}
+                $urlfoto = $request->file('domicilio');
+                $nombre = time().".".$urlfoto->guessExtension();
+                $ruta = public_path('/exp-domicilio/'.$nombre);
+                $compresion = Image::make($urlfoto->getRealPath())
+                    ->save($ruta,10);
+   	}
+         $exp_domicilio->domicilio = $compresion->basename;
 
         $exp_domicilio->id_user = auth()->user()->id;
     	$exp_domicilio->current_auto = auth()->user()->current_auto;
@@ -86,10 +86,13 @@ class ExpdomicilioController extends Controller
         $exp = new ExpDomicilio;
         $exp->titulo = $request->get('titulo');
     	if ($request->hasFile('domicilio')) {
-    		$file=$request->file('domicilio');
-    		$file->move(public_path().'/exp-domicilio',time().".".$file->getClientOriginalExtension());
-    		$exp->domicilio=time().".".$file->getClientOriginalExtension();
-    	}
+                $urlfoto = $request->file('domicilio');
+                $nombre = time().".".$urlfoto->guessExtension();
+                $ruta = public_path('/exp-domicilio/'.$nombre);
+                $compresion = Image::make($urlfoto->getRealPath())
+                    ->save($ruta,10);
+   	}
+         $exp->domicilio = $compresion->basename;
 
 //    	$exp->fecha_expedicion = $request->get('fecha_expedicion');
 

@@ -9,9 +9,7 @@ use Illuminate\Support\Str;
 use App\Models\ExpPoliza;
 use App\Models\TarjetaCirculacion;
 use Session;
-use Carbon\Carbon;
-use App\Models\Alertas;
-use App\Models\Seguros;
+use Image;
 
 class ExpolizaController extends Controller
 {
@@ -48,10 +46,13 @@ class ExpolizaController extends Controller
 
         $exp_poliza->titulo = $request->get('titulo');
     	if ($request->hasFile('poliza')) {
-    		$file=$request->file('poliza');
-    		$file->move(public_path().'/exp-poliza',time().".".$file->getClientOriginalExtension());
-    		$exp_poliza->poliza=time().".".$file->getClientOriginalExtension();
-    	}
+                $urlfoto = $request->file('poliza');
+                $nombre = time().".".$urlfoto->guessExtension();
+                $ruta = public_path('/exp-poliza/'.$nombre);
+                $compresion = Image::make($urlfoto->getRealPath())
+                    ->save($ruta,10);
+   	}
+         $exp_poliza->poliza = $compresion->basename;
 
         $exp_poliza->id_user = auth()->user()->id;
     	$exp_poliza->current_auto = auth()->user()->current_auto;
@@ -89,10 +90,13 @@ class ExpolizaController extends Controller
 
         $exp->titulo = $request->get('titulo');
     	if ($request->hasFile('poliza')) {
-    		$file=$request->file('poliza');
-    		$file->move(public_path().'/exp-poliza',time().".".$file->getClientOriginalExtension());
-    		$exp->poliza=time().".".$file->getClientOriginalExtension();
-    	}
+                $urlfoto = $request->file('poliza');
+                $nombre = time().".".$urlfoto->guessExtension();
+                $ruta = public_path('/exp-poliza/'.$nombre);
+                $compresion = Image::make($urlfoto->getRealPath())
+                    ->save($ruta,10);
+   	}
+         $exp_poliza->poliza = $compresion->basename;
 
     	$exp->current_auto = $request->get('current_auto');
 

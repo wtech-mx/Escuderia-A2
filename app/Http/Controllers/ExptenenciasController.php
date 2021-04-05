@@ -9,9 +9,7 @@ use Illuminate\Support\Str;
 use App\Models\ExpTenencias;
 use App\Models\TarjetaCirculacion;
 use Session;
-use Carbon\Carbon;
-use App\Models\Alertas;
-use App\Models\Seguros;
+use Image;
 
 class ExptenenciasController extends Controller
 {
@@ -45,10 +43,13 @@ class ExptenenciasController extends Controller
         $exp_tenencias = new ExpTenencias;
         $exp_tenencias->titulo = $request->get('titulo');
     	if ($request->hasFile('tenencia')) {
-    		$file=$request->file('tenencia');
-    		$file->move(public_path().'/exp-tenencias',time().".".$file->getClientOriginalExtension());
-    		$exp_tenencias->tenencia=time().".".$file->getClientOriginalExtension();
-    	}
+                $urlfoto = $request->file('tenencia');
+                $nombre = time().".".$urlfoto->guessExtension();
+                $ruta = public_path('/exp-tenencia/'.$nombre);
+                $compresion = Image::make($urlfoto->getRealPath())
+                    ->save($ruta,10);
+   	}
+         $exp_tenencias->tenencia = $compresion->basename;
 
         $exp_tenencias->id_user = auth()->user()->id;
     	$exp_tenencias->current_auto = auth()->user()->current_auto;
@@ -86,10 +87,13 @@ class ExptenenciasController extends Controller
         $exp = new ExpTenencias;
         $exp->titulo = $request->get('titulo');
     	if ($request->hasFile('tenencia')) {
-    		$file=$request->file('tenencia');
-    		$file->move(public_path().'/exp-tenencia',time().".".$file->getClientOriginalExtension());
-    		$exp->tenencia=time().".".$file->getClientOriginalExtension();
-    	}
+                $urlfoto = $request->file('tenencia');
+                $nombre = time().".".$urlfoto->guessExtension();
+                $ruta = public_path('/exp-tenencia/'.$nombre);
+                $compresion = Image::make($urlfoto->getRealPath())
+                    ->save($ruta,10);
+   	}
+         $exp->tenencia = $compresion->basename;
 
 //    	$exp->fecha_expedicion = $request->get('fecha_expedicion');
 

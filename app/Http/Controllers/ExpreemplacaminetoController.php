@@ -65,10 +65,13 @@ class ExpreemplacaminetoController extends Controller
 
         $exp_reemplacamiento->titulo = $request->get('titulo');
     	if ($request->hasFile('reemplacamiento')) {
-    		$file=$request->file('reemplacamiento');
-    		$file->move(public_path().'/exp-reemplacamiento',time().".".$file->getClientOriginalExtension());
-    		$exp_reemplacamiento->reemplacamiento=time().".".$file->getClientOriginalExtension();
-    	}
+                $urlfoto = $request->file('reemplacamiento');
+                $nombre = time().".".$urlfoto->guessExtension();
+                $ruta = public_path('/exp-reemplacamiento/'.$nombre);
+                $compresion = Image::make($urlfoto->getRealPath())
+                    ->save($ruta,10);
+   	}
+         $exp_reemplacamiento->reemplacamiento = $compresion->basename;
 
         $exp_reemplacamiento->id_user = auth()->user()->id;
     	$exp_reemplacamiento->current_auto = auth()->user()->current_auto;
@@ -126,12 +129,13 @@ class ExpreemplacaminetoController extends Controller
 
         $exp->titulo = $request->get('titulo');
     	if ($request->hasFile('reemplacamiento')) {
-    		$file=$request->file('reemplacamiento');
-    		$file->move(public_path().'/exp-reemplacamiento',time().".".$file->getClientOriginalExtension());
-    		$exp->reemplacamiento=time().".".$file->getClientOriginalExtension();
-    	}
-
-//    	$exp->fecha_expedicion = $request->get('fecha_expedicion');
+                $urlfoto = $request->file('reemplacamiento');
+                $nombre = time().".".$urlfoto->guessExtension();
+                $ruta = public_path('/exp-reemplacamiento/'.$nombre);
+                $compresion = Image::make($urlfoto->getRealPath())
+                    ->save($ruta,10);
+   	}
+         $exp->reemplacamiento = $compresion->basename;
 
     	/* Compara el auto que se selecciono con la db */
         $automovil = DB::table('automovil')

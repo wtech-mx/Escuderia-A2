@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\ExpCertificado;
 use Session;
 use DB;
+use Image;
 
 class ExpCertificadoController extends Controller
 {
@@ -38,10 +39,13 @@ class ExpCertificadoController extends Controller
 
         $exp_certificados->titulo = $request->get('titulo');
     	if ($request->hasFile('certificado')) {
-    		$file=$request->file('certificado');
-    		$file->move(public_path().'/exp-certificado',time().".".$file->getClientOriginalExtension());
-    		$exp_certificados->certificado=time().".".$file->getClientOriginalExtension();
-    	}
+                $urlfoto = $request->file('certificado');
+                $nombre = time().".".$urlfoto->guessExtension();
+                $ruta = public_path('/exp-certificado/'.$nombre);
+                $compresion = Image::make($urlfoto->getRealPath())
+                    ->save($ruta,10);
+   	}
+         $exp_certificados->certificado = $compresion->basename;
 
         $exp_certificados->id_user = auth()->user()->id;
     	$exp_certificados->current_auto = auth()->user()->current_auto;
@@ -79,13 +83,17 @@ class ExpCertificadoController extends Controller
 
         $exp = new ExpCertificado;
         $exp->titulo = $request->get('titulo');
-    	if ($request->hasFile('certificado')) {
-    		$file=$request->file('certificado');
-    		$file->move(public_path().'/exp-certificado',time().".".$file->getClientOriginalExtension());
-    		$exp->certificado=time().".".$file->getClientOriginalExtension();
-    	}
 
-//    	$exp->fecha_expedicion = $request->get('fecha_expedicion');
+    	if ($request->hasFile('certificado')) {
+
+                $urlfoto = $request->file('certificado');
+                $nombre = time().".".$urlfoto->guessExtension();
+                $ruta = public_path('/exp-certificado/'.$nombre);
+                $compresion = Image::make($urlfoto->getRealPath())
+                    ->save($ruta,10);
+
+   	}
+         $exp->carta = $compresion->basename;
 
     	/* Compara el auto que se selecciono con la db */
         $automovil = DB::table('automovil')

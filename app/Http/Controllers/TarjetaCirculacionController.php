@@ -3,15 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\TarjetaCirculacion;
-use App\Models\User;
-use App\Models\ImgTc;
+
 use Illuminate\Http\Request;
 use Session;
 use DB;
-use Carbon\Carbon;
-use App\Models\Alertas;
-use App\Models\Seguros;
-use App\Models\Verificacion;
+
 use Illuminate\Support\Facades\Mail;
 
 class TarjetaCirculacionController extends Controller

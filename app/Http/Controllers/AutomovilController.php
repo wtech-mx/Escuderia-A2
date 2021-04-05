@@ -10,8 +10,7 @@ use App\Models\Seguros;
 use App\Models\User;
 use App\Models\TarjetaCirculacion;
 use Session;
-use Carbon\Carbon;
-use App\Models\Alertas;
+use Image;
 use App\Models\Verificacion;
 use App\Models\VerificacionSegunda;
 
@@ -82,10 +81,13 @@ class AutomovilController extends Controller
         $automovil->placas = $placa;
 
     	if ($request->hasFile('img')) {
-    		$file=$request->file('img');
-    		$file->move(public_path().'/img-auto',time().".".$file->getClientOriginalExtension());
-    		$automovil->img=time().".".$file->getClientOriginalExtension();
-    	}
+                $urlfoto = $request->file('img');
+                $nombre = time().".".$urlfoto->guessExtension();
+                $ruta = public_path('/img-auto/'.$nombre);
+                $compresion = Image::make($urlfoto->getRealPath())
+                    ->save($ruta,10);
+   	    }
+         $automovil->img = $compresion->basename;
 
         $automovil->id_user = auth()->user()->id;
         $automovil->save();
@@ -165,10 +167,13 @@ class AutomovilController extends Controller
         $automovil->placas = $placa;
 
     	if ($request->hasFile('img')) {
-    		$file=$request->file('img');
-    		$file->move(public_path().'/img-auto',time().".".$file->getClientOriginalExtension());
-    		$automovil->img=time().".".$file->getClientOriginalExtension();
-    	}
+                $urlfoto = $request->file('img');
+                $nombre = time().".".$urlfoto->guessExtension();
+                $ruta = public_path('/img-auto/'.$nombre);
+                $compresion = Image::make($urlfoto->getRealPath())
+                    ->save($ruta,10);
+   	    }
+         $automovil->img = $compresion->basename;
 
         $automovil->update();
 

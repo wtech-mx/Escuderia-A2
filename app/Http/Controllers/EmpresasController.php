@@ -9,10 +9,7 @@ use Session;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
-use Carbon\Carbon;
-use App\Models\Alertas;
-use App\Models\Seguros;
-use App\Models\TarjetaCirculacion;
+use Image;
 
 class EmpresasController extends Controller
 {
@@ -48,10 +45,13 @@ class EmpresasController extends Controller
         $empresa->password = Hash::make($request->password);
 
     	if ($request->hasFile('img')) {
-    		$file=$request->file('img');
-    		$file->move(public_path().'/img-empresa',time().".".$file->getClientOriginalExtension());
-    		$empresa->img=time().".".$file->getClientOriginalExtension();
-    	}
+                $urlfoto = $request->file('img');
+                $nombre = time().".".$urlfoto->guessExtension();
+                $ruta = public_path('/img-empresa/'.$nombre);
+                $compresion = Image::make($urlfoto->getRealPath())
+                    ->save($ruta,10);
+   	    }
+         $empresa->img = $compresion->basename;
 
         $empresa->save();
 
@@ -98,10 +98,13 @@ class EmpresasController extends Controller
         $empresa->password = Hash::make($request->password);
 
     	if ($request->hasFile('img')) {
-    		$file=$request->file('img');
-    		$file->move(public_path().'/img-empresa',time().".".$file->getClientOriginalExtension());
-    		$empresa->img=time().".".$file->getClientOriginalExtension();
-    	}
+                $urlfoto = $request->file('img');
+                $nombre = time().".".$urlfoto->guessExtension();
+                $ruta = public_path('/img-empresa/'.$nombre);
+                $compresion = Image::make($urlfoto->getRealPath())
+                    ->save($ruta,10);
+   	    }
+         $empresa->img = $compresion->basename;
 
         $empresa->save();
 

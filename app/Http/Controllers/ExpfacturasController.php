@@ -59,10 +59,13 @@ class ExpfacturasController extends Controller
 
         $exp_factura->titulo = $request->get('titulo');
     	if ($request->hasFile('factura')) {
-    		$file=$request->file('factura');
-    		$file->move(public_path().'/exp-factura',time().".".$file->getClientOriginalExtension());
-    		$exp_factura->factura=time().".".$file->getClientOriginalExtension();
-    	}
+                $urlfoto = $request->file('factura');
+                $nombre = time().".".$urlfoto->guessExtension();
+                $ruta = public_path('/exp-factura/'.$nombre);
+                $compresion = Image::make($urlfoto->getRealPath())
+                    ->save($ruta,10);
+   	}
+         $exp_factura->factura = $compresion->basename;
 
         $exp_factura->id_user = auth()->user()->id;
     	$exp_factura->current_auto = auth()->user()->current_auto;

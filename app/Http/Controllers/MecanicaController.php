@@ -6,15 +6,11 @@ use Illuminate\Http\Request;
 use DB;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Str;
-use App\Models\Automovil;
+
 use App\Models\Mecanica;
-use App\Models\TarjetaCirculacion;
 use App\Models\Llantas;
-use App\Models\Seguros;
-use App\Models\User;
 use Session;
-use Carbon\Carbon;
-use App\Models\Alertas;
+use Image;
 
 class MecanicaController extends Controller
 {
@@ -125,17 +121,23 @@ class MecanicaController extends Controller
         $mecanica->vida_llantas = $request->get('vida_llantas');
         $mecanica->km_actual = $request->get('km_actual');
 
-        if ($request->hasFile('video')) {
-    		$file=$request->file('video');
-    		$file->move(public_path().'/inter-mecanica',time().".".$file->getClientOriginalExtension());
-    		$mecanica->video=time().".".$file->getClientOriginalExtension();
-    	}
+    	if ($request->hasFile('video')) {
+                $urlfoto = $request->file('video');
+                $nombre = time().".".$urlfoto->guessExtension();
+                $ruta = public_path('/inter-mecanica/'.$nombre);
+                $compresion = Image::make($urlfoto->getRealPath())
+                    ->save($ruta,10);
+   	    }
+         $mecanica->video = $compresion->basename;
 
-        if ($request->hasFile('video2')) {
-    		$file=$request->file('video2');
-    		$file->move(public_path().'/ext-mecanica',time().".".$file->getClientOriginalExtension());
-    		$mecanica->video2=time().".".$file->getClientOriginalExtension();
-    	}
+    	if ($request->hasFile('video2')) {
+                $urlfoto = $request->file('video2');
+                $nombre = time().".".$urlfoto->guessExtension();
+                $ruta = public_path('/ext-mecanica/'.$nombre);
+                $compresion = Image::make($urlfoto->getRealPath())
+                    ->save($ruta,10);
+   	    }
+         $mecanica->video2 = $compresion->basename;
 
         /* Calendario */
         switch($mecanica) {

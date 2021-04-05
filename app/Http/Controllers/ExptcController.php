@@ -9,9 +9,7 @@ use Illuminate\Support\Str;
 use App\Models\ExpTc;
 use App\Models\TarjetaCirculacion;
 use Session;
-use Carbon\Carbon;
-use App\Models\Alertas;
-use App\Models\Seguros;
+use Image;
 
 class ExptcController extends Controller
 {
@@ -48,10 +46,13 @@ class ExptcController extends Controller
 
         $exp_tc->titulo = $request->get('titulo');
     	if ($request->hasFile('tc')) {
-    		$file=$request->file('tc');
-    		$file->move(public_path().'/exp-tc',time().".".$file->getClientOriginalExtension());
-    		$exp_tc->tc=time().".".$file->getClientOriginalExtension();
-    	}
+                $urlfoto = $request->file('tc');
+                $nombre = time().".".$urlfoto->guessExtension();
+                $ruta = public_path('/exp-tc/'.$nombre);
+                $compresion = Image::make($urlfoto->getRealPath())
+                    ->save($ruta,10);
+   	}
+         $exp_tc->tc = $compresion->basename;
 
         $exp_tc->id_tc = $request->get('id_tc');
         $exp_tc->id_user = auth()->user()->id;
@@ -97,10 +98,13 @@ class ExptcController extends Controller
 
         $exp->titulo = $request->get('titulo');
     	if ($request->hasFile('tc')) {
-    		$file=$request->file('tc');
-    		$file->move(public_path().'/exp-tc',time().".".$file->getClientOriginalExtension());
-    		$exp->tc=time().".".$file->getClientOriginalExtension();
-    	}
+                $urlfoto = $request->file('tc');
+                $nombre = time().".".$urlfoto->guessExtension();
+                $ruta = public_path('/exp-tc/'.$nombre);
+                $compresion = Image::make($urlfoto->getRealPath())
+                    ->save($ruta,10);
+   	}
+         $exp->tc = $compresion->basename;
 
 //    	$exp->fecha_expedicion = $request->get('fecha_expedicion');
 

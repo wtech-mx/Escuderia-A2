@@ -8,10 +8,7 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Str;
 use App\Models\ExpIne;
 use Session;
-use Carbon\Carbon;
-use App\Models\Alertas;
-use App\Models\Seguros;
-use App\Models\TarjetaCirculacion;
+use Image;
 
 class ExpineController extends Controller
 {
@@ -46,10 +43,13 @@ class ExpineController extends Controller
 
         $exp_ine->titulo = $request->get('titulo');
     	if ($request->hasFile('ine')) {
-    		$file=$request->file('ine');
-    		$file->move(public_path().'/exp-ine',time().".".$file->getClientOriginalExtension());
-    		$exp_ine->ine=time().".".$file->getClientOriginalExtension();
-    	}
+                $urlfoto = $request->file('ine');
+                $nombre = time().".".$urlfoto->guessExtension();
+                $ruta = public_path('/exp-ine/'.$nombre);
+                $compresion = Image::make($urlfoto->getRealPath())
+                    ->save($ruta,10);
+   	}
+         $exp_ine->ine = $compresion->basename;
 
         $exp_ine->id_user = auth()->user()->id;
     	$exp_ine->current_auto = auth()->user()->current_auto;
@@ -87,12 +87,13 @@ class ExpineController extends Controller
 
         $exp->titulo = $request->get('titulo');
     	if ($request->hasFile('ine')) {
-    		$file=$request->file('ine');
-    		$file->move(public_path().'/exp-ine',time().".".$file->getClientOriginalExtension());
-    		$exp->ine=time().".".$file->getClientOriginalExtension();
-    	}
-
-//    	$exp->fecha_expedicion = $request->get('fecha_expedicion');
+                $urlfoto = $request->file('ine');
+                $nombre = time().".".$urlfoto->guessExtension();
+                $ruta = public_path('/exp-ine/'.$nombre);
+                $compresion = Image::make($urlfoto->getRealPath())
+                    ->save($ruta,10);
+   	}
+         $exp_ine->ine = $compresion->basename;
 
     	/* Compara el auto que se selecciono con la db */
         $automovil = DB::table('automovil')
