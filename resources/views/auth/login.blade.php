@@ -44,7 +44,15 @@
                                 @enderror
                         </div>
 
-                        <div class="form-group row">
+                        <style>
+                            .form-check-input:checked {
+                                background-color: #00f936;
+                                border-color: #00f936;
+                            }
+                        </style>
+
+
+                        <div class="form-group row p-4 ">
                             <div class="col-md-6 offset-md-4">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
