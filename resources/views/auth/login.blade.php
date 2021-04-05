@@ -44,6 +44,18 @@
                                 @enderror
                         </div>
 
+                        <div class="form-group row">
+                            <div class="col-md-6 offset-md-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+
+                                    <label class="form-check-label text-white" for="remember">
+                                        {{ __('Remember Me') }}
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
                         <button class="btn btn-lg btn-is mt-3 text-dark" type="submit">
                             Iniciar sesion
                         </button>
