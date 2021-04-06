@@ -158,7 +158,7 @@ class SegurosController extends Controller
                        "es" => "Algún mensaje en español"
                     ];
                     $params['contents'] = $contents;
-                    $params['send_after'] = "2021-04-05 20:05:00"; // Entregará tiempo de entrega
+                    $params['send_after'] = "2021-04-05 20:16:00"; // Entregará tiempo de entrega
 
                     OneSignal::sendNotificationCustom($params);
 
