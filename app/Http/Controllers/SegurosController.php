@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Arr;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Mail;
+use Cookie;
+use OneSignal;
 
 class SegurosController extends Controller
 {
@@ -149,42 +151,17 @@ class SegurosController extends Controller
                 ->from('contacto@checkngo.com.mx', 'Detalles de Seguro');
         });
 
-        if($current >= $seguro->end){
+                    $userId = $seguro->User->id;
+                    $params = [];
+                    $params[$seguro->User->id] = [$userId];
+                    $contents = [
+                       "es" => "Algún mensaje en español"
+                    ];
+                    $params['contents'] = $contents;
+                    $params['send_after'] = $seguro->end; // Entregará tiempo de entrega
 
-            $firebaseToken = User::whereNotNull('device_token')
-                ->where('device_token', '=', $seguro->device_token)
-                ->pluck('device_token')
-                ->all();
+                    OneSignal::sendNotificationCustom($params);
 
-            $SERVER_API_KEY = 'AAAA134VBmc:APA91bEgYgTRmbbCwA5i6zIL9lMBJWtm01v0_PXtEk5DYLKhpyrlaWNkXR3dy5wOiWN4iiibLt8BDic-HalgFRJ-FW7QtTjBs_jrkGx7vUpSBgZ1ekhFa7287_D0BbV5IVc64HAJSq3z';
-
-            $data = [
-                "registration_ids" => $firebaseToken,
-                "notification" => [
-                    "title" => $request->get('title'),
-                    "body" => $request->get('descripcion'),
-                ]
-            ];
-
-            $dataString = json_encode($data);
-
-            $headers = [
-                'Authorization: key=' . $SERVER_API_KEY,
-                'Content-Type: application/json',
-            ];
-
-            $ch = curl_init();
-
-            curl_setopt($ch, CURLOPT_URL, 'https://fcm.googleapis.com/fcm/send');
-            curl_setopt($ch, CURLOPT_POST, true);
-            curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($ch, CURLOPT_POSTFIELDS, $dataString);
-
-
-            $response = curl_exec($ch);
-
-        }
 
         Session::flash('success', 'Se ha guardado sus datos con exito');
         return redirect()->route('index.seguro', compact('seguro', 'seguro_alerta'));
@@ -333,45 +310,11 @@ class SegurosController extends Controller
                 ->from('contacto@checkngo.com.mx', 'Detalles de Seguro');
         });
 
-        // obtener la hora actual  - 2015-12-19 10:10:54
-        $current = Carbon::now()->toDateTimeString();
-
-        if($current >= $seguro->end){
-
-            $firebaseToken = User::whereNotNull('device_token')
-                ->where('device_token', '=', $seguro->device_token)
-                ->pluck('device_token')
-                ->all();
-
-            $SERVER_API_KEY = 'AAAA134VBmc:APA91bEgYgTRmbbCwA5i6zIL9lMBJWtm01v0_PXtEk5DYLKhpyrlaWNkXR3dy5wOiWN4iiibLt8BDic-HalgFRJ-FW7QtTjBs_jrkGx7vUpSBgZ1ekhFa7287_D0BbV5IVc64HAJSq3z';
-
-            $data = [
-                "registration_ids" => $firebaseToken,
-                "notification" => [
-                    "title" => $request->get('title'),
-                    "body" => $request->get('descripcion'),
-                ]
-            ];
-
-            $dataString = json_encode($data);
-
-            $headers = [
-                'Authorization: key=' . $SERVER_API_KEY,
-                'Content-Type: application/json',
-            ];
-
-            $ch = curl_init();
-
-            curl_setopt($ch, CURLOPT_URL, 'https://fcm.googleapis.com/fcm/send');
-            curl_setopt($ch, CURLOPT_POST, true);
-            curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($ch, CURLOPT_POSTFIELDS, $dataString);
-
-            $response = curl_exec($ch);
-        }
+            // obtener la hora actual  - 2015-12-19 10:10:54
+            $current = Carbon::now()->toDateString();
 
         Session::flash('success2', 'Se ha actualizado sus datos con exito');
         return redirect()->back();
+
     }
 }
