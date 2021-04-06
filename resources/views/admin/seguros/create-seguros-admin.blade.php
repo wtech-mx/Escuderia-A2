@@ -193,7 +193,7 @@
                                 </div>
 
                                  <label for="">
-                                     <p class="text-white"><strong>Fecha de expedicion</strong></p>
+                                     <p class="text-white"><strong>Fecha de expedici&oacute;n</strong></p>
                                  </label>
 
                                 <div class="input-group form-group">
@@ -263,7 +263,7 @@
                                 </div>
 
                                  <label for="">
-                                     <p class="text-white mt-3"><strong>Foto Poliza Seguro</strong></p>
+                                     <p class="text-white mt-3"><strong>Foto P&oacute;liza Seguro</strong></p>
                                  </label>
 
                                 <div class="col-12 text-center">

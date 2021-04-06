@@ -75,7 +75,7 @@
                                     <script>
                                         Swal.fire(
                                             'Exito!',
-                                            'Se ha guardado exitosamiente.',
+                                            'Se ha guardado exitosamente.',
                                             'success'
                                         )
                                     </script>
@@ -112,7 +112,7 @@
                                 </div>
 
                                  <label for="">
-                                     <p class="text-white"><strong>Telefono</strong></p>
+                                     <p class="text-white"><strong>Tel&eacute;fono</strong></p>
                                  </label>
 
                                 <div class="input-group form-group">
@@ -126,7 +126,7 @@
 
 
                                  <label for="">
-                                     <p class="text-white"><strong>Direccion</strong></p>
+                                     <p class="text-white"><strong>Direcci&oacute;n</strong></p>
                                  </label>
 
                                 <div class="input-group form-group">

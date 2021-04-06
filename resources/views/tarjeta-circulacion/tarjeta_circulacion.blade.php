@@ -40,7 +40,7 @@
 
                     <div class="col-8 mt-5">
                                 <h5 class="text-center text-white ml-4 mr-4 ">
-                                    <strong>Tarjeta de Circulacion</strong>
+                                    <strong>Tarjeta de Circulaci&oacute;n</strong>
                                 </h5>
                     </div>
 
@@ -66,8 +66,8 @@
                                 </p>
 
                                 <p class="text-center  text-white">
-                                    <strong style="font: normal normal bold 20px/20px Segoe UI;">Aun no tienes Tarjeta de circulacion! </strong><br>
-                                    <br> Cree un Auto para generar su tarjeta de circulacion <br>
+                                    <strong style="font: normal normal bold 20px/20px Segoe UI;">Aun no tienes Tarjeta de circulaci&oacute;n! </strong><br>
+                                    <br> Cree un Auto para generar su tarjeta de circulaci&oacute;n <br>
                                     <br> click en el botón de + para <br> agregar tu Auto
                                 </p>
 
@@ -93,7 +93,7 @@
                             <input type="hidden" name="_method" value="PATCH">
 
                             <p class="text-left text-white mt-5 mb-5" style="font: normal normal bold 20px/27px Segoe UI;">
-                                <strong>Detalles de Tarjeta de Circulacion</strong>
+                                <strong>Detalles de Tarjeta de Circulaci&oacute;n</strong>
                             </p>
 
                             {{--Datos para el calendario--}}
@@ -194,7 +194,7 @@
                                 </div>
 
                                  <label for="">
-                                     <p class="text-white"><strong>Tipo_placa</strong></p>
+                                     <p class="text-white"><strong>Tipo placa</strong></p>
                                  </label>
 
                                 <div class="input-group form-group">
@@ -218,7 +218,7 @@
                                 </div>
 
                                  <label for="">
-                                     <p class="text-white"><strong>Lugar_expedicion</strong></p>
+                                     <p class="text-white"><strong>Lugar expedici&oacute;n</strong></p>
                                  </label>
 
                                 <div class="input-group form-group">

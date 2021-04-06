@@ -126,7 +126,7 @@
                                 <div class="card" style="border-radius: 15px">
                                   <div class="card-body" >
                                       <img class="d-inline mb-2" src="{{ asset('img/icon/black/documento.png') }}" alt="Icon documento" width="50px">
-                                      <p class="card-text"><strong>T. de Circulacion</strong></p>
+                                      <p class="card-text"><strong>T. de Circulaci&oacute;n</strong></p>
                                   </div>
                                 </div>
                              </a>
@@ -148,7 +148,7 @@
                                 <div class="card" style="border-radius: 15px">
                                   <div class="card-body" >
                                       <img class="d-inline mb-2" src="{{ asset('img/icon/black/expediente.png') }}" alt="Icon Exp Fisico" width="50px">
-                                      <p class="card-text"><strong>Exp Fisico</strong></p>
+                                      <p class="card-text"><strong>Exp F&iacute;sico</strong></p>
                                   </div>
                                 </div>
                             </a>
