@@ -22,7 +22,7 @@
                                    <a href="{{ route('create_servicio.servicio') }}" >
                                        <p class="text-center mt-2" style="font: normal normal bold 25px/33px Segoe UI;color: #FFFFFF">
                                            <img src="{{ asset('img/icon/color/coche (5).png') }}" alt="Icon documento" width="40px">
-                                           Mecanica
+                                           Mec&aacute;nica
                                        </p>
                                   </a>
                               </div>

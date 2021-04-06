@@ -61,7 +61,7 @@
                                             </div>
 
                                             <select class="form-control" id="current_auto" name="current_auto" value="{{ old('current_auto') }}">
-                                              <option value="">seleccione auto</option>
+                                              <option value="">Seleccione auto</option>
                                             </select>
                                         </div>
 
@@ -89,7 +89,7 @@
                                         </div>
 
                                          <label for="">
-                                             <p class="text-white"><strong>Vehiculo</strong></p>
+                                             <p class="text-white"><strong>Veh&iacute;culo</strong></p>
                                          </label>
 
                                         <div class="input-group form-group">
@@ -100,7 +100,7 @@
                                             </div>
 
                                             <select class="form-control formselect" id="current_auto2" name="current_auto2" value="{{ old('current_auto2') }}">
-                                                    <option value="">seleccione auto</option>
+                                                    <option value="">Seleccione auto</option>
                                             </select>
                                         </div>
                                       </div>
@@ -198,7 +198,7 @@
 
                                   <div class="col-12 p-4">
                                          <label for="">
-                                             <p class="text-white"><strong>Descripción y/o información adicional</strong></p>
+                                             <p class="text-white"><strong>Descripci&oacute;n y/o informaci&oacute;n adicional</strong></p>
                                          </label>
 
                                             <div class="input-group form-group">
@@ -213,7 +213,7 @@
                                             <input type="hidden" class="form-control" placeholder="servicio" style="border-radius: 0  10px 10px 0;" id="servicio" name="servicio" value="1">
 
                                          <label for="">
-                                             <p class="text-white"><strong>Garantia</strong></p>
+                                             <p class="text-white"><strong>Garant&iacute;a</strong></p>
                                          </label>
 
                                             <div class="input-group form-group">
@@ -239,7 +239,7 @@
                                             </div>
 
                                          <label for="">
-                                             <p class="text-white"><strong>Km actual del vechiculo</strong></p>
+                                             <p class="text-white"><strong>Km actual del vech&iacute;culo</strong></p>
                                          </label>
 
                                             <div class="input-group form-group">
@@ -265,21 +265,21 @@
                                         </div>
 <input type="hidden" class="form-control" id='image' name="image" value="{{asset('img/icon/color/comprobado.png') }}">
                                          <label for="">
-                                             <p class="text-white"><strong>Video Interior</strong></p>
+                                             <p class="text-white"><strong>V&iacute;deo Interior</strong></p>
                                          </label>
 
                                         <div class="custom-file">
                                           <input type="file" class="custom-file-input " id="video" name="video">
-                                          <label class="custom-file-label " for="customFile">Selecciona Video</label>
+                                          <label class="custom-file-label " for="customFile">Selecciona V&iacute;deo</label>
                                         </div>
 
                                          <label for="" class="mt-3">
-                                             <p class="text-white"><strong>Video Exterior</strong></p>
+                                             <p class="text-white"><strong>V&iacute;deo Exterior</strong></p>
                                          </label>
 
                                         <div class="custom-file">
                                           <input type="file" class="custom-file-input" id="video2" name="video2">
-                                          <label class="custom-file-label" for="customFile">Selecciona Video</label>
+                                          <label class="custom-file-label" for="customFile">Selecciona V&iacute;deo</label>
                                         </div>
 
                                           <button class="btn btn-lg btn-success btn-save-neon text-white mt-4" style="margin-bottom: 8rem !important;">
@@ -296,7 +296,7 @@
                                                     let id = $(this).val();
                                                     //id_user no esta en la tabla de automovil
                                                     $('#current_auto2').empty();
-                                                    $('#current_auto2').append(`<option value="" disabled selected>Prosesando..</option>`);
+                                                    $('#current_auto2').append(`<option value="" disabled selected>Procesando..</option>`);
                                                     $.ajax({
                                                     type: 'GET',
                                                     url: 'crear/' + id,
@@ -305,7 +305,7 @@
                                                     console.log(response);
                                                     //trae los automoviles relacionados con el id_user
                                                     $('#current_auto2').empty();
-                                                    $('#current_auto2').append(`<option value="" disabled selected>Seleccione Automovil</option>`);
+                                                    $('#current_auto2').append(`<option value="" disabled selected>Seleccione Autom&oacute;vil</option>`);
                                                     response.forEach(element => {
                                                         $('#current_auto2').append(`<option value="${element['id']}">${element['submarca']}</option>`);
                                                         });
@@ -321,7 +321,7 @@
                                                     let id = $(this).val();
                                                     //id_empresa no esta en la tabla de automovil
                                                     $('#current_auto').empty();
-                                                    $('#current_auto').append(`<option value="" disabled selected>Prosesando..</option>`);
+                                                    $('#current_auto').append(`<option value="" disabled selected>Procesando..</option>`);
                                                     $.ajax({
                                                     type: 'GET',
                                                     url: 'crear/empresa/' + id,
@@ -330,7 +330,7 @@
                                                     console.log(response);
                                                     //trae los automoviles relacionados con el id_empresa
                                                     $('#current_auto').empty();
-                                                    $('#current_auto').append(`<option value="" disabled selected>Seleccione Automovil</option>`);
+                                                    $('#current_auto').append(`<option value="" disabled selected>Seleccione Autom&oacute;vil</option>`);
                                                     response.forEach(element => {
                                                         $('#current_auto').append(`<option value="${element['id']}">${element['submarca']}</option>`);
                                                         });

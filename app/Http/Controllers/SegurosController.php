@@ -150,19 +150,9 @@ class SegurosController extends Controller
                 ->subject($subject)
                 ->from('contacto@checkngo.com.mx', 'Detalles de Seguro');
         });
-
-                    $userId = $seguro->User->id;
-                    $params = [];
-                    $params['id_user'] = [$userId];
-                    $contents = [
-                       "es" => "Algún mensaje en español"
-                    ];
-                    $params['contents'] = $contents;
-                    $params['send_after'] = "2021-04-05 20:16:00"; // Entregará tiempo de entrega
-
-                    OneSignal::sendNotificationCustom($params);
-
-
+    OneSignal::sendNotificationToAll(
+        "Some Message",
+    );
         Session::flash('success', 'Se ha guardado sus datos con exito');
         return redirect()->route('index.seguro', compact('seguro', 'seguro_alerta'));
 

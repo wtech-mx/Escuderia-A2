@@ -11,7 +11,7 @@
                                 Swal.fire({
                                   title: 'Exito!!',
                                   html:
-                                    'Se ha actualizado tu  <b>Tarjeta de Circulación</b>, ' +
+                                    'Se ha actualizado tu  <b>Tarjeta de Circulaci&oacute;n</b>, ' +
                                     'Exitosamente',
                                   // text: 'Se ha agragado la "TC" Exitosamente',
                                   imageUrl: '{{ asset('img/icon/color/dosier.png') }}',
@@ -35,7 +35,7 @@
 
                         <div class="col-8  mt-4">
                                     <h5 class="text-center text-white ml-4 mr-4 ">
-                                        <strong>Tarjetas Circulacion</strong>
+                                        <strong>Tarjetas Circulaci&oacute;n</strong>
                                     </h5>
                         </div>
 
@@ -82,14 +82,14 @@
 
                                 <div class="carousel-item active">
                                     <h5 class="text-center text-white mt-4 ml-4 mr-4 ">
-                                        <strong>Tarjetas Circulacion Usuario</strong>
+                                        <strong>Tarjetas Circulaci&oacute;n Usuario</strong>
                                     </h5>
 
                                     @if(Session::has('success'))
                                         <script>
                                             Swal.fire(
                                                 'Exito!',
-                                                'Se ha guardado exitosamiente.',
+                                                'Se ha guardado exitosamente.',
                                                 'success'
                                             )
                                         </script>
@@ -126,14 +126,14 @@
 
                                 <div class="carousel-item">
                                     <h5 class="text-center text-white mt-4 ml-4 mr-4 ">
-                                        <strong>Tarjetas Circulacion Empresa</strong>
+                                        <strong>Tarjetas Circulaci&oacute;n Empresa</strong>
                                     </h5>
 
                                     @if(Session::has('success'))
                                         <script>
                                             Swal.fire(
                                                 'Exito!',
-                                                'Se ha guardado exitosamiente.',
+                                                'Se ha guardado exitosamente.',
                                                 'success'
                                             )
                                         </script>

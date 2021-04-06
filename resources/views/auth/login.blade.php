@@ -21,7 +21,7 @@
                     <div class="col-12 p-5">
 
                         <h1 class="text-center text-white p-3">
-                            <strong>Iniciar sesion.</strong>
+                            <strong>Iniciar sesi&oacute;n.</strong>
                         </h1>
 
                         <div class="wrap-input100 validate-input m-b-20" data-validate="Enter username or email">
@@ -65,12 +65,12 @@
                         </div>
 
                         <button class="btn btn-lg btn-is mt-3 text-dark" type="submit">
-                            Iniciar sesion
+                            Iniciar sesi&oacute;n
                         </button>
 
                         <p class="text-center mt-3">
                             <a  class="text-center " href="{{ route('password.request') }}" style="color: #FFFFFF">
-                                Olvidaste tu contraseña?
+                                ¿Olvidaste tu contraseña?
                             </a>
                         </p>
 
@@ -88,8 +88,8 @@
                         </div>
 
                         <p class="text-center mt-3 text-white">
-                            No tienes una cuenta?
-                            <a  class="text-center " href="{{ route('register') }}" style="color: #00f936">Registrate</a>
+                            ¿No tienes una cuenta?
+                            <a  class="text-center " href="{{ route('register') }}" style="color: #00f936">Reg&iacute;strate</a>
                         </p>
 
                     </div>

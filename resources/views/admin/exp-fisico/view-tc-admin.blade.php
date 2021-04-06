@@ -10,7 +10,7 @@
                             Swal.fire({
                               title: 'Exito!!',
                               html:
-                                'Se ha agragado la <b>Tarjeta de circulacion</b>, ' +
+                                'Se ha agragado la <b>Tarjeta de circulaci&oacute;n</b>, ' +
                                 'Exitosamente',
                               // text: 'Se ha agragado la "MARCA" Exitosamente',
                               imageUrl: '{{ asset('img/icon/color/licencia-de-conducir.png') }}',
@@ -34,7 +34,7 @@
 
                         <div class="col-8  mt-4">
                                     <h5 class="text-center text-white ml-4 mr-4 ">
-                                        <strong>Copia de tarjeta de circulacion</strong>
+                                        <strong>Copia de tarjeta de circulaci&oacute;n</strong>
                                     </h5>
                         </div>
 
@@ -172,7 +172,7 @@
 
                                     <p class="text-center">
                                         Agregar <br>
-                                        Copia de tarjeta de circulacion
+                                        Copia de tarjeta de circulaci&oacute;n
                                         <br>
                                         <button type="submit" class="btn btn-success btn-save text-white">
                                             <img class="d-inline" src="{{ asset('img/icon/white/save-file-option (1).png') }}" alt="Icon documento" width="30px">

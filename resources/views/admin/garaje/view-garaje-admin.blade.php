@@ -35,7 +35,7 @@
 
                         <div class="col-8  mt-4">
                                     <h5 class="text-center text-white ml-4 mr-4 ">
-                                        <strong>Vehiculos</strong>
+                                        <strong>Veh&iacute;culos</strong>
                                     </h5>
                         </div>
 
@@ -79,7 +79,7 @@
 
                                     <div class="carousel-item active">
                                         <h5 class="text-center text-white mt-4 ml-4 mr-4 ">
-                                            <strong>Vehiculos Personales</strong>
+                                            <strong>Veh&iacute;culos Personales</strong>
                                         </h5>
 
                                         {{  Form::open(['route' => 'index_admin.automovil' , 'method' => 'GET' , 'class'=>'form-inline pull-right'] )  }}
@@ -105,7 +105,7 @@
                                             <script>
                                                 Swal.fire(
                                                     'Exito!',
-                                                    'Se ha guardado exitosamiente.',
+                                                    'Se ha guardado exitosamente.',
                                                     'success'
                                                 )
                                             </script>
@@ -168,7 +168,7 @@
                                     <div class="carousel-item ">
 
                                         <h5 class="text-center text-white mt-4 ml-4 mr-4 ">
-                                            <strong>Vehiculos Empresas</strong>
+                                            <strong>Veh&iacute;culos Empresas</strong>
                                         </h5>
 
                                       <div class="row">

@@ -19,7 +19,7 @@
 
                         <div class="col-8  mt-4">
                                     <h5 class="text-center text-white ml-4 mr-4 ">
-                                        <strong>Expediente Fisico</strong>
+                                        <strong>Expediente F&iacute;sico</strong>
                                     </h5>
                         </div>
 
@@ -95,7 +95,7 @@
 
                                             <div class="collapse mt-1 " id="collapse{{$item->id}}">
                                               <div class="card card-body card-slide-garaje">
-                                                  <p class="text-center"><strong style="font-size: 19px">Expediente Fisico</strong></p>
+                                                  <p class="text-center"><strong style="font-size: 19px">Expediente F&iacute;sico</strong></p>
 
                                                   <div class="d-flex justify-content-between">
 
@@ -153,7 +153,7 @@
 
                                                        <a href="{{ route('create_admin.view-tc-admin',$item->id) }}">
                                                         <span class="badge bg-secondary" style="font-size: 70%;">
-                                                            tarjeta de circulacion
+                                                            tarjeta de circulaci&oacute;n
                                                             @foreach($tc2 as $auto)
                                                                 @if($item->id == $auto->current_auto)
                                                                          {{$tc}}
@@ -177,7 +177,7 @@
 
                                                        <a href="{{ route('create_admin.view-certificado-admin',$item->id) }}">
                                                         <span class="badge bg-secondary" style="font-size: 70%;">
-                                                            verificacion
+                                                            Verificaci&oacute;n
                                                             @foreach($certificado2 as $auto)
                                                                 @if($item->id == $auto->current_auto)
                                                                          {{$certificado}}
@@ -291,7 +291,7 @@
 
                                             <div class="collapse mt-1 " id="collapse{{$item->submarca}}">
                                               <div class="card card-body card-slide-garaje">
-                                                  <p class="text-center"><strong style="font-size: 19px">Expediente Fisico</strong></p>
+                                                  <p class="text-center"><strong style="font-size: 19px">Expediente F&iacute;sico</strong></p>
 
                                                   <div class="d-flex justify-content-between">
 
@@ -325,7 +325,7 @@
 
                                                        <a href="{{ route('create_admin.view-tc-admin',$item->id) }}">
                                                         <span class="badge badge-secondary" style="font-size: 70%;">
-                                                            tarjeta de circulacion
+                                                            Tarjeta de circulaci&iacute;n
                                                         </span>
                                                       </a>
 

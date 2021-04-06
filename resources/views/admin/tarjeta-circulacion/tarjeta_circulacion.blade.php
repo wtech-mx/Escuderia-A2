@@ -25,7 +25,7 @@ $newDate = date("d/m/Y", strtotime($originalDate));
 
                     <div class="col-8 mt-5">
                                 <h5 class="text-center text-white ml-4 mr-4 ">
-                                    <strong>Tarjeta de Circulacion</strong>
+                                    <strong>Tarjeta de Circulaci&oacute;n</strong>
                                 </h5>
                     </div>
 
@@ -55,7 +55,7 @@ $newDate = date("d/m/Y", strtotime($originalDate));
                                             Swal.fire({
                                               title: 'Exito!!',
                                               html:
-                                                'Se ha actualizado tu  <b>Tarjeta de Circulación</b>, ' +
+                                                'Se ha actualizado tu  <b>Tarjeta de Circulaci&oacute;n</b>, ' +
                                                 'Exitosamente',
                                               // text: 'Se ha agragado la "MARCA" Exitosamente',
                                               imageUrl: '{{ asset('img/icon/color/dosier.png') }}',
@@ -68,7 +68,7 @@ $newDate = date("d/m/Y", strtotime($originalDate));
                             @endif
 
                         <p class="text-left text-white mt-5 mb-5" style="font: normal normal bold 20px/27px Segoe UI;">
-                            <strong>Detalles de Tarjeta de Circulacion</strong>
+                            <strong>Detalles de Tarjeta de Circulaci&oacute;n</strong>
                         </p>
 
                         {{--Datos para el calendario--}}
@@ -142,7 +142,7 @@ $newDate = date("d/m/Y", strtotime($originalDate));
 
                                 <div class="col-6">
                                      <label for="">
-                                         <p class="text-white"><strong>Ultimos dígito placa</strong></p>
+                                         <p class="text-white"><strong>Ultimos d&iacute;gito placa</strong></p>
                                      </label>
 
                                     <div class="input-group form-group">
@@ -173,7 +173,7 @@ $newDate = date("d/m/Y", strtotime($originalDate));
                             </div>
 
                              <label for="">
-                                 <p class="text-white"><strong>Tipo_placa</strong></p>
+                                 <p class="text-white"><strong>Tipo placa</strong></p>
                              </label>
 
                             <div class="input-group form-group">
@@ -196,7 +196,7 @@ $newDate = date("d/m/Y", strtotime($originalDate));
                             </div>
 
                              <label for="">
-                                 <p class="text-white"><strong>Lugar_expedicion</strong></p>
+                                 <p class="text-white"><strong>Lugar expedicion</strong></p>
                              </label>
 
                             <div class="input-group form-group">

@@ -52,7 +52,7 @@
 
                     <div class="col-8  mt-5">
                                 <h5 class="text-center text-white ml-4 mr-4 ">
-                                    <strong>Servicio Mecanica</strong>
+                                    <strong>Servicio Mec&aacute;nica</strong>
                                 </h5>
                     </div>
 
@@ -112,21 +112,21 @@
                                   <li class="nav-item">
                                     <a class="nav-link a-nav" id="pills-Afinacion-tab" data-toggle="pill" href="#pills-Afinacion" role="tab" aria-controls="pills-Afinacion" aria-selected="false">
                                         <img class="" src="{{ asset('img/icon/color/motor-del-coche.png') }}" alt="Icon User" width="20px">
-                                        Afinacion
+                                        Afinaci&oacute;n
                                     </a>
                                   </li>
 
                                   <li class="nav-item">
                                     <a class="nav-link a-nav" id="pills-Amortig-tab" data-toggle="pill" href="#pills-Amortig" role="tab" aria-controls="pills-Amortig" aria-selected="false">
                                         <img class="" src="{{ asset('img/icon/color/amortiguador (2).png') }}" alt="Icon User" width="20px">
-                                        Amortig
+                                        Amortiguador
                                     </a>
                                   </li>
 
                                   <li class="nav-item a-nav">
                                     <a class="nav-link" id="pills-Bateria-tab" data-toggle="pill" href="#pills-Bateria" role="tab" aria-controls="pills-Bateria" aria-selected="false">
                                         <img class="" src="{{ asset('img/icon/color/bateria.png') }}" alt="Icon User" width="20px">
-                                        Bateria
+                                        Bater&iacute;a
                                     </a>
                                   </li>
                                 </ul>
