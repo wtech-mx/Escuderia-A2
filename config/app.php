@@ -162,9 +162,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Laraveles\Spanish\SpanishServiceProvider::class,
-
-        Berkayk\OneSignal\OneSignalServiceProvider::class,
-
+        
         /*
          * Package Service Providers...
          */
@@ -233,7 +231,6 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
-        'OneSignal' => Berkayk\OneSignal\OneSignalFacade::class,
         'Form' => Collective\Html\FormFacade::class,
     ],
 
