@@ -231,7 +231,7 @@
 
                                     <select class="form-control" id="tipo_cobertura" name="tipo_cobertura">
                                       <option value="{{$seguro->tipo_cobertura}}" selected>{{$seguro->tipo_cobertura}}</option>
-                                      <option value="Amplia">Amplia</option>
+                                      <option value="Amplia">Ampl&iacute;a</option>
                                       <option value="Limitada">Limitada</option>
                                     </select>
                                 </div>

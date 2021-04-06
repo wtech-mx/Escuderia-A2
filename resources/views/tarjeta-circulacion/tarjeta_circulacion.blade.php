@@ -66,7 +66,7 @@
                                 </p>
 
                                 <p class="text-center  text-white">
-                                    <strong style="font: normal normal bold 20px/20px Segoe UI;">Aun no tienes Tarjeta de circulaci&oacute;n! </strong><br>
+                                    <strong style="font: normal normal bold 20px/20px Segoe UI;">A&uacute;n no tienes Tarjeta de circulaci&oacute;n! </strong><br>
                                     <br> Cree un Auto para generar su tarjeta de circulaci&oacute;n <br>
                                     <br> click en el botón de + para <br> agregar tu Auto
                                 </p>
@@ -164,7 +164,7 @@
 
                                     <div class="col-6">
                                          <label for="">
-                                             <p class="text-white"><strong>Ultimos dígito placa</strong></p>
+                                             <p class="text-white"><strong>Últimos dígito placa</strong></p>
                                          </label>
 
                                         <div class="input-group form-group">

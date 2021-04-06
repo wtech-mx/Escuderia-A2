@@ -325,7 +325,7 @@
 
                                                        <a href="{{ route('create_admin.view-tc-admin',$item->id) }}">
                                                         <span class="badge badge-secondary" style="font-size: 70%;">
-                                                            Tarjeta de circulaci&iacute;n
+                                                            Tarjeta de circulaci&oacute;n
                                                         </span>
                                                       </a>
 

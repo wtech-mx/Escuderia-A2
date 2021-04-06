@@ -52,7 +52,7 @@
                                         <script>
                                             Swal.fire(
                                                 'Exito!',
-                                                'Se ha guardado exitosamiente.',
+                                                'Se ha guardado exitosamente.',
                                                 'success'
                                             )
                                         </script>
@@ -89,7 +89,7 @@
                                     @endforeach
                                     </div>
 
-                                  </div>Servicio Mecanica
+                                  </div>Servicio Mec&aacute;nica
                 </div>
 
 

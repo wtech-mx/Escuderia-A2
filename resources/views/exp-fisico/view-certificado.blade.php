@@ -33,7 +33,7 @@
                         <div class="col-12 mt-3 mb-5">
                             <div class="d-flex justify-content-between">
                             <p class="text-center text-white">
-                                Agregar mas
+                                Agregar m&aacute;s
                             </p>
 
                                 <!-- Button trigger modal -->
@@ -96,7 +96,7 @@
 
                             </p>
                             <p class="text-center  text-white">
-                             <strong style="font: normal normal bold 20px/20px Segoe UI;">Aun no tienes Expedientes! </strong><br>
+                             <strong style="font: normal normal bold 20px/20px Segoe UI;">A&uacute;n no tienes Expedientes! </strong><br>
                              Escanea tus documentos has <br> click en el botón de + para <br> agregar tu expediente
                             </p>
                         </div>

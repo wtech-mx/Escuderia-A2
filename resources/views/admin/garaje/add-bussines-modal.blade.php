@@ -313,7 +313,7 @@
                                 </div>
 
                              <label for="">
-                                 <p class="text-white"><strong>Genero</strong></p>
+                                 <p class="text-white"><strong>G&eacute;nero</strong></p>
                              </label>
 
                           <div class="col-12 text-center">

@@ -33,7 +33,7 @@
                       </div>
 
                       <div class="form-group col-12 mb-3">
-                          <label for="">Titulo</label>
+                          <label for="">T&iacute;tulo</label>
                           <input class="form-control" type="text" name="title" id="title">
                       </div>
 
