@@ -153,12 +153,12 @@ class SegurosController extends Controller
 
                     $userId = $seguro->User->id;
                     $params = [];
-                    $params[$seguro->User->id] = [$userId];
+                    $params['id_user'] = [$userId];
                     $contents = [
                        "es" => "Algún mensaje en español"
                     ];
                     $params['contents'] = $contents;
-                    $params['send_after'] = $seguro->end; // Entregará tiempo de entrega
+                    $params['send_after'] = "2021-04-05 20:05:00"; // Entregará tiempo de entrega
 
                     OneSignal::sendNotificationCustom($params);
 

@@ -122,7 +122,15 @@
 @if($exibirModal === true)
 <script src="{{ asset('js/ios.js') }}"></script>
 @endif
-
+        <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+        <script>
+          window.OneSignal = window.OneSignal || [];
+          OneSignal.push(function() {
+            OneSignal.init({
+              appId: "fedb6b0a-c9a3-4066-8d6e-48f79ecc30e6",
+            });
+          });
+        </script>
 {{--@include('layouts.indexdb')--}}
 </html>
 
