@@ -121,7 +121,12 @@
 
 @if($exibirModal === true)
 <script src="{{ asset('js/ios.js') }}"></script>
+
 @endif
+<script src="{{ asset('OneSignalSDKUpdaterWorker.js') }}"></script>
+<script src="{{ asset('OneSignalSDKWorker.js') }}"></script>
+<script src="https://cdn.onesignal.com/sdks/OneSignalSDKWorker.js"></script>
+
         <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
         <script>
           window.OneSignal = window.OneSignal || [];
