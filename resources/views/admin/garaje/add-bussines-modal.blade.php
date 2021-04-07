@@ -78,7 +78,7 @@
                                 </div>
 
                                  <label for="">
-                                     <p class="text-white"><strong>Telefono</strong></p>
+                                     <p class="text-white"><strong>Tel&eacute;fono</strong></p>
                                  </label>
 
                                 <div class="input-group form-group">
@@ -92,7 +92,7 @@
 
 
                                  <label for="">
-                                     <p class="text-white"><strong>Direccion</strong></p>
+                                     <p class="text-white"><strong>Direcci&oacute;n</strong></p>
                                  </label>
 
                                 <div class="input-group form-group">
@@ -255,7 +255,7 @@
                                 </div>
 
                                  <label for="">
-                                     <p class="text-white"><strong>Telefono</strong></p>
+                                     <p class="text-white"><strong>Tel&eacute;fono</strong></p>
                                  </label>
 
                                 <div class="input-group form-group">
@@ -269,7 +269,7 @@
 
 
                                  <label for="">
-                                     <p class="text-white"><strong>Direccion</strong></p>
+                                     <p class="text-white"><strong>Direcci&oacute;n</strong></p>
                                  </label>
 
                                 <div class="input-group form-group">
@@ -313,7 +313,7 @@
                                 </div>
 
                              <label for="">
-                                 <p class="text-white"><strong>Genero</strong></p>
+                                 <p class="text-white"><strong>G&eacute;nero</strong></p>
                              </label>
 
                           <div class="col-12 text-center">

@@ -17,7 +17,7 @@
                             <script>
                                 Swal.fire(
                                     'Exito!',
-                                    'Se ha guardado exitosamiente.',
+                                    'Se ha guardado exitosamente.',
                                     'success'
                                 )
                             </script>
@@ -47,7 +47,7 @@
                                                   <th scope="col">Servicio</th>
                                                   <th scope="col">Km</th>
                                                   <th scope="col">Fecha</th>
-                                                  <th scope="col">cambio</th>
+                                                  <th scope="col">Cambio</th>
                                                 </tr>
                                               </thead>
 
@@ -99,8 +99,8 @@
                                                   <thead>
                                                     <tr>
                                                       <th scope="col">Usuario</th>
-                                                      <th scope="col">Titulo</th>
-                                                      <th scope="col">Descripcion</th>
+                                                      <th scope="col">T&iacute;tulo</th>
+                                                      <th scope="col">Descripci&oacute;n</th>
                                                       <th scope="col">Fecha Inicio</th>
                                                     </tr>
                                                   </thead>

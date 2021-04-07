@@ -59,7 +59,7 @@
 
                           <li class="nav-item">
                             <a class="nav-link a-auto" id="pills-Vinculacion-tab" data-toggle="pill" href="#pills-Vinculacion" role="tab" aria-controls="pills-Vinculacion" aria-selected="false">
-                                Vinculacion
+                                Vinculaci&oacute;n
                             </a>
                           </li>
 
@@ -280,7 +280,7 @@
 
                                      <button type="submit" class="btn btn-lg btn-save-dark text-white mt-5" style="margin-bottom: 8rem !important;">
                                            <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}" width="20px" >
-                                                Guardar
+                                                Actualizar
                                      </button>
                               </div>
 

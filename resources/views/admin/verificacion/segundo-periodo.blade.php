@@ -14,7 +14,7 @@
                     <div class="col-12 mt-1">
 
                             <p class="text-left text-white" style="font: normal normal bold 20px/27px Segoe UI;">
-                                <strong>Segundo Periodo de Verificacion</strong>
+                                <strong>Segundo Periodo de Verificaci&oacute;n</strong>
                             </p>
                             {{--Datos para el calendario--}}
                             <div class="input-group form-group">

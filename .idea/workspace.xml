@@ -21,9 +21,17 @@
   <component name="ChangeListManager">
     <list default="true" id="936a45dc-4f36-4130-a52f-695b08d602c5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OneSignalSDKUpdaterWorker.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OneSignalSDKWorker.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SegurosController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SegurosController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/empresas/add-empresa-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/empresas/add-empresa-admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/empresas/edit-empresa-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/empresas/edit-empresa-admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/seguros/create-seguros-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/seguros/create-seguros-admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/seguros/modal-poladmin-img.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/seguros/modal-poladmin-img.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/verificacion/create-verificacion-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/verificacion/create-verificacion-admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/verificacion/primer-periodo.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/verificacion/primer-periodo.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/verificacion/segundo-periodo.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/verificacion/segundo-periodo.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/verificacion/view-verificacion-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/verificacion/view-verificacion-admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/alerts/view-alerts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/alerts/view-alerts.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/tarjeta-circulacion/tarjeta_circulacion.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/tarjeta-circulacion/tarjeta_circulacion.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

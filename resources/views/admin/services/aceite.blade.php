@@ -53,7 +53,7 @@
                                         </div>
 
                                          <label for="">
-                                             <p class="text-white"><strong>Vehiculo</strong></p>
+                                             <p class="text-white"><strong>Veh&iacute;culo</strong></p>
                                          </label>
 
                                         <div class="input-group form-group">
@@ -92,7 +92,7 @@
                                         </div>
 
                                          <label for="">
-                                             <p class="text-white"><strong>Vehiculo</strong></p>
+                                             <p class="text-white"><strong>Veh&iacute;culo</strong></p>
                                          </label>
 
                                         <div class="input-group form-group">
@@ -155,7 +155,7 @@
 
                                   <div class="col-12 p-4">
                                          <label for="">
-                                             <p class="text-white"><strong>Descripción y/o información adicional</strong></p>
+                                             <p class="text-white"><strong>Descripci&oacute;n y/o informaci&oacute;n adicional</strong></p>
                                          </label>
 
                                             <div class="input-group form-group">
@@ -168,7 +168,7 @@
                                             </div>
                                                 <input type="hidden" class="form-control" placeholder="servicio" style="border-radius: 0  10px 10px 0;" id="servicio" name="servicio" value="4">
                                          <label for="">
-                                             <p class="text-white"><strong>Garantia</strong></p>
+                                             <p class="text-white"><strong>Garant&iacute;a</strong></p>
                                          </label>
 
                                             <div class="input-group form-group">
@@ -194,7 +194,7 @@
                                             </div>
 
                                          <label for="">
-                                             <p class="text-white"><strong>Km actual del vechiculo</strong></p>
+                                             <p class="text-white"><strong>Km actual del vech&iacute;culo</strong></p>
                                          </label>
 
                                             <div class="input-group form-group">
@@ -254,7 +254,7 @@
                                                     let id = $(this).val();
                                                     //id_userac no esta en la tabla de automovil
                                                     $('#current_autoac2').empty();
-                                                    $('#current_autoac2').append(`<option value="" disabled selected>Prosesando..</option>`);
+                                                    $('#current_autoac2').append(`<option value="" disabled selected>Procesando..</option>`);
                                                     $.ajax({
                                                     type: 'GET',
                                                     url: 'crear/' + id,
@@ -263,7 +263,7 @@
                                                     console.log(response);
                                                     //trae los automoviles relacionados con el id_userac
                                                     $('#current_autoac2').empty();
-                                                    $('#current_autoac2').append(`<option value="" disabled selected>Seleccione Automovil</option>`);
+                                                    $('#current_autoac2').append(`<option value="" disabled selected>Seleccione Autom&oacute;vil</option>`);
                                                     response.forEach(element => {
                                                         $('#current_autoac2').append(`<option value="${element['id']}">${element['submarca']}</option>`);
                                                         });
@@ -279,7 +279,7 @@
                                                     let id = $(this).val();
                                                     //id_empresaac no esta en la tabla de automovil
                                                     $('#current_autoac').empty();
-                                                    $('#current_autoac').append(`<option value="" disabled selected>Prosesando..</option>`);
+                                                    $('#current_autoac').append(`<option value="" disabled selected>Procesando..</option>`);
                                                     $.ajax({
                                                     type: 'GET',
                                                     url: 'crear/empresa/' + id,
@@ -288,7 +288,7 @@
                                                     console.log(response);
                                                     //trae los automoviles relacionados con el id_empresaac
                                                     $('#current_autoac').empty();
-                                                    $('#current_autoac').append(`<option value="" disabled selected>Seleccione Automovil</option>`);
+                                                    $('#current_autoac').append(`<option value="" disabled selected>Seleccione Autom&oacute;vil</option>`);
                                                     response.forEach(element => {
                                                         $('#current_autoac').append(`<option value="${element['id']}">${element['submarca']}</option>`);
                                                         });

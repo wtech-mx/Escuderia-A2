@@ -16,7 +16,7 @@
 
                         <div class="col-8  mt-4">
                                     <h5 class="text-center text-white ml-4 mr-4 ">
-                                        <strong> Expedientes Fisicos</strong>
+                                        <strong> Expedientes F&iacute;sicos</strong>
                                     </h5>
                         </div>
 
@@ -60,7 +60,7 @@
                                         </a>
                                     </p>
                                     <p class="text-center text-white">
-                                       Carta Responsiva/ Identificacion {{$carta}}
+                                       Carta Responsiva/ Identificaci&oacute;n {{$carta}}
                                     </p>
                                 </div>
 
@@ -82,7 +82,7 @@
                                         </a>
                                     </p>
                                     <p class="text-center text-white">
-                                       Copia de tarjeta de circulacion {{$tc}}
+                                       Copia de tarjeta de circulaci&oacute;n {{$tc}}
                                     </p>
                                 </div>
 
@@ -162,7 +162,7 @@
 
                                     </p>
                                     <p class="text-center  text-white">
-                                        <strong style="font: normal normal bold 20px/20px Segoe UI;">Aun no tienes Expedientes! </strong><br>
+                                        <strong style="font: normal normal bold 20px/20px Segoe UI;">A&uacute;n no tienes Expedientes! </strong><br>
                                         <br> Cree un Auto para generar sus Expedientes <br>
                                         <br> click en el botón de + para <br> agregar tu Auto
                                     </p>

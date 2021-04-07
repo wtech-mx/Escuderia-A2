@@ -38,7 +38,7 @@
                                         </div>
 
                                          <label for="">
-                                             <p class="text-white"><strong>Vehiculo</strong></p>
+                                             <p class="text-white"><strong>Veh&iacute;culo</strong></p>
                                          </label>
 
                                         <div class="input-group form-group">
@@ -74,7 +74,7 @@
                                         </div>
 
                                          <label for="">
-                                             <p class="text-white"><strong>Vehiculo</strong></p>
+                                             <p class="text-white"><strong>Veh&iacute;culo</strong></p>
                                          </label>
 
                                         <div class="input-group form-group">

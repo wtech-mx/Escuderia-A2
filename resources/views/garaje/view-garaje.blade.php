@@ -126,7 +126,7 @@
 
                                                 </p>
                                                 <p class="text-center  text-white">
-                                                 <strong style="font: normal normal bold 20px/20px Segoe UI;">Aun no tienes Autos registrados! </strong><br>
+                                                 <strong style="font: normal normal bold 20px/20px Segoe UI;">A&uacute;n no tienes Autos registrados! </strong><br>
                                                  <br> click en el botón de + para <br> agregar tu Auto
                                                 </p>
 
@@ -153,7 +153,7 @@
                         <div class="col-12 mt-5 mb-5">
                             <div class="d-flex justify-content-between">
                                 <h4 class="text-white text-tittle-app mr-3">
-                                    Detalles de Vehiculo
+                                    Detalles de Veh&iacute;culo
                                 </h4>
 
                                 <a class="btn btn-garaje-2" href="{{ route('edit.automovil',$item->id) }}">

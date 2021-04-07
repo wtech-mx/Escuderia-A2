@@ -73,7 +73,7 @@
                                 <script>
                                                         Swal.fire(
                                                             'Exito!',
-                                                            'Se ha guardado exitosamiente.',
+                                                            'Se ha guardado exitosamente.',
                                                             'success'
                                                         )
                                                     </script>
@@ -110,7 +110,7 @@
                                                     </div>
 
                                                     <label for="">
-                                                             <p class="text-white"><strong>Telefono</strong></p>
+                                                             <p class="text-white"><strong>Tel&eacute;fono</strong></p>
                                                          </label>
 
                                                     <div class="input-group form-group">
@@ -123,7 +123,7 @@
                                                         </div>
 
                                                     <label for="">
-                                                             <p class="text-white"><strong>Direccion</strong></p>
+                                                             <p class="text-white"><strong>Direcci&oacute;n</strong></p>
                                                          </label>
 
                                                     <div class="input-group form-group">
@@ -271,7 +271,7 @@
 
                                                           <button class="btn btn-lg btn-save-neon text-white"style="margin-bottom: 8rem !important;">
                                                               <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}" width="20px" >
-                                                              Actualizar
+                                                              Guardar
                                                           </button>
 
                                                       </div>

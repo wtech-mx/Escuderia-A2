@@ -61,7 +61,7 @@
                                                                             $servicio = 'Amortig';
                                                                         break;
                                                                         case( $item->servicio == 7 ):
-                                                                            $servicio = 'Baterria';
+                                                                            $servicio = 'Bateria';
                                                                         break;
                                                                    }
                                                                    switch($item) {

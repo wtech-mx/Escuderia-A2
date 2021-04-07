@@ -15,7 +15,7 @@
                     <div class="col-12 mt-3">
 
                         <label for="">
-                            <p class="text-DARK"><strong>Elegir Img Poliza</strong></p>
+                            <p class="text-DARK"><strong>Elegir Img P&oacute;liza</strong></p>
                         </label>
 
                         <div class=" custom-file mb-3">

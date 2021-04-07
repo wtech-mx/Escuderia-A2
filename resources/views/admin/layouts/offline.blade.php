@@ -11,7 +11,7 @@
                               <div class="col-12">
                                 <h1 class="text-center">Hola , Te encuentras desconecado</h1>
                                 <h3 class="text-center mt-5">
-                                    Porfavor veuelve a intentarlo cuando tengas conexíon a internet
+                                    Por favor vuelve a intentarlo cuando tengas conexión a internet
                                 </h3>
 
                                <p class="text-center">

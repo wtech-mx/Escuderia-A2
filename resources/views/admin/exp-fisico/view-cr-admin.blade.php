@@ -34,7 +34,7 @@
 
                         <div class="col-8  mt-4">
                                     <h5 class="text-center text-white ml-4 mr-4 ">
-                                        <strong>Carta Responsiva/ Identificacion</strong>
+                                        <strong>Carta Responsiva/ Identificaci&oacute;n</strong>
                                     </h5>
                         </div>
 
@@ -49,7 +49,7 @@
                         <div class="col-12 mt-3 mb-5">
                             <div class="d-flex justify-content-between">
                             <p class="text-center text-white">
-                                Agregar mas
+                                Agregar m&aacute;s
                             </p>
 
                                 <!-- Button trigger modal -->
@@ -112,7 +112,7 @@
 
                             </p>
                             <p class="text-center  text-white">
-                             <strong style="font: normal normal bold 20px/20px Segoe UI;">Aun no tienes Expedientes! </strong><br>
+                             <strong style="font: normal normal bold 20px/20px Segoe UI;">A&uacute;n no tienes Expedientes! </strong><br>
                              Escanea tus documentos has <br> click en el botón de + para <br> agregar tu expediente
                             </p>
                         </div>
@@ -151,7 +151,7 @@
 
                                     <div class="col-12">
                                          <label for="">
-                                             <p class="text-white"><strong>Titulo</strong></p>
+                                             <p class="text-white"><strong>T&iacute;tulo</strong></p>
                                          </label>
 
                                          <div class="input-group form-group">
@@ -171,7 +171,7 @@
 
                                         <p class="text-center">
                                             Agregar <br>
-                                            Carta Responsiva/ Identificacion
+                                            Carta Responsiva/ Identificaci&oacute;n
 
                                             <br>
 

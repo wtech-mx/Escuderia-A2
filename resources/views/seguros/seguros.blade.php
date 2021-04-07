@@ -76,7 +76,7 @@
 
                             </p>
                             <p class="text-center  text-white">
-                             <strong style="font: normal normal bold 20px/20px Segoe UI;">Aun no tienes  Seguro de auto! </strong>
+                             <strong style="font: normal normal bold 20px/20px Segoe UI;">A&uacute;n no tienes  Seguro de auto! </strong>
                                 <br> Cree un Auto para generar su  Seguro  <br>
                                 <br>Click en el botón de + para <br> agregar
                             </p>
@@ -92,7 +92,7 @@
 
                         <div class="col-12" style="margin-bottom: 9rem !important;">
                             <p class="text-center text-white">
-                                Agrega tu Automovil
+                                Agrega tu Autom&oacute;vil
                             </p>
                         </div>
 
@@ -111,7 +111,7 @@
                                         <script>
                                             Swal.fire(
                                                 'Exito!',
-                                                'Se ha guardado exitosamiente.',
+                                                'Se ha guardado exitosamente.',
                                                 'success'
                                             )
                                         </script>
@@ -177,7 +177,7 @@
                                                 </div>
 
                                                  <label for="">
-                                                     <p class="text-white"><strong>Fecha de expedicion</strong></p>
+                                                     <p class="text-white"><strong>Fecha de expedici&oacute;n</strong></p>
                                                  </label>
 
                                                 <div class="input-group form-group">
@@ -215,7 +215,7 @@
 
                                                     <select class="form-control" id="tipo_cobertura" name="tipo_cobertura">
                                                       <option value="{{$seguro->tipo_cobertura}}" selected>{{$seguro->tipo_cobertura}}</option>
-                                                      <option value="Amplia">Amplia</option>
+                                                      <option value="Amplia">Ampl&iacute;a</option>
                                                       <option value="Limitada">Limitada</option>
                                                     </select>
                                                 </div>
@@ -247,7 +247,7 @@
                                                 </div>
 
                                                  <label for="">
-                                                     <p class="text-white mt-3"><strong>Foto Poliza Seguro</strong></p>
+                                                     <p class="text-white mt-3"><strong>Foto P&oacute;liza Seguro</strong></p>
                                                  </label>
 
                                                 <div class="col-12 text-center">

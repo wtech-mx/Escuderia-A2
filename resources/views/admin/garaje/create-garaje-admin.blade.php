@@ -92,7 +92,7 @@
 
                           <li class="nav-item">
                             <a class="nav-link a-auto" id="pills-Vinculacion-tab" data-toggle="pill" href="#pills-Vinculacion" role="tab" aria-controls="pills-Vinculacion" aria-selected="false">
-                                Vinculacion
+                                Vinculaci&oacute;n
                             </a>
                           </li>
 

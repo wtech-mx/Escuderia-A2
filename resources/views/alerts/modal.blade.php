@@ -29,7 +29,7 @@
                       </div>
 
                       <div class="form-group col-12">
-                          <label for="">Titulo</label>
+                          <label for="">T&iacute;tulo</label>
                           <input class="form-control" type="text" name="title" id="title" disabled>
                       </div>
 
@@ -47,7 +47,7 @@
                       </div>
 
 
-                      <label for="">Descripcion</label>
+                      <label for="">Descripci&oacute;n</label>
                       <textarea class="form-control" name="descripcion" id="descripcion" cols="30" rows="3" disabled></textarea>
                       <br>
 

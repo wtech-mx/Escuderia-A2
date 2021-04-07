@@ -120,7 +120,7 @@
                                     </div>
 
                                     <label for="">
-                                         <p class="text-white"><strong>Telefono</strong></p>
+                                         <p class="text-white"><strong>Tel&eacute;fono</strong></p>
                                      </label>
 
                                     <div class="input-group form-group">
@@ -152,7 +152,7 @@
                                     </div>
 
                                      <label for="">
-                                         <p class="text-white"><strong>Direccion</strong></p>
+                                         <p class="text-white"><strong>Direcci&oacute;n</strong></p>
                                      </label>
 
                                     <div class="input-group form-group">
@@ -200,7 +200,7 @@
                                             @if ($item->role == 0)
                                                 <option value="{{$item->role}}" selected>Usuario</option>
                                                 @else
-                                                <option value="{{$item->role}}" selected>Admin</option>
+                                                <option value="{{$item->role}}" selected>Administrador</option>
                                             @endif
                                           <option value="0">Usuario</option>
                                           <option value="1">Administrador</option>

@@ -19,7 +19,7 @@
 
                         <div class="col-8  mt-4">
                                     <h5 class="text-center text-white ml-4 mr-4 ">
-                                        <strong>Verificacion</strong>
+                                        <strong>Verificaci&oacute;n</strong>
                                     </h5>
                         </div>
 

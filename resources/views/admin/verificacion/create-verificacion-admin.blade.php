@@ -18,7 +18,7 @@ $newDate = date("d/m/Y", strtotime($originalDate));
                             Swal.fire({
                               title: 'Exito!!',
                               html:
-                                'Se ha agragado la <b>Verificacion</b>, ' +
+                                'Se ha agragado la <b>Verificaci&oacute;n</b>, ' +
                                 'Exitosamente',
                               // text: 'Se ha agragado la "MARCA" Exitosamente',
                               imageUrl: '{{ asset('img/icon/color/factura.png') }}',
@@ -42,7 +42,7 @@ $newDate = date("d/m/Y", strtotime($originalDate));
 
                     <div class="col-8">
                                 <h5 class="text-center text-white ml-4 mr-4 ">
-                                    <strong>Verificacion</strong>
+                                    <strong>Verificaci&oacute;n</strong>
                                 </h5>
                     </div>
 

@@ -10,7 +10,7 @@
                             Swal.fire({
                               title: 'Exito!!',
                               html:
-                                'Se ha agragado la <b>Tarjeta de circulacion</b>, ' +
+                                'Se ha agragado la <b>Tarjeta de circulaci&oacute;n</b>, ' +
                                 'Exitosamente',
                               // text: 'Se ha agragado la "MARCA" Exitosamente',
                               imageUrl: '{{ asset('img/icon/color/licencia-de-conducir.png') }}',
@@ -34,7 +34,7 @@
 
                         <div class="col-8  mt-4">
                                     <h5 class="text-center text-white ml-4 mr-4 ">
-                                        <strong>Copia de tarjeta de circulacion</strong>
+                                        <strong>Copia de tarjeta de circulaci&oacute;n</strong>
                                     </h5>
                         </div>
 
@@ -49,7 +49,7 @@
                         <div class="col-12 mt-3 mb-5">
                             <div class="d-flex justify-content-between">
                             <p class="text-center text-white">
-                                Agregar mas
+                                Agregar m&aacute;s
                             </p>
 
                                 <!-- Button trigger modal -->
@@ -112,7 +112,7 @@
 
                             </p>
                             <p class="text-center  text-white">
-                             <strong style="font: normal normal bold 20px/20px Segoe UI;">Aun no tienes Expedientes! </strong><br>
+                             <strong style="font: normal normal bold 20px/20px Segoe UI;">A&uacute;n no tienes Expedientes! </strong><br>
                              Escanea tus documentos has <br> click en el botón de + para <br> agregar tu expediente
                             </p>
                         </div>
@@ -152,7 +152,7 @@
 
                                     <div class="col-12">
                                          <label for="">
-                                             <p class="text-white"><strong>Titulo</strong></p>
+                                             <p class="text-white"><strong>T&iacute;tulo</strong></p>
                                          </label>
 
                                          <div class="input-group form-group">
@@ -172,7 +172,7 @@
 
                                     <p class="text-center">
                                         Agregar <br>
-                                        Copia de tarjeta de circulacion
+                                        Copia de tarjeta de circulaci&oacute;n
                                         <br>
                                         <button type="submit" class="btn btn-success btn-save text-white">
                                             <img class="d-inline" src="{{ asset('img/icon/white/save-file-option (1).png') }}" alt="Icon documento" width="30px">

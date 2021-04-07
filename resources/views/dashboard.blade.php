@@ -63,9 +63,9 @@
                                 <div class=" d-flex justify-content-between bg-white p-2 rounded-pill">
                                     <a href="{{ route('calendar.index_calendar_user') }}"> <span class="badge badge-pill" style="background-color: #2ECC71">Alerta</span> </a>
                                     <a href="{{ route('index.seguro') }}"> <span class="badge badge-pill" style="background-color: #8E44AD">Seguro</span> </a>
-                                    <a href="{{ route('index.tc') }}"> <span class="badge badge-pill" style="background-color: #F1C40F;color: #faf7f7">Tarjeta Circulacion</span> </a>
-                                    <a href=""> <span class="badge badge-pill" style="background-color: #FF0000">Verificacion</span> </a>
-                                    <a href=""> <span class="badge badge-pill" style="background-color: #2980B9">Servicos</span> </a>
+                                    <a href="{{ route('index.tc') }}"> <span class="badge badge-pill" style="background-color: #F1C40F;color: #faf7f7">Tarjeta Circulaci&oacute;n</span> </a>
+                                    <a href=""> <span class="badge badge-pill" style="background-color: #FF0000">Verificaci&oacute;n</span> </a>
+                                    <a href=""> <span class="badge badge-pill" style="background-color: #2980B9">Servicios</span> </a>
                                 </div>
                             </div>
                         </div>
@@ -126,7 +126,7 @@
                                 <div class="card" style="border-radius: 15px">
                                   <div class="card-body" >
                                       <img class="d-inline mb-2" src="{{ asset('img/icon/black/documento.png') }}" alt="Icon documento" width="50px">
-                                      <p class="card-text"><strong>T. de Circulacion</strong></p>
+                                      <p class="card-text"><strong>T. de Circulaci&oacute;n</strong></p>
                                   </div>
                                 </div>
                              </a>
@@ -148,7 +148,7 @@
                                 <div class="card" style="border-radius: 15px">
                                   <div class="card-body" >
                                       <img class="d-inline mb-2" src="{{ asset('img/icon/black/expediente.png') }}" alt="Icon Exp Fisico" width="50px">
-                                      <p class="card-text"><strong>Exp Fisico</strong></p>
+                                      <p class="card-text"><strong>Exp F&iacute;sico</strong></p>
                                   </div>
                                 </div>
                             </a>
