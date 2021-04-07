@@ -163,13 +163,13 @@ class SegurosController extends Controller
         );
 
         $params = [];
-        $params['include_player_ids'] = ["4ced8db2-5b69-4416-b2a5-d8a8014458ba", "0c7eb0e8-1550-43d3-8ce9-ad03f33b340e", "106c37ed-b2f6-452f-816f-00f095860cec"];
+        $params['include_player_ids'] = ["4ced8db2-5b69-4416-b2a5-d8a8014458ba"];
         $contents = [
            "en" => "Hola, Mensaje Programado"
         ];
         $params['contents'] = $contents;
         $params['delayed_option'] = "timezone"; // Will deliver on user's timezone
-        $params['delivery_time_of_day'] = "11:05PM"; // Delivery time
+        $params['delivery_time_of_day'] = "12:12AM"; // Delivery time
 
         OneSignal::sendNotificationCustom($params);
 

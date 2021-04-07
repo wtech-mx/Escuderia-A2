@@ -22,6 +22,8 @@
     <list default="true" id="936a45dc-4f36-4130-a52f-695b08d602c5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SegurosController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SegurosController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/onesignal.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/onesignal.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/serviceworker.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/serviceworker.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -282,7 +284,7 @@
       <workItem from="1616881708085" duration="815000" />
       <workItem from="1617324922797" duration="8820000" />
       <workItem from="1617642305473" duration="13404000" />
-      <workItem from="1617752611840" duration="9328000" />
+      <workItem from="1617752611840" duration="13279000" />
     </task>
     <servers />
   </component>
