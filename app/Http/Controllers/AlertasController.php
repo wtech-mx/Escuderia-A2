@@ -25,6 +25,7 @@ class AlertasController extends Controller
         $this->middleware('auth');
     }
 
+
     public function index(Request $request)
     {
           $titulo = $request->get('titulo');

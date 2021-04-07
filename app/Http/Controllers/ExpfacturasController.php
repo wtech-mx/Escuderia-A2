@@ -27,6 +27,7 @@ class ExpfacturasController extends Controller
 
     public function __construct(){
         $this->middleware('auth');
+        $this->middleware('pagespeed');
     }
 
      function index(){
