@@ -9,7 +9,9 @@
 
                 <link href="{{ asset('css/login-form.css') }}" rel="stylesheet">
 
-                <div class="row bg-img-log" style="z-index:1000;background-image: linear-gradient(to bottom, #00d62e, #2ce048, #43eb5f, #56f574, #68ff88);">
+
+                <div class="row bg-img-log" style="z-index:1000;background-color: #27de4e">
+
                     <div class="col-2 ">
                         <div class="d-flex justify-content-start">
                                <a class="btn" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
@@ -52,6 +54,7 @@
                         </div>
                     </div>
 
+
                     <style>
                         #calendar{
                             margin: 0px auto;
@@ -75,6 +78,7 @@
                               @include('alerts.calendar')
                           </div>
                     </div>
+
                 </div>
 
                 <div class="row-content" style="position: relative;background-color: #31ba4b;width: 360px;left: -10px"></div>
@@ -166,6 +170,4 @@
                         </div>
 
                     </div>
-
-
 @endsection

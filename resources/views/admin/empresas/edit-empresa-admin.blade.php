@@ -161,7 +161,7 @@
                                          <p class="text-white"><strong>Foto de Perfil</strong></p>
                                      </label>
 
-                                    <div class="custom-file " style="margin-bottom: 9rem !important;">
+                                    <div class="custom-file " staticCacheName style="margin-bottom: 9rem !important;">
                                       <input type="file" class="custom-file-input"  id='img' name="img" value="{{$empresa->img}}">
                                       <label class="custom-file-label" for="img">Selecciona imagen</label>
                                     </div>
