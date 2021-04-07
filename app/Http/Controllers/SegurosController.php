@@ -150,9 +150,29 @@ class SegurosController extends Controller
                 ->subject($subject)
                 ->from('contacto@checkngo.com.mx', 'Detalles de Seguro');
         });
-    OneSignal::sendNotificationToAll(
-        "Some Message",
-    );
+        $content = array(
+            "es" => 'English Message'
+            );
+
+        $fields = array(
+            'app_id' => "fedb6b0a-c9a3-4066-8d6e-48f79ecc30e6",
+            'include_external_user_ids' => array("588437b5-23d8-4167-bd4a-481eea143f81"),
+            'channel_for_external_user_ids' => 'push',
+            'data' => array("foo" => "bar"),
+            'contents' => $content
+        );
+
+        $params = [];
+        $params['include_player_ids'] = ["4ced8db2-5b69-4416-b2a5-d8a8014458ba", "0c7eb0e8-1550-43d3-8ce9-ad03f33b340e", "106c37ed-b2f6-452f-816f-00f095860cec"];
+        $contents = [
+           "en" => "Hola, Mensaje Programado"
+        ];
+        $params['contents'] = $contents;
+        $params['delayed_option'] = "timezone"; // Will deliver on user's timezone
+        $params['delivery_time_of_day'] = "11:05PM"; // Delivery time
+
+        OneSignal::sendNotificationCustom($params);
+
         Session::flash('success', 'Se ha guardado sus datos con exito');
         return redirect()->route('index.seguro', compact('seguro', 'seguro_alerta'));
 
