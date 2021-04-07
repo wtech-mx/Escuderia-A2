@@ -21,6 +21,10 @@ use Carbon\Carbon;
 class AlertasController extends Controller
 {
 
+    public function __construct(){
+        $this->middleware('auth');
+    }
+
     public function index(Request $request)
     {
           $titulo = $request->get('titulo');

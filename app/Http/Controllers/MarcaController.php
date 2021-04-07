@@ -11,6 +11,11 @@ use App\Models\Alertas;
 
 class MarcaController extends Controller
 {
+
+    public function __construct(){
+        $this->middleware('auth');
+    }
+
      public function store(Request $request){
         $marca = new MarcaProduct;
         $marca->nombre = $request->get('nombre');

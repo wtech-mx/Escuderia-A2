@@ -24,6 +24,11 @@ use Illuminate\Support\Str;
 
 class ExpfacturasController extends Controller
 {
+
+    public function __construct(){
+        $this->middleware('auth');
+    }
+
      function index(){
 
 

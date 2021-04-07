@@ -12,6 +12,11 @@ use Illuminate\Support\Facades\Mail;
 
 class TarjetaCirculacionController extends Controller
 {
+
+    public function __construct(){
+        $this->middleware('auth');
+    }
+
 /*|--------------------------------------------------------------------------
 |Create TarjetaCirculacion Usuario
 |--------------------------------------------------------------------------*/

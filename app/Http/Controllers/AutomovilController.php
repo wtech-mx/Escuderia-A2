@@ -16,6 +16,10 @@ use App\Models\VerificacionSegunda;
 
 class AutomovilController extends Controller
 {
+
+    public function __construct(){
+        $this->middleware('auth');
+    }
 /*|--------------------------------------------------------------------------
 |Garaje Edit/Create/Index - User
 |--------------------------------------------------------------------------*/

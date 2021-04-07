@@ -16,6 +16,11 @@ use OneSignal;
 
 class SegurosController extends Controller
 {
+
+    public function __construct(){
+        $this->middleware('auth');
+    }
+
 /*|--------------------------------------------------------------------------
 |Create Seguro Usuario
 |--------------------------------------------------------------------------*/
