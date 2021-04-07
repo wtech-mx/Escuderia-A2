@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 
-@section('bg-color', 'background-image: linear-gradient(to bottom, #050f55, #050f55, #050f55, #050f55, #050f55);')
+@section('bg-color', 'background-color: #000000;')
 
 @section('content')
 <p style="display: none">{{$userId = Auth::id()}}</p>
@@ -47,19 +47,19 @@
                 </div>
 
 
-                <div class="row bg-down-blue-border" style="background: #050F55 0% 0% no-repeat padding-box;">
+                <div class="row bg-down-image-border">
                         <div class="col-12 mt-5">
 
                             <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
 
                               <li class="nav-item mr-2">
-                                <a class="nav-link active a-perso" id="pills-perfil-tab" data-toggle="pill" href="#perfil" role="tab" aria-controls="perfil" aria-selected="true" style="background-color: #24F1C3;color: #000;font-weight: bold;border-radius: 5px 10px 10px 5px;clip-path: polygon(0% 0%, 0% 100%, 85% 100%, 100% 50%, 85% 0%);">
-                                    Datos de perfil
+                                <a class="nav-link active a-perso" id="pills-perfil-tab" data-toggle="pill" href="#perfil" role="tab" aria-controls="perfil" aria-selected="true" >
+                                    Datos de empresa
                                 </a>
                               </li>
 
                               <li class="nav-item">
-                                <a class="nav-link a-perso" id="pills-Seguridad-tab" data-toggle="pill" href="#pills-Seguridad" role="tab" aria-controls="pills-Seguridad" aria-selected="false" style="background-color: #24C4FB;color: #fff;font-weight: bold;border-radius: 5px 10px 10px 5px;clip-path: polygon(0% 0%, 15% 50%,0% 100%, 75% 100%, 100% 50%, 75% 0%);">
+                                <a class="nav-link a-perso" id="pills-Seguridad-tab" data-toggle="pill" href="#pills-Seguridad" role="tab" aria-controls="pills-Seguridad" aria-selected="false">
                                     Seguridad
                                 </a>
                               </li>
@@ -86,12 +86,12 @@
                               <div class="tab-pane fade show active" id="perfil" role="tabpanel" aria-labelledby="pills-perfil-tab">
 
                                  <label for="">
-                                     <p class="text-white"><strong>Empresa</strong></p>
+                                     <p class="text-white"><strong>Empresas</strong></p>
                                  </label>
 
                                 <div class="input-group form-group">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text input-modal" style="background: transparent linear-gradient(180deg, #24F7BC 0%, #24C4FC 100%) 0% 0% no-repeat padding-box;border: none;">
+                                        <span class="input-group-text input-modal">
                                              <img class="" src="{{ asset('img/icon/white/edificio-de-oficinas.png') }}" width="25px" >
                                         </span>
                                     </div>
@@ -104,7 +104,7 @@
 
                                 <div class="input-group form-group">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text input-modal" style="background: transparent linear-gradient(180deg, #24F7BC 0%, #24C4FC 100%) 0% 0% no-repeat padding-box;border: none;">
+                                        <span class="input-group-text input-modal">
                                              <img class="" src="{{ asset('img/icon/white/email.png') }}" width="25px" >
                                         </span>
                                     </div>
@@ -117,7 +117,7 @@
 
                                 <div class="input-group form-group">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text input-modal" style="background: transparent linear-gradient(180deg, #24F7BC 0%, #24C4FC 100%) 0% 0% no-repeat padding-box;border: none;">
+                                        <span class="input-group-text input-modal">
                                              <img class="" src="{{ asset('img/icon/white/call.png') }}" width="25px" >
                                         </span>
                                     </div>
@@ -131,7 +131,7 @@
 
                                 <div class="input-group form-group">
                                     <div class="input-group-prepend " >
-                                        <span class="input-group-text input-modal" style="background: transparent linear-gradient(180deg, #24F7BC 0%, #24C4FC 100%) 0% 0% no-repeat padding-box;border: none;" >
+                                        <span class="input-group-text input-modal" >
                                              <img class="" src="{{ asset('img/icon/white/marcador-de-posicion.png') }}" width="25px" >
                                         </span>
                                     </div>
@@ -144,7 +144,7 @@
 
                                 <div class="input-group form-group">
                                     <div class="input-group-prepend " >
-                                        <span class="input-group-text input-modal" style="background: transparent linear-gradient(180deg, #24F7BC 0%, #24C4FC 100%) 0% 0% no-repeat padding-box;border: none;" >
+                                        <span class="input-group-text input-modal" >
                                              <img class="" src="{{ asset('img/icon/white/referencia (1).png') }}" width="25px" >
                                         </span>
                                     </div>
@@ -161,7 +161,7 @@
                                          <p class="text-white"><strong>Foto de Perfil</strong></p>
                                      </label>
 
-                                    <div class="custom-file mb-5">
+                                    <div class="custom-file " style="margin-bottom: 9rem !important;">
                                       <input type="file" class="custom-file-input"  id='img' name="img" value="{{$empresa->img}}">
                                       <label class="custom-file-label" for="img">Selecciona imagen</label>
                                     </div>
@@ -177,7 +177,7 @@
 
                                 <div class="input-group form-group">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text input-modal" style="background: transparent linear-gradient(180deg, #24F7BC 0%, #24C4FC 100%) 0% 0% no-repeat padding-box;border: none;">
+                                        <span class="input-group-text input-modal">
                                              <img class="" src="{{ asset('img/icon/white/padlock.png') }}" width="25px" >
                                         </span>
                                     </div>
@@ -190,7 +190,7 @@
 
                                 <div class="input-group form-group">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text input-modal" style="background: transparent linear-gradient(180deg, #24F7BC 0%, #24C4FC 100%) 0% 0% no-repeat padding-box;border: none;">
+                                        <span class="input-group-text input-modal">
                                              <img class="" src="{{ asset('img/icon/white/password.png') }}" width="25px" >
                                         </span>
                                     </div>
@@ -199,7 +199,7 @@
 
                                   <div class="col-12 text-center mt-5 mb-5">
 
-                                      <button class="btn btn-lg btn-success btn-save mb-5">
+                                      <button class="btn btn-lg btn-success btn-save " style="margin-bottom: 8rem !important;">
                                           <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}" width="20px" >
                                           Actualizar
                                       </button>

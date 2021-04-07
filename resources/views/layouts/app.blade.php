@@ -131,6 +131,8 @@
             });
           });
         </script>
-{{--@include('layouts.indexdb')--}}
+
+    {{--@include('layouts.indexdb')--}}
+
 </html>
 
