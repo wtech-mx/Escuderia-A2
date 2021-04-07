@@ -8,6 +8,7 @@
 <p style="display: none">{{$userId = Auth::id()}}</p>
 
                 <link href="{{ asset('css/login-form.css') }}" rel="stylesheet">
+                <link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">
 
 
                 <div class="row bg-img-log" style="z-index:1000;background-color: #27de4e">
