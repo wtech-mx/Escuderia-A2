@@ -158,7 +158,7 @@ class SegurosController extends Controller
         });
 
         //Inicio Alerta
-            $fecha = $seguro->end.' 12:00 '.'GMT-5';
+            $fecha = $seguro->end.' 00:47 '.'GMT-5';
 
             $params = [];
             $params['include_player_ids'] = [$seguro->device_token];

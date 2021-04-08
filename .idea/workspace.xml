@@ -21,9 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="936a45dc-4f36-4130-a52f-695b08d602c5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TarjetaCirculacionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TarjetaCirculacionController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/onesignal.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/onesignal.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SegurosController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SegurosController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -286,7 +284,7 @@
       <workItem from="1617642305473" duration="13404000" />
       <workItem from="1617752611840" duration="13279000" />
       <workItem from="1617807099662" duration="25086000" />
-      <workItem from="1617855428820" duration="3982000" />
+      <workItem from="1617855428820" duration="4644000" />
     </task>
     <servers />
   </component>
