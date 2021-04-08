@@ -42,7 +42,10 @@ class AutomovilController extends Controller
         $users = DB::table('users')
         ->get();
 
-        return view('garaje.view-garaje',compact('carro', 'automovil', 'users'));
+         $marca = DB::table('marca')
+            ->get();
+
+        return view('garaje.view-garaje',compact('carro', 'automovil', 'users','marca'));
     }
 
     public function create(){
