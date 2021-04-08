@@ -67,9 +67,9 @@ class ExpcartaController extends Controller
                 $ruta = public_path('/exp-carta/'.$nombre);
                 $compresion = Image::make($urlfoto->getRealPath())
                     ->save($ruta,10);
-
+                $exp_carta->carta = $compresion->basename;
    	}
-         $exp_carta->carta = $compresion->basename;
+
 
         $exp_carta->id_user = auth()->user()->id;
     	$exp_carta->current_auto = auth()->user()->current_auto;
@@ -112,8 +112,9 @@ class ExpcartaController extends Controller
                 $ruta = public_path('/exp-carta/'.$nombre);
                 $compresion = Image::make($urlfoto->getRealPath())
                     ->save($ruta,10);
+                $exp->carta = $compresion->basename;
    	    }
-         $exp->carta = $compresion->basename;
+
 
     	/* Compara el auto que se selecciono con la db */
         $automovil = DB::table('automovil')

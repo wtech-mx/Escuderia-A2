@@ -53,8 +53,9 @@ class ExptenenciasController extends Controller
                 $ruta = public_path('/exp-tenencia/'.$nombre);
                 $compresion = Image::make($urlfoto->getRealPath())
                     ->save($ruta,10);
+                $exp_tenencias->tenencia = $compresion->basename;
    	}
-         $exp_tenencias->tenencia = $compresion->basename;
+
 
         $exp_tenencias->id_user = auth()->user()->id;
     	$exp_tenencias->current_auto = auth()->user()->current_auto;
@@ -97,8 +98,9 @@ class ExptenenciasController extends Controller
                 $ruta = public_path('/exp-tenencia/'.$nombre);
                 $compresion = Image::make($urlfoto->getRealPath())
                     ->save($ruta,10);
+                 $exp->tenencia = $compresion->basename;
    	}
-         $exp->tenencia = $compresion->basename;
+
 
 //    	$exp->fecha_expedicion = $request->get('fecha_expedicion');
 

@@ -53,8 +53,9 @@ class ExplacasController extends Controller
                 $ruta = public_path('/exp-placa/'.$nombre);
                 $compresion = Image::make($urlfoto->getRealPath())
                     ->save($ruta,10);
+                $exp_placas->placa = $compresion->basename;
    	}
-         $exp_placas->placa = $compresion->basename;
+
 
         $exp_placas->id_user = auth()->user()->id;
     	$exp_placas->current_auto = auth()->user()->current_auto;
@@ -101,8 +102,9 @@ class ExplacasController extends Controller
                 $ruta = public_path('/exp-placa/'.$nombre);
                 $compresion = Image::make($urlfoto->getRealPath())
                     ->save($ruta,10);
+                $exp->placa = $compresion->basename;
    	}
-         $exp->placa = $compresion->basename;
+
 
     	/* Compara el auto que se selecciono con la db */
         $automovil = DB::table('automovil')

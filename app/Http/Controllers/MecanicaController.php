@@ -133,8 +133,9 @@ class MecanicaController extends Controller
                 $ruta = public_path('/inter-mecanica/'.$nombre);
                 $compresion = Image::make($urlfoto->getRealPath())
                     ->save($ruta,10);
+                $mecanica->video = $compresion->basename;
    	    }
-         $mecanica->video = $compresion->basename;
+
 
     	if ($request->hasFile('video2')) {
                 $urlfoto = $request->file('video2');
@@ -142,8 +143,9 @@ class MecanicaController extends Controller
                 $ruta = public_path('/ext-mecanica/'.$nombre);
                 $compresion = Image::make($urlfoto->getRealPath())
                     ->save($ruta,10);
+                $mecanica->video2 = $compresion->basename;
    	    }
-         $mecanica->video2 = $compresion->basename;
+
 
         /* Calendario */
         switch($mecanica) {

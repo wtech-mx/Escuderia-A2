@@ -54,8 +54,9 @@ class ExpineController extends Controller
                 $ruta = public_path('/exp-ine/'.$nombre);
                 $compresion = Image::make($urlfoto->getRealPath())
                     ->save($ruta,10);
+                $exp_ine->ine = $compresion->basename;
    	}
-         $exp_ine->ine = $compresion->basename;
+
 
         $exp_ine->id_user = auth()->user()->id;
     	$exp_ine->current_auto = auth()->user()->current_auto;
@@ -98,8 +99,9 @@ class ExpineController extends Controller
                 $ruta = public_path('/exp-ine/'.$nombre);
                 $compresion = Image::make($urlfoto->getRealPath())
                     ->save($ruta,10);
+                $exp->ine = $compresion->basename;
    	}
-         $exp_ine->ine = $compresion->basename;
+
 
     	/* Compara el auto que se selecciono con la db */
         $automovil = DB::table('automovil')

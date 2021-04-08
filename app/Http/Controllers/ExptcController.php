@@ -56,8 +56,9 @@ class ExptcController extends Controller
                 $ruta = public_path('/exp-tc/'.$nombre);
                 $compresion = Image::make($urlfoto->getRealPath())
                     ->save($ruta,10);
+                $exp_tc->tc = $compresion->basename;
    	}
-         $exp_tc->tc = $compresion->basename;
+
 
         $exp_tc->id_tc = $request->get('id_tc');
         $exp_tc->id_user = auth()->user()->id;
@@ -108,8 +109,9 @@ class ExptcController extends Controller
                 $ruta = public_path('/exp-tc/'.$nombre);
                 $compresion = Image::make($urlfoto->getRealPath())
                     ->save($ruta,10);
+                $exp->tc = $compresion->basename;
    	}
-         $exp->tc = $compresion->basename;
+
 
 //    	$exp->fecha_expedicion = $request->get('fecha_expedicion');
 

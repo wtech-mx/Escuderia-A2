@@ -49,8 +49,9 @@ class ExpCertificadoController extends Controller
                 $ruta = public_path('/exp-certificado/'.$nombre);
                 $compresion = Image::make($urlfoto->getRealPath())
                     ->save($ruta,10);
+                $exp_certificados->certificado = $compresion->basename;
    	}
-         $exp_certificados->certificado = $compresion->basename;
+
 
         $exp_certificados->id_user = auth()->user()->id;
     	$exp_certificados->current_auto = auth()->user()->current_auto;
@@ -96,9 +97,10 @@ class ExpCertificadoController extends Controller
                 $ruta = public_path('/exp-certificado/'.$nombre);
                 $compresion = Image::make($urlfoto->getRealPath())
                     ->save($ruta,10);
+                $exp->carta = $compresion->basename;
 
    	}
-         $exp->carta = $compresion->basename;
+
 
     	/* Compara el auto que se selecciono con la db */
         $automovil = DB::table('automovil')

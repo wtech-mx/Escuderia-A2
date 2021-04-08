@@ -70,8 +70,9 @@ class ExpfacturasController extends Controller
                 $ruta = public_path('/exp-factura/'.$nombre);
                 $compresion = Image::make($urlfoto->getRealPath())
                     ->save($ruta,10);
+                $exp_factura->factura = $compresion->basename;
    	}
-         $exp_factura->factura = $compresion->basename;
+
 
         $exp_factura->id_user = auth()->user()->id;
     	$exp_factura->current_auto = auth()->user()->current_auto;
@@ -164,9 +165,9 @@ class ExpfacturasController extends Controller
                 $ruta = public_path('/exp-factura/'.$nombre);
                 $compresion = Image::make($urlfoto->getRealPath())
                     ->save($ruta,10);
-
+                $exp->factura = $compresion->basename;
    	}
-         $exp->factura = $compresion->basename;
+
     	/* Compara el auto que se selecciono con la db */
         $automovil = DB::table('automovil')
         ->where('id','=',$id)

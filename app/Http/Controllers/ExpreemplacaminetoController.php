@@ -75,8 +75,9 @@ class ExpreemplacaminetoController extends Controller
                 $ruta = public_path('/exp-reemplacamiento/'.$nombre);
                 $compresion = Image::make($urlfoto->getRealPath())
                     ->save($ruta,10);
+                $exp_reemplacamiento->reemplacamiento = $compresion->basename;
    	}
-         $exp_reemplacamiento->reemplacamiento = $compresion->basename;
+
 
         $exp_reemplacamiento->id_user = auth()->user()->id;
     	$exp_reemplacamiento->current_auto = auth()->user()->current_auto;
@@ -139,8 +140,9 @@ class ExpreemplacaminetoController extends Controller
                 $ruta = public_path('/exp-reemplacamiento/'.$nombre);
                 $compresion = Image::make($urlfoto->getRealPath())
                     ->save($ruta,10);
+                $exp->reemplacamiento = $compresion->basename;
    	}
-         $exp->reemplacamiento = $compresion->basename;
+
 
     	/* Compara el auto que se selecciono con la db */
         $automovil = DB::table('automovil')

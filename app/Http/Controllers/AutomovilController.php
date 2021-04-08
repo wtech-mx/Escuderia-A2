@@ -90,8 +90,8 @@ class AutomovilController extends Controller
                 $ruta = public_path('/img-auto/'.$nombre);
                 $compresion = Image::make($urlfoto->getRealPath())
                     ->save($ruta,10);
+                $automovil->img = $compresion->basename;
    	    }
-         $automovil->img = $compresion->basename;
 
         $automovil->id_user = auth()->user()->id;
         $automovil->save();
@@ -176,8 +176,9 @@ class AutomovilController extends Controller
                 $ruta = public_path('/img-auto/'.$nombre);
                 $compresion = Image::make($urlfoto->getRealPath())
                     ->save($ruta,10);
+                $automovil->img = $compresion->basename;
    	    }
-         $automovil->img = $compresion->basename;
+
 
         $automovil->update();
 
@@ -270,10 +271,13 @@ class AutomovilController extends Controller
         $automovil->placas = $placa;
 
     	if ($request->hasFile('img')) {
-    		$file=$request->file('img');
-    		$file->move(public_path().'/img-auto',time().".".$file->getClientOriginalExtension());
-    		$automovil->img=time().".".$file->getClientOriginalExtension();
-    	}
+                $urlfoto = $request->file('img');
+                $nombre = time().".".$urlfoto->guessExtension();
+                $ruta = public_path('/img-auto/'.$nombre);
+                $compresion = Image::make($urlfoto->getRealPath())
+                    ->save($ruta,10);
+                $automovil->img = $compresion->basename;
+   	    }
 
         $automovil->save();
 
@@ -363,10 +367,13 @@ class AutomovilController extends Controller
         $automovil->placas = $placa;
 
     	if ($request->hasFile('img')) {
-    		$file=$request->file('img');
-    		$file->move(public_path().'/img-auto',time().".".$file->getClientOriginalExtension());
-    		$automovil->img=time().".".$file->getClientOriginalExtension();
-    	}
+                $urlfoto = $request->file('img');
+                $nombre = time().".".$urlfoto->guessExtension();
+                $ruta = public_path('/img-auto/'.$nombre);
+                $compresion = Image::make($urlfoto->getRealPath())
+                    ->save($ruta,10);
+                $automovil->img = $compresion->basename;
+   	    }
 
         $automovil->update();
 

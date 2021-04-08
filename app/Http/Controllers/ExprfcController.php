@@ -53,8 +53,9 @@ class ExprfcController extends Controller
                 $ruta = public_path('/exp-rfc/'.$nombre);
                 $compresion = Image::make($urlfoto->getRealPath())
                     ->save($ruta,10);
+                $exp_rfc->rfc = $compresion->basename;
    	}
-         $exp_rfc->rfc = $compresion->basename;
+
 
         $exp_rfc->id_user = auth()->user()->id;
     	$exp_rfc->current_auto = auth()->user()->current_auto;
@@ -97,8 +98,9 @@ class ExprfcController extends Controller
                 $ruta = public_path('/exp-rfc/'.$nombre);
                 $compresion = Image::make($urlfoto->getRealPath())
                     ->save($ruta,10);
+                $exp->rfc = $compresion->basename;
    	}
-         $exp->rfc = $compresion->basename;
+
 
 //    	$exp->fecha_expedicion = $request->get('fecha_expedicion');
 

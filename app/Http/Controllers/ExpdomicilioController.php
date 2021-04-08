@@ -54,8 +54,9 @@ class ExpdomicilioController extends Controller
                 $ruta = public_path('/exp-domicilio/'.$nombre);
                 $compresion = Image::make($urlfoto->getRealPath())
                     ->save($ruta,10);
+                $exp_domicilio->domicilio = $compresion->basename;
    	}
-         $exp_domicilio->domicilio = $compresion->basename;
+
 
         $exp_domicilio->id_user = auth()->user()->id;
     	$exp_domicilio->current_auto = auth()->user()->current_auto;
@@ -97,8 +98,9 @@ class ExpdomicilioController extends Controller
                 $ruta = public_path('/exp-domicilio/'.$nombre);
                 $compresion = Image::make($urlfoto->getRealPath())
                     ->save($ruta,10);
+                $exp->domicilio = $compresion->basename;
    	}
-         $exp->domicilio = $compresion->basename;
+
 
 //    	$exp->fecha_expedicion = $request->get('fecha_expedicion');
 

@@ -56,8 +56,9 @@ class ExpolizaController extends Controller
                 $ruta = public_path('/exp-poliza/'.$nombre);
                 $compresion = Image::make($urlfoto->getRealPath())
                     ->save($ruta,10);
+                $exp_poliza->poliza = $compresion->basename;
    	}
-         $exp_poliza->poliza = $compresion->basename;
+
 
         $exp_poliza->id_user = auth()->user()->id;
     	$exp_poliza->current_auto = auth()->user()->current_auto;
@@ -100,8 +101,9 @@ class ExpolizaController extends Controller
                 $ruta = public_path('/exp-poliza/'.$nombre);
                 $compresion = Image::make($urlfoto->getRealPath())
                     ->save($ruta,10);
+                $exp->poliza = $compresion->basename;
    	}
-         $exp_poliza->poliza = $compresion->basename;
+
 
     	$exp->current_auto = $request->get('current_auto');
 

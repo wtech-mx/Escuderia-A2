@@ -90,8 +90,9 @@ class UserController extends Controller
                 $ruta = public_path('/img-perfil/'.$nombre);
                 $compresion = Image::make($urlfoto->getRealPath())
                     ->save($ruta,10);
+                $user->img = $compresion->basename;
    	    }
-         $user->img = $compresion->basename;
+
 
         $users = DB::table('users')
         ->get();
@@ -200,8 +201,9 @@ class UserController extends Controller
                 $ruta = public_path('/img-perfil/'.$nombre);
                 $compresion = Image::make($urlfoto->getRealPath())
                     ->save($ruta,10);
+                $user->img = $compresion->basename;
    	    }
-         $user->img = $compresion->basename;
+
 
         $user->save();
 
@@ -239,8 +241,9 @@ class UserController extends Controller
                 $ruta = public_path('/img-perfil/'.$nombre);
                 $compresion = Image::make($urlfoto->getRealPath())
                     ->save($ruta,10);
+                 $user->img = $compresion->basename;
    	    }
-         $user->img = $compresion->basename;
+
 
         $user->update();
 
