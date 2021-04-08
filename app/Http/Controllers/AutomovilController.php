@@ -33,7 +33,8 @@ class AutomovilController extends Controller
 
         $automovil = DB::table('automovil')
         ->where('id_user','=',$auto_user)
-        ->get();
+        ->paginate(2);
+//        ->get();
 
         $carro = DB::table('automovil')
         ->where('id','=',auth()->user()->current_auto)

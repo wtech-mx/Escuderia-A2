@@ -2,24 +2,21 @@
 
 @section('content')
 
-
-<p style="display: none">{{$userId = Auth::id()}}</p>
-
                 <link href="{{ asset('css/garje.css') }}" rel="stylesheet">
+
+                 @include('garaje.modal-estatus')
 
                 <div class="row bg-image" >
 
-                    @include('garaje.modal-estatus')
-                    @if(Session::has('success'))
-                        <script>
-                            Swal.fire(
-                                'Exito!',
-                                'Se ha guardado auto  exitosamiente.',
-                                'success'
-                            )
-                        </script>
-                    @endif
-
+                        @if(Session::has('success'))
+                            <script>
+                                Swal.fire(
+                                    'Exito!',
+                                    'Se ha guardado auto  exitosamiente.',
+                                    'success'
+                                )
+                            </script>
+                        @endif
 
                         <div class="col-2  mt-4">
                             <div class="d-flex justify-content-start">
@@ -45,36 +42,38 @@
                             </div>
                         </div>
 
+                </div>
+
+                <div class="row bg-image">
+
                         <div class="col-12 mt-4">
-                            <div class="d-flex justify-content-end">
-                                <h4 class="text-white text-tittle-app mr-3">
-                                    Agregar
-                                </h4>
-                                <a class="btn btn-garaje" href="{{ route('create.automovil') }}">
-                                     <img class="" src="{{ asset('img/icon/white/add.png') }}" width="20px" >
-                                </a>
+                            <div class="d-flex justify-content-between">
+
+                                <div class="arrows">
+
+                                    <style>
+                                        .page-item.active .page-link {
+                                            z-index: 3;
+                                            color: #fff;
+                                            background-color: #00d62e;
+                                            border-color: #00d62e;
+                                        }
+                                    </style>
+
+                                {!! $automovil->links() !!}
+                                </div>
+
+                                <div class="btn-add">
+                                    <a class="btn btn-garaje text-white" href="{{ route('create.automovil') }}">
+                                       Agregar
+                                         <img class="" src="{{ asset('img/icon/white/add.png') }}" width="20px" >
+                                    </a>
+                                </div>
                             </div>
+
                         </div>
 
                         <div class="col-12">
-
-                        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-
-                              <div class="carousel-inner">
-
-                                <div class="col-12 text-right">
-                                    <div class="d-flex justify-content-start">
-                                        <a class="btn btn-garaje mb-3 mr-1" href="#carouselExampleControls" role="button" data-slide="prev">
-                                            <i class="bi bi-arrow-left-short text-white"></i>
-                                        </a>
-                                        <a class="btn btn-garaje mb-3 " href="#carouselExampleControls" role="button" data-slide="next">
-                                            <i class="bi bi-arrow-right-short text-white"></i>
-                                        </a>
-                                    </div>
-                                </div>
-
-                                <div class="carousel-item active">
-
                                   <div class="row">
                                       @if ($automovil->count())
                                       @foreach($automovil as $item)
@@ -140,17 +139,11 @@
                                         </div>
                                     @endif
                                   </div>
-
-                                </div>
-
-                              </div>
-
                         </div>
 
-                    </div>
-
                     @foreach ($carro as $item)
-                        <div class="col-12 mt-5 mb-5">
+
+                    <div class="col-12 mt-5 mb-5">
                             <div class="d-flex justify-content-between">
                                 <h4 class="text-white text-tittle-app mr-3">
                                     Detalles de Veh&iacute;culo

@@ -8,6 +8,8 @@ use App\Models\Alertas;
 use App\Models\Seguros;
 use App\Models\TarjetaCirculacion;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Pagination\Paginator;
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -28,6 +30,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        Paginator::useBootstrap();
         Schema::defaultStringLength(191);
 
                   view()->composer('admin.layouts.app', function($view){
