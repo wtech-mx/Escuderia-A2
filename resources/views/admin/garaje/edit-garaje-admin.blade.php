@@ -261,9 +261,9 @@
                                                  </div>
 
                                                  <select class="form-control" id="id_user" name="id_user">
-                                                     <option value="{{$automovil->id_user}}">Seleccione usuario</option>
+                                                     <option value="{{$automovil->id_user}}">{{$automovil->User->name}}</option>
                                                      @foreach($user as $item)
-                                                        <option selected value="{{$item->id}}">{{$item->name}}</option>
+                                                        <option value="{{$item->id}}">{{$item->name}}</option>
                                                      @endforeach
                                                  </select>
 
