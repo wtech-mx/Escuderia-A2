@@ -36,6 +36,7 @@ class CreateAlertasTable extends Migration
             $table->integer('check')->nullable();
             $table->date('start');
             $table->date('end');
+            $table->string('device_token')->nullable();
 
         });
     }

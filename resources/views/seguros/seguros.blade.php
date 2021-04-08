@@ -133,6 +133,7 @@
                                                     <input type="hidden" class="form-control" id='title' name="title" value="{{$seguro->Automovil->placas}}">
                                                 </div>
 
+                                                <input type="hidden" id="device_token" name="device_token" value="">
 
                                                  <div class="input-group form-group">
                                                     <input type="hidden" class="form-control" id='descripcion' name="descripcion" value="Su Seguro expira el dia: {{$newDate}}">
@@ -199,7 +200,7 @@
                                                              <img class="" src="{{ asset('img/icon/white/calendario (5).png') }}" width="25px" >
                                                         </span>
                                                     </div>
-                                                     <input type="datetime-local" class="form-control" placeholder="MM/DD/YYY"  style="border-radius: 0  10px 10px 0;" id='end' name="end" value="{{$seguro->end}}">
+                                                     <input type="date" class="form-control" placeholder="MM/DD/YYY"  style="border-radius: 0  10px 10px 0;" id="end" name="end" value="{{$seguro->end}}">
                                                 </div>
 
                                                  <label for="">
@@ -269,5 +270,20 @@
                                     </div>
                            </form>
                     @endif
+
+                <script>
+                        window.OneSignal = window.OneSignal || [];
+                        OneSignal.push(function () {
+                            /* These examples are all valid */
+                            OneSignal.getUserId(function (userId) {
+                                var UserID;
+                                UserID = userId;
+                                document.getElementById("device_token").value = UserID;
+                                console.log("OneSignal User ID:", UserID);
+                            });
+                        });
+                </script>
+
 @endsection
+
 

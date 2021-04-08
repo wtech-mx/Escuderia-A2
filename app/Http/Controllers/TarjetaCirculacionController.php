@@ -7,6 +7,7 @@ use App\Models\TarjetaCirculacion;
 use Illuminate\Http\Request;
 use Session;
 use DB;
+use OneSignal;
 
 use Illuminate\Support\Facades\Mail;
 
@@ -56,6 +57,8 @@ class TarjetaCirculacionController extends Controller
         $tarjeta_circulacion->descripcion = $request->get('descripcion');
         $tarjeta_circulacion->image = $request->get('image');
 
+        $tarjeta_circulacion->device_token = $request->get('device_token');
+dd( $tarjeta_circulacion->end);
         $tarjeta_circulacion->update();
 
         $email = $tarjeta_circulacion->User->email;
@@ -77,6 +80,19 @@ class TarjetaCirculacionController extends Controller
                 ->subject($subject)
                 ->from('contacto@checkngo.com.mx', 'Detalle de TarjetaCirculacion');
         });
+
+        $fecha = $tarjeta_circulacion->end.' 23:23 '.'GMT-5';
+
+        $params = [];
+        $params['include_player_ids'] = [$tarjeta_circulacion->device_token];
+        $contents = [
+           "en" => $tarjeta_circulacion->descripcion
+        ];
+        $params['contents'] = $contents;
+        $params['delayed_option'] = "timezone"; // Will deliver on user's timezone
+        $params['send_after'] = $fecha; // Delivery time
+
+        OneSignal::sendNotificationCustom($params);
 
         Session::flash('success', 'Se ha guardado sus datos con exito');
         return redirect()->route('index.tc', compact('tarjeta_circulacion'));

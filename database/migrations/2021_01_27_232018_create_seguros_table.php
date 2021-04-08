@@ -32,6 +32,7 @@ class CreateSegurosTable extends Migration
             $table->string('title')->nullable();
             $table->text('descripcion')->nullable();
             $table->string('color')->nullable();
+            $table->string('device_token')->nullable();
 
             $table->foreign('id_user')
                 ->references('id')->on('users')

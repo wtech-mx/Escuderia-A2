@@ -37,6 +37,7 @@ class CreateVerificacionSegundaTable extends Migration
             $table->string('image')->nullable();
             $table->date('start')->nullable();
             $table->date('end')->nullable();
+            $table->string('device_token')->nullable();
 
             $table->timestamps();
         });

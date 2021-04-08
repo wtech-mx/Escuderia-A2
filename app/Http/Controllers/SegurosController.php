@@ -124,7 +124,7 @@ class SegurosController extends Controller
         $seguro->color = $request->get('color');
         $seguro->descripcion = $request->get('descripcion');
 
-        $seguro->device_token = auth()->user()->device_token;
+        $seguro->device_token = $request->get('device_token');
 
         $seguro->update();
         // obtener la hora actual  - 2015-12-19 10:10:54
@@ -156,28 +156,21 @@ class SegurosController extends Controller
                 ->subject($subject)
                 ->from('contacto@checkngo.com.mx', 'Detalles de Seguro');
         });
-        $content = array(
-            "es" => 'English Message'
-            );
 
-        $fields = array(
-            'app_id' => "fedb6b0a-c9a3-4066-8d6e-48f79ecc30e6",
-            'include_external_user_ids' => array("588437b5-23d8-4167-bd4a-481eea143f81"),
-            'channel_for_external_user_ids' => 'push',
-            'data' => array("foo" => "bar"),
-            'contents' => $content
-        );
+        //Inicio Alerta
+            $fecha = $seguro->end.' 12:00 '.'GMT-5';
 
-        $params = [];
-        $params['include_player_ids'] = ["4ced8db2-5b69-4416-b2a5-d8a8014458ba"];
-        $contents = [
-           "en" => "Hola, Mensaje Programado"
-        ];
-        $params['contents'] = $contents;
-        $params['delayed_option'] = "timezone"; // Will deliver on user's timezone
-        $params['delivery_time_of_day'] = "12:12AM"; // Delivery time
+            $params = [];
+            $params['include_player_ids'] = [$seguro->device_token];
+            $contents = [
+               "en" => $seguro->descripcion
+            ];
+            $params['contents'] = $contents;
+            $params['delayed_option'] = "timezone"; // Will deliver on user's timezone
+            $params['send_after'] = $fecha; // Delivery time
 
-        OneSignal::sendNotificationCustom($params);
+            OneSignal::sendNotificationCustom($params);
+        //Fin Alerta
 
         Session::flash('success', 'Se ha guardado sus datos con exito');
         return redirect()->route('index.seguro', compact('seguro', 'seguro_alerta'));

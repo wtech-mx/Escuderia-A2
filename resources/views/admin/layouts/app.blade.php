@@ -81,68 +81,16 @@
 
 
 </body>
+<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+<script>
+  window.OneSignal = window.OneSignal || [];
+  OneSignal.push(function() {
+    OneSignal.init({
+      appId: "8848d363-4255-4532-929e-67f29c6867b9",
+      safari_web_id: "web.onesignal.auto.3a07767d-f8c5-4ebf-965b-cb322da40f9f",
+    });
+  });
 
-{{--            <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase.js"></script>--}}
-{{--            <script>--}}
-
-{{--                var firebaseConfig = {--}}
-{{--                    apiKey: "AIzaSyCx0ssO35wLU3d6e6C4QPrpqANdjj2L2Pc",--}}
-{{--                    authDomain: "checkngo-e379f.firebaseapp.com",--}}
-{{--                    projectId: "checkngo-e379f",--}}
-{{--                    storageBucket: "checkngo-e379f.appspot.com",--}}
-{{--                    messagingSenderId: "925533275751",--}}
-{{--                    appId: "1:925533275751:web:1a077ea798718e9d0c36c2",--}}
-{{--                    measurementId: "G-ZPD0T689L3"--}}
-{{--                };--}}
-{{--                // measurementId: G-R1KQTR3JBN--}}
-{{--                  // Initialize Firebase--}}
-{{--                firebase.initializeApp(firebaseConfig);--}}
-{{--                const messaging = firebase.messaging();--}}
-
-{{--                function initFirebaseMessagingRegistration() {--}}
-{{--                        messaging--}}
-{{--                        .requestPermission()--}}
-{{--                        .then(function () {--}}
-{{--                            return messaging.getToken()--}}
-{{--                        })--}}
-{{--                        .then(function(token) {--}}
-{{--                            console.log(token);--}}
-
-{{--                            $.ajaxSetup({--}}
-{{--                                headers: {--}}
-{{--                                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')--}}
-{{--                                }--}}
-{{--                            });--}}
-
-{{--                            $.ajax({--}}
-{{--                                url: '{{ route("save-token") }}',--}}
-{{--                                type: 'POST',--}}
-{{--                                data: {--}}
-{{--                                    token: token--}}
-{{--                                },--}}
-{{--                                dataType: 'JSON',--}}
-{{--                                success: function (response) {--}}
-{{--                                    alert('Token saved successfully.');--}}
-{{--                                },--}}
-{{--                                error: function (err) {--}}
-{{--                                    console.log('User Chat Token Error'+ err);--}}
-{{--                                },--}}
-{{--                            });--}}
-
-{{--                        }).catch(function (err) {--}}
-{{--                            toastr.error('User Chat Token Error'+ err, null, {timeOut: 3000, positionClass: "toast-bottom-right"});--}}
-{{--                        });--}}
-{{--                 }--}}
-
-{{--                 messaging.onMessage(function(payload) {--}}
-{{--                    const noteTitle = payload.notification.title;--}}
-{{--                    const noteOptions = {--}}
-{{--                        body: payload.notification.body,--}}
-{{--                        icon: payload.notification.icon,--}}
-{{--                    };--}}
-{{--                    new Notification(noteTitle, noteOptions);--}}
-{{--                });--}}
-
-{{--            </script>--}}
+</script>
 
 </html>

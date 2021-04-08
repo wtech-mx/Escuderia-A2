@@ -101,6 +101,8 @@
                                 <input type="hidden" class="form-control" id='title' name="title" value="{{$tarjeta_circulacion->Automovil->placas}}">
                             </div>
 
+                            <input type="hidden" id="device_token" name="device_token" value="">
+
                             <div class="input-group form-group">
                                 <input type="hidden" class="form-control" id='descripcion' name="descripcion" value="Su tarjeta de circulacion expira el dia: {{$newDate}}">
                             </div>
@@ -285,7 +287,18 @@
 
                 </div>
 
-
+                <script>
+                        window.OneSignal = window.OneSignal || [];
+                        OneSignal.push(function () {
+                            /* These examples are all valid */
+                            OneSignal.getUserId(function (userId) {
+                                var UserID;
+                                UserID = userId;
+                                document.getElementById("device_token").value = UserID;
+                                console.log("OneSignal User ID TC:", UserID);
+                            });
+                        });
+                </script>
 
 
 

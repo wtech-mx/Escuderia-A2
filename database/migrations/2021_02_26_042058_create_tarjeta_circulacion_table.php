@@ -47,6 +47,7 @@ class CreateTarjetaCirculacionTable extends Migration
             $table->text('descripcion')->nullable();
             $table->string('color')->nullable();
             $table->string('image')->nullable();
+            $table->string('device_token')->nullable();
 
             $table->timestamps();
         });

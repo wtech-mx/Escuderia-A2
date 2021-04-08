@@ -155,7 +155,6 @@ class UserController extends Controller
         $name = $request->get('name');
 
         $user = User::orderBy('id','DESC')
-            ->where('role', '=', '0')
             ->name($name)
             ->paginate(6);
 

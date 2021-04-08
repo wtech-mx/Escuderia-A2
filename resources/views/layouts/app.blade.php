@@ -116,12 +116,12 @@
   window.OneSignal = window.OneSignal || [];
   OneSignal.push(function() {
     OneSignal.init({
-      appId: "fedb6b0a-c9a3-4066-8d6e-48f79ecc30e6",
+      appId: "8848d363-4255-4532-929e-67f29c6867b9",
       safari_web_id: "web.onesignal.auto.3a07767d-f8c5-4ebf-965b-cb322da40f9f",
     });
   });
+
 </script>
-    {{--@include('layouts.indexdb')--}}
 
 </html>
 
