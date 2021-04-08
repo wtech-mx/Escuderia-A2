@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Session;
 use DB;
 use OneSignal;
-
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Mail;
 
 class TarjetaCirculacionController extends Controller
@@ -58,7 +58,6 @@ class TarjetaCirculacionController extends Controller
         $tarjeta_circulacion->image = $request->get('image');
 
         $tarjeta_circulacion->device_token = $request->get('device_token');
-dd( $tarjeta_circulacion->end);
         $tarjeta_circulacion->update();
 
         $email = $tarjeta_circulacion->User->email;
@@ -81,7 +80,7 @@ dd( $tarjeta_circulacion->end);
                 ->from('contacto@checkngo.com.mx', 'Detalle de TarjetaCirculacion');
         });
 
-        $fecha = $tarjeta_circulacion->end.' 23:23 '.'GMT-5';
+        $fecha = $tarjeta_circulacion->end.' 00:11 '.'GMT-5';
 
         $params = [];
         $params['include_player_ids'] = [$tarjeta_circulacion->device_token];
