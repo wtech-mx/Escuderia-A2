@@ -108,19 +108,20 @@
                                      <p class="text-white"><strong>Referencia</strong></p>
                                  </label>
 
-                                <div class="input-group form-group mb-5">
+                                <div class="input-group form-group " style="margin-bottom: 8rem !important;">
                                     <div class="input-group-prepend " >
                                         <span class="input-group-text input-modal" >
                                              <img class="" src="{{ asset('img/icon/white/referencia (1).png') }}" width="25px" >
                                         </span>
                                     </div>
 
-                                                 <select class="form-control" id="referencia" name="referencia">
-                                                     <option>Seleccione Referencia</option>
-                                                     @foreach($user as $item)
-                                                        <option value="{{$item->id}}">{{$item->name}}</option>
-                                                     @endforeach
-                                                 </select>
+                                    <select class="form-control" id="referencia" name="referencia">
+                                        <option>Seleccione Referencia</option>
+                                        <option>No tiene referencia</option>
+                                        @foreach($user as $item)
+                                            <option value="{{$item->id}}">{{$item->name}}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                               </div>
 
@@ -306,6 +307,7 @@
                                     </div>
 
                                         <select class="form-control" id="referencia" name="referencia">
+                                            <option>No tiene referencia</option>
                                             @foreach($user as $item)
                                                 <option value="{{ $item->id }}">{{ $item->name }}</option>
                                             @endforeach
@@ -313,10 +315,10 @@
                                 </div>
 
                              <label for="">
-                                 <p class="text-white"><strong>G&eacute;nero</strong></p>
+                                 <p class="text-white"><strong>G&eacute;neros</strong></p>
                              </label>
 
-                          <div class="col-12 text-center">
+                          <div class="col-12 text-center" style="margin-bottom: 8rem !important;">
 
                             <div class="input-group form-group d-inline">
 
