@@ -79,7 +79,7 @@
                                          <a class="input-a-text">Submarca</a>
                                     </span>
                                 </div>
-                                <input  type="text" class="form-control input-edit-car" value="{{$automovil->submarca}}" id="submarca" name="submarca">
+                                <input  type="text" class="form-control input-edit-car" value="{{$automovil->submarca}}" id="submarca" name="submarca" required>
                             </div>
                         </div>
 
@@ -91,7 +91,7 @@
                                          <a class="input-a-text">Tipo</a>
                                     </span>
                                 </div>
-                                <input  type="text" class="form-control input-edit-car" value="{{$automovil->tipo}}" id="tipo" name="tipo">
+                                <input  type="text" class="form-control input-edit-car" value="{{$automovil->tipo}}" id="tipo" name="tipo" required>
                             </div>
                         </div>
 
@@ -103,7 +103,7 @@
                                          <a class="input-a-text">Subtipo</a>
                                     </span>
                                 </div>
-                                <input  type="text" class="form-control input-edit-car" value="{{$automovil->subtipo}}" id="subtipo" name="subtipo">
+                                <input  type="text" class="form-control input-edit-car" value="{{$automovil->subtipo}}" id="subtipo" name="subtipo" required>
                             </div>
                         </div>
 
@@ -115,7 +115,7 @@
                                          <a class="input-a-text"> KM</a>
                                     </span>
                                 </div>
-                                <input  type="text" class="form-control input-edit-car" value="{{$automovil->kilometraje}}" id="kilometraje" name="kilometraje">
+                                <input  type="number" class="form-control input-edit-car" value="{{$automovil->kilometraje}}" id="kilometraje" name="kilometraje" required>
                             </div>
                         </div>
 
@@ -127,7 +127,7 @@
                                          <a class="input-a-text">Año</a>
                                     </span>
                                 </div>
-                                <input  type="number" class="form-control input-edit-car" value="{{$automovil->año}}" id="año" name="año">
+                                <input  type="number" class="form-control input-edit-car" value="{{$automovil->año}}" id="año" name="año" required>
                             </div>
                         </div>
 
@@ -139,7 +139,7 @@
                                          <a class="input-a-text">Num Serie</a>
                                     </span>
                                 </div>
-                                <input  type="text" class="form-control input-edit-car" value="{{$automovil->numero_serie}}" id="numero_serie" name="numero_serie">
+                                <input  type="text" class="form-control input-edit-car" value="{{$automovil->numero_serie}}" id="numero_serie" name="numero_serie" required>
                             </div>
                         </div>
 
@@ -151,7 +151,7 @@
                                           <a class="input-a-text">Num Placas</a>
                                     </span>
                                 </div>
-                                <input type="text" class="form-control input-edit-car input-edit-car" value="{{$automovil->placas}}" id="placas" name="placas">
+                                <input type="text" class="form-control input-edit-car input-edit-car" value="{{$automovil->placas}}" id="placas" name="placas" required>
                             </div>
                         </div>
 
@@ -163,7 +163,7 @@
                                          <a class="input-a-text">Color</a>
                                     </span>
                                 </div>
-                                <input  type="color" class="form-control input-edit-car" value="{{$automovil->color}}" id="color" name="color">
+                                <input  type="color" class="form-control input-edit-car" value="{{$automovil->color}}" id="color" name="color" required>
                             </div>
                         </div>
 

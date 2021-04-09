@@ -69,7 +69,7 @@
                                          <a class="input-a-text">Submarca</a>
                                     </span>
                                 </div>
-                                <input  type="text" class="form-control input-edit-car" placeholder="Submarca" id="submarca" name="submarca">
+                                <input  type="text" class="form-control input-edit-car" placeholder="Submarca" id="submarca" name="submarca" required>
                             </div>
                         </div>
 
@@ -93,7 +93,7 @@
                                          <a class="input-a-text"> Tipo</a>
                                     </span>
                                 </div>
-                                <input  type="text" class="form-control input-edit-car" placeholder="Tipo" id="tipo" name="tipo">
+                                <input  type="text" class="form-control input-edit-car" placeholder="Tipo" id="tipo" name="tipo" required>
                             </div>
                         </div>
 
@@ -114,10 +114,10 @@
                                 <div class="input-group-prepend " >
                                     <span class="input-group-text span-edit-car">
                                          <img class="" src="{{ asset('img/icon/black/km.png') }}" width="35px">
-                                         <a class="input-a-text"> KM</a>
+                                         <a class="input-a-text">KM</a>
                                     </span>
                                 </div>
-                                <input  type="text" class="form-control input-edit-car" placeholder="Kilometraje" id="kilometraje" name="kilometraje">
+                                <input  type="number" class="form-control input-edit-car" placeholder="Kilometraje" id="kilometraje" name="kilometraje" required>
                             </div>
                         </div>
 
@@ -129,7 +129,7 @@
                                          <a class="input-a-text"> Año</a>
                                     </span>
                                 </div>
-                                <input  type="number" class="form-control input-edit-car" placeholder="YYYY" id="año" name="año">
+                                <input  type="number" class="form-control input-edit-car" placeholder="YYYY" id="año" name="año" required>
                             </div>
                         </div>
 
@@ -141,7 +141,7 @@
                                          <a class="input-a-text">Num Serie</a>
                                     </span>
                                 </div>
-                                <input  type="text" class="form-control input-edit-car" placeholder="Num Serie" id="numero_serie" name="numero_serie">
+                                <input  type="text" class="form-control input-edit-car" placeholder="Num Serie" id="numero_serie" name="numero_serie" required>
                             </div>
                         </div>
 
@@ -153,7 +153,7 @@
                                           <a class="input-a-text">Num Placas</a>
                                     </span>
                                 </div>
-                                <input type="text" class="form-control input-edit-car input-edit-car" placeholder="Num Placas" id="placas" name="placas">
+                                <input type="text" class="form-control input-edit-car input-edit-car" placeholder="Num Placas" id="placas" name="placas" required>
                             </div>
                         </div>
 
@@ -165,7 +165,7 @@
                                          <a class="input-a-text">Color</a>
                                     </span>
                                 </div>
-                                <input  type="color" value="#563d7c" class="form-control input-edit-car" placeholder="Color" id="color" name="color">
+                                <input  type="color" value="#563d7c" class="form-control input-edit-car" placeholder="Color" id="color" name="color" required>
                             </div>
                         </div>
 
