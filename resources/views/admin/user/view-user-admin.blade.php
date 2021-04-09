@@ -90,7 +90,7 @@
                                                             @if($item->img == NULL)
                                                                 <img class="rounded-circle" src="{{ asset('img/icon/black/user.png') }}" height="80px" width="80px" style="width: 80px !important;">
                                                             @else
-                                                                <img class="rounded-circle" src="{{ asset('img-perfil/'.$item->img) }}" height="80px" width="80px" style="width: 80px !important;">>
+                                                                <img class="rounded-circle" src="{{ asset('img-perfil/'.$item->img) }}" height="80px" width="80px" style="width: 80px !important;">
                                                             @endif
                                                       </div>
                                                   </div>

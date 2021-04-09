@@ -216,13 +216,13 @@ class AutomovilController extends Controller
             ->where('id_empresa', '=', NULL)
             ->submarca($submarca)
             ->placas($placas)
-            ->paginate(6);
+            ->paginate(5);
 
         $automovil2 = Automovil::orderBy('id','DESC')
             ->where('id_user', '=', NULL)
             ->submarca($submarca)
             ->placas($placas)
-            ->paginate(6);
+            ->paginate(5);
 //            ->get();
 
           $user = DB::table('users')

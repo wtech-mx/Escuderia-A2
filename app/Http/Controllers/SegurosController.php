@@ -187,12 +187,12 @@ class SegurosController extends Controller
         $seguros = Seguros::orderBy('id','DESC')
             ->where('id_empresa', '=', NULL)
             ->seguro($seguro)
-            ->paginate(6);
+            ->paginate(5);
 
         $seguros2 = Seguros::orderBy('id','DESC')
             ->where('id_user', '=', NULL)
             ->seguro($seguro)
-            ->paginate(6);
+            ->paginate(5);
 
           $user = DB::table('users')
             ->where('role','=', '0')

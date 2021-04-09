@@ -157,7 +157,7 @@ class UserController extends Controller
 
         $user = User::orderBy('id','DESC')
             ->name($name)
-            ->paginate(6);
+            ->paginate(5);
 
         $users = DB::table('users')
         ->get();
