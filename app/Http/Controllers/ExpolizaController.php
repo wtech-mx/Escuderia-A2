@@ -81,7 +81,7 @@ class ExpolizaController extends Controller
 
         $exp_poliza = DB::table('exp_poliza')
         ->where('current_auto','=', $exp_auto)
-        ->get();
+        ->paginate(6);
 
         return view('admin.exp-fisico.view-poliza-admin',compact('exp_poliza','automovil'));
     }

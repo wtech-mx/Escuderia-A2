@@ -4,7 +4,7 @@
 
 <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
 
-<div class="row bg-down-blue " style="border-radius: 0 0 0 0; height: 100vh;">
+                    <div class="row bg-down-blue " style="border-radius: 0 0 0 0;">
 
                         @if(Session::has('success'))
                         <script>
@@ -47,7 +47,7 @@
                             </div>
                         </div>
 
-                        <div class="col-12 mt-3 mb-5">
+                        <div class="col-12 mt-5 mb-3">
                             <div class="d-flex justify-content-between">
                             <p class="text-center text-white">
                                 Agregar m&aacute;s
@@ -55,18 +55,21 @@
 
                                 <!-- Button trigger modal -->
                                 <button type="button" class="btn " data-toggle="modal" data-target="#exampleModal">
-                                 <img class="d-inline mb-2" src="{{ asset('img/icon/white/plus.png') }}" alt="Icon documento" width="30px">
+                                 <img class="d-inline" src="{{ asset('img/icon/white/plus.png') }}" alt="Icon documento" width="30px">
                                 </button>
 
                             </div>
-                        </div>
+
+                    </div>
+
+                    <div class="row bg-down-blue " style="border-radius: 0 0 0 0; height: 90vh;">
 
                     @if ($exp_factura->count())
                         @foreach($exp_factura as $item)
                             @php
                                 $texto= substr($item->factura, -3);
                             @endphp
-                                <div class="col-6">
+                                <div class="col-6 text-center">
                                     <a type="button" class="" data-toggle="modal" data-target="#modal-doc-{{$item->id}}">
                                         @if($texto == 'pdf')
                                             <p class="text-center">
@@ -81,8 +84,8 @@
                                         @endif
                                      </a>
                                 </div>
-                            <!-- Modal -->
-                            <div class="modal fade" id="modal-doc-{{$item->id}}" tabindex="-1" role="dialog" aria-labelledby="modal-doc-{{$item->id}}" aria-hidden="true">
+                                <!-- Modal -->
+                                <div class="modal fade" id="modal-doc-{{$item->id}}" tabindex="-1" role="dialog" aria-labelledby="modal-doc-{{$item->id}}" aria-hidden="true">
                               <div class="modal-dialog  modal-sm modal-dialog-centered" role="document">
                                 <div class="modal-content">
 
@@ -113,6 +116,11 @@
                               </div>
                             </div>
                         @endforeach
+                                <div class="col-12">
+                                    <div class="d-flex justify-content-center"  style="position: relative;top: -80px">
+                                        {!! $exp_factura->links() !!}
+                                    </div>
+                                </div>
                     @else
 
                         <div class="col-12 mb3">
@@ -200,6 +208,6 @@
                           </div>
                         </div>
 
-</div>
+                    </div>
 
 @endsection

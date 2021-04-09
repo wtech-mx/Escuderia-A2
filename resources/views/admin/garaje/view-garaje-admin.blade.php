@@ -113,9 +113,9 @@
 
 
                                       <div class="row">
-                                           <div class="content" style="margin-bottom: 10% !important;height: 100vh;">
+                                           <div class="content" style="margin-bottom: 10% !important;height: 130vh;">
                                                 @foreach ($automovil as $item)
-                                            <div class="col-12 mt-4">
+                                                    <div class="col-12 mt-4">
                                                 <div class="card card-slide-garaje" >
                                                   <div class="card-body p-2" >
 
@@ -153,7 +153,12 @@
                                                   </div>
                                                 </div>
                                             </div>
-                                        @endforeach
+                                                @endforeach
+                                                    <div class="col-12 mt-4 ">
+                                                        <div class="d-flex justify-content-center">
+                                                            {!! $automovil->links() !!}
+                                                        </div>
+                                                    </div>
                                            </div>
                                       </div>
 
@@ -193,46 +198,51 @@
 
                                             <div class="col-12 mt-4">
                                                 <div class="content" style="margin-bottom: 10% !important;height: 100vh;">
-                                                @foreach ($automovil2 as $item)
-                                                    <div class="col-12 mt-4">
-                                                        <div class="card card-slide-garaje" >
-                                                          <div class="card-body p-2" >
+                                                    @foreach ($automovil2 as $item)
+                                                        <div class="col-12 mt-4">
+                                                            <div class="card card-slide-garaje" >
+                                                              <div class="card-body p-2" >
 
-                                                              <div class="row ">
+                                                                  <div class="row ">
 
-                                                                   <div class="col-6 mt-3 ">
-                                                                      <a class="card-text" href="{{ route('edit_admin.automovil',$item->id) }}"><strong style="font: normal normal bold 20px/27px Segoe UI;">{{$item->Empresa->nombre}}</strong></a>
+                                                                       <div class="col-6 mt-3 ">
+                                                                          <a class="card-text" href="{{ route('edit_admin.automovil',$item->id) }}"><strong style="font: normal normal bold 20px/27px Segoe UI;">{{$item->Empresa->nombre}}</strong></a>
 
-                                                                    <div class="d-flex justify-content-start">
-                                                                       <p class="text-center"><strong>Submarca: </strong>{{$item->submarca}}</p>
-                                                                        <br>
-                                                                       <p class="text-center"><strong>-    Tipo:    -</strong>{{$item->tipo}}</p>
-                                                                    </div>
+                                                                        <div class="d-flex justify-content-start">
+                                                                           <p class="text-center"><strong>Submarca: </strong>{{$item->submarca}}</p>
+                                                                            <br>
+                                                                           <p class="text-center"><strong>-    Tipo:    -</strong>{{$item->tipo}}</p>
+                                                                        </div>
 
-                                                                    <div class="d-flex justify-content-start">
-                                                                       <p class="text-center"><strong> Año: </strong>{{$item->año}}</p>
-                                                                        <br>
-                                                                      <p class="text-center"><strong> Placas: </strong>{{$item->placas}}</p>
-                                                                    </div>
+                                                                        <div class="d-flex justify-content-start">
+                                                                           <p class="text-center"><strong> Año: </strong>{{$item->año}}</p>
+                                                                            <br>
+                                                                          <p class="text-center"><strong> Placas: </strong>{{$item->placas}}</p>
+                                                                        </div>
 
-                                                                      <p class="card-text" style="font-size: 12px"><strong>KM Recorridos: </strong> {{$item->kilometraje}} KM</p>
+                                                                          <p class="card-text" style="font-size: 12px"><strong>KM Recorridos: </strong> {{$item->kilometraje}} KM</p>
+                                                                      </div>
+
+                                                                       @if($item->img == NULL)
+                                                                          <div class="col-6">
+                                                                            <img class="d-inline mb-2" src="{{ asset('img/icon/car.png') }}"  width="150px">
+                                                                          </div>
+                                                                        @else
+                                                                          <div class="col-6">
+                                                                            <img class="d-inline mb-2" src="{{ asset('img-auto/'.$item->img) }}"  width="150px">
+                                                                          </div>
+                                                                        @endif
                                                                   </div>
 
-                                                                   @if($item->img == NULL)
-                                                                      <div class="col-6">
-                                                                        <img class="d-inline mb-2" src="{{ asset('img/icon/car.png') }}"  width="150px">
-                                                                      </div>
-                                                                    @else
-                                                                      <div class="col-6">
-                                                                        <img class="d-inline mb-2" src="{{ asset('img-auto/'.$item->img) }}"  width="150px">
-                                                                      </div>
-                                                                    @endif
                                                               </div>
-
-                                                          </div>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                @endforeach
+                                                    @endforeach
+                                                        <div class="col-12 mt-4 ">
+                                                            <div class="d-flex justify-content-center">
+                                                                {!! $automovil2->links() !!}
+                                                            </div>
+                                                        </div>
                                                 </div>
                                             </div>
 

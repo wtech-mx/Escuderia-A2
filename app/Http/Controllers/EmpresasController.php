@@ -69,7 +69,8 @@ class EmpresasController extends Controller
 
         $user = DB::table('users')
             ->where('role','=', '0')
-            ->get();
+            ->paginate(6);
+
 
         return view('admin.empresas.view-empresas-admin',compact('empresa','user'));
     }

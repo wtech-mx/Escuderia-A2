@@ -89,7 +89,7 @@ class ExptcController extends Controller
 
         $exp_tc = DB::table('exp_tc')
         ->where('current_auto','=', $automovil->id)
-        ->get();
+        ->paginate(6);
 
         return view('admin.exp-fisico.view-tc-admin',compact('exp_tc','automovil'));
     }

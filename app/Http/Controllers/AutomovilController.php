@@ -19,6 +19,7 @@ class AutomovilController extends Controller
 
     public function __construct(){
         $this->middleware('auth');
+        $this->middleware('pagespeed');
     }
 /*|--------------------------------------------------------------------------
 |Garaje Edit/Create/Index - User

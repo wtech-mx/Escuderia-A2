@@ -6,7 +6,6 @@
 
                 <div class="row bg-image" >
 
-
                         <div class="col-2  mt-4">
                             <div class="d-flex justify-content-start">
                                     <div class="text-center text-white">
@@ -71,32 +70,38 @@
 
                                         </div>
                                         {{Form::close()}}
-                                    <div class="content" style="margin-bottom: 10% !important;height: 100vh;">
-                                     @foreach ($seguros as $item)
-                                        <div class="col-12 mt-4">
 
-                                            <a class="card-text" href="{{ route('edit_admin.seguro',$item->id) }}" style="text-decoration: none;color: #000000">
-                                                <div class="card card-slide-garaje" >
-                                                  <div class="card-body p-2" >
+                                        <div class="content" style="margin-bottom: 10% !important;height: 100vh;">
+                                             @foreach ($seguros as $item)
+                                                <div class="col-12 mt-4">
 
-                                                      <div class="row">
-                                                          <div class="col-6 mt-3">
-                                                              <p class="card-text" href="{{ route('edit_admin.seguro',$item->id) }}"><strong style="font: normal normal bold 20px/27px Segoe UI;">{{$item->User->name}}</strong></p>
-                                                              <p class="card-text" style="font-size: 12px"><strong>{{$item->Automovil->submarca}}</strong></p>
-                                                              <p class="card-text" style="font-size: 12px"><strong>{{$item->seguro}}</strong></p>
+                                                    <a class="card-text" href="{{ route('edit_admin.seguro',$item->id) }}" style="text-decoration: none;color: #000000">
+                                                        <div class="card card-slide-garaje" >
+                                                          <div class="card-body p-2" >
+
+                                                              <div class="row">
+                                                                  <div class="col-6 mt-3">
+                                                                      <p class="card-text" href="{{ route('edit_admin.seguro',$item->id) }}"><strong style="font: normal normal bold 20px/27px Segoe UI;">{{$item->User->name}}</strong></p>
+                                                                      <p class="card-text" style="font-size: 12px"><strong>{{$item->Automovil->submarca}}</strong></p>
+                                                                      <p class="card-text" style="font-size: 12px"><strong>{{$item->seguro}}</strong></p>
+                                                                  </div>
+
+                                                                  <div class="col-6">
+                                                                    <img class="d-inline mb-2" src="{{ asset('img/icon/seguros/'.$item->seguro.'.png') }}" alt="Icon documento" width="150px">
+                                                                  </div>
+                                                              </div>
+
                                                           </div>
-
-                                                          <div class="col-6">
-                                                            <img class="d-inline mb-2" src="{{ asset('img/icon/seguros/'.$item->seguro.'.png') }}" alt="Icon documento" width="150px">
-                                                          </div>
-                                                      </div>
-
-                                                  </div>
+                                                        </div>
+                                                    </a>
                                                 </div>
-                                            </a>
+                                            @endforeach
+                                                <div class="col-12 mt-4 ">
+                                                    <div class="d-flex justify-content-center">
+                                                        {!! $seguros->links() !!}
+                                                    </div>
+                                                </div>
                                         </div>
-                                    @endforeach
-                                    </div>
 
                                   </div>
 
@@ -116,20 +121,19 @@
 
                                         {{  Form::open(['route' => 'index_admin.seguros' , 'method' => 'GET' , 'class'=>'form-inline pull-right'] )  }}
                                         <div class="d-flex justify-content-center mt-5">
+                                            <div class="form-group">
+                                                {{ Form::text('seguro', null,['class' => 'form-control','placeholder' => 'Busqueda de seguro'])  }}
+                                            </div>
 
-                                                     <div class="form-group">
-                                                          {{ Form::text('seguro', null,['class' => 'form-control','placeholder' => 'Busqueda de seguro'])  }}
-                                                     </div>
-
-                                                    <button type="submit" class="btn btn-default">
-                                                        <img class="" src="{{ asset('img/icon/white/search.png') }}" width="25px" >
-                                                    </button>
-
+                                            <button type="submit" class="btn btn-default">
+                                                <img class="" src="{{ asset('img/icon/white/search.png') }}" width="25px" >
+                                            </button>
                                         </div>
                                         {{Form::close()}}
+
                                     <div class="content" style="margin-bottom: 10% !important;height: 100vh;">
                                         @foreach ($seguros2 as $item)
-                                        <div class="col-12 mt-4">
+                                            <div class="col-12 mt-4">
                                             <div class="card card-slide-garaje" >
                                               <div class="card-body p-2" >
 
@@ -148,7 +152,12 @@
                                               </div>
                                             </div>
                                         </div>
-                                    @endforeach
+                                        @endforeach
+                                            <div class="col-12 mt-4 ">
+                                                <div class="d-flex justify-content-center">
+                                                    {!! $seguros2->links() !!}
+                                                </div>
+                                            </div>
                                     </div>
 
                                   </div>

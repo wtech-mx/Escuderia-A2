@@ -100,7 +100,7 @@ class ExpreemplacaminetoController extends Controller
 
         $exp_reemplacamiento = DB::table('exp_reemplacamiento')
         ->where('current_auto','=', $exp_auto)
-        ->get();
+        ->paginate(6);
 
                           // obtener la hora actual  - 2015-12-19 10:10:54
           $current = Carbon::now()->toDateTimeString();

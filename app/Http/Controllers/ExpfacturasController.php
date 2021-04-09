@@ -91,9 +91,11 @@ class ExpfacturasController extends Controller
          /* Trae Autos de Usuarios */
 //        $name = $request->get('name');
 
-        $automovil = Automovil::where('id_empresa', '=', NULL)->get();
+        $automovil = Automovil::where('id_empresa', '=', NULL)
+            ->paginate(6);
 
-        $automovil2 = Automovil::where('id_user', '=', NULL)->get();
+        $automovil2 = Automovil::where('id_user', '=', NULL)
+            ->paginate(6);
 
         $factura = ExpFactura::get()->count();
         $factura2 = ExpFactura::get();
@@ -144,7 +146,7 @@ class ExpfacturasController extends Controller
 
         $exp_factura = DB::table('exp_facturas')
         ->where('current_auto','=', $exp_auto)
-        ->get();
+        ->paginate(6);
 
          $user = DB::table('users')
             ->where('role','=', '0')

@@ -79,7 +79,7 @@ class ExpdomicilioController extends Controller
 
         $exp_domicilio = DB::table('exp_domicilio')
         ->where('current_auto','=', $exp_auto)
-        ->get();
+        ->paginate(6);
 
         return view('admin.exp-fisico.view-cd-admin',compact('exp_domicilio','automovil'));
     }

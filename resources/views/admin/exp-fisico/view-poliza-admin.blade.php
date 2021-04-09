@@ -3,7 +3,7 @@
 @section('content')
 
 
-<div class="row bg-down-blue " style="border-radius: 0 0 0 0; height: 100vh;">
+<div class="row bg-down-blue " style="border-radius: 0 0 0 0; height: 95vh;">
 
                         @if(Session::has('success'))
                         <script>
@@ -104,6 +104,11 @@
                               </div>
                             </div>
                         @endforeach
+                            <div class="col-12 mt-4 ">
+                                <div class="d-flex justify-content-center">
+                                    {!! $exp_poliza->links() !!}
+                                </div>
+                            </div>
                     @else
 
                         <div class="col-12 mb3">

@@ -82,7 +82,7 @@ class ExplacasController extends Controller
 
         $exp_placas = DB::table('exp_placas')
         ->where('current_auto','=', $exp_auto)
-        ->get();
+        ->paginate(6);
 
         return view('admin.exp-fisico.view-bp-admin',compact('exp_placas','automovil'));
     }

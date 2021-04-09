@@ -97,6 +97,11 @@
                                                 </div>
                                         </div>
                                     @endforeach
+                                        <div class="col-12 mt-4 ">
+                                            <div class="d-flex justify-content-center">
+                                                {!! $user->links() !!}
+                                            </div>
+                                        </div>
                                     </div>
 
 {{--                                     {{ $user->render() }}--}}

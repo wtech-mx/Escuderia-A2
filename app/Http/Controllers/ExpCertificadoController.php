@@ -76,7 +76,7 @@ class ExpCertificadoController extends Controller
 
         $exp_certificados = DB::table('exp_certificado')
         ->where('current_auto','=', $automovil->id)
-        ->get();
+        ->paginate(6);
 
         return view('admin.exp-fisico.view-certificado-admin',compact('exp_certificados','automovil'));
     }

@@ -78,7 +78,7 @@ class ExptenenciasController extends Controller
 
         $exp_tenencias = DB::table('exp_tenencias')
         ->where('current_auto','=', $exp_auto)
-        ->get();
+        ->paginate(6);
 
 
         return view('admin.exp-fisico.view-tenencia-admin',compact('exp_tenencias','automovil'));

@@ -79,7 +79,7 @@ class ExpineController extends Controller
 
         $exp_ine = DB::table('exp_ine')
         ->where('current_auto','=', $exp_auto)
-        ->get();
+        ->paginate(6);
 
         return view('admin.exp-fisico.view-ine-admin',compact('exp_ine','automovil'));
     }

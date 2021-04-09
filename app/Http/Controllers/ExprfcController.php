@@ -78,7 +78,7 @@ class ExprfcController extends Controller
 
         $exp_rfc = DB::table('exp_rfc')
         ->where('current_auto','=', $exp_auto)
-        ->get();
+        ->paginate(6);
 
         return view('admin.exp-fisico.view-rfc-admin',compact('exp_rfc','automovil'));
     }

@@ -4,7 +4,7 @@
 
                 <link href="{{ asset('css/garje.css') }}" rel="stylesheet">
 
-                <div class="row bg-down-blue" style="border-radius: 0 0 0 0;">
+                <div class="row bg-down-blue " style="border-radius: 0 0 0 0; height: 95vh;">
 
 
                         <div class="col-2  mt-4">
@@ -68,9 +68,8 @@
                                     </h5>
 
                                   <div class="row">
-                                    <div class="content" style="margin-bottom: 10% !important;height: 100vh;">
+                                    <div class="content" style="margin-bottom: 10% !important;height: 110vh;">
                                         <div class="col-12">
-
                                             @foreach ($automovil as $item)
 
                                              <a class="mb-2" data-toggle="collapse" href="#collapse{{$item->id}}" role="button" aria-expanded="false" aria-controls="collapse{{$item->id}}">
@@ -245,7 +244,12 @@
                                             </div>
 
                                             @endforeach
+                                        </div>
 
+                                        <div class="col-12 mt-4 ">
+                                            <div class="d-flex justify-content-center">
+                                                {!! $automovil->links() !!}
+                                            </div>
                                         </div>
                                     </div>
                                   </div>
@@ -265,7 +269,6 @@
                                   <div class="row">
                                     <div class="content" style="margin-bottom: 10% !important;height: 100vh;">
                                         <div class="col-12">
-
                                             @foreach ($automovil2 as $item)
 
                                              <a class="mb-2" data-toggle="collapse" href="#collapse{{$item->submarca}}" role="button" aria-expanded="false" aria-controls="collapse{{$item->submarca}}">
@@ -369,7 +372,12 @@
                                             </div>
 
                                             @endforeach
+                                        </div>
 
+                                        <div class="col-12 mt-4 ">
+                                            <div class="d-flex justify-content-center">
+                                                {!! $automovil2->links() !!}
+                                            </div>
                                         </div>
                                     </div>
                                   </div>

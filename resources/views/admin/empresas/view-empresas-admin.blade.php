@@ -59,7 +59,7 @@
                                     @endif
                                     <div class="content" style="margin-bottom: 10% !important;height: 100vh;">
                                         @foreach ($empresa as $item)
-                                        <div class="col-12 mt-4">
+                                            <div class="col-12 mt-4">
 
                                                 <div class="card card-slide-garaje" >
                                                   <div class="card-body p-2" >
@@ -86,10 +86,15 @@
                                                 </div>
 
                                         </div>
-                                    @endforeach
+                                        @endforeach
+                                            <div class="col-12 mt-4 ">
+                                                <div class="d-flex justify-content-center">
+                                                    {!! $empresa->links() !!}
+                                                </div>
+                                            </div>
                                     </div>
 
-                                  </div>Servicio Mec&aacute;nica
+                                  </div>
                 </div>
 
 

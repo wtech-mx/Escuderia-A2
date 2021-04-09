@@ -115,7 +115,11 @@
                                             </div>
                                         </div>
                                       @endforeach
-{{--                                      {{ $tarjeta_circulacion->render() }}--}}
+                                        <div class="col-12 mt-4 ">
+                                            <div class="d-flex justify-content-center">
+                                                {!! $tarjeta_circulacion->links() !!}
+                                            </div>
+                                        </div>
                                       </div>
                                   </div>
                                 </div>
@@ -159,7 +163,11 @@
                                             </div>
                                         </div>
                                       @endforeach
-{{--                                      {{ $tarjeta_circulacion->render() }}--}}
+                                        <div class="col-12 mt-4 ">
+                                            <div class="d-flex justify-content-center">
+                                                {!! $tarjeta_circulacion2->links() !!}
+                                            </div>
+                                        </div>
                                       </div>
                                   </div>
                                 </div>

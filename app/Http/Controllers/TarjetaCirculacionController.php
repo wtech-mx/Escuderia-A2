@@ -108,11 +108,11 @@ class TarjetaCirculacionController extends Controller
         $tarjeta_circulacion = TarjetaCirculacion::orderBy('id','DESC')
             ->nombre($nombre)
             ->where('id_empresa','=', NULL)
-            ->get();
+            ->paginate(6);
 
         $tarjeta_circulacion2 = TarjetaCirculacion::orderBy('id','DESC')
             ->where('id_user','=', NULL)
-            ->get();
+            ->paginate(6);
 
         $user = DB::table('users')
         ->get();
