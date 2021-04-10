@@ -14,9 +14,13 @@
 
                   <div class="form-row">
 
-                      <input class="form-control" type="text" name="txtID" id="txtID">
+                      <div class="form-group col-12">
+{{--                        <label for="">id</label>--}}
+                        <input class="form-control" type="hidden" name="txtID" id="txtID">
+                      </div>
 
                       <div class="form-group col-12">
+                          <label for="">Fecha</label>
                         <input class="form-control" type="date" name="txtFecha" id="txtFecha">
                       </div>
 
@@ -70,8 +74,8 @@
                   <button class="btn btn-success" id="btnAgregar">Agregar</button>
                   <button class="btn btn-warning" id="btnModificar">Modificar</button>
                   <button class="btn btn-danger" id="btnBorrar">Borrar</button>
-
               </div>
+
             </div>
           </div>
         </div>

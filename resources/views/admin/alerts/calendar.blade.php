@@ -39,6 +39,7 @@
               dateClick:function (info) {
 
               limpiarFormulario();
+              $('#txtFecha').val("");
               $('#txtFecha').val(info.dateStr);
               $("#btnAgregar").prop("disabled",false);
               $("#btnModificar").prop("disabled",true);
@@ -51,6 +52,7 @@
               $("#btnAgregar").prop("disabled",true);
               $("#btnModificar").prop("disabled",false);
               $("#btnBorrar").prop("disabled",false);
+
               $('#txtID').val(info.event.id);
 
                 mes = (info.event.start.getMonth()+1)
@@ -60,15 +62,18 @@
                 mes = (mes<10)?"0"+mes:mes;
                 dia = (dia<10)?"0"+dia:dia;
 
-              $('#title').val(info.event.title);
               $('#txtFecha').val(anio+"-"+mes+"-"+dia);
+
               $('#id_user').val(info.event.extendedProps.id_user);
+              $('#title').val(info.event.title);
               $('#color').val(info.event.backgroundColor);
               $('#descripcion').val(info.event.extendedProps.descripcion);
               $('#estatus').val(info.event.extendedProps.estatus);
               $('#check').val(info.event.extendedProps.check);
               $('#image').val(info.event.extendedProps.image);
               $('#exampleModal').modal();
+
+              console.log(anio+"-"+mes+"-"+dia)
             },
 
             events:"{{ route('calendar.show_calendar') }}",
@@ -131,12 +136,11 @@
                 check:$('#check').val()+checkDefault,
                 image:$('#image').val()+imageDefault,
                 color:$('#color').val()+colorAlert,
-                start:$('#txtFecha').val(),
                 end:$('#txtFecha').val(),
                 '_token':$("meta[name='csrf-token']").attr("content"),
                 '_method':method
             }
-
+            console.log(nuevoEvento)
             return (nuevoEvento);
         }
 
@@ -155,7 +159,7 @@
                 '_token':$("meta[name='csrf-token']").attr("content"),
                 '_method':method
             }
-
+            console.log(nuevoEvento)
             return (nuevoEvento);
         }
 
