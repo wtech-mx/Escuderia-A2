@@ -52,12 +52,19 @@
                                     </div>
                             </div>
                         </div>
-
+                        @if ($seguro == NULL)
+                             <div class="col-12 p-3">
+                                 <p class="text-center">
+                                    <img class="d-inline mb-2" src="{{ asset('img/icon/page-not-found.png') }}" alt="Icon documento" width="150px">
+                                 </p>
+                             </div>
+                        @else
                             <div class="col-12 p-3">
                                 <p class="text-center">
                                     <img class="" src="{{ asset('img/icon/seguros/'.$img) }}" width="100px" ><br>
                                 </p>
                             </div>
+                        @endif
 
                 </div>
 
