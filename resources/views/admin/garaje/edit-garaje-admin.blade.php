@@ -81,8 +81,9 @@
                                         </span>
                                     </div>
                                              <select class="form-control input-edit-car" id="id_marca" name="id_marca">
-                                                <option value="{{$automovil->id_marca}}">Selecciona la marca</option>
+
                                                 @foreach($marca as $item)
+                                                    <option value="{{$automovil->Marca->id}}">{{$automovil->Marca->nombre}}</option>
                                                     <option value="{{ $item->id }}">{{ $item->nombre }}</option>
                                                 @endforeach
                                             </select>
