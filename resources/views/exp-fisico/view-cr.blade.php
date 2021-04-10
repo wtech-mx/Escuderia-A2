@@ -78,8 +78,7 @@
 
                         <div class="col-12 mt-5">
                             <p class="text-center">
-                                 <button type="button" class="btn " data-toggle="exampleModal" data-target="#exampleModal">
-                                     <p class="text-center">{{$item->titulo}}</p>
+                                 <button  type="button" class="btn " data-toggle="modal" data-target="#exampleModal">
                                     <img class="d-inline mb-2" src="{{ asset('img/icon/white/plus.png') }}" alt="Icon documento" width="60px">
                                 </button>
                             </p>
@@ -117,7 +116,7 @@
                                          <div class="input-group form-group">
                                               <div class="input-group-prepend">
                                                   <span class="input-group-text input-modal" >
-                                                       <img class="" src="{{ asset('img/icon/white/email.png') }}" width="25px" >
+                                                       <img class="" src="{{ asset('img/icon/white/fuente.png') }}" width="25px" >
                                                   </span>
                                               </div>
                                                   <input type="text" class="form-control" placeholder="Titulo" id="titulo" name="titulo" style="border-radius: 0  10px 10px 0;">

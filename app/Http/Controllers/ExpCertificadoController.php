@@ -91,14 +91,12 @@ class ExpCertificadoController extends Controller
         $exp->titulo = $request->get('titulo');
 
     	if ($request->hasFile('certificado')) {
-
                 $urlfoto = $request->file('certificado');
                 $nombre = time().".".$urlfoto->guessExtension();
                 $ruta = public_path('/exp-certificado/'.$nombre);
                 $compresion = Image::make($urlfoto->getRealPath())
                     ->save($ruta,10);
-                $exp->carta = $compresion->basename;
-
+                $exp->certificado = $compresion->basename;
    	}
 
 

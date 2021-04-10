@@ -69,8 +69,11 @@
                                          <a class="input-a-text">Submarca</a>
                                     </span>
                                 </div>
-                                <input  type="text" class="form-control input-edit-car" placeholder="Submarca" id="submarca" name="submarca" required>
+                                <input  type="text" class="form-control input-edit-car" placeholder="Submarca" id="submarca" name="submarca">
                             </div>
+                                    @if ($errors->has('submarca'))
+                                        <span class="text-danger">{{ $errors->first('submarca') }}</span>
+                                    @endif
                         </div>
 
                         <div class="col-12 mt-3" style="display: none">
@@ -93,8 +96,11 @@
                                          <a class="input-a-text"> Tipo</a>
                                     </span>
                                 </div>
-                                <input  type="text" class="form-control input-edit-car" placeholder="Tipo" id="tipo" name="tipo" required>
+                                <input  type="text" class="form-control input-edit-car" placeholder="Tipo" id="tipo" name="tipo">
                             </div>
+                                    @if ($errors->has('tipo'))
+                                        <span class="text-danger">{{ $errors->first('tipo') }}</span>
+                                    @endif
                         </div>
 
                         <div class="col-12 mt-3">
@@ -117,8 +123,11 @@
                                          <a class="input-a-text">KM</a>
                                     </span>
                                 </div>
-                                <input  type="number" class="form-control input-edit-car" placeholder="Kilometraje" id="kilometraje" name="kilometraje" required>
+                                <input  type="number" class="form-control input-edit-car" placeholder="Kilometraje" id="kilometraje" name="kilometraje">
                             </div>
+                                    @if ($errors->has('kilometraje'))
+                                        <span class="text-danger">{{ $errors->first('kilometraje') }}</span>
+                                    @endif
                         </div>
 
                         <div class="col-12 mt-3">
@@ -129,8 +138,11 @@
                                          <a class="input-a-text"> Año</a>
                                     </span>
                                 </div>
-                                <input  type="number" class="form-control input-edit-car" placeholder="YYYY" id="año" name="año" required>
+                                <input  type="number" class="form-control input-edit-car" placeholder="YYYY" id="año" name="año">
                             </div>
+                                    @if ($errors->has('año'))
+                                        <span class="text-danger">{{ $errors->first('año') }}</span>
+                                    @endif
                         </div>
 
                         <div class="col-12 mt-3">
@@ -141,8 +153,11 @@
                                          <a class="input-a-text">Num Serie</a>
                                     </span>
                                 </div>
-                                <input  type="text" class="form-control input-edit-car" placeholder="Num Serie" id="numero_serie" name="numero_serie" required>
+                                <input  type="text" class="form-control input-edit-car" placeholder="Num Serie" id="numero_serie" name="numero_serie">
                             </div>
+                                    @if ($errors->has('numero_serie'))
+                                        <span class="text-danger">{{ $errors->first('numero_serie') }}</span>
+                                    @endif
                         </div>
 
                         <div class="col-12 mt-3">
@@ -153,8 +168,11 @@
                                           <a class="input-a-text">Num Placas</a>
                                     </span>
                                 </div>
-                                <input type="text" class="form-control input-edit-car input-edit-car" placeholder="Num Placas" id="placas" name="placas" required>
+                                <input type="text" class="form-control input-edit-car input-edit-car" placeholder="Num Placas" id="placas" name="placas">
                             </div>
+                                    @if ($errors->has('placas'))
+                                        <span class="text-danger">{{ $errors->first('placas') }}</span>
+                                    @endif
                         </div>
 
                         <div class="col-12 mt-3">
@@ -165,8 +183,11 @@
                                          <a class="input-a-text">Color</a>
                                     </span>
                                 </div>
-                                <input  type="color" value="#563d7c" class="form-control input-edit-car" placeholder="Color" id="color" name="color" required>
+                                <input  type="color" value="#563d7c" class="form-control input-edit-car" placeholder="Color" id="color" name="color">
                             </div>
+                                    @if ($errors->has('color'))
+                                        <span class="text-danger">{{ $errors->first('color') }}</span>
+                                    @endif
                         </div>
 
                         <div class="col-12 mt-3">

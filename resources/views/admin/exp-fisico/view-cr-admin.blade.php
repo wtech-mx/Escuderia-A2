@@ -104,11 +104,6 @@
                               </div>
                             </div>
                         @endforeach
-                                  <div class="col-12 mt-4 ">
-                                    <div class="d-flex justify-content-center">
-                                        {!! $exp_carta->links() !!}
-                                    </div>
-                                  </div>
                     @else
 
                         <div class="col-12 mb3">

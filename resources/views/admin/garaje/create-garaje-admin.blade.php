@@ -178,11 +178,12 @@
                                              <a class="input-a-text">Kilometraje</a>
                                         </span>
                                     </div>
-                                    <input  type="text" class="form-control input-edit-car" placeholder="kilometraje" id="kilometraje" name="kilometraje" value="{{ old('kilometraje') }}">
-                                        @if ($errors->has('kilometraje'))
-                                            <span class="text-danger">{{ $errors->first('kilometraje') }}</span>
-                                        @endif
+                                    <input  type="number" class="form-control input-edit-car" placeholder="kilometraje" id="kilometraje" name="kilometraje" value="{{ old('kilometraje') }}">
+
                                 </div>
+                                    @if ($errors->has('kilometraje'))
+                                        <span class="text-danger">{{ $errors->first('kilometraje') }}</span>
+                                    @endif
                             </div>
 
                             <div class="col-12 mb-3">

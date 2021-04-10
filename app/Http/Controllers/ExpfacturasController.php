@@ -87,7 +87,7 @@ class ExpfacturasController extends Controller
         /*|--------------------------------------------------------------------------
         |Create Doc Admin_Admin
         |--------------------------------------------------------------------------*/
-     function index_admin(Request $request){
+     function index_admin(){
          /* Trae Autos de Usuarios */
 //        $name = $request->get('name');
 
@@ -98,7 +98,7 @@ class ExpfacturasController extends Controller
             ->paginate(6);
 
         $factura = ExpFactura::get()->count();
-        $factura2 = ExpFactura::get();
+        $factura2 = db::table('exp_facturas')->get();
 
         $tenencias = ExpTenencias::get()->count();
         $tenencias2 = ExpTenencias::get();

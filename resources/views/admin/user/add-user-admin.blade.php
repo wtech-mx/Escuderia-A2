@@ -93,7 +93,7 @@
                                                                      <img class="" src="{{ asset('img/icon/white/email.png') }}" width="25px" >
                                                                 </span>
                                                             </div>
-                                                            <input type="text" class="form-control" placeholder="Nombre" id="name" name="name" style="border-radius: 0  10px 10px 0;">
+                                                            <input type="text" class="form-control" placeholder="Nombre" id="name" name="name" style="border-radius: 0  10px 10px 0;" required>
                                                         </div>
 
                                                     <label for="">
@@ -106,7 +106,7 @@
                                                                      <img class="" src="{{ asset('img/icon/white/email.png') }}" width="25px" >
                                                                 </span>
                                                             </div>
-                                                            <input type="text" class="form-control" placeholder="correo@correo.com" id="email" name="email" style="border-radius: 0  10px 10px 0;">
+                                                            <input type="text" class="form-control" placeholder="correo@correo.com" id="email" name="email" style="border-radius: 0  10px 10px 0;" required>
                                                     </div>
 
                                                     <label for="">

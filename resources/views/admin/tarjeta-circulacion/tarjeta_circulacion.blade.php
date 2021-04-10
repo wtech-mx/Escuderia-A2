@@ -170,7 +170,7 @@ $newDate = date("d/m/Y", strtotime($originalDate));
                                     </span>
                                 </div>
 
-                                <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre" value="{{$tarjeta_circulacion->nombre}}">
+                                <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre" value="{{$tarjeta_circulacion->nombre}}" required>
                             </div>
 
                              <label for="">
@@ -184,7 +184,8 @@ $newDate = date("d/m/Y", strtotime($originalDate));
                                     </span>
                                 </div>
 
-                                <select class="form-control" id="tipo_placa" name="tipo_placa"><option value="{{$tarjeta_circulacion->tipo_placa}}" selected>{{$tarjeta_circulacion->tipo_placa}}</option>
+                                <select class="form-control" id="tipo_placa" name="tipo_placa" required>
+                                    <option value="{{$tarjeta_circulacion->tipo_placa}}" selected>{{$tarjeta_circulacion->tipo_placa}}</option>
                                     <option value="Particular">Particular</option>
                                     <option value="Carga">Carga</option>
                                     <option value="Hybrido">Hybrido</option>
@@ -206,7 +207,7 @@ $newDate = date("d/m/Y", strtotime($originalDate));
                                          <img class="" type="date" src="{{ asset('img/icon/white/seguro (1).png') }}" width="25px" >
                                     </span>
                                 </div>
-                                <select class="form-control" id="lugar_expedicion" name="lugar_expedicion">
+                                <select class="form-control" id="lugar_expedicion" name="lugar_expedicion" required>
                                     <option value="{{$tarjeta_circulacion->lugar_expedicion}}" selected>{{$tarjeta_circulacion->lugar_expedicion}}</option>
                                     @include('tarjeta-circulacion.estados')
                                 </select>

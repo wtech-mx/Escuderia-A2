@@ -161,7 +161,7 @@
                                          <div class="input-group form-group">
                                               <div class="input-group-prepend">
                                                   <span class="input-group-text input-modal" >
-                                                       <img class="" src="{{ asset('img/icon/white/email.png') }}" width="25px" >
+                                                       <img class="" src="{{ asset('img/icon/white/fuente.png') }}" width="25px" >
                                                   </span>
                                               </div>
                                                   <input type="text" class="form-control" placeholder="Titulo" id="titulo" name="titulo" style="border-radius: 0  10px 10px 0;">
@@ -170,7 +170,6 @@
                                 <div class="col-12 mt-3">
                                     <div class=" custom-file mb-3">
                                         <input type="file" class="custom-file-input input-group-text" name="tenencia">
-                                        <label class="custom-file-label">Elegir img...</label>
                                     </div>
 
                                     <p class="text-center">
