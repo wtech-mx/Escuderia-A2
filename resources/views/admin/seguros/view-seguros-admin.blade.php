@@ -85,10 +85,17 @@
                                                                       <p class="card-text" style="font-size: 12px"><strong>{{$item->Automovil->submarca}}</strong></p>
                                                                       <p class="card-text" style="font-size: 12px"><strong>{{$item->seguro}}</strong></p>
                                                                   </div>
-
+                                                                @if ($item->seguro == 'sin seguro')
+                                                                  <div class="col-6">
+                                                                    <img class="d-inline mb-2" src="{{ asset('img/icon/page-not-found.png') }}" alt="Icon documento" width="150px">
+                                                                  </div>
+                                                                @else
                                                                   <div class="col-6">
                                                                     <img class="d-inline mb-2" src="{{ asset('img/icon/seguros/'.$item->seguro.'.png') }}" alt="Icon documento" width="150px">
                                                                   </div>
+                                                                @endif
+
+
                                                               </div>
 
                                                           </div>

@@ -106,10 +106,10 @@ class AutomovilController extends Controller
         ->first();
 
         $seguro = new  Seguros;
-        $seguro->seguro = 'gnp';
+        $seguro->seguro = 'sn';
         $seguro->tipo_cobertura = 'Amplia';
-        $seguro->costo = '100';
-        $seguro->costo_anual = '100';
+        $seguro->costo = '0';
+        $seguro->costo_anual = '0';
         $seguro->id_user = $user->id;
         $seguro->estatus = 0;
         $seguro->current_auto = $automovil->id;
@@ -287,7 +287,7 @@ class AutomovilController extends Controller
         $automovil->save();
 
         $seguro = new  Seguros;
-        $seguro->seguro = 'gnp';
+        $seguro->seguro = 'sin seguro';
         $seguro->tipo_cobertura = 'Amplia';
         $seguro->costo = '100';
         $seguro->estatus = 0;

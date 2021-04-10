@@ -150,8 +150,8 @@
                 check:$('#check').val(),
                 image:$('#image').val(),
                 color:$('#color').val(),
-                // start:$('#txtFecha').val(),
-                // end:$('#txtFecha').val(),
+                start:$('#txtFecha').val(),
+                end:$('#txtFecha').val(),
                 '_token':$("meta[name='csrf-token']").attr("content"),
                 '_method':method
             }

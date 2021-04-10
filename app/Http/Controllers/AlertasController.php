@@ -111,7 +111,7 @@ class AlertasController extends Controller
 
         //Trae datos de db to jason
         $json2 = $data2['alertas'] = Alertas::all();
-        $json3 = $data3['seguros'] = Seguros::all()->makeHidden('end');
+        $json3 = $data3['seguros'] = Seguros::all();
         $json4 = $data3['tarjeta_circulacion'] = TarjetaCirculacion::all()->makeHidden('end');
         $json5 = $data5['verificacion'] = Verificacion::all()->makeHidden('end');
         $json6 = $data6['mecanica'] = Llantas::all()->makeHidden('end');
@@ -164,33 +164,6 @@ class AlertasController extends Controller
 
         Alertas::insert($datosEvento);
 
-//        $firebaseToken = User::whereNotNull('device_token')->pluck('device_token')->all();
-//        $SERVER_API_KEY = 'AAAA134VBmc:APA91bEgYgTRmbbCwA5i6zIL9lMBJWtm01v0_PXtEk5DYLKhpyrlaWNkXR3dy5wOiWN4iiibLt8BDic-HalgFRJ-FW7QtTjBs_jrkGx7vUpSBgZ1ekhFa7287_D0BbV5IVc64HAJSq3z';
-//
-//        $data = [
-//            "registration_ids" => $firebaseToken,
-//            "notification" => [
-//                "title" => $request->title,
-//                "body" => $request->descripcion,
-//            ]
-//        ];
-
-//        $dataString = json_encode($data);
-//
-//        $headers = [
-//            'Authorization: key=' . $SERVER_API_KEY,
-//            'Content-Type: application/json',
-//        ];
-//        $ch = curl_init();
-//
-//        curl_setopt($ch, CURLOPT_URL, 'https://fcm.googleapis.com/fcm/send');
-//        curl_setopt($ch, CURLOPT_POST, true);
-//        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-//        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-//        curl_setopt($ch, CURLOPT_POSTFIELDS, $dataString);
-//
-//        $response = curl_exec($ch);
-
     }
 
         public function show_calendar_user()
@@ -199,7 +172,7 @@ class AlertasController extends Controller
         $json2 = $data2['alertas'] = Alertas::where('id_user', '=', auth()->user()->id)
             ->get();
 
-        $json3 = $data3['seguros'] = Seguros::all()->makeHidden('end')
+        $json3 = $data3['seguros'] = Seguros::all()
             ->where('id_user', '=', auth()->user()->id);
 
         $json4 = $data4['tarjeta_circulacion'] = TarjetaCirculacion::all()->makeHidden('end')

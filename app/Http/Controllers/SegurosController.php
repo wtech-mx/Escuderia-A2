@@ -39,6 +39,9 @@ class SegurosController extends Controller
         $img = '';
     }else{
         switch($seguro){
+                 case( $seguro->seguro == 'sin seguro' ):
+                        $img = 'page-not-found.png';
+                  break;
                 case( $seguro->seguro == 'aba' ):
                     $img = 'aba.png';
                 break;
@@ -209,71 +212,72 @@ class SegurosController extends Controller
        $seguro = Seguros::findOrFail($id);
         $users = DB::table('users')
         ->get();
-
-        if($seguro == NULL){
-            $img = '';
-        }else{
-            switch($seguro){
-                    case( $seguro->seguro == 'aba' ):
-                        $img = 'aba.png';
-                    break;
-                    case( $seguro->seguro == 'afirme' ):
-                        $img = 'afirme.png';
-                    break;
-                    case( $seguro->seguro == 'aig' ):
-                        $img = 'aig.png';
-                    break;
-                    case( $seguro->seguro == 'ana' ):
-                        $img = 'ana.png';
-                    break;
-                    case( $seguro->seguro == 'atlas' ):
-                        $img = 'atlas.png';
-                    break;
-                    case( $seguro->seguro == 'axa' ):
-                        $img = 'axa.png';
-                    break;
-                    case( $seguro->seguro == 'banorte' ):
-                        $img = 'banorte.png';
-                    break;
-                    case( $seguro->seguro == 'general' ):
-                        $img = 'general.png';
-                    break;
-                    case( $seguro->seguro == 'sura' ):
-                        $img = 'sura.png';
-                    break;
-                    case( $seguro->seguro == 'vexmas' ):
-                        $img = 'vexmas.png';
-                    break;
-                    case( $seguro->seguro == 'gnp' ):
-                       $img = 'gnp.png';
-                    break;
-                    case( $seguro->seguro == 'hdi' ):
-                        $img = 'hdi.png';
-                    break;
-                    case( $seguro->seguro == 'inbursa' ):
-                        $img = 'inbursa.png';
-                    break;
-                    case( $seguro->seguro == 'latino' ):
-                        $img = 'latino.png';
-                    break;
-                    case( $seguro->seguro == 'mapfre' ):
-                        $img = 'mapfre.png';
-                    break;
-                    case( $seguro->seguro == 'qualitas' ):
-                        $img = 'qualitas.png';
-                    break;
-                    case( $seguro->seguro == 'potosi' ):
-                        $img = 'potosi.png';
-                    break;
-                    case( $seguro->seguro == 'miituo' ):
-                        $img = 'miituo.png';
-                    break;
-                    case( $seguro->seguro == 'zurich' ):
-                        $img = 'zurich.png';
-                    break;
-                }
+    if($seguro == NULL){
+        $img = '';
+    }else {
+        switch ($seguro) {
+            case($seguro->seguro == 'sin seguro'):
+                $img = 'page-not-found.png';
+                break;
+            case($seguro->seguro == 'aba'):
+                $img = 'aba.png';
+                break;
+            case($seguro->seguro == 'afirme'):
+                $img = 'afirme.png';
+                break;
+            case($seguro->seguro == 'aig'):
+                $img = 'aig.png';
+                break;
+            case($seguro->seguro == 'ana'):
+                $img = 'ana.png';
+                break;
+            case($seguro->seguro == 'atlas'):
+                $img = 'atlas.png';
+                break;
+            case($seguro->seguro == 'axa'):
+                $img = 'axa.png';
+                break;
+            case($seguro->seguro == 'banorte'):
+                $img = 'banorte.png';
+                break;
+            case($seguro->seguro == 'general'):
+                $img = 'general.png';
+                break;
+            case($seguro->seguro == 'sura'):
+                $img = 'sura.png';
+                break;
+            case($seguro->seguro == 'vexmas'):
+                $img = 'vexmas.png';
+                break;
+            case($seguro->seguro == 'gnp'):
+                $img = 'gnp.png';
+                break;
+            case($seguro->seguro == 'hdi'):
+                $img = 'hdi.png';
+                break;
+            case($seguro->seguro == 'inbursa'):
+                $img = 'inbursa.png';
+                break;
+            case($seguro->seguro == 'latino'):
+                $img = 'latino.png';
+                break;
+            case($seguro->seguro == 'mapfre'):
+                $img = 'mapfre.png';
+                break;
+            case($seguro->seguro == 'qualitas'):
+                $img = 'qualitas.png';
+                break;
+            case($seguro->seguro == 'potosi'):
+                $img = 'potosi.png';
+                break;
+            case($seguro->seguro == 'miituo'):
+                $img = 'miituo.png';
+                break;
+            case($seguro->seguro == 'zurich'):
+                $img = 'zurich.png';
+                break;
         }
-
+    }
         return view('admin.seguros.create-seguros-admin',compact('seguro','img', 'users'));
     }
 
