@@ -120,10 +120,10 @@
                                              <p class="text-white"><strong>Marca</strong></p>
                                          </label>
 
-                                        <div class="input-group form-group">
+                                        <div class="input-group form-group mb-5">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text">
-                                                     <img class="" src="{{ asset('img/icon/white/calendario (1).png') }}" width="25px" >
+                                                     <img class="" src="{{ asset('img/icon/white/coche (7).png') }}" width="25px" >
                                                 </span>
                                             </div>
 
@@ -137,10 +137,10 @@
                                              <p class="text-white"><strong>Submarca</strong></p>
                                          </label>
 
-                                        <div class="input-group form-group">
+                                        <div class="input-group form-group mb-5">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text">
-                                                     <img class="" src="{{ asset('img/icon/white/calendario (1).png') }}" width="25px" >
+                                                     <img class="" src="{{ asset('img/icon/white/car-service (1).png') }}" width="25px" >
                                                 </span>
                                             </div>
                                             <input type="text" class="form-control"  value="{{$tarjeta_circulacion->Automovil->submarca}}" readonly>
@@ -154,10 +154,10 @@
                                              <p class="text-white"><strong>Placa</strong></p>
                                          </label>
 
-                                        <div class="input-group form-group">
+                                        <div class="input-group form-group mb-5">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text">
-                                                     <img class="" src="{{ asset('img/icon/white/calendario (1).png') }}" width="25px" >
+                                                      <img class="" src="{{ asset('img/icon/white/placa.png') }}" width="25px" >
                                                 </span>
                                             </div>
                                             <input type="text" class="form-control"  id="num_placa" name="num_placa" value="{{$tarjeta_circulacion->Automovil->placas}}" readonly>
@@ -169,10 +169,10 @@
                                              <p class="text-white"><strong>Últimos dígito placa</strong></p>
                                          </label>
 
-                                        <div class="input-group form-group">
+                                        <div class="input-group form-group mb-5">
                                             <div class="input-group-prepend " >
                                                 <span class="input-group-text" >
-                                                     <img class="" src="{{ asset('img/icon/white/bolsa-de-dinero (1).png') }}" width="25px" >
+                                                      <img class="" src="{{ asset('img/icon/white/numeros.png') }}" width="25px" >
                                                 </span>
                                             </div>
                                             <input type="text" class="form-control"  id="num_placa" name="num_placa" value="{{$tarjeta_circulacion->num_placa}}" required>
@@ -186,7 +186,7 @@
                                      <p class="text-white"><strong>Nombre</strong></p>
                                  </label>
 
-                                <div class="input-group form-group">
+                                <div class="input-group form-group mb-5">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">
                                              <img class="" src="{{ asset('img/icon/white/calendario (5).png') }}" width="25px" >
@@ -199,7 +199,7 @@
                                      <p class="text-white"><strong>Tipo placa</strong></p>
                                  </label>
 
-                                <div class="input-group form-group">
+                                <div class="input-group form-group mb-5">
                                     <div class="input-group-prepend " >
                                         <span class="input-group-text" >
                                              <img class="" type="date" src="{{ asset('img/icon/white/seguro (1).png') }}" width="25px" >
@@ -223,7 +223,7 @@
                                      <p class="text-white"><strong>Lugar expedici&oacute;n</strong></p>
                                  </label>
 
-                                <div class="input-group form-group">
+                                <div class="input-group form-group mb-5">
                                     <div class="input-group-prepend " >
                                         <span class="input-group-text" >
                                              <img class="" type="date" src="{{ asset('img/icon/white/seguro (1).png') }}" width="25px" >
@@ -239,7 +239,7 @@
                                      <p class="text-white"><strong>Fecha de emisión</strong></p>
                                  </label>
 
-                                <div class="input-group form-group">
+                                <div class="input-group form-group mb-5">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">
                                              <img class="" src="{{ asset('img/icon/white/calendario (1).png') }}" width="25px" >
@@ -252,7 +252,7 @@
                                      <p class="text-white"><strong>Fecha de vencimiento</strong></p>
                                  </label>
 
-                                <div class="input-group form-group">
+                                <div class="input-group form-group mb-5">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">
                                              <img class="" src="{{ asset('img/icon/white/calendario (5).png') }}" width="25px" >
