@@ -158,21 +158,22 @@ class SegurosController extends Controller
             $message->to($details['email'], $details['seguro'], $details['fecha_expedicion'], $details['tipo_cobertura'], $details['costo'], $details['costo_anual'], $details['end'], $details['auto'], $details['nombre'])
                 ->subject($subject)
                 ->from('contacto@checkngo.com.mx', 'Detalles de Seguro');
+
         });
 
         //Inicio Alerta
-            $fecha = $seguro->end.' 00:47 '.'GMT-5';
-
-            $params = [];
-            $params['include_player_ids'] = [$seguro->device_token];
-            $contents = [
-               "en" => $seguro->descripcion
-            ];
-            $params['contents'] = $contents;
-            $params['delayed_option'] = "timezone"; // Will deliver on user's timezone
-            $params['send_after'] = $fecha; // Delivery time
-
-            OneSignal::sendNotificationCustom($params);
+//            $fecha = $seguro->end.' 00:47 '.'GMT-5';
+//
+//            $params = [];
+//            $params['include_player_ids'] = [$seguro->device_token];
+//            $contents = [
+//               "en" => $seguro->descripcion
+//            ];
+//            $params['contents'] = $contents;
+//            $params['delayed_option'] = "timezone"; // Will deliver on user's timezone
+//            $params['send_after'] = $fecha; // Delivery time
+//
+//            OneSignal::sendNotificationCustom($params);
         //Fin Alerta
 
         Session::flash('success', 'Se ha guardado sus datos con exito');

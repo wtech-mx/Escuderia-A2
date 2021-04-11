@@ -56,7 +56,7 @@
               $('#txtID').val(info.event.id);
 
                 mes = (info.event.start.getMonth()+1)
-                dia = (info.event.start.getDay())
+                dia = (info.event.start.getDay()+4)
                 anio = (info.event.start.getFullYear())
 
                 mes = (mes<10)?"0"+mes:mes;
@@ -73,7 +73,7 @@
               $('#image').val(info.event.extendedProps.image);
               $('#exampleModal').modal();
 
-              console.log(anio+"-"+mes+"-"+dia)
+              console.log('Fecha', dia)
             },
 
             events:"{{ route('calendar.show_calendar') }}",
@@ -140,7 +140,7 @@
                 '_token':$("meta[name='csrf-token']").attr("content"),
                 '_method':method
             }
-            console.log(nuevoEvento)
+            console.log('Fecha nuevo',nuevoEvento)
             return (nuevoEvento);
         }
 
@@ -159,7 +159,7 @@
                 '_token':$("meta[name='csrf-token']").attr("content"),
                 '_method':method
             }
-            console.log(nuevoEvento)
+            console.log('Fecha nuevo 1',nuevoEvento)
             return (nuevoEvento);
         }
 
@@ -170,7 +170,7 @@
                          url: "{{route('calendar.store_calendar_user')}}"+accion,
                         data:ObjEvento,
                         success:function (msg){
-                              console.log(msg);
+                              console.log('Mensaje',msg);
                               $('#exampleModal').modal('toggle');
                               calendar.refetchEvents();
                              },
