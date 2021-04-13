@@ -161,6 +161,7 @@ Route::post('exp_domicilio/crear/exp-cd','ExpdomicilioController@store')->name('
 Route::get('exp_factura/view/exp-factura','ExpfacturasController@index')->name('index.exp-factura');
 Route::get('exp_factura/crear/exp-factura','ExpfacturasController@create')->name('create.exp-factura');
 Route::post('exp_factura/crear/exp-factura','ExpfacturasController@store')->name('store.exp-factura');
+Route::delete('exp_factura/eliminar/{id}','ExpfacturasController@destroy')->name('destroy.exp-factura');
 
 Route::get('exp_ine/view/exp-ine','ExpineController@index')->name('index.exp-ine');
 Route::get('exp_ine/crear/exp-ine','ExpineController@create')->name('create.exp-ine');

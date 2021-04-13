@@ -84,6 +84,15 @@ class ExpfacturasController extends Controller
         return redirect()->route('index.exp-factura', compact('exp_factura'));
     }
 
+    function destroy($id){
+        $exp_factura = ExpFactura::findOrFail($id);
+        $exp_factura->delete();
+
+        Session::flash('succes','Se Elimino su Factura con exito');
+        return redirect()->back();
+
+    }
+
         /*|--------------------------------------------------------------------------
         |Create Doc Admin_Admin
         |--------------------------------------------------------------------------*/
@@ -92,10 +101,10 @@ class ExpfacturasController extends Controller
 //        $name = $request->get('name');
 
         $automovil = Automovil::where('id_empresa', '=', NULL)
-            ->paginate(6);
+            ->paginate(5);
 
         $automovil2 = Automovil::where('id_user', '=', NULL)
-            ->paginate(6);
+            ->paginate(5);
 
         $factura = ExpFactura::get()->count();
         $factura2 = db::table('exp_facturas')->get();

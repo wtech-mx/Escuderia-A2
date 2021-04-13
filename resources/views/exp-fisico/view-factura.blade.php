@@ -69,24 +69,29 @@
                               <div class="modal-dialog  modal-sm modal-dialog-centered" role="document">
                                 <div class="modal-content">
 
-                                    <div class="d-flex justify-content-end">
-                                      <div class="mr-4 mt-3">
+                                  <div class="modal-header">
+                                    <h5 class="modal-title"><strong>{{$item->titulo}}</strong></h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                               <span aria-hidden="true">&times;</span>
                                             </button>
-                                      </div>
-                                    </div>
+                                  </div>
 
                                   <div class="modal-body">
                                       <p class="text-center">
-                                          <p class="text-center">{{$item->titulo}}</p>
                                           <img class="" src="{{asset('exp-factura/'.$item->factura)}}" alt="{{$item->factura}}" width="100%">
                                       </p>
                                   </div>
 
+                                  <div class="modal-footer">
+                                        <a type="button" class="btn btn-danger text-white" data-toggle="modal" data-target="#modal{{$item->id}}">Eliminar</a>
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                  </div>
+
+                                    @include('exp-fisico.eliminar')
                                 </div>
                               </div>
                             </div>
+
                         @endforeach
                     @else
 

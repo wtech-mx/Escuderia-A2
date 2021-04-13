@@ -1,6 +1,11 @@
  <div class="row bg-image" style="height: 100vh;">
           <div class="col-12 mt-5 p-3">
                <table class="table text-white ">
+               <div class="col-12 mt-4 ">
+                   <div class="d-flex justify-content-center">
+                        {!! $freno_user->links() !!}
+                   </div>
+               </div>
                    <thead>
                        <tr>
                            <th scope="col">Servicio</th>
@@ -31,10 +36,5 @@
                     @endforeach
 
                </table>
-               <div class="col-12 mt-4 ">
-                   <div class="d-flex justify-content-center">
-                        {!! $freno_user->links() !!}
-                   </div>
-               </div>
           </div>
       </div>

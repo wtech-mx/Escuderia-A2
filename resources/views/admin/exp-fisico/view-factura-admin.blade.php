@@ -81,9 +81,11 @@
                                                     <img class="d-inline mb-2" src="{{asset('exp-factura/'.$item->factura)}}" alt="{{$item->factura}}" width="100px">
                                                     <p class="text-center text-white">{{$item->titulo}}</p>
                                             </p>
+
                                         @endif
                                      </a>
                                 </div>
+
                                 <!-- Modal -->
                                 <div class="modal fade" id="modal-doc-{{$item->id}}" tabindex="-1" role="dialog" aria-labelledby="modal-doc-{{$item->id}}" aria-hidden="true">
                               <div class="modal-dialog  modal-sm modal-dialog-centered" role="document">

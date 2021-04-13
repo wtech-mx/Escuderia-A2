@@ -182,33 +182,6 @@
               </div>
               <input type="number" class="form-control" placeholder="{{$item->descripcion}}" style="border-radius: 0  10px 10px 0;" disabled>
           </div>
-            <hr>
-
-              <h4 style="text-align:center"><strong>Próximo Cambio</strong></h4>
-
-          <label for="">
-              <p><strong>Kilometro Estimado</strong></p>
-          </label>
-          <div class="input-group form-group">
-              <div class="input-group-prepend " >
-                  <span class="input-group-text" >
-                       <img class="" src="{{ asset('img/icon/white/bolsa-de-dinero (1).png') }}" width="25px" >
-                  </span>
-              </div>
-              <input type="number" class="form-control" placeholder="Kilometro Estimado" style="border-radius: 0  10px 10px 0;" disabled>
-          </div>
-
-          <label for="">
-              <p><strong>Fecha Proximo Cambio</strong></p>
-          </label>
-          <div class="input-group form-group">
-              <div class="input-group-prepend " >
-                  <span class="input-group-text" >
-                       <img class="" src="{{ asset('img/icon/white/bolsa-de-dinero (1).png') }}" width="25px" >
-                  </span>
-              </div>
-              <input type="number" class="form-control" placeholder="{{$item->start}}" style="border-radius: 0  10px 10px 0;" disabled>
-          </div>
 
       </div>
       <div class="modal-footer">

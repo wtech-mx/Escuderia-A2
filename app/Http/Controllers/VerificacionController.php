@@ -27,7 +27,7 @@ class VerificacionController extends Controller
 
         $verificacion_user = Verificacion::orderBy('id','DESC')
             ->where('id_empresa', '=', NULL)
-            ->get();
+            ->paginate(5);
 
         $verificacion_empresa = Verificacion::orderBy('id','DESC')
             ->where('id_user', '=', NULL)
@@ -35,7 +35,7 @@ class VerificacionController extends Controller
 
           $user = DB::table('users')
             ->where('role','=', '0')
-            ->get();
+            ->paginate(5);
 
         return view('admin.verificacion.view-verificacion-admin',compact('verificacion_user','verificacion_empresa', 'user'));
     }

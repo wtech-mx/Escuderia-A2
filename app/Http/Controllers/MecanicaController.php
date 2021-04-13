@@ -25,13 +25,13 @@ class MecanicaController extends Controller
 |--------------------------------------------------------------------------*/
     public function view_user(){
 
-        $llanta_user = Mecanica::where('id_user','=', auth()->user()->id)->paginate(5);
-        $banda_user = Mecanica::where('id_userbn','=', auth()->user()->id)->paginate(5);
-        $freno_user = Mecanica::where('id_userfr','=', auth()->user()->id)->paginate(5);
-        $aceite_user = Mecanica::where('id_userac','=', auth()->user()->id)->paginate(5);
-        $afinacion_user = Mecanica::where('id_useraf','=', auth()->user()->id)->paginate(5);
-        $amort_user = Mecanica::where('id_useram','=', auth()->user()->id)->paginate(5);
-        $bateria_user = Mecanica::where('id_userbt','=', auth()->user()->id)->paginate(5);
+        $llanta_user = Mecanica::where('id_user','=', auth()->user()->id)->paginate(7);
+        $banda_user = Mecanica::where('id_userbn','=', auth()->user()->id)->paginate(7);
+        $freno_user = Mecanica::where('id_userfr','=', auth()->user()->id)->paginate(7);
+        $aceite_user = Mecanica::where('id_userac','=', auth()->user()->id)->paginate(7);
+        $afinacion_user = Mecanica::where('id_useraf','=', auth()->user()->id)->paginate(7);
+        $amort_user = Mecanica::where('id_useram','=', auth()->user()->id)->paginate(7);
+        $bateria_user = Mecanica::where('id_userbt','=', auth()->user()->id)->paginate(7);
 
         $mecanica_empresa = Mecanica::where('id_user','=', NULL)->get();
 

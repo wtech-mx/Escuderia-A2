@@ -72,6 +72,12 @@
                                         </div>
                                     {{Form::close()}}
 
+                                    <div class="col-12 mt-4 ">
+                                       <div class="d-flex justify-content-center">
+                                            {!! $user->links() !!}
+                                       </div>
+                                    </div>
+
                                     <div class="content" style="margin-bottom: 10% !important;height: 100vh;">
                                     @foreach ($user as $item)
                                         <div class="col-12 mt-4" >
@@ -97,11 +103,6 @@
                                                 </div>
                                         </div>
                                     @endforeach
-                                        <div class="col-12 mt-4 ">
-                                            <div class="d-flex justify-content-center">
-                                                {!! $user->links() !!}
-                                            </div>
-                                        </div>
                                     </div>
 
 {{--                                     {{ $user->render() }}--}}

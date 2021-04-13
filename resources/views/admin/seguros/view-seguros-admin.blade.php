@@ -70,7 +70,11 @@
 
                                         </div>
                                         {{Form::close()}}
-
+                                                <div class="col-12 mt-4 ">
+                                                    <div class="d-flex justify-content-center">
+                                                        {!! $seguros->links() !!}
+                                                    </div>
+                                                </div>
                                         <div class="content" style="margin-bottom: 10% !important;height: 100vh;">
                                              @foreach ($seguros as $item)
                                                 <div class="col-12 mt-4">
@@ -103,11 +107,7 @@
                                                     </a>
                                                 </div>
                                             @endforeach
-                                                <div class="col-12 mt-4 ">
-                                                    <div class="d-flex justify-content-center">
-                                                        {!! $seguros->links() !!}
-                                                    </div>
-                                                </div>
+
                                         </div>
 
                                   </div>

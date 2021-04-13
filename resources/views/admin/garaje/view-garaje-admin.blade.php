@@ -113,6 +113,11 @@
 
 
                                       <div class="row">
+                                           <div class="col-12 mt-4 ">
+                                               <div class="d-flex justify-content-center">
+                                                    {!! $automovil->links() !!}
+                                               </div>
+                                           </div>
                                            <div class="content" style="margin-bottom: 10% !important;height: 130vh;">
                                                 @foreach ($automovil as $item)
                                                     <div class="col-12 mt-4">
@@ -154,11 +159,6 @@
                                                 </div>
                                             </div>
                                                 @endforeach
-                                                    <div class="col-12 mt-4 ">
-                                                        <div class="d-flex justify-content-center">
-                                                            {!! $automovil->links() !!}
-                                                        </div>
-                                                    </div>
                                            </div>
                                       </div>
 
@@ -195,6 +195,12 @@
 
                                         </div>
                                         {{Form::close()}}
+
+                                            <div class="col-12 mt-4 ">
+                                                 <div class="d-flex justify-content-center">
+                                                      {!! $automovil2->links() !!}
+                                                 </div>
+                                            </div>
 
                                             <div class="col-12 mt-4">
                                                 <div class="content" style="margin-bottom: 10% !important;height: 100vh;">
@@ -238,11 +244,6 @@
                                                             </div>
                                                         </div>
                                                     @endforeach
-                                                        <div class="col-12 mt-4 ">
-                                                            <div class="d-flex justify-content-center">
-                                                                {!! $automovil2->links() !!}
-                                                            </div>
-                                                        </div>
                                                 </div>
                                             </div>
 
