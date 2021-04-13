@@ -269,6 +269,11 @@
                                     </h5>
 
                                   <div class="row">
+                                        <div class="col-12 mt-4 ">
+                                            <div class="d-flex justify-content-center">
+                                                {!! $automovil2->links() !!}
+                                            </div>
+                                        </div>
                                     <div class="content" style="margin-bottom: 10% !important;height: 100vh;">
                                         <div class="col-12">
                                             @foreach ($automovil2 as $item)
@@ -376,11 +381,6 @@
                                             @endforeach
                                         </div>
 
-                                        <div class="col-12 mt-4 ">
-                                            <div class="d-flex justify-content-center">
-                                                {!! $automovil2->links() !!}
-                                            </div>
-                                        </div>
                                     </div>
                                   </div>
 

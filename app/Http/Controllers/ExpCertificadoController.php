@@ -63,6 +63,15 @@ class ExpCertificadoController extends Controller
         return redirect()->route('index.exp-certificado', compact('exp_certificados'));
     }
 
+    function destroy($id){
+        $exp_certificados = ExpCertificado::findOrFail($id);
+        unlink(public_path('/exp-certificado/'.$exp_certificados->certificado));
+        $exp_certificados->delete();
+
+        Session::flash('destroy', 'Se Elimino su Factura con exito');
+        return redirect()->back();
+
+    }
 /*|--------------------------------------------------------------------------
 |Exp Certificado Admin
 |--------------------------------------------------------------------------*/

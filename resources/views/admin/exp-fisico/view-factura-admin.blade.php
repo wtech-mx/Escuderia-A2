@@ -23,6 +23,22 @@
                         </script>
                         @endif
 
+                        @if(Session::has('destroy'))
+                        <script>
+                            Swal.fire({
+                              title: 'Exito!!',
+                              html:
+                                'Se ha eliminado su <b>FACTURA</b>, ' +
+                                'Exitosamente',
+                              // text: 'Se ha agragado la "MARCA" Exitosamente',
+                              imageUrl: '{{ asset('img/icon/color/delete.png') }}',
+                              background: '#fff',
+                              imageWidth: 150,
+                              imageHeight: 150,
+                              imageAlt: 'Facturas IMG',
+                            })
+                        </script>
+                        @endif
                         <div class="col-2  mt-4">
                             <div class="d-flex justify-content-start">
                                     <div class="text-center text-white">
@@ -63,7 +79,11 @@
                     </div>
 
                     <div class="row bg-down-blue " style="border-radius: 0 0 0 0; height: 90vh;">
-
+                                <div class="col-12">
+                                    <div class="d-flex justify-content-center"  style="position: relative;top: -80px">
+                                        {!! $exp_factura->links() !!}
+                                    </div>
+                                </div>
                     @if ($exp_factura->count())
                         @foreach($exp_factura as $item)
                             @php
@@ -91,38 +111,36 @@
                               <div class="modal-dialog  modal-sm modal-dialog-centered" role="document">
                                 <div class="modal-content">
 
-                                    <div class="d-flex justify-content-end">
-                                      <div class="mr-4 mt-3">
+                                  <div class="modal-header">
+                                    <h5 class="modal-title"><strong>{{$item->titulo}}</strong></h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                               <span aria-hidden="true">&times;</span>
                                             </button>
-                                      </div>
-                                    </div>
+                                  </div>
 
                                   <div class="modal-body">
                                         @if($texto == 'pdf')
-                                            <h6 class="text-center">{{$item->titulo}}</h6>
                                             <p class="text-center">
                                                 <p class="text-center text-white">{{$item->titulo}}</p>
                                                 <iframe width="140" height="140" src="{{asset('exp-factura/'.$item->factura)}}" frameborder="0" style="z-index: 10000" ></iframe>
                                             </p>
                                         @else
-                                            <h6 class="text-center">{{$item->titulo}}</h6>
                                             <p class="text-center">
                                                     <img class="d-inline mb-2" src="{{asset('exp-factura/'.$item->factura)}}" alt="{{$item->factura}}" width="100px">
                                             </p>
                                         @endif
                                   </div>
 
+                                  <div class="modal-footer">
+                                        <a type="button" class="btn btn-danger text-white" data-toggle="modal" data-target="#modalfactura{{$item->id}}">Eliminar</a>
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                  </div>
+
                                 </div>
                               </div>
                             </div>
+                            @include('exp-fisico.eliminar')
                         @endforeach
-                                <div class="col-12">
-                                    <div class="d-flex justify-content-center"  style="position: relative;top: -80px">
-                                        {!! $exp_factura->links() !!}
-                                    </div>
-                                </div>
                     @else
 
                         <div class="col-12 mb3">

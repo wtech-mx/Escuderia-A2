@@ -67,6 +67,15 @@ class ExplacasController extends Controller
         return redirect()->route('index.exp-bp', compact('exp_placas'));
     }
 
+     function destroy($id){
+        $exp_placas = ExpPlacas::findOrFail($id);
+        unlink(public_path('/exp-placa/'.$exp_placas->placa));
+        $exp_placas->delete();
+
+        Session::flash('destroy', 'Se Elimino su Factura con exito');
+        return redirect()->back();
+
+    }
 /*|--------------------------------------------------------------------------
 |Exp Placas Admin
 |--------------------------------------------------------------------------*/

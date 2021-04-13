@@ -122,4 +122,13 @@ class ExpolizaController extends Controller
         return redirect()->back();
     }
 
+     function destroy($id){
+        $exp = ExpPoliza::findOrFail($id);
+        unlink(public_path('/exp-poliza/'.$exp->poliza));
+        $exp->delete();
+
+        Session::flash('destroy', 'Se Elimino su Factura con exito');
+        return redirect()->back();
+
+    }
 }

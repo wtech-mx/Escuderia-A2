@@ -118,4 +118,13 @@ class ExpineController extends Controller
         return redirect()->back();
     }
 
+     function destroy($id){
+        $exp = ExpIne::findOrFail($id);
+        unlink(public_path('/exp-ine/'.$exp->ine));
+        $exp->delete();
+
+        Session::flash('destroy', 'Se Elimino su Factura con exito');
+        return redirect()->back();
+
+    }
 }

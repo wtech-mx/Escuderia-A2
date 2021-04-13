@@ -40,14 +40,13 @@
                                 <img class="" src="{{ asset('img/icon/white/flecha-correcta.png') }}" width="25px" >
                             </a>
                         </div>
-
-
-                        <div class="col-12">
                                         <div class="col-12 mt-4 ">
                                             <div class="d-flex justify-content-center">
                                                 {!! $verificacion_user->links() !!}
                                             </div>
                                         </div>
+
+                        <div class="col-12">
                         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="60000">
                               <div class="carousel-inner">
 

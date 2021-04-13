@@ -119,4 +119,13 @@ class ExpdomicilioController extends Controller
         return redirect()->back();
     }
 
+    function destroy($id){
+        $exp = ExpDomicilio::findOrFail($id);
+        unlink(public_path('/exp-domicilio/'.$exp->domicilio));
+        $exp->delete();
+
+        Session::flash('destroy', 'Se Elimino su Factura con exito');
+        return redirect()->back();
+
+    }
 }

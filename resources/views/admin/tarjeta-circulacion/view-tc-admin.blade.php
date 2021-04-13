@@ -70,13 +70,12 @@
 
                             </div>
                             {{Form::close()}}
-
-                        <div class="col-12">
                                         <div class="col-12 mt-4 ">
                                             <div class="d-flex justify-content-center">
                                                 {!! $tarjeta_circulacion->links() !!}
                                             </div>
                                         </div>
+                        <div class="col-12">
                         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="60000">
                               <div class="carousel-inner">
 

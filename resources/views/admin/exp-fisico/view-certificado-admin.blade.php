@@ -22,6 +22,22 @@
                         </script>
                         @endif
 
+                        @if(Session::has('destroy'))
+                        <script>
+                            Swal.fire({
+                              title: 'Exito!!',
+                              html:
+                                'Se ha eliminado su <b>Certificado Verificación</b>, ' +
+                                'Exitosamente',
+                              // text: 'Se ha agragado la "MARCA" Exitosamente',
+                              imageUrl: '{{ asset('img/icon/color/delete.png') }}',
+                              background: '#fff',
+                              imageWidth: 150,
+                              imageHeight: 150,
+                              imageAlt: 'Facturas IMG',
+                            })
+                        </script>
+                        @endif
                         <div class="col-2  mt-4">
                             <div class="d-flex justify-content-start">
                                     <div class="text-center text-white">
@@ -60,6 +76,12 @@
                             </div>
                         </div>
 
+                            <div class="col-12 mt-4 ">
+                                <div class="d-flex justify-content-center">
+                                    {!! $exp_certificados->links() !!}
+                                </div>
+                            </div>
+
                     @if ($exp_certificados->count())
                         @foreach($exp_certificados as $item)
                             @php
@@ -85,30 +107,29 @@
                               <div class="modal-dialog  modal-sm modal-dialog-centered" role="document">
                                 <div class="modal-content">
 
-                                    <div class="d-flex justify-content-end">
-                                      <div class="mr-4 mt-3">
+                                  <div class="modal-header">
+                                    <h5 class="modal-title"><strong>{{$item->titulo}}</strong></h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                               <span aria-hidden="true">&times;</span>
                                             </button>
-                                      </div>
-                                    </div>
+                                  </div>
 
                                   <div class="modal-body">
                                       <p class="text-center">
-                                          <p class="text-center">{{$item->titulo}}</p>
                                           <img class="" src="{{asset('exp-certificado/'.$item->certificado)}}" alt="{{$item->certificado}}" width="100%">
                                       </p>
+                                  </div>
+
+                                  <div class="modal-footer">
+                                        <a type="button" class="btn btn-danger text-white" data-toggle="modal" data-target="#modalcertificado{{$item->id}}">Eliminar</a>
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                                   </div>
 
                                 </div>
                               </div>
                             </div>
+                            @include('exp-fisico.eliminar')
                         @endforeach
-                            <div class="col-12 mt-4 ">
-                                <div class="d-flex justify-content-center">
-                                    {!! $exp_certificados->links() !!}
-                                </div>
-                            </div>
                     @else
 
                         <div class="col-12 mb3">

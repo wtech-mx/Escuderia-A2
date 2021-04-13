@@ -131,4 +131,13 @@ class ExpcartaController extends Controller
         return redirect()->back();
     }
 
+    function destroy($id){
+        $exp = ExpCarta::findOrFail($id);
+        unlink(public_path('/exp-carta/'.$exp->carta));
+        $exp->delete();
+
+        Session::flash('destroy', 'Se Elimino su Factura con exito');
+        return redirect()->back();
+
+    }
 }

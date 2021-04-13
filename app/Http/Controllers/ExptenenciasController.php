@@ -119,4 +119,13 @@ class ExptenenciasController extends Controller
         return redirect()->back();
     }
 
+     function destroy($id){
+        $exp = ExpTenencias::findOrFail($id);
+        unlink(public_path('/exp-tenencia/'.$exp->tenencia));
+        $exp->delete();
+
+        Session::flash('destroy', 'Se Elimino su Factura con exito');
+        return redirect()->back();
+
+    }
 }

@@ -72,7 +72,6 @@ class ExptcController extends Controller
 |Create TC Admin_Admin
 |--------------------------------------------------------------------------*/
 
-
     public function create_admin($id)
     {
         /* Trae los datos el auto en el que esta */
@@ -123,4 +122,13 @@ class ExptcController extends Controller
         return redirect()->back();
     }
 
+     function destroy($id){
+        $exp = ExpTc::findOrFail($id);
+        unlink(public_path('/exp-tc/'.$exp->tc));
+        $exp->delete();
+
+        Session::flash('destroy', 'Se Elimino su Factura con exito');
+        return redirect()->back();
+
+    }
 }

@@ -115,7 +115,7 @@
                                   </div>
 
                                   <div class="modal-footer">
-                                        <a type="button" class="btn btn-danger text-white" data-toggle="modal" data-target="#modal{{$item->id}}">Eliminar</a>
+                                        <a type="button" class="btn btn-danger text-white" data-toggle="modal" data-target="#modaltc{{$item->id}}">Eliminar</a>
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                                   </div>
 

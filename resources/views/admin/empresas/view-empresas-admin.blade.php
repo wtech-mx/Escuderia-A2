@@ -45,7 +45,11 @@
                                 </a>
                             </div>
                         </div>
-
+                                            <div class="col-12 mt-4 ">
+                                                <div class="d-flex justify-content-center">
+                                                    {!! $empresa->links() !!}
+                                                </div>
+                                            </div>
                                   <div class="row ml-2 mr-2">
 
                                     @if(Session::has('success'))
@@ -87,11 +91,6 @@
 
                                         </div>
                                         @endforeach
-                                            <div class="col-12 mt-4 ">
-                                                <div class="d-flex justify-content-center">
-                                                    {!! $empresa->links() !!}
-                                                </div>
-                                            </div>
                                     </div>
 
                                   </div>

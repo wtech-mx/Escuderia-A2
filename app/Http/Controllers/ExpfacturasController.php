@@ -85,7 +85,8 @@ class ExpfacturasController extends Controller
     }
 
     function destroy($id){
-        $exp_factura = ExpFactura::findOrFail($id);
+        $exp_factura = ExpTenencias::findOrFail($id);
+        unlink(public_path('/exp-factura/'.$exp_factura->factura));
         $exp_factura->delete();
 
         Session::flash('destroy', 'Se Elimino su Factura con exito');
@@ -103,6 +104,7 @@ class ExpfacturasController extends Controller
         $automovil = Automovil::where('id_empresa', '=', NULL)
             ->paginate(5);
 
+        $auto = Automovil::get();
         $automovil2 = Automovil::where('id_user', '=', NULL)
             ->paginate(5);
 

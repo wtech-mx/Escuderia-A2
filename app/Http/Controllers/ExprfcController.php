@@ -119,4 +119,13 @@ class ExprfcController extends Controller
         return redirect()->back();
     }
 
+     function destroy($id){
+        $exp = ExpRfc::findOrFail($id);
+        unlink(public_path('/exp-rfc/'.$exp->rfc));
+        $exp->delete();
+
+        Session::flash('destroy', 'Se Elimino su Factura con exito');
+        return redirect()->back();
+
+    }
 }
