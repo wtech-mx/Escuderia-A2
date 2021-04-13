@@ -16,11 +16,11 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-12">
-                            <h3 class="text-center p-2">Desea eliminar el Registro? </h3>
-                            <p class="text-center">Una vez, eliminado no se puede recuperar</p>
+                            <h3 class="text-center p-2">¿Desea eliminar el Registro? </h3>
+                            <p class="text-center">Una vez eliminado no se puede recuperar</p>
 
                             <div class="modal-footer">
-                                    <input type="submit" class="btn btn-danger text-white" value="SI">
+                                    <input type="submit" class="btn btn-danger text-white" value="Si">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
                             </div>
 

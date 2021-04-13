@@ -5,6 +5,39 @@
 
 <div class="row bg-down-blue " style="border-radius: 0 0 0 0; height: 100vh;">
 
+                        @if(Session::has('success'))
+                        <script>
+                            Swal.fire({
+                              title: 'Exito!!',
+                              html:
+                                'Se ha creado la <b>FACTURA</b>, ' +
+                                'Exitosamente',
+                              // text: 'Se ha agragado la "MARCA" Exitosamente',
+                              imageUrl: '{{ asset('img/icon/color/factura.png') }}',
+                              background: '#fff',
+                              imageWidth: 150,
+                              imageHeight: 150,
+                              imageAlt: 'Facturas IMG',
+                            })
+                        </script>
+                        @endif
+
+                        @if(Session::has('destroy'))
+                        <script>
+                            Swal.fire({
+                              title: 'Exito!!',
+                              html:
+                                'Se ha eliminado la <b>FACTURA</b>, ' +
+                                'Exitosamente',
+                              // text: 'Se ha agragado la "MARCA" Exitosamente',
+                              imageUrl: '{{ asset('img/icon/color/delete.png') }}',
+                              background: '#fff',
+                              imageWidth: 150,
+                              imageHeight: 150,
+                              imageAlt: 'Facturas IMG',
+                            })
+                        </script>
+                        @endif
 
                         <div class="col-2  mt-4">
                             <div class="d-flex justify-content-start">
@@ -62,6 +95,7 @@
                                             </p>
                                         @endif
                             </div>
+                            @include('exp-fisico.eliminar')
                         @endforeach
                     @else
 

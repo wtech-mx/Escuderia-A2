@@ -11,7 +11,7 @@
                             Swal.fire({
                               title: 'Exito!!',
                               html:
-                                'Se ha creado la <b>FACTURA</b>, ' +
+                                'Se ha guardado su <b>FACTURA</b>, ' +
                                 'Exitosamente',
                               // text: 'Se ha agragado la "MARCA" Exitosamente',
                               imageUrl: '{{ asset('img/icon/color/factura.png') }}',
@@ -28,7 +28,7 @@
                             Swal.fire({
                               title: 'Exito!!',
                               html:
-                                'Se ha eliminado la <b>FACTURA</b>, ' +
+                                'Se ha eliminado su <b>FACTURA</b>, ' +
                                 'Exitosamente',
                               // text: 'Se ha agragado la "MARCA" Exitosamente',
                               imageUrl: '{{ asset('img/icon/color/delete.png') }}',
@@ -121,11 +121,10 @@
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                                   </div>
 
-                                    @include('exp-fisico.eliminar')
                                 </div>
                               </div>
                             </div>
-
+                        @include('exp-fisico.eliminar')
                         @endforeach
                     @else
 
