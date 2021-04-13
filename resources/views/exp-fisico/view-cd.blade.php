@@ -170,6 +170,20 @@
 
                                <form method="POST" action="{{route('store.exp-cd')}}" enctype="multipart/form-data" role="form">
                                          @csrf
+                                    <div class="col-12">
+                                         <label for="">
+                                             <p class="text-white"><strong>Titulo</strong></p>
+                                         </label>
+
+                                         <div class="input-group form-group">
+                                              <div class="input-group-prepend">
+                                                  <span class="input-group-text input-modal" >
+                                                       <img class="" src="{{ asset('img/icon/white/fuente.png') }}" width="25px" >
+                                                  </span>
+                                              </div>
+                                                  <input type="text" class="form-control" placeholder="Titulo" id="titulo" name="titulo" style="border-radius: 0  10px 10px 0;">
+                                         </div>
+                                    </div>
                                 <div class="col-12 mt-3">
                                           <div class=" custom-file mb-3">
                                             <input type="file" class="custom-file-input input-group-text" name="domicilio">

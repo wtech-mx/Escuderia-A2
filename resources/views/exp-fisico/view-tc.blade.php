@@ -110,7 +110,7 @@
 
                                   <div class="modal-body">
                                       <p class="text-center">
-                                          <img class="" src="{{asset('img-tc/'.$item->tc)}}" alt="{{$item->tc}}" width="100%">
+                                          <img class="" src="{{asset('exp-tc/'.$item->tc)}}" alt="{{$item->tc}}" width="100%">
                                       </p>
                                   </div>
 

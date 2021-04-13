@@ -160,9 +160,9 @@ class ExpreemplacaminetoController extends Controller
     }
 
      function destroy($id){
-        $exp_tenencia = ExpReemplacamiento::findOrFail($id);
-        unlink(public_path('/exp-tenencia/'.$exp_tenencia->tenencia));
-        $exp_tenencia->delete();
+        $exp = ExpReemplacamiento::findOrFail($id);
+        unlink(public_path('/exp-reemplacamiento/'.$exp->reemplacamiento));
+        $exp->delete();
 
         Session::flash('destroy', 'Se Elimino su Factura con exito');
         return redirect()->back();

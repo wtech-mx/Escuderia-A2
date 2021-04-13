@@ -110,7 +110,7 @@
 
                                   <div class="modal-body">
                                       <p class="text-center">
-                                          <img class="" src="{{asset('exp-tenencias/'.$item->tenencia)}}" alt="{{$item->tenencia}}" width="100%">
+                                          <img class="" src="{{asset('exp-tenencia/'.$item->tenencia)}}" alt="{{$item->tenencia}}" width="100%">
                                       </p>
                                   </div>
 

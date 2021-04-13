@@ -111,7 +111,7 @@
 
                                   <div class="modal-body">
                                       <p class="text-center">
-                                          <img class="" src="{{asset('exp-bp/'.$item->placa)}}" alt="{{$item->placa}}" width="100%">
+                                          <img class="" src="{{asset('exp-placa/'.$item->placa)}}" alt="{{$item->placa}}" width="100%">
                                       </p>
                                   </div>
 

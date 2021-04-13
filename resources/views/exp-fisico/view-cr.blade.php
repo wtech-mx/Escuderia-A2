@@ -83,6 +83,7 @@
                                 $texto= substr($item->carta, -3);
                             @endphp
                             <div class="col-6">
+                                <a type="button" class="" data-toggle="modal" data-target="#modal-doc-{{$item->id}}">
                                         @if($texto == 'pdf')
                                             <p class="text-center">
                                                 <iframe width="140" height="140" src="{{asset('exp-carta/'.$item->carta)}}" frameborder="0"></iframe>
@@ -94,6 +95,33 @@
                                                 <p class="text-center text-white">{{$item->titulo}}</p>
                                             </p>
                                         @endif
+                                </a>
+                            </div>
+                            <!-- Modal -->
+                            <div class="modal fade" id="modal-doc-{{$item->id}}" tabindex="-1" role="dialog" aria-labelledby="modal-doc-{{$item->id}}" aria-hidden="true">
+                              <div class="modal-dialog  modal-sm modal-dialog-centered" role="document">
+                                <div class="modal-content">
+
+                                  <div class="modal-header">
+                                    <h5 class="modal-title"><strong>{{$item->titulo}}</strong></h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                              <span aria-hidden="true">&times;</span>
+                                            </button>
+                                  </div>
+
+                                  <div class="modal-body">
+                                      <p class="text-center">
+                                          <img class="" src="{{asset('exp-carta/'.$item->carta)}}" alt="{{$item->carta}}" width="100%">
+                                      </p>
+                                  </div>
+
+                                  <div class="modal-footer">
+                                        <a type="button" class="btn btn-danger text-white" data-toggle="modal" data-target="#modalcr{{$item->id}}">Eliminar</a>
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                  </div>
+
+                                </div>
+                              </div>
                             </div>
                             @include('exp-fisico.eliminar')
                         @endforeach

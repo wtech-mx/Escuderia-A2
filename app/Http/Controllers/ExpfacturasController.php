@@ -85,7 +85,7 @@ class ExpfacturasController extends Controller
     }
 
     function destroy($id){
-        $exp_factura = ExpTenencias::findOrFail($id);
+        $exp_factura = ExpFactura::findOrFail($id);
         unlink(public_path('/exp-factura/'.$exp_factura->factura));
         $exp_factura->delete();
 
