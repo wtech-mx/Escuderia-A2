@@ -9,6 +9,7 @@ use Illuminate\Support\Str;
 
 use App\Models\Mecanica;
 use App\Models\Llantas;
+use App\Models\MecanicaProveedores;
 use Session;
 use Image;
 
@@ -19,6 +20,24 @@ class MecanicaController extends Controller
         $this->middleware('auth');
         $this->middleware('pagespeed');
     }
+/*|--------------------------------------------------------------------------
+| Servicio User
+|--------------------------------------------------------------------------*/
+    public function view_user(){
+
+        $llanta_user = Mecanica::where('id_user','=', auth()->user()->id)->paginate(5);
+        $banda_user = Mecanica::where('id_userbn','=', auth()->user()->id)->paginate(5);
+        $freno_user = Mecanica::where('id_userfr','=', auth()->user()->id)->paginate(5);
+        $aceite_user = Mecanica::where('id_userac','=', auth()->user()->id)->paginate(5);
+        $afinacion_user = Mecanica::where('id_useraf','=', auth()->user()->id)->paginate(5);
+        $amort_user = Mecanica::where('id_useram','=', auth()->user()->id)->paginate(5);
+        $bateria_user = Mecanica::where('id_userbt','=', auth()->user()->id)->paginate(5);
+
+        $mecanica_empresa = Mecanica::where('id_user','=', NULL)->get();
+
+        return view('services.view-mecanica',compact('llanta_user', 'banda_user', 'freno_user', 'aceite_user', 'afinacion_user', 'amort_user', 'bateria_user','mecanica_empresa'));
+    }
+
 
 /*|--------------------------------------------------------------------------
 |Create Servicio Admin
@@ -118,6 +137,8 @@ class MecanicaController extends Controller
 
         $mecanica->llantas_delanteras = $request->get('llantas_delanteras');
         $mecanica->llantas_traseras = $request->get('llantas_traseras');
+        $mecanica->amortig_delanteras = $request->get('amortig_delanteras');
+        $mecanica->amortig_traseras = $request->get('amortig_traseras');
         $mecanica->frenos_delanteras = $request->get('frenos_delanteras');
         $mecanica->frenos_traseras = $request->get('frenos_traseras');
         $mecanica->servicio = $request->get('servicio');
@@ -126,6 +147,7 @@ class MecanicaController extends Controller
         $mecanica->garantia = $request->get('garantia');
         $mecanica->vida_llantas = $request->get('vida_llantas');
         $mecanica->km_actual = $request->get('km_actual');
+        $mecanica->km_estimado = $request->get('km_estimado');
 
     	if ($request->hasFile('video')) {
                 $urlfoto = $request->file('video');
@@ -194,7 +216,7 @@ class MecanicaController extends Controller
               //Llantas
               case($mecanica->servicio == '1'):
                  $llantas->id_user = $mecanica->id_user;
-                 $llantas->title = $mecanica->Automovil2->placas;
+                 $llantas->title = $mecanica->Automovil2->placas.' - Llantas';
               break;
               //Banda
               case($mecanica->servicio == '2'):
@@ -227,8 +249,9 @@ class MecanicaController extends Controller
                   $llantas->title = $mecanica->Automovilbt->placas;
               break;
         }
+
         $llantas->id_mecanica = $mecanica->id;
-        $llantas->descripcion = $mecanica->descripcion;
+        $llantas->descripcion = 'Km estimado: '.$mecanica->km_estimado.', para la fecha estimada: '.$mecanica->start;
         $llantas->color = "#2980B9";
         $llantas->image = $mecanica->image;
         $llantas->estatus = 0;
@@ -240,5 +263,33 @@ class MecanicaController extends Controller
         Session::flash('success', 'Se ha guardado sus datos con exito');
         return redirect()->back();
     }
+
+//    public function store_servicio_proveedor(Request $request){
+//
+//        $validate = $this->validate($request,[
+//            'id_mecanica' => 'required',
+//            'id_marca' => 'required',
+//            'garantia' => 'required|max:191',
+//            'proveedor' => 'required|max:191',
+//            'costo' => 'required|max:191',
+//            'mano_o' => 'required|max:191',
+//            'nombre' => 'required|max:191',
+//        ]);
+//
+//        $mecanica = new MecanicaProveedores;
+//        $mecanica->id_mecanica = $request->get('garantia');
+//    	$mecanica->id_marca = $request->get('id_marca');
+//
+//        $mecanica->garantia = $request->get('garantia');
+//        $mecanica->proveedor = $request->get('proveedor');
+//        $mecanica->costo = $request->get('costo');
+//        $mecanica->mano_o = $request->get('mano_o');
+//        $mecanica->nombre = $request->get('nombre');
+//
+//        $mecanica->save();
+//
+//        Session::flash('success', 'Se ha guardado sus datos con exito');
+//        return redirect()->route('index.exp-tenencias');
+//    }
 
 }

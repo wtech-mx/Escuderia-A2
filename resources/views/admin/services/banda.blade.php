@@ -190,7 +190,7 @@
                                                          <img class="" src="{{ asset('img/icon/white/velocimetro.png') }}" width="25px" >
                                                     </span>
                                                 </div>
-                                                <input type="text" class="form-control" placeholder="banda en KM" style="border-radius: 0  10px 10px 0;" id="vida_llantas" name="vida_llantas" value="{{ old('vida_llantas') }}">
+                                                <input type="number" class="form-control" placeholder="banda en KM" style="border-radius: 0  10px 10px 0;" id="vida_llantas" name="vida_llantas" value="{{ old('vida_llantas') }}">
                                             </div>
 
                                          <label for="">
@@ -203,7 +203,7 @@
                                                          <img class="" src="{{ asset('img/icon/white/velocimetro (2).png') }}" width="25px" >
                                                     </span>
                                                 </div>
-                                                <input type="text" class="form-control" placeholder="Km actual" style="border-radius: 0  10px 10px 0;" id="km_actual" name="km_actual" value="{{ old('km_actual') }}">
+                                                <input type="number" class="form-control" placeholder="Km actual" style="border-radius: 0  10px 10px 0;" id="km_actual" name="km_actual" value="{{ old('km_actual') }}">
                                             </div>
 <input type="hidden" class="form-control" id='image' name="image" value="{{asset('img/icon/color/comprobado.png') }}">
                                          <label for="">

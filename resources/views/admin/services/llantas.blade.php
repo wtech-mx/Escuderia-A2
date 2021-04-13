@@ -235,7 +235,7 @@
                                                          <img class="" src="{{ asset('img/icon/white/velocimetro.png') }}" width="25px" >
                                                     </span>
                                                 </div>
-                                                <input type="text" class="form-control" placeholder="vida llantas" style="border-radius: 0  10px 10px 0;" id="vida_llantas" name="vida_llantas" value="{{ old('vida_llantas') }}">
+                                                <input type="number" class="form-control" placeholder="vida llantas" style="border-radius: 0  10px 10px 0;" id="vida_llantas" name="vida_llantas" value="{{ old('vida_llantas') }}">
                                             </div>
 
                                          <label for="">
@@ -248,11 +248,25 @@
                                                          <img class="" src="{{ asset('img/icon/white/velocimetro (2).png') }}" width="25px" >
                                                     </span>
                                                 </div>
-                                                <input type="text" class="form-control" placeholder="km actual" style="border-radius: 0  10px 10px 0;" id="km_actual" name="km_actual" value="{{ old('km_actual') }}">
+                                                <input type="number" class="form-control" placeholder="km actual" style="border-radius: 0  10px 10px 0;" id="km_actual" name="km_actual" value="{{ old('km_actual') }}">
+                                            </div>
+
+                                      <hr>
+                                         <label for="">
+                                             <p class="text-white"><strong>Km Estimado</strong></p>
+                                         </label>
+
+                                            <div class="input-group form-group">
+                                                <div class="input-group-prepend " >
+                                                    <span class="input-group-text input-services" >
+                                                         <img class="" src="{{ asset('img/icon/white/velocimetro (2).png') }}" width="25px" >
+                                                    </span>
+                                                </div>
+                                                <input type="number" class="form-control" placeholder="km actual" style="border-radius: 0  10px 10px 0;" id="km_estimado" name="km_estimado" value="{{ old('km_actual') }}">
                                             </div>
 
                                          <label for="">
-                                             <p class="text-white"><strong>Fecha Programada</strong></p>
+                                             <p class="text-white"><strong>Fecha Próxima</strong></p>
                                          </label>
 
                                         <div class="input-group form-group">
@@ -263,7 +277,7 @@
                                             </div>
                                              <input type="date" class="form-control" placeholder="MM/DD/YYY"  style="border-radius: 0  10px 10px 0;" id='start' name="start">
                                         </div>
-<input type="hidden" class="form-control" id='image' name="image" value="{{asset('img/icon/color/comprobado.png') }}">
+                                        <input type="hidden" class="form-control" id='image' name="image" value="{{asset('img/icon/color/comprobado.png') }}">
                                          <label for="">
                                              <p class="text-white"><strong>V&iacute;deo Interior</strong></p>
                                          </label>

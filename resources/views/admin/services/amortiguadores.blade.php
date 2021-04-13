@@ -127,7 +127,7 @@
                                             <div class="form-check form-check-inline mr-4 ml-4">
 
                                                 <div class="d-flex justify-content-center">
-                                                    <input class="form-check-input " type="radio" name="llantas_delanteras" id="llantas_delanteras" value="1">
+                                                    <input class="form-check-input " type="radio" name="amortig_delanteras" id="amortig_delanteras" value="1">
                                                 </div>
 
                                                 <label class="form-check-label text-white" for="inlineRadio1">
@@ -137,7 +137,7 @@
 
                                             <div class="form-check form-check-inline mr-4 ml-4">
                                                 <div class="d-flex justify-content-center">
-                                                    <input class="form-check-input  d-block" type="radio" name="llantas_delanteras" id="llantas_delanteras" value="0">
+                                                    <input class="form-check-input  d-block" type="radio" name="amortig_delanteras" id="amortig_delanteras" value="0">
                                                 </div>
                                               <label class="form-check-label text-white" for="inlineRadio2">
                                                   No
@@ -155,7 +155,7 @@
                                             <div class="form-check form-check-inline mr-4 ml-4">
 
                                                 <div class="d-flex justify-content-center">
-                                                    <input class="form-check-input " type="radio" name="llantas_traseras" id="llantas_traseras" value="1">
+                                                    <input class="form-check-input " type="radio" name="amortig_traseras" id="amortig_traseras" value="1">
                                                 </div>
 
                                                 <label class="form-check-label text-white" for="inlineRadio1">
@@ -165,7 +165,7 @@
 
                                             <div class="form-check form-check-inline mr-4 ml-4">
                                                 <div class="d-flex justify-content-center">
-                                                    <input class="form-check-input  d-block" type="radio" name="llantas_traseras" id="llantas_traseras" value="0">
+                                                    <input class="form-check-input  d-block" type="radio" name="amortig_traseras" id="amortig_traseras" value="0">
                                                 </div>
                                               <label class="form-check-label text-white" for="inlineRadio2">
                                                   No
@@ -246,7 +246,7 @@
                                                          <img class="" src="{{ asset('img/icon/white/velocimetro.png') }}" width="25px" >
                                                     </span>
                                                 </div>
-                                                <input type="text" class="form-control" placeholder="amortiguador en KM" style="border-radius: 0  10px 10px 0;" id="vida_llantas" name="vida_llantas" value="{{ old('vida_llantas') }}">
+                                                <input type="number" class="form-control" placeholder="amortiguador en KM" style="border-radius: 0  10px 10px 0;" id="vida_llantas" name="vida_llantas" value="{{ old('vida_llantas') }}">
                                             </div>
 
                                          <label for="">
@@ -259,7 +259,7 @@
                                                          <img class="" src="{{ asset('img/icon/white/velocimetro (2).png') }}" width="25px" >
                                                     </span>
                                                 </div>
-                                                <input type="text" class="form-control" placeholder="Km actual" style="border-radius: 0  10px 10px 0;" id="km_actual" name="km_actual" value="{{ old('km_actual') }}">
+                                                <input type="number" class="form-control" placeholder="Km actual" style="border-radius: 0  10px 10px 0;" id="km_actual" name="km_actual" value="{{ old('km_actual') }}">
                                             </div>
                                          <input type="hidden" class="form-control" id='image' name="image" value="{{asset('img/icon/color/comprobado.png') }}">
                                          <label for="">

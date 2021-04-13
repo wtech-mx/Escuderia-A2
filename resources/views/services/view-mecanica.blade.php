@@ -1,45 +1,13 @@
-@extends('admin.layouts.app')
+@extends('layouts.app')
 
 @section('bg-color', 'background-color: #0a0302')
 
 @section('content')
 
                 <link href="{{ asset('css/servicios.css') }}" rel="stylesheet">
+                <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
 
                 <div class="row  bg-image" >
-
-                    @if(Session::has('marca'))
-                        <script>
-                            Swal.fire({
-                              title: 'Exito!!',
-                              html:
-                                'Se ha agragado la <b>MARCA</b>, ' +
-                                'Exitosamente',
-                              // text: 'Se ha agragado la "MARCA" Exitosamente',
-                              imageUrl: '{{ asset('img/icon/color/dairy-products.png') }}',
-                              background: '#fff',
-                              imageWidth: 150,
-                              imageHeight: 150,
-                              imageAlt: 'Custom image',
-                            })
-                        </script>
-                    @endif
-
-                    @if(Session::has('success'))
-                        <script>
-                            Swal.fire({
-                              title: 'Exito!!',
-                              html:
-                                'Se ha creado el <b>servicio</b>, ' +
-                                'Exitosamente',
-                              imageUrl: '{{ asset('img/icon/color/check-up.png') }}',
-                              imageWidth: 150,
-                              imageHeight: 150,
-                              imageAlt: 'Custom image',
-                            })
-                        </script>
-                    @endif
-
                     <div class="col-2  mt-5">
                         <div class="d-flex justify-content-start">
                                 <div class="text-center text-white">
@@ -52,7 +20,7 @@
 
                     <div class="col-8  mt-5">
                                 <h5 class="text-center text-white ml-4 mr-4 ">
-                                    <strong>Servicio Mec&aacute;nica</strong>
+                                    <strong>Historial de Servicios</strong>
                                 </h5>
                     </div>
 
@@ -153,52 +121,48 @@
 
                           <div class="tab-pane fade show active" id="pills-Llantas" role="tabpanel" aria-labelledby="pills-home-tab">
                               <div class="row">
-                                @include('admin.services.llantas')
+                                @include('services.llantas')
                               </div>
                           </div>
 
                           <div class="tab-pane fade" id="pills-Banda" role="tabpanel" aria-labelledby="pills-profile-tab">
                               <div class="row">
-                              @include('admin.services.banda')
+                              @include('services.banda')
                               </div>
                           </div>
 
                           <div class="tab-pane fade" id="pills-Frenos" role="tabpanel" aria-labelledby="pills-contact-tab">
                               <div class="row">
-                              @include('admin.services.frenos')
+                              @include('services.frenos')
                               </div>
                           </div>
 
                           <div class="tab-pane fade" id="pills-Aceite" role="tabpanel" aria-labelledby="pills-contact-tab">
                               <div class="row">
-                              @include('admin.services.aceite')
+                              @include('services.aceite')
                               </div>
                           </div>
 
                           <div class="tab-pane fade" id="pills-Afinacion" role="tabpanel" aria-labelledby="pills-contact-tab">
                               <div class="row">
-                              @include('admin.services.afincacion')
+                              @include('services.afinacion')
                               </div>
                           </div>
 
                           <div class="tab-pane fade" id="pills-Amortig" role="tabpanel" aria-labelledby="pills-contact-tab">
                               <div class="row">
-                              @include('admin.services.amortiguadores')
+                              @include('services.amortiguadores')
                               </div>
                           </div>
 
                           <div class="tab-pane fade" id="pills-Bateria" role="tabpanel" aria-labelledby="pills-contact-tab">
                               <div class="row">
-                              @include('admin.services.bateria')
+                              @include('services.bateria')
                               </div>
                           </div>
 
                         </div>
                    </div>
-
-                    @include('admin.services.modal-marca')
-{{--                    @include('admin.services.proveedores')--}}
-
                 </div>
 
 

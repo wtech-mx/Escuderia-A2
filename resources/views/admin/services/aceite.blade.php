@@ -119,7 +119,7 @@
                                   </div>
 
 
-                                  <div class="col-12 p-4">
+                           <div class="col-12 p-4">
                                 <div class="d-flex justify-content-between">
                                   <div class="mr-auto">
                                          <label for="">
@@ -190,7 +190,7 @@
                                                          <img class="" src="{{ asset('img/icon/white/velocimetro.png') }}" width="25px" >
                                                     </span>
                                                 </div>
-                                                <input type="text" class="form-control" placeholder="Vida de aceite" style="border-radius: 0  10px 10px 0;" id="vida_llantas" name="vida_llantas" value="{{ old('vida_llantas') }}" required>
+                                                <input type="number" class="form-control" placeholder="Vida de aceite" style="border-radius: 0  10px 10px 0;" id="vida_llantas" name="vida_llantas" value="{{ old('vida_llantas') }}" required>
                                             </div>
 
                                          <label for="">
@@ -203,7 +203,7 @@
                                                          <img class="" src="{{ asset('img/icon/white/velocimetro (2).png') }}" width="25px" >
                                                     </span>
                                                 </div>
-                                                <input type="text" class="form-control" placeholder="Km actual" style="border-radius: 0  10px 10px 0;" id="km_actual" name="km_actual" value="{{ old('km_actual') }}" required>
+                                                <input type="number" class="form-control" placeholder="Km actual" style="border-radius: 0  10px 10px 0;" id="km_actual" name="km_actual" value="{{ old('km_actual') }}" required>
                                             </div>
 
                                          <label for="">

@@ -58,13 +58,14 @@ class Mecanica extends Model
         'servicio',
         'llantas_delanteras',
         'llantas_traseras',
+        'amortig_delanteras',
+        'amortig_traseras',
         'frenos_delanteras',
         'frenos_traseras',
-        'id_marca',
         'descripcion',
-        'garantia',
         'vida_llantas',
         'km_actual',
+        'km_estimado',
 
     ];
 

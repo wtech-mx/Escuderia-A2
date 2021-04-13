@@ -18,13 +18,15 @@ class CreateMecanicaTable extends Migration
             $table->string('servicio')->nullable();
             $table->integer('llantas_delanteras')->nullable();
             $table->integer('llantas_traseras')->nullable();
+            $table->integer('amortig_delanteras')->nullable();
+            $table->integer('amortig_traseras')->nullable();
             $table->integer('frenos_delanteras')->nullable();
             $table->integer('frenos_traseras')->nullable();
-            $table->unsignedBigInteger('id_marca');
+
             $table->string('descripcion', 500);
-            $table->string('garantia');
             $table->string('vida_llantas');
             $table->string('km_actual');
+            $table->string('km_estimado');
             $table->string('video',900)->nullable();
             $table->string('video2', 900)->nullable();
 

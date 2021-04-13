@@ -20,11 +20,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="936a45dc-4f36-4130-a52f-695b08d602c5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/services/proveedores.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/services/aceite.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/services/afinacion.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/services/amortiguadores.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/services/banda.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/services/bateria.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/services/frenos.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/services/modal.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SegurosController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SegurosController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/mail.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/mail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/services.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/alerts/calendar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/alerts/calendar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MecanicaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MecanicaController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Mecanica.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Mecanica.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_01_27_235702_create_mecanica_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_01_27_235702_create_mecanica_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/exp-fisico/view-exp-fisico-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/exp-fisico/view-exp-fisico-admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/services/aceite.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/services/aceite.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/services/afincacion.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/services/afincacion.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/services/amortiguadores.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/services/amortiguadores.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/services/banda.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/services/banda.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/services/bateria.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/services/bateria.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/services/frenos.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/services/frenos.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/services/llantas.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/services/llantas.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/services/mecanica.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/services/mecanica.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -203,17 +221,17 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\xaamp\htdocs\Escuderia-A2\public" />
-      <recent name="D:\xaamp\htdocs\Escuderia-A2\public\img" />
-      <recent name="D:\xaamp\htdocs\Escuderia-A2\public\css" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\Escuderia-A2\resources\views\alerts" />
       <recent name="C:\xampp\htdocs\Escuderia-A2\app\Http\Controllers" />
       <recent name="C:\xampp\htdocs\Escuderia-A2\resources\views\admin\services" />
       <recent name="C:\xampp\htdocs\Escuderia-A2\resources\views\layouts" />
       <recent name="C:\xampp\htdocs\Escuderia-A2\resources\views\admin\seguros" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\xaamp\htdocs\Escuderia-A2\public" />
+      <recent name="D:\xaamp\htdocs\Escuderia-A2\public\img" />
+      <recent name="D:\xaamp\htdocs\Escuderia-A2\public\css" />
     </key>
   </component>
   <component name="RunManager">
@@ -290,6 +308,10 @@
       <workItem from="1617807099662" duration="25086000" />
       <workItem from="1617855428820" duration="4644000" />
       <workItem from="1617978391091" duration="6375000" />
+      <workItem from="1618108748709" duration="8248000" />
+      <workItem from="1618174714150" duration="7644000" />
+      <workItem from="1618194064434" duration="1670000" />
+      <workItem from="1618242951149" duration="19088000" />
     </task>
     <servers />
   </component>
@@ -307,11 +329,5 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="943" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1617980829012">
-      <screen x="0" y="0" width="2560" height="1040" />
-    </state>
-    <state x="943" y="225" width="672" height="678" key="search.everywhere.popup/0.0.2560.1040/-2560.0.2560.1040@0.0.2560.1040" timestamp="1617980829012" />
   </component>
 </project>
