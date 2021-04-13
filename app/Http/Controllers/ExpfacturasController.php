@@ -88,7 +88,7 @@ class ExpfacturasController extends Controller
         $exp_factura = ExpFactura::findOrFail($id);
         $exp_factura->delete();
 
-        Session::flash('succes','Se Elimino su Factura con exito');
+        Session::flash('destroy', 'Se Elimino su Factura con exito');
         return redirect()->back();
 
     }
