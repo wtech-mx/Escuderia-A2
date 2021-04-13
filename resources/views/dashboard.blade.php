@@ -174,7 +174,7 @@
                             <a href="{{ route('view_user.servicio') }}" class="text-dark">
                                 <div class="card" style="border-radius: 15px">
                                   <div class="card-body" >
-                                      <img class="d-inline mb-2" src="{{ asset('img/icon/black/presupuesto.png') }}" alt="Icon gift" width="50px">
+                                      <img class="d-inline mb-2" src="{{ asset('img/icon/black/car-repair.png') }}" alt="Icon gift" width="50px">
                                       <p class="card-text"><strong>Servicios</strong></p>
                                   </div>
                                 </div>

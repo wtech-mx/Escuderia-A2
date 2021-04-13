@@ -20,7 +20,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="936a45dc-4f36-4130-a52f-695b08d602c5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MecanicaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MecanicaController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/services/aceite.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/services/aceite.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/services/afinacion.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/services/afinacion.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/services/amortiguadores.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/services/amortiguadores.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/services/banda.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/services/banda.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/services/bateria.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/services/bateria.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/services/frenos.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/services/frenos.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/services/llantas.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/services/llantas.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -289,7 +297,7 @@
       <workItem from="1618108748709" duration="8248000" />
       <workItem from="1618174714150" duration="7644000" />
       <workItem from="1618194064434" duration="1670000" />
-      <workItem from="1618242951149" duration="19894000" />
+      <workItem from="1618242951149" duration="21437000" />
     </task>
     <servers />
   </component>
