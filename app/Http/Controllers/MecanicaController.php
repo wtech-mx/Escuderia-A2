@@ -221,32 +221,32 @@ class MecanicaController extends Controller
               //Banda
               case($mecanica->servicio == '2'):
                  $llantas->id_user = $mecanica->id_userbn;
-                 $llantas->title = $mecanica->Automovilbn->placas;
+                 $llantas->title = $mecanica->Automovilbn->placas.' - Banda';
               break;
               //Frenos
               case($mecanica->servicio == '3'):
                   $llantas->id_user = $mecanica->id_userfr;
-                  $llantas->title = $mecanica->Automovilfr->placas;
+                  $llantas->title = $mecanica->Automovilfr->placas.' - Frenos';
               break;
               //Aceite
               case($mecanica->servicio == '4'):
                   $llantas->id_user = $mecanica->id_userac;
-                  $llantas->title = $mecanica->Automovilac->placas;
+                  $llantas->title = $mecanica->Automovilac->placas.' - Aceite';
               break;
               //Afinacion
               case($mecanica->servicio == '5'):
                   $llantas->id_user = $mecanica->id_useraf;
-                  $llantas->title = $mecanica->Automovilaf->placas;
+                  $llantas->title = $mecanica->Automovilaf->placas.' - Afinación';
               break;
               //Amorting
               case($mecanica->servicio == '6'):
                   $llantas->id_user = $mecanica->id_useram;
-                  $llantas->title = $mecanica->Automovilam->placas;
+                  $llantas->title = $mecanica->Automovilam->placas.' - Amortiguadores';
               break;
               //Bateria
               case($mecanica->servicio == '7'):
                   $llantas->id_user = $mecanica->id_userbt;
-                  $llantas->title = $mecanica->Automovilbt->placas;
+                  $llantas->title = $mecanica->Automovilbt->placas.' - Bateria';
               break;
         }
 
