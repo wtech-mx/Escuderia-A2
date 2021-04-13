@@ -207,8 +207,22 @@
                                                 <input type="number" class="form-control" placeholder="Km actual" style="border-radius: 0  10px 10px 0;" id="km_actual" name="km_actual" value="{{ old('km_actual') }}">
                                             </div>
 <input type="hidden" class="form-control" id='image' name="image" value="{{asset('img/icon/color/comprobado.png') }}">
+                                      <hr>
                                          <label for="">
-                                             <p class="text-white"><strong>Fecha Programada</strong></p>
+                                             <p class="text-white"><strong>Km Estimado</strong></p>
+                                         </label>
+
+                                            <div class="input-group form-group">
+                                                <div class="input-group-prepend " >
+                                                    <span class="input-group-text input-services" >
+                                                         <img class="" src="{{ asset('img/icon/white/velocimetro (2).png') }}" width="25px" >
+                                                    </span>
+                                                </div>
+                                                <input type="number" class="form-control" placeholder="km actual" style="border-radius: 0  10px 10px 0;" id="km_estimado" name="km_estimado" value="{{ old('km_actual') }}">
+                                            </div>
+
+                                         <label for="">
+                                             <p class="text-white"><strong>Fecha Próxima</strong></p>
                                          </label>
 
                                         <div class="input-group form-group">
