@@ -58,6 +58,24 @@
 
     @yield('scripts')
 
+    <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+    <script>
+       var OneSignal = window.OneSignal || [];
+        var initConfig = {
+            appId: "fedb6b0a-c9a3-4066-8d6e-48f79ecc30e6",
+            safari_web_id: "web.onesignal.auto.3a07767d-f8c5-4ebf-965b-cb322da40f9f",
+            notifyButton: {
+                enable: true
+            },
+        };
+        OneSignal.push(function () {
+            OneSignal.SERVICE_WORKER_PARAM = { scope: '/push/onesignal/' };
+            OneSignal.SERVICE_WORKER_PATH = 'push/onesignal/OneSignalSDKWorker.js'
+            OneSignal.SERVICE_WORKER_UPDATER_PATH = 'push/onesignal/OneSignalSDKUpdaterWorker.js'
+            OneSignal.init(initConfig);
+        });
+    </script>
+
 </head>
 
 <body>
@@ -78,19 +96,7 @@
                         @include('admin.layouts.offline')
                 </div>
                 @endauth
-
-
 </body>
-<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
-<script>
-  window.OneSignal = window.OneSignal || [];
-  OneSignal.push(function() {
-    OneSignal.init({
-      appId: "8848d363-4255-4532-929e-67f29c6867b9",
-      safari_web_id: "web.onesignal.auto.3a07767d-f8c5-4ebf-965b-cb322da40f9f",
-    });
-  });
 
-</script>
 
 </html>
