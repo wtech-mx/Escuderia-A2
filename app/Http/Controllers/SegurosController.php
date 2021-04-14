@@ -125,7 +125,8 @@ class SegurosController extends Controller
         //datos para el calednario
         $seguro->title = $request->get('title');
         $seguro->color = $request->get('color');
-        $seguro->descripcion = $request->get('descripcion');
+        $seguro->descripcion = 'Su Seguro expira el dia: '.$seguro->end;
+        $seguro->image = $request->get('image');
 
         $seguro->device_token = $request->get('device_token');
 
@@ -298,8 +299,8 @@ class SegurosController extends Controller
         //datos para el calednario
         $seguro->title = $request->get('title');
         $seguro->color = $request->get('color');
-        $seguro->descripcion = $request->get('descripcion');
-        $seguro->device_token = $seguro->User->device_token;
+        $seguro->descripcion = 'Su Seguro expira el dia: '.$seguro->end;
+        $seguro->image = $request->get('image');
 
         $seguro->update();
 

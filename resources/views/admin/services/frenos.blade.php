@@ -130,7 +130,7 @@
                                                 </div>
 
                                                 <label class="form-check-label text-white" for="inlineRadio1">
-                                                    SI
+                                                    1
                                                 </label>
                                             </div>
 
@@ -139,7 +139,7 @@
                                                     <input class="form-check-input  d-block" type="radio" name="frenos_delanteras" id="frenos_delanteras" value="0">
                                                 </div>
                                               <label class="form-check-label text-white" for="inlineRadio2">
-                                                  NO
+                                                  2
                                               </label>
                                             </div>
 
@@ -158,7 +158,7 @@
                                                 </div>
 
                                                 <label class="form-check-label text-white" for="inlineRadio1">
-                                                    SI
+                                                    1
                                                 </label>
                                             </div>
 
@@ -167,7 +167,7 @@
                                                     <input class="form-check-input  d-block" type="radio" name="frenos_traseras" id="frenos_traseras" value="0">
                                                 </div>
                                               <label class="form-check-label text-white" for="inlineRadio2">
-                                                  NO
+                                                  2
                                               </label>
                                             </div>
                                   </div>

@@ -120,7 +120,7 @@
                                                 </div>
 
                                                 <label class="form-check-label text-white" for="inlineRadio1">
-                                                    Si
+                                                    1
                                                 </label>
                                             </div>
 
@@ -129,7 +129,7 @@
                                                     <input class="form-check-input  d-block" type="radio" name="llantas_delanteras" id="llantas_delanteras" value="0">
                                                 </div>
                                               <label class="form-check-label text-white" for="inlineRadio2">
-                                                  No
+                                                  2
                                               </label>
                                             </div>
 
@@ -148,7 +148,7 @@
                                                 </div>
 
                                                 <label class="form-check-label text-white" for="inlineRadio1">
-                                                    Si
+                                                    1
                                                 </label>
                                             </div>
 
@@ -157,7 +157,7 @@
                                                     <input class="form-check-input  d-block" type="radio" name="llantas_traseras" id="llantas_traseras" value="0">
                                                 </div>
                                               <label class="form-check-label text-white" for="inlineRadio2">
-                                                  No
+                                                  2
                                               </label>
                                             </div>
                                   </div>

@@ -236,6 +236,10 @@ Route::get('/alerts/view-alerts', function () {
 
 Route::get('servicio/view','MecanicaController@view_user')->name('view_user.servicio');
 
+/*|--------------------------------------------------------------------------
+|VERIFICACION view
+|--------------------------------------------------------------------------*/
+Route::get('verificacion/index','VerificacionController@index')->name('index.verificacion');
 
 /*|--------------------------------------------------------------------------
 |Admin

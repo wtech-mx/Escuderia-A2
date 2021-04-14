@@ -131,7 +131,7 @@
                                                 </div>
 
                                                 <label class="form-check-label text-white" for="inlineRadio1">
-                                                    Si
+                                                    1
                                                 </label>
                                             </div>
 
@@ -140,7 +140,7 @@
                                                     <input class="form-check-input  d-block" type="radio" name="amortig_delanteras" id="amortig_delanteras" value="0">
                                                 </div>
                                               <label class="form-check-label text-white" for="inlineRadio2">
-                                                  No
+                                                  2
                                               </label>
                                             </div>
 
@@ -159,7 +159,7 @@
                                                 </div>
 
                                                 <label class="form-check-label text-white" for="inlineRadio1">
-                                                    Si
+                                                    1
                                                 </label>
                                             </div>
 
@@ -168,7 +168,7 @@
                                                     <input class="form-check-input  d-block" type="radio" name="amortig_traseras" id="amortig_traseras" value="0">
                                                 </div>
                                               <label class="form-check-label text-white" for="inlineRadio2">
-                                                  No
+                                                  2
                                               </label>
                                             </div>
                                   </div>

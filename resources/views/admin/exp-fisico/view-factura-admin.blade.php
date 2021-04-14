@@ -125,9 +125,9 @@
                                                 <iframe width="140" height="140" src="{{asset('exp-factura/'.$item->factura)}}" frameborder="0" style="z-index: 10000" ></iframe>
                                             </p>
                                         @else
-                                            <p class="text-center">
-                                                    <img class="d-inline mb-2" src="{{asset('exp-factura/'.$item->factura)}}" alt="{{$item->factura}}" width="100px">
-                                            </p>
+                                                <p class="text-center">
+                                                        <img class="d-inline mb-2" src="{{asset('exp-factura/'.$item->factura)}}" alt="{{$item->factura}}" width="100px">
+                                                </p>
                                         @endif
                                   </div>
 

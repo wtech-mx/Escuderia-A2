@@ -45,11 +45,11 @@
 
                         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="90000">
                               <div class="carousel-inner">
-
+                                    {{  Form::open(['route' => 'index_admin.view-exp-fisico-admin' , 'method' => 'GET' , 'class'=>'form-inline pull-right'] )  }}
                                         <div class="d-flex justify-content-center mt-5">
 
                                                      <div class="form-group">
-                                                          {{ Form::text('name', null,['class' => 'form-control','placeholder' => 'Busqueda de Nombre'])  }}
+                                                          {{ Form::text('placas', null,['class' => 'form-control','placeholder' => 'Busqueda por Placas'])  }}
                                                      </div>
 
                                                     <button type="submit" class="btn btn-default">
@@ -57,7 +57,7 @@
                                                     </button>
 
                                         </div>
-
+                                    {{Form::close()}}
                                 {{-- ----------------------------------------------------------------------------}}
                                 {{-- |Vehculos de user--}}
                                 {{-- |----------------------------------------------------------------------------}}
@@ -122,7 +122,7 @@
                                                             Tenencias
                                                             @foreach($tenencias2 as $auto)
                                                                 @if($item->id == $auto->current_auto)
-                                                                         {{$tenencias}}
+                                                                    {{$tenencias}}
                                                                 @endif
                                                             @break
                                                             @endforeach

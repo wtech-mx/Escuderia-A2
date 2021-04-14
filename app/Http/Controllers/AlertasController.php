@@ -111,7 +111,7 @@ class AlertasController extends Controller
 
         //Trae datos de db to jason
         $json2 = $data2['alertas'] = Alertas::all();
-        $json3 = $data3['seguros'] = Seguros::all();
+        $json3 = $data3['seguros'] = Seguros::all()->makeHidden('end');
         $json4 = $data3['tarjeta_circulacion'] = TarjetaCirculacion::all()->makeHidden('end');
         $json5 = $data5['verificacion'] = Verificacion::all()->makeHidden('end');
         $json6 = $data6['mecanica'] = Llantas::all()->makeHidden('end');

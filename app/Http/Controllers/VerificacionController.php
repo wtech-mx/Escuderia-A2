@@ -19,7 +19,23 @@ class VerificacionController extends Controller
         $this->middleware('auth');
         $this->middleware('pagespeed');
     }
+/*|--------------------------------------------------------------------------
+|Create Verificacion Admin_Admin
+|--------------------------------------------------------------------------*/
+    function index(){
 
+        $auto = DB::table('users')
+        ->where('current_auto','=',auth()->user()->current_auto)
+        ->first();
+
+        $verificacion = Verificacion::where('current_auto','=',$auto->current_auto)
+            ->first();
+
+        $verificacion_segunda = VerificacionSegunda::where('id_verificacion','=',$verificacion->id)
+            ->get();
+
+        return view('verificacion.view-verificacion',compact('verificacion', 'verificacion_segunda'));
+    }
 /*|--------------------------------------------------------------------------
 |Create Verificacion Admin_Admin
 |--------------------------------------------------------------------------*/

@@ -208,7 +208,7 @@
                                     </div>
 
                                     <label for="">
-                                         <p class="text-white"><strong>Genero</strong></p>
+                                         <p class="text-white"><strong>Género</strong></p>
                                      </label>
 
                                     <div class="col-12 text-center">

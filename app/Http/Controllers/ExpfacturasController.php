@@ -16,6 +16,7 @@ use App\Models\ExpRfc;
 use App\Models\ExpTc;
 use App\Models\ExpTenencias;
 use App\Models\ExpCertificado;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Storage;
 
 use Session;
@@ -97,22 +98,25 @@ class ExpfacturasController extends Controller
         /*|--------------------------------------------------------------------------
         |Create Doc Admin_Admin
         |--------------------------------------------------------------------------*/
-     function index_admin(){
+     function index_admin(Request $request){
          /* Trae Autos de Usuarios */
-//        $name = $request->get('name');
+        $placas = $request->get('placas');
 
         $automovil = Automovil::where('id_empresa', '=', NULL)
+            ->placas($placas)
             ->paginate(5);
 
-        $auto = Automovil::get();
+        $datos = Arr::pluck($automovil, 'id');
+
         $automovil2 = Automovil::where('id_user', '=', NULL)
             ->paginate(5);
 
         $factura = ExpFactura::get()->count();
         $factura2 = db::table('exp_facturas')->get();
 
-        $tenencias = ExpTenencias::get()->count();
-        $tenencias2 = ExpTenencias::get();
+
+        $tenencias = ExpTenencias::where('current_auto', '=', $datos)->get()->count();
+        $tenencias2 = ExpTenencias::where('current_auto', '=', $datos)->get();
 
         $carta = ExpCarta::get()->count();
         $carta2 = ExpCarta::get();

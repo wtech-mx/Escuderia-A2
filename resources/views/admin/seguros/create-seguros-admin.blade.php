@@ -10,52 +10,6 @@
     $originalDate = $seguro->end;
     $newDate = date("d/m/Y", strtotime($originalDate));
     ?>
-    @php
-        $fechaEntera = strtotime($seguro->end);
-                $anio = date("Y", $fechaEntera);
-                $dia = date("d", $fechaEntera);
-        $fechames = strtotime($seguro->end);
-                $mes = date("m", $fechames);
-
-                        switch($mes) {
-                          case ($mes == 1):
-                            $letrames = "January";
-                            break;
-                          case ($mes == 2):
-                            $letrames = "February";
-                            break;
-                          case ($mes == 3):
-                            $letrames = "March";
-                            break;
-                          case ($mes == 4):
-                            $letrames = "April";
-                            break;
-                          case ($mes == 5):
-                            $letrames = "May";
-                            break;
-                          case ($mes == 6):
-                            $letrames = "June";
-                            break;
-                          case ($mes == 7):
-                            $letrames = "October";
-                            break;
-                          case ($mes == 8):
-                            $letrames = "August";
-                            break;
-                          case ($mes == 9):
-                            $letrames = "September";
-                            break;
-                          case ($mes == 10):
-                            $letrames = "October";
-                            break;
-                          case ($mes == 11):
-                            $letrames = "November";
-                            break;
-                          case ($mes == 12):
-                            $letrames = "December";
-                            break;
-                        }
-    @endphp
                 <div class="row bg-profile" style="z-index: 100000">
                 @include('admin.seguros.modal-poladmin-img')
                         @if(Session::has('success'))
@@ -136,10 +90,6 @@
                         <div class="input-group form-group">
                                 <div class="input-group form-group">
                                     <input type="hidden" class="form-control" id='title' name="title" value="{{$seguro->Automovil->placas}}">
-                                </div>
-
-                                 <div class="input-group form-group">
-                                    <input type="hidden" class="form-control" id='descripcion' name="descripcion" value="Su Seguro expira el dia: {{$newDate}}">
                                 </div>
 
                                  <div class="input-group form-group">
