@@ -1,5 +1,7 @@
 @extends('admin.layouts.app')
 
+@section('max-height', 'max-height: 300px;')
+
 @section('content')
 
 
@@ -65,12 +67,17 @@
                             </div>
                         </div>
 
-                        @include('admin.alerts.calendar')
+                        <div class="col-12 mb-2" style="height: 300px;">
+                             <div class="overflow-auto" style="@yield('max-height')">
+                                   @include('admin.alerts.calendar')
+                              </div>
+                        </div>
+
+
 
                 </div>
 
-                <div class="row-content" style="position: relative;background-color: #31ba4b;width: 360px;left: -10px"></div>
-                    <div class="row bg-down-blue" style="z-index:1000;top: -30px;background-image: linear-gradient(to bottom, #00d62e, #2ce048, #43eb5f, #56f574, #68ff88);border-radius: 30px 30px 0 0;">
+                <div class="row bg-down-blue" style="z-index:1000;top: -30px;background-image: linear-gradient(to bottom, #00d62e, #2ce048, #43eb5f, #56f574, #68ff88);border-radius: 30px 30px 0 0;">
 
                     <div class="col-12 p-4">
                         <h6 class="text-center text-white">

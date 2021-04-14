@@ -130,7 +130,5 @@
 <script src="{{ asset('js/ios.js') }}"></script>
 @endif
 
-
-{{--Local appId: "8848d363-4255-4532-929e-67f29c6867b9",--}}
 </html>
 

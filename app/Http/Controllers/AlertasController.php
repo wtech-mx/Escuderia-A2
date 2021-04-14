@@ -28,10 +28,6 @@ class AlertasController extends Controller
 
     public function index(Request $request)
     {
-          $titulo = $request->get('titulo');
-          $alert = Alertas::orderBy('id','DESC')
-              ->titulo($titulo)
-              ->paginate(6);
 
           $user = DB::table('users')
             ->where('role','=', '0')
@@ -59,7 +55,7 @@ class AlertasController extends Controller
             ->where('end','<=', $current)
             ->get();
 
-          return view('admin.alerts.view-alerts-admin', compact('alert', 'user', 'alert2','seguro_alerta','tc_alerta'));
+          return view('admin.alerts.view-alerts-admin', compact( 'user', 'alert2','seguro_alerta','tc_alerta'));
     }
 
     public function store(Request $request)
