@@ -51,13 +51,26 @@ class ExpolizaController extends Controller
 
         $exp_poliza->titulo = $request->get('titulo');
     	if ($request->hasFile('poliza')) {
+
+    	    $file=$request->file("poliza");
+
+    	    $nombre = "pdf_".time().".".$file->guessExtension();
+    	    $ruta = public_path("/exp-poliza/".$nombre);
+
+            if($file->guessExtension()=="pdf"){
+                copy($file, $ruta);
+                $exp_poliza->poliza = $nombre;
+
+            }else{
                 $urlfoto = $request->file('poliza');
                 $nombre = time().".".$urlfoto->guessExtension();
                 $ruta = public_path('/exp-poliza/'.$nombre);
                 $compresion = Image::make($urlfoto->getRealPath())
                     ->save($ruta,10);
                 $exp_poliza->poliza = $compresion->basename;
-   	}
+
+            }
+    	}
 
 
         $exp_poliza->id_user = auth()->user()->id;
@@ -93,16 +106,29 @@ class ExpolizaController extends Controller
         ]);
 
         $exp = new ExpPoliza;
-
         $exp->titulo = $request->get('titulo');
+
     	if ($request->hasFile('poliza')) {
+
+    	    $file=$request->file("poliza");
+
+    	    $nombre = "pdf_".time().".".$file->guessExtension();
+    	    $ruta = public_path("/exp-poliza/".$nombre);
+
+            if($file->guessExtension()=="pdf"){
+                copy($file, $ruta);
+                $exp->poliza = $nombre;
+
+            }else{
                 $urlfoto = $request->file('poliza');
                 $nombre = time().".".$urlfoto->guessExtension();
                 $ruta = public_path('/exp-poliza/'.$nombre);
                 $compresion = Image::make($urlfoto->getRealPath())
                     ->save($ruta,10);
                 $exp->poliza = $compresion->basename;
-   	}
+
+            }
+    	}
 
 
     	$exp->current_auto = $request->get('current_auto');

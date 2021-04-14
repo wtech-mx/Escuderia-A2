@@ -51,12 +51,23 @@ class ExptcController extends Controller
 
         $exp_tc->titulo = $request->get('titulo');
     	if ($request->hasFile('tc')) {
+
+    	    $file=$request->file("tc");
+
+    	    $nombre = "pdf_".time().".".$file->guessExtension();
+    	    $ruta = public_path("/exp-tc/".$nombre);
+
+            if($file->guessExtension()=="pdf"){
+                copy($file, $ruta);
+                $exp_tc->tc = $nombre;
+            }else {
                 $urlfoto = $request->file('tc');
-                $nombre = time().".".$urlfoto->guessExtension();
-                $ruta = public_path('/exp-tc/'.$nombre);
+                $nombre = time() . "." . $urlfoto->guessExtension();
+                $ruta = public_path('/exp-tc/' . $nombre);
                 $compresion = Image::make($urlfoto->getRealPath())
-                    ->save($ruta,10);
+                    ->save($ruta, 10);
                 $exp_tc->tc = $compresion->basename;
+            }
    	}
 
         $exp_tc->id_user = auth()->user()->id;
@@ -96,12 +107,23 @@ class ExptcController extends Controller
 
         $exp->titulo = $request->get('titulo');
     	if ($request->hasFile('tc')) {
+
+    	    $file=$request->file("tc");
+
+    	    $nombre = "pdf_".time().".".$file->guessExtension();
+    	    $ruta = public_path("/exp-tc/".$nombre);
+
+            if($file->guessExtension()=="pdf"){
+                copy($file, $ruta);
+                $exp->tc = $nombre;
+            }else {
                 $urlfoto = $request->file('tc');
-                $nombre = time().".".$urlfoto->guessExtension();
-                $ruta = public_path('/exp-tc/'.$nombre);
+                $nombre = time() . "." . $urlfoto->guessExtension();
+                $ruta = public_path('/exp-tc/' . $nombre);
                 $compresion = Image::make($urlfoto->getRealPath())
-                    ->save($ruta,10);
+                    ->save($ruta, 10);
                 $exp->tc = $compresion->basename;
+            }
    	}
 
 

@@ -44,12 +44,24 @@ class ExpCertificadoController extends Controller
 
         $exp_certificados->titulo = $request->get('titulo');
     	if ($request->hasFile('certificado')) {
+    	    $file=$request->file("certificado");
+
+    	    $nombre = "pdf_".time().".".$file->guessExtension();
+    	    $ruta = public_path("/exp-certificado/".$nombre);
+
+            if($file->guessExtension()=="pdf"){
+                copy($file, $ruta);
+                $exp_certificados->certificado = $nombre;
+
+            }else {
+
                 $urlfoto = $request->file('certificado');
-                $nombre = time().".".$urlfoto->guessExtension();
-                $ruta = public_path('/exp-certificado/'.$nombre);
+                $nombre = time() . "." . $urlfoto->guessExtension();
+                $ruta = public_path('/exp-certificado/' . $nombre);
                 $compresion = Image::make($urlfoto->getRealPath())
-                    ->save($ruta,10);
+                    ->save($ruta, 10);
                 $exp_certificados->certificado = $compresion->basename;
+            }
    	}
 
 
@@ -100,12 +112,24 @@ class ExpCertificadoController extends Controller
         $exp->titulo = $request->get('titulo');
 
     	if ($request->hasFile('certificado')) {
+    	    $file=$request->file("certificado");
+
+    	    $nombre = "pdf_".time().".".$file->guessExtension();
+    	    $ruta = public_path("/exp-certificado/".$nombre);
+
+            if($file->guessExtension()=="pdf"){
+                copy($file, $ruta);
+                $exp->certificado = $nombre;
+
+            }else {
+
                 $urlfoto = $request->file('certificado');
-                $nombre = time().".".$urlfoto->guessExtension();
-                $ruta = public_path('/exp-certificado/'.$nombre);
+                $nombre = time() . "." . $urlfoto->guessExtension();
+                $ruta = public_path('/exp-certificado/' . $nombre);
                 $compresion = Image::make($urlfoto->getRealPath())
-                    ->save($ruta,10);
+                    ->save($ruta, 10);
                 $exp->certificado = $compresion->basename;
+            }
    	}
 
 

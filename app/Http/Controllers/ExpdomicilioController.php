@@ -49,12 +49,24 @@ class ExpdomicilioController extends Controller
 
         $exp_domicilio->titulo = $request->get('titulo');
     	if ($request->hasFile('domicilio')) {
+
+    	    $file=$request->file("domicilio");
+
+    	    $nombre = "pdf_".time().".".$file->guessExtension();
+    	    $ruta = public_path("/exp-domicilio/".$nombre);
+
+            if($file->guessExtension()=="pdf"){
+                copy($file, $ruta);
+                $exp_domicilio->domicilio = $nombre;
+
+            }else {
                 $urlfoto = $request->file('domicilio');
-                $nombre = time().".".$urlfoto->guessExtension();
-                $ruta = public_path('/exp-domicilio/'.$nombre);
+                $nombre = time() . "." . $urlfoto->guessExtension();
+                $ruta = public_path('/exp-domicilio/' . $nombre);
                 $compresion = Image::make($urlfoto->getRealPath())
-                    ->save($ruta,10);
+                    ->save($ruta, 10);
                 $exp_domicilio->domicilio = $compresion->basename;
+            }
    	}
 
 
@@ -93,12 +105,24 @@ class ExpdomicilioController extends Controller
         $exp = new ExpDomicilio;
         $exp->titulo = $request->get('titulo');
     	if ($request->hasFile('domicilio')) {
+
+    	    $file=$request->file("domicilio");
+
+    	    $nombre = "pdf_".time().".".$file->guessExtension();
+    	    $ruta = public_path("/exp-domicilio/".$nombre);
+
+            if($file->guessExtension()=="pdf"){
+                copy($file, $ruta);
+                $exp->domicilio = $nombre;
+
+            }else {
                 $urlfoto = $request->file('domicilio');
-                $nombre = time().".".$urlfoto->guessExtension();
-                $ruta = public_path('/exp-domicilio/'.$nombre);
+                $nombre = time() . "." . $urlfoto->guessExtension();
+                $ruta = public_path('/exp-domicilio/' . $nombre);
                 $compresion = Image::make($urlfoto->getRealPath())
-                    ->save($ruta,10);
+                    ->save($ruta, 10);
                 $exp->domicilio = $compresion->basename;
+            }
    	}
 
 

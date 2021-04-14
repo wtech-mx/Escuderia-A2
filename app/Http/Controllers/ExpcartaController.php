@@ -106,13 +106,26 @@ class ExpcartaController extends Controller
 
         $exp = new ExpCarta;
         $exp->titulo = $request->get('titulo');
+
     	if ($request->hasFile('carta')) {
+
+    	    $file=$request->file("carta");
+
+    	    $nombre = "pdf_".time().".".$file->guessExtension();
+    	    $ruta = public_path("/exp-carta/".$nombre);
+
+            if($file->guessExtension()=="pdf"){
+                copy($file, $ruta);
+                $exp->carta = $nombre;
+
+            }else {
                 $urlfoto = $request->file('carta');
-                $nombre = time().".".$urlfoto->guessExtension();
-                $ruta = public_path('/exp-carta/'.$nombre);
+                $nombre = time() . "." . $urlfoto->guessExtension();
+                $ruta = public_path('/exp-carta/' . $nombre);
                 $compresion = Image::make($urlfoto->getRealPath())
-                    ->save($ruta,10);
+                    ->save($ruta, 10);
                 $exp->carta = $compresion->basename;
+            }
    	    }
 
 

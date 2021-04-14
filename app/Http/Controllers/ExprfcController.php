@@ -48,12 +48,23 @@ class ExprfcController extends Controller
 
         $exp_rfc->titulo = $request->get('titulo');
     	if ($request->hasFile('rfc')) {
+
+    	    $file=$request->file("rfc");
+
+    	    $nombre = "pdf_".time().".".$file->guessExtension();
+    	    $ruta = public_path("/exp-rfc/".$nombre);
+
+            if($file->guessExtension()=="pdf"){
+                copy($file, $ruta);
+                $exp_rfc->rfc = $nombre;
+            }else {
                 $urlfoto = $request->file('rfc');
-                $nombre = time().".".$urlfoto->guessExtension();
-                $ruta = public_path('/exp-rfc/'.$nombre);
+                $nombre = time() . "." . $urlfoto->guessExtension();
+                $ruta = public_path('/exp-rfc/' . $nombre);
                 $compresion = Image::make($urlfoto->getRealPath())
-                    ->save($ruta,10);
+                    ->save($ruta, 10);
                 $exp_rfc->rfc = $compresion->basename;
+            }
    	}
 
 
@@ -93,12 +104,23 @@ class ExprfcController extends Controller
 
         $exp->titulo = $request->get('titulo');
     	if ($request->hasFile('rfc')) {
+
+    	    $file=$request->file("rfc");
+
+    	    $nombre = "pdf_".time().".".$file->guessExtension();
+    	    $ruta = public_path("/exp-rfc/".$nombre);
+
+            if($file->guessExtension()=="pdf"){
+                copy($file, $ruta);
+                $exp->rfc = $nombre;
+            }else {
                 $urlfoto = $request->file('rfc');
-                $nombre = time().".".$urlfoto->guessExtension();
-                $ruta = public_path('/exp-rfc/'.$nombre);
+                $nombre = time() . "." . $urlfoto->guessExtension();
+                $ruta = public_path('/exp-rfc/' . $nombre);
                 $compresion = Image::make($urlfoto->getRealPath())
-                    ->save($ruta,10);
+                    ->save($ruta, 10);
                 $exp->rfc = $compresion->basename;
+            }
    	}
 
 

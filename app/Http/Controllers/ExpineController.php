@@ -49,12 +49,23 @@ class ExpineController extends Controller
 
         $exp_ine->titulo = $request->get('titulo');
     	if ($request->hasFile('ine')) {
+
+    	    $file=$request->file("ine");
+
+    	    $nombre = "pdf_".time().".".$file->guessExtension();
+    	    $ruta = public_path("/exp-ine/".$nombre);
+
+            if($file->guessExtension()=="pdf"){
+                copy($file, $ruta);
+                $exp_ine->ine = $nombre;
+            }else {
                 $urlfoto = $request->file('ine');
-                $nombre = time().".".$urlfoto->guessExtension();
-                $ruta = public_path('/exp-ine/'.$nombre);
+                $nombre = time() . "." . $urlfoto->guessExtension();
+                $ruta = public_path('/exp-ine/' . $nombre);
                 $compresion = Image::make($urlfoto->getRealPath())
-                    ->save($ruta,10);
+                    ->save($ruta, 10);
                 $exp_ine->ine = $compresion->basename;
+            }
    	}
 
 
@@ -94,12 +105,23 @@ class ExpineController extends Controller
 
         $exp->titulo = $request->get('titulo');
     	if ($request->hasFile('ine')) {
+
+    	    $file=$request->file("ine");
+
+    	    $nombre = "pdf_".time().".".$file->guessExtension();
+    	    $ruta = public_path("/exp-ine/".$nombre);
+
+            if($file->guessExtension()=="pdf"){
+                copy($file, $ruta);
+                $exp->ine = $nombre;
+            }else {
                 $urlfoto = $request->file('ine');
-                $nombre = time().".".$urlfoto->guessExtension();
-                $ruta = public_path('/exp-ine/'.$nombre);
+                $nombre = time() . "." . $urlfoto->guessExtension();
+                $ruta = public_path('/exp-ine/' . $nombre);
                 $compresion = Image::make($urlfoto->getRealPath())
-                    ->save($ruta,10);
+                    ->save($ruta, 10);
                 $exp->ine = $compresion->basename;
+            }
    	}
 
 

@@ -70,12 +70,23 @@ class ExpreemplacaminetoController extends Controller
 
         $exp_reemplacamiento->titulo = $request->get('titulo');
     	if ($request->hasFile('reemplacamiento')) {
+
+    	    $file=$request->file("reemplacamiento");
+
+    	    $nombre = "pdf_".time().".".$file->guessExtension();
+    	    $ruta = public_path("/exp-reemplacamiento/".$nombre);
+
+            if($file->guessExtension()=="pdf"){
+                copy($file, $ruta);
+                $exp_reemplacamiento->reemplacamiento = $nombre;
+            }else {
                 $urlfoto = $request->file('reemplacamiento');
-                $nombre = time().".".$urlfoto->guessExtension();
-                $ruta = public_path('/exp-reemplacamiento/'.$nombre);
+                $nombre = time() . "." . $urlfoto->guessExtension();
+                $ruta = public_path('/exp-reemplacamiento/' . $nombre);
                 $compresion = Image::make($urlfoto->getRealPath())
-                    ->save($ruta,10);
+                    ->save($ruta, 10);
                 $exp_reemplacamiento->reemplacamiento = $compresion->basename;
+            }
    	}
 
 
@@ -135,12 +146,23 @@ class ExpreemplacaminetoController extends Controller
 
         $exp->titulo = $request->get('titulo');
     	if ($request->hasFile('reemplacamiento')) {
+
+    	    $file=$request->file("reemplacamiento");
+
+    	    $nombre = "pdf_".time().".".$file->guessExtension();
+    	    $ruta = public_path("/exp-reemplacamiento/".$nombre);
+
+            if($file->guessExtension()=="pdf"){
+                copy($file, $ruta);
+                $exp->reemplacamiento = $nombre;
+            }else {
                 $urlfoto = $request->file('reemplacamiento');
-                $nombre = time().".".$urlfoto->guessExtension();
-                $ruta = public_path('/exp-reemplacamiento/'.$nombre);
+                $nombre = time() . "." . $urlfoto->guessExtension();
+                $ruta = public_path('/exp-reemplacamiento/' . $nombre);
                 $compresion = Image::make($urlfoto->getRealPath())
-                    ->save($ruta,10);
+                    ->save($ruta, 10);
                 $exp->reemplacamiento = $compresion->basename;
+            }
    	}
 
 

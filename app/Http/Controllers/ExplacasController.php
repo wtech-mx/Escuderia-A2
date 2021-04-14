@@ -48,12 +48,24 @@ class ExplacasController extends Controller
 
         $exp_placas->titulo = $request->get('titulo');
     	if ($request->hasFile('placa')) {
+
+    	    $file=$request->file("placa");
+
+    	    $nombre = "pdf_".time().".".$file->guessExtension();
+    	    $ruta = public_path("/exp-placa/".$nombre);
+
+            if($file->guessExtension()=="pdf"){
+                copy($file, $ruta);
+                $exp_placas->placa = $nombre;
+            }else {
+
                 $urlfoto = $request->file('placa');
-                $nombre = time().".".$urlfoto->guessExtension();
-                $ruta = public_path('/exp-placa/'.$nombre);
+                $nombre = time() . "." . $urlfoto->guessExtension();
+                $ruta = public_path('/exp-placa/' . $nombre);
                 $compresion = Image::make($urlfoto->getRealPath())
-                    ->save($ruta,10);
+                    ->save($ruta, 10);
                 $exp_placas->placa = $compresion->basename;
+            }
    	}
 
 
@@ -106,12 +118,24 @@ class ExplacasController extends Controller
 
         $exp->titulo = $request->get('titulo');
     	if ($request->hasFile('placa')) {
+
+    	    $file=$request->file("placa");
+
+    	    $nombre = "pdf_".time().".".$file->guessExtension();
+    	    $ruta = public_path("/exp-placa/".$nombre);
+
+            if($file->guessExtension()=="pdf"){
+                copy($file, $ruta);
+                $exp->placa = $nombre;
+            }else {
+
                 $urlfoto = $request->file('placa');
-                $nombre = time().".".$urlfoto->guessExtension();
-                $ruta = public_path('/exp-placa/'.$nombre);
+                $nombre = time() . "." . $urlfoto->guessExtension();
+                $ruta = public_path('/exp-placa/' . $nombre);
                 $compresion = Image::make($urlfoto->getRealPath())
-                    ->save($ruta,10);
+                    ->save($ruta, 10);
                 $exp->placa = $compresion->basename;
+            }
    	}
 
 

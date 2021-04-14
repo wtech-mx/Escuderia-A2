@@ -66,12 +66,24 @@ class ExpfacturasController extends Controller
 
         $exp_factura->titulo = $request->get('titulo');
     	if ($request->hasFile('factura')) {
+
+    	    $file=$request->file("factura");
+
+    	    $nombre = "pdf_".time().".".$file->guessExtension();
+    	    $ruta = public_path("/exp-factura/".$nombre);
+
+            if($file->guessExtension()=="pdf"){
+                copy($file, $ruta);
+                $exp_factura->factura = $nombre;
+
+            }else {
                 $urlfoto = $request->file('factura');
-                $nombre = time().".".$urlfoto->guessExtension();
-                $ruta = public_path('/exp-factura/'.$nombre);
+                $nombre = time() . "." . $urlfoto->guessExtension();
+                $ruta = public_path('/exp-factura/' . $nombre);
                 $compresion = Image::make($urlfoto->getRealPath())
-                    ->save($ruta,10);
+                    ->save($ruta, 10);
                 $exp_factura->factura = $compresion->basename;
+            }
    	}
 
 
@@ -177,12 +189,23 @@ class ExpfacturasController extends Controller
 
     	if ($request->hasFile('factura')) {
 
+    	    $file=$request->file("factura");
+
+    	    $nombre = "pdf_".time().".".$file->guessExtension();
+    	    $ruta = public_path("/exp-factura/".$nombre);
+
+            if($file->guessExtension()=="pdf"){
+                copy($file, $ruta);
+                $exp->factura = $nombre;
+
+            }else {
                 $urlfoto = $request->file('factura');
-                $nombre = time().".".$urlfoto->guessExtension();
-                $ruta = public_path('/exp-factura/'.$nombre);
+                $nombre = time() . "." . $urlfoto->guessExtension();
+                $ruta = public_path('/exp-factura/' . $nombre);
                 $compresion = Image::make($urlfoto->getRealPath())
-                    ->save($ruta,10);
+                    ->save($ruta, 10);
                 $exp->factura = $compresion->basename;
+            }
    	}
 
     	/* Compara el auto que se selecciono con la db */
