@@ -119,7 +119,7 @@
                                                   </p>
                                               </div>
                                               <div class="col-1">
-                                                    <a type="button" class="btn btn-danger text-white p-2 mt-5 mb-5" data-toggle="modal" data-target="#modalpoliza{{$item->id}}">
+                                                    <a type="button" class="btn btn-danger text-white p-2 mt-5 mb-5" data-toggle="modal" data-target="#modaltc{{$item->id}}">
                                                         <i class="fa fa-trash" aria-hidden="true"></i>
                                                     </a>
                                                     <a type="button" class="btn btn-secondary p-2" data-dismiss="modal">
