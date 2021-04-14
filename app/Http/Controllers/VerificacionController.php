@@ -88,10 +88,7 @@ class VerificacionController extends Controller
         $verificacion->estatus = $request->get('estatus');
         $verificacion->check = $request->get('check');
 
-
         $verificacion->update();
-
-
 
         Session::flash('success2', 'Se ha actualizado sus datos con exito');
         return redirect()->back();
@@ -100,20 +97,17 @@ class VerificacionController extends Controller
     public function update_periodo2(Request $request,$id)
     {
 
-        $verificacion_segunda = new VerificacionSegunda;
+        $verificacion_segunda = VerificacionSegunda::findOrFail($id);
 
-        $verificacion_segunda->id_verificacion = $id;
         $verificacion_segunda->title = $request->get('title');
         $verificacion_segunda->color = '#FF0000';
-        $verificacion_segunda->descripcion = $request->get('descripcion');
         $verificacion_segunda->segundo_semestre = $request->get('segundo_semestre');
         $verificacion_segunda->start = $request->get('segundo_semestre');
         $verificacion_segunda->end = $request->get('segundo_semestre');
-        $verificacion_segunda->estatus = 0;
-        $verificacion_segunda->check = 0;
+        $verificacion_segunda->descripcion = 'Segundo nperiodo de verificación: '.$verificacion_segunda->start;
         $verificacion_segunda->image = $request->get('image');
 
-        $verificacion_segunda->save();
+        $verificacion_segunda->update();
 
         Session::flash('success2', 'Se ha actualizado sus datos con exito2');
         return redirect()->back();

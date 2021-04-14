@@ -8,7 +8,7 @@
                         </script>
                     @endif
 
-                    <form class="p-5" method="POST" action="{{route('update_periodo2.verificacion',$verificacion_segunda->id_verificacion)}}" enctype="multipart/form-data" role="form">
+                    <form class="p-5" method="POST" action="{{route('update_periodo2.verificacion',$verificacion_segunda->id)}}" enctype="multipart/form-data" role="form">
                     @csrf
 
                     <div class="col-12 mt-1">
@@ -19,10 +19,6 @@
                             {{--Datos para el calendario--}}
                             <div class="input-group form-group">
                                 <input type="hidden" class="form-control" id='title' name="title" value="{{$verificacion->Automovil->placas}}">
-                            </div>
-
-                            <div class="input-group form-group">
-                                <input type="hidden" class="form-control" id='descripcion' name="descripcion" value="Le toca verificar el dia ">
                             </div>
 
                             <div class="input-group form-group">
@@ -41,7 +37,7 @@
                                 </div>
 
                              <label for="">
-                                 <p class="text-white"><strong>Primer Periodo</strong></p>
+                                 <p class="text-white"><strong>Segundo Periodo</strong></p>
                              </label>
 
                              <div class="input-group form-group">

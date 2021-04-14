@@ -312,8 +312,11 @@ class AutomovilController extends Controller
         $verificacion->estatus = 0;
         $verificacion->save();
 
-        $verificacion_segunda = new  VerificacionSegunda;
+        $verificacion_segunda = new VerificacionSegunda;
         $verificacion_segunda->id_verificacion = $verificacion->id;
+        $verificacion_segunda->id_user = $verificacion->id_user;
+        $verificacion_segunda->estatus = 0;
+        $verificacion_segunda->check = 0;
         $verificacion_segunda->save();
 
         $id = $automovil->id_user;
