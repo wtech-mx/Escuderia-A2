@@ -112,7 +112,7 @@
 
                                   <div class="modal-body">
                                       <p class="text-center">
-                                          <img class="img-fluid" src="{{asset('exp-poliza/'.$item->poliza)}}" alt="{{$item->poliza}}" style="height: 280px!important;">
+                                          <img class="img-fluid" src="{{asset('exp-poliza/'.$item->poliza)}}" alt="{{$item->poliza}}" style="height: 270px!important;">
                                       </p>
                                   </div>
 
