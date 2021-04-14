@@ -87,18 +87,14 @@
                             @php
                                 $texto= substr($item->poliza, -3);
                             @endphp
-                            <div class="col-6">
+                            <div class="col-6 text-center">
                                 <a type="button" class="" data-toggle="modal" data-target="#modal-doc-{{$item->id}}">
                                         @if($texto == 'pdf')
-                                            <p class="text-center">
                                                 <iframe width="140" height="140" src="{{asset('exp-poliza/'.$item->poliza)}}" frameborder="0"></iframe>
                                                 <p class="text-center text-white">{{$item->titulo}}</p>
-                                            </p>
                                         @else
-                                            <p class="text-center">
-                                                    <img class="img-fluid d-inline mb-2" src="{{asset('exp-poliza/'.$item->poliza)}}" alt="{{$item->poliza}}" width="100px">
-                                                    <p class="text-center text-white">{{$item->titulo}}</p>
-                                            </p>
+                                            <img class="img-fluid d-inline mb-2" src="{{asset('exp-poliza/'.$item->poliza)}}" alt="{{$item->poliza}}" width="100px">
+                                            <p class="text-center text-white">{{$item->titulo}}</p>
                                         @endif
                                 </a>
                             </div>
@@ -116,7 +112,7 @@
 
                                   <div class="modal-body">
                                       <p class="text-center">
-                                          <img class="" src="{{asset('exp-poliza/'.$item->poliza)}}" alt="{{$item->poliza}}" width="100%">
+                                          <img class="img-fluid" src="{{asset('exp-poliza/'.$item->poliza)}}" alt="{{$item->poliza}}" style="height: 280px!important;">
                                       </p>
                                   </div>
 
