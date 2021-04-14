@@ -107,33 +107,33 @@
                                 </div>
 
                                 <!-- Modal -->
-                                <div class="modal fade" id="modal-doc-{{$item->id}}" tabindex="-1" role="dialog" aria-labelledby="modal-doc-{{$item->id}}" aria-hidden="true">
+                            <div class="modal fade" id="modal-doc-{{$item->id}}" tabindex="-1" role="dialog" aria-labelledby="modal-doc-{{$item->id}}" aria-hidden="true">
                               <div class="modal-dialog  modal-sm modal-dialog-centered" role="document">
                                 <div class="modal-content">
 
-                                  <div class="modal-header">
-                                    <h5 class="modal-title"><strong>{{$item->titulo}}</strong></h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                              <span aria-hidden="true">&times;</span>
-                                            </button>
-                                  </div>
-
                                   <div class="modal-body">
-                                        @if($texto == 'pdf')
-                                            <p class="text-center">
-                                                <p class="text-center text-white">{{$item->titulo}}</p>
-                                                <iframe width="140" height="140" src="{{asset('exp-factura/'.$item->factura)}}" frameborder="0" style="z-index: 10000" ></iframe>
-                                            </p>
-                                        @else
-                                                <p class="text-center">
-                                                        <img class="d-inline mb-2" src="{{asset('exp-factura/'.$item->factura)}}" alt="{{$item->factura}}" width="100px">
-                                                </p>
-                                        @endif
-                                  </div>
-
-                                  <div class="modal-footer">
-                                        <a type="button" class="btn btn-danger text-white" data-toggle="modal" data-target="#modalfactura{{$item->id}}">Eliminar</a>
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                      <div class="row justify-content-center">
+                                          <div class="col-12 text-center mb-3">
+                                              <h5 class="modal-title"><strong>{{$item->titulo}}</strong></h5>
+                                          </div>
+                                      </div>
+                                      <div class="row justify-content-center">
+                                          <div class="d-flex align-items-center">
+                                              <div class="col-11">
+                                                  <p class="text-center">
+                                                      <img class="" src="{{asset('exp-factura/'.$item->factura)}}" alt="{{$item->factura}}" style="height: 300px!important;">
+                                                  </p>
+                                              </div>
+                                              <div class="col-1">
+                                                    <a type="button" class="btn btn-danger text-white p-2 mt-5 mb-5" data-toggle="modal" data-target="#modalpoliza{{$item->id}}">
+                                                        <i class="fa fa-trash" aria-hidden="true"></i>
+                                                    </a>
+                                                    <a type="button" class="btn btn-secondary p-2" data-dismiss="modal">
+                                                        <i class="fa fa-window-close" aria-hidden="true"></i>
+                                                    </a>
+                                              </div>
+                                          </div>
+                                      </div>
                                   </div>
 
                                 </div>
