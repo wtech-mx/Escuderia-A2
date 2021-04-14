@@ -137,6 +137,7 @@
                 image:$('#image').val()+imageDefault,
                 color:$('#color').val()+colorAlert,
                 end:$('#txtFecha').val(),
+                start:$('#txtFecha').val(),
                 '_token':$("meta[name='csrf-token']").attr("content"),
                 '_method':method
             }
