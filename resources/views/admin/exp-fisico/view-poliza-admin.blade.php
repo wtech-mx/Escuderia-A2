@@ -96,8 +96,8 @@
                                             </p>
                                         @else
                                             <p class="text-center">
-                                                    <img class="d-inline mb-2" src="{{asset('exp-poliza/'.$item->poliza)}}" alt="{{$item->poliza}}" width="100px">
-                                                <p class="text-center text-white">{{$item->titulo}}</p>
+                                                    <img class="img-fluid d-inline mb-2" src="{{asset('exp-poliza/'.$item->poliza)}}" alt="{{$item->poliza}}" width="100px">
+                                                    <p class="text-center text-white">{{$item->titulo}}</p>
                                             </p>
                                         @endif
                                 </a>

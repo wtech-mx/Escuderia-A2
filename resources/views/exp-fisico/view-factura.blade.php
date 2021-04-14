@@ -112,7 +112,7 @@
 
                                   <div class="modal-body">
                                       <p class="text-center">
-                                          <img class="" src="{{asset('exp-factura/'.$item->factura)}}" alt="{{$item->factura}}" width="100%">
+                                          <img class="img-fluid" src="{{asset('exp-factura/'.$item->factura)}}" alt="{{$item->factura}}" width="100%">
                                       </p>
                                   </div>
 
