@@ -20,7 +20,7 @@
                         </div>
 
                         <div class="navbar__item -yellow">
-                            <a href="{{ route('index.tc') }}">
+                            <a href="{{ route('index_exp') }}">
                             <span class="navbar__icon">
                                  <img class="" src="{{ asset('img/icon/color/document.png') }}" width="25px" >
                             </span>

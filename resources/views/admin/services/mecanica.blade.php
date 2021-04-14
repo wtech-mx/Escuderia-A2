@@ -109,26 +109,35 @@
 
                             <div class="carousel-item">
                                 <ul class="nav nav-pills mb-3 bg-white" id="pills-tab" role="tablist">
+
                                   <li class="nav-item">
                                     <a class="nav-link a-nav" id="pills-Afinacion-tab" data-toggle="pill" href="#pills-Afinacion" role="tab" aria-controls="pills-Afinacion" aria-selected="false">
                                         <img class="" src="{{ asset('img/icon/color/motor-del-coche.png') }}" alt="Icon User" width="20px">
-                                        Afinaci&oacute;n
+                                        Afina.
                                     </a>
                                   </li>
 
                                   <li class="nav-item">
                                     <a class="nav-link a-nav" id="pills-Amortig-tab" data-toggle="pill" href="#pills-Amortig" role="tab" aria-controls="pills-Amortig" aria-selected="false">
                                         <img class="" src="{{ asset('img/icon/color/amortiguador (2).png') }}" alt="Icon User" width="20px">
-                                        Amortiguador
+                                        Amorti.
                                     </a>
                                   </li>
 
-                                  <li class="nav-item a-nav">
-                                    <a class="nav-link" id="pills-Bateria-tab" data-toggle="pill" href="#pills-Bateria" role="tab" aria-controls="pills-Bateria" aria-selected="false">
+                                  <li class="nav-item">
+                                    <a class="nav-link a-nav" id="pills-Bateria-tab" data-toggle="pill" href="#pills-Bateria" role="tab" aria-controls="pills-Bateria" aria-selected="false">
                                         <img class="" src="{{ asset('img/icon/color/bateria.png') }}" alt="Icon User" width="20px">
                                         Bater&iacute;a
                                     </a>
                                   </li>
+
+                                  <li class="nav-item">
+                                    <a class="nav-link a-nav" id="pills-Otro-tab" data-toggle="pill" href="#pills-Otro" role="tab" aria-controls="pills-Otro" aria-selected="false">
+                                        <img class="" src="{{ asset('img/icon/color/alineacion-de-las-ruedas.png') }}" alt="Icon User" width="20px">
+                                        Otro
+                                    </a>
+                                  </li>
+
                                 </ul>
                             </div>
 
@@ -190,6 +199,12 @@
                           <div class="tab-pane fade" id="pills-Bateria" role="tabpanel" aria-labelledby="pills-contact-tab">
                               <div class="row">
                               @include('admin.services.bateria')
+                              </div>
+                          </div>
+
+                          <div class="tab-pane fade" id="pills-Otro" role="tabpanel" aria-labelledby="pills-contact-tab">
+                              <div class="row">
+                              @include('admin.services.otro')
                               </div>
                           </div>
 

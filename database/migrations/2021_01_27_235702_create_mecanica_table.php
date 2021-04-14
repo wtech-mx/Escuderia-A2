@@ -72,6 +72,12 @@ class CreateMecanicaTable extends Migration
             $table->unsignedBigInteger('id_empresabt')->nullable();
             $table->string('current_autobt2')->nullable();
 
+            /* Otro */
+            $table->unsignedBigInteger('id_userot')->nullable();
+            $table->string('current_autoot')->nullable();
+            $table->unsignedBigInteger('id_empresaot')->nullable();
+            $table->string('current_autoot2')->nullable();
+
             /* Relacion DB Users */
             $table->foreign('id_user')
                 ->references('id')->on('users')
@@ -92,6 +98,9 @@ class CreateMecanicaTable extends Migration
                 ->references('id')->on('users')
                 ->inDelete('set null');
             $table->foreign('id_userbt')
+                ->references('id')->on('users')
+                ->inDelete('set null');
+            $table->foreign('id_userot')
                 ->references('id')->on('users')
                 ->inDelete('set null');
 
@@ -115,6 +124,9 @@ class CreateMecanicaTable extends Migration
                 ->references('id')->on('empresa')
                 ->inDelete('set null');
             $table->foreign('id_empresabt')
+                ->references('id')->on('empresa')
+                ->inDelete('set null');
+            $table->foreign('id_empresaot')
                 ->references('id')->on('empresa')
                 ->inDelete('set null');
 

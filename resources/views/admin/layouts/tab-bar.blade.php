@@ -42,7 +42,7 @@
                             </div>
 
                         <div class="navbar__item -yellow">
-                            <a href="{{ route('indextc_admin.tarjeta-circulacion') }}">
+                            <a href="{{ route('index_admin.view-exp-fisico-admin') }}">
                             <span class="navbar__icon">
                                  <img class="" src="{{ asset('img/icon/color/document.png') }}" width="25px" >
                             </span>

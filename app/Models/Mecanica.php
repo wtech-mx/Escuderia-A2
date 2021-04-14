@@ -55,6 +55,12 @@ class Mecanica extends Model
         'current_autofr',
         'current_autofr2',
 
+        /* User/Auto Otro */
+        'id_userot',
+        'id_empresaot',
+        'current_autoot',
+        'current_autoot2',
+
         'servicio',
         'llantas_delanteras',
         'llantas_traseras',
@@ -101,6 +107,7 @@ class Mecanica extends Model
        return $this->belongsTo(Automovil::class,'current_autobn2');
     }
 
+
     public function Userfr(){
        return $this->belongsTo(User::class, 'id_userfr');
     }
@@ -115,6 +122,9 @@ class Mecanica extends Model
     }
     public function Userbt(){
        return $this->belongsTo(User::class, 'id_userbt');
+    }
+    public function Userot(){
+       return $this->belongsTo(User::class, 'id_userot');
     }
 
 
@@ -132,5 +142,8 @@ class Mecanica extends Model
     }
     public function Automovilbt(){
        return $this->belongsTo(Automovil::class,'current_autobt');
+    }
+    public function Automovilot(){
+       return $this->belongsTo(Automovil::class,'current_autoot');
     }
 }

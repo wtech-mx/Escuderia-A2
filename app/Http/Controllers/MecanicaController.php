@@ -32,10 +32,11 @@ class MecanicaController extends Controller
         $afinacion_user = Mecanica::where('id_useraf','=', auth()->user()->id)->paginate(7);
         $amort_user = Mecanica::where('id_useram','=', auth()->user()->id)->paginate(7);
         $bateria_user = Mecanica::where('id_userbt','=', auth()->user()->id)->paginate(7);
+        $otro_user = Mecanica::where('id_userot','=', auth()->user()->id)->paginate(7);
 
         $mecanica_empresa = Mecanica::where('id_user','=', NULL)->get();
 
-        return view('services.view-mecanica',compact('llanta_user', 'banda_user', 'freno_user', 'aceite_user', 'afinacion_user', 'amort_user', 'bateria_user','mecanica_empresa'));
+        return view('services.view-mecanica',compact('llanta_user', 'banda_user', 'freno_user', 'aceite_user', 'afinacion_user', 'amort_user', 'bateria_user', 'otro_user', 'mecanica_empresa'));
     }
 
 
@@ -134,6 +135,12 @@ class MecanicaController extends Controller
         $mecanica->current_autobt2 = $request->get('current_autobt2');
         $mecanica->current_autobt = $request->get('current_autobt');
 
+        /* User/Auto Otro */
+        $mecanica->id_userot = $request->get('id_userot');
+        $mecanica->current_autoot = $request->get('current_autoot');
+        $mecanica->id_empresaot = $request->get('id_empresaot');
+        $mecanica->current_autoot2 = $request->get('current_autoot2');
+
 
         $mecanica->llantas_delanteras = $request->get('llantas_delanteras');
         $mecanica->llantas_traseras = $request->get('llantas_traseras');
@@ -199,6 +206,10 @@ class MecanicaController extends Controller
               case($mecanica->servicio == '7'):
                  $mecanica->title = $mecanica->Automovilbt->placas;
               break;
+              //Otro
+              case($mecanica->servicio == '8'):
+                 $mecanica->title = $mecanica->Automovilot->placas;
+              break;
         }
 
         $mecanica->color = "#2980B9";
@@ -247,6 +258,11 @@ class MecanicaController extends Controller
               case($mecanica->servicio == '7'):
                   $llantas->id_user = $mecanica->id_userbt;
                   $llantas->title = $mecanica->Automovilbt->placas.' - Bateria';
+              break;
+              //Otro
+              case($mecanica->servicio == '8'):
+                  $llantas->id_user = $mecanica->id_userot;
+                 $llantas->title = $mecanica->Automovilot->placas.' - Otro';
               break;
         }
 
