@@ -56,7 +56,7 @@
               $('#txtID').val(info.event.id);
 
                 mes = (info.event.start.getMonth()+1)
-                dia = (info.event.start.getDay()+4)
+                dia = (info.event.start.getDate())
                 anio = (info.event.start.getFullYear())
 
                 mes = (mes<10)?"0"+mes:mes;
