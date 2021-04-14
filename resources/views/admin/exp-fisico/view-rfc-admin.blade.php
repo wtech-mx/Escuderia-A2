@@ -106,22 +106,29 @@
                               <div class="modal-dialog  modal-sm modal-dialog-centered" role="document">
                                 <div class="modal-content">
 
-                                  <div class="modal-header">
-                                    <h5 class="modal-title"><strong>{{$item->titulo}}</strong></h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                              <span aria-hidden="true">&times;</span>
-                                            </button>
-                                  </div>
-
                                   <div class="modal-body">
-                                      <p class="text-center">
-                                          <img class="" src="{{asset('exp-rfc/'.$item->rfc)}}" alt="{{$item->rfc}}" width="100%">
-                                      </p>
-                                  </div>
-
-                                  <div class="modal-footer">
-                                        <a type="button" class="btn btn-danger text-white" data-toggle="modal" data-target="#modalrfc{{$item->id}}">Eliminar</a>
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                      <div class="row justify-content-center">
+                                          <div class="col-12 text-center mb-3">
+                                              <h5 class="modal-title"><strong>{{$item->titulo}}</strong></h5>
+                                          </div>
+                                      </div>
+                                      <div class="row justify-content-center">
+                                          <div class="d-flex align-items-center">
+                                              <div class="col-11">
+                                                  <p class="text-center">
+                                                      <img class="" src="{{asset('exp-rfc/'.$item->rfc)}}" alt="{{$item->rfc}}" style="height: 300px!important;">
+                                                  </p>
+                                              </div>
+                                              <div class="col-1">
+                                                    <a type="button" class="btn btn-danger text-white p-2 mt-5 mb-5" data-toggle="modal" data-target="#modalpoliza{{$item->id}}">
+                                                        <i class="fa fa-trash" aria-hidden="true"></i>
+                                                    </a>
+                                                    <a type="button" class="btn btn-secondary p-2" data-dismiss="modal">
+                                                        <i class="fa fa-window-close" aria-hidden="true"></i>
+                                                    </a>
+                                              </div>
+                                          </div>
+                                      </div>
                                   </div>
 
                                 </div>
