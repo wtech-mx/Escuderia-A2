@@ -10,8 +10,10 @@ use Illuminate\Support\Facades\Redirect;
 use Session;
 use Image;
 use Illuminate\Support\Facades\Mail;
-
 use Illuminate\Support\Facades\Hash;
+
+use App\Exports\UsersExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 
 class UserController extends Controller
@@ -162,6 +164,7 @@ class UserController extends Controller
         $users = DB::table('users')
         ->get();
 
+
         return view('admin.user.view-user-admin',compact('user', 'users'));
     }
 
@@ -282,6 +285,10 @@ class UserController extends Controller
         Session::flash('success', 'Se ha actualizado su contrasena con exito');
          return redirect()->route('index_admin.user');
 
+    }
+
+    public function export(){
+        return Excel::download(new UsersExport, 'users.xlsx');
     }
 
 }

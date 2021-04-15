@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Auth;
 use Illuminate\Support\Facades\Route;
 
+use App\Exports\UsersExport;
+use Maatwebsite\Excel\Facades\Excel;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,6 +21,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+/*|--------------------------------------------------------------------------
+|Exportacion de Excel
+|--------------------------------------------------------------------------*/
+
+Route::get('/exportar', 'UserController@export');
+
+/*|--------------------------------------------------------------------------
+|Forgot password
+|--------------------------------------------------------------------------*/
 
 Route::post('forgot-password', 'Auth\PasswordResetLinkController@store')->name('password.email');
 

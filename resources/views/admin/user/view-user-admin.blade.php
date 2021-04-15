@@ -33,20 +33,29 @@
                         </div>
 
                         <div class="col-12 mt-4 d-inline">
-                            <div class="d-flex flex-row-reverse">
 
-                                <a  class="btn btn-circel" href="{{ route('create_admin.user') }}">
-                                    <h5 class="text-white text-tittle-app mt-2 " style="font: normal normal bold 15px/20px Segoe UI">
-                                        Agregar
-                                    </h5>
+                            <div class="d-flex justify-content-between">
+                                <a class="mt-1 text-white " href="/exportar" >
+                                    <i class="fa fa-upload  icon-effect" aria-hidden="true" style="font-size:30px"></i>
                                 </a>
 
-                                 <a  class="btn btn-circel" href="{{ route('create_admin.user') }}">
-                                    <img class="" src="{{ asset('img/icon/white/plus.png') }}" width="30px" >
-                                </a>
+                                <div class="content">
+                                     <a  class="btn btn-circel" href="{{ route('create_admin.user') }}">
+                                        <img class="" src="{{ asset('img/icon/white/plus.png') }}" width="30px" >
+                                    </a>
 
+                                    <a  class="btn btn-circel" href="{{ route('create_admin.user') }}">
+                                        <h5 class="text-white text-tittle-app mt-2 " style="font: normal normal bold 15px/20px Segoe UI">
+                                            Agregar
+                                        </h5>
+                                    </a>
+
+                                </div>
                             </div>
+
                         </div>
+
+
 
                                     @if(Session::has('success'))
                                     <script>
