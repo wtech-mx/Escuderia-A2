@@ -40,8 +40,7 @@
 
                       <div class="form-group col-12 mb-3">
                           @foreach($user as $item)
-{{--                              <input class="form-control" type="hidden" name="id_user" id="id_user" value="{{$item->id_user}}" disabled>--}}
-                              <input class="form-control" type="hidden" name="id_user" id="id_user" value="{{$item->id}}" disabled>
+                              <input class="form-control" type="hidden" name="id_user" id="id_user" value="{{$item->name}}" disabled>
                           @endforeach
                       </div>
 
