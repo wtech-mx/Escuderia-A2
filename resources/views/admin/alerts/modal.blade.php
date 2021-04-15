@@ -1,13 +1,13 @@
 <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-sm modal-dialog-centered">
+          <div class="modal-dialog modal-sm ">
             <div class="modal-content">
 
               <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Datos del Evento</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
+                    <a type="button" class="btn btn-secondary" data-dismiss="modal">
+                        <i class="fa fa-window-close text-white" aria-hidden="true"></i>
+                    </a>
               </div>
 
               <div class="modal-body">
@@ -71,9 +71,15 @@
               </div>
 
               <div class="modal-footer">
-                  <button class="btn btn-success" id="btnAgregar">Agregar</button>
-                  <button class="btn btn-warning" id="btnModificar">Modificar</button>
-                  <button class="btn btn-danger" id="btnBorrar">Borrar</button>
+                  <button class="btn btn-success text-white" id="btnAgregar">
+                      <i class="fa fa-plus-circle" aria-hidden="true"></i> Agregar
+                  </button>
+                  <button class="btn btn-warning text-dark" id="btnModificar">
+                      <i class="fa fa-retweet" aria-hidden="true"></i> Modificar
+                  </button>
+                  <button class="btn btn-danger text-white" id="btnBorrar">
+                      <i class="fa fa-trash" aria-hidden="true"></i> Borrar
+                  </button>
               </div>
 
             </div>

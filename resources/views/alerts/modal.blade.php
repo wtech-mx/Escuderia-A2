@@ -1,13 +1,13 @@
 <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-sm modal-dialog-centered">
+          <div class="modal-dialog modal-sm ">
             <div class="modal-content">
 
               <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Datos de la Alerta</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
+                    <a type="button" class="btn btn-secondary" data-dismiss="modal">
+                        <i class="fa fa-window-close text-white" aria-hidden="true"></i>
+                    </a>
               </div>
 
               <div class="modal-body">
@@ -41,7 +41,8 @@
 
                       <div class="form-group col-12">
                             @foreach($user as $item)
-                                <input class="form-control" type="hidden" name="id_user" id="id_user" value="{{$item->id_user}}" disabled>
+{{--                                <input class="form-control" type="hidden" name="id_user" id="id_user" value="{{$item->id_user}}" disabled>--}}
+                                <input class="form-control" type="hidden" name="id_user" id="id_user" value="{{$item->id}}" disabled>
                                  @break
                             @endforeach
                       </div>
