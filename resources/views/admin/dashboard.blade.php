@@ -1,9 +1,7 @@
 @extends('admin.layouts.app')
 
-@section('max-height', 'max-height: 300px;')
 
 @section('content')
-
 
                 <style>
                     .bg-blue{
@@ -67,13 +65,7 @@
                             </div>
                         </div>
 
-                        <div class="col-12 mb-2" style="height: 300px;">
-                             <div class="overflow-auto" style="@yield('max-height')">
-                                   @include('admin.alerts.calendar')
-                              </div>
-                        </div>
-
-
+                        @include('admin.alerts.calendar')
 
                 </div>
 
