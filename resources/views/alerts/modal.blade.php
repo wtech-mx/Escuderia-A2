@@ -1,6 +1,6 @@
 <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-sm ">
+          <div class="modal-dialog modal-sm modal-dialog-centered">
             <div class="modal-content">
 
               <div class="modal-header">
@@ -38,10 +38,12 @@
                           <input class="form-control" type="time" name="txtHora" id="txtHora" min="07:00" max="19:00" step="600">
                       </div>--}}
 
-                      <div class="form-group col-12 mb-3">
-                          @foreach($user as $item)
-                              <input class="form-control" type="hidden" name="id_user" id="id_user" value="{{$item->name}}" disabled>
-                          @endforeach
+
+                      <div class="form-group col-12">
+                            @foreach($user as $item)
+                                <input class="form-control" type="hidden" name="id_user" id="id_user" value="{{$item->id_user}}" disabled>
+                                 @break
+                            @endforeach
                       </div>
 
 

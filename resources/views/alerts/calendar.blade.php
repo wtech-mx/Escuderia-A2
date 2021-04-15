@@ -11,6 +11,8 @@
     $Fecha = $Y."-".$M."-".$D;
    @endphp
 
+
+
 <script>
       document.addEventListener('DOMContentLoaded', function() {
 
@@ -190,7 +192,6 @@
             </div>
          </div>
 
-        @include('alerts.modal')
 
 
 

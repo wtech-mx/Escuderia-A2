@@ -196,13 +196,18 @@
     </script>
 
 @endsection
-@section('max-height', 'max-height: 620px;')
 
-         <div class="overflow-auto mb-3 " style="@yield('max-height')">
-            <div class="container" style="margin-bottom: 50rem !important;">
-                <div id='calendar'></div>
-            </div>
-         </div>
+                <div class="row" style="">
 
-         @include('admin.alerts.modal')
+                    <div class="col"></div>
+                        <div class="col-12">
+                            <div class="container">
+                                <div id='calendar'></div>
+                            </div>
+                        </div>
+                    <div class="col"></div>
+
+                </div>
+
+                @include('admin.alerts.modal')
 

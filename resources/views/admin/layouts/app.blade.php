@@ -34,7 +34,7 @@
     <link href="{{ asset('fonts/font-awesome.min.css') }}" rel="stylesheet">
     <link href="{{ asset('fonts/all.min.css') }}" rel="stylesheet">
 {{--    <link href="{{ asset('fonts/font-awesome.min.js') }}" rel="stylesheet">--}}
-    <link href="{{ asset('fonts/all.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('fonts/all.min.js') }}" rel="stylesheet">
 
     <!-- sweetalert2 JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
@@ -52,6 +52,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" ></script>
 
 {{--    <script src="{{ asset('js/app.js') }}" defer></script>--}}
+
 
     @laravelPWA
 
@@ -78,7 +79,6 @@
 </head>
 
 <body>
-
 <p style="display: none">{{$userId =  Auth::id()}}</p>
 
                 <div class="container-fluid" style="@yield('bg-color')">
