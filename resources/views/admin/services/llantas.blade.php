@@ -166,29 +166,11 @@
                                 <div class="d-flex justify-content-between">
                                   <div class="mr-auto">
                                          <label for="">
-                                             <p class="text-white"><strong>Marca</strong></p>
-                                         </label>
-                                            <div class="input-group form-group ">
-                                                <div class="input-group-prepend " >
-                                                    <span class="input-group-text input-services" >
-                                                         <img class="" src="{{ asset('img/icon/white/edificio-de-oficinas.png') }}" width="25px" >
-                                                    </span>
-                                                </div>
-                                             <select class="form-control input-edit-car" id="id_marca" name="id_marca" value="{{ old('id_marca') }}">
-                                                <option>Selecciona la marca</option>
-                                                @foreach($marca as $item)
-                                                    <option value="{{ $item->id }}">{{ $item->nombre }}</option>
-                                                @endforeach
-                                             </select>
-                                            </div>
-                                  </div>
-                                  <div class="mr-auto">
-                                         <label for="">
-                                             <p class="text-white"><strong>Marca</strong></p>
+                                             <p class="text-white"><strong>Proveedores</strong></p>
                                          </label>
                                             <div class="input-group form-group ">
                                              <!-- Button trigger modal -->
-                                            <a  class="btn bg-white" data-toggle="modal" data-target="#Marca">
+                                            <a  class="btn bg-white" data-toggle="modal" data-target="#proveedores">
                                                 <img class="" src="{{ asset('img/icon/black/boton-circular-plus (1).png') }}" width="25px" >
                                             </a>
                                             </div>
@@ -353,5 +335,6 @@
                                             });
                                         });
                                      </script>
+                           @include('admin.services.proveedores')
                        </form>
 

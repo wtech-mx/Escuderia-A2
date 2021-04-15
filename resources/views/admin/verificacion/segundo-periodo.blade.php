@@ -22,7 +22,7 @@
                             </div>
 
                             <div class="input-group form-group">
-                                <input type="hidden" class="form-control" id='color' name="color" value="#FF0000">
+                                <input type="hidden" class="form-control" id='color' name="color" value="#ff0000e8">
                             </div>
 
                             <input type="hidden" class="form-control" id='image' name="image" value="{{asset('img/icon/color/comprobado.png') }}">

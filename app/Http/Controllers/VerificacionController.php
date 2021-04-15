@@ -100,11 +100,11 @@ class VerificacionController extends Controller
         $verificacion_segunda = VerificacionSegunda::findOrFail($id);
 
         $verificacion_segunda->title = $request->get('title');
-        $verificacion_segunda->color = '#FF0000';
+        $verificacion_segunda->color = '#ff0000e8';
         $verificacion_segunda->segundo_semestre = $request->get('segundo_semestre');
         $verificacion_segunda->start = $request->get('segundo_semestre');
         $verificacion_segunda->end = $request->get('segundo_semestre');
-        $verificacion_segunda->descripcion = 'Segundo nperiodo de verificación: '.$verificacion_segunda->start;
+        $verificacion_segunda->descripcion = 'Segundo periodo de verificación: '.$verificacion_segunda->start;
         $verificacion_segunda->image = $request->get('image');
 
         $verificacion_segunda->update();

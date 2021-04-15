@@ -276,36 +276,33 @@ class MecanicaController extends Controller
         $llantas->end = $mecanica->end;
         $llantas->save();
 
+        $mecanica_proveedores = new MecanicaProveedores;
+        $mecanica_proveedores->id_mecanica = $mecanica->id;
+    	$mecanica_proveedores->id_marca = $request->get('id_marca');
+        $mecanica_proveedores->garantia = $request->get('garantia');
+        $mecanica_proveedores->proveedor = $request->get('proveedor');
+        $mecanica_proveedores->costo = $request->get('costo');
+        $mecanica_proveedores->mano_o = $request->get('mano_o');
+        $mecanica_proveedores->nombre = $request->get('nombre');
+
+    	$mecanica_proveedores->id_marca2 = $request->get('id_marca2');
+        $mecanica_proveedores->garantia2 = $request->get('garantia2');
+        $mecanica_proveedores->proveedor2 = $request->get('proveedor2');
+        $mecanica_proveedores->costo2 = $request->get('costo2');
+        $mecanica_proveedores->mano_o2 = $request->get('mano_o2');
+        $mecanica_proveedores->nombre2 = $request->get('nombre2');
+
+//    	$mecanica_proveedores->id_marca3 = $request->get('id_marca3');
+//        $mecanica_proveedores->garantia3 = $request->get('garantia3');
+//        $mecanica_proveedores->proveedor3 = $request->get('proveedor3');
+//        $mecanica_proveedores->costo3 = $request->get('costo3');
+//        $mecanica_proveedores->mano_o3 = $request->get('mano_o3');
+//        $mecanica_proveedores->nombre3 = $request->get('nombre3');
+
+        $mecanica_proveedores->save();
+
         Session::flash('success', 'Se ha guardado sus datos con exito');
         return redirect()->back();
     }
-
-//    public function store_servicio_proveedor(Request $request){
-//
-//        $validate = $this->validate($request,[
-//            'id_mecanica' => 'required',
-//            'id_marca' => 'required',
-//            'garantia' => 'required|max:191',
-//            'proveedor' => 'required|max:191',
-//            'costo' => 'required|max:191',
-//            'mano_o' => 'required|max:191',
-//            'nombre' => 'required|max:191',
-//        ]);
-//
-//        $mecanica = new MecanicaProveedores;
-//        $mecanica->id_mecanica = $request->get('garantia');
-//    	$mecanica->id_marca = $request->get('id_marca');
-//
-//        $mecanica->garantia = $request->get('garantia');
-//        $mecanica->proveedor = $request->get('proveedor');
-//        $mecanica->costo = $request->get('costo');
-//        $mecanica->mano_o = $request->get('mano_o');
-//        $mecanica->nombre = $request->get('nombre');
-//
-//        $mecanica->save();
-//
-//        Session::flash('success', 'Se ha guardado sus datos con exito');
-//        return redirect()->route('index.exp-tenencias');
-//    }
 
 }

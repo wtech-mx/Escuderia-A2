@@ -56,7 +56,7 @@ Route::post('admin/calendar', 'AlertasController@store_calendar')->name('calenda
 
 Route::get('admin/calendar/show', 'AlertasController@show_calendar')->name('calendar.show_calendar');
 
-Route::delete('admin/calendar/destroy/{id}', 'AlertasController@destroy_calendar')->name('calendar.destroy_calendar');
+Route::patch('admin/calendar/destroy/{id}', 'AlertasController@destroy_calendar')->name('calendar.destroy_calendar');
 
 Route::patch('admin/calendar/update/{id}', 'AlertasController@update_calendar')->name('calendar.update_calendar');
 
@@ -70,7 +70,7 @@ Route::post('user/calendar', 'AlertasController@store_calendar_user')->name('cal
 
 Route::get('user/calendar/show', 'AlertasController@show_calendar_user')->name('calendar.show_calendar_user');
 
-Route::delete('user/calendar/destroy/{id}', 'AlertasController@destroy_calendar_user')->name('calendar.destroy_calendar_user');
+Route::patch('user/calendar/destroy/{id}', 'AlertasController@destroy_calendar_user')->name('calendar.destroy_calendar_user');
 
 Route::patch('user/calendar/update/{id}', 'AlertasController@update_calendar_user')->name('calendar.update_calendar_user');
 

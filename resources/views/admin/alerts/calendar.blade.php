@@ -112,7 +112,7 @@
         });
 
         $('#btnBorrar').click(function(){
-            ObjEvento= recolectarDatosGUI('DELETE');
+            ObjEvento= editarDatosGUI('PATCH');
             EnviarInformacion('/destroy/'+$('#txtID').val(), ObjEvento);
         });
 

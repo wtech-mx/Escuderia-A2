@@ -224,9 +224,10 @@ class AlertasController extends Controller
                   $respuesta = TarjetaCirculacion::where('id', '=', $id)->update($datosEvento);
                   break;
               case($color == '#FF0000'):
-                      $respuesta = VerificacionSegunda::where('id', '=', $id)->update($datosEvento);
-
                       $respuesta5 = Verificacion::where('id', '=', $id)->update($datosEvento);
+                  break;
+              case($color == '#ff0000e8'):
+                  $respuesta = VerificacionSegunda::where('id', '=', $id)->update($datosEvento);
                   break;
               case($color == '#2980B9'):
                   $respuesta = Llantas::where('id', '=', $id)->update($datosEvento);
@@ -235,9 +236,44 @@ class AlertasController extends Controller
 
         }
 
-        public function destroy_calendar_user($id)
+        public function destroy_calendar_user(Request $request, $id)
         {
-            Alertas::destroy($id);
+            $verificacion= Verificacion::first();
+
+            $datosEvento = request();
+            $color = $datosEvento['color'];
+
+          switch($color) {
+              case($color == "#2ECC71"):
+                  Alertas::destroy($id);
+                  break;
+              case($color == '#8E44AD'):
+                    $seguro = Seguros::findOrFail($id);
+                    $seguro->start = NULL;
+                    $seguro->update();
+                  break;
+              case($color == '#F1C40F'):
+                    $tc = TarjetaCirculacion::findOrFail($id);
+                    $tc->start = NULL;
+                    $tc->update();
+                  break;
+              case($color == '#FF0000'):
+                        $verificacion = Verificacion::findOrFail($id);
+                        $verificacion->start = NULL;
+                        $verificacion->update();
+                  break;
+              case($color == '#ff0000e8'):
+                        $verificacion_segunda = VerificacionSegunda::findOrFail($id);
+                        $verificacion_segunda->start = NULL;
+                        $verificacion_segunda->update();
+                  break;
+              case($color == '#2980B9'):
+                    $servicios = Llantas::findOrFail($id);
+                    $servicios->start = NULL;
+                    $servicios->update();
+                  break;
+          }
+
             return response()->json($id);
         }
 

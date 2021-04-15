@@ -21,10 +21,14 @@
   <component name="ChangeListManager">
     <list default="true" id="936a45dc-4f36-4130-a52f-695b08d602c5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/alerts/modal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/alerts/modal.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/alerts/calendar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/alerts/calendar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/alerts/modal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/alerts/modal.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AlertasController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AlertasController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MecanicaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MecanicaController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/VerificacionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/VerificacionController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/alerts/calendar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/alerts/calendar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/services/llantas.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/services/llantas.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/services/proveedores.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/services/proveedores.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/verificacion/segundo-periodo.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/verificacion/segundo-periodo.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -203,17 +207,17 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\xaamp\htdocs\Escuderia-A2\public" />
-      <recent name="D:\xaamp\htdocs\Escuderia-A2\public\img" />
-      <recent name="D:\xaamp\htdocs\Escuderia-A2\public\css" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\Escuderia-A2\resources\views\alerts" />
       <recent name="C:\xampp\htdocs\Escuderia-A2\app\Http\Controllers" />
       <recent name="C:\xampp\htdocs\Escuderia-A2\resources\views\admin\services" />
       <recent name="C:\xampp\htdocs\Escuderia-A2\resources\views\layouts" />
       <recent name="C:\xampp\htdocs\Escuderia-A2\resources\views\admin\seguros" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\xaamp\htdocs\Escuderia-A2\public" />
+      <recent name="D:\xaamp\htdocs\Escuderia-A2\public\img" />
+      <recent name="D:\xaamp\htdocs\Escuderia-A2\public\css" />
     </key>
   </component>
   <component name="RunManager">
