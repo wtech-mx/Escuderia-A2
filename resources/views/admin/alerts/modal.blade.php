@@ -5,9 +5,9 @@
 
               <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Datos del Evento</h5>
-                    <a type="button" class="btn btn-secondary" data-dismiss="modal">
-                        <i class="fa fa-window-close text-white" aria-hidden="true"></i>
-                    </a>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
               </div>
 
               <div class="modal-body">
@@ -70,16 +70,10 @@
 
               </div>
 
-              <div class="modal-footer ">
-                  <button class="btn btn-success text-white" id="btnAgregar">
-                      <i class="fa fa-plus-circle" aria-hidden="true"></i> Agregar
-                  </button>
-                  <button class="btn btn-warning text-dark" id="btnModificar">
-                      <i class="fa fa-retweet" aria-hidden="true"></i> Modificar
-                  </button>
-                  <button class="btn btn-danger text-white" id="btnBorrar">
-                      <i class="fa fa-trash" aria-hidden="true"></i> Borrar
-                  </button>
+              <div class="modal-footer">
+                  <button class="btn btn-success" id="btnAgregar">Agregar</button>
+                  <button class="btn btn-warning" id="btnModificar">Modificar</button>
+                  <button class="btn btn-danger" id="btnBorrar">Borrar</button>
               </div>
 
             </div>

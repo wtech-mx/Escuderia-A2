@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('bg-color', 'background-image:none')
+@section('max-height', 'max-height: 300px;')
 
 @section('content')
 
@@ -10,7 +11,7 @@
                 <link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">
 
 
-                <div class="row bg-img-log" style="background-color: #27de4e">
+                <div class="row bg-img-log" style="z-index:1000;background-color: #27de4e">
 
                     <div class="col-2 ">
                         <div class="d-flex justify-content-start">
@@ -61,16 +62,22 @@
                     </style>
 
                     <div class="col-12 p-3 ">
-                        <div class=" d-flex justify-content-between bg-white p-2 rounded-pill">
-                                <a href="{{ route('calendar.index_calendar_user') }}"> <span class="badge badge-pill" style="background-color: #2ECC71">Alerta</span> </a>
-                                <a href="{{ route('index.seguro') }}"> <span class="badge badge-pill" style="background-color: #8E44AD">Seguro</span> </a>
-                                <a href="{{ route('index.tc') }}"> <span class="badge badge-pill" style="background-color: #F1C40F;color: #faf7f7">Tarjeta Circulaci&oacute;n</span> </a>
-                                <a href="{{ route('index.verificacion') }}"> <span class="badge badge-pill" style="background-color: #FF0000">Verificaci&oacute;n</span> </a>
-                                <a href="{{ route('view_user.servicio') }}"> <span class="badge badge-pill" style="background-color: #2980B9">Servicios</span> </a>
+                            <div class=" d-flex justify-content-between bg-white p-2 rounded-pill">
+                                <div class=" d-flex justify-content-between bg-white p-2 rounded-pill">
+                                    <a href="{{ route('calendar.index_calendar_user') }}"> <span class="badge badge-pill" style="background-color: #2ECC71">Alerta</span> </a>
+                                    <a href="{{ route('index.seguro') }}"> <span class="badge badge-pill" style="background-color: #8E44AD">Seguro</span> </a>
+                                    <a href="{{ route('index.tc') }}"> <span class="badge badge-pill" style="background-color: #F1C40F;color: #faf7f7">Tarjeta Circulaci&oacute;n</span> </a>
+                                    <a href="{{ route('index.verificacion') }}"> <span class="badge badge-pill" style="background-color: #FF0000">Verificaci&oacute;n</span> </a>
+                                    <a href="{{ route('view_user.servicio') }}"> <span class="badge badge-pill" style="background-color: #2980B9">Servicios</span> </a>
+                                </div>
+                            </div>
                         </div>
-                    </div>
 
-                     @include('alerts.calendar')
+                    <div class="col-12 mb-2" style="height: 300px;">
+                         <div class="overflow-auto" style="@yield('max-height')">
+                              @include('alerts.calendar')
+                          </div>
+                    </div>
 
                 </div>
 

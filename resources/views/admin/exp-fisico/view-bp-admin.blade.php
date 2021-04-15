@@ -113,7 +113,6 @@
                                               <h5 class="modal-title"><strong>{{$item->titulo}}</strong></h5>
                                           </div>
                                       </div>
-
                                       <div class="row justify-content-center">
                                           <div class="d-flex align-items-center">
                                               <div class="col-11">
@@ -131,7 +130,6 @@
                                               </div>
                                           </div>
                                       </div>
-
                                   </div>
 
                                 </div>
