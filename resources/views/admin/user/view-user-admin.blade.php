@@ -2,8 +2,6 @@
 
 @section('content')
 
-
-
                 <link href="{{ asset('css/garje.css') }}" rel="stylesheet">
 
                 <div class="row bg-image">
@@ -35,17 +33,18 @@
                         <div class="col-12 mt-4 d-inline">
 
                             <div class="d-flex justify-content-between">
-                                <a class="mt-1 text-white " href="/exportar" >
-                                    <i class="fa fa-upload  icon-effect" aria-hidden="true" style="font-size:30px"></i>
+
+                                <a class="mt-1 ml-5 text-white " href="/exportar" >
+                                    <i class="fa fa-download icon-effect" aria-hidden="true"></i>
                                 </a>
 
                                 <div class="content">
                                      <a  class="btn btn-circel" href="{{ route('create_admin.user') }}">
-                                        <img class="" src="{{ asset('img/icon/white/plus.png') }}" width="30px" >
+                                         <i class="fas fa-plus-circle icon-effect"></i>
                                     </a>
 
                                     <a  class="btn btn-circel" href="{{ route('create_admin.user') }}">
-                                        <h5 class="text-white text-tittle-app mt-2 " style="font: normal normal bold 15px/20px Segoe UI">
+                                        <h5 class="text-white text-tittle-app  mt-2 " style="font: normal normal bold 15px/20px Segoe UI">
                                             Agregar
                                         </h5>
                                     </a>

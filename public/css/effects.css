@@ -1,6 +1,18 @@
 .icon-effect{
     color: #FFFFFF;
+    font-size:30px
 }
+
+.icon-effect-sm{
+    color: #FFFFFF;
+    font-size:20px
+}
+
 .icon-effect:hover{
     color: #08d833;
 }
+
+.icon-effect-sm:hover{
+    color: #08d833;
+}
+

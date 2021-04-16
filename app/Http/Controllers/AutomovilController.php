@@ -14,6 +14,10 @@ use Image;
 use App\Models\Verificacion;
 use App\Models\VerificacionSegunda;
 
+use App\Exports\AutomovilExport;
+use App\Exports\AutomovilExportEmpresa;
+use Maatwebsite\Excel\Facades\Excel;
+
 class AutomovilController extends Controller
 {
 
@@ -392,4 +396,13 @@ class AutomovilController extends Controller
 
         return redirect()->route('index_admin.automovil', compact('automovil','marca'));
     }
+
+    public function export(){
+        return Excel::download(new AutomovilExport, 'autos-usuarios.xlsx');
+    }
+
+    public function export_empresa(){
+        return Excel::download(new AutomovilExportEmpresa, 'autos-empresa.xlsx');
+    }
+
 }

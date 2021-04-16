@@ -58,12 +58,13 @@
                         </div>
 
                         <div class="col-6 mt-4 d-inline">
+
                             <h5 class="text-white text-tittle-app mr-3 d-inline" style="font: normal normal bold 15px/20px Segoe UI">
                                 Agregar
                             </h5>
 
                             <a class="btn" href="{{ route('create_admin.automovil') }}">
-                                <img class="" src="{{ asset('img/icon/white/plus.png') }}" width="30px" >
+                               <i class="fas fa-plus-circle icon-effect"></i>
                             </a>
                         </div>
 
@@ -78,9 +79,20 @@
                                     {{-- |----------------------------------------------------------------------------}}
 
                                     <div class="carousel-item active">
-                                        <h5 class="text-center text-white mt-4 ml-4 mr-4 ">
-                                            <strong>Veh&iacute;culos Personales</strong>
-                                        </h5>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="d-flex justify-content-center">
+                                                    <a class="text-white mt-3 p-2" href="/exportar" >
+                                                        <i class="fa fa-download icon-effect-sm" aria-hidden="true"></i>
+                                                    </a>
+
+                                                    <h5 class="text-center text-white mt-4 p-2">
+                                                        <strong>Veh&iacute;culos Personales</strong>
+                                                    </h5>
+                                                </div>
+
+                                            </div>
+                                        </div>
 
                                         {{  Form::open(['route' => 'index_admin.automovil' , 'method' => 'GET' , 'class'=>'form-inline pull-right'] )  }}
                                         <div class="d-flex justify-content-center mt-5">
@@ -172,9 +184,18 @@
 
                                     <div class="carousel-item ">
 
-                                        <h5 class="text-center text-white mt-4 ml-4 mr-4 ">
-                                            <strong>Veh&iacute;culos Empresas</strong>
-                                        </h5>
+                                            <div class="col-12">
+                                                <div class="d-flex justify-content-center">
+                                                    <a class="text-white mt-3 p-2" href="/export_empresa" >
+                                                        <i class="fa fa-download icon-effect-sm" aria-hidden="true"></i>
+                                                    </a>
+
+                                                    <h5 class="text-center text-white mt-4 p-2">
+                                                        <strong>Veh&iacute;culos Empresas</strong>
+                                                    </h5>
+                                                </div>
+
+                                            </div>
 
                                       <div class="row">
 
