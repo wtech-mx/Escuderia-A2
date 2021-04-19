@@ -1,19 +1,15 @@
 <?php
 
 return [
-
     'backup' => [
-
         /*
          * The name of this application. You can use this name to monitor
          * the backups.
          */
-         'name' => '',
+        'name' => '1KV6utxe_hRMLMio0xQ7FfY6SiXz1YGBv',
 
         'source' => [
-
             'files' => [
-
                 /*
                  * The list of directories and files that will be included in the backup.
                  */
@@ -29,6 +25,7 @@ return [
                 'exclude' => [
                     base_path('vendor'),
                     base_path('node_modules'),
+                    storage_path('app/backups')
                 ],
 
                 /*
@@ -40,13 +37,6 @@ return [
                  * Determines if it should avoid unreadable folders.
                  */
                 'ignore_unreadable_directories' => false,
-
-                /*
-                 * This path is used to make directories in resulting zip-file relative
-                 * Set to `null` to include complete absolute path
-                 * Example: base_path()
-                 */
-                'relative_path' => null,
             ],
 
             /*
@@ -97,16 +87,7 @@ return [
          */
         'database_dump_compressor' => null,
 
-        /*
-         * The file extension used for the database dump files.
-         *
-         * If not specified, the file extension will be .archive for MongoDB and .sql for all other databases
-         * The file extension should be specified without a leading .
-         */
-        'database_dump_file_extension' => '',
-
         'destination' => [
-
             /*
              * The filename prefix used for the backup zip file.
              */
@@ -125,21 +106,6 @@ return [
          * The directory where the temporary files will be stored.
          */
         'temporary_directory' => storage_path('app/backup-temp'),
-
-        /*
-         * The password to be used for archive encryption.
-         * Set to `null` to disable encryption.
-         */
-        'password' => env('BACKUP_ARCHIVE_PASSWORD'),
-
-        /*
-         * The encryption algorithm to be used for archive encryption.
-         * You can set it to `null` or `false` to disable encryption.
-         *
-         * When set to 'default', we'll use ZipArchive::EM_AES_256 if it is
-         * available on your system.
-         */
-        'encryption' => 'default',
     ],
 
     /*
@@ -150,7 +116,6 @@ return [
      * the `Spatie\Backup\Events` classes.
      */
     'notifications' => [
-
         'notifications' => [
             \Spatie\Backup\Notifications\Notifications\BackupHasFailed::class => ['mail'],
             \Spatie\Backup\Notifications\Notifications\UnhealthyBackupWasFound::class => ['mail'],
@@ -186,7 +151,6 @@ return [
             'username' => null,
 
             'icon' => null,
-
         ],
     ],
 
@@ -230,7 +194,6 @@ return [
         'strategy' => \Spatie\Backup\Tasks\Cleanup\Strategies\DefaultStrategy::class,
 
         'default_strategy' => [
-
             /*
              * The number of days for which backups must be kept.
              */
@@ -263,5 +226,4 @@ return [
             'delete_oldest_backups_when_using_more_megabytes_than' => 5000,
         ],
     ],
-
 ];
