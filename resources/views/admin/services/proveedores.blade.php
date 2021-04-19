@@ -1,49 +1,43 @@
-          <form method="POST" id="dynamic_form" enctype="multipart/form-data" role="form">
-               @csrf
-               @if(Session::has('success'))
-                  <script>
-                      Swal.fire(
-                          'Exito!',
-                          'Se ha guardado exitosamente.',
-                          'success'
-                      )
-                  </script>
-               @endif
-                        <div class="modal fade" id="proveedores" tabindex="-1" aria-labelledby="proveedoresLabel" aria-hidden="true">
-                          <div class="modal-dialog modal-sm modal-dialog-centered">
-                            <div class="modal-content">
 
-                              <div class="modal-header">
-                                    <p class="text-center text-dark" style="font: normal normal bold 20px Segoe UI;">Agregar Proveedores</p>
-                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                      <span aria-hidden="true">&times;</span>
-                                  </button>
-                              </div>
+    <div class="modal fade" id="proveedores" tabindex="-1" aria-labelledby="proveedoresLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm modal-dialog-centered">
+              <div class="modal-content">
 
-                              <div class="modal-body">
+                   <div class="modal-header">
+                        <p class="text-center text-dark" style="font: normal normal bold 20px Segoe UI;">Agregar Proveedores</p>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                               <span aria-hidden="true">&times;</span>
+                        </button>
+                   </div>
 
-                                  <div class="col-12">
-                                    <p class="text-center text-dark" style="font: normal normal bold 18px/31px Segoe UI;">
-                                        Proveedor 1
-                                    </p>
-                                  </div>
-                                                <div class="input-group">
-                                                    <div class="col-12">
-                                                        <table class="table table-bordered" id="user_table">
-                                                            <tr>
-                                                                <td colspan="12" align="right">&nbsp;</td>
-                                                            </tr>
-                                                        </table>
-                                                    </div>
-                                     <button class="btn btn-lg btn-success btn-save-neon text-white mt-4" style="margin-bottom: 8rem !important;" name="save" id="save">
-                                          <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}" width="20px" >
-                                              Guardar
-                                     </button>
-                            </div>
-                          </div>
-                        </div>
+                   <div class="modal-body">
+                      <form method="POST" id="dynamic_form" enctype="multipart/form-data" role="form">
+                        @csrf
+                         <div class="input-group">
+                                   <table class="table table-bordered" id="user_table">
+                                          <tr>
 
-            <script>
+                                          </tr>
+                                   </table>
+                         </div>
+                      </form>
+                   </div>
+
+                   <div class="modal-footer">
+                       <button class="btn btn-lg btn-success btn-save-neon text-white mt-4" style="margin-bottom: 8rem !important;" name="save" id="save">
+                               <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}" width="20px" >
+                                     Guardar
+                       </button>
+                   </div>
+
+              </div>
+
+
+        </div>
+    </div>
+
+
+<script>
                 $(document).ready(function(){
                  var count = 1;
                  dynamic_field(count);
@@ -111,12 +105,14 @@
                                 {
                                     dynamic_field(1);
                                     $('#result').html('<div class="alert alert-success">'+data.success+'</div>');
+
                                 }
-                                $('#save').attr('disabled', false);
+                                $('#save').click(function(){
+                                    $("#proveedores").modal("hide");
+                                });
                             }
                         })
                  });
 
                 });
            </script>
-          </form>

@@ -316,6 +316,7 @@ class MecanicaController extends Controller
       }
 
       MecanicaProveedores::insert($insert_data);
+      Session::flash('success', 'Se ha guardado sus datos con exito');
       return redirect()->back();
      }
 
