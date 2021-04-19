@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 use Illuminate\Support\Facades\Route;
 
 use App\Exports\UsersExport;
+use Illuminate\Support\Facades\Storage;
 use Maatwebsite\Excel\Facades\Excel;
 
 /*
@@ -20,6 +21,11 @@ use Maatwebsite\Excel\Facades\Excel;
 Route::get('/', function () {
     return view('welcome');
 });
+
+//Route::get('/', function () {
+//    Storage::disk('google')->put('hello.txt', "Hello world");
+//    return view('google');
+//});
 
 /*|--------------------------------------------------------------------------
 |Exportacion de Excel
