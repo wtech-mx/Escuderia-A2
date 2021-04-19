@@ -13,8 +13,6 @@ class MecanicaProveedores extends Model
     protected $primarykey = "id";
 
     protected $fillable = [
-        'id_marca',
-        'id_mecanica',
         'garantia',
         'proveedor',
         'costo',

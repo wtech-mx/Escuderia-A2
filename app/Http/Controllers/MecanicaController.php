@@ -12,6 +12,7 @@ use App\Models\Llantas;
 use App\Models\MecanicaProveedores;
 use Session;
 use Image;
+use Validator;
 
 class MecanicaController extends Controller
 {
@@ -276,33 +277,49 @@ class MecanicaController extends Controller
         $llantas->end = $mecanica->end;
         $llantas->save();
 
-        $mecanica_proveedores = new MecanicaProveedores;
-        $mecanica_proveedores->id_mecanica = $mecanica->id;
-    	$mecanica_proveedores->id_marca = $request->get('id_marca');
-        $mecanica_proveedores->garantia = $request->get('garantia');
-        $mecanica_proveedores->proveedor = $request->get('proveedor');
-        $mecanica_proveedores->costo = $request->get('costo');
-        $mecanica_proveedores->mano_o = $request->get('mano_o');
-        $mecanica_proveedores->nombre = $request->get('nombre');
-
-    	$mecanica_proveedores->id_marca2 = $request->get('id_marca2');
-        $mecanica_proveedores->garantia2 = $request->get('garantia2');
-        $mecanica_proveedores->proveedor2 = $request->get('proveedor2');
-        $mecanica_proveedores->costo2 = $request->get('costo2');
-        $mecanica_proveedores->mano_o2 = $request->get('mano_o2');
-        $mecanica_proveedores->nombre2 = $request->get('nombre2');
-
-//    	$mecanica_proveedores->id_marca3 = $request->get('id_marca3');
-//        $mecanica_proveedores->garantia3 = $request->get('garantia3');
-//        $mecanica_proveedores->proveedor3 = $request->get('proveedor3');
-//        $mecanica_proveedores->costo3 = $request->get('costo3');
-//        $mecanica_proveedores->mano_o3 = $request->get('mano_o3');
-//        $mecanica_proveedores->nombre3 = $request->get('nombre3');
-
-        $mecanica_proveedores->save();
-
         Session::flash('success', 'Se ha guardado sus datos con exito');
         return redirect()->back();
+    }
+
+    public function store_servicio_proveedor(Request $request){
+
+     if($request->ajax()){
+          $rules = array(
+           'nombre.*'  => 'required',
+           'garantia.*'  => 'required',
+           'proveedor.*'  => 'required',
+           'costo.*'  => 'required',
+           'mano_o.*'  => 'required',
+          );
+      $error = Validator::make($request->all(), $rules);
+
+      if($error->fails()){
+       return response()->json([
+        'error'  => $error->errors()->all()
+       ]);
+      }
+
+      $nombre = $request->nombre;
+      $garantia = $request->garantia;
+      $proveedor = $request->proveedor;
+      $costo = $request->costo;
+      $mano_o = $request->mano_o;
+      for($count = 0; $count<count($nombre); $count++){
+           $data = array(
+            'nombre' => $nombre[$count],
+            'garantia' => $garantia[$count],
+            'proveedor' => $proveedor[$count],
+            'costo' => $costo[$count],
+            'mano_o' => $mano_o[$count]
+           );
+           $insert_data[] = $data;
+      }
+
+      MecanicaProveedores::insert($insert_data);
+      return redirect()->back();
+     }
+
+
     }
 
 }

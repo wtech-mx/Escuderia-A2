@@ -341,7 +341,7 @@ Route::get('admin/servicio/view','MecanicaController@view')->name('view.servicio
 Route::get('admin/servicio/crear','MecanicaController@create_servicio')->name('create_servicio.servicio');
 Route::post('admin/servicio/crear','MecanicaController@store_servicio')->name('store_servicio.servicio');
 //
-//Route::post('admin/servicio/proveedores/crear','MecanicaController@store_servicio_proveedor')->name('store_servicio_proveedor.servicio');
+Route::post('admin/servicio/proveedores/crear','MecanicaController@store_servicio_proveedor')->name('store_servicio_proveedor.servicio');
 
 /* Rutas para el select */
 Route::get('admin/servicio/crear/{id}', 'MecanicaController@GetSubCatAgainstMainCatEdit');
