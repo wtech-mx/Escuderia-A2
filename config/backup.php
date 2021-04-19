@@ -6,7 +6,7 @@ return [
          * The name of this application. You can use this name to monitor
          * the backups.
          */
-        'name' => '1KV6utxe_hRMLMio0xQ7FfY6SiXz1YGBv',
+        'name' => 'laravel-backups',
 
         'source' => [
             'files' => [
@@ -98,7 +98,6 @@ return [
              */
             'disks' => [
                 'backup',
-                'google_backups',
             ],
         ],
 
