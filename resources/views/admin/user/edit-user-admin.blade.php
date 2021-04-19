@@ -325,7 +325,7 @@
 
                                       <div class="col-12 text-center mt-5"  style="margin-bottom: 8rem !important;">
                                           <button class="btn btn-lg btn-save-neon text-white" >
-                                              <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}" width="20px" >
+                                              <i class="fas fa-save icon-save"></i>
                                               Actualizar
                                           </button>
                                       </div>

@@ -162,7 +162,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Laraveles\Spanish\SpanishServiceProvider::class,
-        
+
         /*
          * Package Service Providers...
          */
@@ -179,6 +179,7 @@ return [
         App\Providers\TelescopeServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
+        App\Providers\GoogleDriveServiceProvider::class,
     ],
 
     /*

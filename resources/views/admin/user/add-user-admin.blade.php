@@ -38,7 +38,7 @@
 
                     <div class="col-12 p-3">
                         <p class="text-center">
-                            <img class="rounded-circle" src="{{ asset('img/icon/white/hombre (1).png') }}" height="150px" width="150px">
+                             <i class="far fa-user d-inline icon-effect-users-edit"></i>
                             <h4 class="text-center text-white">
                                 <strong>Nombre</strong>
                             </h4>
@@ -71,84 +71,84 @@
 
                             @if(Session::has('success'))
                                 <script>
-                                                        Swal.fire(
-                                                            'Exito!',
-                                                            'Se ha guardado exitosamente.',
-                                                            'success'
-                                                        )
-                                                    </script>
+                                    Swal.fire(
+                                        'Exito!',
+                                        'Se ha guardado exitosamente.',
+                                        'success'
+                                    )
+                                </script>
                             @endif
 
                             <div class="tab-content" id="pills-tabContent">
 
                                 <div class="tab-pane fade show active" id="perfil2" role="tabpanel" aria-labelledby="pills-perfil2-tab">
 
-                                                    <label for="">
+                                                    <label for=""  class="mt-3">>
                                                              <p class="text-white"><strong>Nombre</strong></p>
                                                          </label>
 
                                                     <div class="input-group form-group">
                                                             <div class="input-group-prepend">
                                                                 <span class="input-group-text input-modal" >
-                                                                     <img class="" src="{{ asset('img/icon/white/email.png') }}" width="25px" >
+                                                                      <i class="far fa-id-badge icon-users-edit"></i>
                                                                 </span>
                                                             </div>
                                                             <input type="text" class="form-control" placeholder="Nombre" id="name" name="name" style="border-radius: 0  10px 10px 0;" required>
                                                         </div>
 
-                                                    <label for="">
+                                                    <label for=""  class="mt-3">>
                                                              <p class="text-white"><strong>Correo</strong></p>
                                                          </label>
 
                                                     <div class="input-group form-group">
                                                             <div class="input-group-prepend">
                                                                 <span class="input-group-text input-modal" >
-                                                                     <img class="" src="{{ asset('img/icon/white/email.png') }}" width="25px" >
+                                                                      <i class="far fa-envelope icon-users-edit"></i>
                                                                 </span>
                                                             </div>
                                                             <input type="text" class="form-control" placeholder="correo@correo.com" id="email" name="email" style="border-radius: 0  10px 10px 0;" required>
                                                     </div>
 
-                                                    <label for="">
+                                                    <label for=""  class="mt-3">>
                                                              <p class="text-white"><strong>Tel&eacute;fono</strong></p>
                                                          </label>
 
                                                     <div class="input-group form-group">
                                                             <div class="input-group-prepend">
                                                                 <span class="input-group-text input-modal" >
-                                                                     <img class="" src="{{ asset('img/icon/white/call.png') }}" width="25px" >
+                                                                     <i class="fas fa-phone icon-users-edit"></i>
                                                                 </span>
                                                             </div>
                                                             <input type="text" class="form-control" placeholder="00 0000-0000" id="telefono" name="telefono" style="border-radius: 0  10px 10px 0;">
                                                         </div>
 
-                                                    <label for="">
+                                                    <label for=""  class="mt-3">>
                                                              <p class="text-white"><strong>Direcci&oacute;n</strong></p>
                                                          </label>
 
                                                     <div class="input-group form-group">
                                                             <div class="input-group-prepend " >
                                                                 <span class="input-group-text input-modal" >
-                                                                     <img class="" src="{{ asset('img/icon/white/marcador-de-posicion.png') }}" width="25px" >
+                                                                      <i class="fas fa-map-marker-alt icon-users-edit"></i>
                                                                 </span>
                                                             </div>
                                                             <input type="text" class="form-control" placeholder="Direccion" id="direccion" name="direccion" style="border-radius: 0  10px 10px 0;" id='datetimepicker1'>
                                                         </div>
 
-                                                    <label for="">
+                                                    <label for=""  class="mt-3">>
                                                          <p class="text-white"><strong>Fecha de nacimiento</strong></p>
                                                      </label>
 
                                                     <div class="input-group form-group">
                                                         <div class="input-group-prepend " >
                                                             <span class="input-group-text input-modal" >
-                                                                 <img class="" type="date" src="{{ asset('img/icon/white/calendario (2).png') }}" width="25px" >
+                                                                   <i class="far fa-calendar-alt icon-users-edit"></i>
                                                             </span>
                                                         </div>
                                                         <input type="date" class="form-control" placeholder="MM/DD/YYY" id="fecha_nacimiento" name="fecha_nacimiento"  style="border-radius: 0  10px 10px 0;" id='datetimepicker1'>
                                                     </div>
 
-                                                    <label for="">
+                                                    <label for=""  class="mt-3">>
                                                              <p class="text-white"><strong>Referencia</strong></p>
                                                          </label>
 
@@ -166,14 +166,14 @@
                                                                 </select>
                                                         </div>
 
-                                                    <label for="">
+                                                    <label for=""  class="mt-3">>
                                                          <p class="text-white"><strong>Role</strong></p>
                                                      </label>
 
                                                     <div class="input-group form-group">
                                                         <div class="input-group-prepend " >
                                                             <span class="input-group-text" >
-                                                                 <img class="" src="{{ asset('img/icon/white/referencia (1).png') }}" width="25px" >
+                                                                   <i class="fas fa-user-tag icon-users-edit"></i>
                                                             </span>
                                                         </div>
 
@@ -183,7 +183,7 @@
                                                         </select>
                                                     </div>
 
-                                                    <label for="" class="mt-3">
+                                                    <label for=""  class="mt-3"> class="mt-3">
                                                          <p class="text-white"><strong>Foto de Perfil</strong></p>
                                                      </label>
 
@@ -192,7 +192,7 @@
                                                       <label class="custom-file-label" for="img">Selecciona imagen</label>
                                                     </div>
 
-                                                    <label for="">
+                                                    <label for=""  class="mt-3">>
                                                          <p class="text-white"><strong>Género</strong></p>
                                                      </label>
 
@@ -241,27 +241,27 @@
 
                                 <div class="tab-pane fade" id="pills-Seguridad2" role="tabpanel" aria-labelledby="pills-Seguridad-tab">
 
-                                                     <label for="">
+                                                     <label for=""  class="mt-3">>
                                                          <p class="text-white"><strong>Contraseña</strong></p>
                                                      </label>
 
                                                     <div class="input-group form-group">
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text input-modal">
-                                                                 <img class="" src="{{ asset('img/icon/white/padlock.png') }}" width="25px" >
+                                                                 <i class="fas fa-lock-open icon-users-edit"></i>
                                                             </span>
                                                         </div>
                                                         <input type="password" class="form-control" placeholder="****" id="password" name="password" style="border-radius: 0  10px 10px 0;">
                                                     </div>
 
-                                                     <label for="">
+                                                     <label for=""  class="mt-3">>
                                                          <p class="text-white"><strong>Confirmar Contraseña </strong></p>
                                                      </label>
 
                                                     <div class="input-group form-group">
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text input-modal">
-                                                                 <img class="" src="{{ asset('img/icon/white/password.png') }}" width="25px" >
+                                                                 <i class="fas fa-lock icon-users-edit"></i>
                                                             </span>
                                                         </div>
                                                         <input type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="Confirmar Contraseña" id="password-confirm" style="border-radius: 0  10px 10px 0;">
@@ -270,7 +270,7 @@
                                                       <div class="col-12 text-center mt-5 mb-5" >
 
                                                           <button class="btn btn-lg btn-save-neon text-white"style="margin-bottom: 8rem !important;">
-                                                              <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}" width="20px" >
+                                                               <i class="fas fa-save icon-save"></i>
                                                               Guardar
                                                           </button>
 
