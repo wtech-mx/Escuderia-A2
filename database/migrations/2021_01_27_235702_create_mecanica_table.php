@@ -130,10 +130,6 @@ class CreateMecanicaTable extends Migration
                 ->references('id')->on('empresa')
                 ->inDelete('set null');
 
-            $table->foreign('id_marca')
-                ->references('id')->on('marca_product')
-                ->inDelete('RESTRICT');
-
             /*Calendario*/
             $table->string('image')->nullable();
             $table->string('title');

@@ -11,6 +11,10 @@ use OneSignal;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Mail;
 
+use App\Exports\TcExport;
+use App\Exports\TcExportEmpresa;
+use Maatwebsite\Excel\Facades\Excel;
+
 class TarjetaCirculacionController extends Controller
 {
 
@@ -54,7 +58,7 @@ class TarjetaCirculacionController extends Controller
         //datos para el calednario
         $tarjeta_circulacion->title = $request->get('title');
         $tarjeta_circulacion->color = $request->get('color');
-        $tarjeta_circulacion->descripcion = $request->get('descripcion');
+        $tarjeta_circulacion->descripcion = 'Su Tarjeta de Circulación expira el dia: '.$tarjeta_circulacion->end;
         $tarjeta_circulacion->image = $request->get('image');
 
         $tarjeta_circulacion->device_token = $request->get('device_token');
@@ -69,7 +73,7 @@ class TarjetaCirculacionController extends Controller
          'tipo_placa' => $request->get('tipo_placa'),
          'lugar_expedicion' => $request->get('lugar_expedicion'),
          'fecha_emision' => $request->get('fecha_emision'),
-         'end' => $request->get('end'),
+         'end' => 'Su Tarjeta de Circulación expira el dia: '.$tarjeta_circulacion->end,
          'auto' => $tarjeta_circulacion->Automovil->placas,
          'nombreU' => $tarjeta_circulacion->User->name,
          );
@@ -152,7 +156,7 @@ class TarjetaCirculacionController extends Controller
         //datos para el calednario
         $tarjeta_circulacion->title = $request->get('title');
         $tarjeta_circulacion->color = $request->get('color');
-        $tarjeta_circulacion->descripcion = $request->get('descripcion');
+        $tarjeta_circulacion->descripcion = 'Su Tarjeta de Circulación expira el dia: '.$tarjeta_circulacion->end;
         $tarjeta_circulacion->image = $request->get('image');
         $tarjeta_circulacion->update();
 
@@ -179,5 +183,13 @@ class TarjetaCirculacionController extends Controller
         Session::flash('success', 'Se ha guardado sus datos con exito');
 
         return redirect()->route('indextc_admin.tarjeta-circulacion', compact('tarjeta_circulacion'));
+    }
+
+    public function export(){
+        return Excel::download(new TcExport, 'tc-usuarios.xlsx');
+    }
+
+    public function export_empresa(){
+        return Excel::download(new TcExportEmpresa, 'tc-empresas.xlsx');
     }
 }

@@ -136,10 +136,6 @@
                                                 <input type="hidden" id="device_token" name="device_token" value="">
 
                                                  <div class="input-group form-group">
-                                                    <input type="hidden" class="form-control" id='descripcion' name="descripcion" value="Su Seguro expira el dia: {{$newDate}}">
-                                                </div>
-
-                                                 <div class="input-group form-group">
                                                     <input type="hidden" class="form-control" id='color' name="color" value="#8E44AD">
                                                 </div>
 

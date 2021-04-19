@@ -31,9 +31,14 @@ class ExptcController extends Controller
         ->where('current_auto','=',auth()->user()->current_auto)
         ->get();
 
+        $img_tc = DB::table('exp_tc')
+        ->where('id_user','=',$auto_user)
+        ->where('id_tc','=',auth()->user()->current_auto)
+        ->get();
+
         $img = TarjetaCirculacion::where('current_auto','=',$user->current_auto)->get();
 
-        return view('exp-fisico.view-tc',compact('exp_tc', 'img'));
+        return view('exp-fisico.view-tc',compact('exp_tc', 'img', 'img_tc'));
     }
 
     public function create(){
@@ -94,7 +99,11 @@ class ExptcController extends Controller
         ->where('current_auto','=', $automovil->id)
         ->paginate(6);
 
-        return view('admin.exp-fisico.view-tc-admin',compact('exp_tc','automovil'));
+        $img_tc = DB::table('img_tcs')
+        ->where('current_auto','=', $automovil->id)
+        ->get();
+
+        return view('admin.exp-fisico.view-tc-admin',compact('exp_tc','automovil', 'img_tc'));
     }
 
     public function store_admin(Request $request,$id){
@@ -106,6 +115,7 @@ class ExptcController extends Controller
         $exp = new ExpTc;
 
         $exp->titulo = $request->get('titulo');
+
     	if ($request->hasFile('tc')) {
 
     	    $file=$request->file("tc");
@@ -124,10 +134,7 @@ class ExptcController extends Controller
                     ->save($ruta, 10);
                 $exp->tc = $compresion->basename;
             }
-   	}
-
-
-//    	$exp->fecha_expedicion = $request->get('fecha_expedicion');
+   	    }
 
     	/* Compara el auto que se selecciono con la db */
         $automovil = DB::table('automovil')
@@ -143,6 +150,7 @@ class ExptcController extends Controller
         Session::flash('success', 'Se ha guardado sus datos con exito');
         return redirect()->back();
     }
+
 
      function destroy($id){
         $exp = ExpTc::findOrFail($id);

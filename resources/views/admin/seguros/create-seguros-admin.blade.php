@@ -6,6 +6,7 @@
 
                 <link href="{{ asset('css/login-form.css') }}" rel="stylesheet">
                 <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
+                <link href="{{ asset('css/dashboard-admin.css') }}" rel="stylesheet">
     <?php
     $originalDate = $seguro->end;
     $newDate = date("d/m/Y", strtotime($originalDate));
@@ -80,8 +81,9 @@
                     <div class="col-12 mt-5">
 
                          <p class="text-left text-white" style="font: normal normal bold 20px/27px Segoe UI;">
-                                    <strong>Detalles de Seguros</strong>
-                                </p>
+                                    <strong>Detalles del Seguro De -</strong>
+                                    <strong style="color: #00d62e">{{$seguro->User->name}}</strong>
+                         </p>
                         <label for="">
                                      <p class="text-white"><strong>Seguro</strong></p>
                                  </label>

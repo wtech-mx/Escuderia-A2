@@ -15,7 +15,11 @@
                     <div class="col-12 mt-3">
 
                         <div class=" custom-file mb-3" style="display: none">
-                            <input type="number" class="custom-file-input input-group-text" name="id_tc" id="id_tc" value="{{$tarjeta_circulacion->id}}">
+                            <input type="number" class="custom-file-input input-group-text" name="current_auto" id="current_auto" value="{{$tarjeta_circulacion->current_auto}}">
+                        </div>
+
+                        <div class=" custom-file mb-3" style="display: none">
+                            <input type="number" class="custom-file-input input-group-text" name="id_user" id="id_user" value="{{$tarjeta_circulacion->id_user}}">
                         </div>
 
                         <label for="">
@@ -23,7 +27,7 @@
                         </label>
 
                         <div class=" custom-file mb-3">
-                            <input type="file" class="custom-file-input input-group-text" name="img" id="img">
+                            <input type="file" class="custom-file-input input-group-text" name="tc" id="tc">
                             <label class="custom-file-label">Elegir img...</label>
                         </div>
 

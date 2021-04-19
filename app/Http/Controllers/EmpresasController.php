@@ -11,6 +11,9 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
 use Image;
 
+use App\Exports\EmpresaExport;
+use Maatwebsite\Excel\Facades\Excel;
+
 class EmpresasController extends Controller
 {
 
@@ -65,7 +68,7 @@ class EmpresasController extends Controller
 |--------------------------------------------------------------------------*/
      function index_admin(){
 
-        $empresa = Empresa::get();
+        $empresa = Empresa::paginate(6);
 
         $user = DB::table('users')
             ->where('role','=', '0')
@@ -153,5 +156,9 @@ class EmpresasController extends Controller
         Session::flash('success', 'Se ha actualizado sus datos con exito');
 
         return redirect()->route('index_admin.empresa');
+    }
+
+    public function export(){
+        return Excel::download(new EmpresaExport, 'empresas.xlsx');
     }
 }

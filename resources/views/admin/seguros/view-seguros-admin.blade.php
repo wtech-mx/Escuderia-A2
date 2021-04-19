@@ -51,11 +51,18 @@
                                 {{-- |----------------------------------------------------------------------------}}
 
                                 <div class="carousel-item active">
-                                    <h5 class="text-center text-white mt-4 ml-4 mr-4 ">
-                                        <strong>Seguros Personales</strong>
-                                    </h5>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="d-flex justify-content-center">
+                                                    <a class="text-white mt-3 p-2" href="/exportar/seguro" >
+                                                        <i class="fa fa-download icon-effect-sm" aria-hidden="true"></i>
+                                                    </a>
 
-                                  <div class="row">
+                                                    <h5 class="text-center text-white mt-4 ml-4 mr-4 ">
+                                                        <strong>Seguros Personales</strong>
+                                                    </h5>
+                                                </div>
+                                            </div>
 
                                         {{  Form::open(['route' => 'index_admin.seguros' , 'method' => 'GET' , 'class'=>'form-inline pull-right'] )  }}
                                         <div class="d-flex justify-content-center mt-5">
@@ -119,12 +126,18 @@
                                 {{-- |----------------------------------------------------------------------------}}
 
                                 <div class="carousel-item ">
-
-                                    <h5 class="text-center text-white mt-4 ml-4 mr-4 ">
-                                        <strong>Seguros Empresas</strong>
-                                    </h5>
-
                                   <div class="row">
+                                            <div class="col-12">
+                                                <div class="d-flex justify-content-center">
+                                                    <a class="text-white mt-3 p-2" href="/exportar/seguro/empresa" >
+                                                        <i class="fa fa-download icon-effect-sm" aria-hidden="true"></i>
+                                                    </a>
+
+                                                    <h5 class="text-center text-white mt-4 ml-4 mr-4 ">
+                                                        <strong>Seguros Empresas</strong>
+                                                    </h5>
+                                                </div>
+                                            </div>
 
                                         {{  Form::open(['route' => 'index_admin.seguros' , 'method' => 'GET' , 'class'=>'form-inline pull-right'] )  }}
                                         <div class="d-flex justify-content-center mt-5">

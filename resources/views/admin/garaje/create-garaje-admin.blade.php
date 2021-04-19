@@ -3,7 +3,7 @@
 @section('content')
 
      <link href="{{ asset('css/edit-garaje.css') }}" rel="stylesheet">
-
+    <link href="{{ asset('css/dashboard-admin.css') }}" rel="stylesheet">
 <div class="row bg-blue" style="background-image: linear-gradient(to bottom, #00d62e, #2ce048, #43eb5f, #56f574, #68ff88);">
 
                     @if(Session::has('empresa'))

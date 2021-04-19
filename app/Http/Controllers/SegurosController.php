@@ -14,6 +14,9 @@ use Illuminate\Support\Facades\Mail;
 use Cookie;
 use OneSignal;
 
+use App\Exports\SeguroExport;
+use Maatwebsite\Excel\Facades\Excel;
+
 class SegurosController extends Controller
 {
 
@@ -149,7 +152,7 @@ class SegurosController extends Controller
          'tipo_cobertura' => $request->get('tipo_cobertura'),
          'costo' => $request->get('costo'),
          'costo_anual' => $request->get('costo_anual'),
-         'end' => $request->get('end'),
+         'end' => $seguro->end,
          'email' => $email,
          'auto' => $seguro->Automovil->placas,
          'nombre' => $seguro->User->name,
@@ -313,7 +316,7 @@ class SegurosController extends Controller
          'tipo_cobertura' => $request->get('tipo_cobertura'),
          'costo' => $request->get('costo'),
          'costo_anual' => $request->get('costo_anual'),
-         'end' => $request->get('end'),
+         'end' => $seguro->end,
          'email' => $email,
          'auto' => $seguro->Automovil->placas,
          'nombre' => $seguro->User->name,
@@ -330,6 +333,14 @@ class SegurosController extends Controller
 
         Session::flash('success2', 'Se ha actualizado sus datos con exito');
         return redirect()->back();
-
     }
+
+    public function export(){
+        return Excel::download(new SeguroExport, 'seguros-usuarios.xlsx');
+    }
+
+    public function export_empresa(){
+        return Excel::download(new SeguroExportEmpresa, 'seguros-empresas.xlsx');
+    }
+
 }

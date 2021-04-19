@@ -76,6 +76,61 @@
                             </div>
                         </div>
 
+                    @if ($img_tc->count())
+                        @foreach($img_tc as $item)
+                            @php
+                                $texto= substr($item->img, -3);
+                            @endphp
+                            <div class="col-6">
+                                <a type="button" class="" data-toggle="modal" data-target="#modal-doc-{{$item->id}}">
+                                        @if($texto == 'pdf')
+                                            <p class="text-center">
+                                                <iframe width="140" height="140" src="{{asset('exp-tc/'.$item->img)}}" frameborder="0"></iframe>
+                                            </p>
+                                        @else
+                                            <p class="text-center">
+                                                    <img class="d-inline mb-2" src="{{asset('exp-tc/'.$item->img)}}" alt="{{$item->img}}" width="100px">
+                                            </p>
+                                        @endif
+                                </a>
+                            </div>
+                            <!-- Modal -->
+                            <div class="modal fade" id="modal-doc-{{$item->id}}" tabindex="-1" role="dialog" aria-labelledby="modal-doc-{{$item->id}}" aria-hidden="true">
+                              <div class="modal-dialog  modal-sm modal-dialog-centered" role="document">
+                                <div class="modal-content">
+
+                                  <div class="modal-body">
+                                      <div class="row justify-content-center">
+                                          <div class="col-12 text-center mb-3">
+                                              <h5 class="modal-title"><strong>Tarjeta de Circulación</strong></h5>
+                                          </div>
+                                      </div>
+                                      <div class="row justify-content-center">
+                                          <div class="d-flex align-items-center">
+                                              <div class="col-11">
+                                                  <p class="text-center">
+                                                      <img class="" src="{{asset('exp-tc/'.$item->img)}}" alt="{{$item->img}}" style="height: 300px!important;">
+                                                  </p>
+                                              </div>
+                                              <div class="col-1">
+                                                    <a type="button" class="btn btn-danger text-white p-2 mt-5 mb-5" data-toggle="modal" data-target="#modaltc{{$item->id}}">
+                                                        <i class="fa fa-trash" aria-hidden="true"></i>
+                                                    </a>
+                                                    <a type="button" class="btn btn-secondary p-2" data-dismiss="modal">
+                                                        <i class="fa fa-window-close" aria-hidden="true"></i>
+                                                    </a>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+
+                                </div>
+                              </div>
+                            </div>
+                            @include('exp-fisico.eliminar')
+                        @endforeach
+                    @endif
+
                     @if ($exp_tc->count())
                         @foreach($exp_tc as $item)
                             @php

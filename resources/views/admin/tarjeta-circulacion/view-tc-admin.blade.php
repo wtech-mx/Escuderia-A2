@@ -84,9 +84,18 @@
                                 {{-- |----------------------------------------------------------------------------}}
 
                                 <div class="carousel-item active">
-                                    <h5 class="text-center text-white mt-4 ml-4 mr-4 ">
-                                        <strong>Tarjetas Circulaci&oacute;n Usuario</strong>
-                                    </h5>
+                                    <div class="row">
+                                            <div class="col-12">
+                                                <div class="d-flex justify-content-center">
+                                                    <a class="text-white mt-3 p-2" href="/exportar/tc" >
+                                                        <i class="fa fa-download icon-effect-sm" aria-hidden="true"></i>
+                                                    </a>
+
+                                                    <h5 class="text-center text-white mt-4 ml-4 mr-4 ">
+                                                        <strong>Tarjeta Circulacion</strong>
+                                                    </h5>
+                                                </div>
+                                            </div>
 
                                     @if(Session::has('success'))
                                         <script>
@@ -99,7 +108,7 @@
                                     @endif
 
 
-                                  <div class="row">
+
                                       <div class="content" style="margin-bottom: 10% !important;height: 100vh;">
                                       @foreach ($tarjeta_circulacion as $item)
                                         <div class="col-12 mt-4">
@@ -127,9 +136,17 @@
                                  {{-- |----------------------------------------------------------------------------}}
 
                                 <div class="carousel-item">
-                                    <h5 class="text-center text-white mt-4 ml-4 mr-4 ">
-                                        <strong>Tarjetas Circulaci&oacute;n Empresa</strong>
-                                    </h5>
+                                            <div class="col-12">
+                                                <div class="d-flex justify-content-center">
+                                                    <a class="text-white mt-3 p-2" href="/exportar/tc/empresa" >
+                                                        <i class="fa fa-download icon-effect-sm" aria-hidden="true"></i>
+                                                    </a>
+
+                                                    <h5 class="text-center text-white mt-4 ml-4 mr-4 ">
+                                                        <strong>Tarjeta Circulacion Empresa</strong>
+                                                    </h5>
+                                                </div>
+                                            </div>
 
                                     @if(Session::has('success'))
                                         <script>

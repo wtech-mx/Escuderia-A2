@@ -6,6 +6,7 @@
 
                 <link href="{{ asset('css/login-form.css') }}" rel="stylesheet">
                 <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
+                <link href="{{ asset('css/dashboard-admin.css') }}" rel="stylesheet">
 <?php
 $originalDate = $verificacion->primer_semestre;
 $newDate = date("d/m/Y", strtotime($originalDate));

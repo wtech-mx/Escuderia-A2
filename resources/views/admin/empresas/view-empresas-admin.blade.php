@@ -34,15 +34,22 @@
 
                         <div class="col-12 mt-4 d-inline">
                             <div class="d-flex flex-row-reverse">
-                                <a  class="btn btn-circel" href="{{ route('create_admin.empresa') }}">
-                                    <h5 class="text-white text-tittle-app mt-2 " style="font: normal normal bold 15px/20px Segoe UI">
-                                        Agregar
-                                    </h5>
+
+                                <a class="mt-1 ml-5 text-white " href="/exportar/empresas" >
+                                    <i class="fa fa-download icon-effect" aria-hidden="true"></i>
                                 </a>
 
-                                 <a  class="btn btn-circel" href="{{ route('create_admin.empresa') }}">
-                                    <img class="" src="{{ asset('img/icon/white/plus.png') }}" width="30px" >
-                                </a>
+                                <div class="content">
+                                    <a  class="btn btn-circel" href="{{ route('create_admin.empresa') }}">
+                                        <h5 class="text-white text-tittle-app mt-2 " style="font: normal normal bold 15px/20px Segoe UI">
+                                            Agregar
+                                        </h5>
+                                    </a>
+
+                                     <a  class="btn btn-circel" href="{{ route('create_admin.empresa') }}">
+                                        <img class="" src="{{ asset('img/icon/white/plus.png') }}" width="30px" >
+                                    </a>
+                                </div>
                             </div>
                         </div>
                                             <div class="col-12 mt-4 ">

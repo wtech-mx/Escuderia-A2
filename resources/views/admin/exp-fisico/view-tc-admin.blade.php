@@ -2,7 +2,7 @@
 
 @section('content')
 
-
+<link href="{{ asset('css/dashboard-admin.css') }}" rel="stylesheet">
 <div class="row bg-down-blue " style="border-radius: 0 0 0 0; height: 95vh;">
 
                         @if(Session::has('success'))
@@ -75,11 +75,16 @@
 
                             </div>
                         </div>
+
                             <div class="col-12 mt-4 ">
                                 <div class="d-flex justify-content-center">
                                     {!! $exp_tc->links() !!}
                                 </div>
                             </div>
+
+
+
+
                     @if ($exp_tc->count())
                         @foreach($exp_tc as $item)
                             @php

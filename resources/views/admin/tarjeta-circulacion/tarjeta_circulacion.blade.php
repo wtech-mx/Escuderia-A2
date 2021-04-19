@@ -6,6 +6,7 @@
 
         <link href="{{ asset('css/login-form.css') }}" rel="stylesheet">
         <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/dashboard-admin.css') }}" rel="stylesheet">
 <?php
 $originalDate = $tarjeta_circulacion->end;
 $newDate = date("d/m/Y", strtotime($originalDate));
@@ -16,7 +17,7 @@ $newDate = date("d/m/Y", strtotime($originalDate));
                     <div class="col-2 mt-5">
                         <div class="d-flex justify-content-start">
                                 <div class="text-center text-white">
-                                    <a href="{{ route('index.dashboard') }}" style="background-color: transparent;clip-path: none">
+                                    <a href="{{ route('indextc_admin.tarjeta-circulacion') }}" style="background-color: transparent;clip-path: none">
                                         <img class="" src="{{ asset('img/icon/white/left-arrow.png') }}" width="25px" >
                                     </a>
                                 </div>
@@ -68,16 +69,13 @@ $newDate = date("d/m/Y", strtotime($originalDate));
                             @endif
 
                         <p class="text-left text-white mt-5 mb-5" style="font: normal normal bold 20px/27px Segoe UI;">
-                            <strong>Detalles de Tarjeta de Circulaci&oacute;n</strong>
+                            <strong>Tarjeta de Circulaci&oacute;n De -</strong>
+                            <strong style="color: #00d62e">{{$tarjeta_circulacion->User->name}}</strong>
                         </p>
 
                         {{--Datos para el calendario--}}
                         <div class="input-group form-group">
                             <input type="hidden" class="form-control" id='title' name="title" value="{{$tarjeta_circulacion->Automovil->placas}}">
-                        </div>
-
-                        <div class="input-group form-group">
-                            <input type="hidden" class="form-control" id='descripcion' name="descripcion" value="Su tarjeta de circulacion expira el dia: {{$newDate}}">
                         </div>
 
                         <div class="input-group form-group">
@@ -160,7 +158,7 @@ $newDate = date("d/m/Y", strtotime($originalDate));
                             <hr class="mt-3 mb-3" style="border: 1px solid #00f936;opacity: 1">
 
                              <label for="">
-                                 <p class="text-white"><strong>Nombre</strong></p>
+                                 <p class="text-white"><strong>Nombre de la tarjeta de Circulación</strong></p>
                              </label>
 
                             <div class="input-group form-group mb-5">
@@ -170,7 +168,7 @@ $newDate = date("d/m/Y", strtotime($originalDate));
                                     </span>
                                 </div>
 
-                                <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre" value="{{$tarjeta_circulacion->nombre}}" required>
+                                <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre de la tarjeta de Circulación" value="{{$tarjeta_circulacion->nombre}}" required>
                             </div>
 
                              <label for="">

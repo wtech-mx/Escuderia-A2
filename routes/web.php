@@ -128,6 +128,8 @@ Route::patch('profile/update/password/{id}','UserController@update_password')->n
 Route::patch('seguro/update/{id}','SegurosController@update')->name('update.seguro');
 Route::get('seguro/index','SegurosController@index')->name('index.seguro');
 
+Route::get('/exportar/seguro', 'SegurosController@export');
+Route::get('/exportar/seguro/empresa', 'SegurosController@export_empresa');
 /*|--------------------------------------------------------------------------
 |tarjeta-circulacion img
 |--------------------------------------------------------------------------*/
@@ -137,6 +139,9 @@ Route::get('tarjeta-circulacion/index','TarjetaCirculacionController@index')->na
 
 //Route::get('tarjeta-circulacion/index','TarjetaCirculacionController@index')->name('index.img-tc');
 Route::post('tarjeta-circulacion/index','ImgTcController@store')->name('store.img-tc');
+
+Route::get('/exportar/tc', 'TarjetaCirculacionController@export');
+Route::get('/exportar/tc/empresa', 'TarjetaCirculacionController@export_tc');
 
 /*|--------------------------------------------------------------------------
 |Documents
@@ -308,6 +313,8 @@ Route::post('admin/empresa/create','EmpresasController@store_admin')->name('stor
 
 Route::get('admin/empresa/edit/{id}','EmpresasController@edit_admin')->name('edit_admin.empresa');
 Route::patch('admin/empresa/update/{id}','EmpresasController@update_admin')->name('update_admin.empresa');
+
+Route::get('/exportar/empresas', 'EmpresasController@export');
 
 /*|--------------------------------------------------------------------------
 |SEGUROS view

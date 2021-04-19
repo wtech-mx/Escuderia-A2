@@ -104,10 +104,6 @@
                             <input type="hidden" id="device_token" name="device_token" value="">
 
                             <div class="input-group form-group">
-                                <input type="hidden" class="form-control" id='descripcion' name="descripcion" value="Su tarjeta de circulacion expira el dia: {{$newDate}}">
-                            </div>
-
-                            <div class="input-group form-group">
                                 <input type="hidden" class="form-control" id='color' name="color" value="#F1C40F">
                             </div>
 
@@ -183,7 +179,7 @@
                                 <hr class="mt-3 mb-3" style="border: 1px solid #00f936;opacity: 1">
 
                                  <label for="">
-                                     <p class="text-white"><strong>Nombre</strong></p>
+                                     <p class="text-white"><strong>Nombre de la tarjeta de Circulación</strong></p>
                                  </label>
 
                                 <div class="input-group form-group mb-5">
@@ -192,7 +188,7 @@
                                              <img class="" src="{{ asset('img/icon/white/calendario (5).png') }}" width="25px" >
                                         </span>
                                     </div>
-                                    <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre" value="{{$tarjeta_circulacion->nombre}}" required>
+                                    <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre de la tarjeta de Circulación" value="{{$tarjeta_circulacion->nombre}}" required>
                                 </div>
 
                                  <label for="">

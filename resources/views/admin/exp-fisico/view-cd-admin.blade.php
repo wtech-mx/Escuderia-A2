@@ -2,6 +2,7 @@
 
 @section('content')
 
+<link href="{{ asset('css/dashboard-admin.css') }}" rel="stylesheet">
 
 <div class="row bg-down-blue " style="border-radius: 0 0 0 0; height: 95vh;">
 
