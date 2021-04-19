@@ -335,6 +335,6 @@
                                             });
                                         });
                                      </script>
-                           @include('admin.services.proveedores')
-                       </form>
 
+                       </form>
+                        @include('admin.services.proveedores')
