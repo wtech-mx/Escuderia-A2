@@ -82,7 +82,7 @@
                          <a href="{{ route('index.alert') }}">
                             <div class="card" style="border-radius: 15px">
                               <div class="card-body" >
-                                  <img class="d-inline mb-2" src="{{ asset('img/icon/white/notification.png') }}" alt="Icon User" width="50px">
+                                  <i class="fas fa-bell icon-effect-dashboard"></i>
                                   <p class="card-text text-white"><strong>Alertas</strong></p>
                               </div>
                             </div>
@@ -93,7 +93,7 @@
                          <a href="{{ route('index_admin.user') }}">
                             <div class="card" style="border-radius: 15px">
                               <div class="card-body" >
-                                  <img class="d-inline mb-2" src="{{ asset('img/icon/white/usuario (1).png') }}" alt="Icon User" width="50px">
+                                  <i class="fas fa-users icon-effect-dashboard"></i>
                                   <p class="card-text text-white"><strong>Usuarios</strong></p>
                               </div>
                             </div>
@@ -104,7 +104,7 @@
                         <a href="{{ route('index_admin.automovil') }}">
                             <div class="card" style="border-radius: 15px">
                               <div class="card-body" >
-                                  <img class="d-inline mb-2" src="{{ asset('img/icon/white/coche (4).png') }}" alt="Icon User" width="50px">
+                                  <i class="fas fa-car icon-effect-dashboard"></i>
                                   <p class="card-text text-white"><strong>Veh&iacute;culos</strong></p>
                               </div>
                             </div>
@@ -115,7 +115,7 @@
                         <a  class="text-white" data-toggle="modal" data-target="#Servicios" style="cursor: pointer">
                             <div class="card" style="border-radius: 15px">
                               <div class="card-body" >
-                                  <img class="d-inline mb-2" src="{{ asset('img/icon/white/car-service (1).png') }}" alt="Icon Seguro" width="50px">
+                                  <i class="fas fa-cogs icon-effect-dashboard"></i>
                                   <p class="card-text"><strong>Servicios</strong></p>
                               </div>
                             </div>
@@ -126,7 +126,7 @@
                         <a href="{{ route('indextc_admin.tarjeta-circulacion') }}" class="text-white">
                             <div class="card" style="border-radius: 15px">
                               <div class="card-body" >
-                                  <img class="d-inline mb-2" src="{{ asset('img/icon/white/documents (1).png') }}" alt="Icon Exp Fisico" width="50px">
+                                  <i class="fas fa-money-check icon-effect-dashboard"></i>
                                   <p class="card-text"><strong>T. Circulaci&oacute;n</strong></p>
                               </div>
                             </div>
@@ -137,7 +137,7 @@
                         <a href="{{ route('index_admin.view-exp-fisico-admin') }}" class="text-white">
                             <div class="card" style="border-radius: 15px">
                               <div class="card-body" >
-                                  <img class="d-inline mb-2" src="{{ asset('img/icon/white/documento (2).png') }}" alt="Icon gift" width="50px">
+                                  <i class="fas fa-folder-open icon-effect-dashboard"></i>
                                   <p class="card-text"><strong>Exp F&iacute;sico</strong></p>
                               </div>
                             </div>
@@ -148,7 +148,7 @@
                         <a href="{{ route('index_admin.seguros') }}" class="text-white">
                             <div class="card" style="border-radius: 15px">
                               <div class="card-body" >
-                                  <img class="d-inline mb-2" src="{{ asset('img/icon/white/seguro-de-coche (1).png') }}" alt="Icon Tenencia" width="50px">
+                                 <i class="fas fa-shield-alt icon-effect-dashboard"></i>
                                   <p class="card-text text-white"><strong>Seguros</strong></p>
                               </div>
                             </div>
@@ -160,7 +160,7 @@
 
                             <div class="card" style="border-radius: 15px">
                               <div class="card-body" >
-                                  <img class="d-inline mb-2" src="{{ asset('img/icon/white/edificio-de-oficinas.png') }}" alt="Icon Tenencia" width="50px">
+                                  <i class="fas fa-building icon-effect-dashboard"></i>
                                   <p class="card-text text-white"><strong>Empresas</strong></p>
                               </div>
                             </div>
@@ -172,7 +172,7 @@
 
                             <div class="card" style="border-radius: 15px">
                               <div class="card-body" >
-                                  <img class="d-inline mb-2" src="{{ asset('img/icon/white/editar.png') }}" alt="Icon Tenencia" width="50px">
+                                  <i class="fas fa-calendar-check icon-effect-dashboard"></i>
                                   <p class="card-text text-white"><strong>Verificaci&oacute;n</strong></p>
                               </div>
                             </div>

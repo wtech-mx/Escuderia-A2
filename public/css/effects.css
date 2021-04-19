@@ -16,3 +16,50 @@
     color: #08d833;
 }
 
+.icon-effect-dashboard{
+    color: #FFFFFF;
+    font-size:50px;
+    padding: 10px;
+}
+
+.icon-effect-dashboard:hover{
+    color: #08d833;
+}
+
+.icon-effect-users{
+    color: #000000;
+    font-size:60px;
+    position: absolute;
+    top: -5px;
+    right: 30px;
+    padding: 10px;
+}
+
+.icon-effect-users:hover{
+    color: #08d833;
+}
+
+.icon-effect-users-edit{
+    color: #fff9be;
+    font-size:60px;
+}
+
+.icon-effect-users-edit:hover{
+    color: #08d833;
+}
+
+.icon-users-edit{
+    color: #fff9be;
+    font-size:25px;
+}
+
+.icon-users-edit:hover{
+    color: #08d833;
+}
+
+.icon-save{
+    color: #fff9be;
+    font-size:20px;
+}
+
+

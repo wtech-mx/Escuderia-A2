@@ -39,7 +39,7 @@
                     <div class="col-12 p-3">
                         <p class="text-center">
                             @if($user->img == NULL)
-                                <img class="rounded-circle" src="{{ asset('img/icon/white/hombre (1).png') }}" height="150px" width="150px">
+                                 <i class="far fa-user d-inline icon-effect-users-edit"></i>
                             @else
                                 <img class="rounded-circle" src="{{ asset('img-perfil/'.$user->img) }}" height="150px" width="150px">
                             @endif
@@ -84,14 +84,14 @@
 
                                     <input type="hidden" name="_method" value="PATCH">
 
-                                    <label for="">
+                                    <label for="" class="mt-3">
                                          <p class="text-white"><strong>Nombre Completo</strong></p>
                                      </label>
 
                                     <div class="input-group form-group">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">
-                                                 <img class="" src="{{ asset('img/icon/white/nombre.png') }}" width="25px" >
+                                                 <i class="far fa-id-badge icon-users-edit"></i>
                                             </span>
                                         </div>
 
@@ -102,14 +102,14 @@
                                         @endif
                                     </div>
 
-                                     <label for="">
+                                     <label for="" class="mt-3">
                                          <p class="text-white"><strong>Correo</strong></p>
                                      </label>
 
                                     <div class="input-group form-group">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">
-                                                 <img class="" src="{{ asset('img/icon/white/email.png') }}" width="25px" >
+                                                 <i class="far fa-envelope icon-users-edit"></i>
                                             </span>
                                         </div>
                                         <input type="text" class="form-control" id="email" name="email" value="{{$user->email}}" style="border-radius: 0  10px 10px 0;">
@@ -119,14 +119,14 @@
                                         @endif
                                     </div>
 
-                                    <label for="">
+                                    <label for="" class="mt-3">
                                          <p class="text-white"><strong>Tel&eacute;fono</strong></p>
                                      </label>
 
                                     <div class="input-group form-group">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">
-                                                 <img class="" src="{{ asset('img/icon/white/call.png') }}" width="25px" >
+                                                <i class="fas fa-phone icon-users-edit"></i>
                                             </span>
                                         </div>
                                         <input type="text" class="form-control" id="telefono" name="telefono" placeholder="5500550055" value="{{$user->telefono}}" style="border-radius: 0  10px 10px 0;">
@@ -135,14 +135,14 @@
                                         @endif
                                     </div>
 
-                                    <label for="">
+                                    <label for="" class="mt-3">
                                          <p class="text-white"><strong>Fecha de nacimiento</strong></p>
                                      </label>
 
                                     <div class="input-group form-group">
                                         <div class="input-group-prepend " >
                                             <span class="input-group-text" >
-                                                 <img class="" type="date" src="{{ asset('img/icon/white/calendario (2).png') }}" width="25px" >
+                                                <i class="far fa-calendar-alt icon-users-edit"></i>
                                             </span>
                                         </div>
                                         <input type="date" class="form-control" placeholder="MM/DD/YYY"  style="border-radius: 0  10px 10px 0;" id='fecha_nacimiento' name="fecha_nacimiento" value="{{$user->fecha_nacimiento}}">
@@ -151,14 +151,14 @@
                                         @endif
                                     </div>
 
-                                     <label for="">
+                                     <label for="" class="mt-3">
                                          <p class="text-white"><strong>Direcci&oacute;n</strong></p>
                                      </label>
 
                                     <div class="input-group form-group">
                                         <div class="input-group-prepend " >
                                             <span class="input-group-text" >
-                                                 <img class="" src="{{ asset('img/icon/white/marcador-de-posicion.png') }}" width="25px" >
+                                                 <i class="fas fa-map-marker-alt icon-users-edit"></i>
                                             </span>
                                         </div>
                                         <input type="text" class="form-control" placeholder="Direccion" style="border-radius: 0  10px 10px 0;" id='direccion' name="direccion" value="{{$user->direccion}}">
@@ -167,7 +167,7 @@
                                         @endif
                                     </div>
 
-                                    <label for="">
+                                    <label for="" class="mt-3">
                                          <p class="text-white"><strong>Referencia</strong></p>
                                      </label>
 
@@ -185,14 +185,14 @@
                                         </select>
                                     </div>
 
-                                    <label for="">
+                                    <label for="" class="mt-3">
                                          <p class="text-white"><strong>Role</strong></p>
                                      </label>
 
                                     <div class="input-group form-group">
                                         <div class="input-group-prepend " >
                                             <span class="input-group-text" >
-                                                 <img class="" src="{{ asset('img/icon/white/referencia (1).png') }}" width="25px" >
+                                                <i class="fas fa-user-tag icon-users-edit"></i>
                                             </span>
                                         </div>
 
@@ -207,7 +207,7 @@
                                         </select>
                                     </div>
 
-                                    <label for="">
+                                    <label for="" class="mt-3">
                                          <p class="text-white"><strong>Género</strong></p>
                                      </label>
 
@@ -279,7 +279,7 @@
 
                                     <div class="col-12 text-center mt-3 " style="margin-bottom: 8rem !important;">
                                           <button class="btn btn-lg btn-save-neon text-white">
-                                              <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}" width="20px" >
+                                              <i class="fas fa-save icon-save"></i>
                                               Actualizar
                                          </button>
                                       </div>
@@ -291,14 +291,14 @@
                                 <form method="POST" action="{{route('update_admin_password.user',$user->id)}}" enctype="multipart/form-data" role="form">
                                     @csrf
                                     <input type="hidden" name="_method" value="PATCH">
-                                     <label for="">
+                                     <label for="" class="mt-3">
                                          <p class="text-white"><strong>Contraseña</strong></p>
                                      </label>
 
                                     <div class="input-group form-group">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">
-                                                 <img class="" src="{{ asset('img/icon/white/padlock.png') }}" width="25px" >
+                                                 <i class="fas fa-lock-open icon-users-edit"></i>
                                             </span>
                                         </div>
                                         <input type="password" class="form-control" placeholder="****" id="password" name="password" style="border-radius: 0  10px 10px 0;">
@@ -307,14 +307,14 @@
                                         @endif
                                     </div>
 
-                                     <label for="">
+                                     <label for="" class="mt-3">
                                          <p class="text-white"><strong>Confirmar Contraseña </strong></p>
                                      </label>
 
                                     <div class="input-group form-group mb-5">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">
-                                                 <img class="" src="{{ asset('img/icon/white/password.png') }}" width="25px" >
+                                                 <i class="fas fa-lock icon-users-edit"></i>
                                             </span>
                                         </div>
                                         <input type="password" class="form-control" name="password_confirmation"  autocomplete="new-password" placeholder="Confirmar Contraseña" id="password-confirm" style="border-radius: 0  10px 10px 0;">

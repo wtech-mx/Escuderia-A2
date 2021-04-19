@@ -55,7 +55,6 @@
                         </div>
 
 
-
                                     @if(Session::has('success'))
                                     <script>
                                         Swal.fire(
@@ -101,11 +100,19 @@
                                                               <p class="card-text" style="font-size: 12px"><strong>{{$item->telefono}}</strong></p>
                                                               <p class="card-text" style="font-size: 12px"><strong>{{$item->email}}</strong></p>
                                                           </div>
-                                                            @if($item->img == NULL)
-                                                                <img class="rounded-circle" src="{{ asset('img/icon/black/user.png') }}" height="80px" width="80px" style="width: 80px !important;">
-                                                            @else
-                                                                <img class="rounded-circle" src="{{ asset('img-perfil/'.$item->img) }}" height="80px" width="80px" style="width: 80px !important;">
-                                                            @endif
+                                                          <div class="col-6 justify-content-end position-relative">
+                                                              <div class="d-flex justify-content-end">
+                                                                    @if($item->img == NULL)
+                                                                        <a class="card-text" href="{{ route('edit_admin.user',$item->id) }}">
+                                                                            <i class="far fa-user d-inline icon-effect-users"></i>
+                                                                        </a>
+                                                                    @else
+                                                                         <a class="card-text" href="{{ route('edit_admin.user',$item->id) }}">
+                                                                            <img class="rounded-circle" src="{{ asset('img-perfil/'.$item->img) }}" height="80px" width="80px" style="width: 80px !important;">
+                                                                         </a>
+                                                                    @endif
+                                                              </div>
+                                                          </div>
                                                       </div>
                                                   </div>
                                                 </div>
@@ -113,7 +120,7 @@
                                     @endforeach
                                     </div>
 
-{{--                                     {{ $user->render() }}--}}
+                {{-- {{ $user->render() }}--}}
 
                </div>
 
