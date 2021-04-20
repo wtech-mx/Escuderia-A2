@@ -60,7 +60,7 @@ class VerificacionController extends Controller
 
        $verificacion = Verificacion::findOrFail($id);
 
-       $verificacion_segunda = VerificacionSegunda::first();
+       $verificacion_segunda = VerificacionSegunda::where('id_verificacion', '=', $id)->first();
 
        $users = DB::table('users')
         ->get();
