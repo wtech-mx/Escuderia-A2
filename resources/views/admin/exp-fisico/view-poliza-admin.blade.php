@@ -48,7 +48,6 @@
                                     </div>
                             </div>
                         </div>
-
                         <div class="col-8  mt-4">
                                     <h5 class="text-center text-white ml-4 mr-4 ">
                                         <strong>Póliza de Seguro</strong>
@@ -103,29 +102,32 @@
                               <div class="modal-dialog  modal-sm modal-dialog-centered" role="document">
                                 <div class="modal-content">
 
-                                  <div class="modal-body">
-                                      <div class="row justify-content-center">
-                                          <div class="col-12 text-center mb-3">
-                                              <h5 class="modal-title"><strong>{{$item->titulo}}</strong></h5>
+                                  <div class="modal-body position-relative">
+                                        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                                          <div class="carousel-inner">
+                                            <div class="carousel-item active">
+                                              <img class="d-block w-100" src="{{asset('exp-poliza/'.$item->poliza)}}" alt="First slide">
+                                            </div>
                                           </div>
-                                      </div>
-                                      <div class="row justify-content-center">
-                                          <div class="d-flex align-items-center">
-                                              <div class="col-11">
-                                                  <p class="text-center">
-                                                      <img class="" src="{{asset('exp-poliza/'.$item->poliza)}}" alt="{{$item->poliza}}" style="height: 300px!important;">
-                                                  </p>
-                                              </div>
-                                              <div class="col-1">
-                                                    <a type="button" class="btn btn-danger text-white p-2 mt-5 mb-5" data-toggle="modal" data-target="#modalpoliza{{$item->id}}">
-                                                        <i class="fa fa-trash" aria-hidden="true"></i>
-                                                    </a>
-                                                    <a type="button" class="btn btn-secondary p-2" data-dismiss="modal">
-                                                        <i class="fa fa-window-close" aria-hidden="true"></i>
-                                                    </a>
-                                              </div>
-                                          </div>
-                                      </div>
+                                        </div>
+
+                                        <div class="botones-hijo position-absolute" style="z-index: 1000; top: 40%; right: 10px; padding: 5px">
+                                            <div class="d-flex flex-column">
+
+                                                  <div class="p-1">
+                                                       <a type="button" class="btn btn-danger text-white mt-5" data-toggle="modal" data-target="#modalpoliza{{$item->id}}">
+                                                                <i class="fa fa-trash" aria-hidden="true"></i>
+                                                       </a>
+                                                  </div>
+
+                                                  <div class="p-1">
+                                                      <a type="button" class="btn btn-secondary" data-dismiss="modal">
+                                                            <i class="fa fa-window-close" aria-hidden="true"></i>
+                                                      </a>
+                                                  </div>
+
+                                            </div>
+                                        </div>
                                   </div>
 
                                 </div>
