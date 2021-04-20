@@ -124,7 +124,7 @@ class ExpolizaController extends Controller
                 $nombre = time().".".$urlfoto->guessExtension();
                 $ruta = public_path('/exp-poliza/'.$nombre);
                 $compresion = Image::make($urlfoto->getRealPath())
-                    ->save($ruta,10);
+                    ->save($ruta,80);
                 $exp->poliza = $compresion->basename;
 
             }
