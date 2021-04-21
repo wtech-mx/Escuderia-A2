@@ -78,15 +78,16 @@
                 @endif
 
                 <div class="row bg-image" >
-                    <div class="col-12 mt-5">
+                    <div class="col-12 mt-3">
 
                          <p class="text-left text-white" style="font: normal normal bold 20px/27px Segoe UI;">
-                                    <strong>Detalles del Seguro De -</strong>
-                                    <strong style="color: #00d62e">{{$seguro->User->name}}</strong>
+                             <strong>Detalles del Seguro De -</strong>
+                             <strong style="color: #00d62e">{{$seguro->User->name}}</strong>
                          </p>
+
                         <label for="">
-                                     <p class="text-white"><strong>Seguro</strong></p>
-                                 </label>
+                            <p class="text-white"><strong>Seguro</strong></p>
+                        </label>
 
                                 {{--Datos para el calendario--}}
                         <div class="input-group form-group">
@@ -104,7 +105,7 @@
                                 <div class="input-group form-group">
                                     <div class="input-group-prepend " >
                                         <span class="input-group-text" >
-                                             <img class="" type="date" src="{{ asset('img/icon/white/seguro (1).png') }}" width="25px" >
+                                             <i class="fas fa-shield-alt icon-tc"></i>
                                         </span>
                                     </div>
 
@@ -133,40 +134,40 @@
 
                                 </div>
 
-                                 <label for="">
+                                 <label for="" class="mt-3">
                                      <p class="text-white"><strong>Fecha de expedici&oacute;n</strong></p>
                                  </label>
 
                                 <div class="input-group form-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">
-                                             <img class="" src="{{ asset('img/icon/white/calendario (1).png') }}" width="25px" >
+                                             <i class="far fa-calendar-plus icon-tc"></i>
                                         </span>
                                     </div>
                                      <input type="date" class="form-control" placeholder="MM/DD/YYY"  style="border-radius: 0  10px 10px 0;" id='fecha_expedicion' name="fecha_expedicion" value="{{$seguro->fecha_expedicion}}">
                                 </div>
 
-                                 <label for="">
+                                 <label for="" class="mt-3">
                                      <p class="text-white"><strong>Fecha de Vencimiento</strong></p>
                                  </label>
 
                                 <div class="input-group form-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">
-                                             <img class="" src="{{ asset('img/icon/white/calendario (5).png') }}" width="25px" >
+                                             <i class="far fa-calendar-minus icon-tc"></i>
                                         </span>
                                     </div>
                                      <input type="date" class="form-control" placeholder="MM/DD/YYY"  style="border-radius: 0  10px 10px 0;" id='end' name="end" value="{{$seguro->end}}">
                                 </div>
 
-                                 <label for="">
+                                 <label for="" class="mt-3">
                                      <p class="text-white"><strong>Tipo Cobertura</strong></p>
                                  </label>
 
                                 <div class="input-group form-group">
                                     <div class="input-group-prepend " >
                                         <span class="input-group-text" >
-                                             <img class="" type="date" src="{{ asset('img/icon/white/seguro (1).png') }}" width="25px" >
+                                             <i class="fas fa-shield-alt icon-tc"></i>
                                         </span>
                                     </div>
 
@@ -177,48 +178,49 @@
                                     </select>
                                 </div>
 
-                                 <label for="">
+                                 <label for="" class="mt-3">
                                      <p class="text-white"><strong>Costo</strong></p>
                                  </label>
 
                                 <div class="input-group form-group">
                                     <div class="input-group-prepend " >
                                         <span class="input-group-text" >
-                                             <img class="" src="{{ asset('img/icon/white/bolsa-de-dinero (1).png') }}" width="25px" >
+                                             <i class="fas fa-dollar-sign icon-tc"></i>
                                         </span>
                                     </div>
                                     <input type="number" class="form-control" placeholder="Costo" style="border-radius: 0  10px 10px 0;" id='costo' name="costo" value="{{$seguro->costo}}">
                                 </div>
 
-                                 <label for="">
+                                 <label for="" class="mt-3">
                                      <p class="text-white"><strong>Costo anual</strong></p>
                                  </label>
 
                                 <div class="input-group form-group">
                                     <div class="input-group-prepend " >
                                         <span class="input-group-text" >
-                                             <img class="" src="{{ asset('img/icon/white/presupuesto (1).png') }}" width="25px" >
+                                            <i class="fas fa-money-bill-alt icon-tc"></i>
                                         </span>
                                     </div>
                                     <input type="number" class="form-control" placeholder="$0000" style="border-radius: 0  10px 10px 0;" id='costo_anual' name="costo_anual" value="{{$seguro->costo_anual}}">
                                 </div>
 
-                                 <label for="">
+                                 <label for="" class="mt-3">
                                      <p class="text-white mt-3"><strong>Foto P&oacute;liza Seguro</strong></p>
                                  </label>
 
                                 <div class="col-12 text-center">
                                         <button type="button" class="btn" data-toggle="modal" data-target="#exampleModalpoliza" style="background: transparent !important;">
-                                            <img class="d-inline mb-2" src="{{ asset('img/icon/white/boton-circular-plus.png') }}" width="50px">
+                                           <i class="fas fa-plus-circle icon-tc-r" ></i>
                                         </button>
                                 </div>
 
-                            <div class="col-12 text-center mt-3 " style="margin-bottom: 8rem !important;">
-                                <button class="btn btn-lg btn-save-neon text-white">
-                                    <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}" width="20px" id="boton-descarga" onclick="ing();">
-                                    Actualizar
-                                </button>
-                            </div>
+                                <div class="col-12 text-center mt-3 " style="margin-bottom: 8rem !important;">
+                                    <button class="btn btn-lg btn-save-neon text-white">
+                                         <i class="fas fa-save icon-tc" ></i>
+                                        Actualizar
+                                    </button>
+                                </div>
+
                         </div>
 
                     </div>

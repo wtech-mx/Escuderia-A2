@@ -98,7 +98,7 @@ $newDate = date("d/m/Y", strtotime($originalDate));
                                     <div class="input-group form-group mb-5">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">
-                                                 <img class="" src="{{ asset('img/icon/white/coche (7).png') }}" width="25px" >
+                                                 <i class="fas fa-car icon-tc"></i>
                                             </span>
                                         </div>
 
@@ -115,7 +115,7 @@ $newDate = date("d/m/Y", strtotime($originalDate));
                                     <div class="input-group form-group mb-5">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">
-                                                 <img class="" src="{{ asset('img/icon/white/car-service (1).png') }}" width="25px" >
+                                                <i class="fas fa-bookmark icon-tc"></i>
                                             </span>
                                         </div>
                                         <input type="text" class="form-control"  value="{{$tarjeta_circulacion->Automovil->submarca}}" readonly>
@@ -132,7 +132,7 @@ $newDate = date("d/m/Y", strtotime($originalDate));
                                     <div class="input-group form-group mb-5">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">
-                                                 <img class="" src="{{ asset('img/icon/white/placa.png') }}" width="25px" >
+                                                  <i class="fas fa-keyboard icon-tc" ></i>
                                             </span>
                                         </div>
                                         <input type="text" class="form-control"  id="num_placa" name="num_placa" value="{{$tarjeta_circulacion->Automovil->placas}}" readonly>
@@ -147,7 +147,7 @@ $newDate = date("d/m/Y", strtotime($originalDate));
                                     <div class="input-group form-group mb-5">
                                         <div class="input-group-prepend " >
                                             <span class="input-group-text" >
-                                                 <img class="" src="{{ asset('img/icon/white/numeros.png') }}" width="25px" >
+                                                  <i class="fas fa-sort-numeric-up icon-tc"></i>
                                             </span>
                                         </div>
                                         <input type="text" class="form-control"  id="num_placa" name="num_placa" value="{{$tarjeta_circulacion->num_placa}}">
@@ -164,7 +164,7 @@ $newDate = date("d/m/Y", strtotime($originalDate));
                             <div class="input-group form-group mb-5">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">
-                                         <img class="" src="{{ asset('img/icon/white/calendario (5).png') }}" width="25px" >
+                                        <i class="fas fa-signature icon-tc"></i>
                                     </span>
                                 </div>
 
@@ -178,7 +178,7 @@ $newDate = date("d/m/Y", strtotime($originalDate));
                             <div class="input-group form-group mb-5">
                                 <div class="input-group-prepend " >
                                     <span class="input-group-text" >
-                                         <img class="" type="date" src="{{ asset('img/icon/white/seguro (1).png') }}" width="25px" >
+                                         <i class="fas fa-font icon-tc"></i>
                                     </span>
                                 </div>
 
@@ -202,7 +202,7 @@ $newDate = date("d/m/Y", strtotime($originalDate));
                             <div class="input-group form-group mb-5">
                                 <div class="input-group-prepend " >
                                     <span class="input-group-text" >
-                                         <img class="" type="date" src="{{ asset('img/icon/white/seguro (1).png') }}" width="25px" >
+                                        <i class="fas fa-user-shield icon-tc"></i>
                                     </span>
                                 </div>
                                 <select class="form-control" id="lugar_expedicion" name="lugar_expedicion" required>
@@ -218,7 +218,7 @@ $newDate = date("d/m/Y", strtotime($originalDate));
                             <div class="input-group form-group mb-5">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">
-                                         <img class="" src="{{ asset('img/icon/white/calendario (1).png') }}" width="25px" >
+                                         <i class="far fa-calendar-alt icon-tc"></i>
                                     </span>
                                 </div>
                                  <input type="date" class="form-control" name="fecha_emision" id="fecha_emision" placeholder="MM/YYYY" value="{{$tarjeta_circulacion->fecha_emision}}">
@@ -231,7 +231,7 @@ $newDate = date("d/m/Y", strtotime($originalDate));
                             <div class="input-group form-group mb-5">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">
-                                         <img class="" src="{{ asset('img/icon/white/calendario (5).png') }}" width="25px" >
+                                          <i class="far fa-calendar-alt icon-tc"></i>
                                     </span>
                                 </div>
                                  <input type="date" class="form-control" name="end" id="end" placeholder="MM/YYYY" value="{{$tarjeta_circulacion->end}}">
@@ -244,14 +244,14 @@ $newDate = date("d/m/Y", strtotime($originalDate));
                              <div class="col-12 mt-2">
                                  <div class="d-flex justify-content-center">
                                      <a type="button" class="btn ml-5" data-toggle="modal" data-target="#exampleModal" >
-                                         <img class="d-inline mb-2" src="{{ asset('img/icon/white/add.png') }}" width="30px">
+                                        <i class="fas fa-plus-circle icon-tc-r" ></i>
                                      </a>
                                  </div>
                             </div>
 
                             <div class="col-12 text-center mt-2" style="margin-bottom: 8rem !important;">
                                 <button class="btn btn-lg btn-save-neon text-white">
-                                    <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}" width="20px" >
+                                    <i class="fas fa-save icon-tc"></i>
                                     Actualizar
                                 </button>
                             </div>

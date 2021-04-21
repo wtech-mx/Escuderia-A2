@@ -77,7 +77,8 @@
                                 <div class="input-group form-group">
                                     <div class="input-group-prepend " >
                                         <span class="input-group-text span-edit-car">
-                                             <img class="" src="{{ asset('img/icon/black/proteger.png') }}" width="35px">
+                                                {{--<img class="" src="{{ asset('img/icon/black/proteger.png') }}" width="35px">--}}
+                                             <i class="fas fa-shield-alt icon-garaje" aria-hidden="true"></i>
                                              <a class="input-a-text">Marca</a>
                                         </span>
                                     </div>
@@ -95,7 +96,7 @@
                                 <div class="input-group form-group">
                                     <div class="input-group-prepend " >
                                         <span class="input-group-text span-edit-car">
-                                             <img class="" src="{{ asset('img/icon/black/proteger.png') }}" width="35px">
+                                              <i class="fas fa-shield-alt icon-garaje" aria-hidden="true"></i>
                                              <a class="input-a-text">Submarca</a>
                                         </span>
                                     </div>
@@ -107,7 +108,7 @@
                                 <div class="input-group form-group">
                                     <div class="input-group-prepend " >
                                         <span class="input-group-text span-edit-car">
-                                             <img class="" src="{{ asset('img/icon/black/coche (2).png') }}" width="35px">
+                                             <i class="fas fa-car icon-garaje"></i>
                                              <a class="input-a-text">Tipo</a>
                                         </span>
                                     </div>
@@ -119,7 +120,7 @@
                                 <div class="input-group form-group">
                                     <div class="input-group-prepend " >
                                         <span class="input-group-text span-edit-car">
-                                             <img class="" src="{{ asset('img/icon/black/coche (3).png') }}" width="35px">
+                                             <i class="fas fa-car icon-garaje"></i>
                                              <a class="input-a-text">Subtipo</a>
                                         </span>
                                     </div>
@@ -132,7 +133,7 @@
                                 <div class="input-group form-group">
                                     <div class="input-group-prepend " >
                                         <span class="input-group-text span-edit-car">
-                                             <img class="" src="{{ asset('img/icon/black/coche (3).png') }}" width="35px">
+                                              <i class="fas fa-car icon-garaje"></i>
                                              <a class="input-a-text">Kilometraje</a>
                                         </span>
                                     </div>
@@ -144,7 +145,7 @@
                                 <div class="input-group form-group">
                                     <div class="input-group-prepend " >
                                         <span class="input-group-text span-edit-car">
-                                             <img class="" src="{{ asset('img/icon/black/days.png') }}" width="35px">
+                                             <i class="far fa-calendar-alt icon-garaje"></i>
                                              <a class="input-a-text">Año</a>
                                         </span>
                                     </div>
@@ -156,7 +157,7 @@
                                 <div class="input-group form-group">
                                     <div class="input-group-prepend " >
                                         <span class="input-group-text span-edit-car">
-                                             <img class="" src="{{ asset('img/icon/black/barcode.png') }}" width="35px">
+                                             <i class="fas fa-barcode icon-garaje"></i>
                                              <a class="input-a-text">Num Serie</a>
                                         </span>
                                     </div>
@@ -180,7 +181,7 @@
                                 <div class="input-group form-group">
                                     <div class="input-group-prepend " >
                                         <span class="input-group-text span-edit-car">
-                                             <img class="" src="{{ asset('img/icon/black/color-palette.png') }}" width="35px">
+                                             <i class="fas fa-palette icon-garaje"></i>
                                              <a class="input-a-text">Color</a>
                                         </span>
                                     </div>
@@ -192,7 +193,7 @@
                             <div class="input-group form-group">
                                 <div class="input-group-prepend " >
                                     <span class="input-group-text span-edit-car">
-                                         <img class="" src="{{ asset('img/icon/black/camara-fotografica.png') }}" width="35px">
+                                         <i class="far fa-images icon-garaje"></i>
                                          <a class="input-a-text">Foto</a>
                                     </span>
                                 </div>
@@ -225,8 +226,8 @@
                                         <div class="col-9">
                                             <div class="input-group form-group">
                                                 <div class="input-group-prepend " >
-                                                    <span class="input-group-text input-vinculacion" >
-                                                         <img class="" src="{{ asset('img/icon/white/edificio-de-oficinas.png') }}" width="25px" >
+                                                    <span class="input-group-text input-vinculacion" style="background-color: #FFFFFF;border-radius: 10px 0px 0px 10px;">
+                                                         <i class="fas fa-building" style="font-size: 30px"></i>
                                                     </span>
                                                 </div>
 
@@ -242,7 +243,7 @@
                                         <div class="col-3">
                                              <!-- Button trigger modal -->
                                             <a  class="btn btn-circel" data-toggle="modal" data-target="#empresa">
-                                                <img class="" src="{{ asset('img/icon/black/boton-circular-plus (1).png') }}" width="25px" >
+                                                 <i class="fas fa-plus-circle icon-plus-effect" ></i>
                                             </a>
                                         </div>
 
@@ -257,8 +258,8 @@
                                         <div class="col-9">
                                              <div class="input-group form-group">
                                                  <div class="input-group-prepend">
-                                                     <span class="input-group-text input-vinculacion" >
-                                                          <img class="" src="{{ asset('img/icon/white/hombre (1).png') }}" width="25px" >
+                                                     <span class="input-group-text input-vinculacion" style="background-color: #FFFFFF;border-radius: 10px 0px 0px 10px;">
+                                                           <i class="fas fa-user" style="font-size: 30px"></i>
                                                      </span>
                                                  </div>
 
@@ -274,14 +275,14 @@
 
                                         <div class="col-3">
                                             <a  class="btn btn-circel" data-toggle="modal" data-target="#persona">
-                                                <img class="" src="{{ asset('img/icon/black/boton-circular-plus (1).png') }}" width="25px" >
+                                                <i class="fas fa-plus-circle icon-plus-effect" ></i>
                                             </a>
                                         </div>
 
                                     </div>
 
                                      <button type="submit" class="btn btn-lg btn-save-dark text-white mt-5" style="margin-bottom: 8rem !important;">
-                                           <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}" width="20px" >
+                                           <i class="fas fa-save icon-save"></i>
                                                 Actualizar
                                      </button>
                               </div>
