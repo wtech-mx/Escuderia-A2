@@ -51,16 +51,15 @@ class ExplacasController extends Controller
         if ($request->hasFile('placa')) {
 
     	    $file=$request->file("placa");
-            list($width, $height) = getimagesize($file);
+            list($width) = getimagesize($file);
 
     	    $nombre = "pdf_".time().".".$file->guessExtension();
     	    $ruta = public_path("/exp-placa/".$nombre);
 
-    	    if($width>1920 || $height>1080){
+    	    if($width>1920){
                 if($file->guessExtension()=="pdf"){
                     copy($file, $ruta);
                     $exp_placas->placa = $nombre;
-
                 }else {
                     $urlfoto = $request->file('placa');
                     $nombre = time() . "." . $urlfoto->guessExtension();
@@ -70,23 +69,28 @@ class ExplacasController extends Controller
                     $exp_placas->placa = $compresion->basename;
                 }
             }else{
+                if($file->guessExtension()=="pdf"){
+                    copy($file, $ruta);
+                    $exp_placas->placa = $nombre;
+                }else {
                     $urlfoto = $request->file('placa');
                     $nombre = time() . "." . $urlfoto->guessExtension();
                     $ruta = public_path('/exp-placa/' . $nombre);
 
-                  switch($width ){
-                      case($width<=576):
-                        $compresion = Image::make($urlfoto->getRealPath())
-                            ->save($ruta);
-                        $exp_placas->placa = $compresion->basename;
-                      break;
-                      case($width>=577):
-                          $compresion = Image::make($urlfoto->getRealPath())
+                    switch ($width) {
+                        case($width <= 750):
+                            $compresion = Image::make($urlfoto->getRealPath())
+                                ->save($ruta);
+                            $exp_placas->placa = $compresion->basename;
+                            break;
+                        case($width >= 751):
+                            $compresion = Image::make($urlfoto->getRealPath())
                                 ->rotate(270)
                                 ->save($ruta);
                             $exp_placas->placa = $compresion->basename;
-                      break;
-                   }
+                            break;
+                    }
+                }
             }
    	    }
 
@@ -142,16 +146,15 @@ class ExplacasController extends Controller
         if ($request->hasFile('placa')) {
 
     	    $file=$request->file("placa");
-            list($width, $height) = getimagesize($file);
+            list($width) = getimagesize($file);
 
     	    $nombre = "pdf_".time().".".$file->guessExtension();
     	    $ruta = public_path("/exp-placa/".$nombre);
 
-    	    if($width>1920 || $height>1080){
+    	    if($width>1920){
                 if($file->guessExtension()=="pdf"){
                     copy($file, $ruta);
                     $exp->placa = $nombre;
-
                 }else {
                     $urlfoto = $request->file('placa');
                     $nombre = time() . "." . $urlfoto->guessExtension();
@@ -161,23 +164,28 @@ class ExplacasController extends Controller
                     $exp->placa = $compresion->basename;
                 }
             }else{
+                if($file->guessExtension()=="pdf"){
+                    copy($file, $ruta);
+                    $exp->placa = $nombre;
+                }else {
                     $urlfoto = $request->file('placa');
                     $nombre = time() . "." . $urlfoto->guessExtension();
                     $ruta = public_path('/exp-placa/' . $nombre);
 
-                  switch($width ){
-                      case($width<=576):
-                        $compresion = Image::make($urlfoto->getRealPath())
-                            ->save($ruta);
-                        $exp->placa = $compresion->basename;
-                      break;
-                      case($width>=577):
-                          $compresion = Image::make($urlfoto->getRealPath())
+                    switch ($width) {
+                        case($width <= 750):
+                            $compresion = Image::make($urlfoto->getRealPath())
+                                ->save($ruta);
+                            $exp->placa = $compresion->basename;
+                            break;
+                        case($width >= 751):
+                            $compresion = Image::make($urlfoto->getRealPath())
                                 ->rotate(270)
                                 ->save($ruta);
                             $exp->placa = $compresion->basename;
-                      break;
-                   }
+                            break;
+                    }
+                }
             }
    	    }
     	/* Compara el auto que se selecciono con la db */

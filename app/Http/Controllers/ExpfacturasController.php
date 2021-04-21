@@ -69,12 +69,12 @@ class ExpfacturasController extends Controller
         if ($request->hasFile('factura')) {
 
     	    $file=$request->file("factura");
-            list($width, $height) = getimagesize($file);
+            list($width) = getimagesize($file);
 
     	    $nombre = "pdf_".time().".".$file->guessExtension();
     	    $ruta = public_path("/exp-factura/".$nombre);
 
-    	    if($width>1920 || $height>1080){
+    	    if($width>1920){
                 if($file->guessExtension()=="pdf"){
                     copy($file, $ruta);
                     $exp_factura->factura = $nombre;
@@ -88,23 +88,28 @@ class ExpfacturasController extends Controller
                     $exp_factura->factura = $compresion->basename;
                 }
             }else{
+                if($file->guessExtension()=="pdf"){
+                    copy($file, $ruta);
+                    $exp_factura->factura = $nombre;
+                }else {
                     $urlfoto = $request->file('factura');
                     $nombre = time() . "." . $urlfoto->guessExtension();
                     $ruta = public_path('/exp-factura/' . $nombre);
 
-                  switch($width ){
-                      case($width<=576):
-                        $compresion = Image::make($urlfoto->getRealPath())
-                            ->save($ruta);
-                        $exp_factura->factura = $compresion->basename;
-                      break;
-                      case($width>=577):
-                          $compresion = Image::make($urlfoto->getRealPath())
+                    switch ($width) {
+                        case($width <= 750):
+                            $compresion = Image::make($urlfoto->getRealPath())
+                                ->save($ruta);
+                            $exp_factura->factura = $compresion->basename;
+                            break;
+                        case($width >= 751):
+                            $compresion = Image::make($urlfoto->getRealPath())
                                 ->rotate(270)
                                 ->save($ruta);
                             $exp_factura->factura = $compresion->basename;
-                      break;
-                   }
+                            break;
+                    }
+                }
             }
      	}
 
@@ -183,7 +188,7 @@ class ExpfacturasController extends Controller
                           'placas', 'placas2', 'ine', 'ine2', 'comprobante', 'comprobante2', 'certificado', 'certificado2', 'rfc', 'rfc2'));
     }
 
-        public function create_admin($id)
+     public function create_admin($id)
     {
         /* Trae los datos el auto en el que esta */
         $automovil = DB::table('automovil')
@@ -211,16 +216,15 @@ class ExpfacturasController extends Controller
     	if ($request->hasFile('factura')) {
 
     	    $file=$request->file("factura");
-            list($width, $height) = getimagesize($file);
+            list($width) = getimagesize($file);
 
     	    $nombre = "pdf_".time().".".$file->guessExtension();
     	    $ruta = public_path("/exp-factura/".$nombre);
 
-    	    if($width>1920 || $height>1080){
+    	    if($width>1920){
                 if($file->guessExtension()=="pdf"){
                     copy($file, $ruta);
                     $exp->factura = $nombre;
-
                 }else {
                     $urlfoto = $request->file('factura');
                     $nombre = time() . "." . $urlfoto->guessExtension();
@@ -230,23 +234,28 @@ class ExpfacturasController extends Controller
                     $exp->factura = $compresion->basename;
                 }
             }else{
+                if($file->guessExtension()=="pdf"){
+                    copy($file, $ruta);
+                    $exp->factura = $nombre;
+                }else {
                     $urlfoto = $request->file('factura');
                     $nombre = time() . "." . $urlfoto->guessExtension();
                     $ruta = public_path('/exp-factura/' . $nombre);
 
-                  switch($width ){
-                      case($width<=576):
-                        $compresion = Image::make($urlfoto->getRealPath())
-                            ->save($ruta);
-                        $exp->factura = $compresion->basename;
-                      break;
-                      case($width>=577):
-                          $compresion = Image::make($urlfoto->getRealPath())
+                    switch ($width) {
+                        case($width <= 750):
+                            $compresion = Image::make($urlfoto->getRealPath())
+                                ->save($ruta);
+                            $exp->factura = $compresion->basename;
+                            break;
+                        case($width >= 751):
+                            $compresion = Image::make($urlfoto->getRealPath())
                                 ->rotate(270)
                                 ->save($ruta);
                             $exp->factura = $compresion->basename;
-                      break;
-                   }
+                            break;
+                    }
+                }
             }
    	}
 
