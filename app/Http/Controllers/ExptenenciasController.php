@@ -66,7 +66,7 @@ class ExptenenciasController extends Controller
                     $nombre = time() . "." . $urlfoto->guessExtension();
                     $ruta = public_path('/exp-tenencia/' . $nombre);
                     $compresion = Image::make($urlfoto->getRealPath())
-                        ->save($ruta, 10);
+                        ->save($ruta, 80);
                     $exp_tenencias->tenencia = $compresion->basename;
                 }
             }else{
@@ -144,7 +144,7 @@ class ExptenenciasController extends Controller
                     $nombre = time() . "." . $urlfoto->guessExtension();
                     $ruta = public_path('/exp-tenencia/' . $nombre);
                     $compresion = Image::make($urlfoto->getRealPath())
-                        ->save($ruta, 10);
+                        ->save($ruta, 80);
                     $exp->tenencia = $compresion->basename;
                 }
             }else{

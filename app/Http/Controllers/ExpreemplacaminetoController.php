@@ -88,7 +88,7 @@ class ExpreemplacaminetoController extends Controller
                     $nombre = time() . "." . $urlfoto->guessExtension();
                     $ruta = public_path('/exp-reemplacamiento/' . $nombre);
                     $compresion = Image::make($urlfoto->getRealPath())
-                        ->save($ruta, 10);
+                        ->save($ruta, 80);
                     $exp_reemplacamiento->reemplacamiento = $compresion->basename;
                 }
             }else{
@@ -186,7 +186,7 @@ class ExpreemplacaminetoController extends Controller
                     $nombre = time() . "." . $urlfoto->guessExtension();
                     $ruta = public_path('/exp-reemplacamiento/' . $nombre);
                     $compresion = Image::make($urlfoto->getRealPath())
-                        ->save($ruta, 10);
+                        ->save($ruta, 80);
                     $exp->reemplacamiento = $compresion->basename;
                 }
             }else{

@@ -66,7 +66,7 @@ class ExplacasController extends Controller
                     $nombre = time() . "." . $urlfoto->guessExtension();
                     $ruta = public_path('/exp-placa/' . $nombre);
                     $compresion = Image::make($urlfoto->getRealPath())
-                        ->save($ruta, 10);
+                        ->save($ruta, 80);
                     $exp_placas->placa = $compresion->basename;
                 }
             }else{
@@ -157,7 +157,7 @@ class ExplacasController extends Controller
                     $nombre = time() . "." . $urlfoto->guessExtension();
                     $ruta = public_path('/exp-placa/' . $nombre);
                     $compresion = Image::make($urlfoto->getRealPath())
-                        ->save($ruta, 10);
+                        ->save($ruta, 80);
                     $exp->placa = $compresion->basename;
                 }
             }else{

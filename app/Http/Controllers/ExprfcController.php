@@ -66,7 +66,7 @@ class ExprfcController extends Controller
                     $nombre = time() . "." . $urlfoto->guessExtension();
                     $ruta = public_path('/exp-rfc/' . $nombre);
                     $compresion = Image::make($urlfoto->getRealPath())
-                        ->save($ruta, 10);
+                        ->save($ruta, 80);
                     $exp_rfc->rfc = $compresion->basename;
                 }
             }else{
@@ -144,7 +144,7 @@ class ExprfcController extends Controller
                     $nombre = time() . "." . $urlfoto->guessExtension();
                     $ruta = public_path('/exp-rfc/' . $nombre);
                     $compresion = Image::make($urlfoto->getRealPath())
-                        ->save($ruta, 10);
+                        ->save($ruta, 80);
                     $exp->rfc = $compresion->basename;
                 }
             }else{

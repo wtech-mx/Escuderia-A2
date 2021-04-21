@@ -74,7 +74,7 @@ class ExptcController extends Controller
                     $nombre = time() . "." . $urlfoto->guessExtension();
                     $ruta = public_path('/exp-tc/' . $nombre);
                     $compresion = Image::make($urlfoto->getRealPath())
-                        ->save($ruta, 10);
+                        ->save($ruta, 80);
                     $exp_tc->tc = $compresion->basename;
                 }
             }else{
@@ -157,7 +157,7 @@ class ExptcController extends Controller
                     $nombre = time() . "." . $urlfoto->guessExtension();
                     $ruta = public_path('/exp-tc/' . $nombre);
                     $compresion = Image::make($urlfoto->getRealPath())
-                        ->save($ruta, 10);
+                        ->save($ruta, 80);
                     $exp->tc = $compresion->basename;
                 }
             }else{

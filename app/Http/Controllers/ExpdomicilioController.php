@@ -67,7 +67,7 @@ class ExpdomicilioController extends Controller
                     $nombre = time() . "." . $urlfoto->guessExtension();
                     $ruta = public_path('/exp-domicilio/' . $nombre);
                     $compresion = Image::make($urlfoto->getRealPath())
-                        ->save($ruta, 10);
+                        ->save($ruta, 80);
                     $exp_domicilio->domicilio = $compresion->basename;
                 }
             }else{
@@ -144,7 +144,7 @@ class ExpdomicilioController extends Controller
                     $nombre = time() . "." . $urlfoto->guessExtension();
                     $ruta = public_path('/exp-domicilio/' . $nombre);
                     $compresion = Image::make($urlfoto->getRealPath())
-                        ->save($ruta, 10);
+                        ->save($ruta, 80);
                     $exp->domicilio = $compresion->basename;
                 }
             }else{
