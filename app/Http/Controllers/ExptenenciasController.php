@@ -47,27 +47,48 @@ class ExptenenciasController extends Controller
 
         $exp_tenencias = new ExpTenencias;
         $exp_tenencias->titulo = $request->get('titulo');
-    	if ($request->hasFile('tenencia')) {
+
+        if ($request->hasFile('tenencia')) {
 
     	    $file=$request->file("tenencia");
+            list($width, $height) = getimagesize($file);
 
     	    $nombre = "pdf_".time().".".$file->guessExtension();
     	    $ruta = public_path("/exp-tenencia/".$nombre);
 
-            if($file->guessExtension()=="pdf"){
-                copy($file, $ruta);
-                $exp_tenencias->tenencia = $nombre;
-            }else {
+    	    if($width>1920 || $height>1080){
+                if($file->guessExtension()=="pdf"){
+                    copy($file, $ruta);
+                    $exp_tenencias->tenencia = $nombre;
 
-                $urlfoto = $request->file('tenencia');
-                $nombre = time() . "." . $urlfoto->guessExtension();
-                $ruta = public_path('/exp-tenencia/' . $nombre);
-                $compresion = Image::make($urlfoto->getRealPath())
-                    ->save($ruta, 10);
-                $exp_tenencias->tenencia = $compresion->basename;
+                }else {
+                    $urlfoto = $request->file('tenencia');
+                    $nombre = time() . "." . $urlfoto->guessExtension();
+                    $ruta = public_path('/exp-tenencia/' . $nombre);
+                    $compresion = Image::make($urlfoto->getRealPath())
+                        ->save($ruta, 10);
+                    $exp_tenencias->tenencia = $compresion->basename;
+                }
+            }else{
+                    $urlfoto = $request->file('tenencia');
+                    $nombre = time() . "." . $urlfoto->guessExtension();
+                    $ruta = public_path('/exp-tenencia/' . $nombre);
+
+                  switch($width ){
+                      case($width<=576):
+                        $compresion = Image::make($urlfoto->getRealPath())
+                            ->save($ruta);
+                        $exp_tenencias->tenencia = $compresion->basename;
+                      break;
+                      case($width>=577):
+                          $compresion = Image::make($urlfoto->getRealPath())
+                                ->rotate(270)
+                                ->save($ruta);
+                            $exp_tenencias->tenencia = $compresion->basename;
+                      break;
+                   }
             }
-   	}
-
+   	    }
 
         $exp_tenencias->id_user = auth()->user()->id;
     	$exp_tenencias->current_auto = auth()->user()->current_auto;
@@ -79,7 +100,7 @@ class ExptenenciasController extends Controller
         return redirect()->route('index.exp-tenencias', compact('exp_tenencias'));
     }
 
-        public function create_admin($id)
+    public function create_admin($id)
     {
         /* Trae los datos el auto en el que esta */
         $automovil = DB::table('automovil')
@@ -104,30 +125,48 @@ class ExptenenciasController extends Controller
 
         $exp = new ExpTenencias;
         $exp->titulo = $request->get('titulo');
-    	if ($request->hasFile('tenencia')) {
+
+        if ($request->hasFile('tenencia')) {
 
     	    $file=$request->file("tenencia");
+            list($width, $height) = getimagesize($file);
 
     	    $nombre = "pdf_".time().".".$file->guessExtension();
     	    $ruta = public_path("/exp-tenencia/".$nombre);
 
-            if($file->guessExtension()=="pdf"){
-                copy($file, $ruta);
-                $exp->tenencia = $nombre;
-            }else {
+    	    if($width>1920 || $height>1080){
+                if($file->guessExtension()=="pdf"){
+                    copy($file, $ruta);
+                    $exp->tenencia = $nombre;
 
-                $urlfoto = $request->file('tenencia');
-                $nombre = time() . "." . $urlfoto->guessExtension();
-                $ruta = public_path('/exp-tenencia/' . $nombre);
-                $compresion = Image::make($urlfoto->getRealPath())
-                    ->save($ruta, 10);
-                $exp->tenencia = $compresion->basename;
+                }else {
+                    $urlfoto = $request->file('tenencia');
+                    $nombre = time() . "." . $urlfoto->guessExtension();
+                    $ruta = public_path('/exp-tenencia/' . $nombre);
+                    $compresion = Image::make($urlfoto->getRealPath())
+                        ->save($ruta, 10);
+                    $exp->tenencia = $compresion->basename;
+                }
+            }else{
+                    $urlfoto = $request->file('tenencia');
+                    $nombre = time() . "." . $urlfoto->guessExtension();
+                    $ruta = public_path('/exp-tenencia/' . $nombre);
+
+                  switch($width ){
+                      case($width<=576):
+                        $compresion = Image::make($urlfoto->getRealPath())
+                            ->save($ruta);
+                        $exp->tenencia = $compresion->basename;
+                      break;
+                      case($width>=577):
+                          $compresion = Image::make($urlfoto->getRealPath())
+                                ->rotate(270)
+                                ->save($ruta);
+                            $exp->tenencia = $compresion->basename;
+                      break;
+                   }
             }
-   	}
-
-
-//    	$exp->fecha_expedicion = $request->get('fecha_expedicion');
-
+   	    }
     	/* Compara el auto que se selecciono con la db */
         $automovil = DB::table('automovil')
         ->where('id','=',$id)

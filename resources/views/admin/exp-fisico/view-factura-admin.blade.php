@@ -122,7 +122,7 @@
                                           <div class="d-flex align-items-center">
                                               <div class="col-11">
                                                   <p class="text-center">
-                                                      <img class="" src="{{asset('exp-factura/'.$item->factura)}}" alt="{{$item->factura}}" style="height: 300px!important;">
+                                                      <img src="{{asset('exp-factura/'.$item->factura)}}" alt="{{$item->factura}}" style="height: 300px!important;">
                                                   </p>
                                               </div>
                                               <div class="col-1">
@@ -227,7 +227,9 @@
                             </div>
                           </div>
                         </div>
+     </div>
 
-                    </div>
 
 @endsection
+
+

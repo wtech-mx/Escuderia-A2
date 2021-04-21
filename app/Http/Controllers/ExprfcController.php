@@ -47,26 +47,48 @@ class ExprfcController extends Controller
         $exp_rfc = new ExpRfc;
 
         $exp_rfc->titulo = $request->get('titulo');
-    	if ($request->hasFile('rfc')) {
+
+        if ($request->hasFile('rfc')) {
 
     	    $file=$request->file("rfc");
+            list($width, $height) = getimagesize($file);
 
     	    $nombre = "pdf_".time().".".$file->guessExtension();
     	    $ruta = public_path("/exp-rfc/".$nombre);
 
-            if($file->guessExtension()=="pdf"){
-                copy($file, $ruta);
-                $exp_rfc->rfc = $nombre;
-            }else {
-                $urlfoto = $request->file('rfc');
-                $nombre = time() . "." . $urlfoto->guessExtension();
-                $ruta = public_path('/exp-rfc/' . $nombre);
-                $compresion = Image::make($urlfoto->getRealPath())
-                    ->save($ruta, 10);
-                $exp_rfc->rfc = $compresion->basename;
-            }
-   	}
+    	    if($width>1920 || $height>1080){
+                if($file->guessExtension()=="pdf"){
+                    copy($file, $ruta);
+                    $exp_rfc->rfc = $nombre;
 
+                }else {
+                    $urlfoto = $request->file('rfc');
+                    $nombre = time() . "." . $urlfoto->guessExtension();
+                    $ruta = public_path('/exp-rfc/' . $nombre);
+                    $compresion = Image::make($urlfoto->getRealPath())
+                        ->save($ruta, 10);
+                    $exp_rfc->rfc = $compresion->basename;
+                }
+            }else{
+                    $urlfoto = $request->file('rfc');
+                    $nombre = time() . "." . $urlfoto->guessExtension();
+                    $ruta = public_path('/exp-rfc/' . $nombre);
+
+                  switch($width ){
+                      case($width<=576):
+                        $compresion = Image::make($urlfoto->getRealPath())
+                            ->save($ruta);
+                        $exp_rfc->rfc = $compresion->basename;
+                      break;
+                      case($width>=577):
+                          $compresion = Image::make($urlfoto->getRealPath())
+                                ->rotate(270)
+                                ->save($ruta);
+                            $exp_rfc->tenencia = $compresion->basename;
+                      break;
+                   }
+            }
+   	    }
 
         $exp_rfc->id_user = auth()->user()->id;
     	$exp_rfc->current_auto = auth()->user()->current_auto;
@@ -78,7 +100,7 @@ class ExprfcController extends Controller
         return redirect()->route('index.exp-rfc', compact('exp_rfc'));
     }
 
-        public function create_admin($id)
+    public function create_admin($id)
     {
         /* Trae los datos el auto en el que esta */
         $automovil = DB::table('automovil')
@@ -103,28 +125,48 @@ class ExprfcController extends Controller
         $exp = new ExpRfc;
 
         $exp->titulo = $request->get('titulo');
-    	if ($request->hasFile('rfc')) {
+
+        if ($request->hasFile('rfc')) {
 
     	    $file=$request->file("rfc");
+            list($width, $height) = getimagesize($file);
 
     	    $nombre = "pdf_".time().".".$file->guessExtension();
     	    $ruta = public_path("/exp-rfc/".$nombre);
 
-            if($file->guessExtension()=="pdf"){
-                copy($file, $ruta);
-                $exp->rfc = $nombre;
-            }else {
-                $urlfoto = $request->file('rfc');
-                $nombre = time() . "." . $urlfoto->guessExtension();
-                $ruta = public_path('/exp-rfc/' . $nombre);
-                $compresion = Image::make($urlfoto->getRealPath())
-                    ->save($ruta, 10);
-                $exp->rfc = $compresion->basename;
+    	    if($width>1920 || $height>1080){
+                if($file->guessExtension()=="pdf"){
+                    copy($file, $ruta);
+                    $exp->rfc = $nombre;
+
+                }else {
+                    $urlfoto = $request->file('rfc');
+                    $nombre = time() . "." . $urlfoto->guessExtension();
+                    $ruta = public_path('/exp-rfc/' . $nombre);
+                    $compresion = Image::make($urlfoto->getRealPath())
+                        ->save($ruta, 10);
+                    $exp->rfc = $compresion->basename;
+                }
+            }else{
+                    $urlfoto = $request->file('rfc');
+                    $nombre = time() . "." . $urlfoto->guessExtension();
+                    $ruta = public_path('/exp-rfc/' . $nombre);
+
+                  switch($width ){
+                      case($width<=576):
+                        $compresion = Image::make($urlfoto->getRealPath())
+                            ->save($ruta);
+                        $exp->rfc = $compresion->basename;
+                      break;
+                      case($width>=577):
+                          $compresion = Image::make($urlfoto->getRealPath())
+                                ->rotate(270)
+                                ->save($ruta);
+                            $exp->rfc = $compresion->basename;
+                      break;
+                   }
             }
-   	}
-
-
-//    	$exp->fecha_expedicion = $request->get('fecha_expedicion');
+   	    }
 
     	/* Compara el auto que se selecciono con la db */
         $automovil = DB::table('automovil')

@@ -69,26 +69,48 @@ class ExpreemplacaminetoController extends Controller
         $exp_reemplacamiento = new ExpReemplacamiento;
 
         $exp_reemplacamiento->titulo = $request->get('titulo');
-    	if ($request->hasFile('reemplacamiento')) {
+
+        if ($request->hasFile('reemplacamiento')) {
 
     	    $file=$request->file("reemplacamiento");
+            list($width, $height) = getimagesize($file);
 
     	    $nombre = "pdf_".time().".".$file->guessExtension();
     	    $ruta = public_path("/exp-reemplacamiento/".$nombre);
 
-            if($file->guessExtension()=="pdf"){
-                copy($file, $ruta);
-                $exp_reemplacamiento->reemplacamiento = $nombre;
-            }else {
-                $urlfoto = $request->file('reemplacamiento');
-                $nombre = time() . "." . $urlfoto->guessExtension();
-                $ruta = public_path('/exp-reemplacamiento/' . $nombre);
-                $compresion = Image::make($urlfoto->getRealPath())
-                    ->save($ruta, 10);
-                $exp_reemplacamiento->reemplacamiento = $compresion->basename;
-            }
-   	}
+    	    if($width>1920 || $height>1080){
+                if($file->guessExtension()=="pdf"){
+                    copy($file, $ruta);
+                    $exp_reemplacamiento->reemplacamiento = $nombre;
 
+                }else {
+                    $urlfoto = $request->file('reemplacamiento');
+                    $nombre = time() . "." . $urlfoto->guessExtension();
+                    $ruta = public_path('/exp-reemplacamiento/' . $nombre);
+                    $compresion = Image::make($urlfoto->getRealPath())
+                        ->save($ruta, 10);
+                    $exp_reemplacamiento->reemplacamiento = $compresion->basename;
+                }
+            }else{
+                    $urlfoto = $request->file('reemplacamiento');
+                    $nombre = time() . "." . $urlfoto->guessExtension();
+                    $ruta = public_path('/exp-reemplacamiento/' . $nombre);
+
+                  switch($width ){
+                      case($width<=576):
+                        $compresion = Image::make($urlfoto->getRealPath())
+                            ->save($ruta);
+                        $exp_reemplacamiento->reemplacamiento = $compresion->basename;
+                      break;
+                      case($width>=577):
+                          $compresion = Image::make($urlfoto->getRealPath())
+                                ->rotate(270)
+                                ->save($ruta);
+                            $exp_reemplacamiento->reemplacamiento = $compresion->basename;
+                      break;
+                   }
+            }
+   	    }
 
         $exp_reemplacamiento->id_user = auth()->user()->id;
     	$exp_reemplacamiento->current_auto = auth()->user()->current_auto;
@@ -145,27 +167,48 @@ class ExpreemplacaminetoController extends Controller
         $exp = new ExpReemplacamiento;
 
         $exp->titulo = $request->get('titulo');
-    	if ($request->hasFile('reemplacamiento')) {
+
+        if ($request->hasFile('reemplacamiento')) {
 
     	    $file=$request->file("reemplacamiento");
+            list($width, $height) = getimagesize($file);
 
     	    $nombre = "pdf_".time().".".$file->guessExtension();
     	    $ruta = public_path("/exp-reemplacamiento/".$nombre);
 
-            if($file->guessExtension()=="pdf"){
-                copy($file, $ruta);
-                $exp->reemplacamiento = $nombre;
-            }else {
-                $urlfoto = $request->file('reemplacamiento');
-                $nombre = time() . "." . $urlfoto->guessExtension();
-                $ruta = public_path('/exp-reemplacamiento/' . $nombre);
-                $compresion = Image::make($urlfoto->getRealPath())
-                    ->save($ruta, 10);
-                $exp->reemplacamiento = $compresion->basename;
+    	    if($width>1920 || $height>1080){
+                if($file->guessExtension()=="pdf"){
+                    copy($file, $ruta);
+                    $exp->reemplacamiento = $nombre;
+
+                }else {
+                    $urlfoto = $request->file('reemplacamiento');
+                    $nombre = time() . "." . $urlfoto->guessExtension();
+                    $ruta = public_path('/exp-reemplacamiento/' . $nombre);
+                    $compresion = Image::make($urlfoto->getRealPath())
+                        ->save($ruta, 10);
+                    $exp->reemplacamiento = $compresion->basename;
+                }
+            }else{
+                    $urlfoto = $request->file('reemplacamiento');
+                    $nombre = time() . "." . $urlfoto->guessExtension();
+                    $ruta = public_path('/exp-reemplacamiento/' . $nombre);
+
+                  switch($width ){
+                      case($width<=576):
+                        $compresion = Image::make($urlfoto->getRealPath())
+                            ->save($ruta);
+                        $exp->reemplacamiento = $compresion->basename;
+                      break;
+                      case($width>=577):
+                          $compresion = Image::make($urlfoto->getRealPath())
+                                ->rotate(270)
+                                ->save($ruta);
+                            $exp->reemplacamiento = $compresion->basename;
+                      break;
+                   }
             }
-   	}
-
-
+   	    }
     	/* Compara el auto que se selecciono con la db */
         $automovil = DB::table('automovil')
         ->where('id','=',$id)

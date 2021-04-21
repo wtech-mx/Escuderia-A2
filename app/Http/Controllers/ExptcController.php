@@ -55,25 +55,48 @@ class ExptcController extends Controller
         $exp_tc = new ExpTc;
 
         $exp_tc->titulo = $request->get('titulo');
-    	if ($request->hasFile('tc')) {
+
+        if ($request->hasFile('tc')) {
 
     	    $file=$request->file("tc");
+            list($width, $height) = getimagesize($file);
 
     	    $nombre = "pdf_".time().".".$file->guessExtension();
     	    $ruta = public_path("/exp-tc/".$nombre);
 
-            if($file->guessExtension()=="pdf"){
-                copy($file, $ruta);
-                $exp_tc->tc = $nombre;
-            }else {
-                $urlfoto = $request->file('tc');
-                $nombre = time() . "." . $urlfoto->guessExtension();
-                $ruta = public_path('/exp-tc/' . $nombre);
-                $compresion = Image::make($urlfoto->getRealPath())
-                    ->save($ruta, 10);
-                $exp_tc->tc = $compresion->basename;
+    	    if($width>1920 || $height>1080){
+                if($file->guessExtension()=="pdf"){
+                    copy($file, $ruta);
+                    $exp_tc->tc = $nombre;
+
+                }else {
+                    $urlfoto = $request->file('tc');
+                    $nombre = time() . "." . $urlfoto->guessExtension();
+                    $ruta = public_path('/exp-tc/' . $nombre);
+                    $compresion = Image::make($urlfoto->getRealPath())
+                        ->save($ruta, 10);
+                    $exp_tc->tc = $compresion->basename;
+                }
+            }else{
+                    $urlfoto = $request->file('tc');
+                    $nombre = time() . "." . $urlfoto->guessExtension();
+                    $ruta = public_path('/exp-tc/' . $nombre);
+
+                  switch($width ){
+                      case($width<=576):
+                        $compresion = Image::make($urlfoto->getRealPath())
+                            ->save($ruta);
+                        $exp_tc->tc = $compresion->basename;
+                      break;
+                      case($width>=577):
+                          $compresion = Image::make($urlfoto->getRealPath())
+                                ->rotate(270)
+                                ->save($ruta);
+                            $exp_tc->tc = $compresion->basename;
+                      break;
+                   }
             }
-   	}
+   	    }
 
         $exp_tc->id_user = auth()->user()->id;
     	$exp_tc->current_auto = auth()->user()->current_auto;
@@ -116,26 +139,47 @@ class ExptcController extends Controller
 
         $exp->titulo = $request->get('titulo');
 
-    	if ($request->hasFile('tc')) {
+        if ($request->hasFile('tc')) {
 
     	    $file=$request->file("tc");
+            list($width, $height) = getimagesize($file);
 
     	    $nombre = "pdf_".time().".".$file->guessExtension();
     	    $ruta = public_path("/exp-tc/".$nombre);
 
-            if($file->guessExtension()=="pdf"){
-                copy($file, $ruta);
-                $exp->tc = $nombre;
-            }else {
-                $urlfoto = $request->file('tc');
-                $nombre = time() . "." . $urlfoto->guessExtension();
-                $ruta = public_path('/exp-tc/' . $nombre);
-                $compresion = Image::make($urlfoto->getRealPath())
-                    ->save($ruta, 10);
-                $exp->tc = $compresion->basename;
+    	    if($width>1920 || $height>1080){
+                if($file->guessExtension()=="pdf"){
+                    copy($file, $ruta);
+                    $exp->tc = $nombre;
+
+                }else {
+                    $urlfoto = $request->file('tc');
+                    $nombre = time() . "." . $urlfoto->guessExtension();
+                    $ruta = public_path('/exp-tc/' . $nombre);
+                    $compresion = Image::make($urlfoto->getRealPath())
+                        ->save($ruta, 10);
+                    $exp->tc = $compresion->basename;
+                }
+            }else{
+                    $urlfoto = $request->file('tc');
+                    $nombre = time() . "." . $urlfoto->guessExtension();
+                    $ruta = public_path('/exp-tc/' . $nombre);
+
+                  switch($width ){
+                      case($width<=576):
+                        $compresion = Image::make($urlfoto->getRealPath())
+                            ->save($ruta);
+                        $exp->tc = $compresion->basename;
+                      break;
+                      case($width>=577):
+                          $compresion = Image::make($urlfoto->getRealPath())
+                                ->rotate(270)
+                                ->save($ruta);
+                            $exp->tc = $compresion->basename;
+                      break;
+                   }
             }
    	    }
-
     	/* Compara el auto que se selecciono con la db */
         $automovil = DB::table('automovil')
         ->where('id','=',$id)

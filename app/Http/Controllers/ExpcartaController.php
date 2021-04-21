@@ -60,16 +60,47 @@ class ExpcartaController extends Controller
 
         $exp_carta->titulo = $request->get('titulo');
 
-    	if ($request->hasFile('carta')) {
+        if ($request->hasFile('carta')) {
 
-                $urlfoto = $request->file('carta');
-                $nombre = time().".".$urlfoto->guessExtension();
-                $ruta = public_path('/exp-carta/'.$nombre);
-                $compresion = Image::make($urlfoto->getRealPath())
-                    ->save($ruta,10);
-                $exp_carta->carta = $compresion->basename;
-   	}
+    	    $file=$request->file("carta");
+            list($width, $height) = getimagesize($file);
 
+    	    $nombre = "pdf_".time().".".$file->guessExtension();
+    	    $ruta = public_path("/exp-carta/".$nombre);
+
+    	    if($width>1920 || $height>1080){
+                if($file->guessExtension()=="pdf"){
+                    copy($file, $ruta);
+                    $exp_carta->carta = $nombre;
+
+                }else {
+                    $urlfoto = $request->file('carta');
+                    $nombre = time() . "." . $urlfoto->guessExtension();
+                    $ruta = public_path('/exp-carta/' . $nombre);
+                    $compresion = Image::make($urlfoto->getRealPath())
+                        ->save($ruta, 10);
+                    $exp_carta->carta = $compresion->basename;
+                }
+            }else{
+                    $urlfoto = $request->file('carta');
+                    $nombre = time() . "." . $urlfoto->guessExtension();
+                    $ruta = public_path('/exp-carta/' . $nombre);
+
+                  switch($width ){
+                      case($width<=576):
+                        $compresion = Image::make($urlfoto->getRealPath())
+                            ->save($ruta);
+                        $exp_carta->carta = $compresion->basename;
+                      break;
+                      case($width>=577):
+                          $compresion = Image::make($urlfoto->getRealPath())
+                                ->rotate(270)
+                                ->save($ruta);
+                            $exp_carta->carta = $compresion->basename;
+                      break;
+                   }
+            }
+   	    }
 
         $exp_carta->id_user = auth()->user()->id;
     	$exp_carta->current_auto = auth()->user()->current_auto;
@@ -110,24 +141,44 @@ class ExpcartaController extends Controller
     	if ($request->hasFile('carta')) {
 
     	    $file=$request->file("carta");
+            list($width, $height) = getimagesize($file);
 
     	    $nombre = "pdf_".time().".".$file->guessExtension();
     	    $ruta = public_path("/exp-carta/".$nombre);
 
-            if($file->guessExtension()=="pdf"){
-                copy($file, $ruta);
-                $exp->carta = $nombre;
+    	    if($width>1920 || $height>1080){
+                if($file->guessExtension()=="pdf"){
+                    copy($file, $ruta);
+                    $exp->carta = $nombre;
 
-            }else {
-                $urlfoto = $request->file('carta');
-                $nombre = time() . "." . $urlfoto->guessExtension();
-                $ruta = public_path('/exp-carta/' . $nombre);
-                $compresion = Image::make($urlfoto->getRealPath())
-                    ->save($ruta, 10);
-                $exp->carta = $compresion->basename;
+                }else {
+                    $urlfoto = $request->file('carta');
+                    $nombre = time() . "." . $urlfoto->guessExtension();
+                    $ruta = public_path('/exp-carta/' . $nombre);
+                    $compresion = Image::make($urlfoto->getRealPath())
+                        ->save($ruta, 10);
+                    $exp->carta = $compresion->basename;
+                }
+            }else{
+                    $urlfoto = $request->file('carta');
+                    $nombre = time() . "." . $urlfoto->guessExtension();
+                    $ruta = public_path('/exp-carta/' . $nombre);
+
+                  switch($width ){
+                      case($width<=576):
+                        $compresion = Image::make($urlfoto->getRealPath())
+                            ->save($ruta);
+                        $exp->carta = $compresion->basename;
+                      break;
+                      case($width>=577):
+                          $compresion = Image::make($urlfoto->getRealPath())
+                                ->rotate(270)
+                                ->save($ruta);
+                            $exp->carta = $compresion->basename;
+                      break;
+                   }
             }
    	    }
-
 
     	/* Compara el auto que se selecciono con la db */
         $automovil = DB::table('automovil')

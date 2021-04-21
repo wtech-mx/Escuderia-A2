@@ -48,27 +48,48 @@ class ExpdomicilioController extends Controller
         $exp_domicilio = new ExpDomicilio;
 
         $exp_domicilio->titulo = $request->get('titulo');
-    	if ($request->hasFile('domicilio')) {
+
+        if ($request->hasFile('domicilio')) {
 
     	    $file=$request->file("domicilio");
+            list($width, $height) = getimagesize($file);
 
     	    $nombre = "pdf_".time().".".$file->guessExtension();
     	    $ruta = public_path("/exp-domicilio/".$nombre);
 
-            if($file->guessExtension()=="pdf"){
-                copy($file, $ruta);
-                $exp_domicilio->domicilio = $nombre;
+    	    if($width>1920 || $height>1080){
+                if($file->guessExtension()=="pdf"){
+                    copy($file, $ruta);
+                    $exp_domicilio->domicilio = $nombre;
 
-            }else {
-                $urlfoto = $request->file('domicilio');
-                $nombre = time() . "." . $urlfoto->guessExtension();
-                $ruta = public_path('/exp-domicilio/' . $nombre);
-                $compresion = Image::make($urlfoto->getRealPath())
-                    ->save($ruta, 10);
-                $exp_domicilio->domicilio = $compresion->basename;
+                }else {
+                    $urlfoto = $request->file('domicilio');
+                    $nombre = time() . "." . $urlfoto->guessExtension();
+                    $ruta = public_path('/exp-domicilio/' . $nombre);
+                    $compresion = Image::make($urlfoto->getRealPath())
+                        ->save($ruta, 10);
+                    $exp_domicilio->domicilio = $compresion->basename;
+                }
+            }else{
+                    $urlfoto = $request->file('domicilio');
+                    $nombre = time() . "." . $urlfoto->guessExtension();
+                    $ruta = public_path('/exp-domicilio/' . $nombre);
+
+                  switch($width ){
+                      case($width<=576):
+                        $compresion = Image::make($urlfoto->getRealPath())
+                            ->save($ruta);
+                        $exp_domicilio->domicilio = $compresion->basename;
+                      break;
+                      case($width>=577):
+                          $compresion = Image::make($urlfoto->getRealPath())
+                                ->rotate(270)
+                                ->save($ruta);
+                            $exp_domicilio->domicilio = $compresion->basename;
+                      break;
+                   }
             }
-   	}
-
+   	    }
 
         $exp_domicilio->id_user = auth()->user()->id;
     	$exp_domicilio->current_auto = auth()->user()->current_auto;
@@ -104,29 +125,48 @@ class ExpdomicilioController extends Controller
 
         $exp = new ExpDomicilio;
         $exp->titulo = $request->get('titulo');
-    	if ($request->hasFile('domicilio')) {
+
+        if ($request->hasFile('domicilio')) {
 
     	    $file=$request->file("domicilio");
+            list($width, $height) = getimagesize($file);
 
     	    $nombre = "pdf_".time().".".$file->guessExtension();
     	    $ruta = public_path("/exp-domicilio/".$nombre);
 
-            if($file->guessExtension()=="pdf"){
-                copy($file, $ruta);
-                $exp->domicilio = $nombre;
+    	    if($width>1920 || $height>1080){
+                if($file->guessExtension()=="pdf"){
+                    copy($file, $ruta);
+                    $exp->domicilio = $nombre;
 
-            }else {
-                $urlfoto = $request->file('domicilio');
-                $nombre = time() . "." . $urlfoto->guessExtension();
-                $ruta = public_path('/exp-domicilio/' . $nombre);
-                $compresion = Image::make($urlfoto->getRealPath())
-                    ->save($ruta, 10);
-                $exp->domicilio = $compresion->basename;
+                }else {
+                    $urlfoto = $request->file('domicilio');
+                    $nombre = time() . "." . $urlfoto->guessExtension();
+                    $ruta = public_path('/exp-domicilio/' . $nombre);
+                    $compresion = Image::make($urlfoto->getRealPath())
+                        ->save($ruta, 10);
+                    $exp->domicilio = $compresion->basename;
+                }
+            }else{
+                    $urlfoto = $request->file('domicilio');
+                    $nombre = time() . "." . $urlfoto->guessExtension();
+                    $ruta = public_path('/exp-domicilio/' . $nombre);
+
+                  switch($width ){
+                      case($width<=576):
+                        $compresion = Image::make($urlfoto->getRealPath())
+                            ->save($ruta);
+                        $exp->domicilio = $compresion->basename;
+                      break;
+                      case($width>=577):
+                          $compresion = Image::make($urlfoto->getRealPath())
+                                ->rotate(270)
+                                ->save($ruta);
+                            $exp->domicilio = $compresion->basename;
+                      break;
+                   }
             }
-   	}
-
-
-//    	$exp->fecha_expedicion = $request->get('fecha_expedicion');
+   	    }
 
     	/* Compara el auto que se selecciono con la db */
         $automovil = DB::table('automovil')

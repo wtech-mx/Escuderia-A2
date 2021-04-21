@@ -120,8 +120,8 @@
                                                        <a href="{{ route('create_admin.view-tenencia-admin',$item->id) }}">
                                                         <span class="badge bg-primary" style="font-size: 70%;">
                                                             Tenencias
-                                                            @foreach($tenencias2 as $auto)
-                                                                @if($item->id == $auto->current_auto)
+                                                            @foreach($tenencias2 as $autofac)
+                                                                @if($item->id == $autofac->current_auto)
                                                                     {{$tenencias}}
                                                                 @endif
                                                             @break

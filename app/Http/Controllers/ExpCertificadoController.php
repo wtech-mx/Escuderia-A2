@@ -43,27 +43,48 @@ class ExpCertificadoController extends Controller
         $exp_certificados = new ExpCertificado;
 
         $exp_certificados->titulo = $request->get('titulo');
-    	if ($request->hasFile('certificado')) {
+
+        if ($request->hasFile('certificado')) {
+
     	    $file=$request->file("certificado");
+            list($width, $height) = getimagesize($file);
 
     	    $nombre = "pdf_".time().".".$file->guessExtension();
     	    $ruta = public_path("/exp-certificado/".$nombre);
 
-            if($file->guessExtension()=="pdf"){
-                copy($file, $ruta);
-                $exp_certificados->certificado = $nombre;
+    	    if($width>1920 || $height>1080){
+                if($file->guessExtension()=="pdf"){
+                    copy($file, $ruta);
+                    $exp_certificados->certificado = $nombre;
 
-            }else {
+                }else {
+                    $urlfoto = $request->file('certificado');
+                    $nombre = time() . "." . $urlfoto->guessExtension();
+                    $ruta = public_path('/exp-certificado/' . $nombre);
+                    $compresion = Image::make($urlfoto->getRealPath())
+                        ->save($ruta, 10);
+                    $exp_certificados->certificado = $compresion->basename;
+                }
+            }else{
+                    $urlfoto = $request->file('certificado');
+                    $nombre = time() . "." . $urlfoto->guessExtension();
+                    $ruta = public_path('/exp-certificado/' . $nombre);
 
-                $urlfoto = $request->file('certificado');
-                $nombre = time() . "." . $urlfoto->guessExtension();
-                $ruta = public_path('/exp-certificado/' . $nombre);
-                $compresion = Image::make($urlfoto->getRealPath())
-                    ->save($ruta, 10);
-                $exp_certificados->certificado = $compresion->basename;
+                  switch($width ){
+                      case($width<=576):
+                        $compresion = Image::make($urlfoto->getRealPath())
+                            ->save($ruta);
+                        $exp_certificados->certificado = $compresion->basename;
+                      break;
+                      case($width>=577):
+                          $compresion = Image::make($urlfoto->getRealPath())
+                                ->rotate(270)
+                                ->save($ruta);
+                            $exp_certificados->certificado = $compresion->basename;
+                      break;
+                   }
             }
-   	}
-
+   	    }
 
         $exp_certificados->id_user = auth()->user()->id;
     	$exp_certificados->current_auto = auth()->user()->current_auto;
@@ -112,26 +133,46 @@ class ExpCertificadoController extends Controller
         $exp->titulo = $request->get('titulo');
 
     	if ($request->hasFile('certificado')) {
+
     	    $file=$request->file("certificado");
+            list($width, $height) = getimagesize($file);
 
     	    $nombre = "pdf_".time().".".$file->guessExtension();
     	    $ruta = public_path("/exp-certificado/".$nombre);
 
-            if($file->guessExtension()=="pdf"){
-                copy($file, $ruta);
-                $exp->certificado = $nombre;
+    	    if($width>1920 || $height>1080){
+                if($file->guessExtension()=="pdf"){
+                    copy($file, $ruta);
+                    $exp->certificado = $nombre;
 
-            }else {
+                }else {
+                    $urlfoto = $request->file('certificado');
+                    $nombre = time() . "." . $urlfoto->guessExtension();
+                    $ruta = public_path('/exp-certificado/' . $nombre);
+                    $compresion = Image::make($urlfoto->getRealPath())
+                        ->save($ruta, 10);
+                    $exp->certificado = $compresion->basename;
+                }
+            }else{
+                    $urlfoto = $request->file('certificado');
+                    $nombre = time() . "." . $urlfoto->guessExtension();
+                    $ruta = public_path('/exp-certificado/' . $nombre);
 
-                $urlfoto = $request->file('certificado');
-                $nombre = time() . "." . $urlfoto->guessExtension();
-                $ruta = public_path('/exp-certificado/' . $nombre);
-                $compresion = Image::make($urlfoto->getRealPath())
-                    ->save($ruta, 10);
-                $exp->certificado = $compresion->basename;
+                  switch($width ){
+                      case($width<=576):
+                        $compresion = Image::make($urlfoto->getRealPath())
+                            ->save($ruta);
+                        $exp->certificado = $compresion->basename;
+                      break;
+                      case($width>=577):
+                          $compresion = Image::make($urlfoto->getRealPath())
+                                ->rotate(270)
+                                ->save($ruta);
+                            $exp->certificado = $compresion->basename;
+                      break;
+                   }
             }
-   	}
-
+   	    }
 
     	/* Compara el auto que se selecciono con la db */
         $automovil = DB::table('automovil')
