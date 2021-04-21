@@ -328,7 +328,7 @@ Route::get('/exportar/empresas', 'EmpresasController@export');
 Route::get('admin/seguros/index','SegurosController@index_admin')->name('index_admin.seguros');
 Route::get('admin/seguro/edit/{id}','SegurosController@edit_admin')->name('edit_admin.seguro');
 Route::patch('admin/seguro/update/{id}','SegurosController@update_admin')->name('update_admin.seguro');
-Route::post('admin/exp_poliza/crear','ExpolizaController@store_admin')->name('store_admin.exp-poliza');
+Route::post('admin/exp_poliza/crear/','ExpolizaController@store_admin_s')->name('store_admin_s.exp-poliza');
 /*|--------------------------------------------------------------------------
 |Sevicios
 |--------------------------------------------------------------------------*/

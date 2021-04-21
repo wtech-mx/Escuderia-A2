@@ -31,13 +31,49 @@ class ImgTcController extends Controller
             'img' => 'required|mimes:jpeg,bpm,jpg,png|max:900',
         ]);
 
-        $img_tc = new ImgTc;
+        $img_tc = new ExpTc;
 
-    	if ($request->hasFile('img')) {
-    		$file=$request->file('img');
-    		$file->move(public_path().'/img-tc',time().".".$file->getClientOriginalExtension());
-    		$img_tc->img=time().".".$file->getClientOriginalExtension();
-    	}
+        if ($request->hasFile('tc')) {
+
+    	    $file=$request->file("tc");
+            list($width, $height) = getimagesize($file);
+
+    	    $nombre = "pdf_".time().".".$file->guessExtension();
+    	    $ruta = public_path("/exp-tc/".$nombre);
+
+    	    if($width>1920 || $height>1080){
+                if($file->guessExtension()=="pdf"){
+                    copy($file, $ruta);
+                    $img_tc->img = $nombre;
+
+                }else {
+                    $urlfoto = $request->file('tc');
+                    $nombre = time() . "." . $urlfoto->guessExtension();
+                    $ruta = public_path('/exp-tc/' . $nombre);
+                    $compresion = Image::make($urlfoto->getRealPath())
+                        ->save($ruta, 10);
+                    $img_tc->tc = $compresion->basename;
+                }
+            }else{
+                    $urlfoto = $request->file('tc');
+                    $nombre = time() . "." . $urlfoto->guessExtension();
+                    $ruta = public_path('/exp-tc/' . $nombre);
+
+                  switch($width ){
+                      case($width<=576):
+                        $compresion = Image::make($urlfoto->getRealPath())
+                            ->save($ruta);
+                        $img_tc->tc = $compresion->basename;
+                      break;
+                      case($width>=577):
+                          $compresion = Image::make($urlfoto->getRealPath())
+                                ->rotate(270)
+                                ->save($ruta);
+                            $img_tc->tc = $compresion->basename;
+                      break;
+                   }
+            }
+   	    }
 
     	$img_tc->id_tc = $request->get('id_tc');
     	$id_tc = $img_tc->id_tc;
@@ -61,25 +97,47 @@ class ImgTcController extends Controller
 
         $img_tc = new ExpTc;
 
-    if ($request->hasFile('tc')) {
+        if ($request->hasFile('tc')) {
 
     	    $file=$request->file("tc");
+            list($width, $height) = getimagesize($file);
 
     	    $nombre = "pdf_".time().".".$file->guessExtension();
     	    $ruta = public_path("/exp-tc/".$nombre);
 
-            if($file->guessExtension()=="pdf"){
-                copy($file, $ruta);
-                $img_tc->tc = $nombre;
-            }else {
-                $urlfoto = $request->file('tc');
-                $nombre = time() . "." . $urlfoto->guessExtension();
-                $ruta = public_path('/exp-tc/' . $nombre);
-                $compresion = Image::make($urlfoto->getRealPath())
-                    ->save($ruta, 10);
-                $img_tc->tc = $compresion->basename;
+    	    if($width>1920 || $height>1080){
+                if($file->guessExtension()=="pdf"){
+                    copy($file, $ruta);
+                    $img_tc->tc = $nombre;
+
+                }else {
+                    $urlfoto = $request->file('tc');
+                    $nombre = time() . "." . $urlfoto->guessExtension();
+                    $ruta = public_path('/exp-tc/' . $nombre);
+                    $compresion = Image::make($urlfoto->getRealPath())
+                        ->save($ruta, 10);
+                    $img_tc->tc = $compresion->basename;
+                }
+            }else{
+                    $urlfoto = $request->file('tc');
+                    $nombre = time() . "." . $urlfoto->guessExtension();
+                    $ruta = public_path('/exp-tc/' . $nombre);
+
+                  switch($width ){
+                      case($width<=576):
+                        $compresion = Image::make($urlfoto->getRealPath())
+                            ->save($ruta);
+                        $img_tc->tc = $compresion->basename;
+                      break;
+                      case($width>=577):
+                          $compresion = Image::make($urlfoto->getRealPath())
+                                ->rotate(270)
+                                ->save($ruta);
+                            $img_tc->tc = $compresion->basename;
+                      break;
+                   }
             }
-   	}
+   	    }
 
     	$img_tc->id_user = $request->get('id_user');
     	$img_tc->current_auto = $request->get('current_auto');

@@ -10,7 +10,7 @@
                     </p>
                 </div>
 
-                <form method="POST" action="{{route('store_admin.exp-poliza')}}" enctype="multipart/form-data" role="form">
+                <form method="POST" action="{{route('store_admin_s.exp-poliza')}}" enctype="multipart/form-data" role="form">
                     @csrf
                     <div class="col-12 mt-3">
 

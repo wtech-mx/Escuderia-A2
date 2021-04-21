@@ -102,7 +102,7 @@ class ExpolizaController extends Controller
         return redirect()->route('index.exp-poliza', compact('exp_poliza'));
     }
 
-        public function create_admin($id)
+    public function create_admin($id)
     {
         /* Trae los datos el auto en el que esta */
         $automovil = DB::table('automovil')
@@ -178,6 +178,65 @@ class ExpolizaController extends Controller
         $exp->current_auto = $automovil->id;
 
         $exp->id_user = $automovil->id_user;
+
+        $exp->save();
+
+        Session::flash('success', 'Se ha guardado sus datos con exito');
+        return redirect()->back();
+    }
+
+    public function store_admin_s(Request $request){
+
+        $validate = $this->validate($request,[
+            'poliza' => 'mimes:jpeg,bpm,jpg,png,pdf|max:900',
+        ]);
+
+        $exp = new ExpPoliza;
+
+        if ($request->hasFile('poliza')) {
+
+    	    $file=$request->file("poliza");
+            list($width, $height) = getimagesize($file);
+
+    	    $nombre = "pdf_".time().".".$file->guessExtension();
+    	    $ruta = public_path("/exp-poliza/".$nombre);
+
+    	    if($width>1920 || $height>1080){
+                if($file->guessExtension()=="pdf"){
+                    copy($file, $ruta);
+                    $exp->poliza = $nombre;
+
+                }else {
+                    $urlfoto = $request->file('poliza');
+                    $nombre = time() . "." . $urlfoto->guessExtension();
+                    $ruta = public_path('/exp-poliza/' . $nombre);
+                    $compresion = Image::make($urlfoto->getRealPath())
+                        ->save($ruta, 10);
+                    $exp->poliza = $compresion->basename;
+                }
+            }else{
+                    $urlfoto = $request->file('poliza');
+                    $nombre = time() . "." . $urlfoto->guessExtension();
+                    $ruta = public_path('/exp-poliza/' . $nombre);
+
+                  switch($width ){
+                      case($width<=576):
+                        $compresion = Image::make($urlfoto->getRealPath())
+                            ->save($ruta);
+                        $exp->poliza = $compresion->basename;
+                      break;
+                      case($width>=577):
+                          $compresion = Image::make($urlfoto->getRealPath())
+                                ->rotate(270)
+                                ->save($ruta);
+                            $exp->poliza = $compresion->basename;
+                      break;
+                   }
+            }
+   	    }
+    	$exp->current_auto = $request->get('current_auto');
+
+        $exp->id_user = $request->get('id_user');
 
         $exp->save();
 
