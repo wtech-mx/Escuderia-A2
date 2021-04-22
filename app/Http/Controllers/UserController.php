@@ -107,10 +107,6 @@ class UserController extends Controller
 
     public function edit($id){
 
-        $user = DB::table('users')
-        ->where('id','=',auth()->user()->id)
-        ->first();
-
         $user = User::findOrFail($id);
 
         $users = DB::table('users')

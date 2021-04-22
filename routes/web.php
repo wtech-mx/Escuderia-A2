@@ -48,11 +48,6 @@ Route::post('update-password', 'Auth\NewPasswordController@store')->name('passwo
 Route::get('offline','OfflineController@index')->name('index.offline');
 
 /*|--------------------------------------------------------------------------
-|Usuario
-|--------------------------------------------------------------------------*/
-Route::post('/save-token', 'DashboardController@saveToken')->name('save-token');
-
-/*|--------------------------------------------------------------------------
 |Dashboard
 |--------------------------------------------------------------------------*/
 
@@ -63,10 +58,6 @@ Route::get('dashboard','DashboardController@index')->name('index.dashboard');
 |--------------------------------------------------------------------------*/
 Route::get('admin/alertas','AlertasController@index')->name('index.alert');
 Route::post('admin/alert/create','AlertasController@store')->name('store.alert');
-
-
-Route::get('dashboarda','DashboardController@alerts')->name('alerts.alert');
-
 
 /*|--------------------------------------------------------------------------
 |Calendario Admin
@@ -95,16 +86,6 @@ Route::get('user/calendar/show', 'AlertasController@show_calendar_user')->name('
 Route::patch('user/calendar/destroy/{id}', 'AlertasController@destroy_calendar_user')->name('calendar.destroy_calendar_user');
 
 Route::patch('user/calendar/update/{id}', 'AlertasController@update_calendar_user')->name('calendar.update_calendar_user');
-
-/*|--------------------------------------------------------------------------
-|garaje view
-|--------------------------------------------------------------------------*/
-
-
-Route::get('/garaje/view-garaje', function () {
-    return view('garaje/view-garaje');
-})->middleware(['auth'])->name('view-garaje');
-
 
 /*|--------------------------------------------------------------------------
 |garaje edit - Usuario
@@ -143,7 +124,6 @@ Route::get('/exportar/seguro/empresa', 'SegurosController@export_empresa');
 Route::patch('tarjeta-circulacion/update/{id}','TarjetaCirculacionController@update')->name('update.tc');
 Route::get('tarjeta-circulacion/index','TarjetaCirculacionController@index')->name('index.tc');
 
-//Route::get('tarjeta-circulacion/index','TarjetaCirculacionController@index')->name('index.img-tc');
 Route::post('tarjeta-circulacion/index','ImgTcController@store')->name('store.img-tc');
 
 Route::get('/exportar/tc', 'TarjetaCirculacionController@export');
@@ -168,10 +148,6 @@ Route::post('documents/crear/otro-tc','DocumentosOtroController@store')->name('s
 Route::get('documents/view/lugar','DocumentosLugarExpController@index')->name('index.lugar-tc');
 Route::get('documents/crear/lugar-tc','DocumentosLugarExpController@create')->name('create.lugar-tc');
 Route::post('documents/crear/lugar-tc','DocumentosLugarExpController@store')->name('store.lugar-tc');
-
-Route::get('/documents/view-documents', function () {
-    return view('documents/view-documents');
-})->middleware(['auth'])->name('view-documents');
 
 /*|--------------------------------------------------------------------------
 |Expedientes Fisicos
@@ -235,14 +211,6 @@ Route::delete('exp_certificado/eliminar/{id}','ExpCertificadoController@destroy'
 Route::get('exp-fisico/view-exp-fisico','ExpController@index')->name('index_exp');
 
 /*|--------------------------------------------------------------------------
-|Tarjeta circulacion
-|--------------------------------------------------------------------------*/
-
-Route::get('/tarjeta-circulacion/tarjeta_circulacion', function () {
-    return view('tarjeta-circulacion/tarjeta_circulacion');
-})->middleware(['auth'])->name('tarjeta_circulacion');
-
-/*|--------------------------------------------------------------------------
 |Comparte y Gana
 |--------------------------------------------------------------------------*/
 Route::get('/win-and-share/view-win-share', function () {
@@ -250,12 +218,6 @@ Route::get('/win-and-share/view-win-share', function () {
 })->middleware(['auth'])->name('view-win-share');
 
 Route::get('recompensas','RecompensasController@index')->name('index.recompensas');
-/*|--------------------------------------------------------------------------
-|Comparte y Gana
-|--------------------------------------------------------------------------*/
-Route::get('/alerts/view-alerts', function () {
-    return view('alerts/view-alerts');
-})->middleware(['auth'])->name('view-alerts');
 
 /*|--------------------------------------------------------------------------
 |Sevicios Usuarios
@@ -269,16 +231,7 @@ Route::get('servicio/view','MecanicaController@view_user')->name('view_user.serv
 Route::get('verificacion/index','VerificacionController@index')->name('index.verificacion');
 
 /*|--------------------------------------------------------------------------
-|Admin
-|--------------------------------------------------------------------------*/
-
-/*|--------------------------------------------------------------------------
-|Admin
-|--------------------------------------------------------------------------*/
-
-
-/*|--------------------------------------------------------------------------
-|User view
+|Admin User
 |--------------------------------------------------------------------------*/
 
 /* Create User_Auto */
@@ -332,10 +285,6 @@ Route::post('admin/exp_poliza/crear/','ExpolizaController@store_admin_s')->name(
 /*|--------------------------------------------------------------------------
 |Sevicios
 |--------------------------------------------------------------------------*/
-
-Route::get('admin/services/mecanica', function () {
-    return view('admin/services/mecanica');
-})->middleware(['auth'])->name('mecanica');
 
 Route::get('admin/servicio/view','MecanicaController@view')->name('view.servicio');
 Route::get('admin/servicio/crear','MecanicaController@create_servicio')->name('create_servicio.servicio');

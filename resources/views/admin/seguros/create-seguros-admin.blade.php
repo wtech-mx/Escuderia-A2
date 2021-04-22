@@ -7,10 +7,7 @@
                 <link href="{{ asset('css/login-form.css') }}" rel="stylesheet">
                 <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
                 <link href="{{ asset('css/dashboard-admin.css') }}" rel="stylesheet">
-    <?php
-    $originalDate = $seguro->end;
-    $newDate = date("d/m/Y", strtotime($originalDate));
-    ?>
+
                 <div class="row bg-profile" style="z-index: 100000">
                 @include('admin.seguros.modal-poladmin-img')
                         @if(Session::has('success'))
@@ -43,7 +40,6 @@
                     <div class="col-8">
                                 <h5 class="text-center text-white ml-4 mr-4 ">
                                     <strong>Seguro - </strong>
-{{--                                    <strong>Seguro - {{$seguro->User->name}}</strong>--}}
                                 </h5>
                     </div>
 

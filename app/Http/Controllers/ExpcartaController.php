@@ -114,7 +114,6 @@ class ExpcartaController extends Controller
         Session::flash('success', 'Se ha guardado sus datos con exito');
 
         return redirect()->route('index.exp-cr', compact('exp_carta'));
-        //return view('garaje.view-garaje',compact('automovil'));
     }
 
    public function create_admin($id)
