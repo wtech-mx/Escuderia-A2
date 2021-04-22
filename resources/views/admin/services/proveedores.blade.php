@@ -13,26 +13,22 @@
                    <div class="modal-body">
                       <form method="POST" id="dynamic_form" enctype="multipart/form-data" role="form">
                         @csrf
-                         <div class="input-group">
-                                   <table class="table table-bordered" id="user_table">
-                                          <tr>
-
-                                          </tr>
-                                   </table>
-                         </div>
+                          <div class="content container-res">
+                             <div class="input-group">
+                                 <table class="table table-bordered" id="user_table" style="border: 0px solid #FFFFFF">
+                                     <tr>
+                                     </tr>
+                                 </table>
+                             </div>
+                          </div>
+                        <button class="btn btn-lg btn-success btn-save-neon text-white " name="save" id="save" style="margin-bottom: 5rem!important;">
+                               <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}" width="20px" >
+                               Guardar
+                       </button>
                       </form>
                    </div>
 
-                   <div class="modal-footer">
-                       <button class="btn btn-lg btn-success btn-save-neon text-white mt-4" style="margin-bottom: 8rem !important;" name="save" id="save">
-                               <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}" width="20px" >
-                                     Guardar
-                       </button>
-                   </div>
-
               </div>
-
-
         </div>
     </div>
 
@@ -43,21 +39,34 @@
                  dynamic_field(count);
                  function dynamic_field(number)
                  {
+                 html = '<tr>';
+
                   html = '<tr>';
+                        html += '<td><label ><strong>Nombre</strong></label></td>';
                         html += '<td><input type="text" placeholder="Nombre" name="nombre[]" class="form-control" /></td>';
+
                   html += '</tr>';
+
                   html += '<tr>';
+                        html += '<td><label ><strong>Garantia</strong> </label></td>';
                         html += '<td><input type="text" placeholder="Garantia" name="garantia[]" class="form-control" /></td>';
                   html += '</tr>';
+
                   html += '<tr>';
-                        html += '<td><input type="text" placeholder="proveedor" name="proveedor[]" class="form-control" /></td>';
+                        html += '<td><label ><strong>Proveedor</strong> </label></td>';
+                        html += '<td><input type="text" placeholder="Proveedor" name="proveedor[]" class="form-control" /></td>';
                   html += '</tr>';
+
                   html += '<tr>';
+                        html += '<td><label ><strong>Costo</strong> </label></td>';
                         html += '<td><input type="number" placeholder="Costo" name="costo[]" class="form-control" /></td>';
                   html += '</tr>';
+
                   html += '<tr>';
+                        html += '<td><label ><strong>Mano de Obra</strong></label></td>';
                         html += '<td><input type="number" placeholder="Mano de Obra" name="mano_o[]" class="form-control" /></td>';
                   html += '</tr>';
+
                         if(number > 1)
                         {
                             html += '<td><button type="button" name="remove" id="" class="btn btn-danger remove">Remove</button></td></tr>';
@@ -65,7 +74,7 @@
                         }
                         else
                         {
-                            html += '<td><button type="button" name="add" id="add" class="btn btn-success">Add</button></td></tr>';
+                            html += '<td><button type="button" name="add" id="add" class="btn btn-success">Agregar</button></td></tr>';
                             $('tbody').html(html);
                         }
                  }
@@ -77,7 +86,7 @@
 
                  $(document).on('click', '.remove', function(){
                   count--;
-                  $(this).closest("tr").remove();
+                  $(this).closest("tbody").remove();
                  });
 
                  $('#dynamic_form').on('submit', function(event){
