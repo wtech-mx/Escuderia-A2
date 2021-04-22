@@ -60,12 +60,11 @@
                                     </h5>
 
                                   <div class="row">
-                                    <div class="content" style="margin-bottom: 10% !important;height: 100vh;">
-                                        @foreach ($verificacion_user as $item)
+                                    <div class="content container-res-inter">
                                         <div class="col-12 mt-4">
-
+                                             @foreach ($verificacion_user as $item)
                                             <a class="card-text" href="{{ route('edit_admin.verificacion',$item->id) }}" style="text-decoration: none;color: #000000">
-                                                <div class="card card-slide-garaje" >
+                                                <div class="card card-slide-garaje mt-3 mb-3" >
                                                   <div class="card-body p-2" >
 
                                                       <div class="row">
@@ -89,8 +88,8 @@
                                                   </div>
                                                 </div>
                                             </a>
+                                             @endforeach
                                         </div>
-                                    @endforeach
                                     </div>
                                   </div>
 

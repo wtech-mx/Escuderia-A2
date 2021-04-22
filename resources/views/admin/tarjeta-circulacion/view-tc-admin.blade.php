@@ -109,10 +109,10 @@
 
 
 
-                                      <div class="content" style="margin-bottom: 10% !important;height: 100vh;">
-                                      @foreach ($tarjeta_circulacion as $item)
-                                        <div class="col-12 mt-4">
-                                            <div class="card card-slide-garaje" >
+                                      <div class="content container-res-inter">
+                                        <div class="col-12 ">
+                                            @foreach ($tarjeta_circulacion as $item)
+                                            <div class="card card-slide-garaje mt-3" >
                                               <div class="card-body p-2" >
 
                                                   <div class="row">
@@ -125,8 +125,8 @@
 
                                               </div>
                                             </div>
+                                            @endforeach
                                         </div>
-                                      @endforeach
                                       </div>
                                   </div>
                                 </div>
@@ -160,10 +160,10 @@
 
 
                                   <div class="row">
-                                      <div class="content" style="margin-bottom: 10% !important;height: 100vh;">
-                                      @foreach ($tarjeta_circulacion2 as $item)
-                                        <div class="col-12 mt-4">
-                                            <div class="card card-slide-garaje" >
+                                      <div class="content container-res-inter">
+                                        <div class="col-12 ">
+                                            @foreach ($tarjeta_circulacion2 as $item)
+                                            <div class="card card-slide-garaje mt-3" >
                                               <div class="card-body p-2" >
 
                                                   <div class="row">
@@ -176,8 +176,8 @@
 
                                               </div>
                                             </div>
+                                            @endforeach
                                         </div>
-                                      @endforeach
                                         <div class="col-12 mt-4 ">
                                             <div class="d-flex justify-content-center">
                                                 {!! $tarjeta_circulacion2->links() !!}

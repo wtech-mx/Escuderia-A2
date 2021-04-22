@@ -68,10 +68,10 @@
                                             )
                                         </script>
                                     @endif
-                                    <div class="content" style="margin-bottom: 10% !important;height: 100vh;">
-                                        @foreach ($empresa as $item)
-                                            <div class="col-12 mt-4">
 
+                                    <div class="content container-res-inter">
+                                            <div class="col-12 mt-4">
+                                                @foreach ($empresa as $item)
                                                 <div class="card card-slide-garaje" >
                                                   <div class="card-body p-2" >
 
@@ -95,9 +95,8 @@
 
                                                   </div>
                                                 </div>
-
-                                        </div>
-                                        @endforeach
+                                                 @endforeach
+                                            </div>
                                     </div>
 
                                   </div>
