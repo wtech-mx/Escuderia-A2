@@ -67,6 +67,6 @@
                         </div>
 
                     </div>
-                    @include('admin.layouts.modal-alert')
+
                     @include('admin.modal-services')
                 </div>

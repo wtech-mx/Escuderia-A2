@@ -34,46 +34,21 @@
 
 
                 <div class="row bg-image" >
+                    <div class="col-12 mt-2">
 
-                    <div class="col-12 mt-5">
-                        <div class="d-flex justify-content-center">
-                            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                                <li class="nav-item">
-                                    <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">
-                                        Calendario
-                                    </a>
-                                </li>
 
-                                <li class="nav-item">
-                                    <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">
-                                        Alertas
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="tab-content" id="pills-tabContent">
-                          <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-
-                                <div class="col-12 mt-3 p-4">
-                                    <div class=" d-flex justify-content-between bg-white p-2 rounded-pill">
+                        <div class="col-12 mt-3 p-4">
+                            <div class=" d-flex justify-content-between bg-white p-2 rounded-pill">
                                 <a href="{{ route('index.alert') }}"> <span class="badge badge-pill" style="background-color: #2ECC71">Alerta</span> </a>
                                 <a href="{{ route('index_admin.seguros') }}"> <span class="badge badge-pill" style="background-color: #8E44AD">Seguro</span> </a>
                                 <a href="{{ route('indextc_admin.tarjeta-circulacion') }}"> <span class="badge badge-pill" style="background-color: #F1C40F;color: #000000">Tarjeta Circulaci&oacute;n</span> </a>
                                 <a href="{{ route('index_admin.verificacion') }}"> <span class="badge badge-pill" style="background-color: #FF0000">Verificaci&oacute;n</span> </a>
                                 <a href="#"> <span class="badge badge-pill" style="background-color: #2980B9">Servicios</span> </a>
-                                    </div>
-                                </div>
-
-                               @include('admin.alerts.calendar')
-                          </div>
-
-                          <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-                                @include('admin.alerts.alertas')
-                          </div>
+                            </div>
                         </div>
-                    </div>
 
+                        @include('admin.alerts.calendar')
+                    </div>
                 </div>
 
 

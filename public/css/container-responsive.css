@@ -1,0 +1,13 @@
+.container-res{
+    display: flex;
+}
+
+.container-res-inter{
+     display: flex;
+     margin-bottom: 30%;
+}
+
+.container-res-max{
+     display: flex;
+     margin-bottom: 100%;
+}

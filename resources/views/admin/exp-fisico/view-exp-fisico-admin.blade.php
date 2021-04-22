@@ -4,7 +4,7 @@
 
                 <link href="{{ asset('css/garje.css') }}" rel="stylesheet">
 
-                <div class="row bg-down-blue " style="border-radius: 0 0 0 0; height: 95vh;">
+                <div class="row bg-down-blue container-res" style="border-radius: 0 0 0 0; ">
 
 
                         <div class="col-2  mt-4">
@@ -75,7 +75,7 @@
                                             </div>
                                         </div>
 
-                                    <div class="content" style="margin-bottom: 10% !important;height: 110vh;">
+                                    <div class="content container-res-inter">
                                         <div class="col-12">
                                             @foreach ($automovil as $item)
 
@@ -274,7 +274,7 @@
                                                 {!! $automovil2->links() !!}
                                             </div>
                                         </div>
-                                    <div class="content" style="margin-bottom: 10% !important;height: 100vh;">
+                                    <div class="content container-res-inter">
                                         <div class="col-12">
                                             @foreach ($automovil2 as $item)
 
