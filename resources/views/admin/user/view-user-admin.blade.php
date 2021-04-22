@@ -85,10 +85,10 @@
                                        </div>
                                     </div>
 
-                                    <div class="content" style="margin-bottom: 10% !important;height: 100vh;">
-                                    @foreach ($user as $item)
-                                        <div class="col-12 mt-4" >
-                                                <div class="card card-slide-garaje" >
+                                    <div class="content container-res-inter">
+                                        <div class="col-12 " >
+                                             @foreach ($user as $item)
+                                                <div class="card card-slide-garaje mt-4" >
                                                   <div class="card-body p-2" >
                                                       <div class="row">
                                                           <div class="col-6 mt-3">
@@ -116,8 +116,9 @@
                                                       </div>
                                                   </div>
                                                 </div>
+                                              @endforeach
                                         </div>
-                                    @endforeach
+
                                     </div>
 
                 {{-- {{ $user->render() }}--}}
