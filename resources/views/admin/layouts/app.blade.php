@@ -31,6 +31,7 @@
     <link href="{{ asset('css/calendario.css') }}" rel="stylesheet">
     <link href="{{ asset('css/pwa.css') }}" rel="stylesheet">
     <link href="{{ asset('css/effects.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/container-responsive.css') }}" rel="stylesheet">
 
     <link href="{{ asset('fonts/font-awesome.min.css') }}" rel="stylesheet">
     <link href="{{ asset('fonts/all.min.css') }}" rel="stylesheet">
