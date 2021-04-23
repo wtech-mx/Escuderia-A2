@@ -268,16 +268,16 @@
                     @endif
 
                 <script>
-                        window.OneSignal = window.OneSignal || [];
-                        OneSignal.push(function () {
-                            /* These examples are all valid */
-                            OneSignal.getUserId(function (userId) {
-                                var UserID;
-                                UserID = userId;
-                                document.getElementById("device_token").value = UserID;
-                                console.log("OneSignal User ID:", UserID);
-                            });
+                    window.OneSignal = window.OneSignal || [];
+                    OneSignal.push(function () {
+                        /* These examples are all valid */
+                        OneSignal.getUserId(function (userId) {
+                            var UserID;
+                            UserID = userId;
+                            document.getElementById("device_token").value = UserID;
+                            console.log("OneSignal User ID:", UserID);
                         });
+                    });
                 </script>
 
 @endsection

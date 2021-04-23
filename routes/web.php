@@ -53,6 +53,7 @@ Route::get('offline','OfflineController@index')->name('index.offline');
 
 Route::get('dashboard','DashboardController@index')->name('index.dashboard');
 
+Route::post('dashboarda','DashboardController@store')->name('store.dashboard');
 /*|--------------------------------------------------------------------------
 |Alert view
 |--------------------------------------------------------------------------*/
