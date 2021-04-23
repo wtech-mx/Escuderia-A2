@@ -9,6 +9,7 @@ use App\Models\Seguros;
 use App\Models\User;
 use App\Models\TarjetaCirculacion;
 use App\Models\Verificacion;
+use App\Models\VerificacionSegunda;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Pagination\Paginator;
 use OneSignal;
@@ -23,9 +24,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-      $this->app->bind('path.public',function(){
-      return realpath(base_path().'/../public_html/checkn-go.com.mx');
-      });
+//
     }
 
     /**
