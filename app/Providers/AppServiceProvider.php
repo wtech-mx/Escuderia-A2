@@ -8,6 +8,7 @@ use App\Models\Alertas;
 use App\Models\Seguros;
 use App\Models\User;
 use App\Models\TarjetaCirculacion;
+use App\Models\Llantas;
 use App\Models\Verificacion;
 use App\Models\VerificacionSegunda;
 use Illuminate\Support\Facades\Schema;
@@ -69,108 +70,147 @@ class AppServiceProvider extends ServiceProvider
                         ->where('end','<=', $current)
                         ->first();
 
+                    //Trae la alerta Verificacion_Segunda
+                      $servicios = Llantas::
+                        where('estatus', '=', 0)
+                        ->where('end','<=', $current)
+                        ->first();
+
                       if($alert2 != NULL){
-                          if ($alert2->end == $current){
-                          //    Inicio Alerta
-                                $fecha = $alert2->end.' 12:20 '.'GMT-5';
+                          if($alert2->User->device_token != NULL) {
+                              if ($alert2->end == $current) {
+                                  //    Inicio Alerta
+                                  $fecha = $alert2->end . ' 20:00 ' . 'GMT-5';
 
-                                $params = [];
-                                $params['include_player_ids'] = [$alert2->User->device_token];
-                                $contents = [
-                                   "en" => $alert2->descripcion
-                                ];
-                                $params['contents'] = $contents;
-                                $params['delayed_option'] = "timezone"; // Will deliver on user's timezone
-                                $params['send_after'] = $fecha; // Delivery time
+                                  $params = [];
+                                  $params['include_player_ids'] = [$alert2->User->device_token];
+                                  $contents = [
+                                      "en" => $alert2->descripcion
+                                  ];
+                                  $params['contents'] = $contents;
+                                  $params['delayed_option'] = "timezone"; // Will deliver on user's timezone
+                                  $params['send_after'] = $fecha; // Delivery time
 
-                                OneSignal::sendNotificationCustom($params);
-                          //    Fin Alerta
-                             $alert2->estatus = 1;
-                             $alert2->save();
+                                  OneSignal::sendNotificationCustom($params);
+                                  //    Fin Alerta
+                                  $alert2->estatus = 1;
+                                  $alert2->save();
+                              }
                           }
                       }
 
                       if($seguro_alerta != NULL){
-                          if ($seguro_alerta->end == $current){
-                          //    Inicio Alerta
-                                $fecha = $seguro_alerta->end.' 12:00 '.'GMT-5';
+                          if($seguro_alerta->User->device_token != NULL){
+                              if ($seguro_alerta->end == $current){
+                              //    Inicio Alerta
+                                    $fecha = $seguro_alerta->end.' 20:00 '.'GMT-5';
 
-                                $params = [];
-                                $params['include_player_ids'] = [$seguro_alerta->User->device_token];
-                                $contents = [
-                                   "en" => $seguro_alerta->descripcion
-                                ];
-                                $params['contents'] = $contents;
-                                $params['delayed_option'] = "timezone"; // Will deliver on user's timezone
-                                $params['send_after'] = $fecha; // Delivery time
+                                    $params = [];
+                                    $params['include_player_ids'] = [$seguro_alerta->User->device_token];
+                                    $contents = [
+                                       "en" => $seguro_alerta->descripcion
+                                    ];
+                                    $params['contents'] = $contents;
+                                    $params['delayed_option'] = "timezone"; // Will deliver on user's timezone
+                                    $params['send_after'] = $fecha; // Delivery time
 
-                                OneSignal::sendNotificationCustom($params);
-                          //    Fin Alerta
-                             $seguro_alerta->estatus = 1;
-                             $seguro_alerta->save();
+                                    OneSignal::sendNotificationCustom($params);
+                              //    Fin Alerta
+                                 $seguro_alerta->estatus = 1;
+                                 $seguro_alerta->save();
+                              }
                           }
                       }
 
                       if($tc_alerta != NULL){
-                          if ($tc_alerta->end == $current){
-                          //    Inicio Alerta
-                                $fecha = $tc_alerta->end.' 12:00 '.'GMT-5';
+                          if($tc_alerta->User->device_token != NULL){
+                              if ($tc_alerta->end == $current){
+                              //    Inicio Alerta
+                                    $fecha = $tc_alerta->end.' 20:00 '.'GMT-5';
 
-                                $params = [];
-                                $params['include_player_ids'] = [$tc_alerta->User->device_token];
-                                $contents = [
-                                   "en" => $tc_alerta->descripcion
-                                ];
-                                $params['contents'] = $contents;
-                                $params['delayed_option'] = "timezone"; // Will deliver on user's timezone
-                                $params['send_after'] = $fecha; // Delivery time
+                                    $params = [];
+                                    $params['include_player_ids'] = [$tc_alerta->User->device_token];
+                                    $contents = [
+                                       "en" => $tc_alerta->descripcion
+                                    ];
+                                    $params['contents'] = $contents;
+                                    $params['delayed_option'] = "timezone"; // Will deliver on user's timezone
+                                    $params['send_after'] = $fecha; // Delivery time
 
-                                OneSignal::sendNotificationCustom($params);
-                          //    Fin Alerta
-                             $tc_alerta->estatus = 1;
-                             $tc_alerta->save();
+                                    OneSignal::sendNotificationCustom($params);
+                              //    Fin Alerta
+                                 $tc_alerta->estatus = 1;
+                                 $tc_alerta->save();
+                              }
                           }
                       }
 
                       if($verificacion != NULL){
-                          if ($verificacion->end == $current){
-                          //    Inicio Alerta
-                                $fecha = $verificacion->end.' 12:00 '.'GMT-5';
+                          if($verificacion->User->device_token != NULL){
+                              if ($verificacion->end == $current){
+                              //    Inicio Alerta
+                                    $fecha = $verificacion->end.' 20:00 '.'GMT-5';
 
-                                $params = [];
-                                $params['include_player_ids'] = [$verificacion->User->device_token];
-                                $contents = [
-                                   "en" => $verificacion->descripcion
-                                ];
-                                $params['contents'] = $contents;
-                                $params['delayed_option'] = "timezone"; // Will deliver on user's timezone
-                                $params['send_after'] = $fecha; // Delivery time
+                                    $params = [];
+                                    $params['include_player_ids'] = [$verificacion->User->device_token];
+                                    $contents = [
+                                       "en" => $verificacion->descripcion
+                                    ];
+                                    $params['contents'] = $contents;
+                                    $params['delayed_option'] = "timezone"; // Will deliver on user's timezone
+                                    $params['send_after'] = $fecha; // Delivery time
 
-                                OneSignal::sendNotificationCustom($params);
-                          //    Fin Alerta
-                             $verificacion->estatus = 1;
-                             $verificacion->save();
+                                    OneSignal::sendNotificationCustom($params);
+                              //    Fin Alerta
+                                 $verificacion->estatus = 1;
+                                 $verificacion->save();
+                              }
                           }
                       }
 
                       if($verificacion_segunda != NULL){
-                          if ($verificacion_segunda->end == $current){
-                          //    Inicio Alerta
-                                $fecha = $verificacion_segunda->end.' 12:00 '.'GMT-5';
+                          if($verificacion_segunda->User->device_token != NULL){
+                              if ($verificacion_segunda->end == $current){
+                              //    Inicio Alerta
+                                    $fecha = $verificacion_segunda->end.' 20:00 '.'GMT-5';
 
-                                $params = [];
-                                $params['include_player_ids'] = [$verificacion_segunda->User->device_token];
-                                $contents = [
-                                   "en" => $verificacion_segunda->descripcion
-                                ];
-                                $params['contents'] = $contents;
-                                $params['delayed_option'] = "timezone"; // Will deliver on user's timezone
-                                $params['send_after'] = $fecha; // Delivery time
+                                    $params = [];
+                                    $params['include_player_ids'] = [$verificacion_segunda->User->device_token];
+                                    $contents = [
+                                       "en" => $verificacion_segunda->descripcion
+                                    ];
+                                    $params['contents'] = $contents;
+                                    $params['delayed_option'] = "timezone"; // Will deliver on user's timezone
+                                    $params['send_after'] = $fecha; // Delivery time
 
-                                OneSignal::sendNotificationCustom($params);
-                          //    Fin Alerta
-                             $verificacion_segunda->estatus = 1;
-                             $verificacion_segunda->save();
+                                    OneSignal::sendNotificationCustom($params);
+                              //    Fin Alerta
+                                 $verificacion_segunda->estatus = 1;
+                                 $verificacion_segunda->save();
+                              }
+                          }
+                      }
+
+                      if($servicios != NULL){
+                          if($servicios->User->device_token != NULL){
+                              if ($servicios->end == $current){
+                              //    Inicio Alerta
+                                    $fecha = $servicios->end.' 20:00 '.'GMT-5';
+
+                                    $params = [];
+                                    $params['include_player_ids'] = [$servicios->User->device_token];
+                                    $contents = [
+                                       "en" => $servicios->descripcion
+                                    ];
+                                    $params['contents'] = $contents;
+                                    $params['delayed_option'] = "timezone"; // Will deliver on user's timezone
+                                    $params['send_after'] = $fecha; // Delivery time
+
+                                    OneSignal::sendNotificationCustom($params);
+                              //    Fin Alerta
+                                 $servicios->estatus = 1;
+                                 $servicios->save();
+                              }
                           }
                       }
                       $view->with(['alert2'=> $alert2, 'seguro_alerta'=> $seguro_alerta, 'tc_alerta'=> $tc_alerta, 'verificacion'=> $verificacion]);
@@ -208,94 +248,108 @@ class AppServiceProvider extends ServiceProvider
                         ->where('end','<=', $current)
                         ->first();
 
+                    //Trae la alerta Verificacion_Segunda
+                      $servicios = Llantas::
+                        where('estatus', '=', 0)
+                        ->where('end','<=', $current)
+                        ->first();
+
                       if($alert2 != NULL){
-                          if ($alert2->end == $current){
-                          //    Inicio Alerta
-                                $fecha = $alert2->end.' 12:20 '.'GMT-5';
+                          if($alert2->User->device_token != NULL) {
+                              if ($alert2->end == $current) {
+                                  //    Inicio Alerta
+                                  $fecha = $alert2->end . ' 20:00 ' . 'GMT-5';
 
-                                $params = [];
-                                $params['include_player_ids'] = [$alert2->User->device_token];
-                                $contents = [
-                                   "en" => $alert2->descripcion
-                                ];
-                                $params['contents'] = $contents;
-                                $params['delayed_option'] = "timezone"; // Will deliver on user's timezone
-                                $params['send_after'] = $fecha; // Delivery time
+                                  $params = [];
+                                  $params['include_player_ids'] = [$alert2->User->device_token];
+                                  $contents = [
+                                      "en" => $alert2->descripcion
+                                  ];
+                                  $params['contents'] = $contents;
+                                  $params['delayed_option'] = "timezone"; // Will deliver on user's timezone
+                                  $params['send_after'] = $fecha; // Delivery time
 
-                                OneSignal::sendNotificationCustom($params);
-                          //    Fin Alerta
-                             $alert2->estatus = 1;
-                             $alert2->save();
+                                  OneSignal::sendNotificationCustom($params);
+                                  //    Fin Alerta
+                                  $alert2->estatus = 1;
+                                  $alert2->save();
+                              }
                           }
                       }
 
-                      if($seguro_alerta != NULL){
-                          if ($seguro_alerta->end == $current){
-                          //    Inicio Alerta
-                                $fecha = $seguro_alerta->end.' 12:00 '.'GMT-5';
+                      if($seguro_alerta->User->device_token != NULL){
+                          if($seguro_alerta->User->device_token != NULL){
+                              if ($seguro_alerta->end == $current){
+                              //    Inicio Alerta
+                                    $fecha = $seguro_alerta->end.' 20:00 '.'GMT-5';
 
-                                $params = [];
-                                $params['include_player_ids'] = [$seguro_alerta->User->device_token];
-                                $contents = [
-                                   "en" => $seguro_alerta->descripcion
-                                ];
-                                $params['contents'] = $contents;
-                                $params['delayed_option'] = "timezone"; // Will deliver on user's timezone
-                                $params['send_after'] = $fecha; // Delivery time
+                                    $params = [];
+                                    $params['include_player_ids'] = [$seguro_alerta->User->device_token];
+                                    $contents = [
+                                       "en" => $seguro_alerta->descripcion
+                                    ];
+                                    $params['contents'] = $contents;
+                                    $params['delayed_option'] = "timezone"; // Will deliver on user's timezone
+                                    $params['send_after'] = $fecha; // Delivery time
 
-                                OneSignal::sendNotificationCustom($params);
-                          //    Fin Alerta
-                             $seguro_alerta->estatus = 1;
-                             $seguro_alerta->save();
+                                    OneSignal::sendNotificationCustom($params);
+                              //    Fin Alerta
+                                 $seguro_alerta->estatus = 1;
+                                 $seguro_alerta->save();
+                              }
                           }
                       }
 
-                      if($tc_alerta != NULL){
-                          if ($tc_alerta->end == $current){
-                          //    Inicio Alerta
-                                $fecha = $tc_alerta->end.' 12:00 '.'GMT-5';
+                      if($tc_alerta->User->device_token != NULL){
+                          if($tc_alerta->User->device_token != NULL){
+                              if ($tc_alerta->end == $current){
+                              //    Inicio Alerta
+                                    $fecha = $tc_alerta->end.' 20:00 '.'GMT-5';
 
-                                $params = [];
-                                $params['include_player_ids'] = [$tc_alerta->User->device_token];
-                                $contents = [
-                                   "en" => $tc_alerta->descripcion
-                                ];
-                                $params['contents'] = $contents;
-                                $params['delayed_option'] = "timezone"; // Will deliver on user's timezone
-                                $params['send_after'] = $fecha; // Delivery time
+                                    $params = [];
+                                    $params['include_player_ids'] = [$tc_alerta->User->device_token];
+                                    $contents = [
+                                       "en" => $tc_alerta->descripcion
+                                    ];
+                                    $params['contents'] = $contents;
+                                    $params['delayed_option'] = "timezone"; // Will deliver on user's timezone
+                                    $params['send_after'] = $fecha; // Delivery time
 
-                                OneSignal::sendNotificationCustom($params);
-                          //    Fin Alerta
-                             $tc_alerta->estatus = 1;
-                             $tc_alerta->save();
+                                    OneSignal::sendNotificationCustom($params);
+                              //    Fin Alerta
+                                 $tc_alerta->estatus = 1;
+                                 $tc_alerta->save();
+                              }
                           }
                       }
 
                       if($verificacion != NULL){
-                          if ($verificacion->end == $current){
-                          //    Inicio Alerta
-                                $fecha = $verificacion->end.' 12:00 '.'GMT-5';
+                          if($verificacion->User->device_token != NULL){
+                              if ($verificacion->end == $current){
+                              //    Inicio Alerta
+                                    $fecha = $verificacion->end.' 20:00 '.'GMT-5';
 
-                                $params = [];
-                                $params['include_player_ids'] = [$verificacion->User->device_token];
-                                $contents = [
-                                   "en" => $verificacion->descripcion
-                                ];
-                                $params['contents'] = $contents;
-                                $params['delayed_option'] = "timezone"; // Will deliver on user's timezone
-                                $params['send_after'] = $fecha; // Delivery time
+                                    $params = [];
+                                    $params['include_player_ids'] = [$verificacion->User->device_token];
+                                    $contents = [
+                                       "en" => $verificacion->descripcion
+                                    ];
+                                    $params['contents'] = $contents;
+                                    $params['delayed_option'] = "timezone"; // Will deliver on user's timezone
+                                    $params['send_after'] = $fecha; // Delivery time
 
-                                OneSignal::sendNotificationCustom($params);
-                          //    Fin Alerta
-                             $verificacion->estatus = 1;
-                             $verificacion->save();
+                                    OneSignal::sendNotificationCustom($params);
+                              //    Fin Alerta
+                                 $verificacion->estatus = 1;
+                                 $verificacion->save();
+                              }
                           }
                       }
 
-                      if($verificacion_segunda != NULL){
+                      if($verificacion_segunda->User->device_token != NULL){
                           if ($verificacion_segunda->end == $current){
                           //    Inicio Alerta
-                                $fecha = $verificacion_segunda->end.' 12:00 '.'GMT-5';
+                                $fecha = $verificacion_segunda->end.' 20:00 '.'GMT-5';
 
                                 $params = [];
                                 $params['include_player_ids'] = [$verificacion_segunda->User->device_token];
@@ -310,6 +364,29 @@ class AppServiceProvider extends ServiceProvider
                           //    Fin Alerta
                              $verificacion_segunda->estatus = 1;
                              $verificacion_segunda->save();
+                          }
+                      }
+
+                      if($servicios->User->device_token != NULL){
+                          if($servicios->User->device_token != NULL){
+                              if ($servicios->end == $current){
+                              //    Inicio Alerta
+                                    $fecha = $servicios->end.' 20:00 '.'GMT-5';
+
+                                    $params = [];
+                                    $params['include_player_ids'] = [$servicios->User->device_token];
+                                    $contents = [
+                                       "en" => $servicios->descripcion
+                                    ];
+                                    $params['contents'] = $contents;
+                                    $params['delayed_option'] = "timezone"; // Will deliver on user's timezone
+                                    $params['send_after'] = $fecha; // Delivery time
+
+                                    OneSignal::sendNotificationCustom($params);
+                              //    Fin Alerta
+                                 $servicios->estatus = 1;
+                                 $servicios->save();
+                              }
                           }
                       }
 

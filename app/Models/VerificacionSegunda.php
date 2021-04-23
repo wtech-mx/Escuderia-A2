@@ -26,4 +26,9 @@ class VerificacionSegunda extends Model
         'device_token',
 
     ];
+
+    public function User()
+    {
+       return $this->belongsTo(User::class,'id_user');
+    }
 }

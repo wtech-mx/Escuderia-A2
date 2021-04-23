@@ -26,4 +26,9 @@ class Llantas extends Model
         'end',
 
     ];
+
+    public function User()
+    {
+       return $this->belongsTo(User::class,'id_user');
+    }
 }
