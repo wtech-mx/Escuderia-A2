@@ -6,7 +6,9 @@ use Illuminate\Support\ServiceProvider;
 use Carbon\Carbon;
 use App\Models\Alertas;
 use App\Models\Seguros;
+use App\Models\User;
 use App\Models\TarjetaCirculacion;
+use App\Models\Verificacion;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Pagination\Paginator;
 use OneSignal;
@@ -46,6 +48,7 @@ class AppServiceProvider extends ServiceProvider
                       //Trae la alerta Seguro
                       $seguro_alerta = Seguros::
                         where('end','=', $current)
+                        ->where('estatus', '=', 0)
                         ->first();
 
                       //Trae la alerta Tc
@@ -62,27 +65,27 @@ class AppServiceProvider extends ServiceProvider
                         ->where('end','<=', $current)
                         ->get();
 
-                      if($seguro_alerta != NULL){
-                          if ($seguro_alerta->end == $current){
-                          //    Inicio Alerta
-                                $fecha = $seguro_alerta->end.' 23:10 '.'GMT-5';
-
-                                $params = [];
-                                $params['include_player_ids'] = [$seguro_alerta->device_token];
-                                $contents = [
-                                   "en" => $seguro_alerta->descripcion
-                                ];
-                                $params['contents'] = $contents;
-                                $params['delayed_option'] = "timezone"; // Will deliver on user's timezone
-                                $params['send_after'] = $fecha; // Delivery time
-
-                                OneSignal::sendNotificationCustom($params);
-                          //    Fin Alerta
-                          }
-
-                             $seguro_alerta->estatus = 1;
-                             $seguro_alerta->save();
-                      }
+//                      if($seguro_alerta != NULL){
+//                          if ($seguro_alerta->end == $current){
+//                          //    Inicio Alerta
+//                                $fecha = $seguro_alerta->end.' 23:10 '.'GMT-5';
+//
+//                                $params = [];
+//                                $params['include_player_ids'] = [$seguro_alerta->device_token];
+//                                $contents = [
+//                                   "en" => $seguro_alerta->descripcion
+//                                ];
+//                                $params['contents'] = $contents;
+//                                $params['delayed_option'] = "timezone"; // Will deliver on user's timezone
+//                                $params['send_after'] = $fecha; // Delivery time
+//
+//                                OneSignal::sendNotificationCustom($params);
+//                          //    Fin Alerta
+//                          }
+//
+//                             $seguro_alerta->estatus = 1;
+//                             $seguro_alerta->save();
+//                      }
                       $view->with(['alert2'=> $alert2, 'seguro_alerta'=> $seguro_alerta, 'tc_alerta'=> $tc_alerta, 'verificacion'=> $verificacion]);
                   });
 
@@ -106,66 +109,67 @@ class AppServiceProvider extends ServiceProvider
                       //Trae la alerta Tc
                       $tc_alerta = TarjetaCirculacion::
                         where('id_user', '=', auth()->user()->id)
+                        ->where('current_auto', '=', auth()->user()->current_auto)
                         ->where('estatus', '=', 0)
                         ->where('end','<=', $current)
-                        ->get();
+                        ->first();
+
+                      $user = User::
+                      where('id', '=', auth()->user()->id)
+                      ->first();
+//                      if ($user->device_token == NULL) {
+//                          $user->device_token = ;
+//                      }
+
 
                     //Trae la alerta Verificacion
-                      $verificacion= TarjetaCirculacion::
+                      $verificacion= Verificacion::
                         where('id_user', '=', auth()->user()->id)
                         ->where('estatus', '=', 0)
                         ->where('end','<=', $current)
                         ->get();
-
-                                  //Trae la alerta al controlador
-                      $alert3 = Alertas::
-                        where('id_user', '=', auth()->user()->id)
-                        ->where('start','<=', $current)
-                        ->where('estatus', '=', 0)
-                        ->first();
-
-                    //Trae la alerta Seguro Controlador
-                      $seguro_alerta2 = Seguros::
-                        where('id_user', '=', auth()->user()->id)
-                        ->where('estatus', '=', 0)
-                        ->where('end','<=', $current)
-                        ->first();
-
-                    //Trae la alerta Tc Controlador
-                      $tc_alerta2 = TarjetaCirculacion::
-                        where('id_user', '=', auth()->user()->id)
-                        ->where('estatus', '=', 0)
-                        ->where('end','<=', $current)
-                        ->first();
-
-                    //Trae la alerta Verificacion Controlador
-                      $verificacion2 = TarjetaCirculacion::
-                        where('id_user', '=', auth()->user()->id)
-                        ->where('estatus', '=', 0)
-                        ->where('end','<=', $current)
-                        ->first();
-
-                      if($seguro_alerta2 != NULL){
-                          if ($seguro_alerta->end == $current){
-                          //    Inicio Alerta
-                                $fecha = $seguro_alerta->end.' 23:10 '.'GMT-5';
-
-                                $params = [];
-                                $params['include_player_ids'] = [$seguro_alerta->device_token];
-                                $contents = [
-                                   "en" => $seguro_alerta->descripcion
-                                ];
-                                $params['contents'] = $contents;
-                                $params['delayed_option'] = "timezone"; // Will deliver on user's timezone
-                                $params['send_after'] = $fecha; // Delivery time
-
-                                OneSignal::sendNotificationCustom($params);
-                          //    Fin Alerta
-                          }
-
-                             $seguro_alerta2->estatus = 1;
-                             $seguro_alerta2->save();
-                      }
+//
+//                      if($seguro_alerta != NULL){
+//                          if ($seguro_alerta->end == $current){
+//                          //    Inicio Alerta
+//                                $fecha = $seguro_alerta->end.' 23:10 '.'GMT-5';
+//
+//                                $params = [];
+//                                $params['include_player_ids'] = [$seguro_alerta->device_token];
+//                                $contents = [
+//                                   "en" => $seguro_alerta->descripcion
+//                                ];
+//                                $params['contents'] = $contents;
+//                                $params['delayed_option'] = "timezone"; // Will deliver on user's timezone
+//                                $params['send_after'] = $fecha; // Delivery time
+//
+//                                OneSignal::sendNotificationCustom($params);
+//                          //    Fin Alerta
+//                             $seguro_alerta->estatus = 1;
+//                             $seguro_alerta->save();
+//                          }
+//                      }
+//
+//                      if($tc_alerta != NULL){
+//                          if ($tc_alerta->end == $current){
+//                          //    Inicio Alerta
+//                                $fecha = $tc_alerta->end.' 15:10 '.'GMT-5';
+//
+//                                $params = [];
+//                                $params['include_player_ids'] = [$tc_alerta->device_token];
+//                                $contents = [
+//                                   "en" => $tc_alerta->descripcion
+//                                ];
+//                                $params['contents'] = $contents;
+//                                $params['delayed_option'] = "timezone"; // Will deliver on user's timezone
+//                                $params['send_after'] = $fecha; // Delivery time
+//
+//                                OneSignal::sendNotificationCustom($params);
+//                          //    Fin Alerta
+//                             $tc_alerta->estatus = 1;
+//                             $tc_alerta->save();
+//                          }
+//                      }
 
                       $view2->with(['alert2'=> $alert2, 'seguro_alerta'=> $seguro_alerta, 'tc_alerta'=> $tc_alerta, 'verificacion'=> $verificacion]);
                   });

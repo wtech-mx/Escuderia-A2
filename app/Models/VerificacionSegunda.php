@@ -23,6 +23,7 @@ class VerificacionSegunda extends Model
         'check',
         'start',
         'end',
+        'device_token',
 
     ];
 }

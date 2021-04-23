@@ -29,6 +29,7 @@ class TarjetaCirculacion extends Model
         'start',
         'check',
         'end',
+        'device_token',
     ];
 
         public function scopeNombre($query,$nombre)

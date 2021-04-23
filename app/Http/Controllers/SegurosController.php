@@ -132,6 +132,7 @@ class SegurosController extends Controller
         $seguro->image = $request->get('image');
 
         $seguro->device_token = $request->get('device_token');
+        $seguro->estatus = 0;
 
         $seguro->update();
         // obtener la hora actual  - 2015-12-19 10:10:54

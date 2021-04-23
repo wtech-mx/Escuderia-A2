@@ -43,6 +43,7 @@ class CreateVerificacionTable extends Migration
             $table->integer('check')->nullable();
             $table->date('start')->nullable();
             $table->date('end')->nullable();
+            $table->text('device_token')->nullable();
             $table->string('image')->nullable();
 
         });

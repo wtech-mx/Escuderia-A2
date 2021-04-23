@@ -126,7 +126,7 @@ class ExptcController extends Controller
         ->where('current_auto','=', $automovil->id)
         ->paginate(6);
 
-        $img_tc = DB::table('img_tcs')
+        $img_tc = DB::table('exp_tc')
         ->where('current_auto','=', $automovil->id)
         ->get();
 

@@ -27,6 +27,7 @@ class Verificacion extends Model
         'end',
         'image',
         'estatus',
+        'device_token',
     ];
 
     public function User()
