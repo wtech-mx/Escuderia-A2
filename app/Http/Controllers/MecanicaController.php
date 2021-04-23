@@ -88,7 +88,6 @@ class MecanicaController extends Controller
           $validate = $this->validate($request, [
             'servicio' => 'required|max:191',
             'descripcion' => 'required|max:500',
-            'garantia' => 'required|max:191',
             'vida_llantas' => 'required|max:191',
             'km_actual' => 'required|max:191',
         ]);
@@ -152,7 +151,7 @@ class MecanicaController extends Controller
         $mecanica->servicio = $request->get('servicio');
         $mecanica->id_marca = $request->get('id_marca');
         $mecanica->descripcion = $request->get('descripcion');
-        $mecanica->garantia = $request->get('garantia');
+        //$mecanica->garantia = $request->get('garantia');
         $mecanica->vida_llantas = $request->get('vida_llantas');
         $mecanica->km_actual = $request->get('km_actual');
         $mecanica->km_estimado = $request->get('km_estimado');
@@ -304,6 +303,7 @@ class MecanicaController extends Controller
       $proveedor = $request->proveedor;
       $costo = $request->costo;
       $mano_o = $request->mano_o;
+
       for($count = 0; $count<count($nombre); $count++){
            $data = array(
             'nombre' => $nombre[$count],

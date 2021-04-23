@@ -117,69 +117,41 @@
 
                                   </div>
 
-
                                   <div class="col-12 p-4">
-                                <div class="d-flex justify-content-between">
-                                  <div class="mr-auto">
-                                         <label for="">
-                                             <p class="text-white"><strong>Marca</strong></p>
-                                         </label>
-                                            <div class="input-group form-group ">
-                                                <div class="input-group-prepend " >
-                                                    <span class="input-group-text input-services" >
-                                                         <img class="" src="{{ asset('img/icon/white/edificio-de-oficinas.png') }}" width="25px" >
-                                                    </span>
+
+                                        <div class="row">
+                                            <div class="col-9">
+
+                                             <label for="">
+                                                 <p class="text-white"><strong>Descripci&oacute;n y/o informaci&oacute;n adicional</strong></p>
+                                             </label>
+
+                                                <div class="input-group form-group">
+                                                    <div class="input-group-prepend " >
+                                                        <span class="input-group-text input-services" >
+                                                             <img class="" src="{{ asset('img/icon/white/contrato.png') }}" width="25px" >
+                                                        </span>
+                                                    </div>
+                                                   <input type="text" class="form-control" placeholder="Descripcion" style="border-radius: 0  10px 10px 0;" id="descripcion" name="descripcion" value="{{ old('descripcion') }}">
                                                 </div>
-                                             <select class="form-control input-edit-car" id="id_marca" name="id_marca" value="{{ old('id_marca') }}">
-                                                <option>Selecciona la marca</option>
-                                                @foreach($marca as $item)
-                                                    <option value="{{ $item->id }}">{{ $item->nombre }}</option>
-                                                @endforeach
-                                             </select>
                                             </div>
-                                  </div>
-                                  <div class="mr-auto">
-                                         <label for="">
-                                             <p class="text-white"><strong>Marca</strong></p>
-                                         </label>
-                                            <div class="input-group form-group ">
-                                             <!-- Button trigger modal -->
-                                            <a  class="btn bg-white" data-toggle="modal" data-target="#Marca">
-                                                <img class="" src="{{ asset('img/icon/black/boton-circular-plus (1).png') }}" width="25px" >
-                                            </a>
-                                            </div>
-                                  </div>
-                                </div>
-                           </div>
 
-                                  <div class="col-12 p-4">
-                                         <label for="">
-                                             <p class="text-white"><strong>Descripci&oacute;n y/o informaci&oacute;n adicional</strong></p>
-                                         </label>
-
-                                            <div class="input-group form-group">
-                                                <div class="input-group-prepend " >
-                                                    <span class="input-group-text input-services" >
-                                                         <img class="" src="{{ asset('img/icon/white/contrato.png') }}" width="25px" >
-                                                    </span>
+                                            <div class="col-3">
+                                                 <label for="">
+                                                     <p class="text-white"><strong>Proveedores</strong></p>
+                                                 </label>
+                                                <div class="input-group form-group ">
+                                                 <!-- Button trigger modal -->
+                                                <a  class="btn bg-white" data-toggle="modal" data-target="#proveedores" style="border-radius:10px">
+                                                    <img class="" src="{{ asset('img/icon/black/boton-circular-plus (1).png') }}" width="25px" >
+                                                </a>
                                                 </div>
-                                                <input type="text" class="form-control" placeholder="Descripcion" style="border-radius: 0  10px 10px 0;" id="descripcion" name="descripcion" value="{{ old('descripcion') }}">
                                             </div>
-                                            <input type="hidden" class="form-control" placeholder="servicio" style="border-radius: 0  10px 10px 0;" id="servicio" name="servicio" value="2">
+                                        </div>
 
-                                         <label for="">
-                                             <p class="text-white"><strong>Garant&iacute;a</strong></p>
-                                         </label>
+                                        <input type="hidden" class="form-control" placeholder="servicio" style="border-radius: 0  10px 10px 0;" id="servicio" name="servicio" value="2">
 
-                                            <div class="input-group form-group">
-                                                <div class="input-group-prepend " >
-                                                    <span class="input-group-text input-services" >
-                                                         <img class="" src="{{ asset('img/icon/white/garantia.png') }}" width="25px" >
-                                                    </span>
-                                                </div>
-                                                <input type="text" class="form-control" placeholder="garantia" style="border-radius: 0  10px 10px 0;" id="garantia" name="garantia" value="{{ old('garantia') }}">
-                                            </div>
-
+                                         <hr>
                                          <label for="">
                                              <p class="text-white"><strong>Vida de banda en KM</strong></p>
                                          </label>
@@ -193,6 +165,7 @@
                                                 <input type="number" class="form-control" placeholder="banda en KM" style="border-radius: 0  10px 10px 0;" id="vida_llantas" name="vida_llantas" value="{{ old('vida_llantas') }}">
                                             </div>
 
+                                        <hr>
                                          <label for="">
                                              <p class="text-white"><strong>Km actual del veh&iacute;culo</strong></p>
                                          </label>
@@ -205,7 +178,8 @@
                                                 </div>
                                                 <input type="number" class="form-control" placeholder="Km actual" style="border-radius: 0  10px 10px 0;" id="km_actual" name="km_actual" value="{{ old('km_actual') }}">
                                             </div>
-<input type="hidden" class="form-control" id='image' name="image" value="{{asset('img/icon/color/comprobado.png') }}">
+
+                                      <input type="hidden" class="form-control" id='image' name="image" value="{{asset('img/icon/color/comprobado.png') }}">
                                       <hr>
                                          <label for="">
                                              <p class="text-white"><strong>Km Estimado</strong></p>
@@ -262,7 +236,7 @@
                                   </div>
 
                                     <!-- Select anidado User-->
-                                    <script src="http://code.jquery.com/jquery-3.4.1.js"></script>
+
                                     <script>
                                         $(document).ready(function () {
                                              $('#id_userbn').on('change', function () {
@@ -313,3 +287,4 @@
                                         });
                                     </script>
                     </form>
+

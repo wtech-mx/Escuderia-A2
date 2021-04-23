@@ -1,4 +1,3 @@
-
     <div class="modal fade" id="proveedores" tabindex="-1" aria-labelledby="proveedoresLabel" aria-hidden="true">
         <div class="modal-dialog modal-sm modal-dialog-centered">
               <div class="modal-content">

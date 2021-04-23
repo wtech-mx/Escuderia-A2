@@ -120,7 +120,7 @@
                                                 </div>
 
                                                 <label class="form-check-label text-white" for="inlineRadio1">
-                                                    1
+                                                   Si
                                                 </label>
                                             </div>
 
@@ -129,7 +129,7 @@
                                                     <input class="form-check-input  d-block" type="radio" name="llantas_delanteras" id="llantas_delanteras" value="0">
                                                 </div>
                                               <label class="form-check-label text-white" for="inlineRadio2">
-                                                  2
+                                                  No
                                               </label>
                                             </div>
 
@@ -148,7 +148,7 @@
                                                 </div>
 
                                                 <label class="form-check-label text-white" for="inlineRadio1">
-                                                    1
+                                                    Si
                                                 </label>
                                             </div>
 
@@ -157,56 +157,45 @@
                                                     <input class="form-check-input  d-block" type="radio" name="llantas_traseras" id="llantas_traseras" value="0">
                                                 </div>
                                               <label class="form-check-label text-white" for="inlineRadio2">
-                                                  2
+                                                  No
                                               </label>
                                             </div>
                                   </div>
 
-                           <div class="col-12 p-4">
-                                <div class="d-flex justify-content-between">
-                                  <div class="mr-auto">
-                                         <label for="">
-                                             <p class="text-white"><strong>Proveedores</strong></p>
-                                         </label>
-                                            <div class="input-group form-group ">
-                                             <!-- Button trigger modal -->
-                                            <a  class="btn bg-white" data-toggle="modal" data-target="#proveedores">
-                                                <img class="" src="{{ asset('img/icon/black/boton-circular-plus (1).png') }}" width="25px" >
-                                            </a>
-                                            </div>
-                                  </div>
-                                </div>
-                           </div>
-
                                   <div class="col-12 p-4">
-                                         <label for="">
-                                             <p class="text-white"><strong>Descripci&oacute;n y/o informaci&oacute;n adicional</strong></p>
-                                         </label>
 
-                                            <div class="input-group form-group">
-                                                <div class="input-group-prepend " >
-                                                    <span class="input-group-text input-services" >
-                                                         <img class="" src="{{ asset('img/icon/white/contrato.png') }}" width="25px" >
-                                                    </span>
+                                        <div class="row">
+                                            <div class="col-9">
+
+                                             <label for="">
+                                                 <p class="text-white"><strong>Descripci&oacute;n y/o informaci&oacute;n adicional</strong></p>
+                                             </label>
+
+                                                <div class="input-group form-group">
+                                                    <div class="input-group-prepend " >
+                                                        <span class="input-group-text input-services" >
+                                                             <img class="" src="{{ asset('img/icon/white/contrato.png') }}" width="25px" >
+                                                        </span>
+                                                    </div>
+                                                    <input type="text" class="form-control" placeholder="Descripcion" style="border-radius: 0  10px 10px 0;" id="descripcion" name="descripcion" value="{{ old('descripcion') }}">
                                                 </div>
-                                                <input type="text" class="form-control" placeholder="Descripcion" style="border-radius: 0  10px 10px 0;" id="descripcion" name="descripcion" value="{{ old('descripcion') }}">
                                             </div>
+
+                                            <div class="col-3">
+                                                 <label for="">
+                                                     <p class="text-white"><strong>Proveedores</strong></p>
+                                                 </label>
+                                                <div class="input-group form-group ">
+                                                 <!-- Button trigger modal -->
+                                                <a  class="btn bg-white" data-toggle="modal" data-target="#proveedores" style="border-radius:10px">
+                                                    <img class="" src="{{ asset('img/icon/black/boton-circular-plus (1).png') }}" width="25px" >
+                                                </a>
+                                                </div>
+                                            </div>
+                                        </div>
 
                                             <input type="hidden" class="form-control" placeholder="servicio" style="border-radius: 0  10px 10px 0;" id="servicio" name="servicio" value="1">
-
-                                         <label for="">
-                                             <p class="text-white"><strong>Garant&iacute;a</strong></p>
-                                         </label>
-
-                                            <div class="input-group form-group">
-                                                <div class="input-group-prepend " >
-                                                    <span class="input-group-text input-services" >
-                                                         <img class="" src="{{ asset('img/icon/white/garantia.png') }}" width="25px" >
-                                                    </span>
-                                                </div>
-                                                <input type="text" class="form-control" placeholder="garantia" style="border-radius: 0  10px 10px 0;" id="garantia" name="garantia" value="{{ old('garantia') }}">
-                                            </div>
-
+                                         <hr>
                                          <label for="">
                                              <p class="text-white"><strong>Vida de llantas en KM</strong></p>
                                          </label>
@@ -220,6 +209,7 @@
                                                 <input type="number" class="form-control" placeholder="vida llantas" style="border-radius: 0  10px 10px 0;" id="vida_llantas" name="vida_llantas" value="{{ old('vida_llantas') }}">
                                             </div>
 
+                                         <hr>
                                          <label for="">
                                              <p class="text-white"><strong>Km actual del vech&iacute;culo</strong></p>
                                          </label>
@@ -233,7 +223,7 @@
                                                 <input type="number" class="form-control" placeholder="km actual" style="border-radius: 0  10px 10px 0;" id="km_actual" name="km_actual" value="{{ old('km_actual') }}">
                                             </div>
 
-                                      <hr>
+                                         <hr>
                                          <label for="">
                                              <p class="text-white"><strong>Km Estimado</strong></p>
                                          </label>
@@ -247,6 +237,7 @@
                                                 <input type="number" class="form-control" placeholder="km actual" style="border-radius: 0  10px 10px 0;" id="km_estimado" name="km_estimado" value="{{ old('km_actual') }}">
                                             </div>
 
+                                         <hr>
                                          <label for="">
                                              <p class="text-white"><strong>Fecha Próxima</strong></p>
                                          </label>
@@ -259,7 +250,10 @@
                                             </div>
                                              <input type="date" class="form-control" placeholder="MM/DD/YYY"  style="border-radius: 0  10px 10px 0;" id='start' name="start">
                                         </div>
-                                        <input type="hidden" class="form-control" id='image' name="image" value="{{asset('img/icon/color/comprobado.png') }}">
+
+                                         <input type="hidden" class="form-control" id='image' name="image" value="{{asset('img/icon/color/comprobado.png') }}">
+
+                                         <hr>
                                          <label for="">
                                              <p class="text-white"><strong>V&iacute;deo Interior</strong></p>
                                          </label>
@@ -284,15 +278,13 @@
                                           </button>
                                   </div>
 
-                                  <!-- Select anidado User-->
-                                    <script src="http://code.jquery.com/jquery-3.4.1.js"></script>
                                     <script>
-                                                    $(document).ready(function () {
-                                                    $('#id_user').on('change', function () {
-                                                    let id = $(this).val();
-                                                    //id_user no esta en la tabla de automovil
-                                                    $('#current_auto2').empty();
-                                                    $('#current_auto2').append(`<option value="" disabled selected>Procesando..</option>`);
+                                         $(document).ready(function () {
+                                            $('#id_user').on('change', function () {
+                                                let id = $(this).val();
+                                                //id_user no esta en la tabla de automovil
+                                                $('#current_auto2').empty();
+                                                $('#current_auto2').append(`<option value="" disabled selected>Procesando..</option>`);
                                                     $.ajax({
                                                     type: 'GET',
                                                     url: 'crear/' + id,
@@ -309,15 +301,15 @@
                                                 });
                                             });
                                         });
-                                     </script>
+                                    </script>
                                   <!-- Select anidado Empresa-->
                                     <script>
-                                                    $(document).ready(function () {
-                                                    $('#id_empresa').on('change', function () {
-                                                    let id = $(this).val();
-                                                    //id_empresa no esta en la tabla de automovil
-                                                    $('#current_auto').empty();
-                                                    $('#current_auto').append(`<option value="" disabled selected>Procesando..</option>`);
+                                        $(document).ready(function () {
+                                            $('#id_empresa').on('change', function () {
+                                                let id = $(this).val();
+                                                //id_empresa no esta en la tabla de automovil
+                                                $('#current_auto').empty();
+                                                $('#current_auto').append(`<option value="" disabled selected>Procesando..</option>`);
                                                     $.ajax({
                                                     type: 'GET',
                                                     url: 'crear/empresa/' + id,
@@ -337,4 +329,4 @@
                                      </script>
 
                        </form>
-                        @include('admin.services.proveedores')
+

@@ -118,68 +118,41 @@
 
                                   </div>
 
-
-                           <div class="col-12 p-4">
-                                <div class="d-flex justify-content-between">
-                                  <div class="mr-auto">
-                                         <label for="">
-                                             <p class="text-white"><strong>Marca</strong></p>
-                                         </label>
-                                            <div class="input-group form-group ">
-                                                <div class="input-group-prepend " >
-                                                    <span class="input-group-text input-services" >
-                                                         <img class="" src="{{ asset('img/icon/white/edificio-de-oficinas.png') }}" width="25px" >
-                                                    </span>
-                                                </div>
-                                             <select class="form-control input-edit-car" id="id_marca" name="id_marca" value="{{ old('id_marca') }}">
-                                                <option>Selecciona la marca</option>
-                                                @foreach($marca as $item)
-                                                    <option value="{{ $item->id }}">{{ $item->nombre }}</option>
-                                                @endforeach
-                                             </select>
-                                            </div>
-                                  </div>
-                                  <div class="mr-auto">
-                                         <label for="">
-                                             <p class="text-white"><strong>Marca</strong></p>
-                                         </label>
-                                            <div class="input-group form-group ">
-                                             <!-- Button trigger modal -->
-                                            <a  class="btn bg-white" data-toggle="modal" data-target="#Marca">
-                                                <img class="" src="{{ asset('img/icon/black/boton-circular-plus (1).png') }}" width="25px" >
-                                            </a>
-                                            </div>
-                                  </div>
-                                </div>
-                           </div>
-
                                   <div class="col-12 p-4">
-                                         <label for="">
-                                             <p class="text-white"><strong>Descripci&oacute;n y/o informaci&oacute;n adicional</strong></p>
-                                         </label>
 
-                                            <div class="input-group form-group">
-                                                <div class="input-group-prepend " >
-                                                    <span class="input-group-text input-services" >
-                                                         <img class="" src="{{ asset('img/icon/white/contrato.png') }}" width="25px" >
-                                                    </span>
-                                                </div>
-                                                <input type="text" class="form-control" placeholder="descripcion" style="border-radius: 0  10px 10px 0;" id="descripcion" name="descripcion" value="{{ old('descripcion') }}" required>
-                                            </div>
+                                          <div class="row">
+                                              <div class="col-9">
+
+                                               <label for="">
+                                                   <p class="text-white"><strong>Descripci&oacute;n y/o informaci&oacute;n adicional</strong></p>
+                                               </label>
+
+                                                  <div class="input-group form-group">
+                                                      <div class="input-group-prepend " >
+                                                          <span class="input-group-text input-services" >
+                                                               <img class="" src="{{ asset('img/icon/white/contrato.png') }}" width="25px" >
+                                                          </span>
+                                                      </div>
+                                                     <input type="text" class="form-control" placeholder="Descripcion" style="border-radius: 0  10px 10px 0;" id="descripcion" name="descripcion" value="{{ old('descripcion') }}">
+                                                  </div>
+                                              </div>
+
+                                              <div class="col-3">
+                                                   <label for="">
+                                                       <p class="text-white"><strong>Proveedores</strong></p>
+                                                   </label>
+                                                  <div class="input-group form-group ">
+                                                   <!-- Button trigger modal -->
+                                                  <a  class="btn bg-white" data-toggle="modal" data-target="#proveedores" style="border-radius:10px">
+                                                      <img class="" src="{{ asset('img/icon/black/boton-circular-plus (1).png') }}" width="25px" >
+                                                  </a>
+                                                  </div>
+                                              </div>
+                                          </div>
+
                                                 <input type="hidden" class="form-control" placeholder="servicio" style="border-radius: 0  10px 10px 0;" id="servicio" name="servicio" value="4">
-                                         <label for="">
-                                             <p class="text-white"><strong>Garant&iacute;a</strong></p>
-                                         </label>
 
-                                            <div class="input-group form-group">
-                                                <div class="input-group-prepend " >
-                                                    <span class="input-group-text input-services" >
-                                                         <img class="" src="{{ asset('img/icon/white/garantia.png') }}" width="25px" >
-                                                    </span>
-                                                </div>
-                                                <input type="text" class="form-control" placeholder="garantia" style="border-radius: 0  10px 10px 0;" id="garantia" name="garantia" value="{{ old('garantia') }}" required>
-                                            </div>
-
+                                         <hr>
                                          <label for="">
                                              <p class="text-white"><strong>Vida de aceite en KM</strong></p>
                                          </label>
@@ -193,6 +166,7 @@
                                                 <input type="number" class="form-control" placeholder="Vida de aceite" style="border-radius: 0  10px 10px 0;" id="vida_llantas" name="vida_llantas" value="{{ old('vida_llantas') }}" required>
                                             </div>
 
+                                         <hr>
                                          <label for="">
                                              <p class="text-white"><strong>Km actual del vech&iacute;culo</strong></p>
                                          </label>
@@ -206,7 +180,7 @@
                                                 <input type="number" class="form-control" placeholder="Km actual" style="border-radius: 0  10px 10px 0;" id="km_actual" name="km_actual" value="{{ old('km_actual') }}" required>
                                             </div>
 
-                                      <hr>
+                                         <hr>
                                          <label for="">
                                              <p class="text-white"><strong>Km Estimado</strong></p>
                                          </label>
@@ -220,6 +194,8 @@
                                                 <input type="number" class="form-control" placeholder="km actual" style="border-radius: 0  10px 10px 0;" id="km_estimado" name="km_estimado" value="{{ old('km_actual') }}">
                                             </div>
 
+
+                                         <hr>
                                          <label for="">
                                              <p class="text-white"><strong>Fecha Próxima</strong></p>
                                          </label>
@@ -232,7 +208,9 @@
                                             </div>
                                              <input type="date" class="form-control" placeholder="MM/DD/YYY"  style="border-radius: 0  10px 10px 0;" id='start' name="start">
                                         </div>
-<input type="hidden" class="form-control" id='image' name="image" value="{{asset('img/icon/color/comprobado.png') }}">
+                                        <input type="hidden" class="form-control" id='image' name="image" value="{{asset('img/icon/color/comprobado.png') }}">
+
+                                         <hr>
                                          <label for="">
                                              <p class="text-white"><strong>Video Interior</strong></p>
                                          </label>
@@ -242,6 +220,7 @@
                                           <label class="custom-file-label " for="customFile">Selecciona Video</label>
                                         </div>
 
+                                        <hr>
                                          <label for="" class="mt-3">
                                              <p class="text-white"><strong>Video Exterior</strong></p>
                                          </label>
@@ -251,17 +230,14 @@
                                           <label class="custom-file-label" for="customFile">Selecciona Video</label>
                                         </div>
 
-
-
                                          <button class="btn btn-lg btn-success btn-save-neon text-white mt-4" style="margin-bottom: 8rem !important;">
                                               <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}" width="20px" >
                                               Actualizar
                                          </button>
 
-
                                   </div>
                                   <!-- Select anidado User-->
-                                    <script src="http://code.jquery.com/jquery-3.4.1.js"></script>
+
                                     <script>
                                                     $(document).ready(function () {
                                                     $('#id_userac').on('change', function () {
