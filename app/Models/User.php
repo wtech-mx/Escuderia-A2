@@ -8,7 +8,9 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
 
-class User extends Authenticatable
+class
+
+User extends Authenticatable
 {
     use HasFactory, Notifiable;
     use HasRoles;
@@ -77,6 +79,11 @@ class User extends Authenticatable
     public function TarjetaCirculacion()
     {
        return $this->hasMany(TarjetaCirculacion::class,'id_user');
+    }
+
+    public function ExpFactura()
+    {
+       return $this->hasMany(ExpFactura::class,'id_user');
     }
 
 }

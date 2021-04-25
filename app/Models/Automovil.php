@@ -64,4 +64,59 @@ class Automovil extends Model
        return $this->belongsTo(Seguros::class,'id_user');
     }
 
+    public function ExpFactura()
+    {
+       return $this->hasMany(ExpFactura::class,'current_auto');
+    }
+
+    public function ExpTenencias()
+    {
+       return $this->hasMany(ExpTenencias::class,'current_auto');
+    }
+
+    public function ExpTc()
+    {
+       return $this->hasMany(ExpTc::class,'current_auto');
+    }
+
+    public function ExpDomicilio()
+    {
+       return $this->hasMany(ExpDomicilio::class,'current_auto');
+    }
+
+    public function ExpCertificado()
+    {
+       return $this->hasMany(ExpCertificado::class,'current_auto');
+    }
+
+    public function ExpCarta()
+    {
+       return $this->hasMany(ExpCarta::class,'current_auto');
+    }
+
+    public function ExpIne()
+    {
+       return $this->hasMany(ExpIne::class,'current_auto');
+    }
+
+    public function ExpPlacas()
+    {
+       return $this->hasMany(ExpPlacas::class,'current_auto');
+    }
+
+    public function ExpPoliza()
+    {
+       return $this->hasMany(ExpPoliza::class,'current_auto');
+    }
+
+    public function ExpReemplacamiento()
+    {
+       return $this->hasMany(ExpReemplacamiento::class,'current_auto');
+    }
+
+    public function ExpRfc()
+    {
+       return $this->hasMany(ExpRfc::class,'current_auto');
+    }
+
 }

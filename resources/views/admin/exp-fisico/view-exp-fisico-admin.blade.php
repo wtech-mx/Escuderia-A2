@@ -78,7 +78,6 @@
                                     <div class="content container-res-inter">
                                         <div class="col-12">
                                             @foreach ($automovil as $item)
-
                                              <a class="mb-2" data-toggle="collapse" href="#collapse{{$item->id}}" role="button" aria-expanded="false" aria-controls="collapse{{$item->id}}">
                                                 <div class="card card-slide-garaje mt-3" >
                                                   <div class="card-body p-2" >
@@ -100,6 +99,7 @@
                                              </a>
 
                                             <div class="collapse mt-1 " id="collapse{{$item->id}}">
+
                                               <div class="card card-body card-slide-garaje">
                                                   <p class="text-center"><strong style="font-size: 19px">Expediente F&iacute;sico</strong></p>
 
@@ -108,48 +108,43 @@
                                                       <a href="{{ route('create_admin.view-factura-admin',$item->id) }}">
                                                         <span class="badge bg-primary" style="font-size: 70%;">
                                                             Facturas
-                                                            @foreach($factura2 as $autofac)
-                                                                @if($item->id == $autofac->current_auto)
-                                                                     {{$factura}}
-                                                                @endif
-                                                            @break
-                                                            @endforeach
+
+                                                            @if($item->User->id == $item->id_user)
+                                                                {{$item->ExpFactura->count()}}
+                                                            @endif
+
                                                         </span>
                                                       </a>
 
                                                        <a href="{{ route('create_admin.view-tenencia-admin',$item->id) }}">
                                                         <span class="badge bg-primary" style="font-size: 70%;">
                                                             Tenencias
-                                                            @foreach($tenencias2 as $autofac)
-                                                                @if($item->id == $autofac->current_auto)
-                                                                    {{$tenencias}}
-                                                                @endif
-                                                            @break
-                                                            @endforeach
+
+                                                            @if($item->User->id == $item->id_user)
+                                                                {{$item->ExpTenencias->count()}}
+                                                            @endif
                                                         </span>
                                                       </a>
 
                                                        <a href="{{ route('create_admin.view-cr-admin',$item->id) }}">
                                                         <span class="badge bg-primary" style="font-size: 70%;">
                                                             Carta Responsiva
-                                                            @foreach($carta2 as $auto)
-                                                                @if($item->id == $auto->current_auto)
-                                                                         {{$carta}}
-                                                                @endif
-                                                            @break
-                                                            @endforeach
+
+                                                            @if($item->User->id == $item->id_user)
+                                                                {{$item->ExpCarta->count()}}
+                                                            @endif
+
                                                         </span>
                                                       </a>
 
                                                        <a href="{{ route('create_admin.view-poliza-admin',$item->id) }}">
                                                         <span class="badge bg-primary" style="font-size: 70%;">
                                                             Póliza de Seguro
-                                                            @foreach($poliza2 as $auto)
-                                                                @if($item->id == $auto->current_auto)
-                                                                         {{$poliza}}
-                                                                @endif
-                                                            @break
-                                                            @endforeach
+
+                                                            @if($item->User->id == $item->id_user)
+                                                                {{$item->ExpPoliza->count()}}
+                                                            @endif
+
                                                         </span>
                                                       </a>
 
@@ -160,48 +155,44 @@
                                                        <a href="{{ route('create_admin.view-tc-admin',$item->id) }}">
                                                         <span class="badge bg-secondary" style="font-size: 70%;">
                                                             tarjeta de circulaci&oacute;n
-                                                            @foreach($tc2 as $auto)
-                                                                @if($item->id == $auto->current_auto)
-                                                                         {{$tc}}
-                                                                @endif
-                                                            @break
-                                                            @endforeach
+
+                                                            @if($item->User->id == $item->id_user)
+                                                                {{$item->ExpTc->count()}}
+                                                            @endif
+
                                                         </span>
                                                       </a>
 
                                                        <a href="{{ route('create_admin.view-reemplacamiento-admin',$item->id) }}">
                                                         <span class="badge bg-secondary" style="font-size: 70%;">
                                                             Reemplacamiento
-                                                            @foreach($reemplacamiento2 as $auto)
-                                                                @if($item->id == $auto->current_auto)
-                                                                         {{$reemplacamiento}}
-                                                                @endif
-                                                            @break
-                                                            @endforeach
+
+                                                            @if($item->User->id == $item->id_user)
+                                                                {{$item->ExpReemplacamiento->count()}}
+                                                            @endif
+
                                                         </span>
                                                       </a>
 
                                                        <a href="{{ route('create_admin.view-certificado-admin',$item->id) }}">
                                                         <span class="badge bg-secondary" style="font-size: 70%;">
                                                             Verificaci&oacute;n
-                                                            @foreach($certificado2 as $auto)
-                                                                @if($item->id == $auto->current_auto)
-                                                                         {{$certificado}}
-                                                                @endif
-                                                            @break
-                                                            @endforeach
+
+                                                            @if($item->User->id == $item->id_user)
+                                                                {{$item->ExpCertificado->count()}}
+                                                            @endif
+
                                                         </span>
                                                       </a>
 
                                                        <a href="{{ route('create_admin.view-bp-admin',$item->id) }}">
                                                         <span class="badge bg-secondary" style="font-size: 70%;">
                                                             Baja de placas
-                                                            @foreach($placas2 as $auto)
-                                                                @if($item->id == $auto->current_auto)
-                                                                         {{$placas}}
-                                                                @endif
-                                                            @break
-                                                            @endforeach
+
+                                                            @if($item->User->id == $item->id_user)
+                                                                {{$item->ExpPlacas->count()}}
+                                                            @endif
+
                                                         </span>
                                                       </a>
 
@@ -212,36 +203,33 @@
                                                        <a href="{{ route('create_admin.view-ine-admin',$item->id) }}">
                                                         <span class="badge bg-success" style="font-size: 70%;">
                                                             INE
-                                                            @foreach($ine2 as $auto)
-                                                                @if($item->id == $auto->current_auto)
-                                                                         {{$ine}}
-                                                                @endif
-                                                            @break
-                                                            @endforeach
+
+                                                            @if($item->User->id == $item->id_user)
+                                                                {{$item->ExpIne->count()}}
+                                                            @endif
+
                                                         </span>
                                                       </a>
 
                                                        <a href="{{ route('create_admin.view-cd-admin',$item->id) }}">
                                                         <span class="badge bg-success" style="font-size: 70%;">
                                                             Comprobante de domicilio
-                                                            @foreach($comprobante2 as $auto)
-                                                                @if($item->id == $auto->current_auto)
-                                                                         {{$comprobante}}
-                                                                @endif
-                                                            @break
-                                                            @endforeach
+
+                                                            @if($item->User->id == $item->id_user)
+                                                                {{$item->ExpDomicilio->count()}}
+                                                            @endif
+
                                                         </span>
                                                       </a>
 
                                                        <a href="{{ route('create_admin.view-rfc-admin',$item->id) }}">
                                                         <span class="badge bg-success" style="font-size: 70%;">
                                                             RFC
-                                                            @foreach($rfc2 as $auto)
-                                                                @if($item->id == $auto->current_auto)
-                                                                         {{$rfc}}
-                                                                @endif
-                                                            @break
-                                                            @endforeach
+
+                                                            @if($item->User->id == $item->id_user)
+                                                                {{$item->ExpRfc->count()}}
+                                                            @endif
+
                                                         </span>
                                                       </a>
 
@@ -274,6 +262,7 @@
                                                 {!! $automovil2->links() !!}
                                             </div>
                                         </div>
+
                                     <div class="content container-res-inter">
                                         <div class="col-12">
                                             @foreach ($automovil2 as $item)
@@ -380,7 +369,6 @@
 
                                             @endforeach
                                         </div>
-
                                     </div>
                                   </div>
 

@@ -144,48 +144,10 @@ class ExpfacturasController extends Controller
             ->placas($placas)
             ->paginate(5);
 
-        $datos = Arr::pluck($automovil, 'id');
-        list($a) = $datos;
-
         $automovil2 = Automovil::where('id_user', '=', NULL)
             ->paginate(5);
 
-        $factura = ExpFactura::get()->count();
-        $factura2 = db::table('exp_facturas')->get();
-
-        $tenencias = ExpTenencias::get()->count();
-        $tenencias2 = ExpTenencias::get();
-
-        $carta = ExpCarta::get()->count();
-        $carta2 = ExpCarta::get();
-
-        $poliza = ExpPoliza::get()->count();
-        $poliza2 = ExpPoliza::get();
-
-        $tc = ExpTc::get()->count();
-        $tc2 = ExpTc::get();
-
-        $reemplacamiento = ExpReemplacamiento::get()->count();
-        $reemplacamiento2 = ExpReemplacamiento::get();
-
-        $placas = ExpPlacas::get()->count();
-        $placas2 = ExpPlacas::get();
-
-        $ine = ExpIne::get()->count();
-        $ine2 = ExpIne::get();
-
-        $comprobante = ExpDomicilio::get()->count();
-        $comprobante2 = ExpDomicilio::get();
-
-        $certificado = ExpCertificado::get()->count();
-        $certificado2 = ExpCertificado::get();
-
-        $rfc = ExpRfc::get()->count();
-        $rfc2 = ExpRfc::get();
-
-        return view('admin.exp-fisico.view-exp-fisico-admin',compact('automovil','automovil2', 'factura', 'factura2',
-                          'tenencias', 'tenencias2', 'carta', 'carta2', 'poliza', 'poliza2', 'tc', 'tc2', 'reemplacamiento', 'reemplacamiento2',
-                          'placas', 'placas2', 'ine', 'ine2', 'comprobante', 'comprobante2', 'certificado', 'certificado2', 'rfc', 'rfc2'));
+        return view('admin.exp-fisico.view-exp-fisico-admin',compact('automovil','automovil2'));
     }
 
      public function create_admin($id)
