@@ -31,7 +31,6 @@
         </div>
     </div>
 
-
 <script>
                 $(document).ready(function(){
                  var count = 1;
@@ -41,9 +40,8 @@
                  html = '<tr>';
 
                   html = '<tr>';
-                        html += '<td><label ><strong>Nombre</strong></label></td>';
-                        html += '<td><input type="text" placeholder="Nombre" name="nombre[]" class="form-control" /></td>';
-
+                        html += '<td><label ><strong>Piezas o Refacción</strong></label></td>';
+                        html += '<td><input type="text" placeholder="Piezas o Refacción" name="nombre[]" class="form-control" /></td>';
                   html += '</tr>';
 
                   html += '<tr>';
@@ -57,8 +55,18 @@
                   html += '</tr>';
 
                   html += '<tr>';
-                        html += '<td><label ><strong>Costo</strong> </label></td>';
-                        html += '<td><input type="number" placeholder="Costo" name="costo[]" class="form-control" /></td>';
+                        html += '<td><label ><strong>Cantidad</strong> </label></td>';
+                        html += '<td><input type="number" placeholder="Cantidad" name="cantidad[]" class="form-control" /></td>';
+                  html += '</tr>';
+
+                  html += '<tr>';
+                        html += '<td><label ><strong>Costo Unitario</strong> </label></td>';
+                        html += '<td><input type="number" placeholder="Costo Unitario" name="costo[]" class="form-control" /></td>';
+                  html += '</tr>';
+
+                  html += '<tr>';
+                        html += '<td><label ><strong>Costo Total</strong> </label></td>';
+                        html += '<td><input type="number" placeholder="Costo Total" name="costo_total[]" class="form-control" /></td>';
                   html += '</tr>';
 
                   html += '<tr>';

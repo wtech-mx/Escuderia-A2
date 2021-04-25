@@ -148,6 +148,7 @@ class MecanicaController extends Controller
         $mecanica->amortig_traseras = $request->get('amortig_traseras');
         $mecanica->frenos_delanteras = $request->get('frenos_delanteras');
         $mecanica->frenos_traseras = $request->get('frenos_traseras');
+        $mecanica->precio = $request->get('precio');
         $mecanica->servicio = $request->get('servicio');
         $mecanica->id_marca = $request->get('id_marca');
         $mecanica->descripcion = $request->get('descripcion');
@@ -288,7 +289,9 @@ class MecanicaController extends Controller
            'garantia.*'  => 'required',
            'proveedor.*'  => 'required',
            'costo.*'  => 'required',
+           'costo_total.*'  => 'required',
            'mano_o.*'  => 'required',
+           'cantidad.*'  => 'required',
           );
       $error = Validator::make($request->all(), $rules);
 
@@ -302,6 +305,8 @@ class MecanicaController extends Controller
       $garantia = $request->garantia;
       $proveedor = $request->proveedor;
       $costo = $request->costo;
+      $costo_total = $request->costo_total;
+      $cantidad = $request->cantidad;
       $mano_o = $request->mano_o;
 
       for($count = 0; $count<count($nombre); $count++){
@@ -310,6 +315,8 @@ class MecanicaController extends Controller
             'garantia' => $garantia[$count],
             'proveedor' => $proveedor[$count],
             'costo' => $costo[$count],
+            'costo_total' => $costo_total[$count],
+            'cantidad' => $cantidad[$count],
             'mano_o' => $mano_o[$count]
            );
            $insert_data[] = $data;

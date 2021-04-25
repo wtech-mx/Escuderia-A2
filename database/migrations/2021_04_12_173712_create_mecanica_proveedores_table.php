@@ -19,7 +19,9 @@ class CreateMecanicaProveedoresTable extends Migration
             $table->unsignedBigInteger('id_marca');
             $table->string('garantia');
             $table->string('proveedor');
+            $table->integer('cantidad');
             $table->integer('costo');
+            $table->integer('costo_total');
             $table->integer('mano_o');
             $table->string('nombre');
             $table->timestamps();

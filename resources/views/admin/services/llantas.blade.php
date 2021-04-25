@@ -120,7 +120,7 @@
                                                 </div>
 
                                                 <label class="form-check-label text-white" for="inlineRadio1">
-                                                   Si
+                                                   1
                                                 </label>
                                             </div>
 
@@ -129,7 +129,7 @@
                                                     <input class="form-check-input  d-block" type="radio" name="llantas_delanteras" id="llantas_delanteras" value="0">
                                                 </div>
                                               <label class="form-check-label text-white" for="inlineRadio2">
-                                                  No
+                                                  2
                                               </label>
                                             </div>
 
@@ -148,7 +148,7 @@
                                                 </div>
 
                                                 <label class="form-check-label text-white" for="inlineRadio1">
-                                                    Si
+                                                    1
                                                 </label>
                                             </div>
 
@@ -157,7 +157,7 @@
                                                     <input class="form-check-input  d-block" type="radio" name="llantas_traseras" id="llantas_traseras" value="0">
                                                 </div>
                                               <label class="form-check-label text-white" for="inlineRadio2">
-                                                  No
+                                                  2
                                               </label>
                                             </div>
                                   </div>
@@ -224,8 +224,24 @@
                                             </div>
 
                                          <hr>
+
                                          <label for="">
-                                             <p class="text-white"><strong>Km Estimado</strong></p>
+                                             <p class="text-white"><strong>Precio Venta</strong></p>
+                                         </label>
+
+                                            <div class="input-group form-group">
+                                                <div class="input-group-prepend " >
+                                                    <span class="input-group-text input-services" >
+                                                         <img class="" src="{{ asset('img/icon/white/bolsa-de-dinero (1).png') }}" width="25px" >
+                                                    </span>
+                                                </div>
+                                                <input type="number" class="form-control" placeholder="Precio Venta" style="border-radius: 0  10px 10px 0;" id="precio" name="precio" value="{{ old('precio') }}" required>
+                                            </div>
+
+                                         <hr>
+
+                                         <label for="">
+                                             <p class="text-white"><strong>km estimado del próximo servicio</strong></p>
                                          </label>
 
                                             <div class="input-group form-group">
@@ -234,7 +250,7 @@
                                                          <img class="" src="{{ asset('img/icon/white/velocimetro (2).png') }}" width="25px" >
                                                     </span>
                                                 </div>
-                                                <input type="number" class="form-control" placeholder="km actual" style="border-radius: 0  10px 10px 0;" id="km_estimado" name="km_estimado" value="{{ old('km_actual') }}">
+                                                <input type="number" class="form-control" placeholder="km estimado del próximo servicio" style="border-radius: 0  10px 10px 0;" id="km_estimado" name="km_estimado" value="{{ old('km_actual') }}">
                                             </div>
 
                                          <hr>

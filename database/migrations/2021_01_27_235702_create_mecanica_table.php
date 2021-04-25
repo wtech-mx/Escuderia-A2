@@ -22,6 +22,7 @@ class CreateMecanicaTable extends Migration
             $table->integer('amortig_traseras')->nullable();
             $table->integer('frenos_delanteras')->nullable();
             $table->integer('frenos_traseras')->nullable();
+            $table->integer('precio')->nullable();
 
             $table->string('descripcion', 500);
             $table->string('vida_llantas');
