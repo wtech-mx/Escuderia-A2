@@ -13,11 +13,15 @@ class MecanicaProveedores extends Model
     protected $primarykey = "id";
 
     protected $fillable = [
-        'garantia',
-        'proveedor',
-        'costo',
-        'mano_o',
-        'nombre',
+           'titulo',
+           'nombre',
+           'garantia',
+           'marca',
+           'proveedor',
+           'mano_o',
+           'costo',
+           'costo_total',
+           'cantidad',
     ];
 
     protected $guarded=[

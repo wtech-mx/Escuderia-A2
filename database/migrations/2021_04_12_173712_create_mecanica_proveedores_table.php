@@ -16,8 +16,9 @@ class CreateMecanicaProveedoresTable extends Migration
         Schema::create('mecanica_proveedores', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_mecanica');
-            $table->unsignedBigInteger('id_marca');
+            $table->string('titulo');
             $table->string('garantia');
+            $table->string('marca');
             $table->string('proveedor');
             $table->integer('cantidad');
             $table->integer('costo');

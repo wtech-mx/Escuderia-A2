@@ -285,12 +285,14 @@ class MecanicaController extends Controller
 
      if($request->ajax()){
           $rules = array(
+           'titulo.*'  => 'required',
            'nombre.*'  => 'required',
            'garantia.*'  => 'required',
+           'marca.*'  => 'required',
            'proveedor.*'  => 'required',
+           'mano_o.*'  => 'required',
            'costo.*'  => 'required',
            'costo_total.*'  => 'required',
-           'mano_o.*'  => 'required',
            'cantidad.*'  => 'required',
           );
       $error = Validator::make($request->all(), $rules);
@@ -301,23 +303,27 @@ class MecanicaController extends Controller
        ]);
       }
 
+      $titulo = $request->titulo;
       $nombre = $request->nombre;
+      $marca = $request->marca;
       $garantia = $request->garantia;
       $proveedor = $request->proveedor;
+      $mano_o = $request->mano_o;
       $costo = $request->costo;
       $costo_total = $request->costo_total;
       $cantidad = $request->cantidad;
-      $mano_o = $request->mano_o;
 
       for($count = 0; $count<count($nombre); $count++){
            $data = array(
+            'titulo' => $titulo[$count],
             'nombre' => $nombre[$count],
+            'marca' => $marca[$count],
             'garantia' => $garantia[$count],
             'proveedor' => $proveedor[$count],
+            'mano_o' => $mano_o[$count],
             'costo' => $costo[$count],
             'costo_total' => $costo_total[$count],
             'cantidad' => $cantidad[$count],
-            'mano_o' => $mano_o[$count]
            );
            $insert_data[] = $data;
       }

@@ -297,6 +297,9 @@
                                                       <a href="{{ route('create_admin.view-factura-admin',$item->id) }}">
                                                         <span class="badge badge-primary" style="font-size: 70%;">
                                                           Facturas
+{{--                                                            @if($item->User->Empresa == $item->id_empresa)--}}
+{{--                                                                {{$item->ExpFactura->count()}}--}}
+{{--                                                            @endif--}}
                                                         </span>
                                                       </a>
 
