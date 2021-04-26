@@ -128,7 +128,7 @@
                                              </label>
 
                                              <select class="form-control input-edit-car" id="id_proveedor" name="id_proveedor" value="{{ old('id_proveedor') }}">
-                                                     <option>Seleccione proveedor 1</option>
+                                                     <option value="">Seleccione proveedor 1</option>
                                                         @foreach($proveedor as $item)
                                                             <option value="{{ $item->id }}">{{ $item->nombre }}</option>
                                                         @endforeach
@@ -155,7 +155,7 @@
                                              </label>
 
                                              <select class="form-control input-edit-car" id="id_proveedor2" name="id_proveedor2" value="{{ old('id_proveedor2') }}">
-                                                     <option>Seleccione proveedor 1</option>
+                                                     <option value="">Seleccione proveedor 2</option>
                                                         @foreach($proveedor as $item)
                                                             <option value="{{ $item->id }}">{{ $item->nombre }}</option>
                                                         @endforeach
@@ -168,7 +168,7 @@
                                              </label>
 
                                              <select class="form-control input-edit-car" id="id_proveedor3" name="id_proveedor3" value="{{ old('id_proveedor3') }}">
-                                                     <option>Seleccione proveedor 1</option>
+                                                     <option value="">Seleccione proveedor 3</option>
                                                         @foreach($proveedor as $item)
                                                             <option value="{{ $item->id }}">{{ $item->nombre }}</option>
                                                         @endforeach
