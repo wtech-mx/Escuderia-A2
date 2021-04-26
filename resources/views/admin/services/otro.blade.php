@@ -108,35 +108,79 @@
                                 </div>
 
                            <div class="col-12 p-4">
-                                  <div class="row">
-                                      <div class="col-9">
+                                         <div class="row">
+                                            <div class="col-9">
+                                             <label for="">
+                                                 <p class="text-white"><strong>Seleccione proveedor 1</strong></p>
+                                             </label>
 
-                                       <label for="">
-                                           <p class="text-white"><strong>Descripci&oacute;n y/o informaci&oacute;n adicional</strong></p>
-                                       </label>
+                                             <select class="form-control input-edit-car" id="id_proveedor" name="id_proveedor" value="{{ old('id_proveedor') }}">
+                                                     <option>Seleccione proveedor 1</option>
+                                                        @foreach($proveedor as $item)
+                                                            <option value="{{ $item->id }}">{{ $item->nombre }}</option>
+                                                        @endforeach
+                                             </select>
+                                            </div>
 
-                                          <div class="input-group form-group">
-                                              <div class="input-group-prepend " >
-                                                  <span class="input-group-text input-services" >
-                                                       <img class="" src="{{ asset('img/icon/white/contrato.png') }}" width="25px" >
-                                                  </span>
-                                              </div>
-                                             <input type="text" class="form-control" placeholder="Descripcion" style="border-radius: 0  10px 10px 0;" id="descripcion" name="descripcion" value="{{ old('descripcion') }}">
-                                          </div>
-                                      </div>
+                                            <div class="col-3">
+                                                 <label for="">
+                                                     <p class="text-white"><strong>Proveedores</strong></p>
+                                                 </label>
+                                                <div class="input-group form-group ">
+                                                 <!-- Button trigger modal -->
+                                                <a  class="btn bg-white" data-toggle="modal" data-target="#proveedores" style="border-radius:10px">
+                                                    <img class="" src="{{ asset('img/icon/black/boton-circular-plus (1).png') }}" width="25px" >
+                                                </a>
+                                                </div>
+                                            </div>
+                                         </div>
 
-                                      <div class="col-3">
-                                           <label for="">
-                                               <p class="text-white"><strong>Proveedores</strong></p>
-                                           </label>
-                                          <div class="input-group form-group ">
-                                           <!-- Button trigger modal -->
-                                          <a  class="btn bg-white" data-toggle="modal" data-target="#proveedores" style="border-radius:10px">
-                                              <img class="" src="{{ asset('img/icon/black/boton-circular-plus (1).png') }}" width="25px" >
-                                          </a>
-                                          </div>
-                                      </div>
-                                  </div>
+                                         <div class="row">
+                                            <div class="col-6">
+                                             <label for="">
+                                                 <p class="text-white"><strong>Proveedor 2</strong></p>
+                                             </label>
+
+                                             <select class="form-control input-edit-car" id="id_proveedor2" name="id_proveedor2" value="{{ old('id_proveedor2') }}">
+                                                     <option>Seleccione proveedor 1</option>
+                                                        @foreach($proveedor as $item)
+                                                            <option value="{{ $item->id }}">{{ $item->nombre }}</option>
+                                                        @endforeach
+                                             </select>
+                                            </div>
+
+                                            <div class="col-6">
+                                             <label for="">
+                                                 <p class="text-white"><strong>Proveedor 3</strong></p>
+                                             </label>
+
+                                             <select class="form-control input-edit-car" id="id_proveedor3" name="id_proveedor3" value="{{ old('id_proveedor3') }}">
+                                                     <option>Seleccione proveedor 1</option>
+                                                        @foreach($proveedor as $item)
+                                                            <option value="{{ $item->id }}">{{ $item->nombre }}</option>
+                                                        @endforeach
+                                             </select>
+                                            </div>
+                                         </div>
+
+                                        <div class="row">
+                                            <div class="col-12">
+
+                                             <label for="">
+                                                 <p class="text-white"><strong>Descripci&oacute;n y/o informaci&oacute;n adicional</strong></p>
+                                             </label>
+
+                                                <div class="input-group form-group">
+                                                    <div class="input-group-prepend " >
+                                                        <span class="input-group-text input-services" >
+                                                             <img class="" src="{{ asset('img/icon/white/contrato.png') }}" width="25px" >
+                                                        </span>
+                                                    </div>
+                                                    <input type="text" class="form-control" placeholder="Descripcion" style="border-radius: 0  10px 10px 0;" id="descripcion" name="descripcion" value="{{ old('descripcion') }}">
+                                                </div>
+                                            </div>
+
+                                        </div>
 
                                          <input type="hidden" class="form-control" placeholder="servicio" style="border-radius: 0  10px 10px 0;" id="servicio" name="servicio" value="8">
 

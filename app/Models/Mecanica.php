@@ -72,6 +72,7 @@ class Mecanica extends Model
         'vida_llantas',
         'km_actual',
         'km_estimado',
+        'id_proveedor',
 
     ];
 

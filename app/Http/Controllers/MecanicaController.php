@@ -49,10 +49,14 @@ class MecanicaController extends Controller
         $mecanica_user = Mecanica::where('id_empresa','=', NULL)->get();
         $mecanica_empresa = Mecanica::where('id_user','=', NULL)->get();
 
+        $proveedor = MecanicaProveedores::
+                    OrderBy('created_at','ASC')
+                    ->get();
+
         $users = DB::table('users')
         ->get();
 
-        return view('admin.services.view-mecanica',compact('mecanica_user','mecanica_empresa', 'users'));
+        return view('admin.services.view-mecanica',compact('mecanica_user','mecanica_empresa', 'users', 'proveedor'));
     }
     public function create_servicio()
     {
@@ -69,10 +73,14 @@ class MecanicaController extends Controller
          $automovil = DB::table('automovil')
             ->get();
 
-                $users = DB::table('users')
+         $users = DB::table('users')
         ->get();
 
-        return view('admin.services.mecanica',compact('empresa', 'marca', 'automovil', 'user'));
+        $proveedor = MecanicaProveedores::
+                    OrderBy('created_at','ASC')
+                    ->get();
+
+        return view('admin.services.mecanica',compact('empresa', 'marca', 'automovil', 'user', 'proveedor'));
     }
 
     /* Trae los automoviles con el user seleccionado  */
@@ -156,6 +164,9 @@ class MecanicaController extends Controller
         $mecanica->vida_llantas = $request->get('vida_llantas');
         $mecanica->km_actual = $request->get('km_actual');
         $mecanica->km_estimado = $request->get('km_estimado');
+        $mecanica->id_proveedor = $request->get('id_proveedor');
+        $mecanica->id_proveedor2 = $request->get('id_proveedor2');
+        $mecanica->id_proveedor3 = $request->get('id_proveedor3');
 
     	if ($request->hasFile('video')) {
                 $urlfoto = $request->file('video');
@@ -285,7 +296,6 @@ class MecanicaController extends Controller
 
      if($request->ajax()){
           $rules = array(
-           'titulo.*'  => 'required',
            'nombre.*'  => 'required',
            'garantia.*'  => 'required',
            'marca.*'  => 'required',
@@ -303,7 +313,6 @@ class MecanicaController extends Controller
        ]);
       }
 
-      $titulo = $request->titulo;
       $nombre = $request->nombre;
       $marca = $request->marca;
       $garantia = $request->garantia;
@@ -315,7 +324,6 @@ class MecanicaController extends Controller
 
       for($count = 0; $count<count($nombre); $count++){
            $data = array(
-            'titulo' => $titulo[$count],
             'nombre' => $nombre[$count],
             'marca' => $marca[$count],
             'garantia' => $garantia[$count],

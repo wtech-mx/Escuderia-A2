@@ -40,49 +40,27 @@
                  html = '<tr>';
 
                   html = '<tr>';
-                        html += '<td><label ><strong>Titulo</strong></label></td>';
-                        html += '<td><input type="text" placeholder="titulo" name="titulo[]" class="form-control" /></td>';
-                  html += '</tr>';
-
-                  html = '<tr>';
-                        html += '<td><label ><strong>Piezas o Refacción</strong></label></td>';
                         html += '<td><input type="text" placeholder="Piezas o Refacción" name="nombre[]" class="form-control" /></td>';
-                  html += '</tr>';
 
-
-                  html = '<tr>';
-                        html += '<td><label ><strong>Marca</strong></label></td>';
                         html += '<td><input type="text" placeholder="marca" name="marca[]" class="form-control" /></td>';
                   html += '</tr>';
 
                   html += '<tr>';
-                        html += '<td><label ><strong>Garantia</strong> </label></td>';
                         html += '<td><input type="text" placeholder="Garantia" name="garantia[]" class="form-control" /></td>';
+
+                        html += '<td><input type="number" placeholder="Cantidad" name="cantidad[]" class="form-control" /></td>';
                   html += '</tr>';
 
                   html += '<tr>';
-                        html += '<td><label ><strong>Proveedor</strong> </label></td>';
                         html += '<td><input type="text" placeholder="Proveedor" name="proveedor[]" class="form-control" /></td>';
-                  html += '</tr>';
 
-                  html += '<tr>';
-                        html += '<td><label ><strong>Mano de Obra</strong></label></td>';
                         html += '<td><input type="number" placeholder="Mano de Obra" name="mano_o[]" class="form-control" /></td>';
                   html += '</tr>';
 
                   html += '<tr>';
-                        html += '<td><label ><strong>Costo Unitario</strong> </label></td>';
                         html += '<td><input type="number" placeholder="Costo Unitario" name="costo[]" class="form-control" /></td>';
-                  html += '</tr>';
 
-                  html += '<tr>';
-                        html += '<td><label ><strong>Costo Total</strong> </label></td>';
                         html += '<td><input type="number" placeholder="Costo Total" name="costo_total[]" class="form-control" /></td>';
-                  html += '</tr>';
-
-                  html += '<tr>';
-                        html += '<td><label ><strong>Cantidad</strong> </label></td>';
-                        html += '<td><input type="number" placeholder="Cantidad" name="cantidad[]" class="form-control" /></td>';
                   html += '</tr>';
 
                         if(number > 1)
