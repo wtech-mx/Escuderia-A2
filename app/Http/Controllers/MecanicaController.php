@@ -158,7 +158,6 @@ class MecanicaController extends Controller
         $mecanica->frenos_traseras = $request->get('frenos_traseras');
         $mecanica->precio = $request->get('precio');
         $mecanica->servicio = $request->get('servicio');
-        $mecanica->id_marca = $request->get('id_marca');
         $mecanica->descripcion = $request->get('descripcion');
         //$mecanica->garantia = $request->get('garantia');
         $mecanica->vida_llantas = $request->get('vida_llantas');
