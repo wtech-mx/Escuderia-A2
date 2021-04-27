@@ -147,4 +147,14 @@ class Mecanica extends Model
     public function Automovilot(){
        return $this->belongsTo(Automovil::class,'current_autoot');
     }
+
+    public function Proveedor1(){
+       return $this->belongsTo(MecanicaProveedores::class,'id_proveedor');
+    }
+    public function Proveedor2(){
+       return $this->belongsTo(MecanicaProveedores::class,'id_proveedor2');
+    }
+    public function Proveedor3(){
+       return $this->belongsTo(MecanicaProveedores::class,'id_proveedor3');
+    }
 }

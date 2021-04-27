@@ -203,8 +203,8 @@
                                             </div>
                                          </div>
 
-                                         <div class="row">
-                                            <div class="col-6">
+                                        <div class="row mb-5">
+                                            <div class="col-9">
                                              <label for="">
                                                  <p class="text-white"><strong>Proveedor 2</strong></p>
                                              </label>
@@ -216,8 +216,9 @@
                                                         @endforeach
                                              </select>
                                             </div>
+                                             <div class="col-3"></div>
 
-                                            <div class="col-6">
+                                            <div class="col-9">
                                              <label for="">
                                                  <p class="text-white"><strong>Proveedor 3</strong></p>
                                              </label>
@@ -229,6 +230,7 @@
                                                         @endforeach
                                              </select>
                                             </div>
+                                             <div class="col-3"></div>
                                          </div>
 
                                         <div class="row">

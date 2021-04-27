@@ -18,7 +18,8 @@
 
                                               <div class="row">
                                                 <div class="col-12">
-                                                    <table class="table text-white ">
+                                                    <div class="table-responsive">
+                                                    <table class="table text-white">
                                                       <thead>
                                                         <tr>
                                                           <th scope="col">Servicio</th>
@@ -119,6 +120,7 @@
                                                             @include('admin.services.view-servicio')
                                                         @endforeach
                                                     </table>
+                                                    </div>
                                                 </div>
                                               </div>
 

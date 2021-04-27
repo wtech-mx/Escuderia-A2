@@ -2,7 +2,7 @@
 
 @section('content')
 
-                <link href="{{ asset('css/garje.css') }}" rel="stylesheet">
+                <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
 
               <div class="row bg-down-image-border" >
 
@@ -37,18 +37,18 @@
                             <div class="d-flex">
                                 <div class="p-2">
                                     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                                    <li class="nav-item">
-                                        <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">
-                                            Usuarios
-                                        </a>
-                                    </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">
+                                                Usuarios
+                                            </a>
+                                        </li>
 
-                                    <li class="nav-item">
-                                        <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">
-                                            Empresas
-                                        </a>
-                                    </li>
-                                </ul>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">
+                                                Empresas
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </div>
 
                                 <div class="ml-auto p-2">
