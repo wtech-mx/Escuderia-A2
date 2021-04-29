@@ -47,7 +47,7 @@
                                      </label>
 
                                      <div class="input-group col-6">
-                                        <input type="text" class="form-control" placeholder="arf-515" id="num_placa" name="num_placa" value="{{$item->Automovil->placas}}" readonly>
+                                        <input type="text" class="form-control" placeholder="arf-515" id="num_placa" name="num_placa" value="{{$verificacion->Automovil->placas}}" readonly>
                                     </div>
 
                                      <label class="mt-3" for="">
