@@ -116,6 +116,8 @@ class AutomovilController extends Controller
         $seguro->costo_anual = '0';
         $seguro->id_user = $user->id;
         $seguro->estatus = 0;
+        $seguro->estado_last_week = 0;
+        $seguro->estado_tomorrow = 0;
         $seguro->current_auto = $automovil->id;
         $seguro->save();
 
@@ -123,6 +125,8 @@ class AutomovilController extends Controller
         $tarjeta_circulacion->id_user = $user->id;
         $tarjeta_circulacion->current_auto = $automovil->id;
         $tarjeta_circulacion->estatus = 0;
+        $tarjeta_circulacion->estado_last_week = 0;
+        $tarjeta_circulacion->estado_tomorrow = 0;
         $tarjeta_circulacion->save();
 
         $id = auth()->user()->id;
@@ -134,12 +138,17 @@ class AutomovilController extends Controller
         $verificacion->id_user = $id;
         $verificacion->current_auto = $automovil->id;
         $verificacion->estatus = 0;
+        $verificacion->estado_last_week = 0;
+        $verificacion->estado_tomorrow = 0;
+        $verificacion->check = 0;
         $verificacion->save();
 
         $verificacion_segunda = new VerificacionSegunda;
         $verificacion_segunda->id_verificacion = $verificacion->id;
         $verificacion_segunda->id_user = $verificacion->id_user;
         $verificacion_segunda->estatus = 0;
+        $verificacion_segunda->estado_last_week = 0;
+        $verificacion_segunda->estado_tomorrow = 0;
         $verificacion_segunda->check = 0;
         $verificacion_segunda->save();
 
@@ -302,6 +311,9 @@ class AutomovilController extends Controller
         $seguro->tipo_cobertura = 'Amplia';
         $seguro->costo = '0';
         $seguro->estatus = 0;
+        $seguro->estado_last_week = 0;
+        $seguro->estado_tomorrow = 0;
+        $seguro->check = 0;
         $seguro->costo_anual = '0';
         $seguro->id_user = $automovil->id_user;
         $seguro->id_empresa = $automovil->id_empresa;
@@ -314,6 +326,9 @@ class AutomovilController extends Controller
         $tarjeta_circulacion->id_empresa = $automovil->id_empresa;
         $tarjeta_circulacion->current_auto = $automovil->id;
         $tarjeta_circulacion->estatus = 0;
+        $tarjeta_circulacion->estado_last_week = 0;
+        $tarjeta_circulacion->estado_tomorrow = 0;
+        $tarjeta_circulacion->check = 0;
         $tarjeta_circulacion->save();
 
         $verificacion = new  Verificacion;
@@ -321,19 +336,23 @@ class AutomovilController extends Controller
         $verificacion->id_empresa = $automovil->id_empresa;
         $verificacion->current_auto = $automovil->id;
         $verificacion->estatus = 0;
+        $verificacion->estado_last_week = 0;
+        $verificacion->estado_tomorrow = 0;
+        $verificacion->check = 0;
         $verificacion->save();
 
         $verificacion_segunda = new VerificacionSegunda;
         $verificacion_segunda->id_verificacion = $verificacion->id;
         $verificacion_segunda->id_user = $verificacion->id_user;
         $verificacion_segunda->estatus = 0;
+        $verificacion_segunda->estado_last_week = 0;
+        $verificacion_segunda->estado_tomorrow = 0;
         $verificacion_segunda->check = 0;
         $verificacion_segunda->save();
 
         $id = $automovil->id_user;
         $user = User::findOrFail($id);
         $user->current_auto = $automovil->id;
-        $verificacion->estatus = 0;
         $user->update();
 
         Session::flash('auto', 'Se ha guardado sus datos con exito');

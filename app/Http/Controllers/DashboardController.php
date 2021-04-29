@@ -7,12 +7,6 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use DB;
 use Session;
-use Carbon\Carbon;
-use App\Models\Alertas;
-use App\Models\Seguros;
-use App\Models\TarjetaCirculacion;
-
-use \App\Mail\MyTestMail;
 
 
 class DashboardController extends Controller
@@ -39,8 +33,7 @@ class DashboardController extends Controller
 
    public function store(Request $request)
     {
-        $users = User::where('id','=',auth()->user()->id)
-        ->first();
+        $users = User::where('id','=',auth()->user()->id)->first();
 
         $users->device_token = $request->get('user_id');
         if($users->device_token == NULL){
@@ -48,7 +41,6 @@ class DashboardController extends Controller
         }else{
             $users->save();
         }
-
 
               return view('layouts.app');
 

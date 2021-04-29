@@ -282,6 +282,8 @@ class MecanicaController extends Controller
         $llantas->color = "#2980B9";
         $llantas->image = $mecanica->image;
         $llantas->estatus = 0;
+        $llantas->estado_last_week = 0;
+        $llantas->estado_tomorrow = 0;
         $llantas->check = 0;
         $llantas->start = $mecanica->start;
         $llantas->end = $mecanica->end;

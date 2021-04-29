@@ -131,18 +131,12 @@ class SegurosController extends Controller
         $seguro->descripcion = 'Su Seguro expira el dia: '.$seguro->end;
         $seguro->image = $request->get('image');
 
-        $seguro->device_token = $request->get('device_token');
         $seguro->estatus = 0;
+        $seguro->estado_last_week = 0;
+        $seguro->estado_tomorrow = 0;
+        $seguro->check = 0;
 
         $seguro->update();
-        // obtener la hora actual  - 2015-12-19 10:10:54
-          $current = Carbon::now()->toDateTimeString();
-        //Trae la alerta Seguro
-          $seguro_alerta = Seguros::
-            where('id_user', '=', auth()->user()->id)
-            ->where('estatus', '=', 0)
-            ->where('end','<=', $current)
-            ->get();
 
         $email = $seguro->User->email;
         $subject = 'Bienvenido : '.$email ;
@@ -159,30 +153,15 @@ class SegurosController extends Controller
          'nombre' => $seguro->User->name,
          );
 
-        Mail::send('emails.seguroAdmin', $details, function ($message) use ($details,$subject) {
-            $message->to($details['email'], $details['seguro'], $details['fecha_expedicion'], $details['tipo_cobertura'], $details['costo'], $details['costo_anual'], $details['end'], $details['auto'], $details['nombre'])
-                ->subject($subject)
-                ->from('contacto@checkngo.com.mx', 'Detalles de Seguro');
-
-        });
-
-        //Inicio Alerta
-//            $fecha = $seguro->end.' 00:47 '.'GMT-5';
+//        Mail::send('emails.seguroAdmin', $details, function ($message) use ($details,$subject) {
+//            $message->to($details['email'], $details['seguro'], $details['fecha_expedicion'], $details['tipo_cobertura'], $details['costo'], $details['costo_anual'], $details['end'], $details['auto'], $details['nombre'])
+//                ->subject($subject)
+//                ->from('contacto@checkngo.com.mx', 'Detalles de Seguro');
 //
-//            $params = [];
-//            $params['include_player_ids'] = [$seguro->device_token];
-//            $contents = [
-//               "en" => $seguro->descripcion
-//            ];
-//            $params['contents'] = $contents;
-//            $params['delayed_option'] = "timezone"; // Will deliver on user's timezone
-//            $params['send_after'] = $fecha; // Delivery time
-//
-//            OneSignal::sendNotificationCustom($params);
-        //Fin Alerta
+//        });
 
         Session::flash('success', 'Se ha guardado sus datos con exito');
-        return redirect()->route('index.seguro', compact('seguro', 'seguro_alerta'));
+        return redirect()->route('index.seguro', compact('seguro'));
 
     }
 
@@ -306,6 +285,11 @@ class SegurosController extends Controller
         $seguro->descripcion = 'Su Seguro expira el dia: '.$seguro->end;
         $seguro->image = $request->get('image');
 
+        $seguro->estatus = 0;
+        $seguro->estado_last_week = 0;
+        $seguro->estado_tomorrow = 0;
+        $seguro->check = 0;
+
         $seguro->update();
 
         $email = $seguro->User->email;
@@ -323,14 +307,11 @@ class SegurosController extends Controller
          'nombre' => $seguro->User->name,
          );
 
-        Mail::send('emails.seguroAdmin', $details, function ($message) use ($details,$subject) {
-            $message->to($details['email'], $details['seguro'], $details['fecha_expedicion'], $details['tipo_cobertura'], $details['costo'], $details['costo_anual'], $details['end'], $details['auto'], $details['nombre'])
-                ->subject($subject)
-                ->from('contacto@checkngo.com.mx', 'Detalles de Seguro');
-        });
-
-            // obtener la hora actual  - 2015-12-19 10:10:54
-            $current = Carbon::now()->toDateString();
+//        Mail::send('emails.seguroAdmin', $details, function ($message) use ($details,$subject) {
+//            $message->to($details['email'], $details['seguro'], $details['fecha_expedicion'], $details['tipo_cobertura'], $details['costo'], $details['costo_anual'], $details['end'], $details['auto'], $details['nombre'])
+//                ->subject($subject)
+//                ->from('contacto@checkngo.com.mx', 'Detalles de Seguro');
+//        });
 
         Session::flash('success2', 'Se ha actualizado sus datos con exito');
         return redirect()->back();

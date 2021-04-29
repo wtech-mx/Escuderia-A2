@@ -61,8 +61,10 @@ class TarjetaCirculacionController extends Controller
         $tarjeta_circulacion->descripcion = 'Su Tarjeta de Circulación expira el dia: '.$tarjeta_circulacion->end;
         $tarjeta_circulacion->image = $request->get('image');
 
-        $tarjeta_circulacion->device_token = $request->get('device_token');
         $tarjeta_circulacion->estatus = 0;
+        $tarjeta_circulacion->estado_last_week = 0;
+        $tarjeta_circulacion->estado_tomorrow = 0;
+        $tarjeta_circulacion->check = 0;
         $tarjeta_circulacion->update();
 
         $email = $tarjeta_circulacion->User->email;
@@ -146,6 +148,11 @@ class TarjetaCirculacionController extends Controller
         $tarjeta_circulacion->color = $request->get('color');
         $tarjeta_circulacion->descripcion = 'Su Tarjeta de Circulación expira el dia: '.$tarjeta_circulacion->end;
         $tarjeta_circulacion->image = $request->get('image');
+
+        $tarjeta_circulacion->estatus = 0;
+        $tarjeta_circulacion->estado_last_week = 0;
+        $tarjeta_circulacion->estado_tomorrow = 0;
+        $tarjeta_circulacion->check = 0;
         $tarjeta_circulacion->update();
 
         $email = $tarjeta_circulacion->User->email;

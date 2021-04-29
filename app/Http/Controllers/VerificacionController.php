@@ -86,8 +86,11 @@ class VerificacionController extends Controller
         $verificacion->device_token = $request->get('device_token');
         $verificacion->start = $request->get('primer_semestre');
         $verificacion->end = $request->get('primer_semestre');
+
         $verificacion->estatus = 0;
-        $verificacion->check = $request->get('check');
+        $verificacion->estado_last_week = 0;
+        $verificacion->estado_tomorrow = 0;
+        $verificacion->check = 0;
 
         $verificacion->update();
 
@@ -109,6 +112,9 @@ class VerificacionController extends Controller
         $verificacion_segunda->image = $request->get('image');
         $verificacion_segunda->device_token = $request->get('device_token');
         $verificacion_segunda->estatus = 0;
+        $verificacion_segunda->estado_last_week = 0;
+        $verificacion_segunda->estado_tomorrow = 0;
+        $verificacion_segunda->check = 0;
 
         $verificacion_segunda->update();
 
