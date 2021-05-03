@@ -15,8 +15,8 @@ class CreateMecanicaProveedoresTable extends Migration
     {
         Schema::create('mecanica_proveedores', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_mecanica');
-            $table->string('titulo');
+            $table->unsignedBigInteger('id_servicio');
+            $table->string('mecanica');
             $table->string('garantia');
             $table->string('marca');
             $table->string('proveedor');
@@ -27,13 +27,10 @@ class CreateMecanicaProveedoresTable extends Migration
             $table->string('nombre');
             $table->timestamps();
 
-            $table->foreign('id_mecanica')
+            $table->foreign('id_servicio')
                 ->references('id')->on('mecanica')
                 ->inDelete('set null');
 
-            $table->foreign('id_marca')
-                ->references('id')->on('marca_product')
-                ->inDelete('RESTRICT');
         });
     }
 

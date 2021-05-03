@@ -30,9 +30,7 @@ class CreateMecanicaTable extends Migration
             $table->string('km_estimado');
             $table->string('video',900)->nullable();
             $table->string('video2', 900)->nullable();
-            $table->unsignedBigInteger('id_proveedor')->nullable();
-            $table->unsignedBigInteger('id_proveedor2')->nullable();
-            $table->unsignedBigInteger('id_proveedor3')->nullable();
+            $table->date('fecha_servicio');
 
             /* Llantas */
             $table->unsignedBigInteger('id_user')->nullable();

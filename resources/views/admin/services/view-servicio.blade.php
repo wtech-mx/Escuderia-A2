@@ -26,27 +26,15 @@
                                  Serv.
                             </a>
                        </li>
-                    @if($item->id_proveedor != NULL)
-                       <li class="nav-item">
-                            <a class="nav-link" id="pills-proveedor-tab" data-toggle="pill" href="#pills-proveedor{{$item->id}}" role="tab" aria-controls="pills-proveedor" aria-selected="false">
-                                  Prov. 1
-                            </a>
-                       </li>
-                    @endif
-                    @if($item->id_proveedor2 != NULL)
-                       <li class="nav-item">
-                            <a class="nav-link" id="pills-proveedor2-tab" data-toggle="pill" href="#pills-proveedor2{{$item->id}}" role="tab" aria-controls="pills-proveedor2" aria-selected="false">
-                                  Prov. 2
-                            </a>
-                       </li>
-                    @endif
-                    @if($item->id_proveedor3 != NULL)
-                       <li class="nav-item">
-                            <a class="nav-link" id="pills-proveedor3-tab" data-toggle="pill" href="#pills-proveedor3{{$item->id}}" role="tab" aria-controls="pills-proveedor3" aria-selected="false">
-                                  Prov. 3
-                            </a>
-                       </li>
-                    @endif
+                        @foreach($proveedor as $prov)
+                            @if($item->id == $prov->id_servicio)
+                               <li class="nav-item">
+                                    <a class="nav-link" id="pills-proveedor-tab" data-toggle="pill" href="#pills-proveedor{{$prov->id}}" role="tab" aria-controls="pills-proveedor" aria-selected="false">
+                                          Prov.
+                                    </a>
+                               </li>
+                           @endif
+                        @endforeach
                   </ul>
               </div>
           </div>
@@ -54,7 +42,7 @@
           <div class="tab-content" id="pills-tabContent">
              <div class="tab-pane fade show active" id="pills-servicio{{$item->id}}" role="tabpanel" aria-labelledby="pills-servicio-tab">
                   <label for="">
-                      <p><strong>Fecha de cambio</strong></p>
+                      <p><strong>Fecha de servicio</strong></p>
                   </label>
                   <div class="input-group form-group">
                       <div class="input-group-prepend " >
@@ -62,7 +50,7 @@
                                <img class="" src="{{ asset('img/icon/white/bolsa-de-dinero (1).png') }}" width="25px" >
                           </span>
                       </div>
-                      <input type="number" class="form-control" placeholder="{{$dia}}/{{$mes}}/{{$anio}}" style="border-radius: 0  10px 10px 0;" disabled>
+                      <input type="number" class="form-control" placeholder="{{$item->fecha_servicio}}" style="border-radius: 0  10px 10px 0;" disabled>
                   </div>
 
                 @if($item->servicio == 1)
@@ -218,23 +206,24 @@
                       </div>
                       <input type="number" class="form-control" placeholder="{{$item->descripcion}}" style="border-radius: 0  10px 10px 0;" disabled>
                   </div>
+
+                  <label for="">
+                      <p><strong>Fecha de cambio</strong></p>
+                  </label>
+                  <div class="input-group form-group">
+                      <div class="input-group-prepend " >
+                          <span class="input-group-text" >
+                               <img class="" src="{{ asset('img/icon/white/bolsa-de-dinero (1).png') }}" width="25px" >
+                          </span>
+                      </div>
+                      <input type="number" class="form-control" placeholder="{{$dia}}/{{$mes}}/{{$anio}}" style="border-radius: 0  10px 10px 0;" disabled>
+                  </div>
              </div>
-           @if($item->id_proveedor != NULL)
-             <div class="tab-pane fade" id="pills-proveedor{{$item->id}}" role="tabpanel" aria-labelledby="pills-proveedor-tab">
+            @foreach($proveedor as $prov)
+                @if($item->id == $prov->id_servicio)
+             <div class="tab-pane fade" id="pills-proveedor{{$prov->id}}" role="tabpanel" aria-labelledby="pills-proveedor-tab">
                 <div class="row">
                     <div class="col-12">
-
-                      <label for="">
-                          <p><strong>Proveedor</strong></p>
-                      </label>
-                      <div class="input-group form-group">
-                          <div class="input-group-prepend " >
-                              <span class="input-group-text" >
-                                  <img class="" src="{{ asset('img/icon/white/bolsa-de-dinero (1).png') }}" width="25px" >
-                                  </span>
-                              </div>
-                          <input type="number" class="form-control" placeholder="{{$item->Proveedor1->proveedor}}" style="border-radius: 0  10px 10px 0;" disabled>
-                      </div>
 
                       <label for="">
                           <p><strong>Piezas</strong></p>
@@ -245,7 +234,7 @@
                                   <img class="" src="{{ asset('img/icon/white/bolsa-de-dinero (1).png') }}" width="25px" >
                                   </span>
                               </div>
-                          <input type="number" class="form-control" placeholder="{{$item->Proveedor1->nombre}}" style="border-radius: 0  10px 10px 0;" disabled>
+                          <input type="number" class="form-control" placeholder="{{$prov->nombre}}" style="border-radius: 0  10px 10px 0;" disabled>
                       </div>
 
                       <label for="">
@@ -257,7 +246,7 @@
                                   <img class="" src="{{ asset('img/icon/white/bolsa-de-dinero (1).png') }}" width="25px" >
                                   </span>
                               </div>
-                          <input type="number" class="form-control" placeholder="{{$item->Proveedor1->marca}}" style="border-radius: 0  10px 10px 0;" disabled>
+                          <input type="number" class="form-control" placeholder="{{$prov->marca}}" style="border-radius: 0  10px 10px 0;" disabled>
                       </div>
 
                       <label for="">
@@ -269,15 +258,11 @@
                                   <img class="" src="{{ asset('img/icon/white/bolsa-de-dinero (1).png') }}" width="25px" >
                                   </span>
                               </div>
-                          <input type="number" class="form-control" placeholder="{{$item->Proveedor1->garantia}}" style="border-radius: 0  10px 10px 0;" disabled>
+                          <input type="number" class="form-control" placeholder="{{$prov->garantia}}" style="border-radius: 0  10px 10px 0;" disabled>
                       </div>
 
-                   </div>
-                </div>
-                <div class="row">
-                   <div class="col-6">
                       <label for="">
-                          <p><strong>Costo</strong></p>
+                          <p><strong>Cantidad</strong></p>
                       </label>
                       <div class="input-group form-group">
                           <div class="input-group-prepend " >
@@ -285,7 +270,23 @@
                                   <img class="" src="{{ asset('img/icon/white/bolsa-de-dinero (1).png') }}" width="25px" >
                                   </span>
                               </div>
-                          <input type="number" class="form-control" placeholder="{{$item->Proveedor1->costo}}" style="border-radius: 0  10px 10px 0;" disabled>
+                          <input type="number" class="form-control" placeholder="{{$prov->cantidad}}" style="border-radius: 0  10px 10px 0;" disabled>
+                      </div>
+
+                   </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                      <label for="">
+                          <p><strong>Proveedor</strong></p>
+                      </label>
+                      <div class="input-group form-group">
+                          <div class="input-group-prepend " >
+                              <span class="input-group-text" >
+                                  <img class="" src="{{ asset('img/icon/white/bolsa-de-dinero (1).png') }}" width="25px" >
+                                  </span>
+                              </div>
+                          <input type="number" class="form-control" placeholder="{{$prov->proveedor}}" style="border-radius: 0  10px 10px 0;" disabled>
                       </div>
                    </div>
 
@@ -299,11 +300,25 @@
                                    <img class="" src="{{ asset('img/icon/white/bolsa-de-dinero (1).png') }}" width="25px" >
                               </span>
                           </div>
-                          <input type="number" class="form-control" placeholder="{{$item->Proveedor1->mano_o}}" style="border-radius: 0  10px 10px 0;" disabled>
+                          <input type="number" class="form-control" placeholder="{{$prov->mano_o}}" style="border-radius: 0  10px 10px 0;" disabled>
                       </div>
                    </div>
 
-                   <div class="col-12">
+                   <div class="col-6">
+                      <label for="">
+                          <p><strong>Costo Unitario</strong></p>
+                      </label>
+                      <div class="input-group form-group">
+                          <div class="input-group-prepend " >
+                              <span class="input-group-text" >
+                                  <img class="" src="{{ asset('img/icon/white/bolsa-de-dinero (1).png') }}" width="25px" >
+                                  </span>
+                              </div>
+                          <input type="number" class="form-control" placeholder="{{$prov->costo}}" style="border-radius: 0  10px 10px 0;" disabled>
+                      </div>
+                   </div>
+
+                   <div class="col-6">
                       <label for="">
                           <p><strong>Costo Total</strong></p>
                       </label>
@@ -313,213 +328,14 @@
                                    <img class="" src="{{ asset('img/icon/white/bolsa-de-dinero (1).png') }}" width="25px" >
                               </span>
                           </div>
-                          <input type="number" class="form-control" placeholder="{{$item->Proveedor1->costo_total}}" style="border-radius: 0  10px 10px 0;" disabled>
+                          <input type="number" class="form-control" placeholder="{{$prov->costo_total}}" style="border-radius: 0  10px 10px 0;" disabled>
                       </div>
                    </div>
 
                 </div>
              </div>
-           @endif
-           @if($item->id_proveedor2 != NULL)
-             <div class="tab-pane fade" id="pills-proveedor2{{$item->id}}" role="tabpanel" aria-labelledby="pills-proveedor2-tab">
-                <div class="row">
-                    <div class="col-12">
-                      <label for="">
-                          <p><strong>Proveedor</strong></p>
-                      </label>
-                      <div class="input-group form-group">
-                          <div class="input-group-prepend " >
-                              <span class="input-group-text" >
-                                  <img class="" src="{{ asset('img/icon/white/bolsa-de-dinero (1).png') }}" width="25px" >
-                                  </span>
-                              </div>
-                          <input type="number" class="form-control" placeholder="{{$item->Proveedor2->proveedor}}" style="border-radius: 0  10px 10px 0;" disabled>
-                      </div>
-
-                      <label for="">
-                          <p><strong>Piezas</strong></p>
-                      </label>
-                      <div class="input-group form-group">
-                          <div class="input-group-prepend " >
-                              <span class="input-group-text" >
-                                  <img class="" src="{{ asset('img/icon/white/bolsa-de-dinero (1).png') }}" width="25px" >
-                                  </span>
-                              </div>
-                          <input type="number" class="form-control" placeholder="{{$item->Proveedor2->nombre}}" style="border-radius: 0  10px 10px 0;" disabled>
-                      </div>
-
-                      <label for="">
-                          <p><strong>Marca</strong></p>
-                      </label>
-                      <div class="input-group form-group">
-                          <div class="input-group-prepend " >
-                              <span class="input-group-text" >
-                                  <img class="" src="{{ asset('img/icon/white/bolsa-de-dinero (1).png') }}" width="25px" >
-                                  </span>
-                              </div>
-                          <input type="number" class="form-control" placeholder="{{$item->Proveedor2->marca}}" style="border-radius: 0  10px 10px 0;" disabled>
-                      </div>
-
-                      <label for="">
-                          <p><strong>Garantia</strong></p>
-                      </label>
-                      <div class="input-group form-group">
-                          <div class="input-group-prepend " >
-                              <span class="input-group-text" >
-                                  <img class="" src="{{ asset('img/icon/white/bolsa-de-dinero (1).png') }}" width="25px" >
-                                  </span>
-                              </div>
-                          <input type="number" class="form-control" placeholder="{{$item->Proveedor2->garantia}}" style="border-radius: 0  10px 10px 0;" disabled>
-                      </div>
-
-                   </div>
-                </div>
-                <div class="row">
-                   <div class="col-6">
-                      <label for="">
-                          <p><strong>Costo</strong></p>
-                      </label>
-                      <div class="input-group form-group">
-                          <div class="input-group-prepend " >
-                              <span class="input-group-text" >
-                                  <img class="" src="{{ asset('img/icon/white/bolsa-de-dinero (1).png') }}" width="25px" >
-                                  </span>
-                              </div>
-                          <input type="number" class="form-control" placeholder="{{$item->Proveedor2->costo}}" style="border-radius: 0  10px 10px 0;" disabled>
-                      </div>
-                   </div>
-
-                   <div class="col-6">
-                      <label for="">
-                          <p><strong>Mano de Obra</strong></p>
-                      </label>
-                      <div class="input-group form-group">
-                          <div class="input-group-prepend " >
-                              <span class="input-group-text" >
-                                   <img class="" src="{{ asset('img/icon/white/bolsa-de-dinero (1).png') }}" width="25px" >
-                              </span>
-                          </div>
-                          <input type="number" class="form-control" placeholder="{{$item->Proveedor2->mano_o}}" style="border-radius: 0  10px 10px 0;" disabled>
-                      </div>
-                   </div>
-
-                   <div class="col-12">
-                      <label for="">
-                          <p><strong>Costo Total</strong></p>
-                      </label>
-                      <div class="input-group form-group">
-                          <div class="input-group-prepend " >
-                              <span class="input-group-text" >
-                                   <img class="" src="{{ asset('img/icon/white/bolsa-de-dinero (1).png') }}" width="25px" >
-                              </span>
-                          </div>
-                          <input type="number" class="form-control" placeholder="{{$item->Proveedor2->costo_total}}" style="border-radius: 0  10px 10px 0;" disabled>
-                      </div>
-                   </div>
-
-                </div>
-             </div>
-           @endif
-           @if($item->id_proveedor3 != NULL)
-              <div class="tab-pane fade" id="pills-proveedor3{{$item->id}}" role="tabpanel" aria-labelledby="pills-proveedor3-tab">
-                <div class="row">
-                    <div class="col-12">
-                      <label for="">
-                          <p><strong>Proveedor</strong></p>
-                      </label>
-                      <div class="input-group form-group">
-                          <div class="input-group-prepend " >
-                              <span class="input-group-text" >
-                                  <img class="" src="{{ asset('img/icon/white/bolsa-de-dinero (1).png') }}" width="25px" >
-                                  </span>
-                              </div>
-                          <input type="number" class="form-control" placeholder="{{$item->Proveedor3->proveedor}}" style="border-radius: 0  10px 10px 0;" disabled>
-                      </div>
-
-                      <label for="">
-                          <p><strong>Piezas</strong></p>
-                      </label>
-                      <div class="input-group form-group">
-                          <div class="input-group-prepend " >
-                              <span class="input-group-text" >
-                                  <img class="" src="{{ asset('img/icon/white/bolsa-de-dinero (1).png') }}" width="25px" >
-                                  </span>
-                              </div>
-                          <input type="number" class="form-control" placeholder="{{$item->Proveedor3->nombre}}" style="border-radius: 0  10px 10px 0;" disabled>
-                      </div>
-
-                      <label for="">
-                          <p><strong>Marca</strong></p>
-                      </label>
-                      <div class="input-group form-group">
-                          <div class="input-group-prepend " >
-                              <span class="input-group-text" >
-                                  <img class="" src="{{ asset('img/icon/white/bolsa-de-dinero (1).png') }}" width="25px" >
-                                  </span>
-                              </div>
-                          <input type="number" class="form-control" placeholder="{{$item->Proveedor3->marca}}" style="border-radius: 0  10px 10px 0;" disabled>
-                      </div>
-
-                      <label for="">
-                          <p><strong>Garantia</strong></p>
-                      </label>
-                      <div class="input-group form-group">
-                          <div class="input-group-prepend " >
-                              <span class="input-group-text" >
-                                  <img class="" src="{{ asset('img/icon/white/bolsa-de-dinero (1).png') }}" width="25px" >
-                                  </span>
-                              </div>
-                          <input type="number" class="form-control" placeholder="{{$item->Proveedor3->garantia}}" style="border-radius: 0  10px 10px 0;" disabled>
-                      </div>
-
-                   </div>
-                </div>
-                <div class="row">
-                   <div class="col-6">
-                      <label for="">
-                          <p><strong>Costo</strong></p>
-                      </label>
-                      <div class="input-group form-group">
-                          <div class="input-group-prepend " >
-                              <span class="input-group-text" >
-                                  <img class="" src="{{ asset('img/icon/white/bolsa-de-dinero (1).png') }}" width="25px" >
-                                  </span>
-                              </div>
-                          <input type="number" class="form-control" placeholder="{{$item->Proveedor3->costo}}" style="border-radius: 0  10px 10px 0;" disabled>
-                      </div>
-                   </div>
-
-                   <div class="col-6">
-                      <label for="">
-                          <p><strong>Mano de Obra</strong></p>
-                      </label>
-                      <div class="input-group form-group">
-                          <div class="input-group-prepend " >
-                              <span class="input-group-text" >
-                                   <img class="" src="{{ asset('img/icon/white/bolsa-de-dinero (1).png') }}" width="25px" >
-                              </span>
-                          </div>
-                          <input type="number" class="form-control" placeholder="{{$item->Proveedor3->mano_o}}" style="border-radius: 0  10px 10px 0;" disabled>
-                      </div>
-                   </div>
-
-                   <div class="col-12">
-                      <label for="">
-                          <p><strong>Costo Total</strong></p>
-                      </label>
-                      <div class="input-group form-group">
-                          <div class="input-group-prepend " >
-                              <span class="input-group-text" >
-                                   <img class="" src="{{ asset('img/icon/white/bolsa-de-dinero (1).png') }}" width="25px" >
-                              </span>
-                          </div>
-                          <input type="number" class="form-control" placeholder="{{$item->Proveedor3->costo_total}}" style="border-radius: 0  10px 10px 0;" disabled>
-                      </div>
-                   </div>
-
-                </div>
-             </div>
-           @endif
+                  @endif
+            @endforeach
           </div>
 
           <div class="row">

@@ -3,9 +3,9 @@
                <table class="table text-white">
                    <thead>
                        <tr>
+                           <th scope="col">Fecha</th>
                            <th scope="col">Servicio</th>
                            <th scope="col">Auto</th>
-                           <th scope="col">Fecha</th>
                            <th scope="col">Ver</th>
                        </tr>
                    </thead>
@@ -19,9 +19,10 @@
                       @endphp
                        <tbody>
                           <tr>
+                              <td>{{$dia}}/{{$mes}}/{{$anio}}</td>
                               <td>Llanta</td>
                               <td>{{$item->Automovil2->placas}}</td>
-                              <td>{{$dia}}/{{$mes}}/{{$anio}}</td>
+
                               <td>
                                   <a data-toggle="modal" data-target="#example{{$item->id}}"><img class="" src="{{ asset('img/icon/white/add.png') }}" width="15px" ></a>
                               </td>

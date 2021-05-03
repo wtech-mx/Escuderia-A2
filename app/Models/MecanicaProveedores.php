@@ -27,4 +27,7 @@ class MecanicaProveedores extends Model
     protected $guarded=[
 
     ];
+    public function Mecanica(){
+       return $this->belongsTo(Mecanica::class, 'id_servicio');
+    }
 }

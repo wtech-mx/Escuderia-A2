@@ -175,65 +175,42 @@
 
                                   <div class="col-12 p-4">
 
-                                         <div class="row">
-                                            <div class="col-9">
-                                             <label for="">
-                                                 <p class="text-white"><strong>Seleccione proveedor 1</strong></p>
-                                             </label>
+                                        <input type="button" class="proveedor1" id="proveedor1" value="Agregar">
+                                        <div id="nuevo-form1"></div>
 
-                                             <select class="form-control input-edit-car" id="id_proveedor" name="id_proveedor" value="{{ old('id_proveedor') }}">
-                                                     <option value="">Seleccione proveedor 1</option>
-                                                        @foreach($proveedor as $item)
-                                                            <option value="{{ $item->id }}">{{ $item->nombre }}</option>
-                                                        @endforeach
-                                             </select>
-                                            </div>
-
-                                            <div class="col-3">
-                                                 <label for="">
-                                                     <p class="text-white"><strong>Proveedores</strong></p>
-                                                 </label>
-                                                <div class="input-group form-group ">
-                                                 <!-- Button trigger modal -->
-                                                <a  class="btn bg-white" data-toggle="modal" data-target="#proveedores" style="border-radius:10px">
-                                                    <img class="" src="{{ asset('img/icon/black/boton-circular-plus (1).png') }}" width="25px" >
-                                                </a>
-                                                </div>
-                                            </div>
-                                         </div>
-
-                                         <div class="row mb-5">
-                                            <div class="col-9">
-                                             <label for="">
-                                                 <p class="text-white"><strong>Proveedor 2</strong></p>
-                                             </label>
-
-                                             <select class="form-control input-edit-car" id="id_proveedor2" name="id_proveedor2" value="{{ old('id_proveedor2') }}">
-                                                     <option value="">Seleccione proveedor 2</option>
-                                                        @foreach($proveedor as $item)
-                                                            <option value="{{ $item->id }}">{{ $item->nombre }}</option>
-                                                        @endforeach
-                                             </select>
-                                            </div>
-                                             <div class="col-3"></div>
-
-                                            <div class="col-9">
-                                             <label for="">
-                                                 <p class="text-white"><strong>Proveedor 3</strong></p>
-                                             </label>
-
-                                             <select class="form-control input-edit-car" id="id_proveedor3" name="id_proveedor3" value="{{ old('id_proveedor3') }}">
-                                                     <option value="">Seleccione proveedor 3</option>
-                                                        @foreach($proveedor as $item)
-                                                            <option value="{{ $item->id }}">{{ $item->nombre }}</option>
-                                                        @endforeach
-                                             </select>
-                                            </div>
-                                             <div class="col-3"></div>
-                                         </div>
-
+                                        <hr>
                                         <div class="row">
                                             <div class="col-12">
+
+                                         <label for="">
+                                             <p class="text-white"><strong>Precio Venta</strong></p>
+                                         </label>
+
+                                            <div class="input-group form-group">
+                                                <div class="input-group-prepend " >
+                                                    <span class="input-group-text input-services" >
+                                                         <img class="" src="{{ asset('img/icon/white/bolsa-de-dinero (1).png') }}" width="25px" >
+                                                    </span>
+                                                </div>
+                                                <input type="number" class="form-control" placeholder="Precio Venta" style="border-radius: 0  10px 10px 0;" id="precio" name="precio" value="{{ old('precio') }}" required>
+                                            </div>
+
+                                         <hr>
+
+                                         <label for="">
+                                             <p class="text-white"><strong>Fecha Servicio</strong></p>
+                                         </label>
+
+                                        <div class="input-group form-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text input-services">
+                                                     <img class="" src="{{ asset('img/icon/white/calendario (1).png') }}" width="25px" >
+                                                </span>
+                                            </div>
+                                             <input type="date" class="form-control" placeholder="MM/DD/YYY"  style="border-radius: 0  10px 10px 0;" id='fecha_servicio' name="fecha_servicio">
+                                        </div>
+
+                                         <hr>
 
                                              <label for="">
                                                  <p class="text-white"><strong>Descripci&oacute;n y/o informaci&oacute;n adicional</strong></p>
@@ -252,10 +229,9 @@
                                         </div>
 
                                             <input type="hidden" class="form-control" placeholder="servicio" style="border-radius: 0  10px 10px 0;" id="servicio" name="servicio" value="3">
-
                                          <hr>
                                          <label for="">
-                                             <p class="text-white"><strong>Vida de frenos en KM</strong></p>
+                                             <p class="text-white"><strong>Vida de freno en KM</strong></p>
                                          </label>
 
                                             <div class="input-group form-group">
@@ -264,7 +240,7 @@
                                                          <img class="" src="{{ asset('img/icon/white/velocimetro.png') }}" width="25px" >
                                                     </span>
                                                 </div>
-                                                <input type="number" class="form-control" placeholder="vida frenos" style="border-radius: 0  10px 10px 0;" id="vida_llantas" name="vida_llantas" value="{{ old('vida_llantas') }}">
+                                                <input type="number" class="form-control" placeholder="vida freno" style="border-radius: 0  10px 10px 0;" id="vida_llantas" name="vida_llantas" value="{{ old('vida_llantas') }}">
                                             </div>
 
                                          <hr>
@@ -279,21 +255,6 @@
                                                     </span>
                                                 </div>
                                                 <input type="number" class="form-control" placeholder="km actual" style="border-radius: 0  10px 10px 0;" id="km_actual" name="km_actual" value="{{ old('km_actual') }}">
-                                            </div>
-                                            <input type="hidden" class="form-control" id='image' name="image" value="{{asset('img/icon/color/comprobado.png') }}">
-                                      <hr>
-
-                                         <label for="">
-                                             <p class="text-white"><strong>Precio Venta</strong></p>
-                                         </label>
-
-                                            <div class="input-group form-group">
-                                                <div class="input-group-prepend " >
-                                                    <span class="input-group-text input-services" >
-                                                         <img class="" src="{{ asset('img/icon/white/bolsa-de-dinero (1).png') }}" width="25px" >
-                                                    </span>
-                                                </div>
-                                                <input type="number" class="form-control" placeholder="Precio Venta" style="border-radius: 0  10px 10px 0;" id="precio" name="precio" value="{{ old('precio') }}" required>
                                             </div>
 
                                          <hr>
@@ -311,8 +272,7 @@
                                                 <input type="number" class="form-control" placeholder="km estimado del próximo servicio" style="border-radius: 0  10px 10px 0;" id="km_estimado" name="km_estimado" value="{{ old('km_actual') }}">
                                             </div>
 
-
-                                        <hr>
+                                         <hr>
                                          <label for="">
                                              <p class="text-white"><strong>Fecha Próxima</strong></p>
                                          </label>
@@ -326,7 +286,9 @@
                                              <input type="date" class="form-control" placeholder="MM/DD/YYY"  style="border-radius: 0  10px 10px 0;" id='start' name="start">
                                         </div>
 
-                                        <hr>
+                                         <input type="hidden" class="form-control" id='image' name="image" value="{{asset('img/icon/color/comprobado.png') }}">
+
+                                         <hr>
                                          <label for="">
                                              <p class="text-white"><strong>V&iacute;deo Interior</strong></p>
                                          </label>
@@ -336,7 +298,6 @@
                                           <label class="custom-file-label " for="customFile">Selecciona V&iacute;deo</label>
                                         </div>
 
-                                         <hr>
                                          <label for="" class="mt-3">
                                              <p class="text-white"><strong>V&iacute;deo Exterior</strong></p>
                                          </label>
@@ -401,5 +362,47 @@
                                             });
                                         });
                                     </script>
+
+                                  <script>
+                                    var agregar1 = document.getElementById('proveedor1');
+                                    var contenedor1 = document.getElementById('nuevo-form1');
+                                    var contador = 0;
+
+                                    agregar1.addEventListener('click', function(){
+                                        contador++;
+                                        var _form1 = '<hr><label class="subtitle-form-servi">Proveedor '+ contador +'</label>' +
+                                                    '<div class="row"><div class="col-6">' +
+                                                    '<label class="text-white">Pieza o Refacción</label>' +
+                                                    '<input type="text" class="form-control" name="nombre[]" placeholder="pieza / Refacción"></div>' +
+                                                    '<div class="col-6">' +
+                                                    '<label class="text-white">Marca</label>' +
+                                                    '<input type="text" class="form-control" name="marca[]" placeholder="Marca"></div></div>' +
+                                                    '<div class="row"><div class="col-6">' +
+                                                    '<label class="text-white">Garantia</label>' +
+                                                    '<input type="text" class="form-control" name="garantia[]" placeholder="Garantia"></div>' +
+                                                    '<div class="col-6">' +
+                                                    '<label class="text-white">Cantidad</label>' +
+                                                    '<input type="number" class="form-control" name="cantidad[]" placeholder="Cantidad"></div></div>' +
+                                                    '<div class="row"><div class="col-6">' +
+                                                    '<label class="text-white">Costo Unitario</label>' +
+                                                    '<input type="number" class="form-control" name="costo[]" placeholder="Costo Unitario"></div>' +
+                                                    '<div class="col-6">' +
+                                                    '<label class="text-white">Costo Total</label>' +
+                                                    '<input type="number" class="form-control" name="costo_total[]" placeholder="Costo total"></div></div>' +
+                                                    '<div class="row"><div class="col-6">' +
+                                                    '<label class="text-white">Proveedor</label>' +
+                                                    '<input type="text" class="form-control" name="proveedor[]" placeholder="Proveedor"></div>' +
+                                                    '<div class="col-6">' +
+                                                    '<label class="text-white">Mano de Obra</label>' +
+                                                    '<input type="number" class="form-control" name="mano_o[]" placeholder="Mano de Obra"></div></div>';
+
+                                        contenedor1.innerHTML += _form1;
+                                    })
+
+                                    //remove fields group
+                                    // $("body").on("click",".remove",function(){
+                                    //     $(this).parents("._form").remove();
+                                    // });
+                                </script>
                               </form>
 

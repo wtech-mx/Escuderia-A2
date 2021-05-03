@@ -22,10 +22,10 @@
                                                     <table class="table text-white">
                                                       <thead>
                                                         <tr>
+                                                          <th scope="col">Fecha</th>
                                                           <th scope="col">Servicio</th>
                                                           <th scope="col">Auto</th>
                                                           <th scope="col">Usuario</th>
-                                                          <th scope="col">Fecha</th>
                                                           <th scope="col">Más</th>
 {{--                                                          <th scope="col">Estatus</th>--}}
                                                         </tr>
@@ -103,10 +103,10 @@
                                                            @endphp
                                                           <tbody>
                                                             <tr>
+                                                              <td>{{$item->fecha_servicio}}</td>
                                                               <td>{{$servicio}}</td>
                                                               <td>{{$auto}} <br> {{$sub}}</td>
                                                               <td>{{$user}}</td>
-                                                              <td>{{$item->start}}</td>
                                                               <td>
                                                                   <a data-toggle="modal" data-target="#example{{$item->id}}"><img class="" src="{{ asset('img/icon/white/add.png') }}" width="15px" ></a>
                                                               </td>

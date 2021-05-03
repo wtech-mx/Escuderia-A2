@@ -210,10 +210,6 @@
 
                         </div>
                    </div>
-
-{{--                    @include('admin.services.modal-marca')--}}
-                    @include('admin.services.proveedores')
-
                 </div>
 
 

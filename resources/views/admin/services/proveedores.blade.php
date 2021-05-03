@@ -1,123 +1,42 @@
-    <div class="modal fade" id="proveedores" tabindex="-1" aria-labelledby="proveedoresLabel" aria-hidden="true">
-        <div class="modal-dialog modal-sm modal-dialog-centered">
-              <div class="modal-content">
-
-                   <div class="modal-header">
-                        <p class="text-center text-dark" style="font: normal normal bold 20px Segoe UI;">Agregar Proveedores</p>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                               <span aria-hidden="true">&times;</span>
-                        </button>
-                   </div>
-
-                   <div class="modal-body">
-                      <form method="POST" id="dynamic_form" enctype="multipart/form-data" role="form">
-                        @csrf
-                          <div class="content container-res">
-                             <div class="input-group">
-                                 <table class="table table-bordered" id="user_table" style="border: 0px solid #FFFFFF">
-                                     <tr>
-                                     </tr>
-                                 </table>
-                             </div>
-                          </div>
-                        <button class="btn btn-lg btn-success btn-save-neon text-white " name="save" id="save" style="margin-bottom: 5rem!important;">
-                               <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}" width="20px" >
-                               Guardar
-                       </button>
-                      </form>
-                   </div>
-
-              </div>
-        </div>
-    </div>
 
 <script>
-                $(document).ready(function(){
-                 var count = 1;
-                 dynamic_field(count);
-                 function dynamic_field(number)
-                 {
-                 html = '<tr>';
+    var agregar = document.getElementById('proveedor');
+    var contenedor = document.getElementById('nuevo-form');
+    var contador = 0;
 
-                  html = '<tr>';
-                        html += '<td><input type="text" placeholder="Piezas o Refacción" name="nombre[]" class="form-control" /></td>';
+    agregar.addEventListener('click', function(){
+        contador++;
+        var _form = '<hr><label class="subtitle-form-servi">Proveedor '+ contador +'</label>' +
+                    '<div class="row"><div class="col-6">' +
+                    '<label class="text-white">Pieza o Refacción</label>' +
+                    '<input type="text" class="form-control" name="nombre[]" placeholder="pieza / Refacción"></div>' +
+                    '<div class="col-6">' +
+                    '<label class="text-white">Marca</label>' +
+                    '<input type="text" class="form-control" name="marca[]" placeholder="Marca"></div></div>' +
+                    '<div class="row"><div class="col-6">' +
+                    '<label class="text-white">Garantia</label>' +
+                    '<input type="text" class="form-control" name="garantia[]" placeholder="Garantia"></div>' +
+                    '<div class="col-6">' +
+                    '<label class="text-white">Cantidad</label>' +
+                    '<input type="number" class="form-control" name="cantidad[]" placeholder="Cantidad"></div></div>' +
+                    '<div class="row"><div class="col-6">' +
+                    '<label class="text-white">Costo Unitario</label>' +
+                    '<input type="number" class="form-control" name="costo[]" placeholder="Costo Unitario"></div>' +
+                    '<div class="col-6">' +
+                    '<label class="text-white">Costo Total</label>' +
+                    '<input type="number" class="form-control" name="costo_total[]" placeholder="Costo total"></div></div>' +
+                    '<div class="row"><div class="col-6">' +
+                    '<label class="text-white">Proveedor</label>' +
+                    '<input type="text" class="form-control" name="proveedor[]" placeholder="Proveedor"></div>' +
+                    '<div class="col-6">' +
+                    '<label class="text-white">Mano de Obra</label>' +
+                    '<input type="number" class="form-control" name="mano_o[]" placeholder="Mano de Obra"></div></div>';
 
-                        html += '<td><input type="text" placeholder="marca" name="marca[]" class="form-control" /></td>';
-                  html += '</tr>';
+        contenedor.innerHTML += _form;
+    })
 
-                  html += '<tr>';
-                        html += '<td><input type="text" placeholder="Garantia" name="garantia[]" class="form-control" /></td>';
-
-                        html += '<td><input type="number" placeholder="Cantidad" name="cantidad[]" class="form-control" /></td>';
-                  html += '</tr>';
-
-                  html += '<tr>';
-                        html += '<td><input type="text" placeholder="Proveedor" name="proveedor[]" class="form-control" /></td>';
-
-                        html += '<td><input type="number" placeholder="Mano de Obra" name="mano_o[]" class="form-control" /></td>';
-                  html += '</tr>';
-
-                  html += '<tr>';
-                        html += '<td><input type="number" placeholder="Costo Unitario" name="costo[]" class="form-control" /></td>';
-
-                        html += '<td><input type="number" placeholder="Costo Total" name="costo_total[]" class="form-control" /></td>';
-                  html += '</tr>';
-
-                        if(number > 1)
-                        {
-                            html += '<td><button type="button" name="remove" id="" class="btn btn-danger remove">Remove</button></td></tr>';
-                            $('tbody').append(html);
-                        }
-                        else
-                        {
-                            html += '<td><button type="button" name="add" id="add" class="btn btn-success">Agregar</button></td></tr>';
-                            $('tbody').html(html);
-                        }
-                 }
-
-                 $(document).on('click', '#add', function(){
-                  count++;
-                  dynamic_field(count);
-                 });
-
-                 $(document).on('click', '.remove', function(){
-                  count--;
-                  $(this).closest("tbody").remove();
-                 });
-
-                 $('#dynamic_form').on('submit', function(event){
-                        event.preventDefault();
-                        $.ajax({
-                            url:'{{ route("store_servicio_proveedor.servicio") }}',
-                            method:'post',
-                            data:$(this).serialize(),
-                            dataType:'json',
-                            beforeSend:function(){
-                                $('#save').attr('disabled','disabled');
-                            },
-                            success:function(data)
-                            {
-                                if(data.error)
-                                {
-                                    var error_html = '';
-                                    for(var count = 0; count < data.error.length; count++)
-                                    {
-                                        error_html += '<p>'+data.error[count]+'</p>';
-                                    }
-                                    $('#result').html('<div class="alert alert-danger">'+error_html+'</div>');
-                                }
-                                else
-                                {
-                                    dynamic_field(1);
-                                    $('#result').html('<div class="alert alert-success">'+data.success+'</div>');
-
-                                }
-                                $('#save').click(function(){
-                                    $("#proveedores").modal("hide");
-                                });
-                            }
-                        })
-                 });
-
-                });
-           </script>
+    //remove fields group
+    // $("body").on("click",".remove",function(){
+    //     $(this).parents("._form").remove();
+    // });
+</script>

@@ -49,9 +49,7 @@ class MecanicaController extends Controller
         $mecanica_user = Mecanica::where('id_empresa','=', NULL)->get();
         $mecanica_empresa = Mecanica::where('id_user','=', NULL)->get();
 
-        $proveedor = MecanicaProveedores::
-                    OrderBy('created_at','ASC')
-                    ->get();
+        $proveedor = MecanicaProveedores::get();
 
         $users = DB::table('users')
         ->get();
@@ -163,9 +161,7 @@ class MecanicaController extends Controller
         $mecanica->vida_llantas = $request->get('vida_llantas');
         $mecanica->km_actual = $request->get('km_actual');
         $mecanica->km_estimado = $request->get('km_estimado');
-        $mecanica->id_proveedor = $request->get('id_proveedor');
-        $mecanica->id_proveedor2 = $request->get('id_proveedor2');
-        $mecanica->id_proveedor3 = $request->get('id_proveedor3');
+        $mecanica->fecha_servicio = $request->get('fecha_servicio');
 
     	if ($request->hasFile('video')) {
                 $urlfoto = $request->file('video');
@@ -176,7 +172,6 @@ class MecanicaController extends Controller
                 $mecanica->video = $compresion->basename;
    	    }
 
-
     	if ($request->hasFile('video2')) {
                 $urlfoto = $request->file('video2');
                 $nombre = time().".".$urlfoto->guessExtension();
@@ -185,8 +180,6 @@ class MecanicaController extends Controller
                     ->save($ruta,10);
                 $mecanica->video2 = $compresion->basename;
    	    }
-
-
         /* Calendario */
         switch($mecanica) {
               //Llantas
@@ -278,7 +271,7 @@ class MecanicaController extends Controller
         }
 
         $llantas->id_mecanica = $mecanica->id;
-        $llantas->descripcion = 'Km estimado: '.$mecanica->km_estimado.', para la fecha estimada: '.$mecanica->start;
+        $llantas->descripcion = $mecanica->descripcion.', para la fecha estimada: '.$mecanica->start.' tendra un Km estimado: '.$mecanica->km_estimado;
         $llantas->color = "#2980B9";
         $llantas->image = $mecanica->image;
         $llantas->estatus = 0;
@@ -289,60 +282,53 @@ class MecanicaController extends Controller
         $llantas->end = $mecanica->end;
         $llantas->save();
 
+
+         $rules = array(
+             'nombre.*' => 'required',
+             'garantia.*' => 'required',
+             'marca.*' => 'required',
+             'proveedor.*' => 'required',
+             'mano_o.*' => 'required',
+             'costo.*' => 'required',
+             'costo_total.*' => 'required',
+             'cantidad.*' => 'required',
+         );
+         $error = Validator::make($request->all(), $rules);
+
+         if ($error->fails()) {
+             return response()->json([
+                 'error' => $error->errors()->all()
+             ]);
+         }
+
+         $nombre = $request->nombre;
+         $marca = $request->marca;
+         $garantia = $request->garantia;
+         $proveedor = $request->proveedor;
+         $mano_o = $request->mano_o;
+         $costo = $request->costo;
+         $costo_total = $request->costo_total;
+         $cantidad = $request->cantidad;
+
+         for ($count = 0; $count < count($nombre); $count++) {
+             $data = array(
+                 'nombre' => $nombre[$count],
+                 'marca' => $marca[$count],
+                 'garantia' => $garantia[$count],
+                 'proveedor' => $proveedor[$count],
+                 'mano_o' => $mano_o[$count],
+                 'costo' => $costo[$count],
+                 'costo_total' => $costo_total[$count],
+                 'cantidad' => $cantidad[$count],
+                 'id_servicio' => $mecanica->id,
+             );
+             $insert_data[] = $data;
+         }
+
+         MecanicaProveedores::insert($insert_data);
+
         Session::flash('success', 'Se ha guardado sus datos con exito');
         return redirect()->back();
-    }
-
-    public function store_servicio_proveedor(Request $request){
-
-     if($request->ajax()){
-          $rules = array(
-           'nombre.*'  => 'required',
-           'garantia.*'  => 'required',
-           'marca.*'  => 'required',
-           'proveedor.*'  => 'required',
-           'mano_o.*'  => 'required',
-           'costo.*'  => 'required',
-           'costo_total.*'  => 'required',
-           'cantidad.*'  => 'required',
-          );
-      $error = Validator::make($request->all(), $rules);
-
-      if($error->fails()){
-       return response()->json([
-        'error'  => $error->errors()->all()
-       ]);
-      }
-
-      $nombre = $request->nombre;
-      $marca = $request->marca;
-      $garantia = $request->garantia;
-      $proveedor = $request->proveedor;
-      $mano_o = $request->mano_o;
-      $costo = $request->costo;
-      $costo_total = $request->costo_total;
-      $cantidad = $request->cantidad;
-
-      for($count = 0; $count<count($nombre); $count++){
-           $data = array(
-            'nombre' => $nombre[$count],
-            'marca' => $marca[$count],
-            'garantia' => $garantia[$count],
-            'proveedor' => $proveedor[$count],
-            'mano_o' => $mano_o[$count],
-            'costo' => $costo[$count],
-            'costo_total' => $costo_total[$count],
-            'cantidad' => $cantidad[$count],
-           );
-           $insert_data[] = $data;
-      }
-
-      MecanicaProveedores::insert($insert_data);
-      Session::flash('success', 'Se ha guardado sus datos con exito');
-      return redirect()->back();
-     }
-
-
     }
 
 }
