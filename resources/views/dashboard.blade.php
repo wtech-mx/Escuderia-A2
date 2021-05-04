@@ -16,7 +16,11 @@
                         <div class="d-flex justify-content-start">
                                <a class="btn" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
                                    <div class="text-center text-white bg-white" style="border-radius: 50px;padding: 5px">
-                                      <img class="rounded-circle" src="{{ asset('img-perfil/'.$users->img) }}" width="40px" >
+                                        @if($users->img == NULL)
+                                           <i class="fas fa-user" style="color: #000000;width: 40px"></i>
+                                        @else
+                                           <img class="rounded-circle" src="{{ asset('img-perfil/'.$users->img) }}" width="40px" >
+                                        @endif
                                    </div>
                                </a>
 

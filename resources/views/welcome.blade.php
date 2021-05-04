@@ -30,16 +30,16 @@
         <div class="col-12 " style="margin-top: 165px">
 
             <div class="d-flex justify-content-center">
-                            <a class="btn btn-lg  btn-perzonalizado-gradient text-dark mb-3" href="{{ route('login') }}">
-                                {{ __('Login') }}
-                            </a>
-                        </div>
+                <a class="btn btn-lg  btn-perzonalizado-gradient text-dark mb-3" href="{{ route('login') }}">
+                    {{ __('Login') }}
+                </a>
+             </div>
 
             <div class="d-flex justify-content-center">
-                            <a class=" btn btn-lg btn-perzonalizado-white text-dark mb-5" href="{{ route('register') }}">
-                                {{ __('Register') }}
-                            </a>
-                        </div>
+                <a class=" btn btn-lg btn-perzonalizado-white text-dark mb-5" href="{{ route('register') }}">
+                    {{ __('Register') }}
+                </a>
+            </div>
 
         </div>
     </div>

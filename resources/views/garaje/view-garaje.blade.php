@@ -157,13 +157,13 @@
                         </div>
 
                     <div class="col-4 mb-3">
-                            <div class="card" style="border-radius: 15px">
+                            <div class="card" style="border-radius: 15px;height: 160px!important;">
                               <div class="card-body text-center text-garaje" >
                                         <img class="d-inline mb-2" src="{{ asset('img/icon/black/proteger.png') }}" alt="Icon documento" width="50px">
                                       <strong>Marca</strong>
                                         @foreach($marca as $value)
                                             @if($item->id_marca == $value->id)
-                                            <p class="text-center">{{ $value->nombre }}</p>
+                                            <p class="text-center" style="font-size: 12px">{{ $value->nombre }}</p>
                                           @endif
                                         @endforeach
                               </div>
@@ -171,21 +171,21 @@
                     </div>
 
                     <div class="col-4 mb-3">
-                            <div class="card" style="border-radius: 15px">
+                            <div class="card" style="border-radius: 15px;height: 160px!important;">
                               <div class="card-body text-center text-garaje" >
                                       <img class="d-inline mb-2" src="{{ asset('img/icon/black/documento.png') }}" alt="Icon documento" width="50px">
                                       <strong>Submarca </strong>
-                                      <p class="text-center">{{$item->submarca}}</p>
+                                      <p class="text-center" style="font-size: 12px">{{$item->submarca}}</p>
                               </div>
                             </div>
                     </div>
 
                     <div class="col-4 mb-3">
-                            <div class="card" style="border-radius: 15px">
+                            <div class="card" style="border-radius: 15px;height: 160px!important;">
                               <div class="card-body text-center text-garaje" >
                                       <img class="d-inline mb-2" src="{{ asset('img/icon/black/coche (2).png') }}" alt="Icon documento" width="50px">
                                       <strong>Tipo</strong>
-                                      <p class="text-center">{{$item->tipo}}</p>
+                                      <p class="text-center" style="font-size: 12px">{{$item->tipo}}</p>
                               </div>
                             </div>
                     </div>
@@ -194,32 +194,32 @@
                 {{-- ----------------------}}
 
                      <div class="col-4 mb-3">
-                            <div class="card" style="border-radius: 15px">
+                            <div class="card" style="border-radius: 15px;height: 160px!important;">
                               <div class="card-body text-center text-garaje" >
                                       <img class="d-inline mb-2" src="{{ asset('img/icon/black/coche (3).png') }}" alt="Icon documento" width="50px">
                                       <strong>Subtipo</strong>
-                                      <p class="text-center">{{$item->subtipo}}</p>
+                                      <p class="text-center" style="font-size: 12px">{{$item->subtipo}}</p>
                               </div>
                             </div>
                     </div>
 
                     <div class="col-4 mb-3">
-                            <div class="card" style="border-radius: 15px">
+                            <div class="card" style="border-radius: 15px;height: 160px!important;">
                               <div class="card-body text-center text-garaje" >
                                       <img class="d-inline mb-2" src="{{ asset('img/icon/black/days.png') }}" alt="Icon documento" width="50px">
                                       <strong>Año</strong>
-                                      <p class="text-center">{{$item->año}}</p>
+                                      <p class="text-center" style="font-size: 12px">{{$item->año}}</p>
                               </div>
                             </div>
                     </div>
 
                      <div class="col-4 mb-3">
-                            <div class="card" style="border-radius: 15px">
+                            <div class="card" style="border-radius: 15px;height: 160px!important;">
                               <div class="card-body text-center text-garaje" >
 
                                       <img class="d-inline mb-2" src="{{ asset('img/icon/black/color-palette.png') }}" alt="Icon documento" width="50px">
                                       <strong>Color</strong>
-                                      <p class="text-center">
+                                      <p class="text-center" style="font-size: 12px">
                                         <input class="" type="color" value="{{$item->color}}" id="example-color-input" Disabled>
                                       </p>
                               </div>
@@ -229,31 +229,31 @@
                 {{-- ----------------------}}
 
                     <div class="col-4 mb-3">
-                            <div class="card" style="border-radius: 15px;margin-bottom: 8rem !important;">
+                            <div class="card" style="border-radius: 15px;height: 160px!important;margin-bottom: 8rem !important;">
                               <div class="card-body text-center text-garaje" >
                                        <img class="d-inline mb-2" src="{{ asset('img/icon/black/barcode.png') }}" alt="Icon documento" width="50px">
                                       <strong>Num de Serie</strong>
-                                      <p class="text-center">{{$item->numero_serie}}</p>
+                                      <p class="text-center" style="font-size: 12px">{{$item->numero_serie}}</p>
                               </div>
                             </div>
                     </div>
 
                     <div class="col-4 mb-3">
-                            <div class="card" style="border-radius: 15px;margin-bottom: 8rem !important;">
+                            <div class="card" style="border-radius: 15px;height: 160px!important;margin-bottom: 8rem !important;">
                               <div class="card-body text-center text-garaje" >
                                        <img class="d-inline mb-2" src="{{ asset('img/icon/black/llantas.png') }}" alt="Icon documento" width="50px">
                                       <strong>Kilometraje</strong>
-                                      <p class="text-center">{{$item->kilometraje}}</p>
+                                      <p class="text-center" style="font-size: 12px">{{$item->kilometraje}}</p>
                               </div>
                             </div>
                     </div>
 
                     <div class="col-4 mb-3">
-                            <div class="card" style="border-radius: 15px;margin-bottom: 8rem !important;">
+                            <div class="card" style="border-radius: 15px;height: 160px!important;margin-bottom: 8rem !important;">
                               <div class="card-body text-center text-garaje" >
                                       <img class="d-inline mb-2" src="{{ asset('img/icon/black/placa.png') }}" alt="Icon documento" width="50px">
                                       <strong>Num Placas</strong>
-                                      <p class="text-center">{{$item->placas}}</p>
+                                      <p class="text-center" style="font-size: 12px">{{$item->placas}}</p>
                               </div>
                             </div>
                     </div>

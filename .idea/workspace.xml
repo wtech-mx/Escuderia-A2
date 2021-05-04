@@ -21,18 +21,12 @@
   <component name="ChangeListManager">
     <list default="true" id="936a45dc-4f36-4130-a52f-695b08d602c5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ExptcController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ExptcController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SegurosController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SegurosController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TarjetaCirculacionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TarjetaCirculacionController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/VerificacionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/VerificacionController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/TarjetaCirculacion.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/TarjetaCirculacion.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Verificacion.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Verificacion.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/VerificacionSegunda.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/VerificacionSegunda.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/onesignal.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/onesignal.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_17_175118_create_verificacion_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_17_175118_create_verificacion_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/dashboard.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/garaje/create-garaje.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/garaje/create-garaje.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/garaje/view-garaje.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/garaje/view-garaje.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/profile/profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/profile.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -218,7 +212,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../cms-delivery" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -325,6 +319,9 @@
       <workItem from="1618242951149" duration="27929000" />
       <workItem from="1618540326086" duration="6943000" />
       <workItem from="1618851774184" duration="17208000" />
+      <workItem from="1619895749295" duration="5153000" />
+      <workItem from="1620059068948" duration="1249000" />
+      <workItem from="1620085992702" duration="1794000" />
     </task>
     <servers />
   </component>
@@ -342,5 +339,11 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="348" y="237" width="583" height="566" key="find.popup" timestamp="1619896418515">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state x="348" y="237" width="583" height="566" key="find.popup/0.0.2560.1040/-2560.0.2560.1040@0.0.2560.1040" timestamp="1619896418515" />
   </component>
 </project>

@@ -39,7 +39,7 @@
                     <div class="col-12 p-3">
                         <p class="text-center">
                             @if($user->img == NULL)
-                                <img class="rounded-circle" src="{{ asset('img/icon/white/hombre (1).png') }}" height="150px" width="150px">
+                                 <i class="fas fa-user" style="color: #FFFFFF;font-size: 100px"></i>
                             @else
                                 <img class="rounded-circle" src="{{ asset('img-perfil/'.$user->img) }}" height="150px" width="150px">
                             @endif
@@ -52,6 +52,7 @@
                 </div>
 
                 <div class="row bg-down-image-border">
+
                     <div class="col-12 mt-5">
 
                                 @if(Session::has('success'))
@@ -132,7 +133,7 @@
                                                      <img class="" src="{{ asset('img/icon/white/call.png') }}" width="25px" >
                                                 </span>
                                             </div>
-                                            <input type="text" class="form-control" id="telefono" name="telefono" placeholder="5500550055" value="{{$user->telefono}}" style="border-radius: 0  10px 10px 0;">
+                                            <input type="text" class="form-control" id="telefono" name="telefono" placeholder="55..." value="{{$user->telefono}}" style="border-radius: 0  10px 10px 0;">
 
                                              @if ($errors->has('telefono'))
                                                 <span class="text-danger">{{ $errors->first('telefono') }}</span>
@@ -271,43 +272,46 @@
                                   </div>
 
                                   <div class="tab-pane fade" id="pills-Seguridad" role="tabpanel" aria-labelledby="pills-Seguridad-tab">
-                                    <form method="POST" action="{{route('update_password.user',$userId)}}" enctype="multipart/form-data" role="form">
+
+                                    <form method="POST" action="{{route('update_password.user',$userId)}}" enctype="multipart/form-data" role="form" style="height: 500px;">
+
 
                                         @csrf
                                         <input type="hidden" name="_method" value="PATCH">
+
                                         <label for="">
-                                         <p class="text-white"><strong>Contraseña</strong></p>
-                                     </label>
+                                            <p class="text-white"><strong>Contraseña</strong></p>
+                                        </label>
 
                                         <div class="input-group form-group">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text">
-                                                 <img class="" src="{{ asset('img/icon/white/padlock.png') }}" width="25px" >
-                                            </span>
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">
+                                                     <img class="" src="{{ asset('img/icon/white/padlock.png') }}" width="25px" >
+                                                </span>
+                                            </div>
+
+                                            <input type="password" class="form-control" placeholder="****" id="password" name="password" style="border-radius: 0  10px 10px 0;">
+                                             @if ($errors->has('password'))
+                                                <span class="text-danger">{{ $errors->first('password') }}</span>
+                                            @endif
                                         </div>
-                                        <input type="password" class="form-control" placeholder="****" id="password" name="password" style="border-radius: 0  10px 10px 0;">
-                                         @if ($errors->has('password'))
-                                            <span class="text-danger">{{ $errors->first('password') }}</span>
-                                        @endif
-                                    </div>
 
                                         <label for="">
                                          <p class="text-white"><strong>Confirmar Contraseña </strong></p>
-                                     </label>
+                                        </label>
 
                                         <div class="input-group form-group">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text">
-                                                 <img class="" src="{{ asset('img/icon/white/password.png') }}" width="25px" >
-                                            </span>
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">
+                                                     <img class="" src="{{ asset('img/icon/white/password.png') }}" width="25px" >
+                                                </span>
+                                            </div>
+                                            <input type="password" class="form-control" name="password_confirmation"  autocomplete="new-password" placeholder="Confirmar Contraseña" id="password-confirm" style="border-radius: 0  10px 10px 0;">
+
+                                             @if ($errors->has('password'))
+                                                <span class="text-danger">{{ $errors->first('password') }}</span>
+                                            @endif
                                         </div>
-                                        <input type="password" class="form-control" name="password_confirmation"  autocomplete="new-password" placeholder="Confirmar Contraseña" id="password-confirm" style="border-radius: 0  10px 10px 0;">
-
-                                         @if ($errors->has('password'))
-                                            <span class="text-danger">{{ $errors->first('password') }}</span>
-                                        @endif
-
-                                    </div>
 
                                         <div class="col-12 text-center mt-3 "  style="margin-bottom: 8rem !important;">
                                             <button class="btn btn-lg btn-save-neon text-white">
@@ -317,12 +321,11 @@
                                         </div>
 
                                     </form>
+
                                   </div>
 
                                 </div>
 
-
-                        </form>
                     </div>
 
                 </div>

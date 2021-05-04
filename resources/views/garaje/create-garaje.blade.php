@@ -33,12 +33,9 @@
                         <div class="col-12 mb-3">
                             <img class="d-inline mb-2" src="{{ asset('img/icon/car2.png') }}" alt="Icon documento" width="350px">
                             <p class="text-left title-car">
-                                <strong>Agreaga tu Carro</strong>
+                                <strong>Agreaga tu Auto</strong>
                             </p>
 
-                            <p class="text-left subtitle-car" style="font-size: 12px">
-                                <strong>0 KM Recorridos</strong>
-                            </p>
                         </div>
 
        <form method="POST" action="{{route('store.automovil')}}" enctype="multipart/form-data" role="form">
