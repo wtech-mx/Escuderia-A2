@@ -12,7 +12,7 @@ class OfflineController extends Controller
 
     public function __construct(){
         $this->middleware('auth');
-        $this->middleware('pagespeed');
+//        $this->middleware('pagespeed');
     }
 
    public function index()

@@ -156,16 +156,16 @@
                             </a>
                         </div>
 
-                        <div class="col-6 text-center mt-4 mb-5" style="margin-bottom: 8rem !important;">
-                            <a href="{{ route('view-win-share') }}" class="text-dark">
-                                <div class="card" style="border-radius: 15px">
-                                  <div class="card-body" >
-                                      <img class="d-inline mb-2" src="{{ asset('img/icon/black/gift.png') }}" alt="Icon gift" width="50px">
-                                      <p class="card-text"><strong>Comparte y Gana</strong></p>
-                                  </div>
-                                </div>
-                            </a>
-                        </div>
+{{--                        <div class="col-6 text-center mt-4 mb-5" style="margin-bottom: 8rem !important;">--}}
+{{--                            <a href="{{ route('view-win-share') }}" class="text-dark">--}}
+{{--                                <div class="card" style="border-radius: 15px">--}}
+{{--                                  <div class="card-body" >--}}
+{{--                                      <img class="d-inline mb-2" src="{{ asset('img/icon/black/gift.png') }}" alt="Icon gift" width="50px">--}}
+{{--                                      <p class="card-text"><strong>Comparte y Gana</strong></p>--}}
+{{--                                  </div>--}}
+{{--                                </div>--}}
+{{--                            </a>--}}
+{{--                        </div>--}}
 
                         <div class="col-6 text-center mt-4 mb-5">
                             <a href="{{ route('view_user.servicio') }}" class="text-dark">
