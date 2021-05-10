@@ -21,9 +21,11 @@
 
                 <div class="error-actions mt-5">
                     <a onClick="history.back()" class="btn btn-lg" style="border-radius: 15px; width: 100%;height: 40px;background:#00f936;color:#ffff">
-                       Regresar
+                            Regresar
                     </a>
                 </div>
             </div>
         </div>
     </div>
+
+
