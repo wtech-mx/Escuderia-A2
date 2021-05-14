@@ -153,7 +153,7 @@ class UserController extends Controller
                 <h2>Actualizacion de contraseña</h2> <br>
                 <h3>A continuación se muestran los detalles de su actualizacion de contraseña:</h3>  <br>
                 <p style='color: #000000;font-weight: bold'><strong>Email: </strong> {{ $email }} </p>  <br>
-                <p style='color: #000000;font-weight: bold'><strong>Clave: </strong> {{ $password }}</p>
+                <p style='color: #000000;font-weight: bold'><strong>Clave: </strong> {{ $pass }}</p>
 
                 </body>
             </html>
