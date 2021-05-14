@@ -152,14 +152,19 @@ class UserController extends Controller
 
                 <h2>Actualizacion de contraseña</h2> <br>
                 <h3>A continuación se muestran los detalles de su actualizacion de contraseña:</h3>  <br>
-                <p style='color: #000000;font-weight: bold'><strong>Email: </strong> {{ $email }} </p>  <br>
-                <p style='color: #000000;font-weight: bold'><strong>Clave: </strong> {{ $pass }}</p>
+                <p style='color: #000000;font-weight: bold'><strong>Email: </strong> $email  </p>  <br>
+                <p style='color: #000000;font-weight: bold'><strong>Clave: </strong> $pass </p>
 
                 </body>
             </html>
             ";
 
-            $headers = "From:contacto@checkngo.com.mx";
+
+            // Always set content-type when sending HTML email
+            $headers = "MIME-Version: 1.0" . "\r\n";
+            $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+
+            $headers .= 'From: <contacto@checkngo.com.mx>' . "\r\n";
 
             mail($to,$subject,$message,$headers);
         }
