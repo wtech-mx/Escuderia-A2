@@ -192,6 +192,7 @@ $newDate = date("d/m/Y", strtotime($originalDate));
                                     <option value="Ambulancia">Ambulancia</option>
                                     <option value="Patrulla">Patrulla</option>
                                     <option value="Escolta">Escolta</option>
+                                    <option value="Auto Antiguo">Auto Antiguo</option>
                                 </select>
                             </div>
 
