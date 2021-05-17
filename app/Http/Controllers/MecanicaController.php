@@ -10,6 +10,9 @@ use Illuminate\Support\Str;
 use App\Models\Mecanica;
 use App\Models\Llantas;
 use App\Models\MecanicaProveedores;
+use App\Models\MecanicaUsuario;
+use App\Models\User;
+use App\Models\Automovil;
 use Session;
 use Image;
 use Validator;
@@ -17,136 +20,79 @@ use Validator;
 class MecanicaController extends Controller
 {
 
-    public function __construct(){
+    public function __construct()
+    {
         $this->middleware('auth');
         $this->middleware('pagespeed');
     }
-/*|--------------------------------------------------------------------------
+    /*|--------------------------------------------------------------------------
 | Servicio User
 |--------------------------------------------------------------------------*/
-    public function view_user(){
+    public function view_user()
+    {
 
-        $llanta_user = Mecanica::where('id_user','=', auth()->user()->id)->paginate(7);
-        $banda_user = Mecanica::where('id_userbn','=', auth()->user()->id)->paginate(7);
-        $freno_user = Mecanica::where('id_userfr','=', auth()->user()->id)->paginate(7);
-        $aceite_user = Mecanica::where('id_userac','=', auth()->user()->id)->paginate(7);
-        $afinacion_user = Mecanica::where('id_useraf','=', auth()->user()->id)->paginate(7);
-        $amort_user = Mecanica::where('id_useram','=', auth()->user()->id)->paginate(7);
-        $bateria_user = Mecanica::where('id_userbt','=', auth()->user()->id)->paginate(7);
-        $otro_user = Mecanica::where('id_userot','=', auth()->user()->id)->paginate(7);
+        $llanta_user = Mecanica::where('id_user', '=', auth()->user()->id)->paginate(7);
+        $banda_user = Mecanica::where('id_userbn', '=', auth()->user()->id)->paginate(7);
+        $freno_user = Mecanica::where('id_userfr', '=', auth()->user()->id)->paginate(7);
+        $aceite_user = Mecanica::where('id_userac', '=', auth()->user()->id)->paginate(7);
+        $afinacion_user = Mecanica::where('id_useraf', '=', auth()->user()->id)->paginate(7);
+        $amort_user = Mecanica::where('id_useram', '=', auth()->user()->id)->paginate(7);
+        $bateria_user = Mecanica::where('id_userbt', '=', auth()->user()->id)->paginate(7);
+        $otro_user = Mecanica::where('id_userot', '=', auth()->user()->id)->paginate(7);
 
-        $mecanica_empresa = Mecanica::where('id_user','=', NULL)->get();
+        $mecanica_empresa = Mecanica::where('id_user', '=', NULL)->get();
 
-        return view('services.view-mecanica',compact('llanta_user', 'banda_user', 'freno_user', 'aceite_user', 'afinacion_user', 'amort_user', 'bateria_user', 'otro_user', 'mecanica_empresa'));
+        return view('services.view-mecanica', compact('llanta_user', 'banda_user', 'freno_user', 'aceite_user', 'afinacion_user', 'amort_user', 'bateria_user', 'otro_user', 'mecanica_empresa'));
     }
 
 
-/*|--------------------------------------------------------------------------
+    /*|--------------------------------------------------------------------------
 |Create Servicio Admin
 |--------------------------------------------------------------------------*/
-    public function view(){
+    public function view()
+    {
 
-        $mecanica_user = Mecanica::where('id_empresa','=', NULL)->get();
-        $mecanica_empresa = Mecanica::where('id_user','=', NULL)->get();
+        $mecanica_user = Mecanica::get();
+        $mecanica_empresa = Mecanica::get();
 
+        $mecanica_usuario = MecanicaUsuario::get();
         $proveedor = MecanicaProveedores::get();
 
-        $users = DB::table('users')
-        ->get();
+        $users = DB::table('users')->get();
+        $autos = DB::table('mecanica_usuario')->get();
 
-        return view('admin.services.view-mecanica',compact('mecanica_user','mecanica_empresa', 'users', 'proveedor'));
+        return view('admin.services.view-mecanica', compact('mecanica_user', 'mecanica_empresa', 'users', 'proveedor', 'mecanica_usuario', 'autos'));
     }
+
     public function create_servicio()
     {
-          $user = DB::table('users')
-            ->where('role','=', '0')
+        $user = DB::table('users')
+            ->where('role', '=', '0')
             ->get();
 
-         $empresa = DB::table('empresa')
+        $empresa = DB::table('empresa')
             ->get();
 
-         $marca = DB::table('marca_product')
+        $marca = DB::table('marca_product')
             ->get();
 
-         $automovil = DB::table('automovil')
+        $automovil = DB::table('automovil')
             ->get();
 
-         $users = DB::table('users')
-        ->get();
+        $users = DB::table('users')
+            ->get();
 
-        $proveedor = MecanicaProveedores::
-                    OrderBy('created_at','ASC')
-                    ->get();
+        $proveedor = MecanicaProveedores::OrderBy('created_at', 'ASC')
+            ->get();
 
-        return view('admin.services.mecanica',compact('empresa', 'marca', 'automovil', 'user', 'proveedor'));
+        return view('admin.services.mecanica', compact('empresa', 'marca', 'automovil', 'user', 'proveedor'));
     }
 
-    /* Trae los automoviles con el user seleccionado  */
-    public function GetSubCatAgainstMainCatEdit($id){
-            echo json_encode(DB::table('automovil')->where('id_user', $id)->get());
-    }
-    public function GetEmpreAgainstMainCatEdit($id){
-            echo json_encode(DB::table('automovil')->where('id_empresa', $id)->get());
-    }
-
-    public function store_servicio(Request $request)
+    public function edit(Request $request, $id)
     {
-          $validate = $this->validate($request, [
-            'servicio' => 'required|max:191',
-            'descripcion' => 'required|max:500',
-            'vida_llantas' => 'required|max:191',
-            'km_actual' => 'required|max:191',
-        ]);
 
-        $mecanica = new Mecanica;
-        /* User/Auto Llantas */
-        $mecanica->id_user = $request->get('id_user');
-        $mecanica->id_empresa = $request->get('id_empresa');
-        $mecanica->current_auto = $request->get('current_auto');
-        $mecanica->current_auto2 = $request->get('current_auto2');
 
-        /* User/Auto Banda */
-        $mecanica->id_userbn = $request->get('id_userbn');
-        $mecanica->id_empresabn = $request->get('id_empresabn');
-        $mecanica->current_autobn2 = $request->get('current_autobn2');
-        $mecanica->current_autobn = $request->get('current_autobn');
-
-        /* User/Auto Frenos */
-        $mecanica->id_userfr = $request->get('id_userfr');
-        $mecanica->id_empresafr = $request->get('id_empresafr');
-        $mecanica->current_autofr2 = $request->get('current_autofr2');
-        $mecanica->current_autofr = $request->get('current_autofr');
-
-        /* User/Auto aceite */
-        $mecanica->id_userac = $request->get('id_userac');
-        $mecanica->id_empresaac = $request->get('id_empresaac');
-        $mecanica->current_autoac2 = $request->get('current_autoac2');
-        $mecanica->current_autoac = $request->get('current_autoac');
-
-        /* User/Auto afinacion */
-        $mecanica->id_useraf = $request->get('id_useraf');
-        $mecanica->id_empresaaf = $request->get('id_empresaaf');
-        $mecanica->current_autoaf2 = $request->get('current_autoaf2');
-        $mecanica->current_autoaf = $request->get('current_autoaf');
-
-        /* User/Auto amortiguadores */
-        $mecanica->id_useram = $request->get('id_useram');
-        $mecanica->id_empresaam = $request->get('id_empresaam');
-        $mecanica->current_autoam2 = $request->get('current_autoam2');
-        $mecanica->current_autoam = $request->get('current_autoam');
-
-        /* User/Auto bateria */
-        $mecanica->id_userbt = $request->get('id_userbt');
-        $mecanica->id_empresabt = $request->get('id_empresabt');
-        $mecanica->current_autobt2 = $request->get('current_autobt2');
-        $mecanica->current_autobt = $request->get('current_autobt');
-
-        /* User/Auto Otro */
-        $mecanica->id_userot = $request->get('id_userot');
-        $mecanica->current_autoot = $request->get('current_autoot');
-        $mecanica->id_empresaot = $request->get('id_empresaot');
-        $mecanica->current_autoot2 = $request->get('current_autoot2');
-
+        $mecanica = Mecanica::findOrFail($id);
 
         $mecanica->llantas_delanteras = $request->get('llantas_delanteras');
         $mecanica->llantas_traseras = $request->get('llantas_traseras');
@@ -163,115 +109,170 @@ class MecanicaController extends Controller
         $mecanica->km_estimado = $request->get('km_estimado');
         $mecanica->fecha_servicio = $request->get('fecha_servicio');
 
-    	if ($request->hasFile('video')) {
-                $urlfoto = $request->file('video');
-                $nombre = time().".".$urlfoto->guessExtension();
-                $ruta = public_path('/inter-mecanica/'.$nombre);
-                $compresion = Image::make($urlfoto->getRealPath())
-                    ->save($ruta,10);
-                $mecanica->video = $compresion->basename;
-   	    }
+        $mecanica->update();
 
-    	if ($request->hasFile('video2')) {
-                $urlfoto = $request->file('video2');
-                $nombre = time().".".$urlfoto->guessExtension();
-                $ruta = public_path('/ext-mecanica/'.$nombre);
-                $compresion = Image::make($urlfoto->getRealPath())
-                    ->save($ruta,10);
-                $mecanica->video2 = $compresion->basename;
-   	    }
-        /* Calendario */
-        switch($mecanica) {
-              //Llantas
-              case($mecanica->servicio == '1'):
-                 $mecanica->title = $mecanica->Automovil2->placas;
-              break;
-              //Banda
-              case($mecanica->servicio == '2'):
-                 $mecanica->title = $mecanica->Automovilbn->placas;
-              break;
-              //Frenos
-              case($mecanica->servicio == '3'):
-                 $mecanica->title = $mecanica->Automovilfr->placas;
-              break;
-              //Aceite
-              case($mecanica->servicio == '4'):
-                 $mecanica->title = $mecanica->Automovilac->placas;
-              break;
-              //Afinacion
-              case($mecanica->servicio == '5'):
-                 $mecanica->title = $mecanica->Automovilaf->placas;
-              break;
-              //Amorting
-              case($mecanica->servicio == '6'):
-                 $mecanica->title = $mecanica->Automovilam->placas;
-              break;
-              //Bateria
-              case($mecanica->servicio == '7'):
-                 $mecanica->title = $mecanica->Automovilbt->placas;
-              break;
-              //Otro
-              case($mecanica->servicio == '8'):
-                 $mecanica->title = $mecanica->Automovilot->placas;
-              break;
+        $mecanica_usuario = new MecanicaUsuario;
+        $mecanica_usuario->id_mecanica = $mecanica->id;
+        $mecanica_usuario->id_usuario = $request->get('id_user');
+        $mecanica_usuario->id_automovil = $request->get('current_auto');
+        dd($mecanica_usuario);
+        $mecanica_usuario->update();
+
+        Session::flash('success', 'Se ha guardado sus datos con exito');
+        return redirect()->back();
+    }
+
+
+    /* Trae los automoviles con el user seleccionado  */
+    public function GetSubCatAgainstMainCatEdit($id)
+    {
+        echo json_encode(DB::table('automovil')->where('id_user', $id)->get());
+    }
+    public function GetEmpreAgainstMainCatEdit($id)
+    {
+        echo json_encode(DB::table('automovil')->where('id_empresa', $id)->get());
+    }
+
+    public function store_servicio(Request $request)
+    {
+        $validate = $this->validate($request, [
+            'servicio' => 'required|max:191',
+            'descripcion' => 'required|max:500',
+            'vida_llantas' => 'required|max:191',
+            'km_actual' => 'required|max:191',
+        ]);
+
+        $mecanica = new Mecanica;
+
+        $mecanica->llantas_delanteras = $request->get('llantas_delanteras');
+        $mecanica->llantas_traseras = $request->get('llantas_traseras');
+        $mecanica->amortig_delanteras = $request->get('amortig_delanteras');
+        $mecanica->amortig_traseras = $request->get('amortig_traseras');
+        $mecanica->frenos_delanteras = $request->get('frenos_delanteras');
+        $mecanica->frenos_traseras = $request->get('frenos_traseras');
+        $mecanica->precio = $request->get('precio');
+        $mecanica->servicio = $request->get('servicio');
+        $mecanica->descripcion = $request->get('descripcion');
+        //$mecanica->garantia = $request->get('garantia');
+        $mecanica->vida_llantas = $request->get('vida_llantas');
+        $mecanica->km_actual = $request->get('km_actual');
+        $mecanica->km_estimado = $request->get('km_estimado');
+        $mecanica->fecha_servicio = $request->get('fecha_servicio');
+
+        if ($request->hasFile('video')) {
+            $urlfoto = $request->file('video');
+            $nombre = time() . "." . $urlfoto->guessExtension();
+            $ruta = public_path('/inter-mecanica/' . $nombre);
+            $compresion = Image::make($urlfoto->getRealPath())
+                ->save($ruta, 10);
+            $mecanica->video = $compresion->basename;
         }
 
-        $mecanica->color = "#2980B9";
-        $mecanica->estatus = 0;
-        $mecanica->image = $request->get('image');
-        $mecanica->check = 0;
-        $mecanica->start = $request->get('start');
-        $mecanica->end = $request->get('start');
+        if ($request->hasFile('video2')) {
+            $urlfoto = $request->file('video2');
+            $nombre = time() . "." . $urlfoto->guessExtension();
+            $ruta = public_path('/ext-mecanica/' . $nombre);
+            $compresion = Image::make($urlfoto->getRealPath())
+                ->save($ruta, 10);
+            $mecanica->video2 = $compresion->basename;
+        }
 
         $mecanica->save();
 
+        $mecanica_usuario = new MecanicaUsuario;
+        $mecanica_usuario->id_mecanica = $mecanica->id;
+        switch ($mecanica) {
+                //Llantas
+            case ($mecanica->servicio == '1'):
+                $mecanica_usuario->id_usuario = $request->get('id_user');;
+                $mecanica_usuario->id_automovil = $request->get('current_auto2');
+                break;
+                //Banda
+            case ($mecanica->servicio == '2'):
+                $mecanica_usuario->id_usuario = $request->get('id_userbn');
+                $mecanica_usuario->id_automovil = $request->get('current_autobn');
+                break;
+                //Frenos
+            case ($mecanica->servicio == '3'):
+                $mecanica_usuario->id_usuario = $request->get('id_userfr');
+                $mecanica_usuario->id_automovil = $request->get('current_autofr');
+                break;
+                //Aceite
+            case ($mecanica->servicio == '4'):
+                $mecanica_usuario->id_usuario = $request->get('id_userac');
+                $mecanica_usuario->id_automovil = $request->get('current_autoac2');
+                break;
+                //Afinacion
+            case ($mecanica->servicio == '5'):
+                $mecanica_usuario->id_usuario = $request->get('id_useraf');
+                $mecanica_usuario->id_automovil = $request->get('current_autoaf2');
+                break;
+                //Amorting
+            case ($mecanica->servicio == '6'):
+                $mecanica_usuario->id_usuario = $request->get('id_useram');
+                $mecanica_usuario->id_automovil = $request->get('current_autoam2');
+                break;
+                //Bateria
+            case ($mecanica->servicio == '7'):
+                $mecanica_usuario->id_usuario = $request->get('id_userbt');
+                $mecanica_usuario->id_automovil = $request->get('current_autobt');
+                break;
+                //Otro
+            case ($mecanica->servicio == '8'):
+                $mecanica_usuario->id_usuario = $request->get('id_userot');
+                $mecanica_usuario->id_automovil = $request->get('current_autoot');
+                break;
+        }
+
+        $mecanica_usuario->save();
+
         $llantas = new Llantas;
-                /* Calendario */
-        switch($mecanica) {
-              //Llantas
-              case($mecanica->servicio == '1'):
-                 $llantas->id_user = $mecanica->id_user;
-                 $llantas->title = $mecanica->Automovil2->placas.' - Llantas';
-              break;
-              //Banda
-              case($mecanica->servicio == '2'):
-                 $llantas->id_user = $mecanica->id_userbn;
-                 $llantas->title = $mecanica->Automovilbn->placas.' - Banda';
-              break;
-              //Frenos
-              case($mecanica->servicio == '3'):
-                  $llantas->id_user = $mecanica->id_userfr;
-                  $llantas->title = $mecanica->Automovilfr->placas.' - Frenos';
-              break;
-              //Aceite
-              case($mecanica->servicio == '4'):
-                  $llantas->id_user = $mecanica->id_userac;
-                  $llantas->title = $mecanica->Automovilac->placas.' - Aceite';
-              break;
-              //Afinacion
-              case($mecanica->servicio == '5'):
-                  $llantas->id_user = $mecanica->id_useraf;
-                  $llantas->title = $mecanica->Automovilaf->placas.' - Afinación';
-              break;
-              //Amorting
-              case($mecanica->servicio == '6'):
-                  $llantas->id_user = $mecanica->id_useram;
-                  $llantas->title = $mecanica->Automovilam->placas.' - Amortiguadores';
-              break;
-              //Bateria
-              case($mecanica->servicio == '7'):
-                  $llantas->id_user = $mecanica->id_userbt;
-                  $llantas->title = $mecanica->Automovilbt->placas.' - Bateria';
-              break;
-              //Otro
-              case($mecanica->servicio == '8'):
-                  $llantas->id_user = $mecanica->id_userot;
-                 $llantas->title = $mecanica->Automovilot->placas.' - Otro';
-              break;
+        /* Calendario */
+        switch ($mecanica) {
+                //Llantas
+            case ($mecanica->servicio == '1'):
+                $llantas->id_user = $mecanica_usuario->id_usuario;
+                $llantas->title = $mecanica_usuario->Automovil->placas . ' - Llantas';
+                break;
+                //Banda
+            case ($mecanica->servicio == '2'):
+                $llantas->id_user = $mecanica_usuario->id_usuario;
+                $llantas->title = $mecanica_usuario->Automovil->placas . ' - Banda';
+                break;
+                //Frenos
+            case ($mecanica->servicio == '3'):
+                $llantas->id_user = $mecanica_usuario->id_usuario;
+                $llantas->title = $mecanica_usuario->Automovil->placas . ' - Frenos';
+                break;
+                //Aceite
+            case ($mecanica->servicio == '4'):
+                $llantas->id_user = $mecanica_usuario->id_usuario;
+                $llantas->title = $mecanica_usuario->Automovil->placas . ' - Aceite';
+                break;
+                //Afinacion
+            case ($mecanica->servicio == '5'):
+                $llantas->id_user = $mecanica_usuario->id_usuario;
+                $llantas->title = $mecanica_usuario->Automovil->placas . ' - Afinación';
+                break;
+                //Amorting
+            case ($mecanica->servicio == '6'):
+                $llantas->id_user = $mecanica_usuario->id_usuario;
+                $llantas->title = $mecanica_usuario->Automovil->placas . ' - Amortiguadores';
+                break;
+                //Bateria
+            case ($mecanica->servicio == '7'):
+                $llantas->id_user = $mecanica_usuario->id_usuario;
+                $llantas->title = $mecanica_usuario->Automovil->placas . ' - Bateria';
+                break;
+                //Otro
+            case ($mecanica->servicio == '8'):
+                $llantas->id_user = $mecanica_usuario->id_usuario;
+                $llantas->title = $mecanica_usuario->Automovil->placas . ' - Otro';
+                break;
         }
 
         $llantas->id_mecanica = $mecanica->id;
-        $llantas->descripcion = $mecanica->descripcion.', para la fecha estimada: '.$mecanica->start.' tendra un Km estimado: '.$mecanica->km_estimado;
+        $llantas->descripcion = $mecanica->descripcion . ', para la fecha estimada: ' . $mecanica->start . ' tendra un Km estimado: ' . $mecanica->km_estimado;
         $llantas->color = "#2980B9";
         $llantas->image = $mecanica->image;
         $llantas->estatus = 0;
@@ -283,52 +284,70 @@ class MecanicaController extends Controller
         $llantas->save();
 
 
-         $rules = array(
-             'nombre.*' => 'required',
-             'garantia.*' => 'required',
-             'marca.*' => 'required',
-             'proveedor.*' => 'required',
-             'mano_o.*' => 'required',
-             'costo.*' => 'required',
-             'costo_total.*' => 'required',
-             'cantidad.*' => 'required',
-         );
-         $error = Validator::make($request->all(), $rules);
+        $rules = array(
+            'nombre.*',
+            'garantia.*',
+            'marca.*',
+            'proveedor.*',
+            'mano_o.*',
+            'costo.*',
+            'costo_total.*',
+            'cantidad.*',
+        );
+        $error = Validator::make($request->all(), $rules);
 
-         if ($error->fails()) {
-             return response()->json([
-                 'error' => $error->errors()->all()
-             ]);
-         }
+        if ($error->fails()) {
+            return response()->json([
+                'error' => $error->errors()->all()
+            ]);
+        }
 
-         $nombre = $request->nombre;
-         $marca = $request->marca;
-         $garantia = $request->garantia;
-         $proveedor = $request->proveedor;
-         $mano_o = $request->mano_o;
-         $costo = $request->costo;
-         $costo_total = $request->costo_total;
-         $cantidad = $request->cantidad;
+        $nombre = $request->nombre;
+        $marca = $request->marca;
+        $garantia = $request->garantia;
+        $proveedor = $request->proveedor;
+        $mano_o = $request->mano_o;
+        $costo = $request->costo;
+        $costo_total = $request->costo_total;
+        $cantidad = $request->cantidad;
 
-         for ($count = 0; $count < count($nombre); $count++) {
-             $data = array(
-                 'nombre' => $nombre[$count],
-                 'marca' => $marca[$count],
-                 'garantia' => $garantia[$count],
-                 'proveedor' => $proveedor[$count],
-                 'mano_o' => $mano_o[$count],
-                 'costo' => $costo[$count],
-                 'costo_total' => $costo_total[$count],
-                 'cantidad' => $cantidad[$count],
-                 'id_servicio' => $mecanica->id,
-             );
-             $insert_data[] = $data;
-         }
+        for ($count = 0; $count < count($nombre); $count++) {
+            $data = array(
+                'nombre' => $nombre[$count],
+                'marca' => $marca[$count],
+                'garantia' => $garantia[$count],
+                'proveedor' => $proveedor[$count],
+                'mano_o' => $mano_o[$count],
+                'costo' => $costo[$count],
+                'costo_total' => $costo_total[$count],
+                'cantidad' => $cantidad[$count],
+                'id_servicio' => $mecanica->id,
+            );
+            $insert_data[] = $data;
+        }
 
-         MecanicaProveedores::insert($insert_data);
+        MecanicaProveedores::insert($insert_data);
 
         Session::flash('success', 'Se ha guardado sus datos con exito');
         return redirect()->back();
     }
 
+    public function automovil(Request $request)
+    {
+        if (isset($request->texto)) {
+            $automovil = Automovil::whereUsuario_id($request->texto)->get();
+            return response()->json(
+                [
+                    'lista' => $automovil,
+                    'success' => true
+                ]
+            );
+        } else {
+            return response()->json(
+                [
+                    'success' => false
+                ]
+            );
+        }
+    }
 }
