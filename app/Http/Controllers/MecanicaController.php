@@ -51,75 +51,84 @@ class MecanicaController extends Controller
 |--------------------------------------------------------------------------*/
     public function view()
     {
+        if (auth()->user()->role != 1) {
+            return view('errors.403');
+        } else {
+            $mecanica_user = Mecanica::get();
+            $mecanica_empresa = Mecanica::get();
 
-        $mecanica_user = Mecanica::get();
-        $mecanica_empresa = Mecanica::get();
+            $mecanica_usuario = MecanicaUsuario::get();
+            $proveedor = MecanicaProveedores::get();
 
-        $mecanica_usuario = MecanicaUsuario::get();
-        $proveedor = MecanicaProveedores::get();
+            $users = DB::table('users')->get();
+            $autos = DB::table('mecanica_usuario')->get();
 
-        $users = DB::table('users')->get();
-        $autos = DB::table('mecanica_usuario')->get();
-
-        return view('admin.services.view-mecanica', compact('mecanica_user', 'mecanica_empresa', 'users', 'proveedor', 'mecanica_usuario', 'autos'));
+            return view('admin.services.view-mecanica', compact('mecanica_user', 'mecanica_empresa', 'users', 'proveedor', 'mecanica_usuario', 'autos'));
+        }
     }
 
     public function create_servicio()
     {
-        $user = DB::table('users')
-            ->where('role', '=', '0')
-            ->get();
+        if (auth()->user()->role != 1) {
+            return view('errors.403');
+        } else {
+            $user = DB::table('users')
+                ->where('role', '=', '0')
+                ->get();
 
-        $empresa = DB::table('empresa')
-            ->get();
+            $empresa = DB::table('empresa')
+                ->get();
 
-        $marca = DB::table('marca_product')
-            ->get();
+            $marca = DB::table('marca_product')
+                ->get();
 
-        $automovil = DB::table('automovil')
-            ->get();
+            $automovil = DB::table('automovil')
+                ->get();
 
-        $users = DB::table('users')
-            ->get();
+            $users = DB::table('users')
+                ->get();
 
-        $proveedor = MecanicaProveedores::OrderBy('created_at', 'ASC')
-            ->get();
+            $proveedor = MecanicaProveedores::OrderBy('created_at', 'ASC')
+                ->get();
 
-        return view('admin.services.mecanica', compact('empresa', 'marca', 'automovil', 'user', 'proveedor'));
+            return view('admin.services.mecanica', compact('empresa', 'marca', 'automovil', 'user', 'proveedor'));
+        }
     }
 
     public function edit(Request $request, $id)
     {
+        if (auth()->user()->role != 1) {
+            return view('errors.403');
+        } else {
+            $mecanica = Mecanica::findOrFail($id);
 
+            $mecanica->llantas_delanteras = $request->get('llantas_delanteras');
+            $mecanica->llantas_traseras = $request->get('llantas_traseras');
+            $mecanica->amortig_delanteras = $request->get('amortig_delanteras');
+            $mecanica->amortig_traseras = $request->get('amortig_traseras');
+            $mecanica->frenos_delanteras = $request->get('frenos_delanteras');
+            $mecanica->frenos_traseras = $request->get('frenos_traseras');
+            $mecanica->precio = $request->get('precio');
+            $mecanica->servicio = $request->get('servicio');
+            $mecanica->descripcion = $request->get('descripcion');
+            //$mecanica->garantia = $request->get('garantia');
+            $mecanica->vida_llantas = $request->get('vida_llantas');
+            $mecanica->km_actual = $request->get('km_actual');
+            $mecanica->km_estimado = $request->get('km_estimado');
+            $mecanica->fecha_servicio = $request->get('fecha_servicio');
 
-        $mecanica = Mecanica::findOrFail($id);
+            $mecanica->update();
 
-        $mecanica->llantas_delanteras = $request->get('llantas_delanteras');
-        $mecanica->llantas_traseras = $request->get('llantas_traseras');
-        $mecanica->amortig_delanteras = $request->get('amortig_delanteras');
-        $mecanica->amortig_traseras = $request->get('amortig_traseras');
-        $mecanica->frenos_delanteras = $request->get('frenos_delanteras');
-        $mecanica->frenos_traseras = $request->get('frenos_traseras');
-        $mecanica->precio = $request->get('precio');
-        $mecanica->servicio = $request->get('servicio');
-        $mecanica->descripcion = $request->get('descripcion');
-        //$mecanica->garantia = $request->get('garantia');
-        $mecanica->vida_llantas = $request->get('vida_llantas');
-        $mecanica->km_actual = $request->get('km_actual');
-        $mecanica->km_estimado = $request->get('km_estimado');
-        $mecanica->fecha_servicio = $request->get('fecha_servicio');
+            $mecanica_usuario = new MecanicaUsuario;
+            $mecanica_usuario->id_mecanica = $mecanica->id;
+            $mecanica_usuario->id_usuario = $request->get('id_user');
+            $mecanica_usuario->id_automovil = $request->get('current_auto');
+            dd($mecanica_usuario);
+            $mecanica_usuario->update();
 
-        $mecanica->update();
-
-        $mecanica_usuario = new MecanicaUsuario;
-        $mecanica_usuario->id_mecanica = $mecanica->id;
-        $mecanica_usuario->id_usuario = $request->get('id_user');
-        $mecanica_usuario->id_automovil = $request->get('current_auto');
-        dd($mecanica_usuario);
-        $mecanica_usuario->update();
-
-        Session::flash('success', 'Se ha guardado sus datos con exito');
-        return redirect()->back();
+            Session::flash('success', 'Se ha guardado sus datos con exito');
+            return redirect()->back();
+        }
     }
 
 
@@ -330,24 +339,5 @@ class MecanicaController extends Controller
 
         Session::flash('success', 'Se ha guardado sus datos con exito');
         return redirect()->back();
-    }
-
-    public function automovil(Request $request)
-    {
-        if (isset($request->texto)) {
-            $automovil = Automovil::whereUsuario_id($request->texto)->get();
-            return response()->json(
-                [
-                    'lista' => $automovil,
-                    'success' => true
-                ]
-            );
-        } else {
-            return response()->json(
-                [
-                    'success' => false
-                ]
-            );
-        }
     }
 }

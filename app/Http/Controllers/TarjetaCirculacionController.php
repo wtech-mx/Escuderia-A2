@@ -96,7 +96,9 @@ class TarjetaCirculacionController extends Controller
 |Create TarjetaCirculacion Admin
 |--------------------------------------------------------------------------*/
     public function indextc_admin(Request $request){
-
+        if (auth()->user()->role != 1) {
+            return view('errors.403');
+        } else {
         $nombre = $request->get('nombre');
 
         $tarjeta_circulacion = TarjetaCirculacion::orderBy('id','DESC')
@@ -112,15 +114,19 @@ class TarjetaCirculacionController extends Controller
         ->get();
 
         return view('admin.tarjeta-circulacion.view-tc-admin',compact('tarjeta_circulacion', 'user', 'tarjeta_circulacion2'));
+        }
     }
 
     public function  edit_admin($id){
-
+        if (auth()->user()->role != 1) {
+            return view('errors.403');
+        } else {
         $tarjeta_circulacion = TarjetaCirculacion::findOrFail($id);
         $users = DB::table('users')
         ->get();
 
         return view('admin.tarjeta-circulacion.tarjeta_circulacion',compact('tarjeta_circulacion', 'users'));
+        }
     }
 
     function update_admin(Request $request, $id){

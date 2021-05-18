@@ -20,98 +20,100 @@ use Maatwebsite\Excel\Facades\Excel;
 class SegurosController extends Controller
 {
 
-    public function __construct(){
+    public function __construct()
+    {
         $this->middleware('auth');
         $this->middleware('pagespeed');
     }
 
-/*|--------------------------------------------------------------------------
+    /*|--------------------------------------------------------------------------
 |Create Seguro Usuario
 |--------------------------------------------------------------------------*/
-    public function index(){
+    public function index()
+    {
 
         $auto = DB::table('users')
-        ->where('current_auto','=',auth()->user()->current_auto)
-        ->first();
+            ->where('current_auto', '=', auth()->user()->current_auto)
+            ->first();
 
-        $seguro = Seguros::
-        where('current_auto','=',$auto->current_auto)
-        ->first();
+        $seguro = Seguros::where('current_auto', '=', $auto->current_auto)
+            ->first();
 
-    if($seguro == NULL){
-        $img = '';
-    }else{
-        switch($seguro){
-                 case( $seguro->seguro == 'sin seguro' ):
-                        $img = 'page-not-found.png';
-                  break;
-                case( $seguro->seguro == 'aba' ):
+        if ($seguro == NULL) {
+            $img = '';
+        } else {
+            switch ($seguro) {
+                case ($seguro->seguro == 'sin seguro'):
+                    $img = 'page-not-found.png';
+                    break;
+                case ($seguro->seguro == 'aba'):
                     $img = 'aba.png';
-                break;
-                case( $seguro->seguro == 'afirme' ):
+                    break;
+                case ($seguro->seguro == 'afirme'):
                     $img = 'afirme.png';
-                break;
-                case( $seguro->seguro == 'aig' ):
+                    break;
+                case ($seguro->seguro == 'aig'):
                     $img = 'aig.png';
-                break;
-                case( $seguro->seguro == 'ana' ):
+                    break;
+                case ($seguro->seguro == 'ana'):
                     $img = 'ana.png';
-                break;
-                case( $seguro->seguro == 'atlas' ):
+                    break;
+                case ($seguro->seguro == 'atlas'):
                     $img = 'atlas.png';
-                break;
-                case( $seguro->seguro == 'axa' ):
+                    break;
+                case ($seguro->seguro == 'axa'):
                     $img = 'axa.png';
-                break;
-                case( $seguro->seguro == 'banorte' ):
+                    break;
+                case ($seguro->seguro == 'banorte'):
                     $img = 'banorte.png';
-                break;
-                case( $seguro->seguro == 'general' ):
+                    break;
+                case ($seguro->seguro == 'general'):
                     $img = 'general.png';
-                break;
-                case( $seguro->seguro == 'sura' ):
+                    break;
+                case ($seguro->seguro == 'sura'):
                     $img = 'sura.png';
-                break;
-                case( $seguro->seguro == 'vexmas' ):
+                    break;
+                case ($seguro->seguro == 'vexmas'):
                     $img = 'vexmas.png';
-                break;
-                case( $seguro->seguro == 'gnp' ):
-                   $img = 'gnp.png';
-                break;
-                case( $seguro->seguro == 'hdi' ):
+                    break;
+                case ($seguro->seguro == 'gnp'):
+                    $img = 'gnp.png';
+                    break;
+                case ($seguro->seguro == 'hdi'):
                     $img = 'hdi.png';
-                break;
-                case( $seguro->seguro == 'inbursa' ):
+                    break;
+                case ($seguro->seguro == 'inbursa'):
                     $img = 'inbursa.png';
-                break;
-                case( $seguro->seguro == 'latino' ):
+                    break;
+                case ($seguro->seguro == 'latino'):
                     $img = 'latino.png';
-                break;
-                case( $seguro->seguro == 'mapfre' ):
+                    break;
+                case ($seguro->seguro == 'mapfre'):
                     $img = 'mapfre.png';
-                break;
-                case( $seguro->seguro == 'qualitas' ):
+                    break;
+                case ($seguro->seguro == 'qualitas'):
                     $img = 'qualitas.png';
-                break;
-                case( $seguro->seguro == 'potosi' ):
+                    break;
+                case ($seguro->seguro == 'potosi'):
                     $img = 'potosi.png';
-                break;
-                case( $seguro->seguro == 'miituo' ):
+                    break;
+                case ($seguro->seguro == 'miituo'):
                     $img = 'miituo.png';
-                break;
-                case( $seguro->seguro == 'zurich' ):
+                    break;
+                case ($seguro->seguro == 'zurich'):
                     $img = 'zurich.png';
-                break;
+                    break;
             }
-    }
+        }
 
         $users = DB::table('users')
-        ->get();
+            ->get();
 
-        return view('seguros.seguros',compact('seguro', 'img','users'));
+        return view('seguros.seguros', compact('seguro', 'img', 'users'));
     }
 
-    public function update(Request $request,$id){
+    public function update(Request $request, $id)
+    {
 
         $seguro = Seguros::findOrFail($id);
 
@@ -128,7 +130,7 @@ class SegurosController extends Controller
         //datos para el calednario
         $seguro->title = $request->get('title');
         $seguro->color = $request->get('color');
-        $seguro->descripcion = 'Su Seguro expira el dia: '.$seguro->end;
+        $seguro->descripcion = 'Su Seguro expira el dia: ' . $seguro->end;
         $seguro->image = $request->get('image');
 
         $seguro->estatus = 0;
@@ -139,134 +141,141 @@ class SegurosController extends Controller
         $seguro->update();
 
         $email = $seguro->User->email;
-        $subject = 'Bienvenido : '.$email ;
+        $subject = 'Bienvenido : ' . $email;
 
         $details = array(
-         'seguro' => $request->get('seguro'),
-         'fecha_expedicion' => $request->get('fecha_expedicion'),
-         'tipo_cobertura' => $request->get('tipo_cobertura'),
-         'costo' => $request->get('costo'),
-         'costo_anual' => $request->get('costo_anual'),
-         'end' => $seguro->end,
-         'email' => $email,
-         'auto' => $seguro->Automovil->placas,
-         'nombre' => $seguro->User->name,
-         );
+            'seguro' => $request->get('seguro'),
+            'fecha_expedicion' => $request->get('fecha_expedicion'),
+            'tipo_cobertura' => $request->get('tipo_cobertura'),
+            'costo' => $request->get('costo'),
+            'costo_anual' => $request->get('costo_anual'),
+            'end' => $seguro->end,
+            'email' => $email,
+            'auto' => $seguro->Automovil->placas,
+            'nombre' => $seguro->User->name,
+        );
 
-//        Mail::send('emails.seguroAdmin', $details, function ($message) use ($details,$subject) {
-//            $message->to($details['email'], $details['seguro'], $details['fecha_expedicion'], $details['tipo_cobertura'], $details['costo'], $details['costo_anual'], $details['end'], $details['auto'], $details['nombre'])
-//                ->subject($subject)
-//                ->from('contacto@checkngo.com.mx', 'Detalles de Seguro');
-//
-//        });
+        //        Mail::send('emails.seguroAdmin', $details, function ($message) use ($details,$subject) {
+        //            $message->to($details['email'], $details['seguro'], $details['fecha_expedicion'], $details['tipo_cobertura'], $details['costo'], $details['costo_anual'], $details['end'], $details['auto'], $details['nombre'])
+        //                ->subject($subject)
+        //                ->from('contacto@checkngo.com.mx', 'Detalles de Seguro');
+        //
+        //        });
 
         Session::flash('success', 'Se ha guardado sus datos con exito');
         return redirect()->route('index.seguro', compact('seguro'));
-
     }
 
-/*|--------------------------------------------------------------------------
+    /*|--------------------------------------------------------------------------
 |Create Seguro Admin_Admin
 |--------------------------------------------------------------------------*/
-     function index_admin(Request $request){
+    function index_admin(Request $request)
+    {
+        if (auth()->user()->role != 1) {
+            return view('errors.403');
+        } else {
+            $seguro = $request->get('seguro');
 
-        $seguro = $request->get('seguro');
+            $seguros = Seguros::orderBy('id', 'DESC')
+                ->where('id_empresa', '=', NULL)
+                ->seguro($seguro)
+                ->paginate(5);
 
-        $seguros = Seguros::orderBy('id','DESC')
-            ->where('id_empresa', '=', NULL)
-            ->seguro($seguro)
-            ->paginate(5);
+            $seguros2 = Seguros::orderBy('id', 'DESC')
+                ->where('id_user', '=', NULL)
+                ->seguro($seguro)
+                ->paginate(5);
 
-        $seguros2 = Seguros::orderBy('id','DESC')
-            ->where('id_user', '=', NULL)
-            ->seguro($seguro)
-            ->paginate(5);
+            $user = DB::table('users')
+                ->where('role', '=', '0')
+                ->get();
 
-          $user = DB::table('users')
-            ->where('role','=', '0')
-            ->get();
+            $users = DB::table('users')
+                ->get();
 
-          $users = DB::table('users')
-          ->get();
-
-        return view('admin.seguros.view-seguros-admin',compact('seguros','seguros2', 'user', 'users'));
-    }
-
-    public function edit_admin($id){
-
-       $seguro = Seguros::findOrFail($id);
-        $users = DB::table('users')
-        ->get();
-    if($seguro == NULL){
-        $img = '';
-    }else {
-        switch ($seguro) {
-            case($seguro->seguro == 'sin seguro'):
-                $img = 'page-not-found.png';
-                break;
-            case($seguro->seguro == 'aba'):
-                $img = 'aba.png';
-                break;
-            case($seguro->seguro == 'afirme'):
-                $img = 'afirme.png';
-                break;
-            case($seguro->seguro == 'aig'):
-                $img = 'aig.png';
-                break;
-            case($seguro->seguro == 'ana'):
-                $img = 'ana.png';
-                break;
-            case($seguro->seguro == 'atlas'):
-                $img = 'atlas.png';
-                break;
-            case($seguro->seguro == 'axa'):
-                $img = 'axa.png';
-                break;
-            case($seguro->seguro == 'banorte'):
-                $img = 'banorte.png';
-                break;
-            case($seguro->seguro == 'general'):
-                $img = 'general.png';
-                break;
-            case($seguro->seguro == 'sura'):
-                $img = 'sura.png';
-                break;
-            case($seguro->seguro == 'vexmas'):
-                $img = 'vexmas.png';
-                break;
-            case($seguro->seguro == 'gnp'):
-                $img = 'gnp.png';
-                break;
-            case($seguro->seguro == 'hdi'):
-                $img = 'hdi.png';
-                break;
-            case($seguro->seguro == 'inbursa'):
-                $img = 'inbursa.png';
-                break;
-            case($seguro->seguro == 'latino'):
-                $img = 'latino.png';
-                break;
-            case($seguro->seguro == 'mapfre'):
-                $img = 'mapfre.png';
-                break;
-            case($seguro->seguro == 'qualitas'):
-                $img = 'qualitas.png';
-                break;
-            case($seguro->seguro == 'potosi'):
-                $img = 'potosi.png';
-                break;
-            case($seguro->seguro == 'miituo'):
-                $img = 'miituo.png';
-                break;
-            case($seguro->seguro == 'zurich'):
-                $img = 'zurich.png';
-                break;
+            return view('admin.seguros.view-seguros-admin', compact('seguros', 'seguros2', 'user', 'users'));
         }
     }
-        return view('admin.seguros.create-seguros-admin',compact('seguro','img', 'users'));
+
+    public function edit_admin($id)
+    {
+        if (auth()->user()->role != 1) {
+            return view('errors.403');
+        } else {
+            $seguro = Seguros::findOrFail($id);
+            $users = DB::table('users')
+                ->get();
+            if ($seguro == NULL) {
+                $img = '';
+            } else {
+                switch ($seguro) {
+                    case ($seguro->seguro == 'sin seguro'):
+                        $img = 'page-not-found.png';
+                        break;
+                    case ($seguro->seguro == 'aba'):
+                        $img = 'aba.png';
+                        break;
+                    case ($seguro->seguro == 'afirme'):
+                        $img = 'afirme.png';
+                        break;
+                    case ($seguro->seguro == 'aig'):
+                        $img = 'aig.png';
+                        break;
+                    case ($seguro->seguro == 'ana'):
+                        $img = 'ana.png';
+                        break;
+                    case ($seguro->seguro == 'atlas'):
+                        $img = 'atlas.png';
+                        break;
+                    case ($seguro->seguro == 'axa'):
+                        $img = 'axa.png';
+                        break;
+                    case ($seguro->seguro == 'banorte'):
+                        $img = 'banorte.png';
+                        break;
+                    case ($seguro->seguro == 'general'):
+                        $img = 'general.png';
+                        break;
+                    case ($seguro->seguro == 'sura'):
+                        $img = 'sura.png';
+                        break;
+                    case ($seguro->seguro == 'vexmas'):
+                        $img = 'vexmas.png';
+                        break;
+                    case ($seguro->seguro == 'gnp'):
+                        $img = 'gnp.png';
+                        break;
+                    case ($seguro->seguro == 'hdi'):
+                        $img = 'hdi.png';
+                        break;
+                    case ($seguro->seguro == 'inbursa'):
+                        $img = 'inbursa.png';
+                        break;
+                    case ($seguro->seguro == 'latino'):
+                        $img = 'latino.png';
+                        break;
+                    case ($seguro->seguro == 'mapfre'):
+                        $img = 'mapfre.png';
+                        break;
+                    case ($seguro->seguro == 'qualitas'):
+                        $img = 'qualitas.png';
+                        break;
+                    case ($seguro->seguro == 'potosi'):
+                        $img = 'potosi.png';
+                        break;
+                    case ($seguro->seguro == 'miituo'):
+                        $img = 'miituo.png';
+                        break;
+                    case ($seguro->seguro == 'zurich'):
+                        $img = 'zurich.png';
+                        break;
+                }
+            }
+            return view('admin.seguros.create-seguros-admin', compact('seguro', 'img', 'users'));
+        }
     }
 
-    public function update_admin(Request $request,$id)
+    public function update_admin(Request $request, $id)
     {
 
         $seguro = Seguros::findOrFail($id);
@@ -282,7 +291,7 @@ class SegurosController extends Controller
         //datos para el calednario
         $seguro->title = $request->get('title');
         $seguro->color = $request->get('color');
-        $seguro->descripcion = 'Su Seguro expira el dia: '.$seguro->end;
+        $seguro->descripcion = 'Su Seguro expira el dia: ' . $seguro->end;
         $seguro->image = $request->get('image');
 
         $seguro->estatus = 0;
@@ -293,36 +302,37 @@ class SegurosController extends Controller
         $seguro->update();
 
         $email = $seguro->User->email;
-        $subject = 'Bienvenido : '.$email ;
+        $subject = 'Bienvenido : ' . $email;
 
         $details = array(
-         'seguro' => $request->get('seguro'),
-         'fecha_expedicion' => $request->get('fecha_expedicion'),
-         'tipo_cobertura' => $request->get('tipo_cobertura'),
-         'costo' => $request->get('costo'),
-         'costo_anual' => $request->get('costo_anual'),
-         'end' => $seguro->end,
-         'email' => $email,
-         'auto' => $seguro->Automovil->placas,
-         'nombre' => $seguro->User->name,
-         );
+            'seguro' => $request->get('seguro'),
+            'fecha_expedicion' => $request->get('fecha_expedicion'),
+            'tipo_cobertura' => $request->get('tipo_cobertura'),
+            'costo' => $request->get('costo'),
+            'costo_anual' => $request->get('costo_anual'),
+            'end' => $seguro->end,
+            'email' => $email,
+            'auto' => $seguro->Automovil->placas,
+            'nombre' => $seguro->User->name,
+        );
 
-//        Mail::send('emails.seguroAdmin', $details, function ($message) use ($details,$subject) {
-//            $message->to($details['email'], $details['seguro'], $details['fecha_expedicion'], $details['tipo_cobertura'], $details['costo'], $details['costo_anual'], $details['end'], $details['auto'], $details['nombre'])
-//                ->subject($subject)
-//                ->from('contacto@checkngo.com.mx', 'Detalles de Seguro');
-//        });
+        //        Mail::send('emails.seguroAdmin', $details, function ($message) use ($details,$subject) {
+        //            $message->to($details['email'], $details['seguro'], $details['fecha_expedicion'], $details['tipo_cobertura'], $details['costo'], $details['costo_anual'], $details['end'], $details['auto'], $details['nombre'])
+        //                ->subject($subject)
+        //                ->from('contacto@checkngo.com.mx', 'Detalles de Seguro');
+        //        });
 
         Session::flash('success2', 'Se ha actualizado sus datos con exito');
         return redirect()->back();
     }
 
-    public function export(){
+    public function export()
+    {
         return Excel::download(new SeguroExport, 'seguros-usuarios.xlsx');
     }
 
-    public function export_empresa(){
+    public function export_empresa()
+    {
         return Excel::download(new SeguroExportEmpresa, 'seguros-empresas.xlsx');
     }
-
 }

@@ -21,56 +21,61 @@ use Maatwebsite\Excel\Facades\Excel;
 class AutomovilController extends Controller
 {
 
-    public function __construct(){
+    public function __construct()
+    {
         $this->middleware('auth');
         $this->middleware('pagespeed');
     }
-/*|--------------------------------------------------------------------------
+
+    /*|--------------------------------------------------------------------------
 |Garaje Edit/Create/Index - User
 |--------------------------------------------------------------------------*/
-    function index(){
+    function index()
+    {
 
         $user = DB::table('users')
-        ->where('id','=',auth()->user()->id)
-        ->first();
+            ->where('id', '=', auth()->user()->id)
+            ->first();
 
         $auto_user = $user->{'id'};
 
         $automovil = DB::table('automovil')
-        ->where('id_user','=',$auto_user)
-        ->paginate(2);
-//        ->get();
+            ->where('id_user', '=', $auto_user)
+            ->paginate(2);
+        //        ->get();
 
         $carro = DB::table('automovil')
-        ->where('id','=',auth()->user()->current_auto)
-        ->get();
-
-        $users = DB::table('users')
-        ->get();
-
-         $marca = DB::table('marca')
-            ->get();
-
-        return view('garaje.view-garaje',compact('carro', 'automovil', 'users','marca'));
-    }
-
-    public function create(){
-         $marca = DB::table('marca')
-            ->get();
-
-         $user = DB::table('users')
-            ->where('role','=', '0')
+            ->where('id', '=', auth()->user()->current_auto)
             ->get();
 
         $users = DB::table('users')
-        ->get();
+            ->get();
 
-        return view('garaje.create-garaje',compact('marca', 'users'));
+        $marca = DB::table('marca')
+            ->get();
+
+        return view('garaje.view-garaje', compact('carro', 'automovil', 'users', 'marca'));
     }
 
-    public function store(Request $request){
+    public function create()
+    {
+        $marca = DB::table('marca')
+            ->get();
 
-        $validate = $this->validate($request,[
+        $user = DB::table('users')
+            ->where('role', '=', '0')
+            ->get();
+
+        $users = DB::table('users')
+            ->get();
+
+        return view('garaje.create-garaje', compact('marca', 'users'));
+    }
+
+    public function store(Request $request)
+    {
+
+        $validate = $this->validate($request, [
             'submarca' => 'required|max:191',
             'tipo' => 'required|max:191',
             'kilometraje' => 'required|max:191',
@@ -93,21 +98,21 @@ class AutomovilController extends Controller
         $placa = strtoupper($request->get('placas'));
         $automovil->placas = $placa;
 
-    	if ($request->hasFile('img')) {
-                $urlfoto = $request->file('img');
-                $nombre = time().".".$urlfoto->guessExtension();
-                $ruta = public_path('/img-auto/'.$nombre);
-                $compresion = Image::make($urlfoto->getRealPath())
-                    ->save($ruta,10);
-                $automovil->img = $compresion->basename;
-   	    }
+        if ($request->hasFile('img')) {
+            $urlfoto = $request->file('img');
+            $nombre = time() . "." . $urlfoto->guessExtension();
+            $ruta = public_path('/img-auto/' . $nombre);
+            $compresion = Image::make($urlfoto->getRealPath())
+                ->save($ruta, 10);
+            $automovil->img = $compresion->basename;
+        }
 
         $automovil->id_user = auth()->user()->id;
         $automovil->save();
 
         $user = DB::table('users')
-        ->where('id','=',auth()->user()->id)
-        ->first();
+            ->where('id', '=', auth()->user()->id)
+            ->first();
 
         $seguro = new  Seguros;
         $seguro->seguro = 'sin seguro';
@@ -157,20 +162,22 @@ class AutomovilController extends Controller
         return redirect()->route('index.automovil', compact('automovil'));
     }
 
-    public function  edit($id){
+    public function  edit($id)
+    {
 
         $automovil = Automovil::findOrFail($id);
 
         $marca = DB::table('marca')
             ->get();
 
-                $users = DB::table('users')
-        ->get();
+        $users = DB::table('users')
+            ->get();
 
-        return view('garaje.edit-garaje',compact('automovil', 'marca', 'users'));
+        return view('garaje.edit-garaje', compact('automovil', 'marca', 'users'));
     }
 
-    function update(Request $request, $id){
+    function update(Request $request, $id)
+    {
 
         $validate = $this->validate($request, [
             'submarca' => 'required|max:191',
@@ -195,14 +202,14 @@ class AutomovilController extends Controller
         $placa = strtoupper($request->get('placas'));
         $automovil->placas = $placa;
 
-    	if ($request->hasFile('img')) {
-                $urlfoto = $request->file('img');
-                $nombre = time().".".$urlfoto->guessExtension();
-                $ruta = public_path('/img-auto/'.$nombre);
-                $compresion = Image::make($urlfoto->getRealPath())
-                    ->save($ruta,10);
-                $automovil->img = $compresion->basename;
-   	    }
+        if ($request->hasFile('img')) {
+            $urlfoto = $request->file('img');
+            $nombre = time() . "." . $urlfoto->guessExtension();
+            $ruta = public_path('/img-auto/' . $nombre);
+            $compresion = Image::make($urlfoto->getRealPath())
+                ->save($ruta, 10);
+            $automovil->img = $compresion->basename;
+        }
 
 
         $automovil->update();
@@ -212,10 +219,11 @@ class AutomovilController extends Controller
 
         Session::flash('success', 'Se ha guardado sus datos con exito');
 
-        return redirect()->route('index.automovil', compact('automovil','marca'));
+        return redirect()->route('index.automovil', compact('automovil', 'marca'));
     }
 
-    public function current_auto(Request $request, $id){
+    public function current_auto(Request $request, $id)
+    {
         $user = User::findOrFail($id);
         $user->current_auto = $request->get('current_auto');
         $user->update();
@@ -223,53 +231,63 @@ class AutomovilController extends Controller
         return redirect()->route('index.automovil');
     }
 
-/*|--------------------------------------------------------------------------
+    /*|--------------------------------------------------------------------------
 |Garaje edit - Admin
 |--------------------------------------------------------------------------*/
 
-    function index_admin(Request $request){
+    function index_admin(Request $request)
+    {
+        if (auth()->user()->role != 1) {
+            return view('errors.403');
+        } else {
+            $submarca = $request->get('submarca');
+            $placas = $request->get('placas');
 
-        $submarca = $request->get('submarca');
-        $placas = $request->get('placas');
+            $automovil = Automovil::orderBy('id', 'DESC')
+                ->where('id_empresa', '=', NULL)
+                ->submarca($submarca)
+                ->placas($placas)
+                ->paginate(5);
 
-        $automovil = Automovil::orderBy('id','DESC')
-            ->where('id_empresa', '=', NULL)
-            ->submarca($submarca)
-            ->placas($placas)
-            ->paginate(5);
+            $automovil2 = Automovil::orderBy('id', 'DESC')
+                ->where('id_user', '=', NULL)
+                ->submarca($submarca)
+                ->placas($placas)
+                ->paginate(5);
+            //            ->get();
 
-        $automovil2 = Automovil::orderBy('id','DESC')
-            ->where('id_user', '=', NULL)
-            ->submarca($submarca)
-            ->placas($placas)
-            ->paginate(5);
-//            ->get();
+            $user = DB::table('users')
+                ->where('role', '=', '0')
+                ->get();
 
-          $user = DB::table('users')
-            ->where('role','=', '0')
-            ->get();
-
-        return view('admin.garaje.view-garaje-admin',compact('automovil', 'automovil2', 'user'));
+            return view('admin.garaje.view-garaje-admin', compact('automovil', 'automovil2', 'user'));
+        }
     }
 
-    public function create_admin(){
-         $marca = DB::table('marca')
-            ->get();
+    public function create_admin()
+    {
+        if (auth()->user()->role != 1) {
+            return view('errors.403');
+        } else {
+            $marca = DB::table('marca')
+                ->get();
 
-         $user = DB::table('users')
-            ->where('role','=', '0')
-            ->get();
+            $user = DB::table('users')
+                ->where('role', '=', '0')
+                ->get();
 
-         $empresa = DB::table('empresa')
-            ->get();
+            $empresa = DB::table('empresa')
+                ->get();
 
 
-        return view('admin.garaje.create-garaje-admin',compact('marca', 'user', 'empresa', 'user'));
+            return view('admin.garaje.create-garaje-admin', compact('marca', 'user', 'empresa', 'user'));
+        }
     }
 
-    public function store_admin(Request $request){
+    public function store_admin(Request $request)
+    {
 
-        $validate = $this->validate($request,[
+        $validate = $this->validate($request, [
             'submarca' => 'required|max:191',
             'tipo' => 'required|max:191',
             'kilometraje' => 'required|max:191',
@@ -295,14 +313,14 @@ class AutomovilController extends Controller
         $placa = strtoupper($request->get('placas'));
         $automovil->placas = $placa;
 
-    	if ($request->hasFile('img')) {
-                $urlfoto = $request->file('img');
-                $nombre = time().".".$urlfoto->guessExtension();
-                $ruta = public_path('/img-auto/'.$nombre);
-                $compresion = Image::make($urlfoto->getRealPath())
-                    ->save($ruta,10);
-                $automovil->img = $compresion->basename;
-   	    }
+        if ($request->hasFile('img')) {
+            $urlfoto = $request->file('img');
+            $nombre = time() . "." . $urlfoto->guessExtension();
+            $ruta = public_path('/img-auto/' . $nombre);
+            $compresion = Image::make($urlfoto->getRealPath())
+                ->save($ruta, 10);
+            $automovil->img = $compresion->basename;
+        }
 
         $automovil->save();
 
@@ -360,24 +378,29 @@ class AutomovilController extends Controller
         return redirect()->route('index_admin.automovil', compact('automovil'));
     }
 
-    public function  edit_admin($id){
+    public function  edit_admin($id)
+    {
+        if (auth()->user()->role != 1) {
+            return view('errors.403');
+        } else {
+            $automovil = Automovil::findOrFail($id);
 
-        $automovil = Automovil::findOrFail($id);
+            $marca = DB::table('marca')
+                ->get();
 
-        $marca = DB::table('marca')
-            ->get();
+            $empresa = DB::table('empresa')
+                ->get();
 
-        $empresa = DB::table('empresa')
-            ->get();
+            $user = DB::table('users')
+                ->where('role', '=', '0')
+                ->get();
 
-        $user = DB::table('users')
-            ->where('role','=', '0')
-            ->get();
-
-        return view('admin.garaje.edit-garaje-admin',compact('automovil', 'marca', 'user','empresa'));
+            return view('admin.garaje.edit-garaje-admin', compact('automovil', 'marca', 'user', 'empresa'));
+        }
     }
 
-    function update_admin(Request $request, $id){
+    function update_admin(Request $request, $id)
+    {
 
         $validate = $this->validate($request, [
             'submarca' => 'required|max:191',
@@ -404,14 +427,14 @@ class AutomovilController extends Controller
         $placa = strtoupper($request->get('placas'));
         $automovil->placas = $placa;
 
-    	if ($request->hasFile('img')) {
-                $urlfoto = $request->file('img');
-                $nombre = time().".".$urlfoto->guessExtension();
-                $ruta = public_path('/img-auto/'.$nombre);
-                $compresion = Image::make($urlfoto->getRealPath())
-                    ->save($ruta,10);
-                $automovil->img = $compresion->basename;
-   	    }
+        if ($request->hasFile('img')) {
+            $urlfoto = $request->file('img');
+            $nombre = time() . "." . $urlfoto->guessExtension();
+            $ruta = public_path('/img-auto/' . $nombre);
+            $compresion = Image::make($urlfoto->getRealPath())
+                ->save($ruta, 10);
+            $automovil->img = $compresion->basename;
+        }
 
         $automovil->update();
 
@@ -420,15 +443,16 @@ class AutomovilController extends Controller
 
         Session::flash('success', 'Se ha guardado sus datos con exito');
 
-        return redirect()->route('index_admin.automovil', compact('automovil','marca'));
+        return redirect()->route('index_admin.automovil', compact('automovil', 'marca'));
     }
 
-    public function export(){
+    public function export()
+    {
         return Excel::download(new AutomovilExport, 'autos-usuarios.xlsx');
     }
 
-    public function export_empresa(){
+    public function export_empresa()
+    {
         return Excel::download(new AutomovilExportEmpresa, 'autos-empresa.xlsx');
     }
-
 }

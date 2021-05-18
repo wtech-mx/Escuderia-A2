@@ -15,60 +15,70 @@ use App\Models\VerificacionSegunda;
 class VerificacionController extends Controller
 {
 
-    public function __construct(){
+    public function __construct()
+    {
         $this->middleware('auth');
         $this->middleware('pagespeed');
     }
-/*|--------------------------------------------------------------------------
+    /*|--------------------------------------------------------------------------
 |Create Verificacion Admin_Admin
 |--------------------------------------------------------------------------*/
-    function index(){
+    function index()
+    {
 
         $auto = DB::table('users')
-        ->where('current_auto','=',auth()->user()->current_auto)
-        ->first();
-
-        $verificacion = Verificacion::where('current_auto','=',$auto->current_auto)
+            ->where('current_auto', '=', auth()->user()->current_auto)
             ->first();
 
-        $verificacion_segunda = VerificacionSegunda::where('id_verificacion','=',$verificacion->id)
+        $verificacion = Verificacion::where('current_auto', '=', $auto->current_auto)
+            ->first();
+
+        $verificacion_segunda = VerificacionSegunda::where('id_verificacion', '=', $verificacion->id)
             ->get();
 
-        return view('verificacion.view-verificacion',compact('verificacion', 'verificacion_segunda'));
+        return view('verificacion.view-verificacion', compact('verificacion', 'verificacion_segunda'));
     }
-/*|--------------------------------------------------------------------------
+    /*|--------------------------------------------------------------------------
 |Create Verificacion Admin_Admin
 |--------------------------------------------------------------------------*/
-    function index_admin(){
+    function index_admin()
+    {
+        if (auth()->user()->role != 1) {
+            return view('errors.403');
+        } else {
+            $verificacion_user = Verificacion::orderBy('id', 'DESC')
+                ->where('id_empresa', '=', NULL)
+                ->paginate(5);
 
-        $verificacion_user = Verificacion::orderBy('id','DESC')
-            ->where('id_empresa', '=', NULL)
-            ->paginate(5);
+            $verificacion_empresa = Verificacion::orderBy('id', 'DESC')
+                ->where('id_user', '=', NULL)
+                ->get();
 
-        $verificacion_empresa = Verificacion::orderBy('id','DESC')
-            ->where('id_user', '=', NULL)
-            ->get();
+            $user = DB::table('users')
+                ->where('role', '=', '0')
+                ->paginate(5);
 
-          $user = DB::table('users')
-            ->where('role','=', '0')
-            ->paginate(5);
-
-        return view('admin.verificacion.view-verificacion-admin',compact('verificacion_user','verificacion_empresa', 'user'));
+            return view('admin.verificacion.view-verificacion-admin', compact('verificacion_user', 'verificacion_empresa', 'user'));
+        }
     }
 
-    public function edit_admin($id){
+    public function edit_admin($id)
+    {
+        if (auth()->user()->role != 1) {
+            return view('errors.403');
+        } else {
+            $verificacion = Verificacion::findOrFail($id);
 
-       $verificacion = Verificacion::findOrFail($id);
+            $verificacion_segunda = VerificacionSegunda::where('id_verificacion', '=', $id)->first();
 
-       $verificacion_segunda = VerificacionSegunda::where('id_verificacion', '=', $id)->first();
+            $users = DB::table('users')
+                ->get();
 
-       $users = DB::table('users')
-        ->get();
-
-        return view('admin.verificacion.create-verificacion-admin',compact('verificacion','verificacion_segunda', 'users'));
+            return view('admin.verificacion.create-verificacion-admin', compact('verificacion', 'verificacion_segunda', 'users'));
+        }
     }
 
-    public function update_admin(Request $request,$id)
+    public function update_admin(Request $request, $id)
     {
 
         $verificacion = Verificacion::findOrFail($id);
@@ -98,7 +108,7 @@ class VerificacionController extends Controller
         return redirect()->back();
     }
 
-    public function update_periodo2(Request $request,$id)
+    public function update_periodo2(Request $request, $id)
     {
 
         $verificacion_segunda = VerificacionSegunda::findOrFail($id);
@@ -108,7 +118,7 @@ class VerificacionController extends Controller
         $verificacion_segunda->segundo_semestre = $request->get('segundo_semestre');
         $verificacion_segunda->start = $request->get('segundo_semestre');
         $verificacion_segunda->end = $request->get('segundo_semestre');
-        $verificacion_segunda->descripcion = 'Segundo periodo de verificación: '.$verificacion_segunda->start;
+        $verificacion_segunda->descripcion = 'Segundo periodo de verificación: ' . $verificacion_segunda->start;
         $verificacion_segunda->image = $request->get('image');
         $verificacion_segunda->device_token = $request->get('device_token');
         $verificacion_segunda->estatus = 0;

@@ -15,44 +15,47 @@ use Image;
 class ExpcartaController extends Controller
 {
 
-    public function __construct(){
+    public function __construct()
+    {
         $this->middleware('auth');
         $this->middleware('pagespeed');
     }
 
-     function index(){
+    function index()
+    {
 
         $user = DB::table('users')
-        ->where('id','=',auth()->user()->id)
-        ->first();
+            ->where('id', '=', auth()->user()->id)
+            ->first();
 
         $auto_user = $user->{'id'};
 
         $exp_carta = DB::table('exp_carta')
-        ->where('id_user','=',$auto_user)
-        ->where('current_auto','=',auth()->user()->current_auto)
-        ->get();
+            ->where('id_user', '=', $auto_user)
+            ->where('current_auto', '=', auth()->user()->current_auto)
+            ->get();
 
-        return view('exp-fisico.view-cr',compact('exp_carta'));
+        return view('exp-fisico.view-cr', compact('exp_carta'));
     }
 
-    public function create(){
+    public function create()
+    {
         $users = DB::table('users')
-        ->get();
-                          // obtener la hora actual  - 2015-12-19 10:10:54
-          $current = Carbon::now()->toDateTimeString();
-          $alert2 = Alertas::
-            where('id_user', '=', auth()->user()->id)
-            ->where('start','<=', $current)
-              ->where('estatus', '=', 0)
+            ->get();
+        // obtener la hora actual  - 2015-12-19 10:10:54
+        $current = Carbon::now()->toDateTimeString();
+        $alert2 = Alertas::where('id_user', '=', auth()->user()->id)
+            ->where('start', '<=', $current)
+            ->where('estatus', '=', 0)
             ->get();
 
         return view('exp-fisico.view-cr', 'alert2', 'user');
     }
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
 
-        $validate = $this->validate($request,[
+        $validate = $this->validate($request, [
             'carta' => 'mimes:jpeg,bpm,jpg,png,pdf|max:900',
         ]);
 
@@ -62,17 +65,17 @@ class ExpcartaController extends Controller
 
         if ($request->hasFile('carta')) {
 
-    	    $file=$request->file("carta");
+            $file = $request->file("carta");
             list($width) = getimagesize($file);
 
-    	    $nombre = "pdf_".time().".".$file->guessExtension();
-    	    $ruta = public_path("/exp-carta/".$nombre);
+            $nombre = "pdf_" . time() . "." . $file->guessExtension();
+            $ruta = public_path("/exp-carta/" . $nombre);
 
-    	    if($width>1920){
-                if($file->guessExtension()=="pdf"){
+            if ($width > 1920) {
+                if ($file->guessExtension() == "pdf") {
                     copy($file, $ruta);
                     $exp_carta->carta = $nombre;
-                }else {
+                } else {
                     $urlfoto = $request->file('carta');
                     $nombre = time() . "." . $urlfoto->guessExtension();
                     $ruta = public_path('/exp-carta/' . $nombre);
@@ -80,22 +83,22 @@ class ExpcartaController extends Controller
                         ->save($ruta, 80);
                     $exp_carta->carta = $compresion->basename;
                 }
-            }else{
-    	        if($file->guessExtension()=="pdf"){
+            } else {
+                if ($file->guessExtension() == "pdf") {
                     copy($file, $ruta);
                     $exp_carta->carta = $nombre;
-                }else {
+                } else {
                     $urlfoto = $request->file('carta');
                     $nombre = time() . "." . $urlfoto->guessExtension();
                     $ruta = public_path('/exp-carta/' . $nombre);
 
                     switch ($width) {
-                        case($width <= 750):
+                        case ($width <= 750):
                             $compresion = Image::make($urlfoto->getRealPath())
                                 ->save($ruta);
                             $exp_carta->carta = $compresion->basename;
                             break;
-                        case($width >= 751):
+                        case ($width >= 751):
                             $compresion = Image::make($urlfoto->getRealPath())
                                 ->rotate(270)
                                 ->save($ruta);
@@ -104,10 +107,10 @@ class ExpcartaController extends Controller
                     }
                 }
             }
-   	    }
+        }
 
         $exp_carta->id_user = auth()->user()->id;
-    	$exp_carta->current_auto = auth()->user()->current_auto;
+        $exp_carta->current_auto = auth()->user()->current_auto;
 
         $exp_carta->save();
 
@@ -116,45 +119,45 @@ class ExpcartaController extends Controller
         return redirect()->route('index.exp-cr', compact('exp_carta'));
     }
 
-   public function create_admin($id)
+    public function create_admin($id)
     {
         /* Trae los datos el auto en el que esta */
         $automovil = DB::table('automovil')
-        ->where('id','=',$id)
-        ->first();
+            ->where('id', '=', $id)
+            ->first();
 
         $exp_auto = $automovil->id;
 
         $exp_carta = DB::table('exp_carta')
-        ->where('current_auto','=', $exp_auto)
-        ->get();
+            ->where('current_auto', '=', $exp_auto)
+            ->get();
 
-        return view('admin.exp-fisico.view-cr-admin',compact('exp_carta','automovil'));
+        return view('admin.exp-fisico.view-cr-admin', compact('exp_carta', 'automovil'));
     }
 
-    public function store_admin(Request $request,$id){
+    public function store_admin(Request $request, $id)
+    {
 
-        $validate = $this->validate($request,[
+        $validate = $this->validate($request, [
             'carta' => 'mimes:jpeg,bpm,jpg,png,pdf|max:900',
         ]);
 
         $exp = new ExpCarta;
         $exp->titulo = $request->get('titulo');
 
-    	if ($request->hasFile('carta')) {
+        if ($request->hasFile('carta')) {
 
-    	    $file=$request->file("carta");
+            $file = $request->file("carta");
             list($width) = getimagesize($file);
 
-    	    $nombre = "pdf_".time().".".$file->guessExtension();
-    	    $ruta = public_path("/exp-carta/".$nombre);
+            $nombre = "pdf_" . time() . "." . $file->guessExtension();
+            $ruta = public_path("/exp-carta/" . $nombre);
 
-    	    if($width>1920){
-                if($file->guessExtension()=="pdf"){
+            if ($width > 1920) {
+                if ($file->guessExtension() == "pdf") {
                     copy($file, $ruta);
                     $exp->carta = $nombre;
-
-                }else {
+                } else {
                     $urlfoto = $request->file('carta');
                     $nombre = time() . "." . $urlfoto->guessExtension();
                     $ruta = public_path('/exp-carta/' . $nombre);
@@ -162,22 +165,22 @@ class ExpcartaController extends Controller
                         ->save($ruta, 80);
                     $exp->carta = $compresion->basename;
                 }
-            }else{
-    	        if($file->guessExtension()=="pdf"){
+            } else {
+                if ($file->guessExtension() == "pdf") {
                     copy($file, $ruta);
                     $exp->carta = $nombre;
-                }else {
+                } else {
                     $urlfoto = $request->file('carta');
                     $nombre = time() . "." . $urlfoto->guessExtension();
                     $ruta = public_path('/exp-carta/' . $nombre);
 
                     switch ($width) {
-                        case($width <= 750):
+                        case ($width <= 750):
                             $compresion = Image::make($urlfoto->getRealPath())
                                 ->save($ruta);
                             $exp->carta = $compresion->basename;
                             break;
-                        case($width >= 751):
+                        case ($width >= 751):
                             $compresion = Image::make($urlfoto->getRealPath())
                                 ->rotate(270)
                                 ->save($ruta);
@@ -186,12 +189,12 @@ class ExpcartaController extends Controller
                     }
                 }
             }
-   	    }
+        }
 
-    	/* Compara el auto que se selecciono con la db */
+        /* Compara el auto que se selecciono con la db */
         $automovil = DB::table('automovil')
-        ->where('id','=',$id)
-        ->first();
+            ->where('id', '=', $id)
+            ->first();
 
         $exp->current_auto = $automovil->id;
 
@@ -203,13 +206,13 @@ class ExpcartaController extends Controller
         return redirect()->back();
     }
 
-    function destroy($id){
+    function destroy($id)
+    {
         $exp = ExpCarta::findOrFail($id);
-        unlink(public_path('/exp-carta/'.$exp->carta));
+        unlink(public_path('/exp-carta/' . $exp->carta));
         $exp->delete();
 
         Session::flash('destroy', 'Se Elimino su Factura con exito');
         return redirect()->back();
-
     }
 }

@@ -17,24 +17,28 @@ use Maatwebsite\Excel\Facades\Excel;
 class EmpresasController extends Controller
 {
 
-     public function __construct(){
+    public function __construct()
+    {
         $this->middleware('auth');
         $this->middleware('pagespeed');
     }
-/*|--------------------------------------------------------------------------
+    /*|--------------------------------------------------------------------------
 |Create Empresa Auto_Admin
 |--------------------------------------------------------------------------*/
-    public function create_empresa(){
-         $user = DB::table('users')
-            ->where('role','=', '0')
+    public function create_empresa()
+    {
+
+        $user = DB::table('users')
+            ->where('role', '=', '0')
             ->get();
 
-        return view('admin.garaje.create-garaje-admin',compact('user'));
+        return view('admin.garaje.create-garaje-admin', compact('user'));
     }
 
-    public function store_empresa(Request $request){
+    public function store_empresa(Request $request)
+    {
 
-        $validate = $this->validate($request,[
+        $validate = $this->validate($request, [
             'nombre' => 'required|max:191',
             'email' => 'required|string|email|max:191',
             'password' => 'required|string|confirmed|min:8',
@@ -48,48 +52,56 @@ class EmpresasController extends Controller
         $empresa->email = $request->get('email');
         $empresa->password = Hash::make($request->password);
 
-    	if ($request->hasFile('img')) {
-                $urlfoto = $request->file('img');
-                $nombre = time().".".$urlfoto->guessExtension();
-                $ruta = public_path('/img-empresa/'.$nombre);
-                $compresion = Image::make($urlfoto->getRealPath())
-                    ->save($ruta,10);
-                $empresa->img = $compresion->basename;
-   	    }
+        if ($request->hasFile('img')) {
+            $urlfoto = $request->file('img');
+            $nombre = time() . "." . $urlfoto->guessExtension();
+            $ruta = public_path('/img-empresa/' . $nombre);
+            $compresion = Image::make($urlfoto->getRealPath())
+                ->save($ruta, 10);
+            $empresa->img = $compresion->basename;
+        }
 
         $empresa->save();
 
-    	Session::flash('empresa', 'Se ha guardado sus datos con exito');
-       return redirect()->route('create_admin.automovil');
+        Session::flash('empresa', 'Se ha guardado sus datos con exito');
+        return redirect()->route('create_admin.automovil');
     }
 
-/*|--------------------------------------------------------------------------
+    /*|--------------------------------------------------------------------------
 |Create Empresa Admin
 |--------------------------------------------------------------------------*/
-     function index_admin(){
+    function index_admin()
+    {
+        if (auth()->user()->role != 1) {
+            return view('errors.403');
+        } else {
+            $empresa = Empresa::paginate(6);
 
-        $empresa = Empresa::paginate(6);
-
-        $user = DB::table('users')
-            ->where('role','=', '0')
-            ->paginate(6);
+            $user = DB::table('users')
+                ->where('role', '=', '0')
+                ->paginate(6);
 
 
-        return view('admin.empresas.view-empresas-admin',compact('empresa','user'));
+            return view('admin.empresas.view-empresas-admin', compact('empresa', 'user'));
+        }
     }
 
-     public function create_admin(){
+    public function create_admin()
+    {
+        if (auth()->user()->role != 1) {
+            return view('errors.403');
+        } else {
+            $user = DB::table('users')
+                ->where('role', '=', '0')
+                ->get();
 
-          $user = DB::table('users')
-            ->where('role','=', '0')
-            ->get();
-
-        return view('admin.empresas.add-empresa-admin',compact('user'));
+            return view('admin.empresas.add-empresa-admin', compact('user'));
+        }
     }
 
     public function store_admin(Request $request)
     {
-       $validate = $this->validate($request,[
+        $validate = $this->validate($request, [
             'nombre' => 'required|string|max:191',
             'email' => 'required|string|email|max:191|unique:users',
         ]);
@@ -102,36 +114,40 @@ class EmpresasController extends Controller
         $empresa->email = $request->get('email');
         $empresa->password = Hash::make($request->password);
 
-    	if ($request->hasFile('img')) {
-                $urlfoto = $request->file('img');
-                $nombre = time().".".$urlfoto->guessExtension();
-                $ruta = public_path('/img-empresa/'.$nombre);
-                $compresion = Image::make($urlfoto->getRealPath())
-                    ->save($ruta,10);
-                $empresa->img = $compresion->basename;
-   	    }
+        if ($request->hasFile('img')) {
+            $urlfoto = $request->file('img');
+            $nombre = time() . "." . $urlfoto->guessExtension();
+            $ruta = public_path('/img-empresa/' . $nombre);
+            $compresion = Image::make($urlfoto->getRealPath())
+                ->save($ruta, 10);
+            $empresa->img = $compresion->basename;
+        }
 
 
         $empresa->save();
 
-       Session::flash('success', 'Se ha actualizado sus datos con exito');
+        Session::flash('success', 'Se ha actualizado sus datos con exito');
         return redirect()->route('index_admin.empresa');
     }
 
-    public function edit_admin($id){
+    public function edit_admin($id)
+    {
+        if (auth()->user()->role != 1) {
+            return view('errors.403');
+        } else {
+            $empresa = Empresa::findOrFail($id);
 
-       $empresa = Empresa::findOrFail($id);
+            $empresas = DB::table('empresa')
+                ->get();
 
-       $empresas = DB::table('empresa')
-        ->get();
+            $user = DB::table('users')
+                ->get();
 
-        $user = DB::table('users')
-        ->get();
-
-        return view('admin.empresas.edit-empresa-admin',compact('empresa','empresas','user'));
+            return view('admin.empresas.edit-empresa-admin', compact('empresa', 'empresas', 'user'));
+        }
     }
 
-    public function update_admin(Request $request,$id)
+    public function update_admin(Request $request, $id)
     {
         $empresa = Empresa::findOrFail($id);
 
@@ -142,14 +158,14 @@ class EmpresasController extends Controller
         $empresa->email = $request->get('email');
         $empresa->password = Hash::make($request->password);
 
-    	if ($request->hasFile('img')) {
-                $urlfoto = $request->file('img');
-                $nombre = time().".".$urlfoto->guessExtension();
-                $ruta = public_path('/img-empresa/'.$nombre);
-                $compresion = Image::make($urlfoto->getRealPath())
-                    ->save($ruta,10);
-                $empresa->img = $compresion->basename;
-   	    }
+        if ($request->hasFile('img')) {
+            $urlfoto = $request->file('img');
+            $nombre = time() . "." . $urlfoto->guessExtension();
+            $ruta = public_path('/img-empresa/' . $nombre);
+            $compresion = Image::make($urlfoto->getRealPath())
+                ->save($ruta, 10);
+            $empresa->img = $compresion->basename;
+        }
 
         $empresa->update();
 
@@ -158,7 +174,8 @@ class EmpresasController extends Controller
         return redirect()->route('index_admin.empresa');
     }
 
-    public function export(){
+    public function export()
+    {
         return Excel::download(new EmpresaExport, 'empresas.xlsx');
     }
 }
