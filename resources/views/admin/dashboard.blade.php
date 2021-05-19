@@ -15,6 +15,23 @@
 
     <div class="row bg-down-image-border">
 
+        @if (Session::has('store'))
+            <script>
+                Swal.fire({
+                    title: 'Exito!!',
+                    html: 'Se ha agragado la <b>Nota</b>, ' +
+                        'Exitosamente',
+                    // text: 'Se ha agragado la "MARCA" Exitosamente',
+                    imageUrl: '{{ asset('img/icon/color/post-it.png') }}',
+                    background: '#fff',
+                    imageWidth: 150,
+                    imageHeight: 150,
+                    imageAlt: 'Nota IMG',
+                })
+
+            </script>
+        @endif
+
         <div class="col-2 mt-4">
             <div class="d-flex justify-content-start">
                 <a class="btn" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false"
@@ -34,7 +51,7 @@
                             <div class="card card-body ">
                                 <a class="text-dark " href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
-                                                                                                                                                                                                                                       document.getElementById('logout-form').submit();">
+                                                                                                                                                                                                                                               document.getElementById('logout-form').submit();">
                                     <img class="rounded-circle" src="{{ asset('img/icon/white/exit.png') }}" width="15">
                                 </a>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST"

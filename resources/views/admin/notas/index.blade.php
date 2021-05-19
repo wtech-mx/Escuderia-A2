@@ -35,58 +35,53 @@
             <div class="content container-res-max">
                 <div class="col-12">
 
-                    <div class="carousel-item active">
-                        <h5 class="text-center text-white mt-4 ml-4 mr-4 ">
-                            <strong>Notas</strong>
-                        </h5>
-
-                        <div class="ml-auto p-2">
+                    <div class="d-flex flex-row-reverse">
+                        <div class="mt-5 mb-2">
                             <a class="btn " data-toggle="modal" data-target="#modalNotas">
                                 <i class="fa fa-plus-circle icon-effect-sm" aria-hidden="true"></i>
                             </a>
                         </div>
-
-                        <div class="row">
-
-                            <div class="carousel-item active">
-
-                                <div class="row">
-                                    <div class="col-12">
-                                        <div class="table-responsive">
-                                            <table class="table text-white">
-                                                <thead>
-                                                    <tr>
-                                                        <th scope="col">Usuario</th>
-                                                        <th scope="col">Nota</th>
-                                                        <th scope="col">Más</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    @foreach ($notas as $item)
-                                                        <tr>
-                                                            <td>{{ $item->User->name }}</td>
-                                                            <td>{{ $item->nota }}</td>
-                                                            <td><button type="button" class="btn text-white"
-                                                                    data-toggle="modal"
-                                                                    data-target="#modalNotasUpdate{{ $item->id }}"
-                                                                    style="background: transparent !important;">
-                                                                    Ver más</i>
-                                                                </button></td>
-                                                            @include('admin.notas.update')
-                                                        </tr>
-                                                    @endforeach
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        @include('admin.notas.modal')
-                                    </div>
-                                </div>
-
-                            </div>
-
-                        </div>
-
                     </div>
+
+
+                    <div class="table-responsive">
+                        <div class="container-res-max">
+                            <table class="table text-white">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Usuario</th>
+                                        <th scope="col">Nota</th>
+                                        <th scope="col">Más</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($notas as $item)
+                                        <tr>
+                                            <td>{{ $item->User->name }}</td>
+                                            <td>{{ $item->nota }}</td>
+                                            <td>
+                                                <a type="button" class="btn text-white" data-toggle="modal"
+                                                    data-target="#modalNotasUpdate{{ $item->id }}"
+                                                    style="background: transparent !important;">
+                                                    <i class="fas fa-edit icon-users-edit" style="font-size: 15px;"></i>
+                                                </a>
+
+                                                <a type="button" class="btn text-white" data-toggle="modal"
+                                                    data-target="#modal-{{ $item->id }}">
+                                                    <i class="fas fa-trash icon-users-edit" style="font-size: 15px;"></i>
+                                                </a>
+
+                                            </td>
+                                            @include('admin.notas.update')
+                                            @include('admin.notas.destroy')
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                        @include('admin.notas.modal')
+                    </div>
+
 
                 </div>
             </div>
