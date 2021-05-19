@@ -382,4 +382,10 @@ Route::post('admin/notas/edit', 'NotasContoller@edit')->name('edit.notas');
 Route::post('admin/notas/update/{id}', 'NotasContoller@update')->name('update.notas');
 Route::delete('admin/notas/destroy/{id}', 'NotasContoller@destroy')->name('destroy.notas');
 
+/*|--------------------------------------------------------------------------
+|Licencia de conducir view
+|--------------------------------------------------------------------------*/
+Route::get('licencia/index', 'LicenciaController@index')->name('index.licencia');
+Route::get('admin/licencia/edit/{id}', 'LicenciaController@edit')->name('edit.licencia');
+Route::patch('admin/licencia/update/{id}', 'LicenciaController@update')->name('update.licencia');
 require __DIR__ . '/auth.php';
