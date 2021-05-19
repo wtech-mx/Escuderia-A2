@@ -34,7 +34,7 @@
                             <div class="card card-body ">
                                 <a class="text-dark " href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
-                                                                               document.getElementById('logout-form').submit();">
+                                                                                                                                                                                                                                       document.getElementById('logout-form').submit();">
                                     <img class="rounded-circle" src="{{ asset('img/icon/white/exit.png') }}" width="15">
                                 </a>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST"
@@ -92,22 +92,22 @@
         </div>
 
         <div class="col-6 text-center">
-            <a href="{{ route('index.alert') }}">
+            <a href="{{ route('index_admin.user') }}">
                 <div class="card" style="border-radius: 15px">
                     <div class="card-body">
-                        <i class="fas fa-bell icon-effect-dashboard"></i>
-                        <p class="card-text text-white"><strong>Alertas</strong></p>
+                        <i class="fas fa-users icon-effect-dashboard"></i>
+                        <p class="card-text text-white"><strong>Usuarios</strong></p>
                     </div>
                 </div>
             </a>
         </div>
 
         <div class="col-6 text-center">
-            <a href="{{ route('index_admin.user') }}">
+            <a href="{{ route('index.alert') }}">
                 <div class="card" style="border-radius: 15px">
                     <div class="card-body">
-                        <i class="fas fa-users icon-effect-dashboard"></i>
-                        <p class="card-text text-white"><strong>Usuarios</strong></p>
+                        <i class="fas fa-bell icon-effect-dashboard"></i>
+                        <p class="card-text text-white"><strong>Alertas</strong></p>
                     </div>
                 </div>
             </a>
@@ -192,17 +192,29 @@
             </a>
         </div>
 
-        <div class="col-6 text-center mt-4" style="margin-bottom: 8rem !important;">
-            <a data-toggle="modal" data-target="#modalNotas" class="text-white">
+        <div class="col-6 text-center position-relative mt-4" style="margin-bottom: 8rem !important;">
 
-                <div class="card" style="border-radius: 15px">
+            <div class="card" style="border-radius: 15px">
+
+                <a href="{{ route('index.notas') }}">
+                    <div class="contenedor-inter-card position-absolute">
+                        <p clas="text-vertical-l"
+                            style="writing-mode: vertical-lr;color: #000;top:30px;margin-top: 2.3rem;margin-left: 5px!important;">
+                            Historial</p>
+                    </div>
+                </a>
+
+                <a data-toggle="modal" data-target="#modalNotas" class="text-white">
                     <div class="card-body">
                         <i class="fas fa-sticky-note icon-effect-dashboard"></i>
                         <p class="card-text text-white"><strong>Notas</strong></p>
                     </div>
-                </div>
+                </a>
+
+            </div>
             </a>
         </div>
+
         @include('admin.notas.create')
         @include('admin.modal-services')
     </div>
