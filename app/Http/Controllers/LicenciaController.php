@@ -49,7 +49,7 @@ class LicenciaController extends Controller
         if (auth()->user()->role != 1) {
             return view('errors.403');
         } else {
-            $licencia = Licencia::get();
+            $licencia = Licencia::paginate(6);
 
             return view('admin.licencia.index', compact('licencia'));
         }
