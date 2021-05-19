@@ -1,13 +1,13 @@
 <!-- Modal -->
 <div class="modal fade" id="modalNotas" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5>Notas</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+                <h5><strong>Notas</strong></h5>
+                <a type="button" class="btn btn-secondary" data-dismiss="modal">
+                    <i class="fa fa-window-close text-white" aria-hidden="true"></i>
+                </a>
             </div>
 
             <div class="modal-body">
@@ -15,14 +15,14 @@
                 <form method="POST" action="{{ route('store.notas') }}" enctype="multipart/form-data" role="form">
                     @csrf
 
-                    <label for="">
+                    <label class="mb-3" for="">
                         <p><strong>Usuario</strong></p>
                     </label>
+
                     <div class="input-group form-group">
                         <div class="input-group-prepend ">
                             <span class="input-group-text">
-                                <img class="" src="{{ asset('img/icon/white/bolsa-de-dinero (1).png') }}"
-                                    width="25px">
+                                <i class="fas fa-user-tag icon-users-edit"></i>
                             </span>
                         </div>
                         <select class="form-control" id="id_user" name="id_user">
@@ -34,21 +34,16 @@
                         </select>
                     </div>
 
-                    <label for="">
+                    <label class="mt-3" for="">
                         <p><strong>Notas</strong></p>
                     </label>
-                    <div class="input-group form-group">
-                        <div class="input-group-prepend ">
-                            <span class="input-group-text">
-                                <img class="" src="{{ asset('img/icon/white/bolsa-de-dinero (1).png') }}"
-                                    width="25px">
-                            </span>
-                        </div>
-                        <textarea class="form-control" id="nota" name="nota"></textarea>
+
+                    <div class="input-group form-group mb-5">
+                        <textarea class="form-control" id="nota" name="nota" rows="3"></textarea>
                     </div>
 
-                    <button class="btn btn-lg btn-success btn-save-neon text-white mt-4"
-                        style="margin-bottom: 8rem !important;">
+                    <button class="btn btn-lg btn-success btn-save-neon text-white"
+                        style="margin-bottom: 1rem !important;">
                         <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}" width="20px">
                         Guardar
                     </button>

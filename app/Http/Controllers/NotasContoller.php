@@ -16,7 +16,7 @@ class NotasContoller extends Controller
             return view('errors.403');
         } else {
             $notas = Notas::get();
-            $users = User::get();
+            $users = User::orderBy('name')->get();
 
             return view('admin.notas.index', compact('notas', 'users'));
         }
@@ -28,6 +28,7 @@ class NotasContoller extends Controller
             return view('errors.403');
         } else {
             $user = DB::table('users')
+                ->orderBy('name')
                 ->where('role', '=', '0')
                 ->get();
 
