@@ -34,7 +34,7 @@
                             <div class="card card-body ">
                                 <a class="text-dark " href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
-                                                                                                                                                                                                                                       document.getElementById('logout-form').submit();">
+                                                                                                                                                                                                                                           document.getElementById('logout-form').submit();">
                                     <img class="rounded-circle" src="{{ asset('img/icon/white/exit.png') }}" width="15">
                                 </a>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST"
