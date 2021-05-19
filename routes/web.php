@@ -385,8 +385,11 @@ Route::delete('admin/notas/destroy/{id}', 'NotasContoller@destroy')->name('destr
 /*|--------------------------------------------------------------------------
 |Licencia de conducir view
 |--------------------------------------------------------------------------*/
-Route::get('licencia/index', 'LicenciaController@index')->name('index.licencia');
+// Route::get('licencia/index', 'LicenciaController@index')->name('index.licencia');
+
 Route::patch('licencia/update/{id}', 'LicenciaController@update')->name('update.licencia');
+
+Route::get('licencia/index', function () {return view('licencia/index');})->name('licencia');
 
 Route::get('admin/licencia/index', 'LicenciaController@index_admin')->name('index_admin.licencia');
 Route::get('admin/licencia/edit/{id}', 'LicenciaController@edit_admin')->name('edit_admin.licencia');
