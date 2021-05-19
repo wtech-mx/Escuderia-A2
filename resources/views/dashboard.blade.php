@@ -195,7 +195,7 @@
         </div>
 
         <div class="col-6 text-center mt-4 mb-5">
-            <a href="{{ route('licencia') }}" class="text-dark">
+            <a href="{{ route('index.licencia') }}" class="text-dark">
                 <div class="card" style="border-radius: 15px">
                     <div class="card-body">
                         <img class="d-inline mb-2" src="{{ asset('img/icon/black/licencia-de-conducir.png') }}"

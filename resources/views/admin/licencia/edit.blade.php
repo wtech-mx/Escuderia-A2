@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('admin.layouts.app')
 
 @section('bg-color', 'background-color: #000000;')
 
@@ -12,7 +12,7 @@
         <script>
             Swal.fire({
                 title: 'Exito!!',
-                html: 'Se ha actualizado tu  <b>Tarjeta de Circulación</b>, ' +
+                html: 'Se ha actualizado tu  <b>Licencia de Conducir</b>, ' +
                     'Exitosamente',
                 // text: 'Se ha agragado la "MARCA" Exitosamente',
                 imageUrl: '{{ asset('img/icon/color/dosier.png') }}',
@@ -94,20 +94,20 @@
         }
 
     </style>
+
     <div class="container">
-        @foreach ($licencia as $item )
-        <form method="POST" action="{{ route('update_admin.licencia', $item->id) }}" enctype="multipart/form-data"
+        <form method="POST" action="{{ route('update_admin.licencia', $licencia->id) }}" enctype="multipart/form-data"
             role="form">
             @csrf
 
             <input type="hidden" name="_method" value="PATCH">
-            <input type="hidden" id="id_user" name="id_user" value="{{ $item->id_user }}">
+            <input type="hidden" id="id_user" name="id_user" value="{{ $licencia->id_user }}">
             <div class="row bg-down-image-border">
                 <div class="col-6 text-center" style="margin-top: 6rem !important;margin-bottom: 10%;">
-                    @if ($item->User->img == null)
+                    @if ($licencia->User->img == null)
                         <i class="fas fa-user" style="color: #FFFFFF;font-size: 100px"></i>
                     @else
-                        <img class="img-fluid" src="{{ asset('img-perfil/' . $item->User->img) }}" width="90px"
+                        <img class="img-fluid" src="{{ asset('img-perfil/' . $licencia->User->img) }}" width="90px"
                             heigth="90px">
                     @endif
                 </div>
@@ -118,12 +118,12 @@
                             Licencia No:
                         </strong><br>
                         <input type="text" class="form-control" placeholder="Numero de licencia" id="numero" name="numero"
-                            value="{{ $item->numero }}">
+                            value="{{ $licencia->numero }}">
                     </p>
                 </div>
 
                 <div class="col-12 text-center mt-2 mb-5">
-                    <h2 class="" style="color:#00f936">{{ $item->User->name }}</h2>
+                    <h2 class="" style="color:#00f936">{{ $licencia->User->name }}</h2>
                 </div>
 
                 <div class="col-12 text-center" style="margin-bottom: 15%;">
@@ -132,19 +132,19 @@
                         <div class="col-4">
                             <p class="mb-3" style="color:#00f936">Antiguedad</p>
                             <input type="date" class="form-control-2" id="antiguedad" name="antiguedad"
-                                value="{{ $item->antiguedad }}">
+                                value="{{ $licencia->antiguedad }}">
                         </div>
 
                         <div class="col-4">
                             <p class="mb-3" style="color:#00f936">Expedicion</p>
                             <input type="date" class="form-control-2" id="expedicion" name="expedicion"
-                                value="{{ $item->expedicion }}">
+                                value="{{ $licencia->expedicion }}">
                         </div>
 
                         <div class="col-4">
                             <p class="mb-3" style="color:#00f936">Vigencia</p>
                             <input type="date" class="form-control-2" id="vigencia" name="vigencia"
-                                value="{{ $item->vigencia }}">
+                                value="{{ $licencia->vigencia }}">
                         </div>
 
                     </div>
@@ -155,29 +155,29 @@
                         <div class="conten-datos">
                             <p class="mb-3" style="color:#00f936">Nacionalidad</p>
                             <input type="text" class="form-control" placeholder="Nacionalidad" id="nacionalidad"
-                                name="nacionalidad" value="{{ $item->vigencia }}">
+                                name="nacionalidad" value="{{ $licencia->vigencia }}">
                         </div>
 
                         <div class="conten-datos">
                             <p class="mb-3" style="color:#00f936">Tipo de sangre</p>
                             <input type="text" class="form-control" placeholder="Tipo de sangre" id="sangre" name="sangre"
-                                value="{{ $item->sangre }}">
+                                value="{{ $licencia->sangre }}">
                             <p>
                         </div>
 
                         <div class="conten-datos">
                             <p class="mb-3" style="color:#00f936">RFC --</p>
                             <input type="text" class="form-control" placeholder="RFC" id="rfc" name="rfc"
-                                value="{{ $item->rfc }}">
+                                value="{{ $licencia->rfc }}">
                         </div>
 
                     </div>
                 </div>
 
                 <div class="col-12 text-center">
-                    <p class="mb-3" style="color:#00f936">Tipo de licencia</p>
+                    <p class="mb-3" style="color:#00f936">Tipo de Licencia</p>
                     <select class="form-control" name="tipo" id="tipo">
-                        <option value="{{ $item->tipo }}">{{ $item->tipo }}</option>
+                        <option value="{{ $licencia->tipo }}">{{ $licencia->tipo }}</option>
                         <option value="Tipo A">Tipo A</option>
                         <option value="Tipo B">Tipo B</option>
                         <option value="Tipo C">Tipo C</option>
@@ -196,8 +196,8 @@
             </div>
 
         </form>
-        @endforeach
     </div>
+
 
 
 

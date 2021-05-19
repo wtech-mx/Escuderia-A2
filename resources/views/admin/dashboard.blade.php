@@ -51,7 +51,7 @@
                             <div class="card card-body ">
                                 <a class="text-dark " href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
-                                                                                                                                                                                                                                               document.getElementById('logout-form').submit();">
+                                                                                                                                                                                                                                                                                   document.getElementById('logout-form').submit();">
                                     <img class="rounded-circle" src="{{ asset('img/icon/white/exit.png') }}" width="15">
                                 </a>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST"
@@ -197,13 +197,25 @@
             </a>
         </div>
 
-        <div class="col-6 text-center mt-4" style="margin-bottom: 8rem !important;">
+        <div class="col-6 text-center mt-4">
             <a href="{{ route('index_admin.verificacion') }}" class="text-white">
 
                 <div class="card" style="border-radius: 15px">
                     <div class="card-body">
                         <i class="fas fa-calendar-check icon-effect-dashboard"></i>
                         <p class="card-text text-white"><strong>Verificaci&oacute;n</strong></p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-6 text-center mt-4">
+            <a href="{{ route('index_admin.licencia') }}" class="text-white">
+
+                <div class="card" style="border-radius: 15px">
+                    <div class="card-body">
+                        <i class="far fa-id-badge icon-effect-dashboard"></i>
+                        <p class=" card-text text-white"><strong>Licencia Conducir</strong></p>
                     </div>
                 </div>
             </a>

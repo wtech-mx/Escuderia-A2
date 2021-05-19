@@ -30,9 +30,11 @@ class LicenciaController extends Controller
         $licencia->tipo = $request->get('tipo');
         $licencia->expedicion = $request->get('expedicion');
         $licencia->antiguedad = $request->get('antiguedad');
+        $licencia->vigencia = $request->get('vigencia');
         $licencia->nacionalidad = $request->get('nacionalidad');
         $licencia->sangre = $request->get('sangre');
         $licencia->rfc = $request->get('rfc');
+        $licencia->numero = $request->get('numero');
         $licencia->update();
 
         Session::flash('success', 'Se ha guardado sus datos con exito');
@@ -47,7 +49,7 @@ class LicenciaController extends Controller
         if (auth()->user()->role != 1) {
             return view('errors.403');
         } else {
-            $licencia = Licencia::where('id_user', '=', auth()->user()->id)->get();
+            $licencia = Licencia::get();
 
             return view('admin.licencia.index', compact('licencia'));
         }
@@ -76,9 +78,11 @@ class LicenciaController extends Controller
         $licencia->tipo = $request->get('tipo');
         $licencia->expedicion = $request->get('expedicion');
         $licencia->antiguedad = $request->get('antiguedad');
+        $licencia->vigencia = $request->get('vigencia');
         $licencia->nacionalidad = $request->get('nacionalidad');
         $licencia->sangre = $request->get('sangre');
         $licencia->rfc = $request->get('rfc');
+        $licencia->numero = $request->get('numero');
         $licencia->update();
 
         Session::flash('success', 'Se ha guardado sus datos con exito');

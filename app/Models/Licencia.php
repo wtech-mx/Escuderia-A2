@@ -20,6 +20,8 @@ class Licencia extends Model
         'nacionalidad',
         'sangre',
         'rfc',
+        'nombre',
+        'vigencia',
     ];
 
     public function User()
