@@ -18,3 +18,22 @@
     -ms-transform: rotate(270deg);
     transform: rotate(270deg);
 }
+
+.contenedor-inter-card {
+    height: 100% !important;
+    width: 30px !important;
+    top: 0px;
+    right: 0;
+    background: #ffff;
+    z-index: 10000;
+    border: 0px solid #fff;
+    border-radius: 0px 15px 15px 0px
+}
+
+.contenedor-inter-card:hover{
+    background-image: linear-gradient(to bottom, #00ff37, #1aff46, #29ff52, #34ff5d, #3eff67);
+}
+
+.text-vertical-l{
+    color:#fff;
+}
