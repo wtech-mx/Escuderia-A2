@@ -29,15 +29,13 @@
                 </div>
             </div>
         </div>
-
-        <div class="col-12 mt-4 ">
-            <div class="justify-content-center">
-                {!! $licencia->links() !!}
-            </div>
-        </div>
     </div>
 
-    <div class="row">
+
+    <div class="row bg-image">
+        <div class="col-12 mt-4 text-center">
+            <p> {!! $licencia->links() !!}</p>
+        </div>
         <div class="content container-res-inter">
             <div class="col-12">
                 @foreach ($licencia as $item)
@@ -82,6 +80,5 @@
             </div>
         </div>
     </div>
-
 
 @endsection
