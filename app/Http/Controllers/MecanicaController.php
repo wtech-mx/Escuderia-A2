@@ -241,42 +241,42 @@ class MecanicaController extends Controller
                 //Llantas
             case ($mecanica->servicio == '1'):
                 $llantas->id_user = $mecanica_usuario->id_usuario;
-                $llantas->title = $mecanica_usuario->Automovil->placas . ' - Llantas';
+                $llantas->title = $mecanica_usuario->Automovil->placas . '/' . $mecanica_usuario->Automovil->subtipo . ' - Llantas';
                 break;
                 //Banda
             case ($mecanica->servicio == '2'):
                 $llantas->id_user = $mecanica_usuario->id_usuario;
-                $llantas->title = $mecanica_usuario->Automovil->placas . ' - Banda';
+                $llantas->title = $mecanica_usuario->Automovil->placas . '/' . $mecanica_usuario->Automovil->subtipo . ' - Banda';
                 break;
                 //Frenos
             case ($mecanica->servicio == '3'):
                 $llantas->id_user = $mecanica_usuario->id_usuario;
-                $llantas->title = $mecanica_usuario->Automovil->placas . ' - Frenos';
+                $llantas->title = $mecanica_usuario->Automovil->placas . '/' . $mecanica_usuario->Automovil->subtipo . ' - Frenos';
                 break;
                 //Aceite
             case ($mecanica->servicio == '4'):
                 $llantas->id_user = $mecanica_usuario->id_usuario;
-                $llantas->title = $mecanica_usuario->Automovil->placas . ' - Aceite';
+                $llantas->title = $mecanica_usuario->Automovil->placas . '/' . $mecanica_usuario->Automovil->subtipo . ' - Aceite';
                 break;
                 //Afinacion
             case ($mecanica->servicio == '5'):
                 $llantas->id_user = $mecanica_usuario->id_usuario;
-                $llantas->title = $mecanica_usuario->Automovil->placas . ' - Afinación';
+                $llantas->title = $mecanica_usuario->Automovil->placas . '/' . $mecanica_usuario->Automovil->subtipo . ' - Afinación';
                 break;
                 //Amorting
             case ($mecanica->servicio == '6'):
                 $llantas->id_user = $mecanica_usuario->id_usuario;
-                $llantas->title = $mecanica_usuario->Automovil->placas . ' - Amortiguadores';
+                $llantas->title = $mecanica_usuario->Automovil->placas . '/' . $mecanica_usuario->Automovil->subtipo . ' - Amortiguadores';
                 break;
                 //Bateria
             case ($mecanica->servicio == '7'):
                 $llantas->id_user = $mecanica_usuario->id_usuario;
-                $llantas->title = $mecanica_usuario->Automovil->placas . ' - Bateria';
+                $llantas->title = $mecanica_usuario->Automovil->placas . '/' . $mecanica_usuario->Automovil->subtipo . ' - Bateria';
                 break;
                 //Otro
             case ($mecanica->servicio == '8'):
                 $llantas->id_user = $mecanica_usuario->id_usuario;
-                $llantas->title = $mecanica_usuario->Automovil->placas . ' - Otro';
+                $llantas->title = $mecanica_usuario->Automovil->placas . '/' . $mecanica_usuario->Automovil->subtipo . ' - Otro';
                 break;
         }
 

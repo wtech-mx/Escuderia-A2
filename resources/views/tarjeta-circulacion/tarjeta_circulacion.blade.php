@@ -103,7 +103,7 @@
                     {{-- Datos para el calendario --}}
                     <div class="input-group form-group">
                         <input type="hidden" class="form-control" id='title' name="title"
-                            value="{{ $tarjeta_circulacion->Automovil->placas }}">
+                            value="{{ $tarjeta_circulacion->Automovil->placas }} / {{ $tarjeta_circulacion->Automovil->subtipo }}">
                     </div>
 
                     <input type="hidden" id="device_token" name="device_token" value="">

@@ -121,7 +121,7 @@
                                     <div class="input-group-prepend " >
                                         <span class="input-group-text span-edit-car">
                                              <i class="fas fa-car icon-garaje"></i>
-                                             <a class="input-a-text">Subtipo</a>
+                                             <a class="input-a-text">Transmisión</a>
                                         </span>
                                     </div>
                                     <input  type="text" class="form-control input-edit-car" value="{{$automovil->subtipo}}" id="subtipo" name="subtipo">
