@@ -88,7 +88,7 @@
                                 {{--Datos para el calendario--}}
                         <div class="input-group form-group">
                                 <div class="input-group form-group">
-                                    <input type="hidden" class="form-control" id='title' name="title" value="{{$seguro->Automovil->placas}}">
+                                    <input type="hidden" class="form-control" id='title' name="title" value="{{$seguro->Automovil->placas}} / {{$seguro->Automovil->submarca}}">
                                 </div>
 
                                  <div class="input-group form-group">

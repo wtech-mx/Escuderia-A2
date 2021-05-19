@@ -75,7 +75,7 @@ $newDate = date("d/m/Y", strtotime($originalDate));
 
                         {{--Datos para el calendario--}}
                         <div class="input-group form-group">
-                            <input type="hidden" class="form-control" id='title' name="title" value="{{$tarjeta_circulacion->Automovil->placas}}">
+                            <input type="hidden" class="form-control" id='title' name="title" value="{{$tarjeta_circulacion->Automovil->placas}} / {{$tarjeta_circulacion->Automovil->submarca}}">
                         </div>
 
                         <div class="input-group form-group">

@@ -106,7 +106,7 @@
                                 <div class="input-group-prepend " >
                                     <span class="input-group-text span-edit-car">
                                          <img class="" src="{{ asset('img/icon/black/coche (3).png') }}" width="35px">
-                                         <a class="input-a-text">Subtipo</a>
+                                         <a class="input-a-text">Transmisión</a>
                                     </span>
                                 </div>
                                 <input  type="text" class="form-control input-edit-car" value="{{$automovil->subtipo}}" id="subtipo" name="subtipo">
