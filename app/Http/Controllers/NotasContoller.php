@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Notas;
+use DB;
 use Session;
 
 class NotasContoller extends Controller
@@ -15,8 +16,9 @@ class NotasContoller extends Controller
             return view('errors.403');
         } else {
             $notas = Notas::get();
+            $users = User::get();
 
-            return view('admin.notas.index', compact('notas'));
+            return view('admin.notas.index', compact('notas', 'users'));
         }
     }
 
@@ -37,13 +39,44 @@ class NotasContoller extends Controller
     {
 
         $validate = $this->validate($request, [
-            'nota' => 'required|max:191',
+            'nota' => 'required|max:500',
         ]);
 
         $notas = new  Notas;
         $notas->id_user = $request->get('id_user');
         $notas->nota = $request->get('nota');
         $notas->save();
+
+        Session::flash('success', 'Se ha guardado sus datos con exito');
+        return redirect()->back();
+    }
+
+    public function edit($id)
+    {
+        if (auth()->user()->role != 1) {
+            return view('errors.403');
+        } else {
+            $nota = Notas::findOrFail($id);
+            $user = DB::table('users')
+                ->where('role', '=', '0')
+                ->get();
+
+            return view('admin.notas.update', compact('user', 'nota'));
+        }
+    }
+
+    function update(Request $request, $id)
+    {
+
+        $validate = $this->validate($request, [
+            'nota' => 'required|max:500',
+        ]);
+
+        $nota = Notas::findOrFail($id);
+        $nota->id_user = $request->get('id_user');
+        $nota->nota = $request->get('nota');
+
+        $nota->update();
 
         Session::flash('success', 'Se ha guardado sus datos con exito');
         return redirect()->back();
