@@ -380,5 +380,6 @@ Route::get('admin/notas/crear', 'NotasContoller@create')->name('create.notas');
 Route::post('admin/notas/store', 'NotasContoller@store')->name('store.notas');
 Route::post('admin/notas/edit', 'NotasContoller@edit')->name('edit.notas');
 Route::post('admin/notas/update/{id}', 'NotasContoller@update')->name('update.notas');
+Route::delete('admin/notas/destroy/{id}', 'NotasContoller@destroy')->name('destroy.notas');
 
 require __DIR__ . '/auth.php';

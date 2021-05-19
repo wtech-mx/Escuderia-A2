@@ -59,12 +59,21 @@
                                         <tr>
                                             <td>{{ $item->User->name }}</td>
                                             <td>{{ $item->nota }}</td>
-                                            <td><button type="button" class="btn text-white" data-toggle="modal"
+                                            <td>
+                                                <a type="button" class="btn text-white" data-toggle="modal"
                                                     data-target="#modalNotasUpdate{{ $item->id }}"
                                                     style="background: transparent !important;">
-                                                    Ver más</i>
-                                                </button></td>
+                                                    <i class="fas fa-edit icon-users-edit" style="font-size: 15px;"></i>
+                                                </a>
+
+                                                <a type="button" class="btn text-white" data-toggle="modal"
+                                                    data-target="#modal-{{ $item->id }}">
+                                                    <i class="fas fa-trash icon-users-edit" style="font-size: 15px;"></i>
+                                                </a>
+
+                                            </td>
                                             @include('admin.notas.update')
+                                            @include('admin.notas.destroy')
                                         </tr>
                                     @endforeach
                                 </tbody>

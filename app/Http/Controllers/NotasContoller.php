@@ -7,9 +7,18 @@ use App\Models\User;
 use App\Models\Notas;
 use DB;
 use Session;
+use Redirect;
 
 class NotasContoller extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('pagespeed');
+    }
+
+
     public function index()
     {
         if (auth()->user()->role != 1) {
@@ -48,7 +57,7 @@ class NotasContoller extends Controller
         $notas->nota = $request->get('nota');
         $notas->save();
 
-        Session::flash('success', 'Se ha guardado sus datos con exito');
+        Session::flash('store', 'Se ha guardado sus datos con exito');
         return redirect()->back();
     }
 
@@ -79,7 +88,17 @@ class NotasContoller extends Controller
 
         $nota->update();
 
-        Session::flash('success', 'Se ha guardado sus datos con exito');
+        Session::flash('update', 'Se ha guardado sus datos con exito');
         return redirect()->back();
     }
+
+    public function destroy(Notas $id)
+    {
+
+        $id->delete();
+        Session::flash('destroy', 'Se ha guardado sus datos con exito');
+        return redirect()->back();
+
+    }
+
 }
