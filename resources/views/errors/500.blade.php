@@ -16,7 +16,7 @@
                 </h2>
 
                 <div class="error-details" style="color: #ffff;font-size:17px">
-                    Lo sentimos, se ha producido una falla, porfavor contacte al equpo de sistemas.
+                    Lo sentimos, se ha producido una falla, por favor contacte al equpo de sistemas.
                 </div>
 
                 <div class="error-actions mt-5">
