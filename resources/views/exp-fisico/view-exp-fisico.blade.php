@@ -168,7 +168,7 @@
                                     </p>
 
                                     <p class="text-center">
-                                        <a type="button" class="btn " href="{{ route('create.automovil') }}">
+                                        <a  class="btn " href="{{ route('create.automovil') }}">
                                             <img class="d-inline" src="{{ asset('img/icon/white/plus.png') }}" alt="Icon documento" width="60px">
                                         </a>
                                     </p>
