@@ -131,17 +131,24 @@
 
                         <div class="col-4">
                             <p class="mb-3" style="color:#00f936">Antiguedad</p>
-                            <input type="date" class="form-control-2" id="antiguedad" name="antiguedad"
-                                value="{{ $licencia->antiguedad }}">
+
                             @if ($licencia->permanente == 1)
                                 <input class="form-check-input" type="checkbox" value="1" id="permanente" name="permanente"
                                     checked>
+                                <label class="form-check-label" style="color:#00f936">
+                                    Permanente
+                                </label>
+                            @elseif($licencia->antiguedad != NULL)
+                                <input type="date" class="form-control-2" id="antiguedad" name="antiguedad"
+                                    value="{{ $licencia->antiguedad }}">
                             @else
+                                <input type="date" class="form-control-2" id="antiguedad" name="antiguedad"
+                                    value="{{ $licencia->antiguedad }}">
                                 <input class="form-check-input" type="checkbox" value="1" id="permanente" name="permanente">
+                                <label class="form-check-label" style="color:#00f936">
+                                    Permanente
+                                </label>
                             @endif
-                            <label class="form-check-label" style="color:#00f936">
-                                Permanente
-                            </label>
                         </div>
 
                         <div class="col-4">
@@ -183,7 +190,7 @@
                     </div>
                 </div>
 
-                <div class="col-6 text-center">
+                <div class="col-6 text-center mt-5">
                     <p class="mb-3" style="color:#00f936">Tipo de Licencia</p>
                     <select class="form-control" name="tipo" id="tipo">
                         <option value="{{ $licencia->tipo }}">{{ $licencia->tipo }}</option>
@@ -194,7 +201,8 @@
                         <option value="Permanente">Permanente</option>
                     </select>
                 </div>
-                <div class="col-6 text-center">
+
+                <div class="col-6 text-center mt-5">
                     <p class="mb-3" style="color:#00f936">Entidad de Expedición</p>
                     <select class="form-control" id="entidad" name="entidad">
                         <option value="{{ $licencia->entidad }}" selected>{{ $licencia->entidad }}</option>
