@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\Licencia;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
@@ -45,25 +46,30 @@ class RegisteredUserController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'role' => 0,
-         ]));
+        ]));
 
         $email = $request->get('email');
 
-        $subject = 'Bienvenido : '.$email ;
+        $subject = 'Bienvenido : ' . $email;
 
         $details = array(
-         'name' => $request->get('name'),
-         'email' => $request->get('email'),
-         'password' => $request->get('password'),
-         );
+            'name' => $request->get('name'),
+            'email' => $request->get('email'),
+            'password' => $request->get('password'),
+        );
 
         event(new Registered($userreg));
 
-        Mail::send('emails.register', $details, function ($message) use ($details,$subject) {
+        Mail::send('emails.register', $details, function ($message) use ($details, $subject) {
             $message->to($details['email'], $details['name'], $details['password'])
                 ->subject($subject)
                 ->from('contacto@checkngo.com.mx', 'Registro Checkngo');
         });
+
+        $licencia = new Licencia;
+        $licencia->id_user = $userreg->id;
+        $licencia->tipo = 'sin licencia';
+        $licencia->save();
 
         return redirect(RouteServiceProvider::HOME);
     }
