@@ -5,7 +5,7 @@
 
             <div class="error-template">
 
-                <img class="img-fluid" src="{{ asset('img/error-404.png') }}" width="60%">
+                <img class="img-fluid" src="{{ asset('img/error-500.png') }}" width="60%">
 
                 <h1 class="mt-3" style="color: #ffff;font-size:60px">
                     Oops!
