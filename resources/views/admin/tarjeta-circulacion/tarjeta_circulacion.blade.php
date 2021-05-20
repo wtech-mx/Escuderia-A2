@@ -244,7 +244,7 @@ $newDate = date("d/m/Y", strtotime($originalDate));
 
                              <div class="col-12 mt-2">
                                  <div class="d-flex justify-content-center">
-                                     <a type="button" class="btn ml-5" data-toggle="modal" data-target="#exampleModal" >
+                                     <a  class="btn ml-5" data-toggle="modal" data-target="#exampleModal" >
                                         <i class="fas fa-plus-circle icon-tc-r" ></i>
                                      </a>
                                  </div>
