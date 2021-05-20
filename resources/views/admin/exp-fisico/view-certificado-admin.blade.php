@@ -69,7 +69,7 @@
                             </p>
 
                                 <!-- Button trigger modal -->
-                                <button type="button" class="btn " data-toggle="modal" data-target="#exampleModal">
+                                <button  class="btn " data-toggle="modal" data-target="#exampleModal">
                                  <img class="d-inline mb-2" src="{{ asset('img/icon/white/plus.png') }}" alt="Icon documento" width="30px">
                                 </button>
 
@@ -88,7 +88,7 @@
                                 $texto= substr($item->certificado, -3);
                             @endphp
                             <div class="col-6">
-                                    <a type="button" class="" data-toggle="modal" data-target="#modal-doc-{{$item->id}}">
+                                    <a  class="" data-toggle="modal" data-target="#modal-doc-{{$item->id}}">
                                         @if($texto == 'pdf')
                                             <p class="text-center">
                                                 <iframe width="140" height="140" src="{{asset('exp-certificado/'.$item->certificado)}}" frameborder="0"></iframe>
@@ -121,10 +121,10 @@
                                                   </p>
                                               </div>
                                               <div class="col-1">
-                                                    <a type="button" class="btn btn-danger text-white p-2 mt-5 mb-5" data-toggle="modal" data-target="#modalcertificado{{$item->id}}">
+                                                    <a  class="btn btn-danger text-white p-2 mt-5 mb-5" data-toggle="modal" data-target="#modalcertificado{{$item->id}}">
                                                         <i class="fa fa-trash" aria-hidden="true"></i>
                                                     </a>
-                                                    <a type="button" class="btn btn-secondary p-2" data-dismiss="modal">
+                                                    <a  class="btn btn-secondary p-2" data-dismiss="modal">
                                                         <i class="fa fa-window-close" aria-hidden="true"></i>
                                                     </a>
                                               </div>
@@ -152,7 +152,7 @@
 
                         <div class="col-12 mt-5">
                             <p class="text-center">
-                                 <button type="button" class="btn " data-toggle="modal" data-target="#exampleModal">
+                                 <button  class="btn " data-toggle="modal" data-target="#exampleModal">
                                     <img class="d-inline mb-2" src="{{ asset('img/icon/white/plus.png') }}" alt="Icon documento" width="60px">
                                 </button>
                             </p>
