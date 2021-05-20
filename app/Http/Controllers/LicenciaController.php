@@ -31,10 +31,12 @@ class LicenciaController extends Controller
         $licencia->expedicion = $request->get('expedicion');
         $licencia->antiguedad = $request->get('antiguedad');
         $licencia->vigencia = $request->get('vigencia');
+        $licencia->permanente = $request->get('permanente');
         $licencia->nacionalidad = $request->get('nacionalidad');
         $licencia->sangre = $request->get('sangre');
         $licencia->rfc = $request->get('rfc');
         $licencia->numero = $request->get('numero');
+        $licencia->entidad = $request->get('entidad');
         $licencia->update();
 
         Session::flash('success', 'Se ha guardado sus datos con exito');
@@ -79,10 +81,13 @@ class LicenciaController extends Controller
         $licencia->expedicion = $request->get('expedicion');
         $licencia->antiguedad = $request->get('antiguedad');
         $licencia->vigencia = $request->get('vigencia');
+        $licencia->permanente = $request->get('permanente');
         $licencia->nacionalidad = $request->get('nacionalidad');
         $licencia->sangre = $request->get('sangre');
         $licencia->rfc = $request->get('rfc');
         $licencia->numero = $request->get('numero');
+        $licencia->entidad = $request->get('entidad');
+        
         $licencia->update();
 
         Session::flash('success', 'Se ha guardado sus datos con exito');
