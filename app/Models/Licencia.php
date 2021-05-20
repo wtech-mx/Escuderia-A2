@@ -22,6 +22,9 @@ class Licencia extends Model
         'rfc',
         'nombre',
         'vigencia',
+        'entidad',
+        'permanente',
+
     ];
 
     public function User()

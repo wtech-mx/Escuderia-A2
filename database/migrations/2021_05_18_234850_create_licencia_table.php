@@ -16,14 +16,16 @@ class CreateLicenciaTable extends Migration
         Schema::create('licencia', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_user');
-            $table->string('tipo');
-            $table->date('expedicion');
-            $table->date('antiguedad');
-            $table->date('vigencia');
-            $table->string('nacionalidad');
-            $table->string('sangre');
-            $table->string('rfc');
-            $table->string('numero');
+            $table->string('tipo')->nullable();
+            $table->date('expedicion')->nullable();
+            $table->date('antiguedad')->nullable();
+            $table->date('vigencia')->nullable();
+            $table->int('permanente')->nullable();
+            $table->string('nacionalidad')->nullable();
+            $table->string('sangre')->nullable();
+            $table->string('rfc')->nullable();
+            $table->string('numero')->nullable();
+            $table->string('entidad')->nullable();
 
             $table->foreign('id_user')
                 ->references('id')->on('users')
