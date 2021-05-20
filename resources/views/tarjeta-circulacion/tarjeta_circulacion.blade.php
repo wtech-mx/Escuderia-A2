@@ -84,6 +84,8 @@
             </div>
         @else
 
+
+
             @php
                 $originalDate = $tarjeta_circulacion->end;
                 $newDate = date('d/m/Y', strtotime($originalDate));

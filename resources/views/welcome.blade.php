@@ -13,7 +13,7 @@
 {{--            </h1>--}}
 
             <div class="d-flex justify-content-center mt-5" >
-                <img  class="img-responsive" width="75%" src="{{ asset('img/logo-check.png') }}" alt="logo check go">
+                <img  class="img-responsive" width="auto" src="{{ asset('img/logo-check.png') }}" alt="logo check go">
             </div>
 
         </div>

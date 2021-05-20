@@ -21,8 +21,10 @@
   <component name="ChangeListManager">
     <list default="true" id="936a45dc-4f36-4130-a52f-695b08d602c5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/exp-fisico/view-tc-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/exp-fisico/view-tc-admin.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/exp-fisico/view-tenencia-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/exp-fisico/view-tenencia-admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/logo-check.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/logo-check.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/tarjeta-circulacion/tarjeta_circulacion.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/tarjeta-circulacion/tarjeta_circulacion.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
