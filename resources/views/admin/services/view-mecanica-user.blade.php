@@ -54,50 +54,9 @@
                                                                         case( $item->servicio == 7 ):
                                                                             $servicio = 'Bateria';
                                                                         break;
-                                                                   }
-
-                                                                   switch($item) {
-                                                                      case($item->servicio == '1'):
-                                                                         $user = $item->User->name;
-                                                                         $auto = $item->Automovil2->placas;
-                                                                         $sub = $item->Automovil2->submarca;
-                                                                      break;
-                                                                      //Banda
-                                                                      case($item->servicio == '2'):
-                                                                         $user = $item->Userbn->name;
-                                                                         $auto = $item->Automovilbn->placas;
-                                                                         $sub = $item->Automovilbn->submarca;
-                                                                      break;
-                                                                      //Frenos
-                                                                      case($item->servicio == '3'):
-                                                                          $user = $item->Userfr->name;
-                                                                          $auto = $item->Automovilfr->placas;
-                                                                          $sub = $item->Automovilfr->submarca;
-                                                                      break;
-                                                                      //Aceite
-                                                                      case($item->servicio == '4'):
-                                                                          $user = $item->Userac->name;
-                                                                          $auto = $item->Automovilac->placas;
-                                                                          $sub = $item->Automovilac->submarca;
-                                                                      break;
-                                                                      //Afinacion
-                                                                      case($item->servicio == '5'):
-                                                                          $user = $item->Useraf->name;
-                                                                          $auto = $item->Automovilaf->placas;
-                                                                          $sub = $item->Automovilaf->submarca;
-                                                                      break;
-                                                                      //Amorting
-                                                                      case($item->servicio == '6'):
-                                                                          $user = $item->Useram->name;
-                                                                          $auto = $item->Automovilam->placas;
-                                                                          $sub = $item->Automovilam->submarca;
-                                                                      break;
-                                                                      //Bateria
-                                                                      case($item->servicio == '7'):
-                                                                          $user = $item->Userbt->name;
-                                                                          $auto = $item->Automovilbt->placas;
-                                                                          $sub = $item->Automovilbt->submarca;
-                                                                      break;
+                                                                        case( $item->servicio == 8 ):
+                                                                            $servicio = 'Otro';
+                                                                        break;
                                                                    }
 
                                                            @endphp
@@ -105,8 +64,13 @@
                                                             <tr>
                                                               <td>{{$item->fecha_servicio}}</td>
                                                               <td>{{$servicio}}</td>
-                                                              <td>{{$auto}} <br> {{$sub}}</td>
-                                                              <td>{{$user}}</td>
+                                                              @foreach ($mecanica_usuario as $auto )
+                                                              <td>{{$auto->User->name}}</td>
+                                                              <td>{{$auto->Automovil->placas}} <br> {{$auto->Automovil->submarca}}</td>
+                                                              @include('admin.services.view-servicio')
+                                                              @break
+                                                              @endforeach
+
                                                               <td>
                                                                   <a data-toggle="modal" data-target="#example{{$item->id}}"><img class="" src="{{ asset('img/icon/white/add.png') }}" width="15px" ></a>
                                                               </td>
@@ -117,7 +81,7 @@
 {{--                                                              @endif--}}
                                                             </tr>
                                                           </tbody>
-                                                            @include('admin.services.view-servicio')
+
                                                         @endforeach
                                                     </table>
                                                     </div>
