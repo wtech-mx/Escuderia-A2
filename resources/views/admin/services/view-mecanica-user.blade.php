@@ -82,8 +82,9 @@
                                                         {{-- @endif --}}
                                                     </tr>
                                                 </tbody>
+                                                @break
                                             @endforeach
-                                        @break
+
                                         @endforeach
                                     </table>
                                 </div>
