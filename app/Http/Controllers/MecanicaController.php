@@ -167,6 +167,8 @@ class MecanicaController extends Controller
         $mecanica->km_actual = $request->get('km_actual');
         $mecanica->km_estimado = $request->get('km_estimado');
         $mecanica->fecha_servicio = $request->get('fecha_servicio');
+        $mecanica->start = $request->get('start');
+        $mecanica->end = $request->get('end');
 
         if ($request->hasFile('video')) {
             $urlfoto = $request->file('video');
