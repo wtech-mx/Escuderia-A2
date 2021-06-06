@@ -21,4 +21,10 @@ class Notas extends Model
     {
         return $this->belongsTo(User::class, 'id_user');
     }
+
+    public function scopeNombre($query, $nombre)
+    {
+        if ($nombre)
+            return $query->where('id_user', 'LIKE', "%$nombre%");
+    }
 }

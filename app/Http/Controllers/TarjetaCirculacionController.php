@@ -161,25 +161,25 @@ class TarjetaCirculacionController extends Controller
         $tarjeta_circulacion->check = 0;
         $tarjeta_circulacion->update();
 
-        $email = $tarjeta_circulacion->User->email;
-        $subject = 'Bienvenido: '.$email ;
+        // $email = $tarjeta_circulacion->User->email;
+        // $subject = 'Bienvenido: '.$email ;
 
-        $details = array(
-         'email' => $email,
-         'nombre' => $request->get('nombre'),
-         'tipo_placa' => $request->get('tipo_placa'),
-         'lugar_expedicion' => $request->get('lugar_expedicion'),
-         'fecha_emision' => $request->get('fecha_emision'),
-         'end' => $request->get('end'),
-         'auto' => $tarjeta_circulacion->Automovil->placas,
-         'nombreU' => $tarjeta_circulacion->User->name,
-         );
+        // $details = array(
+        //  'email' => $email,
+        //  'nombre' => $request->get('nombre'),
+        //  'tipo_placa' => $request->get('tipo_placa'),
+        //  'lugar_expedicion' => $request->get('lugar_expedicion'),
+        //  'fecha_emision' => $request->get('fecha_emision'),
+        //  'end' => $request->get('end'),
+        //  'auto' => $tarjeta_circulacion->Automovil->placas,
+        //  'nombreU' => $tarjeta_circulacion->User->name,
+        //  );
 
-        Mail::send('emails.tcAdmin', $details, function ($message) use ($details,$subject) {
-            $message->to($details['email'], $details['nombre'], $details['tipo_placa'], $details['lugar_expedicion'], $details['fecha_emision'], $details['end'], $details['auto'], $details['nombreU'])
-                ->subject($subject)
-                ->from('contacto@checkngo.com.mx', 'Detalle de TarjetaCirculacion');
-        });
+        // Mail::send('emails.tcAdmin', $details, function ($message) use ($details,$subject) {
+        //     $message->to($details['email'], $details['nombre'], $details['tipo_placa'], $details['lugar_expedicion'], $details['fecha_emision'], $details['end'], $details['auto'], $details['nombreU'])
+        //         ->subject($subject)
+        //         ->from('contacto@checkngo.com.mx', 'Detalle de TarjetaCirculacion');
+        // });
 
         Session::flash('success', 'Se ha guardado sus datos con exito');
 

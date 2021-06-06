@@ -14,55 +14,59 @@ use Image;
 class ExpolizaController extends Controller
 {
 
-    public function __construct(){
+    public function __construct()
+    {
         $this->middleware('auth');
     }
 
-      function index(){
+    function index()
+    {
 
         $user = DB::table('users')
-        ->where('id','=',auth()->user()->id)
-        ->first();
+            ->where('id', '=', auth()->user()->id)
+            ->first();
 
         $auto_user = $user->{'id'};
 
         $exp_poliza = DB::table('exp_poliza')
-        ->where('id_user','=',$auto_user)
-        ->where('current_auto','=',auth()->user()->current_auto)
-        ->get();
+            ->where('id_user', '=', $auto_user)
+            ->where('current_auto', '=', auth()->user()->current_auto)
+            ->get();
 
-        $img = TarjetaCirculacion::where('current_auto','=',$user->current_auto)->first();
+        $img = TarjetaCirculacion::where('current_auto', '=', $user->current_auto)->first();
 
-        return view('exp-fisico.view-poliza',compact('exp_poliza', 'img'));
+        return view('exp-fisico.view-poliza', compact('exp_poliza', 'img'));
     }
 
-    public function create(){
+    public function create()
+    {
 
         return view('exp-fisico.view-poliza');
     }
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
 
-        $validate = $this->validate($request,[
+        $validate = $this->validate($request, [
             'poliza' => 'mimes:jpeg,bpm,jpg,png,pdf|max:900',
         ]);
 
         $exp_poliza = new ExpPoliza;
 
         $exp_poliza->titulo = $request->get('titulo');
-    	if ($request->hasFile('poliza')) {
+        if ($request->hasFile('poliza')) {
 
-    	    $file=$request->file("poliza");
+            $file = $request->file("poliza");
             list($width) = getimagesize($file);
 
-    	    $nombre = "pdf_".time().".".$file->guessExtension();
-    	    $ruta = public_path("/exp-poliza/".$nombre);
+            $nombre = "pdf_" . time() . "." . $file->guessExtension();
+            $ruta = public_path("/exp-poliza/" . $nombre);
 
-    	    if($width>1920){
-                if($file->guessExtension()=="pdf"){
+            if ($width > 1920) {
+                if ($file->guessExtension() == "pdf") {
                     copy($file, $ruta);
                     $exp_poliza->poliza = $nombre;
-                }else {
+                } else {
                     $urlfoto = $request->file('poliza');
                     $nombre = time() . "." . $urlfoto->guessExtension();
                     $ruta = public_path('/exp-poliza/' . $nombre);
@@ -70,22 +74,22 @@ class ExpolizaController extends Controller
                         ->save($ruta, 80);
                     $exp_poliza->poliza = $compresion->basename;
                 }
-            }else{
-                if($file->guessExtension()=="pdf"){
+            } else {
+                if ($file->guessExtension() == "pdf") {
                     copy($file, $ruta);
                     $exp_poliza->poliza = $nombre;
-                }else {
+                } else {
                     $urlfoto = $request->file('poliza');
                     $nombre = time() . "." . $urlfoto->guessExtension();
                     $ruta = public_path('/exp-poliza/' . $nombre);
 
                     switch ($width) {
-                        case($width <= 750):
+                        case ($width <= 750):
                             $compresion = Image::make($urlfoto->getRealPath())
                                 ->save($ruta);
                             $exp_poliza->poliza = $compresion->basename;
                             break;
-                        case($width >= 751):
+                        case ($width >= 751):
                             $compresion = Image::make($urlfoto->getRealPath())
                                 ->rotate(270)
                                 ->save($ruta);
@@ -94,10 +98,10 @@ class ExpolizaController extends Controller
                     }
                 }
             }
-   	    }
+        }
 
         $exp_poliza->id_user = auth()->user()->id;
-    	$exp_poliza->current_auto = auth()->user()->current_auto;
+        $exp_poliza->current_auto = auth()->user()->current_auto;
 
         $exp_poliza->save();
 
@@ -110,41 +114,37 @@ class ExpolizaController extends Controller
     {
         /* Trae los datos el auto en el que esta */
         $automovil = DB::table('automovil')
-        ->where('id','=',$id)
-        ->first();
+            ->where('id', '=', $id)
+            ->first();
 
         $exp_auto = $automovil->id;
 
         $exp_poliza = DB::table('exp_poliza')
-        ->where('current_auto','=', $exp_auto)
-        ->paginate(6);
+            ->where('current_auto', '=', $exp_auto)
+            ->paginate(6);
 
-        return view('admin.exp-fisico.view-poliza-admin',compact('exp_poliza','automovil'));
+        return view('admin.exp-fisico.view-poliza-admin', compact('exp_poliza', 'automovil'));
     }
 
-    public function store_admin(Request $request, $id){
-
-        $validate = $this->validate($request,[
-            'poliza' => 'mimes:jpeg,bpm,jpg,png,pdf|max:900',
-        ]);
+    public function store_admin(Request $request, $id)
+    {
 
         $exp = new ExpPoliza;
         $exp->titulo = $request->get('titulo');
 
         if ($request->hasFile('poliza')) {
 
-    	    $file=$request->file("poliza");
+            $file = $request->file("poliza");
             list($width) = getimagesize($file);
 
-    	    $nombre = "pdf_".time().".".$file->guessExtension();
-    	    $ruta = public_path("/exp-poliza/".$nombre);
+            $nombre = "pdf_" . time() . "." . $file->guessExtension();
+            $ruta = public_path("/exp-poliza/" . $nombre);
 
-    	    if($width>1920){
-                if($file->guessExtension()=="pdf"){
+            if ($width > 1920) {
+                if ($file->guessExtension() == "pdf") {
                     copy($file, $ruta);
                     $exp->poliza = $nombre;
-
-                }else {
+                } else {
                     $urlfoto = $request->file('poliza');
                     $nombre = time() . "." . $urlfoto->guessExtension();
                     $ruta = public_path('/exp-poliza/' . $nombre);
@@ -152,22 +152,22 @@ class ExpolizaController extends Controller
                         ->save($ruta, 80);
                     $exp->poliza = $compresion->basename;
                 }
-            }else{
-                if($file->guessExtension()=="pdf"){
+            } else {
+                if ($file->guessExtension() == "pdf") {
                     copy($file, $ruta);
                     $exp->poliza = $nombre;
-                }else {
+                } else {
                     $urlfoto = $request->file('poliza');
                     $nombre = time() . "." . $urlfoto->guessExtension();
                     $ruta = public_path('/exp-poliza/' . $nombre);
 
                     switch ($width) {
-                        case($width <= 750):
+                        case ($width <= 750):
                             $compresion = Image::make($urlfoto->getRealPath())
                                 ->save($ruta);
                             $exp->poliza = $compresion->basename;
                             break;
-                        case($width >= 751):
+                        case ($width >= 751):
                             $compresion = Image::make($urlfoto->getRealPath())
                                 ->rotate(270)
                                 ->save($ruta);
@@ -176,13 +176,13 @@ class ExpolizaController extends Controller
                     }
                 }
             }
-   	    }
-    	$exp->current_auto = $request->get('current_auto');
+        }
+        $exp->current_auto = $request->get('current_auto');
 
-    	/* Compara el auto que se selecciono con la db */
+        /* Compara el auto que se selecciono con la db */
         $automovil = DB::table('automovil')
-        ->where('id','=',$id)
-        ->first();
+            ->where('id', '=', $id)
+            ->first();
 
         $exp->current_auto = $automovil->id;
 
@@ -194,9 +194,10 @@ class ExpolizaController extends Controller
         return redirect()->back();
     }
 
-    public function store_admin_s(Request $request){
+    public function store_admin_s(Request $request)
+    {
 
-        $validate = $this->validate($request,[
+        $validate = $this->validate($request, [
             'poliza' => 'mimes:jpeg,bpm,jpg,png,pdf|max:900',
         ]);
 
@@ -204,18 +205,17 @@ class ExpolizaController extends Controller
 
         if ($request->hasFile('poliza')) {
 
-    	    $file=$request->file("poliza");
+            $file = $request->file("poliza");
             list($width, $height) = getimagesize($file);
 
-    	    $nombre = "pdf_".time().".".$file->guessExtension();
-    	    $ruta = public_path("/exp-poliza/".$nombre);
+            $nombre = "pdf_" . time() . "." . $file->guessExtension();
+            $ruta = public_path("/exp-poliza/" . $nombre);
 
-    	    if($width>1920){
-                if($file->guessExtension()=="pdf"){
+            if ($width > 1920) {
+                if ($file->guessExtension() == "pdf") {
                     copy($file, $ruta);
                     $exp->poliza = $nombre;
-
-                }else {
+                } else {
                     $urlfoto = $request->file('poliza');
                     $nombre = time() . "." . $urlfoto->guessExtension();
                     $ruta = public_path('/exp-poliza/' . $nombre);
@@ -223,22 +223,22 @@ class ExpolizaController extends Controller
                         ->save($ruta, 80);
                     $exp->poliza = $compresion->basename;
                 }
-            }else{
-                if($file->guessExtension()=="pdf"){
+            } else {
+                if ($file->guessExtension() == "pdf") {
                     copy($file, $ruta);
                     $exp->poliza = $nombre;
-                }else {
+                } else {
                     $urlfoto = $request->file('poliza');
                     $nombre = time() . "." . $urlfoto->guessExtension();
                     $ruta = public_path('/exp-poliza/' . $nombre);
 
                     switch ($width) {
-                        case($width <= 750):
+                        case ($width <= 750):
                             $compresion = Image::make($urlfoto->getRealPath())
                                 ->save($ruta);
                             $exp->poliza = $compresion->basename;
                             break;
-                        case($width >= 751):
+                        case ($width >= 751):
                             $compresion = Image::make($urlfoto->getRealPath())
                                 ->rotate(270)
                                 ->save($ruta);
@@ -247,8 +247,8 @@ class ExpolizaController extends Controller
                     }
                 }
             }
-   	    }
-    	$exp->current_auto = $request->get('current_auto');
+        }
+        $exp->current_auto = $request->get('current_auto');
 
         $exp->id_user = $request->get('id_user');
 
@@ -258,13 +258,13 @@ class ExpolizaController extends Controller
         return redirect()->back();
     }
 
-     function destroy($id){
+    function destroy($id)
+    {
         $exp = ExpPoliza::findOrFail($id);
-        unlink(public_path('/exp-poliza/'.$exp->poliza));
+        unlink(public_path('/exp-poliza/' . $exp->poliza));
         $exp->delete();
 
         Session::flash('destroy', 'Se Elimino su Factura con exito');
         return redirect()->back();
-
     }
 }

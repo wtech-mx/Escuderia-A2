@@ -19,12 +19,14 @@ class NotasContoller extends Controller
     }
 
 
-    public function index()
+    public function index(Request $request)
     {
         if (auth()->user()->role != 1) {
             return view('errors.403');
         } else {
-            $notas = Notas::get();
+            $nombre = $request->get('nombre');
+
+            $notas = Notas::nombre($nombre)->get();
             $users = User::orderBy('name')->get();
 
             return view('admin.notas.index', compact('notas', 'users'));

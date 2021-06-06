@@ -31,6 +31,22 @@
             </div>
         </div>
 
+        <div class="col-12">
+            {{  Form::open(['route' => 'index.notas' , 'method' => 'GET' , 'class'=>'form-inline pull-right'] )  }}
+            <div class="d-flex justify-content-center mt-5">
+
+                         <div class="form-group">
+                              {{ Form::text('nombre', null,['class' => 'form-control','placeholder' => 'Busqueda por Nombre'])  }}
+                         </div>
+
+                        <button type="submit" class="btn btn-default">
+                            <img class="" src="{{ asset('img/icon/white/search.png') }}" width="25px" >
+                        </button>
+
+            </div>
+        {{Form::close()}}
+        </div>
+
         <div class="row  bg-down-image-border">
             <div class="content container-res-max">
                 <div class="col-12">
