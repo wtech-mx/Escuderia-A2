@@ -139,20 +139,17 @@ class ExpfacturasController extends Controller
     /*|--------------------------------------------------------------------------
         |Create Doc Admin_Admin
         |--------------------------------------------------------------------------*/
-    function index_admin(Request $request)
+    function index_admin()
     {
         if (auth()->user()->role != 1) {
             return view('errors.403');
         } else {
-            /* Trae Autos de Usuarios */
-            $placas = $request->get('placas');
 
             $automovil = Automovil::where('id_empresa', '=', NULL)
-                ->placas($placas)
-                ->paginate(5);
+                ->get();
 
             $automovil2 = Automovil::where('id_user', '=', NULL)
-                ->paginate(5);
+                ->get();
 
             return view('admin.exp-fisico.view-exp-fisico-admin', compact('automovil', 'automovil2'));
         }

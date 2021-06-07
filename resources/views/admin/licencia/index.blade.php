@@ -1,5 +1,7 @@
 @extends('admin.layouts.app')
-
+@section('css')
+    <link href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+@endsection
 @section('content')
 
     <link href="{{ asset('css/garje.css') }}" rel="stylesheet">
@@ -33,52 +35,45 @@
 
 
     <div class="row bg-image">
-        <div class="col-12 mt-4 text-center">
-            <p> {!! $licencia->links() !!}</p>
-        </div>
-        <div class="content container-res-inter">
+        <div class="content container-res-max">
             <div class="col-12">
-                @foreach ($licencia as $item)
-                    <a class="card-text " href="{{ route('edit_admin.licencia', $item->id) }}"
-                        style="text-decoration: none;color: #000000">
-                        <div class="card card-slide-garaje mt-3 mb-3">
-                            <div class="card-body p-2">
 
-                                <div class="row">
-                                    <div class="col-6 mt-3">
-                                        <p class="card-text" href="{{ route('edit_admin.licencia', $item->id) }}">
-                                            <strong
-                                                style="font: normal normal bold 20px/27px Segoe UI;">{{ $item->User->name }}</strong>
-                                        </p>
-                                        <p class="card-text" style="font-size: 12px">
-                                            <strong>{{ $item->tipo }}</strong>
-                                        </p>
-                                        <p class="card-text" style="font-size: 12px">
-                                            <strong>{{ $item->expedicion }}</strong>
-                                        </p>
-                                    </div>
-                                    @if ($item->tipo == 'sin licencia')
-                                        <div class="col-6">
-                                            <img class="d-inline mb-2" src="{{ asset('img/icon/page-not-found.png') }}"
-                                                alt="Icon documento" width="150px">
-                                        </div>
-                                    @else
-                                        <div class="col-6">
-                                            <img class="d-inline mb-2"
-                                                src="{{ asset('img/icon/seguros/' . $item->seguro . '.png') }}"
-                                                alt="Icon documento" width="150px">
-                                        </div>
-                                    @endif
+                <table id="licencia" class="table text-white">
+                    <thead>
+                        <tr>
+                            <th scope="col">Cliente</th>
+                            <th scope="col">Tipo</th>
+                            <th scope="col">Expedicion</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($licencia as $item)
+                            <tr>
+                                <th><a style="text-decoration: none;"
+                                        href="{{ route('edit_admin.licencia', $item->id) }}">
+                                        {{ $item->User->name }}</a>
+                                </th>
+                                <td>{{ $item->tipo }}</td>
+                                <td>{{ $item->expedicion }}</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
 
-
-                                </div>
-
-                            </div>
-                        </div>
-                    </a>
-                @endforeach
             </div>
         </div>
     </div>
 
+@section('js')
+    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#licencia').DataTable();
+        });
+
+    </script>
+
+@endsection
 @endsection

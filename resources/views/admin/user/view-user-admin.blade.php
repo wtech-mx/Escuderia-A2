@@ -1,5 +1,9 @@
 @extends('admin.layouts.app')
 
+@section('css')
+    <link href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+@endsection
+
 @section('content')
 
 
@@ -68,60 +72,34 @@
             </script>
         @endif
 
-        {{ Form::open(['route' => 'index_admin.user', 'method' => 'GET', 'class' => 'form-inline pull-right']) }}
-        <div class="d-flex justify-content-center mt-5">
-
-            <div class="form-group">
-                {{ Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Busqueda por nombre']) }}
-            </div>
-
-            <button type="submit" class="btn btn-default">
-                <img class="" src="{{ asset('img/icon/white/search.png') }}" width="25px">
-            </button>
-
-        </div>
-        {{ Form::close() }}
-
-        <div class="col-12 mt-4 ">
-            <div class="d-flex justify-content-center">
-                {!! $user->links() !!}
-            </div>
-        </div>
-
-        <div class="content container-res-inter">
+        <div class="content container-res-max">
             <div class="col-12 ">
-                @foreach ($user as $item)
-                    <div class="card card-slide-garaje mt-4">
-                        <div class="card-body p-2">
-                            <div class="row">
-                                <div class="col-6 mt-3">
-                                    <a class="card-text" href="{{ route('edit_admin.user', $item->id) }}">
-                                        <strong style="font: normal normal bold 20px/27px Segoe UI;">
-                                            {{ $item->name }}
-                                        </strong>
-                                    </a>
-                                    <p class="card-text" style="font-size: 12px"><strong>{{ $item->telefono }}</strong>
-                                    </p>
-                                    <p class="card-text" style="font-size: 12px"><strong>{{ $item->email }}</strong></p>
-                                </div>
-                                <div class="col-6 justify-content-end position-relative">
-                                    <div class="d-flex justify-content-end">
-                                        @if ($item->img == null)
-                                            <a class="card-text" href="{{ route('edit_admin.user', $item->id) }}">
-                                                <i class="far fa-user d-inline icon-effect-users"></i>
-                                            </a>
-                                        @else
-                                            <a class="card-text" href="{{ route('edit_admin.user', $item->id) }}">
-                                                <img class="rounded-circle" src="{{ asset('img-perfil/' . $item->img) }}"
-                                                    height="80px" width="80px" style="width: 80px !important;">
-                                            </a>
-                                        @endif
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
+
+                <table id="usuarios" class="table text-white">
+                    <thead>
+                        <tr>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Correo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($user as $item)
+                        @php
+                            $fechaEntera = strtotime($item->updated_at);
+                            $anio = date('Y', $fechaEntera);
+                            $mes = date('m', $fechaEntera);
+                            $dia = date('d', $fechaEntera);
+                        @endphp
+                            <tr>
+                                <th><a style="text-decoration: none;"
+                                        href="{{ route('edit_admin.user', $item->id) }}">{{ $item->name }}</a>
+                                </th>
+                                <td>{{ $item->email }}</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+
             </div>
 
         </div>
@@ -130,7 +108,18 @@
 
     </div>
 
+@section('js')
+<script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.min.js"></script>
 
+    <script>
+        $(document).ready(function() {
+            $('#usuarios').DataTable();
+        });
+
+    </script>
+
+@endsection
 
 
 @endsection

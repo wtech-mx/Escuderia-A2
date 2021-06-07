@@ -1,7 +1,9 @@
 @extends('admin.layouts.app')
 
 @section('css')
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/responsive/2.2.8/css/responsive.bootstrap5.min.css" rel="stylesheet">
 @endsection
 
 @section('content')
@@ -113,13 +115,14 @@
                         <div class="row">
 
                             <div class="content container-res-max">
-                                <div class="col-12">
+                                <div class="col-lg-12">
 
                                     <table id="automoviles" class="table text-white">
                                         <thead>
                                             <tr>
                                                 <th scope="col">Cliente</th>
                                                 <th scope="col">Placas</th>
+                                                <th scope="col">Modelo</th>
                                                 <th scope="col">Submarca</th>
                                                 <th scope="col">Año</th>
                                             </tr>
@@ -127,10 +130,11 @@
                                         <tbody>
                                             @foreach ($automovil as $item)
                                                 <tr>
-                                                    <th><a
+                                                    <th><a style="text-decoration: none;"
                                                             href="{{ route('edit_admin.automovil', $item->id) }}">{{ $item->User->name }}</a>
                                                     </th>
                                                     <td>{{ $item->placas }}</td>
+                                                    <td>{{ $item->Marca->nombre }}</td>
                                                     <td>{{ $item->submarca }}</td>
                                                     <td>{{ $item->año }}</td>
                                                 </tr>
@@ -232,12 +236,32 @@
     </div>
 
 @section('js')
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js|https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js">
+    </script>
     <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.8/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.8/js/responsive.bootstrap4.min.js">
+    </script>
 
     <script>
         $(document).ready(function() {
-            $('#automoviles').DataTable();
+            $('#automoviles').DataTable({
+                responsive: {
+                    details: {
+                        display: $.fn.dataTable.Responsive.display.modal({
+                            header: function(row) {
+                                var data = row.data();
+                                return 'Detalles de ' + data[0] + ' ' + data[1];
+                            }
+                        }),
+                        renderer: $.fn.dataTable.Responsive.renderer.tableAll({
+                            tableClass: 'table'
+                        })
+                    }
+                }
+            });
         });
 
     </script>

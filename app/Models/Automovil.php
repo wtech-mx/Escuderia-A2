@@ -27,17 +27,17 @@ class Automovil extends Model
         'kilometraje',
     ];
 
-        public function scopeSubmarca($query,$submarca)
-    {
-        if ($submarca)
-            return $query->where('submarca','LIKE',"%$submarca%");
-    }
+    //     public function scopeSubmarca($query,$submarca)
+    // {
+    //     if ($submarca)
+    //         return $query->where('submarca','LIKE',"%$submarca%");
+    // }
 
-        public function scopePlacas($query,$placas)
-    {
-        if ($placas)
-            return $query->where('placas','LIKE',"%$placas%");
-    }
+    //     public function scopePlacas($query,$placas)
+    // {
+    //     if ($placas)
+    //         return $query->where('placas','LIKE',"%$placas%");
+    // }
 
     protected $guarded=[
 

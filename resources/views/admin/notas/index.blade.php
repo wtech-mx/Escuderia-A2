@@ -1,5 +1,7 @@
 @extends('admin.layouts.app')
-
+@section('css')
+    <link href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+@endsection
 @section('content')
 
     <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
@@ -31,22 +33,6 @@
             </div>
         </div>
 
-        <div class="col-12">
-            {{  Form::open(['route' => 'index.notas' , 'method' => 'GET' , 'class'=>'form-inline pull-right'] )  }}
-            <div class="d-flex justify-content-center mt-5">
-
-                         <div class="form-group">
-                              {{ Form::text('nombre', null,['class' => 'form-control','placeholder' => 'Busqueda por Nombre'])  }}
-                         </div>
-
-                        <button type="submit" class="btn btn-default">
-                            <img class="" src="{{ asset('img/icon/white/search.png') }}" width="25px" >
-                        </button>
-
-            </div>
-        {{Form::close()}}
-        </div>
-
         <div class="row  bg-down-image-border">
             <div class="content container-res-max">
                 <div class="col-12">
@@ -62,7 +48,7 @@
 
                     <div class="table-responsive">
                         <div class="container-res-max">
-                            <table class="table text-white">
+                            <table id="notas" class="table text-white">
                                 <thead>
                                     <tr>
                                         <th scope="col">Usuario</th>
@@ -105,6 +91,17 @@
         </div>
     </div>
 
+@section('js')
+    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.min.js"></script>
 
+    <script>
+        $(document).ready(function() {
+            $('#notas').DataTable();
+        });
+
+    </script>
+
+@endsection
 
 @endsection
