@@ -161,20 +161,17 @@
                                                             href="{{ route('edit_admin.tarjeta-circulacion', $item->id) }}"><strong
                                                                 style="font: normal normal bold 20px/27px Segoe UI;">{{ $item->Empresa->nombre }}</strong></a>
                                                         <p class="card-text" style="font-size: 12px">
-                                                            <strong>{{ $item->nombre }}</strong></p>
+                                                            <strong>{{ $item->nombre }}</strong>
+                                                        </p>
                                                         <p class="card-text" style="font-size: 12px">
-                                                            <strong>{{ $item->Automovil->Marca->nombre }}</strong></p>
+                                                            <strong>{{ $item->Automovil->Marca->nombre }}</strong>
+                                                        </p>
                                                     </div>
                                                 </div>
 
                                             </div>
                                         </div>
                                     @endforeach
-                                </div>
-                                <div class="col-12 mt-4 ">
-                                    <div class="d-flex justify-content-center">
-                                        {!! $tarjeta_circulacion2->links() !!}
-                                    </div>
                                 </div>
                             </div>
                         </div>
