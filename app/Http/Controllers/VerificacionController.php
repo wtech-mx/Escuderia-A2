@@ -46,9 +46,8 @@ class VerificacionController extends Controller
         if (auth()->user()->role != 1) {
             return view('errors.403');
         } else {
-            $verificacion_user = Verificacion::orderBy('id', 'DESC')
-                ->where('id_empresa', '=', NULL)
-                ->paginate(5);
+            $verificacion_user = Verificacion::where('id_empresa', '=', NULL)
+                ->get();
 
             $verificacion_empresa = Verificacion::orderBy('id', 'DESC')
                 ->where('id_user', '=', NULL)
@@ -56,7 +55,7 @@ class VerificacionController extends Controller
 
             $user = DB::table('users')
                 ->where('role', '=', '0')
-                ->paginate(5);
+                ->get();
 
             return view('admin.verificacion.view-verificacion-admin', compact('verificacion_user', 'verificacion_empresa', 'user'));
         }

@@ -184,11 +184,8 @@ class UserController extends Controller
         if (auth()->user()->role != 1) {
             return view('errors.403');
         } else {
-            $name = $request->get('name');
 
-            $user = User::orderBy('id', 'DESC')
-                ->name($name)
-                ->paginate(5);
+            $user = User::get();
 
             $users = DB::table('users')
                 ->get();

@@ -51,7 +51,7 @@ class LicenciaController extends Controller
         if (auth()->user()->role != 1) {
             return view('errors.403');
         } else {
-            $licencia = Licencia::paginate(6);
+            $licencia = Licencia::get();
 
             return view('admin.licencia.index', compact('licencia'));
         }
@@ -87,7 +87,7 @@ class LicenciaController extends Controller
         $licencia->rfc = $request->get('rfc');
         $licencia->numero = $request->get('numero');
         $licencia->entidad = $request->get('entidad');
-        
+
         $licencia->update();
 
         Session::flash('success', 'Se ha guardado sus datos con exito');

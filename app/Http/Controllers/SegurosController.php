@@ -176,10 +176,9 @@ class SegurosController extends Controller
         } else {
             $seguro = $request->get('seguro');
 
-            $seguros = Seguros::orderBy('id', 'DESC')
-                ->where('id_empresa', '=', NULL)
+            $seguros = Seguros::where('id_empresa', '=', NULL)
                 ->seguro($seguro)
-                ->paginate(5);
+                ->get();
 
             $seguros2 = Seguros::orderBy('id', 'DESC')
                 ->where('id_user', '=', NULL)
