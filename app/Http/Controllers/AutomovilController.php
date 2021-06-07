@@ -235,25 +235,17 @@ class AutomovilController extends Controller
 |Garaje edit - Admin
 |--------------------------------------------------------------------------*/
 
-    function index_admin(Request $request)
+    function index_admin()
     {
         if (auth()->user()->role != 1) {
             return view('errors.403');
         } else {
-            $submarca = $request->get('submarca');
-            $placas = $request->get('placas');
 
-            $automovil = Automovil::orderBy('id', 'DESC')
-                ->where('id_empresa', '=', NULL)
-                ->submarca($submarca)
-                ->placas($placas)
-                ->paginate(5);
+            $automovil = Automovil::where('id_empresa', '=', NULL)
+                ->get();
 
-            $automovil2 = Automovil::orderBy('id', 'DESC')
-                ->where('id_user', '=', NULL)
-                ->submarca($submarca)
-                ->placas($placas)
-                ->paginate(5);
+            $automovil2 = Automovil::where('id_user', '=', NULL)
+                ->get();
             //            ->get();
 
             $user = DB::table('users')

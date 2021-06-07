@@ -1,18 +1,18 @@
    @php
-       $fechaEntera = strtotime($item->updated_at);
+       $fechaEntera = strtotime($item->Mecanica->updated_at);
        $anio = date('Y', $fechaEntera);
        $mes = date('m', $fechaEntera);
        $dia = date('d', $fechaEntera);
    @endphp
 
    <!-- Modal -->
-   <div class="modal fade" id="example{{ $item->id }}" tabindex="-1" role="dialog"
+   <div class="modal fade" id="example{{ $item->Mecanica->id }}" tabindex="-1" role="dialog"
        aria-labelledby="exampleModalLabel" aria-hidden="true">
        <div class="modal-dialog" role="document">
            <div class="modal-content">
                <div class="modal-header">
                    <h5 class="modal-title" id="exampleModalLabel" style="text-align:center">Detalles Del Servicio /
-                       <strong>{{ $auto->User->name }} - {{ $servicio }}</strong></h5>
+                       <strong>{{ $item->User->name }} - {{ $servicio }}</strong></h5>
                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                        <span aria-hidden="true">&times;</span>
                    </button>
@@ -25,13 +25,13 @@
                            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                                <li class="nav-item">
                                    <a class="nav-link active" id="pills-servicio-tab" data-toggle="pill"
-                                       href="#pills-servicio{{ $item->id }}" role="tab"
+                                       href="#pills-servicio{{ $item->Mecanica->id }}" role="tab"
                                        aria-controls="pills-servicio" aria-selected="true">
                                        Serv.
                                    </a>
                                </li>
                                @foreach ($proveedor as $prov)
-                                   @if ($item->id == $prov->id_servicio)
+                                   @if ($item->Mecanica->id == $prov->id_servicio)
                                        <li class="nav-item">
                                            <a class="nav-link" id="pills-proveedor-tab" data-toggle="pill"
                                                href="#pills-proveedor{{ $prov->id }}" role="tab"
@@ -46,7 +46,7 @@
                    </div>
 
                    <div class="tab-content" id="pills-tabContent">
-                       <div class="tab-pane fade show active" id="pills-servicio{{ $item->id }}" role="tabpanel"
+                       <div class="tab-pane fade show active" id="pills-servicio{{ $item->Mecanica->id }}" role="tabpanel"
                            aria-labelledby="pills-servicio-tab">
                            <label for="">
                                <p><strong>Fecha de servicio</strong></p>
@@ -58,11 +58,11 @@
                                            width="25px">
                                    </span>
                                </div>
-                               <input type="number" class="form-control" placeholder="{{ $item->fecha_servicio }}"
+                               <input type="number" class="form-control" placeholder="{{ $item->Mecanica->fecha_servicio }}"
                                    style="border-radius: 0  10px 10px 0;" disabled>
                            </div>
 
-                           @if ($item->servicio == 1)
+                           @if ($item->Mecanica->servicio == 1)
                                <label for="">
                                    <p><strong>Llantas</strong></p>
                                </label>
@@ -72,7 +72,7 @@
                                        <div class="d-flex justify-content-between">
 
                                            <div class="form-check form-check-inline d-block">
-                                               @if ($item->llantas_delanteras == 1)
+                                               @if ($item->Mecanica->llantas_delanteras == 1)
                                                    <div class="d-flex justify-content-center">
                                                        <input class="form-check-input d-block" type="radio" checked
                                                            disabled>
@@ -88,7 +88,7 @@
                                            </div>
 
                                            <div class="form-check form-check-inline d-block">
-                                               @if ($item->llantas_traseras == 1)
+                                               @if ($item->Mecanica->llantas_traseras == 1)
                                                    <div class="d-flex justify-content-center">
                                                        <input class="form-check-input  d-block" type="radio" checked
                                                            disabled>
@@ -107,7 +107,7 @@
                                    </div>
                                </div>
                            @endif
-                           @if ($item->servicio == 3)
+                           @if ($item->Mecanica->servicio == 3)
                                <label for="">
                                    <p><strong>Llantas</strong></p>
                                </label>
@@ -117,7 +117,7 @@
                                        <div class="d-flex justify-content-between">
 
                                            <div class="form-check form-check-inline d-block">
-                                               @if ($item->frenos_delanteras == 1)
+                                               @if ($item->Mecanica->frenos_delanteras == 1)
                                                    <div class="d-flex justify-content-center">
                                                        <input class="form-check-input d-block" type="radio" checked
                                                            disabled>
@@ -133,7 +133,7 @@
                                            </div>
 
                                            <div class="form-check form-check-inline d-block">
-                                               @if ($item->frenos_traseras == 1)
+                                               @if ($item->Mecanica->frenos_traseras == 1)
                                                    <div class="d-flex justify-content-center">
                                                        <input class="form-check-input  d-block" type="radio" checked
                                                            disabled>
@@ -152,7 +152,7 @@
                                    </div>
                                </div>
                            @endif
-                           @if ($item->servicio == 6)
+                           @if ($item->Mecanica->servicio == 6)
                                <label for="">
                                    <p><strong>Amortiguadores</strong></p>
                                </label>
@@ -162,7 +162,7 @@
                                        <div class="d-flex justify-content-between">
 
                                            <div class="form-check form-check-inline d-block">
-                                               @if ($item->amortig_delanteras == 1)
+                                               @if ($item->Mecanica->amortig_delanteras == 1)
                                                    <div class="d-flex justify-content-center">
                                                        <input class="form-check-input d-block" type="radio" checked
                                                            disabled>
@@ -178,7 +178,7 @@
                                            </div>
 
                                            <div class="form-check form-check-inline d-block">
-                                               @if ($item->amortig_traseras == 1)
+                                               @if ($item->Mecanica->amortig_traseras == 1)
                                                    <div class="d-flex justify-content-center">
                                                        <input class="form-check-input  d-block" type="radio" checked
                                                            disabled>
@@ -208,7 +208,7 @@
                                            width="25px">
                                    </span>
                                </div>
-                               <input type="number" class="form-control" placeholder="{{ $item->km_actual }}"
+                               <input type="number" class="form-control" placeholder="{{ $item->Mecanica->km_actual }}"
                                    style="border-radius: 0  10px 10px 0;" disabled>
                            </div>
 
@@ -222,7 +222,7 @@
                                            width="25px">
                                    </span>
                                </div>
-                               <input type="number" class="form-control" placeholder="{{ $item->descripcion }}"
+                               <input type="number" class="form-control" placeholder="{{ $item->Mecanica->descripcion }}"
                                    style="border-radius: 0  10px 10px 0;" disabled>
                            </div>
 
@@ -242,7 +242,7 @@
                            </div>
                        </div>
                        @foreach ($proveedor as $prov)
-                           @if ($item->id == $prov->id_servicio)
+                           @if ($item->Mecanica->id == $prov->id_servicio)
                                <div class="tab-pane fade" id="pills-proveedor{{ $prov->id }}" role="tabpanel"
                                    aria-labelledby="pills-proveedor-tab">
                                    <div class="row">

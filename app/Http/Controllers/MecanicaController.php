@@ -31,18 +31,9 @@ class MecanicaController extends Controller
     public function view_user()
     {
 
-        $llanta_user = Mecanica::where('id_user', '=', auth()->user()->id)->paginate(7);
-        $banda_user = Mecanica::where('id_userbn', '=', auth()->user()->id)->paginate(7);
-        $freno_user = Mecanica::where('id_userfr', '=', auth()->user()->id)->paginate(7);
-        $aceite_user = Mecanica::where('id_userac', '=', auth()->user()->id)->paginate(7);
-        $afinacion_user = Mecanica::where('id_useraf', '=', auth()->user()->id)->paginate(7);
-        $amort_user = Mecanica::where('id_useram', '=', auth()->user()->id)->paginate(7);
-        $bateria_user = Mecanica::where('id_userbt', '=', auth()->user()->id)->paginate(7);
-        $otro_user = Mecanica::where('id_userot', '=', auth()->user()->id)->paginate(7);
+        $mecanica_user = MecanicaUsuario::where('id_usuario', '=', auth()->user()->id)->get();
 
-        $mecanica_empresa = Mecanica::where('id_user', '=', NULL)->get();
-
-        return view('services.view-mecanica', compact('llanta_user', 'banda_user', 'freno_user', 'aceite_user', 'afinacion_user', 'amort_user', 'bateria_user', 'otro_user', 'mecanica_empresa'));
+        return view('services.view-mecanica', compact('mecanica_user'));
     }
 
 

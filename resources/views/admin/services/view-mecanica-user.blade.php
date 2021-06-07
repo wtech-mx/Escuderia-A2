@@ -29,49 +29,55 @@
                                                 {{-- <th scope="col">Estatus</th> --}}
                                             </tr>
                                         </thead>
-                                        @foreach ($mecanica_user as $item)
+                                        @foreach ($mecanica_usuario as $item)
                                             @php
-                                                switch ($item) {
-                                                    case $item->servicio == 1:
-                                                        $servicio = 'Llantas';
-                                                        break;
-                                                    case $item->servicio == 2:
-                                                        $servicio = 'Banda';
-                                                        break;
-                                                    case $item->servicio == 3:
-                                                        $servicio = 'Freno';
-                                                        break;
-                                                    case $item->servicio == 4:
-                                                        $servicio = 'Aceite';
-                                                        break;
-                                                    case $item->servicio == 5:
-                                                        $servicio = 'Afinacion';
-                                                        break;
-                                                    case $item->servicio == 6:
-                                                        $servicio = 'Amortig';
-                                                        break;
-                                                    case $item->servicio == 7:
-                                                        $servicio = 'Bateria';
-                                                        break;
-                                                    case $item->servicio == 8:
-                                                        $servicio = 'Otro';
-                                                        break;
-                                                }
+                                            switch ($item) {
+                                                case $item->Mecanica->servicio == '1':
+                                                    $servicio = 'Llanta';
+                                                    break;
+                                                //Banda
+                                                case $item->Mecanica->servicio == '2':
+                                                    $servicio = 'Banda';
+                                                    break;
+                                                //Frenos
+                                                case $item->Mecanica->servicio == '3':
+                                                    $servicio = 'Freno';
+                                                    break;
+                                                //Aceite
+                                                case $item->Mecanica->servicio == '4':
+                                                    $servicio = 'Aceite';
+                                                    break;
+                                                //Afinacion
+                                                case $item->Mecanica->servicio == '5':
+                                                    $servicio = 'Afinación';
+                                                    break;
+                                                //Amorting
+                                                case $item->Mecanica->servicio == '6':
+                                                    $servicio = 'Amortiguadores';
+                                                    break;
+                                                //Bateria
+                                                case $item->Mecanica->servicio == '7':
+                                                    $servicio = 'Bateria';
+                                                    break;
+                                                case $item->Mecanica->servicio == '8':
+                                                    $servicio = 'Otro';
+                                                    break;
+                                            }
 
                                             @endphp
-                                            @foreach ($mecanica_usuario as $auto)
+
                                                 <tbody>
                                                     <tr>
-                                                        <td>{{ $item->fecha_servicio }}</td>
+                                                        <td>{{ $item->Mecanica->fecha_servicio }}</td>
                                                         <td>{{ $servicio }}</td>
 
-                                                        <td>{{ $auto->User->name }}</td>
-                                                        <td>{{ $auto->Automovil->placas }} <br>
-                                                            {{ $auto->Automovil->submarca }}</td>
+                                                        <td>{{ $item->User->name }}</td>
+                                                        <td>{{ $item->Automovil->placas }} <br>
+                                                            {{ $item->Automovil->submarca }}</td>
                                                         @include('admin.services.view-servicio')
                                                         <td>
                                                             <a data-toggle="modal"
-                                                                data-target="#example{{ $item->id }}"><img class=""
+                                                                data-target="#example{{ $item->Mecanica->id }}"><img class=""
                                                                     src="{{ asset('img/icon/white/add.png') }}"
                                                                     width="15px"></a>
                                                         </td>
@@ -82,9 +88,6 @@
                                                         {{-- @endif --}}
                                                     </tr>
                                                 </tbody>
-                                                @break
-                                            @endforeach
-
                                         @endforeach
                                     </table>
                                 </div>
