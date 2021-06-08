@@ -26,7 +26,8 @@
         "renatomarinho/laravel-page-speed": "^2.0",
         "silviolleite/laravelpwa": "^2.0",
         "spatie/laravel-backup": "^6.16",
-        "spatie/laravel-permission": "^3.18"
+        "spatie/laravel-permission": "^3.18",
+        "tinify/tinify": "^1.5"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

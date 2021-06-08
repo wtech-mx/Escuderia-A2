@@ -133,50 +133,34 @@ class ExpolizaController extends Controller
         $exp->titulo = $request->get('titulo');
 
         if ($request->hasFile('poliza')) {
+            $file = $request->file('poliza');
+            $file->move(public_path() . '/exp-poliza', time() . "." . $file->getClientOriginalExtension());
+            $exp->poliza = time() . "." . $file->getClientOriginalExtension();
 
-            $file = $request->file("poliza");
-            list($width) = getimagesize($file);
+            $filepath = public_path('/exp-poliza/' . $exp->poliza);
 
-            $nombre = "pdf_" . time() . "." . $file->guessExtension();
-            $ruta = public_path("/exp-poliza/" . $nombre);
-
-            if ($width > 1920) {
-                if ($file->guessExtension() == "pdf") {
-                    copy($file, $ruta);
-                    $exp->poliza = $nombre;
-                } else {
-                    $urlfoto = $request->file('poliza');
-                    $nombre = time() . "." . $urlfoto->guessExtension();
-                    $ruta = public_path('/exp-poliza/' . $nombre);
-                    $compresion = Image::make($urlfoto->getRealPath())
-                        ->save($ruta, 80);
-                    $exp->poliza = $compresion->basename;
-                }
-            } else {
-                if ($file->guessExtension() == "pdf") {
-                    copy($file, $ruta);
-                    $exp->poliza = $nombre;
-                } else {
-                    $urlfoto = $request->file('poliza');
-                    $nombre = time() . "." . $urlfoto->guessExtension();
-                    $ruta = public_path('/exp-poliza/' . $nombre);
-
-                    switch ($width) {
-                        case ($width <= 750):
-                            $compresion = Image::make($urlfoto->getRealPath())
-                                ->save($ruta);
-                            $exp->poliza = $compresion->basename;
-                            break;
-                        case ($width >= 751):
-                            $compresion = Image::make($urlfoto->getRealPath())
-                                ->rotate(270)
-                                ->save($ruta);
-                            $exp->poliza = $compresion->basename;
-                            break;
-                    }
-                }
+            try {
+                \Tinify\setKey(env("TINIFY_API_KEY"));
+                $source = \Tinify\fromFile($filepath);
+                $source->toFile($filepath);
+            } catch (\Tinify\AccountException $e) {
+                // Verify your API key and account limit.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (\Tinify\ClientException $e) {
+                // Check your source image and request options.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (\Tinify\ServerException $e) {
+                // Temporary issue with the Tinify API.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (\Tinify\ConnectionException $e) {
+                // A network connection error occurred.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (Exception $e) {
+                // Something else went wrong, unrelated to the Tinify API.
+                return redirect()->back()->with('error', $e->getMessage());
             }
         }
+
         $exp->current_auto = $request->get('current_auto');
 
         /* Compara el auto que se selecciono con la db */
