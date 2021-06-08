@@ -1,7 +1,9 @@
 @extends('admin.layouts.app')
+
 @section('css')
     <link href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.min.css" rel="stylesheet">
 @endsection
+
 @section('content')
 
     <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
@@ -58,9 +60,12 @@
                                 </thead>
                                 <tbody>
                                     @foreach ($notas as $item)
+                                        @php
+                                            $recorte = substr($item->nota, 0, 15);
+                                        @endphp
                                         <tr>
                                             <td>{{ $item->User->name }}</td>
-                                            <td>{{ $item->nota }}</td>
+                                            <td>{{ $recorte }}...</td>
                                             <td>
                                                 <a type="button" class="btn text-white" data-toggle="modal"
                                                     data-target="#modalNotasUpdate{{ $item->id }}"
@@ -95,7 +100,7 @@
     <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.min.js"></script>
 
-    <script>
+    <script type="text/javascript">
         $(document).ready(function() {
             $('#notas').DataTable();
         });

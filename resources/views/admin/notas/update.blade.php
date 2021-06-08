@@ -1,3 +1,9 @@
+@php
+$fechaEntera = strtotime($item->created_at);
+$anio = date('Y', $fechaEntera);
+$mes = date('m', $fechaEntera);
+$dia = date('d', $fechaEntera);
+@endphp
 <!-- Modal -->
 <div class="modal fade" id="modalNotasUpdate{{ $item->id }}" tabindex="-1" role="dialog"
     aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -38,6 +44,16 @@
                     <label class="mt-3" for="">
                         <p><strong>Notas</strong></p>
                     </label>
+
+                    <div class="input-group form-group mb-5">
+                        <textarea class="form-control" rows="5">
+                            @foreach ($notas as $item2)
+                                @if ($item2->id_user == $item->id_user)
+                                    {{ $dia }}/{{ $mes }}/{{ $dia }} - {{ $item2->nota }}
+                                @endif
+                            @endforeach
+                        </textarea>
+                    </div>
 
                     <div class="input-group form-group mb-5">
                         <textarea class="form-control" id="nota" name="nota" rows="3">{{ $item->nota }}</textarea>

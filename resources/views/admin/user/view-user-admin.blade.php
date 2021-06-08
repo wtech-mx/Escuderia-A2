@@ -80,6 +80,7 @@
                         <tr>
                             <th scope="col">Nombre</th>
                             <th scope="col">Correo</th>
+                            <th scope="col">Telefono</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -91,10 +92,11 @@
                             $dia = date('d', $fechaEntera);
                         @endphp
                             <tr>
-                                <th><a style="text-decoration: none;"
+                                <td><a style="text-decoration: none;"
                                         href="{{ route('edit_admin.user', $item->id) }}">{{ $item->name }}</a>
-                                </th>
+                                </td>
                                 <td>{{ $item->email }}</td>
+                                <td>{{ $item->telefono }}</td>
                             </tr>
                         @endforeach
                     </tbody>
