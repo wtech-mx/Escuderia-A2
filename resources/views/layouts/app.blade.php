@@ -54,6 +54,7 @@
     <link href="{{ asset('css/alerts.css') }}" rel="stylesheet">
     <link href="{{ asset('css/calendario.css') }}" rel="stylesheet">
     <link href="{{ asset('css/pwa.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/preloader.css') }}" rel="stylesheet">
 
     <link href="{{ asset('fonts/font-awesome.min.css') }}" rel="stylesheet">
     <link href="{{ asset('fonts/all.min.css') }}" rel="stylesheet">
@@ -70,6 +71,7 @@
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    <script src="{{ asset('js/preloader.js') }}"></script>
 {{--    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" ></script>--}}
 
     <!-- bootstrap JavaScript -->
