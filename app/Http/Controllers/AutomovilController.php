@@ -99,12 +99,32 @@ class AutomovilController extends Controller
         $automovil->placas = $placa;
 
         if ($request->hasFile('img')) {
-            $urlfoto = $request->file('img');
-            $nombre = time() . "." . $urlfoto->guessExtension();
-            $ruta = public_path('/img-auto/' . $nombre);
-            $compresion = Image::make($urlfoto->getRealPath())
-                ->save($ruta, 10);
-            $automovil->img = $compresion->basename;
+            $file = $request->file('img');
+            $file->move(public_path() . '/img-auto', time() . "." . $file->getClientOriginalExtension());
+            $automovil->img = time() . "." . $file->getClientOriginalExtension();
+
+            $filepath = public_path('/img-auto/' . $automovil->img);
+
+            try {
+                \Tinify\setKey(env("TINIFY_API_KEY"));
+                $source = \Tinify\fromFile($filepath);
+                $source->toFile($filepath);
+            } catch (\Tinify\AccountException $e) {
+                // Verify your API key and account limit.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (\Tinify\ClientException $e) {
+                // Check your source image and request options.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (\Tinify\ServerException $e) {
+                // Temporary issue with the Tinify API.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (\Tinify\ConnectionException $e) {
+                // A network connection error occurred.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (Exception $e) {
+                // Something else went wrong, unrelated to the Tinify API.
+                return redirect()->back()->with('error', $e->getMessage());
+            }
         }
 
         $automovil->id_user = auth()->user()->id;
@@ -203,12 +223,32 @@ class AutomovilController extends Controller
         $automovil->placas = $placa;
 
         if ($request->hasFile('img')) {
-            $urlfoto = $request->file('img');
-            $nombre = time() . "." . $urlfoto->guessExtension();
-            $ruta = public_path('/img-auto/' . $nombre);
-            $compresion = Image::make($urlfoto->getRealPath())
-                ->save($ruta, 10);
-            $automovil->img = $compresion->basename;
+            $file = $request->file('img');
+            $file->move(public_path() . '/img-auto', time() . "." . $file->getClientOriginalExtension());
+            $automovil->img = time() . "." . $file->getClientOriginalExtension();
+
+            $filepath = public_path('/img-auto/' . $automovil->img);
+
+            try {
+                \Tinify\setKey(env("TINIFY_API_KEY"));
+                $source = \Tinify\fromFile($filepath);
+                $source->toFile($filepath);
+            } catch (\Tinify\AccountException $e) {
+                // Verify your API key and account limit.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (\Tinify\ClientException $e) {
+                // Check your source image and request options.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (\Tinify\ServerException $e) {
+                // Temporary issue with the Tinify API.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (\Tinify\ConnectionException $e) {
+                // A network connection error occurred.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (Exception $e) {
+                // Something else went wrong, unrelated to the Tinify API.
+                return redirect()->back()->with('error', $e->getMessage());
+            }
         }
 
 
@@ -306,12 +346,32 @@ class AutomovilController extends Controller
         $automovil->placas = $placa;
 
         if ($request->hasFile('img')) {
-            $urlfoto = $request->file('img');
-            $nombre = time() . "." . $urlfoto->guessExtension();
-            $ruta = public_path('/img-auto/' . $nombre);
-            $compresion = Image::make($urlfoto->getRealPath())
-                ->save($ruta, 10);
-            $automovil->img = $compresion->basename;
+            $file = $request->file('img');
+            $file->move(public_path() . '/img-auto', time() . "." . $file->getClientOriginalExtension());
+            $automovil->img = time() . "." . $file->getClientOriginalExtension();
+
+            $filepath = public_path('/img-auto/' . $automovil->img);
+
+            try {
+                \Tinify\setKey(env("TINIFY_API_KEY"));
+                $source = \Tinify\fromFile($filepath);
+                $source->toFile($filepath);
+            } catch (\Tinify\AccountException $e) {
+                // Verify your API key and account limit.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (\Tinify\ClientException $e) {
+                // Check your source image and request options.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (\Tinify\ServerException $e) {
+                // Temporary issue with the Tinify API.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (\Tinify\ConnectionException $e) {
+                // A network connection error occurred.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (Exception $e) {
+                // Something else went wrong, unrelated to the Tinify API.
+                return redirect()->back()->with('error', $e->getMessage());
+            }
         }
 
         $automovil->save();
@@ -420,12 +480,32 @@ class AutomovilController extends Controller
         $automovil->placas = $placa;
 
         if ($request->hasFile('img')) {
-            $urlfoto = $request->file('img');
-            $nombre = time() . "." . $urlfoto->guessExtension();
-            $ruta = public_path('/img-auto/' . $nombre);
-            $compresion = Image::make($urlfoto->getRealPath())
-                ->save($ruta, 10);
-            $automovil->img = $compresion->basename;
+            $file = $request->file('img');
+            $file->move(public_path() . '/img-auto', time() . "." . $file->getClientOriginalExtension());
+            $automovil->img = time() . "." . $file->getClientOriginalExtension();
+
+            $filepath = public_path('/img-auto/' . $automovil->img);
+
+            try {
+                \Tinify\setKey(env("TINIFY_API_KEY"));
+                $source = \Tinify\fromFile($filepath);
+                $source->toFile($filepath);
+            } catch (\Tinify\AccountException $e) {
+                // Verify your API key and account limit.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (\Tinify\ClientException $e) {
+                // Check your source image and request options.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (\Tinify\ServerException $e) {
+                // Temporary issue with the Tinify API.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (\Tinify\ConnectionException $e) {
+                // A network connection error occurred.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (Exception $e) {
+                // Something else went wrong, unrelated to the Tinify API.
+                return redirect()->back()->with('error', $e->getMessage());
+            }
         }
 
         $automovil->update();
