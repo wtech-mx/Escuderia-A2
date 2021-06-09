@@ -14,35 +14,39 @@ use Image;
 class ExptenenciasController extends Controller
 {
 
-    public function __construct(){
+    public function __construct()
+    {
         $this->middleware('auth');
     }
 
-     function index(){
+    function index()
+    {
 
         $user = DB::table('users')
-        ->where('id','=',auth()->user()->id)
-        ->first();
+            ->where('id', '=', auth()->user()->id)
+            ->first();
 
         $auto_user = $user->{'id'};
 
         $exp_tenencias = DB::table('exp_tenencias')
-        ->where('id_user','=',$auto_user)
-        ->where('current_auto','=',auth()->user()->current_auto)
-        ->get();
+            ->where('id_user', '=', $auto_user)
+            ->where('current_auto', '=', auth()->user()->current_auto)
+            ->get();
 
-        return view('exp-fisico.view-tenencia',compact('exp_tenencias'));
+        return view('exp-fisico.view-tenencia', compact('exp_tenencias'));
     }
 
-    public function create(){
+    public function create()
+    {
 
         return view('exp-fisico.view-tenencia');
     }
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
 
-        $validate = $this->validate($request,[
-            'tenencia' => 'mimes:jpeg,bpm,jpg,png,pdf|max:900',
+        $validate = $this->validate($request, [
+            'tenencia' => 'mimes:jpeg,bpm,jpg,png,pdf',
         ]);
 
         $exp_tenencias = new ExpTenencias;
@@ -50,52 +54,36 @@ class ExptenenciasController extends Controller
 
         if ($request->hasFile('tenencia')) {
 
-    	    $file=$request->file("tenencia");
-            list($width) = getimagesize($file);
+            $file = $request->file('tenencia');
+            $file->move(public_path() . '/exp-tenencia', time() . "." . $file->getClientOriginalExtension());
+            $exp_tenencias->tenencia = time() . "." . $file->getClientOriginalExtension();
 
-    	    $nombre = "pdf_".time().".".$file->guessExtension();
-    	    $ruta = public_path("/exp-tenencia/".$nombre);
+            $filepath = public_path('/exp-tenencia/' . $exp_tenencias->tenencia);
 
-    	    if($width>1920){
-                if($file->guessExtension()=="pdf"){
-                    copy($file, $ruta);
-                    $exp_tenencias->tenencia = $nombre;
-                }else {
-                    $urlfoto = $request->file('tenencia');
-                    $nombre = time() . "." . $urlfoto->guessExtension();
-                    $ruta = public_path('/exp-tenencia/' . $nombre);
-                    $compresion = Image::make($urlfoto->getRealPath())
-                        ->save($ruta, 80);
-                    $exp_tenencias->tenencia = $compresion->basename;
-                }
-            }else{
-                if($file->guessExtension()=="pdf"){
-                    copy($file, $ruta);
-                    $exp_tenencias->tenencia = $nombre;
-                }else {
-                    $urlfoto = $request->file('tenencia');
-                    $nombre = time() . "." . $urlfoto->guessExtension();
-                    $ruta = public_path('/exp-tenencia/' . $nombre);
-
-                    switch ($width) {
-                        case($width <= 750):
-                            $compresion = Image::make($urlfoto->getRealPath())
-                                ->save($ruta);
-                            $exp_tenencias->tenencia = $compresion->basename;
-                            break;
-                        case($width >= 751):
-                            $compresion = Image::make($urlfoto->getRealPath())
-                                ->rotate(270)
-                                ->save($ruta);
-                            $exp_tenencias->tenencia = $compresion->basename;
-                            break;
-                    }
-                }
+            try {
+                \Tinify\setKey(env("TINIFY_API_KEY"));
+                $source = \Tinify\fromFile($filepath);
+                $source->toFile($filepath);
+            } catch (\Tinify\AccountException $e) {
+                // Verify your API key and account limit.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (\Tinify\ClientException $e) {
+                // Check your source image and request options.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (\Tinify\ServerException $e) {
+                // Temporary issue with the Tinify API.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (\Tinify\ConnectionException $e) {
+                // A network connection error occurred.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (Exception $e) {
+                // Something else went wrong, unrelated to the Tinify API.
+                return redirect()->back()->with('error', $e->getMessage());
             }
-   	    }
+        }
 
         $exp_tenencias->id_user = auth()->user()->id;
-    	$exp_tenencias->current_auto = auth()->user()->current_auto;
+        $exp_tenencias->current_auto = auth()->user()->current_auto;
 
         $exp_tenencias->save();
 
@@ -108,23 +96,24 @@ class ExptenenciasController extends Controller
     {
         /* Trae los datos el auto en el que esta */
         $automovil = DB::table('automovil')
-        ->where('id','=',$id)
-        ->first();
+            ->where('id', '=', $id)
+            ->first();
 
         $exp_auto = $automovil->id;
 
         $exp_tenencias = DB::table('exp_tenencias')
-        ->where('current_auto','=', $exp_auto)
-        ->paginate(6);
+            ->where('current_auto', '=', $exp_auto)
+            ->paginate(6);
 
 
-        return view('admin.exp-fisico.view-tenencia-admin',compact('exp_tenencias','automovil'));
+        return view('admin.exp-fisico.view-tenencia-admin', compact('exp_tenencias', 'automovil'));
     }
 
-    public function store_admin(Request $request,$id){
+    public function store_admin(Request $request, $id)
+    {
 
-        $validate = $this->validate($request,[
-            'tenencia' => 'mimes:jpeg,bpm,jpg,png,pdf|max:900',
+        $validate = $this->validate($request, [
+            'tenencia' => 'mimes:jpeg,bpm,jpg,png,pdf',
         ]);
 
         $exp = new ExpTenencias;
@@ -132,53 +121,37 @@ class ExptenenciasController extends Controller
 
         if ($request->hasFile('tenencia')) {
 
-    	    $file=$request->file("tenencia");
-            list($width) = getimagesize($file);
+            $file = $request->file('tenencia');
+            $file->move(public_path() . '/exp-tenencia', time() . "." . $file->getClientOriginalExtension());
+            $exp->tenencia = time() . "." . $file->getClientOriginalExtension();
 
-    	    $nombre = "pdf_".time().".".$file->guessExtension();
-    	    $ruta = public_path("/exp-tenencia/".$nombre);
+            $filepath = public_path('/exp-tenencia/' . $exp->tenencia);
 
-    	    if($width>1920){
-                if($file->guessExtension()=="pdf"){
-                    copy($file, $ruta);
-                    $exp->tenencia = $nombre;
-                }else {
-                    $urlfoto = $request->file('tenencia');
-                    $nombre = time() . "." . $urlfoto->guessExtension();
-                    $ruta = public_path('/exp-tenencia/' . $nombre);
-                    $compresion = Image::make($urlfoto->getRealPath())
-                        ->save($ruta, 80);
-                    $exp->tenencia = $compresion->basename;
-                }
-            }else{
-                if($file->guessExtension()=="pdf"){
-                    copy($file, $ruta);
-                    $exp->tenencia = $nombre;
-                }else {
-                    $urlfoto = $request->file('tenencia');
-                    $nombre = time() . "." . $urlfoto->guessExtension();
-                    $ruta = public_path('/exp-tenencia/' . $nombre);
-
-                    switch ($width) {
-                        case($width <= 750):
-                            $compresion = Image::make($urlfoto->getRealPath())
-                                ->save($ruta);
-                            $exp->tenencia = $compresion->basename;
-                            break;
-                        case($width >= 751):
-                            $compresion = Image::make($urlfoto->getRealPath())
-                                ->rotate(270)
-                                ->save($ruta);
-                            $exp->tenencia = $compresion->basename;
-                            break;
-                    }
-                }
+            try {
+                \Tinify\setKey(env("TINIFY_API_KEY"));
+                $source = \Tinify\fromFile($filepath);
+                $source->toFile($filepath);
+            } catch (\Tinify\AccountException $e) {
+                // Verify your API key and account limit.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (\Tinify\ClientException $e) {
+                // Check your source image and request options.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (\Tinify\ServerException $e) {
+                // Temporary issue with the Tinify API.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (\Tinify\ConnectionException $e) {
+                // A network connection error occurred.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (Exception $e) {
+                // Something else went wrong, unrelated to the Tinify API.
+                return redirect()->back()->with('error', $e->getMessage());
             }
-   	    }
-    	/* Compara el auto que se selecciono con la db */
+        }
+        /* Compara el auto que se selecciono con la db */
         $automovil = DB::table('automovil')
-        ->where('id','=',$id)
-        ->first();
+            ->where('id', '=', $id)
+            ->first();
 
         $exp->current_auto = $automovil->id;
 
@@ -190,13 +163,13 @@ class ExptenenciasController extends Controller
         return redirect()->back();
     }
 
-     function destroy($id){
+    function destroy($id)
+    {
         $exp = ExpTenencias::findOrFail($id);
-        unlink(public_path('/exp-tenencia/'.$exp->tenencia));
+        unlink(public_path('/exp-tenencia/' . $exp->tenencia));
         $exp->delete();
 
         Session::flash('destroy', 'Se Elimino su Factura con exito');
         return redirect()->back();
-
     }
 }

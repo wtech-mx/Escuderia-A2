@@ -13,35 +13,39 @@ use Image;
 class ExprfcController extends Controller
 {
 
-    public function __construct(){
+    public function __construct()
+    {
         $this->middleware('auth');
     }
 
-     function index(){
+    function index()
+    {
 
         $user = DB::table('users')
-        ->where('id','=',auth()->user()->id)
-        ->first();
+            ->where('id', '=', auth()->user()->id)
+            ->first();
 
         $auto_user = $user->{'id'};
 
         $exp_rfc = DB::table('exp_rfc')
-        ->where('id_user','=',$auto_user)
-        ->where('current_auto','=',auth()->user()->current_auto)
-        ->get();
+            ->where('id_user', '=', $auto_user)
+            ->where('current_auto', '=', auth()->user()->current_auto)
+            ->get();
 
-        return view('exp-fisico.view-rfc',compact('exp_rfc'));
+        return view('exp-fisico.view-rfc', compact('exp_rfc'));
     }
 
-    public function create(){
+    public function create()
+    {
 
         return view('exp-fisico.view-rfc');
     }
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
 
-        $validate = $this->validate($request,[
-            'rfc' => 'mimes:jpeg,bpm,jpg,png,pdf|max:900',
+        $validate = $this->validate($request, [
+            'rfc' => 'mimes:jpeg,bpm,jpg,png,pdf',
         ]);
 
         $exp_rfc = new ExpRfc;
@@ -50,52 +54,36 @@ class ExprfcController extends Controller
 
         if ($request->hasFile('rfc')) {
 
-    	    $file=$request->file("rfc");
-            list($width) = getimagesize($file);
+            $file = $request->file('rfc');
+            $file->move(public_path() . '/exp-rfc', time() . "." . $file->getClientOriginalExtension());
+            $exp_rfc->rfc = time() . "." . $file->getClientOriginalExtension();
 
-    	    $nombre = "pdf_".time().".".$file->guessExtension();
-    	    $ruta = public_path("/exp-rfc/".$nombre);
+            $filepath = public_path('/exp-rfc/' . $exp_rfc->rfc);
 
-    	    if($width>1920){
-                if($file->guessExtension()=="pdf"){
-                    copy($file, $ruta);
-                    $exp_rfc->rfc = $nombre;
-                }else {
-                    $urlfoto = $request->file('rfc');
-                    $nombre = time() . "." . $urlfoto->guessExtension();
-                    $ruta = public_path('/exp-rfc/' . $nombre);
-                    $compresion = Image::make($urlfoto->getRealPath())
-                        ->save($ruta, 80);
-                    $exp_rfc->rfc = $compresion->basename;
-                }
-            }else{
-                if($file->guessExtension()=="pdf"){
-                    copy($file, $ruta);
-                    $exp_rfc->rfc = $nombre;
-                }else {
-                    $urlfoto = $request->file('rfc');
-                    $nombre = time() . "." . $urlfoto->guessExtension();
-                    $ruta = public_path('/exp-rfc/' . $nombre);
-
-                    switch ($width) {
-                        case($width <= 750):
-                            $compresion = Image::make($urlfoto->getRealPath())
-                                ->save($ruta);
-                            $exp_rfc->rfc = $compresion->basename;
-                            break;
-                        case($width >= 751):
-                            $compresion = Image::make($urlfoto->getRealPath())
-                                ->rotate(270)
-                                ->save($ruta);
-                            $exp_rfc->tenencia = $compresion->basename;
-                            break;
-                    }
-                }
+            try {
+                \Tinify\setKey(env("TINIFY_API_KEY"));
+                $source = \Tinify\fromFile($filepath);
+                $source->toFile($filepath);
+            } catch (\Tinify\AccountException $e) {
+                // Verify your API key and account limit.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (\Tinify\ClientException $e) {
+                // Check your source image and request options.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (\Tinify\ServerException $e) {
+                // Temporary issue with the Tinify API.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (\Tinify\ConnectionException $e) {
+                // A network connection error occurred.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (Exception $e) {
+                // Something else went wrong, unrelated to the Tinify API.
+                return redirect()->back()->with('error', $e->getMessage());
             }
-   	    }
+        }
 
         $exp_rfc->id_user = auth()->user()->id;
-    	$exp_rfc->current_auto = auth()->user()->current_auto;
+        $exp_rfc->current_auto = auth()->user()->current_auto;
 
         $exp_rfc->save();
 
@@ -108,22 +96,23 @@ class ExprfcController extends Controller
     {
         /* Trae los datos el auto en el que esta */
         $automovil = DB::table('automovil')
-        ->where('id','=',$id)
-        ->first();
+            ->where('id', '=', $id)
+            ->first();
 
         $exp_auto = $automovil->id;
 
         $exp_rfc = DB::table('exp_rfc')
-        ->where('current_auto','=', $exp_auto)
-        ->paginate(6);
+            ->where('current_auto', '=', $exp_auto)
+            ->paginate(6);
 
-        return view('admin.exp-fisico.view-rfc-admin',compact('exp_rfc','automovil'));
+        return view('admin.exp-fisico.view-rfc-admin', compact('exp_rfc', 'automovil'));
     }
 
-    public function store_admin(Request $request,$id){
+    public function store_admin(Request $request, $id)
+    {
 
-        $validate = $this->validate($request,[
-            'rfc' => 'mimes:jpeg,bpm,jpg,png,pdf|max:900',
+        $validate = $this->validate($request, [
+            'rfc' => 'mimes:jpeg,bpm,jpg,png,pdf',
         ]);
 
         $exp = new ExpRfc;
@@ -132,54 +121,38 @@ class ExprfcController extends Controller
 
         if ($request->hasFile('rfc')) {
 
-    	    $file=$request->file("rfc");
-            list($width) = getimagesize($file);
+            $file = $request->file('rfc');
+            $file->move(public_path() . '/exp-rfc', time() . "." . $file->getClientOriginalExtension());
+            $exp->rfc = time() . "." . $file->getClientOriginalExtension();
 
-    	    $nombre = "pdf_".time().".".$file->guessExtension();
-    	    $ruta = public_path("/exp-rfc/".$nombre);
+            $filepath = public_path('/exp-rfc/' . $exp->rfc);
 
-    	    if($width>1920){
-                if($file->guessExtension()=="pdf"){
-                    copy($file, $ruta);
-                    $exp->rfc = $nombre;
-                }else {
-                    $urlfoto = $request->file('rfc');
-                    $nombre = time() . "." . $urlfoto->guessExtension();
-                    $ruta = public_path('/exp-rfc/' . $nombre);
-                    $compresion = Image::make($urlfoto->getRealPath())
-                        ->save($ruta, 80);
-                    $exp->rfc = $compresion->basename;
-                }
-            }else{
-                if($file->guessExtension()=="pdf"){
-                    copy($file, $ruta);
-                    $exp->rfc = $nombre;
-                }else {
-                    $urlfoto = $request->file('rfc');
-                    $nombre = time() . "." . $urlfoto->guessExtension();
-                    $ruta = public_path('/exp-rfc/' . $nombre);
-
-                    switch ($width) {
-                        case($width <= 750):
-                            $compresion = Image::make($urlfoto->getRealPath())
-                                ->save($ruta);
-                            $exp->rfc = $compresion->basename;
-                            break;
-                        case($width >= 751):
-                            $compresion = Image::make($urlfoto->getRealPath())
-                                ->rotate(270)
-                                ->save($ruta);
-                            $exp->rfc = $compresion->basename;
-                            break;
-                    }
-                }
+            try {
+                \Tinify\setKey(env("TINIFY_API_KEY"));
+                $source = \Tinify\fromFile($filepath);
+                $source->toFile($filepath);
+            } catch (\Tinify\AccountException $e) {
+                // Verify your API key and account limit.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (\Tinify\ClientException $e) {
+                // Check your source image and request options.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (\Tinify\ServerException $e) {
+                // Temporary issue with the Tinify API.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (\Tinify\ConnectionException $e) {
+                // A network connection error occurred.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (Exception $e) {
+                // Something else went wrong, unrelated to the Tinify API.
+                return redirect()->back()->with('error', $e->getMessage());
             }
-   	    }
+        }
 
-    	/* Compara el auto que se selecciono con la db */
+        /* Compara el auto que se selecciono con la db */
         $automovil = DB::table('automovil')
-        ->where('id','=',$id)
-        ->first();
+            ->where('id', '=', $id)
+            ->first();
 
         $exp->current_auto = $automovil->id;
 
@@ -191,13 +164,13 @@ class ExprfcController extends Controller
         return redirect()->back();
     }
 
-     function destroy($id){
+    function destroy($id)
+    {
         $exp = ExpRfc::findOrFail($id);
-        unlink(public_path('/exp-rfc/'.$exp->rfc));
+        unlink(public_path('/exp-rfc/' . $exp->rfc));
         $exp->delete();
 
         Session::flash('destroy', 'Se Elimino su Factura con exito');
         return redirect()->back();
-
     }
 }

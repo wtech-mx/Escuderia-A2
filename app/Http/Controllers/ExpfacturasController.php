@@ -63,7 +63,7 @@ class ExpfacturasController extends Controller
     {
 
         $validate = $this->validate($request, [
-            'factura' => 'mimes:jpeg,bpm,jpg,png,pdf|max:900',
+            'factura' => 'mimes:jpeg,bpm,jpg,png,pdf',
         ]);
 
         $exp_factura = new ExpFactura;
@@ -72,47 +72,31 @@ class ExpfacturasController extends Controller
 
         if ($request->hasFile('factura')) {
 
-            $file = $request->file("factura");
-            list($width) = getimagesize($file);
+            $file = $request->file('factura');
+            $file->move(public_path() . '/exp-factura', time() . "." . $file->getClientOriginalExtension());
+            $exp_factura->factura = time() . "." . $file->getClientOriginalExtension();
 
-            $nombre = "pdf_" . time() . "." . $file->guessExtension();
-            $ruta = public_path("/exp-factura/" . $nombre);
+            $filepath = public_path('/exp-factura/' . $exp_factura->factura);
 
-            if ($width > 1920) {
-                if ($file->guessExtension() == "pdf") {
-                    copy($file, $ruta);
-                    $exp_factura->factura = $nombre;
-                } else {
-                    $urlfoto = $request->file('factura');
-                    $nombre = time() . "." . $urlfoto->guessExtension();
-                    $ruta = public_path('/exp-factura/' . $nombre);
-                    $compresion = Image::make($urlfoto->getRealPath())
-                        ->save($ruta, 80);
-                    $exp_factura->factura = $compresion->basename;
-                }
-            } else {
-                if ($file->guessExtension() == "pdf") {
-                    copy($file, $ruta);
-                    $exp_factura->factura = $nombre;
-                } else {
-                    $urlfoto = $request->file('factura');
-                    $nombre = time() . "." . $urlfoto->guessExtension();
-                    $ruta = public_path('/exp-factura/' . $nombre);
-
-                    switch ($width) {
-                        case ($width <= 750):
-                            $compresion = Image::make($urlfoto->getRealPath())
-                                ->save($ruta);
-                            $exp_factura->factura = $compresion->basename;
-                            break;
-                        case ($width >= 751):
-                            $compresion = Image::make($urlfoto->getRealPath())
-                                ->rotate(270)
-                                ->save($ruta);
-                            $exp_factura->factura = $compresion->basename;
-                            break;
-                    }
-                }
+            try {
+                \Tinify\setKey(env("TINIFY_API_KEY"));
+                $source = \Tinify\fromFile($filepath);
+                $source->toFile($filepath);
+            } catch (\Tinify\AccountException $e) {
+                // Verify your API key and account limit.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (\Tinify\ClientException $e) {
+                // Check your source image and request options.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (\Tinify\ServerException $e) {
+                // Temporary issue with the Tinify API.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (\Tinify\ConnectionException $e) {
+                // A network connection error occurred.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (Exception $e) {
+                // Something else went wrong, unrelated to the Tinify API.
+                return redirect()->back()->with('error', $e->getMessage());
             }
         }
 
@@ -183,47 +167,31 @@ class ExpfacturasController extends Controller
 
         if ($request->hasFile('factura')) {
 
-            $file = $request->file("factura");
-            list($width) = getimagesize($file);
+            $file = $request->file('factura');
+            $file->move(public_path() . '/exp-factura', time() . "." . $file->getClientOriginalExtension());
+            $exp->factura = time() . "." . $file->getClientOriginalExtension();
 
-            $nombre = "pdf_" . time() . "." . $file->guessExtension();
-            $ruta = public_path("/exp-factura/" . $nombre);
+            $filepath = public_path('/exp-factura/' . $exp->factura);
 
-            if ($width > 1920) {
-                if ($file->guessExtension() == "pdf") {
-                    copy($file, $ruta);
-                    $exp->factura = $nombre;
-                } else {
-                    $urlfoto = $request->file('factura');
-                    $nombre = time() . "." . $urlfoto->guessExtension();
-                    $ruta = public_path('/exp-factura/' . $nombre);
-                    $compresion = Image::make($urlfoto->getRealPath())
-                        ->save($ruta, 80);
-                    $exp->factura = $compresion->basename;
-                }
-            } else {
-                if ($file->guessExtension() == "pdf") {
-                    copy($file, $ruta);
-                    $exp->factura = $nombre;
-                } else {
-                    $urlfoto = $request->file('factura');
-                    $nombre = time() . "." . $urlfoto->guessExtension();
-                    $ruta = public_path('/exp-factura/' . $nombre);
-
-                    switch ($width) {
-                        case ($width <= 750):
-                            $compresion = Image::make($urlfoto->getRealPath())
-                                ->save($ruta);
-                            $exp->factura = $compresion->basename;
-                            break;
-                        case ($width >= 751):
-                            $compresion = Image::make($urlfoto->getRealPath())
-                                ->rotate(270)
-                                ->save($ruta);
-                            $exp->factura = $compresion->basename;
-                            break;
-                    }
-                }
+            try {
+                \Tinify\setKey(env("TINIFY_API_KEY"));
+                $source = \Tinify\fromFile($filepath);
+                $source->toFile($filepath);
+            } catch (\Tinify\AccountException $e) {
+                // Verify your API key and account limit.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (\Tinify\ClientException $e) {
+                // Check your source image and request options.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (\Tinify\ServerException $e) {
+                // Temporary issue with the Tinify API.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (\Tinify\ConnectionException $e) {
+                // A network connection error occurred.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (Exception $e) {
+                // Something else went wrong, unrelated to the Tinify API.
+                return redirect()->back()->with('error', $e->getMessage());
             }
         }
 

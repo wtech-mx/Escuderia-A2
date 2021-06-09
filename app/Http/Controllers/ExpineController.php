@@ -42,7 +42,7 @@ class ExpineController extends Controller
     public function store(Request $request){
 
         $validate = $this->validate($request,[
-            'ine' => 'mimes:jpeg,bpm,jpg,png,pdf|max:900',
+            'ine' => 'mimes:jpeg,bpm,jpg,png,pdf',
         ]);
 
         $exp_ine = new ExpIne;
@@ -51,47 +51,31 @@ class ExpineController extends Controller
 
         if ($request->hasFile('ine')) {
 
-    	    $file=$request->file("ine");
-            list($width) = getimagesize($file);
+            $file = $request->file('ine');
+            $file->move(public_path() . '/exp-ine', time() . "." . $file->getClientOriginalExtension());
+            $exp_ine->ine = time() . "." . $file->getClientOriginalExtension();
 
-    	    $nombre = "pdf_".time().".".$file->guessExtension();
-    	    $ruta = public_path("/exp-ine/".$nombre);
+            $filepath = public_path('/exp-ine/' . $exp_ine->ine);
 
-    	    if($width>1920){
-                if($file->guessExtension()=="pdf"){
-                    copy($file, $ruta);
-                    $exp_ine->ine = $nombre;
-                }else {
-                    $urlfoto = $request->file('ine');
-                    $nombre = time() . "." . $urlfoto->guessExtension();
-                    $ruta = public_path('/exp-ine/' . $nombre);
-                    $compresion = Image::make($urlfoto->getRealPath())
-                        ->save($ruta, 80);
-                    $exp_ine->ine = $compresion->basename;
-                }
-            }else{
-                if($file->guessExtension()=="pdf"){
-                    copy($file, $ruta);
-                    $exp_ine->ine = $nombre;
-                }else {
-                    $urlfoto = $request->file('ine');
-                    $nombre = time() . "." . $urlfoto->guessExtension();
-                    $ruta = public_path('/exp-ine/' . $nombre);
-
-                    switch ($width) {
-                        case($width <= 576):
-                            $compresion = Image::make($urlfoto->getRealPath())
-                                ->save($ruta);
-                            $exp_ine->ine = $compresion->basename;
-                            break;
-                        case($width >= 577):
-                            $compresion = Image::make($urlfoto->getRealPath())
-                                ->rotate(270)
-                                ->save($ruta);
-                            $exp_ine->ine = $compresion->basename;
-                            break;
-                    }
-                }
+            try {
+                \Tinify\setKey(env("TINIFY_API_KEY"));
+                $source = \Tinify\fromFile($filepath);
+                $source->toFile($filepath);
+            } catch (\Tinify\AccountException $e) {
+                // Verify your API key and account limit.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (\Tinify\ClientException $e) {
+                // Check your source image and request options.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (\Tinify\ServerException $e) {
+                // Temporary issue with the Tinify API.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (\Tinify\ConnectionException $e) {
+                // A network connection error occurred.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (Exception $e) {
+                // Something else went wrong, unrelated to the Tinify API.
+                return redirect()->back()->with('error', $e->getMessage());
             }
    	    }
 
@@ -124,7 +108,7 @@ class ExpineController extends Controller
     public function store_admin(Request $request,$id){
 
         $validate = $this->validate($request,[
-            'ine' => 'mimes:jpeg,bpm,jpg,png,pdf|max:900',
+            'ine' => 'mimes:jpeg,bpm,jpg,png,pdf',
         ]);
 
         $exp = new ExpIne;
@@ -133,47 +117,31 @@ class ExpineController extends Controller
 
         if ($request->hasFile('ine')) {
 
-    	    $file=$request->file("ine");
-            list($width) = getimagesize($file);
+            $file = $request->file('ine');
+            $file->move(public_path() . '/exp-ine', time() . "." . $file->getClientOriginalExtension());
+            $exp->ine = time() . "." . $file->getClientOriginalExtension();
 
-    	    $nombre = "pdf_".time().".".$file->guessExtension();
-    	    $ruta = public_path("/exp-ine/".$nombre);
+            $filepath = public_path('/exp-ine/' . $exp->ine);
 
-    	    if($width>1920){
-                if($file->guessExtension()=="pdf"){
-                    copy($file, $ruta);
-                    $exp->ine = $nombre;
-                }else {
-                    $urlfoto = $request->file('ine');
-                    $nombre = time() . "." . $urlfoto->guessExtension();
-                    $ruta = public_path('/exp-ine/' . $nombre);
-                    $compresion = Image::make($urlfoto->getRealPath())
-                        ->save($ruta, 80);
-                    $exp->ine = $compresion->basename;
-                }
-            }else{
-                if($file->guessExtension()=="pdf"){
-                    copy($file, $ruta);
-                    $exp->ine = $nombre;
-                }else {
-                    $urlfoto = $request->file('ine');
-                    $nombre = time() . "." . $urlfoto->guessExtension();
-                    $ruta = public_path('/exp-ine/' . $nombre);
-
-                    switch ($width) {
-                        case($width <= 750):
-                            $compresion = Image::make($urlfoto->getRealPath())
-                                ->save($ruta);
-                            $exp->ine = $compresion->basename;
-                            break;
-                        case($width >= 751):
-                            $compresion = Image::make($urlfoto->getRealPath())
-                                ->rotate(270)
-                                ->save($ruta);
-                            $exp->ine = $compresion->basename;
-                            break;
-                    }
-                }
+            try {
+                \Tinify\setKey(env("TINIFY_API_KEY"));
+                $source = \Tinify\fromFile($filepath);
+                $source->toFile($filepath);
+            } catch (\Tinify\AccountException $e) {
+                // Verify your API key and account limit.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (\Tinify\ClientException $e) {
+                // Check your source image and request options.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (\Tinify\ServerException $e) {
+                // Temporary issue with the Tinify API.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (\Tinify\ConnectionException $e) {
+                // A network connection error occurred.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (Exception $e) {
+                // Something else went wrong, unrelated to the Tinify API.
+                return redirect()->back()->with('error', $e->getMessage());
             }
    	    }
     	/* Compara el auto que se selecciono con la db */

@@ -37,7 +37,7 @@ class ExpCertificadoController extends Controller
     public function store(Request $request){
 
         $validate = $this->validate($request,[
-            'certificado' => 'mimes:jpeg,bpm,jpg,png,pdf|max:900',
+            'certificado' => 'mimes:jpeg,bpm,jpg,png,pdf',
         ]);
 
         $exp_certificados = new ExpCertificado;
@@ -46,48 +46,31 @@ class ExpCertificadoController extends Controller
 
         if ($request->hasFile('certificado')) {
 
-    	    $file=$request->file("certificado");
-            list($width) = getimagesize($file);
+            $file = $request->file('certificado');
+            $file->move(public_path() . '/exp-certificado', time() . "." . $file->getClientOriginalExtension());
+            $exp_certificados->certificado = time() . "." . $file->getClientOriginalExtension();
 
-    	    $nombre = "pdf_".time().".".$file->guessExtension();
-    	    $ruta = public_path("/exp-certificado/".$nombre);
+            $filepath = public_path('/exp-certificado/' . $exp_certificados->certificado);
 
-    	    if($width>1920){
-                if($file->guessExtension()=="pdf"){
-                    copy($file, $ruta);
-                    $exp_certificados->certificado = $nombre;
-
-                }else {
-                    $urlfoto = $request->file('certificado');
-                    $nombre = time() . "." . $urlfoto->guessExtension();
-                    $ruta = public_path('/exp-certificado/' . $nombre);
-                    $compresion = Image::make($urlfoto->getRealPath())
-                        ->save($ruta, 80);
-                    $exp_certificados->certificado = $compresion->basename;
-                }
-            }else{
-                if($file->guessExtension()=="pdf"){
-                    copy($file, $ruta);
-                    $exp_certificados->certificado = $nombre;
-                }else {
-                    $urlfoto = $request->file('certificado');
-                    $nombre = time() . "." . $urlfoto->guessExtension();
-                    $ruta = public_path('/exp-certificado/' . $nombre);
-
-                    switch ($width) {
-                        case($width <= 750):
-                            $compresion = Image::make($urlfoto->getRealPath())
-                                ->save($ruta);
-                            $exp_certificados->certificado = $compresion->basename;
-                            break;
-                        case($width >= 751):
-                            $compresion = Image::make($urlfoto->getRealPath())
-                                ->rotate(270)
-                                ->save($ruta);
-                            $exp_certificados->certificado = $compresion->basename;
-                            break;
-                    }
-                }
+            try {
+                \Tinify\setKey(env("TINIFY_API_KEY"));
+                $source = \Tinify\fromFile($filepath);
+                $source->toFile($filepath);
+            } catch (\Tinify\AccountException $e) {
+                // Verify your API key and account limit.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (\Tinify\ClientException $e) {
+                // Check your source image and request options.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (\Tinify\ServerException $e) {
+                // Temporary issue with the Tinify API.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (\Tinify\ConnectionException $e) {
+                // A network connection error occurred.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (Exception $e) {
+                // Something else went wrong, unrelated to the Tinify API.
+                return redirect()->back()->with('error', $e->getMessage());
             }
    	    }
 
@@ -131,7 +114,7 @@ class ExpCertificadoController extends Controller
     public function store_admin(Request $request,$id){
 
         $validate = $this->validate($request,[
-            'certificado' => 'mimes:jpeg,bpm,jpg,png,pdf|max:900',
+            'certificado' => 'mimes:jpeg,bpm,jpg,png,pdf',
         ]);
 
         $exp = new ExpCertificado;

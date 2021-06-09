@@ -63,7 +63,7 @@ class ExpreemplacaminetoController extends Controller
     public function store(Request $request){
 
         $validate = $this->validate($request,[
-            'reemplacamiento' => 'mimes:jpeg,bpm,jpg,png,pdf|max:900',
+            'reemplacamiento' => 'mimes:jpeg,bpm,jpg,png,pdf',
         ]);
 
         $exp_reemplacamiento = new ExpReemplacamiento;
@@ -72,47 +72,31 @@ class ExpreemplacaminetoController extends Controller
 
         if ($request->hasFile('reemplacamiento')) {
 
-    	    $file=$request->file("reemplacamiento");
-            list($width) = getimagesize($file);
+            $file = $request->file('reemplacamiento');
+            $file->move(public_path() . '/exp-reemplacamiento', time() . "." . $file->getClientOriginalExtension());
+            $exp_reemplacamiento->reemplacamiento = time() . "." . $file->getClientOriginalExtension();
 
-    	    $nombre = "pdf_".time().".".$file->guessExtension();
-    	    $ruta = public_path("/exp-reemplacamiento/".$nombre);
+            $filepath = public_path('/exp-reemplacamiento/' . $exp_reemplacamiento->reemplacamiento);
 
-    	    if($width>1920){
-                if($file->guessExtension()=="pdf"){
-                    copy($file, $ruta);
-                    $exp_reemplacamiento->reemplacamiento = $nombre;
-                }else {
-                    $urlfoto = $request->file('reemplacamiento');
-                    $nombre = time() . "." . $urlfoto->guessExtension();
-                    $ruta = public_path('/exp-reemplacamiento/' . $nombre);
-                    $compresion = Image::make($urlfoto->getRealPath())
-                        ->save($ruta, 80);
-                    $exp_reemplacamiento->reemplacamiento = $compresion->basename;
-                }
-            }else{
-                if($file->guessExtension()=="pdf"){
-                    copy($file, $ruta);
-                    $exp_reemplacamiento->reemplacamiento = $nombre;
-                }else {
-                    $urlfoto = $request->file('reemplacamiento');
-                    $nombre = time() . "." . $urlfoto->guessExtension();
-                    $ruta = public_path('/exp-reemplacamiento/' . $nombre);
-
-                    switch ($width) {
-                        case($width <= 750):
-                            $compresion = Image::make($urlfoto->getRealPath())
-                                ->save($ruta);
-                            $exp_reemplacamiento->reemplacamiento = $compresion->basename;
-                            break;
-                        case($width >= 751):
-                            $compresion = Image::make($urlfoto->getRealPath())
-                                ->rotate(270)
-                                ->save($ruta);
-                            $exp_reemplacamiento->reemplacamiento = $compresion->basename;
-                            break;
-                    }
-                }
+            try {
+                \Tinify\setKey(env("TINIFY_API_KEY"));
+                $source = \Tinify\fromFile($filepath);
+                $source->toFile($filepath);
+            } catch (\Tinify\AccountException $e) {
+                // Verify your API key and account limit.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (\Tinify\ClientException $e) {
+                // Check your source image and request options.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (\Tinify\ServerException $e) {
+                // Temporary issue with the Tinify API.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (\Tinify\ConnectionException $e) {
+                // A network connection error occurred.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (Exception $e) {
+                // Something else went wrong, unrelated to the Tinify API.
+                return redirect()->back()->with('error', $e->getMessage());
             }
    	    }
 
@@ -165,7 +149,7 @@ class ExpreemplacaminetoController extends Controller
     public function store_admin(Request $request,$id){
 
         $validate = $this->validate($request,[
-            'reemplacamiento' => 'mimes:jpeg,bpm,jpg,png,pdf|max:900',
+            'reemplacamiento' => 'mimes:jpeg,bpm,jpg,png,pdf',
         ]);
 
         $exp = new ExpReemplacamiento;
@@ -174,47 +158,31 @@ class ExpreemplacaminetoController extends Controller
 
         if ($request->hasFile('reemplacamiento')) {
 
-    	    $file=$request->file("reemplacamiento");
-            list($width) = getimagesize($file);
+            $file = $request->file('reemplacamiento');
+            $file->move(public_path() . '/exp-reemplacamiento', time() . "." . $file->getClientOriginalExtension());
+            $exp->reemplacamiento = time() . "." . $file->getClientOriginalExtension();
 
-    	    $nombre = "pdf_".time().".".$file->guessExtension();
-    	    $ruta = public_path("/exp-reemplacamiento/".$nombre);
+            $filepath = public_path('/exp-reemplacamiento/' . $exp->reemplacamiento);
 
-    	    if($width>1920){
-                if($file->guessExtension()=="pdf"){
-                    copy($file, $ruta);
-                    $exp->reemplacamiento = $nombre;
-                }else {
-                    $urlfoto = $request->file('reemplacamiento');
-                    $nombre = time() . "." . $urlfoto->guessExtension();
-                    $ruta = public_path('/exp-reemplacamiento/' . $nombre);
-                    $compresion = Image::make($urlfoto->getRealPath())
-                        ->save($ruta, 80);
-                    $exp->reemplacamiento = $compresion->basename;
-                }
-            }else{
-                if($file->guessExtension()=="pdf"){
-                    copy($file, $ruta);
-                    $exp->reemplacamiento = $nombre;
-                }else {
-                    $urlfoto = $request->file('reemplacamiento');
-                    $nombre = time() . "." . $urlfoto->guessExtension();
-                    $ruta = public_path('/exp-reemplacamiento/' . $nombre);
-
-                    switch ($width) {
-                        case($width <= 750):
-                            $compresion = Image::make($urlfoto->getRealPath())
-                                ->save($ruta);
-                            $exp->reemplacamiento = $compresion->basename;
-                            break;
-                        case($width >= 751):
-                            $compresion = Image::make($urlfoto->getRealPath())
-                                ->rotate(270)
-                                ->save($ruta);
-                            $exp->reemplacamiento = $compresion->basename;
-                            break;
-                    }
-                }
+            try {
+                \Tinify\setKey(env("TINIFY_API_KEY"));
+                $source = \Tinify\fromFile($filepath);
+                $source->toFile($filepath);
+            } catch (\Tinify\AccountException $e) {
+                // Verify your API key and account limit.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (\Tinify\ClientException $e) {
+                // Check your source image and request options.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (\Tinify\ServerException $e) {
+                // Temporary issue with the Tinify API.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (\Tinify\ConnectionException $e) {
+                // A network connection error occurred.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (Exception $e) {
+                // Something else went wrong, unrelated to the Tinify API.
+                return redirect()->back()->with('error', $e->getMessage());
             }
    	    }
     	/* Compara el auto que se selecciono con la db */

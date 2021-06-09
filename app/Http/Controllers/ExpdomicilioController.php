@@ -42,7 +42,7 @@ class ExpdomicilioController extends Controller
     public function store(Request $request){
 
         $validate = $this->validate($request,[
-            'domicilio' => 'mimes:jpeg,bpm,jpg,png,pdf|max:900',
+            'domicilio' => 'mimes:jpeg,bpm,jpg,png,pdf',
         ]);
 
         $exp_domicilio = new ExpDomicilio;
@@ -51,43 +51,31 @@ class ExpdomicilioController extends Controller
 
         if ($request->hasFile('domicilio')) {
 
-    	    $file=$request->file("domicilio");
-            list($width, $height) = getimagesize($file);
+            $file = $request->file('domicilio');
+            $file->move(public_path() . '/exp-domicilio', time() . "." . $file->getClientOriginalExtension());
+            $exp_domicilio->domicilio = time() . "." . $file->getClientOriginalExtension();
 
-    	    $nombre = "pdf_".time().".".$file->guessExtension();
-    	    $ruta = public_path("/exp-domicilio/".$nombre);
+            $filepath = public_path('/exp-domicilio/' . $exp_domicilio->domicilio);
 
-    	    if($width>1920 || $height>1080){
-                if($file->guessExtension()=="pdf"){
-                    copy($file, $ruta);
-                    $exp_domicilio->domicilio = $nombre;
-
-                }else {
-                    $urlfoto = $request->file('domicilio');
-                    $nombre = time() . "." . $urlfoto->guessExtension();
-                    $ruta = public_path('/exp-domicilio/' . $nombre);
-                    $compresion = Image::make($urlfoto->getRealPath())
-                        ->save($ruta, 80);
-                    $exp_domicilio->domicilio = $compresion->basename;
-                }
-            }else{
-                    $urlfoto = $request->file('domicilio');
-                    $nombre = time() . "." . $urlfoto->guessExtension();
-                    $ruta = public_path('/exp-domicilio/' . $nombre);
-
-                  switch($width ){
-                      case($width<=576):
-                        $compresion = Image::make($urlfoto->getRealPath())
-                            ->save($ruta);
-                        $exp_domicilio->domicilio = $compresion->basename;
-                      break;
-                      case($width>=577):
-                          $compresion = Image::make($urlfoto->getRealPath())
-                                ->rotate(270)
-                                ->save($ruta);
-                            $exp_domicilio->domicilio = $compresion->basename;
-                      break;
-                   }
+            try {
+                \Tinify\setKey(env("TINIFY_API_KEY"));
+                $source = \Tinify\fromFile($filepath);
+                $source->toFile($filepath);
+            } catch (\Tinify\AccountException $e) {
+                // Verify your API key and account limit.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (\Tinify\ClientException $e) {
+                // Check your source image and request options.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (\Tinify\ServerException $e) {
+                // Temporary issue with the Tinify API.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (\Tinify\ConnectionException $e) {
+                // A network connection error occurred.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (Exception $e) {
+                // Something else went wrong, unrelated to the Tinify API.
+                return redirect()->back()->with('error', $e->getMessage());
             }
    	    }
 
@@ -120,7 +108,7 @@ class ExpdomicilioController extends Controller
     public function store_admin(Request $request,$id){
 
         $validate = $this->validate($request,[
-            'domicilio' => 'mimes:jpeg,bpm,jpg,png,pdf|max:900',
+            'domicilio' => 'mimes:jpeg,bpm,jpg,png,pdf',
         ]);
 
         $exp = new ExpDomicilio;
@@ -128,48 +116,31 @@ class ExpdomicilioController extends Controller
 
         if ($request->hasFile('domicilio')) {
 
-    	    $file=$request->file("domicilio");
-            list($width, $height) = getimagesize($file);
+            $file = $request->file('domicilio');
+            $file->move(public_path() . '/exp-domicilio', time() . "." . $file->getClientOriginalExtension());
+            $exp->domicilio = time() . "." . $file->getClientOriginalExtension();
 
-    	    $nombre = "pdf_".time().".".$file->guessExtension();
-    	    $ruta = public_path("/exp-domicilio/".$nombre);
+            $filepath = public_path('/exp-domicilio/' . $exp->domicilio);
 
-    	    if($width>1920){
-                if($file->guessExtension()=="pdf"){
-                    copy($file, $ruta);
-                    $exp->domicilio = $nombre;
-
-                }else {
-                    $urlfoto = $request->file('domicilio');
-                    $nombre = time() . "." . $urlfoto->guessExtension();
-                    $ruta = public_path('/exp-domicilio/' . $nombre);
-                    $compresion = Image::make($urlfoto->getRealPath())
-                        ->save($ruta, 80);
-                    $exp->domicilio = $compresion->basename;
-                }
-            }else{
-    	        if($file->guessExtension()=="pdf"){
-                    copy($file, $ruta);
-                    $exp->domicilio = $nombre;
-                }else {
-                    $urlfoto = $request->file('domicilio');
-                    $nombre = time() . "." . $urlfoto->guessExtension();
-                    $ruta = public_path('/exp-domicilio/' . $nombre);
-
-                    switch ($width) {
-                        case($width <= 576):
-                            $compresion = Image::make($urlfoto->getRealPath())
-                                ->save($ruta);
-                            $exp->domicilio = $compresion->basename;
-                            break;
-                        case($width >= 577):
-                            $compresion = Image::make($urlfoto->getRealPath())
-                                ->rotate(270)
-                                ->save($ruta);
-                            $exp->domicilio = $compresion->basename;
-                            break;
-                    }
-                }
+            try {
+                \Tinify\setKey(env("TINIFY_API_KEY"));
+                $source = \Tinify\fromFile($filepath);
+                $source->toFile($filepath);
+            } catch (\Tinify\AccountException $e) {
+                // Verify your API key and account limit.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (\Tinify\ClientException $e) {
+                // Check your source image and request options.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (\Tinify\ServerException $e) {
+                // Temporary issue with the Tinify API.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (\Tinify\ConnectionException $e) {
+                // A network connection error occurred.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (Exception $e) {
+                // Something else went wrong, unrelated to the Tinify API.
+                return redirect()->back()->with('error', $e->getMessage());
             }
    	    }
 

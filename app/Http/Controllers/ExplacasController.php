@@ -41,7 +41,7 @@ class ExplacasController extends Controller
     public function store(Request $request){
 
         $validate = $this->validate($request,[
-            'placa' => 'mimes:jpeg,bpm,jpg,png,pdf|max:900',
+            'placa' => 'mimes:jpeg,bpm,jpg,png,pdf',
         ]);
 
         $exp_placas = new ExpPlacas;
@@ -50,47 +50,31 @@ class ExplacasController extends Controller
 
         if ($request->hasFile('placa')) {
 
-    	    $file=$request->file("placa");
-            list($width) = getimagesize($file);
+            $file = $request->file('placa');
+            $file->move(public_path() . '/exp-placa', time() . "." . $file->getClientOriginalExtension());
+            $exp_placas->placa = time() . "." . $file->getClientOriginalExtension();
 
-    	    $nombre = "pdf_".time().".".$file->guessExtension();
-    	    $ruta = public_path("/exp-placa/".$nombre);
+            $filepath = public_path('/exp-placa/' . $exp_placas->placa);
 
-    	    if($width>1920){
-                if($file->guessExtension()=="pdf"){
-                    copy($file, $ruta);
-                    $exp_placas->placa = $nombre;
-                }else {
-                    $urlfoto = $request->file('placa');
-                    $nombre = time() . "." . $urlfoto->guessExtension();
-                    $ruta = public_path('/exp-placa/' . $nombre);
-                    $compresion = Image::make($urlfoto->getRealPath())
-                        ->save($ruta, 80);
-                    $exp_placas->placa = $compresion->basename;
-                }
-            }else{
-                if($file->guessExtension()=="pdf"){
-                    copy($file, $ruta);
-                    $exp_placas->placa = $nombre;
-                }else {
-                    $urlfoto = $request->file('placa');
-                    $nombre = time() . "." . $urlfoto->guessExtension();
-                    $ruta = public_path('/exp-placa/' . $nombre);
-
-                    switch ($width) {
-                        case($width <= 750):
-                            $compresion = Image::make($urlfoto->getRealPath())
-                                ->save($ruta);
-                            $exp_placas->placa = $compresion->basename;
-                            break;
-                        case($width >= 751):
-                            $compresion = Image::make($urlfoto->getRealPath())
-                                ->rotate(270)
-                                ->save($ruta);
-                            $exp_placas->placa = $compresion->basename;
-                            break;
-                    }
-                }
+            try {
+                \Tinify\setKey(env("TINIFY_API_KEY"));
+                $source = \Tinify\fromFile($filepath);
+                $source->toFile($filepath);
+            } catch (\Tinify\AccountException $e) {
+                // Verify your API key and account limit.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (\Tinify\ClientException $e) {
+                // Check your source image and request options.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (\Tinify\ServerException $e) {
+                // Temporary issue with the Tinify API.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (\Tinify\ConnectionException $e) {
+                // A network connection error occurred.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (Exception $e) {
+                // Something else went wrong, unrelated to the Tinify API.
+                return redirect()->back()->with('error', $e->getMessage());
             }
    	    }
 
@@ -136,7 +120,7 @@ class ExplacasController extends Controller
     public function store_admin(Request $request,$id){
 
         $validate = $this->validate($request,[
-            'placa' => 'mimes:jpeg,bpm,jpg,png,pdf|max:900',
+            'placa' => 'mimes:jpeg,bpm,jpg,png,pdf',
         ]);
 
         $exp = new ExpPlacas;
@@ -145,47 +129,31 @@ class ExplacasController extends Controller
 
         if ($request->hasFile('placa')) {
 
-    	    $file=$request->file("placa");
-            list($width) = getimagesize($file);
+            $file = $request->file('placa');
+            $file->move(public_path() . '/exp-placa', time() . "." . $file->getClientOriginalExtension());
+            $exp->placa = time() . "." . $file->getClientOriginalExtension();
 
-    	    $nombre = "pdf_".time().".".$file->guessExtension();
-    	    $ruta = public_path("/exp-placa/".$nombre);
+            $filepath = public_path('/exp-placa/' . $exp->placa);
 
-    	    if($width>1920){
-                if($file->guessExtension()=="pdf"){
-                    copy($file, $ruta);
-                    $exp->placa = $nombre;
-                }else {
-                    $urlfoto = $request->file('placa');
-                    $nombre = time() . "." . $urlfoto->guessExtension();
-                    $ruta = public_path('/exp-placa/' . $nombre);
-                    $compresion = Image::make($urlfoto->getRealPath())
-                        ->save($ruta, 80);
-                    $exp->placa = $compresion->basename;
-                }
-            }else{
-                if($file->guessExtension()=="pdf"){
-                    copy($file, $ruta);
-                    $exp->placa = $nombre;
-                }else {
-                    $urlfoto = $request->file('placa');
-                    $nombre = time() . "." . $urlfoto->guessExtension();
-                    $ruta = public_path('/exp-placa/' . $nombre);
-
-                    switch ($width) {
-                        case($width <= 750):
-                            $compresion = Image::make($urlfoto->getRealPath())
-                                ->save($ruta);
-                            $exp->placa = $compresion->basename;
-                            break;
-                        case($width >= 751):
-                            $compresion = Image::make($urlfoto->getRealPath())
-                                ->rotate(270)
-                                ->save($ruta);
-                            $exp->placa = $compresion->basename;
-                            break;
-                    }
-                }
+            try {
+                \Tinify\setKey(env("TINIFY_API_KEY"));
+                $source = \Tinify\fromFile($filepath);
+                $source->toFile($filepath);
+            } catch (\Tinify\AccountException $e) {
+                // Verify your API key and account limit.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (\Tinify\ClientException $e) {
+                // Check your source image and request options.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (\Tinify\ServerException $e) {
+                // Temporary issue with the Tinify API.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (\Tinify\ConnectionException $e) {
+                // A network connection error occurred.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (Exception $e) {
+                // Something else went wrong, unrelated to the Tinify API.
+                return redirect()->back()->with('error', $e->getMessage());
             }
    	    }
     	/* Compara el auto que se selecciono con la db */

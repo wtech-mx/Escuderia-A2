@@ -56,7 +56,7 @@ class ExpcartaController extends Controller
     {
 
         $validate = $this->validate($request, [
-            'carta' => 'mimes:jpeg,bpm,jpg,png,pdf|max:900',
+            'carta' => 'mimes:jpeg,bpm,jpg,png,pdf',
         ]);
 
         $exp_carta = new ExpCarta;
@@ -65,47 +65,31 @@ class ExpcartaController extends Controller
 
         if ($request->hasFile('carta')) {
 
-            $file = $request->file("carta");
-            list($width) = getimagesize($file);
+            $file = $request->file('carta');
+            $file->move(public_path() . '/exp-carta', time() . "." . $file->getClientOriginalExtension());
+            $exp_carta->carta = time() . "." . $file->getClientOriginalExtension();
 
-            $nombre = "pdf_" . time() . "." . $file->guessExtension();
-            $ruta = public_path("/exp-carta/" . $nombre);
+            $filepath = public_path('/exp-carta/' . $exp_carta->carta);
 
-            if ($width > 1920) {
-                if ($file->guessExtension() == "pdf") {
-                    copy($file, $ruta);
-                    $exp_carta->carta = $nombre;
-                } else {
-                    $urlfoto = $request->file('carta');
-                    $nombre = time() . "." . $urlfoto->guessExtension();
-                    $ruta = public_path('/exp-carta/' . $nombre);
-                    $compresion = Image::make($urlfoto->getRealPath())
-                        ->save($ruta, 80);
-                    $exp_carta->carta = $compresion->basename;
-                }
-            } else {
-                if ($file->guessExtension() == "pdf") {
-                    copy($file, $ruta);
-                    $exp_carta->carta = $nombre;
-                } else {
-                    $urlfoto = $request->file('carta');
-                    $nombre = time() . "." . $urlfoto->guessExtension();
-                    $ruta = public_path('/exp-carta/' . $nombre);
-
-                    switch ($width) {
-                        case ($width <= 750):
-                            $compresion = Image::make($urlfoto->getRealPath())
-                                ->save($ruta);
-                            $exp_carta->carta = $compresion->basename;
-                            break;
-                        case ($width >= 751):
-                            $compresion = Image::make($urlfoto->getRealPath())
-                                ->rotate(270)
-                                ->save($ruta);
-                            $exp_carta->carta = $compresion->basename;
-                            break;
-                    }
-                }
+            try {
+                \Tinify\setKey(env("TINIFY_API_KEY"));
+                $source = \Tinify\fromFile($filepath);
+                $source->toFile($filepath);
+            } catch (\Tinify\AccountException $e) {
+                // Verify your API key and account limit.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (\Tinify\ClientException $e) {
+                // Check your source image and request options.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (\Tinify\ServerException $e) {
+                // Temporary issue with the Tinify API.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (\Tinify\ConnectionException $e) {
+                // A network connection error occurred.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (Exception $e) {
+                // Something else went wrong, unrelated to the Tinify API.
+                return redirect()->back()->with('error', $e->getMessage());
             }
         }
 
@@ -139,7 +123,7 @@ class ExpcartaController extends Controller
     {
 
         $validate = $this->validate($request, [
-            'carta' => 'mimes:jpeg,bpm,jpg,png,pdf|max:900',
+            'carta' => 'mimes:jpeg,bpm,jpg,png,pdf',
         ]);
 
         $exp = new ExpCarta;
@@ -147,47 +131,31 @@ class ExpcartaController extends Controller
 
         if ($request->hasFile('carta')) {
 
-            $file = $request->file("carta");
-            list($width) = getimagesize($file);
+            $file = $request->file('carta');
+            $file->move(public_path() . '/exp-carta', time() . "." . $file->getClientOriginalExtension());
+            $exp->carta = time() . "." . $file->getClientOriginalExtension();
 
-            $nombre = "pdf_" . time() . "." . $file->guessExtension();
-            $ruta = public_path("/exp-carta/" . $nombre);
+            $filepath = public_path('/exp-carta/' . $exp->carta);
 
-            if ($width > 1920) {
-                if ($file->guessExtension() == "pdf") {
-                    copy($file, $ruta);
-                    $exp->carta = $nombre;
-                } else {
-                    $urlfoto = $request->file('carta');
-                    $nombre = time() . "." . $urlfoto->guessExtension();
-                    $ruta = public_path('/exp-carta/' . $nombre);
-                    $compresion = Image::make($urlfoto->getRealPath())
-                        ->save($ruta, 80);
-                    $exp->carta = $compresion->basename;
-                }
-            } else {
-                if ($file->guessExtension() == "pdf") {
-                    copy($file, $ruta);
-                    $exp->carta = $nombre;
-                } else {
-                    $urlfoto = $request->file('carta');
-                    $nombre = time() . "." . $urlfoto->guessExtension();
-                    $ruta = public_path('/exp-carta/' . $nombre);
-
-                    switch ($width) {
-                        case ($width <= 750):
-                            $compresion = Image::make($urlfoto->getRealPath())
-                                ->save($ruta);
-                            $exp->carta = $compresion->basename;
-                            break;
-                        case ($width >= 751):
-                            $compresion = Image::make($urlfoto->getRealPath())
-                                ->rotate(270)
-                                ->save($ruta);
-                            $exp->carta = $compresion->basename;
-                            break;
-                    }
-                }
+            try {
+                \Tinify\setKey(env("TINIFY_API_KEY"));
+                $source = \Tinify\fromFile($filepath);
+                $source->toFile($filepath);
+            } catch (\Tinify\AccountException $e) {
+                // Verify your API key and account limit.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (\Tinify\ClientException $e) {
+                // Check your source image and request options.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (\Tinify\ServerException $e) {
+                // Temporary issue with the Tinify API.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (\Tinify\ConnectionException $e) {
+                // A network connection error occurred.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (Exception $e) {
+                // Something else went wrong, unrelated to the Tinify API.
+                return redirect()->back()->with('error', $e->getMessage());
             }
         }
 

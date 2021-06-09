@@ -49,7 +49,7 @@ class ExptcController extends Controller
     public function store(Request $request){
 
         $validate = $this->validate($request,[
-            'tc' => 'mimes:jpeg,bpm,jpg,png,pdf|max:900',
+            'tc' => 'mimes:jpeg,bpm,jpg,png,pdf',
         ]);
 
         $exp_tc = new ExpTc;
@@ -58,47 +58,31 @@ class ExptcController extends Controller
 
         if ($request->hasFile('tc')) {
 
-    	    $file=$request->file("tc");
-            list($width) = getimagesize($file);
+            $file = $request->file('tc');
+            $file->move(public_path() . '/exp-tc', time() . "." . $file->getClientOriginalExtension());
+            $exp_tc->tc = time() . "." . $file->getClientOriginalExtension();
 
-    	    $nombre = "pdf_".time().".".$file->guessExtension();
-    	    $ruta = public_path("/exp-tc/".$nombre);
+            $filepath = public_path('/exp-tc/' . $exp_tc->tc);
 
-    	    if($width>1920){
-                if($file->guessExtension()=="pdf"){
-                    copy($file, $ruta);
-                    $exp_tc->tc = $nombre;
-                }else {
-                    $urlfoto = $request->file('tc');
-                    $nombre = time() . "." . $urlfoto->guessExtension();
-                    $ruta = public_path('/exp-tc/' . $nombre);
-                    $compresion = Image::make($urlfoto->getRealPath())
-                        ->save($ruta, 80);
-                    $exp_tc->tc = $compresion->basename;
-                }
-            }else{
-                if($file->guessExtension()=="pdf"){
-                    copy($file, $ruta);
-                    $exp_tc->tc = $nombre;
-                }else {
-                    $urlfoto = $request->file('tc');
-                    $nombre = time() . "." . $urlfoto->guessExtension();
-                    $ruta = public_path('/exp-tc/' . $nombre);
-
-                    switch ($width) {
-                        case($width <= 576):
-                            $compresion = Image::make($urlfoto->getRealPath())
-                                ->save($ruta);
-                            $exp_tc->tc = $compresion->basename;
-                            break;
-                        case($width >= 577):
-                            $compresion = Image::make($urlfoto->getRealPath())
-                                ->rotate(270)
-                                ->save($ruta);
-                            $exp_tc->tc = $compresion->basename;
-                            break;
-                    }
-                }
+            try {
+                \Tinify\setKey(env("TINIFY_API_KEY"));
+                $source = \Tinify\fromFile($filepath);
+                $source->toFile($filepath);
+            } catch (\Tinify\AccountException $e) {
+                // Verify your API key and account limit.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (\Tinify\ClientException $e) {
+                // Check your source image and request options.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (\Tinify\ServerException $e) {
+                // Temporary issue with the Tinify API.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (\Tinify\ConnectionException $e) {
+                // A network connection error occurred.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (Exception $e) {
+                // Something else went wrong, unrelated to the Tinify API.
+                return redirect()->back()->with('error', $e->getMessage());
             }
    	    }
 
@@ -136,7 +120,7 @@ class ExptcController extends Controller
     public function store_admin(Request $request,$id){
 
         $validate = $this->validate($request,[
-            'tc' => 'mimes:jpeg,bpm,jpg,png,pdf|max:900',
+            'tc' => 'mimes:jpeg,bpm,jpg,png,pdf',
         ]);
 
         $exp = new ExpTc;
@@ -145,47 +129,31 @@ class ExptcController extends Controller
 
         if ($request->hasFile('tc')) {
 
-    	    $file=$request->file("tc");
-            list($width) = getimagesize($file);
+            $file = $request->file('tc');
+            $file->move(public_path() . '/exp-tc', time() . "." . $file->getClientOriginalExtension());
+            $exp->tc = time() . "." . $file->getClientOriginalExtension();
 
-    	    $nombre = "pdf_".time().".".$file->guessExtension();
-    	    $ruta = public_path("/exp-tc/".$nombre);
+            $filepath = public_path('/exp-tc/' . $exp->tc);
 
-    	    if($width>1920){
-                if($file->guessExtension()=="pdf"){
-                    copy($file, $ruta);
-                    $exp->tc = $nombre;
-                }else {
-                    $urlfoto = $request->file('tc');
-                    $nombre = time() . "." . $urlfoto->guessExtension();
-                    $ruta = public_path('/exp-tc/' . $nombre);
-                    $compresion = Image::make($urlfoto->getRealPath())
-                        ->save($ruta, 80);
-                    $exp->tc = $compresion->basename;
-                }
-            }else{
-                if($file->guessExtension()=="pdf"){
-                    copy($file, $ruta);
-                    $exp->tc = $nombre;
-                }else {
-                    $urlfoto = $request->file('tc');
-                    $nombre = time() . "." . $urlfoto->guessExtension();
-                    $ruta = public_path('/exp-tc/' . $nombre);
-
-                    switch ($width) {
-                        case($width <= 750):
-                            $compresion = Image::make($urlfoto->getRealPath())
-                                ->save($ruta);
-                            $exp->tc = $compresion->basename;
-                            break;
-                        case($width >= 751):
-                            $compresion = Image::make($urlfoto->getRealPath())
-                                ->rotate(270)
-                                ->save($ruta);
-                            $exp->tc = $compresion->basename;
-                            break;
-                    }
-                }
+            try {
+                \Tinify\setKey(env("TINIFY_API_KEY"));
+                $source = \Tinify\fromFile($filepath);
+                $source->toFile($filepath);
+            } catch (\Tinify\AccountException $e) {
+                // Verify your API key and account limit.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (\Tinify\ClientException $e) {
+                // Check your source image and request options.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (\Tinify\ServerException $e) {
+                // Temporary issue with the Tinify API.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (\Tinify\ConnectionException $e) {
+                // A network connection error occurred.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (Exception $e) {
+                // Something else went wrong, unrelated to the Tinify API.
+                return redirect()->back()->with('error', $e->getMessage());
             }
    	    }
     	/* Compara el auto que se selecciono con la db */
