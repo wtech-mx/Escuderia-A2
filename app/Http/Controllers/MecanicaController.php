@@ -161,63 +161,63 @@ class MecanicaController extends Controller
         $mecanica->start = $request->get('start');
         $mecanica->end = $request->get('end');
 
-        if ($request->hasFile('video')) {
-            $file = $request->file('video');
-            $file->move(public_path() . '/inter-mecanica', time() . "." . $file->getClientOriginalExtension());
-            $mecanica->video = time() . "." . $file->getClientOriginalExtension();
+        // if ($request->hasFile('video')) {
+        //     $file = $request->file('video');
+        //     $file->move(public_path() . '/inter-mecanica', time() . "." . $file->getClientOriginalExtension());
+        //     $mecanica->video = time() . "." . $file->getClientOriginalExtension();
 
-            $filepath = public_path('/inter-mecanica/' . $mecanica->video);
+        //     $filepath = public_path('/inter-mecanica/' . $mecanica->video);
 
-            try {
-                \Tinify\setKey(env("TINIFY_API_KEY"));
-                $source = \Tinify\fromFile($filepath);
-                $source->toFile($filepath);
-            } catch (\Tinify\AccountException $e) {
-                // Verify your API key and account limit.
-                return redirect()->back()->with('error', $e->getMessage());
-            } catch (\Tinify\ClientException $e) {
-                // Check your source image and request options.
-                return redirect()->back()->with('error', $e->getMessage());
-            } catch (\Tinify\ServerException $e) {
-                // Temporary issue with the Tinify API.
-                return redirect()->back()->with('error', $e->getMessage());
-            } catch (\Tinify\ConnectionException $e) {
-                // A network connection error occurred.
-                return redirect()->back()->with('error', $e->getMessage());
-            } catch (Exception $e) {
-                // Something else went wrong, unrelated to the Tinify API.
-                return redirect()->back()->with('error', $e->getMessage());
-            }
-        }
+        //     try {
+        //         \Tinify\setKey(env("TINIFY_API_KEY"));
+        //         $source = \Tinify\fromFile($filepath);
+        //         $source->toFile($filepath);
+        //     } catch (\Tinify\AccountException $e) {
+        //         // Verify your API key and account limit.
+        //         return redirect()->back()->with('error', $e->getMessage());
+        //     } catch (\Tinify\ClientException $e) {
+        //         // Check your source image and request options.
+        //         return redirect()->back()->with('error', $e->getMessage());
+        //     } catch (\Tinify\ServerException $e) {
+        //         // Temporary issue with the Tinify API.
+        //         return redirect()->back()->with('error', $e->getMessage());
+        //     } catch (\Tinify\ConnectionException $e) {
+        //         // A network connection error occurred.
+        //         return redirect()->back()->with('error', $e->getMessage());
+        //     } catch (Exception $e) {
+        //         // Something else went wrong, unrelated to the Tinify API.
+        //         return redirect()->back()->with('error', $e->getMessage());
+        //     }
+        // }
 
-        if ($request->hasFile('video2')) {
-            $file = $request->file('video2');
-            $file->move(public_path() . '/ext-mecanica', time() . "." . $file->getClientOriginalExtension());
-            $mecanica->video2 = time() . "." . $file->getClientOriginalExtension();
+        // if ($request->hasFile('video2')) {
+        //     $file = $request->file('video2');
+        //     $file->move(public_path() . '/ext-mecanica', time() . "." . $file->getClientOriginalExtension());
+        //     $mecanica->video2 = time() . "." . $file->getClientOriginalExtension();
 
-            $filepath = public_path('/ext-mecanica/' . $mecanica->video2);
+        //     $filepath = public_path('/ext-mecanica/' . $mecanica->video2);
 
-            try {
-                \Tinify\setKey(env("TINIFY_API_KEY"));
-                $source = \Tinify\fromFile($filepath);
-                $source->toFile($filepath);
-            } catch (\Tinify\AccountException $e) {
-                // Verify your API key and account limit.
-                return redirect()->back()->with('error', $e->getMessage());
-            } catch (\Tinify\ClientException $e) {
-                // Check your source image and request options.
-                return redirect()->back()->with('error', $e->getMessage());
-            } catch (\Tinify\ServerException $e) {
-                // Temporary issue with the Tinify API.
-                return redirect()->back()->with('error', $e->getMessage());
-            } catch (\Tinify\ConnectionException $e) {
-                // A network connection error occurred.
-                return redirect()->back()->with('error', $e->getMessage());
-            } catch (Exception $e) {
-                // Something else went wrong, unrelated to the Tinify API.
-                return redirect()->back()->with('error', $e->getMessage());
-            }
-        }
+        //     try {
+        //         \Tinify\setKey(env("TINIFY_API_KEY"));
+        //         $source = \Tinify\fromFile($filepath);
+        //         $source->toFile($filepath);
+        //     } catch (\Tinify\AccountException $e) {
+        //         // Verify your API key and account limit.
+        //         return redirect()->back()->with('error', $e->getMessage());
+        //     } catch (\Tinify\ClientException $e) {
+        //         // Check your source image and request options.
+        //         return redirect()->back()->with('error', $e->getMessage());
+        //     } catch (\Tinify\ServerException $e) {
+        //         // Temporary issue with the Tinify API.
+        //         return redirect()->back()->with('error', $e->getMessage());
+        //     } catch (\Tinify\ConnectionException $e) {
+        //         // A network connection error occurred.
+        //         return redirect()->back()->with('error', $e->getMessage());
+        //     } catch (Exception $e) {
+        //         // Something else went wrong, unrelated to the Tinify API.
+        //         return redirect()->back()->with('error', $e->getMessage());
+        //     }
+        // }
 
         $mecanica->save();
 

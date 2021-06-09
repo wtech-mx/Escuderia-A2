@@ -1,10 +1,10 @@
 .card{
     /*background-color: #050F55 ;*/
     background-image: url('../img/bg-medida.png');
-    border: 1px solid #050F55;
+    border: 1px solid #000000;
 }
 .car-modal{
-    background-color: #050F55;border: 1px solid #050F55;border-radius: 20px;
+    background-color: #000000;border: 1px solid #030303;border-radius: 20px;
 }
 
 .car-modal-ss{

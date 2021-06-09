@@ -288,7 +288,7 @@
 
                                          <input type="hidden" class="form-control" id='image' name="image" value="{{asset('img/icon/color/comprobado.png') }}">
 
-                                         <hr>
+                                         {{-- <hr>
                                          <label for="">
                                              <p class="text-white"><strong>V&iacute;deo Interior</strong></p>
                                          </label>
@@ -305,7 +305,7 @@
                                         <div class="custom-file">
                                           <input type="file" class="custom-file-input" id="video2" name="video2">
                                           <label class="custom-file-label" for="customFile">Selecciona V&iacute;deo</label>
-                                        </div>
+                                        </div> --}}
 
                                           <button class="btn btn-lg btn-success btn-save-neon text-white mt-4" style="margin-bottom: 8rem !important;">
                                               <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}" width="20px" >
