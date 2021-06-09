@@ -21,7 +21,8 @@
 
         <div class="col-8">
             <h5 class="text-center text-white ml-4 mr-4 ">
-                <strong>Verificaci&oacute;n</strong>
+                <strong>Verificaci&oacute;n {{ $verificacion->Automovil->placas }} /
+                    {{ $verificacion->Automovil->Marca->nombre }}</strong>
             </h5>
         </div>
 
@@ -38,6 +39,11 @@
     <div class="row bg-image" style="height: 85vh">
 
         <div class="col-12 mt-1">
+
+            <p class="text-center text-white" style="font: normal normal bold 20px/27px Segoe UI;">
+                <strong style="color: rgb(94, 226, 41)">{{ $verificacion->Automovil->placas }}
+                    / {{ $verificacion->Automovil->Marca->nombre }}</strong>
+            </p>
 
             <p class="text-left text-white" style="font: normal normal bold 20px/27px Segoe UI;">
                 <strong>Primer Periodo de Verificaci&oacute;n</strong>

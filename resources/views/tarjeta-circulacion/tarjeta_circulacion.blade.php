@@ -40,7 +40,8 @@
 
         <div class="col-8 mt-5">
             <h5 class="text-center text-white ml-4 mr-4 ">
-                <strong>Tarjeta de Circulaci&oacute;n</strong>
+                <strong>Tarjeta de Circulaci&oacute;n {{ $tarjeta_circulacion->Automovil->placas }} /
+                    {{ $tarjeta_circulacion->Automovil->Marca->nombre }}</strong>
             </h5>
         </div>
 
@@ -98,10 +99,14 @@
                     @csrf
                     <input type="hidden" name="_method" value="PATCH">
 
-                    <p class="text-left text-white mt-5 mb-5" style="font: normal normal bold 20px/27px Segoe UI;">
+                    <p class="text-left text-white mt-5" style="font: normal normal bold 20px/27px Segoe UI;">
                         <strong>Detalles de Tarjeta de Circulaci&oacute;n</strong>
                     </p>
 
+                    <p class="text-center text-white mb-5" style="font: normal normal bold 20px/27px Segoe UI;">
+                        <strong style="color: rgb(94, 226, 41)">{{ $tarjeta_circulacion->Automovil->placas }}
+                            / {{ $tarjeta_circulacion->Automovil->Marca->nombre }}</strong>
+                    </p>
                     {{-- Datos para el calendario --}}
                     <div class="input-group form-group">
                         <input type="hidden" class="form-control" id='title' name="title"

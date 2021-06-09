@@ -40,7 +40,7 @@
 
         <div class="col-8">
             <h5 class="text-center text-white ml-4 mr-4 ">
-                <strong>Seguro - </strong>
+                <strong>Seguro - {{ $seguro->Automovil->placas }} / {{ $seguro->Automovil->Marca->nombre }}</strong>
                 {{-- <strong>Seguro - {{$seguro->User->name}}</strong> --}}
             </h5>
         </div>
@@ -125,7 +125,9 @@
                 <div class="col-12 mt-5">
 
                     <p class="text-left text-white" style="font: normal normal bold 20px/27px Segoe UI;">
-                        <strong>Detalles de Seguros</strong>
+                        <strong>Detalles de Seguro </strong> <strong
+                            style="color: rgb(94, 226, 41)">{{ $seguro->Automovil->placas }}
+                            / {{ $seguro->Automovil->Marca->nombre }}</strong>
                     </p>
 
                     <label for="">
@@ -222,7 +224,8 @@
                         </div>
 
                         <select class="form-control" id="tipo_cobertura" name="tipo_cobertura">
-                            <option value="{{ $seguro->tipo_cobertura }}" selected>{{ $seguro->tipo_cobertura }}</option>
+                            <option value="{{ $seguro->tipo_cobertura }}" selected>{{ $seguro->tipo_cobertura }}
+                            </option>
                             <option value="Amplia">Ampl&iacute;a</option>
                             <option value="Limitada">Limitada</option>
                         </select>
