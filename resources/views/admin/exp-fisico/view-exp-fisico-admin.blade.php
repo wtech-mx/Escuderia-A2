@@ -10,7 +10,6 @@
 
     <div class="row bg-down-blue container-res" style="border-radius: 0 0 0 0; ">
 
-
         <div class="col-2  mt-4">
             <div class="d-flex justify-content-start">
                 <div class="text-center text-white">
@@ -49,6 +48,7 @@
 
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="90000">
                 <div class="carousel-inner">
+
                     {{-- -------------------------------------------------------------------------- --}}
                     {{-- |Vehculos de user --}}
                     {{-- |-------------------------------------------------------------------------- --}}
@@ -59,9 +59,8 @@
                         </h5>
 
                         <div class="row">
-
                             <div class="content container-res-max">
-                                <div class="col-lg-12">
+                                <div class="col-12">
 
                                     <table id="expedientes" class="table text-white">
                                         <thead>
@@ -93,23 +92,34 @@
                         </div>
 
                     </div>
+
+                    {{-- ----------------------------------------------------------------------------}}
+                    {{-- |Vehculos de empresa--}}
+                    {{-- |----------------------------------------------------------------------------}}
+
+                    <div class="carousel-item ">
+                        <div class="row">
+                            <div class="col-12">
+
+                                <div class="d-flex justify-content-center">
+                                    <h5 class="text-center text-white mt-4 ml-4 mr-4 ">
+                                        <strong>Expediente Empresas</strong>
+                                    </h5>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
 
 
         </div>
-    </div>
-    </div>
 
     </div>
 
-    </div>
-
-    </div>
-
-    </div>
-
-    </div>
 
 @section('js')
     <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>

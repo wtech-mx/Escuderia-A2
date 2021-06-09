@@ -9,87 +9,119 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
-                <a href="{{ route('create_admin.view-factura-admin', $item->id) }}" role="button"
-                    class="btn btn-secondary mt-3">
-                    Facturas
-                    @if ($item->User->id == $item->id_user)
-                        {{ $item->ExpFactura->count() }}
-                    @endif
-                </a>
-                <a href="{{ route('create_admin.view-tenencia-admin', $item->id) }}" role="button"
-                    class="btn btn-secondary mt-3">
-                    Tenencias
-                    @if ($item->User->id == $item->id_user)
-                        {{ $item->ExpTenencias->count() }}
-                    @endif
-                </a>
-                <a href="{{ route('create_admin.view-cr-admin', $item->id) }}" role="button"
-                    class="btn btn-secondary mt-3">
-                    Carta Responsiva
-                    @if ($item->User->id == $item->id_user)
-                        {{ $item->ExpCarta->count() }}
-                    @endif
-                </a>
+            <div class="modal-body mt-5" style="">
 
-                <a href="{{ route('create_admin.view-poliza-admin', $item->id) }}" role="button"
-                    class="btn btn-secondary mt-3">
-                    Póliza de Seguro
-                    @if ($item->User->id == $item->id_user)
-                        {{ $item->ExpPoliza->count() }}
-                    @endif
-                </a>
-                <a href="{{ route('create_admin.view-tc-admin', $item->id) }}" role="button"
-                    class="btn btn-secondary mt-3">
-                    tarjeta de circulaci&oacute;n
-                    @if ($item->User->id == $item->id_user)
-                        {{ $item->ExpTc->count() }}
-                    @endif
-                </a>
+                <div class="d-flex justify-content-between">
 
-                <a href="{{ route('create_admin.view-reemplacamiento-admin', $item->id) }}" role="button"
-                    class="btn btn-secondary mt-3">
-                    Reemplacamiento
-                    @if ($item->User->id == $item->id_user)
-                        {{ $item->ExpReemplacamiento->count() }}
-                    @endif
-                </a>
-                <a href="{{ route('create_admin.view-certificado-admin', $item->id) }}" role="button"
-                    class="btn btn-secondary mt-3">
-                    Verificaci&oacute;n
-                    @if ($item->User->id == $item->id_user)
-                        {{ $item->ExpCertificado->count() }}
-                    @endif
-                </a>
-                <a href="{{ route('create_admin.view-bp-admin', $item->id) }}" role="button"
-                    class="btn btn-secondary mt-3">
-                    Baja de placas
-                    @if ($item->User->id == $item->id_user)
-                        {{ $item->ExpPlacas->count() }}
-                    @endif
-                </a>
+                    <a href="{{ route('create_admin.view-factura-admin',$item->id) }}">
+                        <span class="badge bg-primary" style="font-size: 70%;">
+                            Facturas
+                            @if ($item->User->id == $item->id_user)
+                                {{ $item->ExpFactura->count() }}
+                            @endif
+                        </span>
+                    </a>
 
-                <a href="{{ route('create_admin.view-ine-admin', $item->id) }}" role="button"
-                    class="btn btn-secondary mt-3">
-                    INE
-                    @if ($item->User->id == $item->id_user)
-                        {{ $item->ExpIne->count() }}
-                    @endif
-                </a>
-                <a href="{{ route('create_admin.view-cd-admin', $item->id) }}" role="button"
-                    class="btn btn-secondary mt-3">
-                    Comprobante de domicilio
-                    @if ($item->User->id == $item->id_user)
-                        {{ $item->ExpDomicilio->count() }}
-                    @endif
-                </a>
-                <a href="{{ route('create_admin.view-rfc-admin', $item->id) }}" role="button"
-                    class="btn btn-secondary mt-3">
-                    RFC
-                    @if ($item->User->id == $item->id_user)
-                        {{ $item->ExpRfc->count() }}
-                    @endif
-                </a>
+                    <a href="{{ route('create_admin.view-tenencia-admin',$item->id) }}">
+                        <span class="badge bg-primary" style="font-size: 70%;">
+                            Tenencias
+                            @if ($item->User->id == $item->id_user)
+                                {{ $item->ExpTenencias->count() }}
+                            @endif
+                        </span>
+                    </a>
+
+                    <a href="{{ route('create_admin.view-cr-admin',$item->id) }}">
+                        <span class="badge bg-primary" style="font-size: 70%;">
+                            Carta Responsiva
+                            @if ($item->User->id == $item->id_user)
+                                {{ $item->ExpCarta->count() }}
+                            @endif
+                        </span>
+                    </a>
+
+                    <a href="{{ route('create_admin.view-poliza-admin',$item->id) }}">
+                        <span class="badge bg-primary" style="font-size: 70%;">
+                            Póliza de Seguro
+                            @if ($item->User->id == $item->id_user)
+                                {{ $item->ExpPoliza->count() }}
+                            @endif
+                        </span>
+                    </a>
+
+                </div>
+
+                <div class="d-flex justify-content-between">
+
+                    <a href="{{ route('create_admin.view-tc-admin',$item->id) }}">
+                        <span class="badge bg-secondary" style="font-size: 70%;">
+                            Tarjeta C.
+                            @if ($item->User->id == $item->id_user)
+                                {{ $item->ExpTc->count() }}
+                            @endif
+                        </span>
+                    </a>
+
+                    <a href="{{ route('create_admin.view-reemplacamiento-admin',$item->id) }}">
+                        <span class="badge bg-secondary" style="font-size: 70%;">
+                            Reemplacamiento
+                            @if ($item->User->id == $item->id_user)
+                                {{ $item->ExpReemplacamiento->count() }}
+                            @endif
+                        </span>
+                    </a>
+
+                    <a href="{{ route('create_admin.view-reemplacamiento-admin',$item->id) }}">
+                        <span class="badge bg-secondary" style="font-size: 70%;">
+                            Verificacion
+                            @if ($item->User->id == $item->id_user)
+                                {{ $item->ExpCertificado->count() }}
+                            @endif
+                        </span>
+                    </a>
+
+                    <a href="{{ route('create_admin.view-bp-admin',$item->id) }}">
+                        <span class="badge bg-secondary" style="font-size: 70%;">
+                            Baja de placas
+                            @if ($item->User->id == $item->id_user)
+                                {{ $item->ExpPlacas->count() }}
+                            @endif
+                        </span>
+                    </a>
+
+                </div>
+
+                <div class="d-flex justify-content-between">
+
+                    <a href="{{ route('create_admin.view-ine-admin',$item->id) }}">
+                        <span class="badge bg-success" style="font-size: 70%;">
+                            INE
+                            @if ($item->User->id == $item->id_user)
+                                {{ $item->ExpIne->count() }}
+                            @endif
+                        </span>
+                    </a>
+
+                    <a href="{{ route('create_admin.view-cd-admin',$item->id) }}">
+                        <span class="badge bg-success" style="font-size: 70%;">
+                            Comprobante de domicilio
+                            @if ($item->User->id == $item->id_user)
+                                {{ $item->ExpDomicilio->count() }}
+                            @endif
+                        </span>
+                    </a>
+
+                    <a href="{{ route('create_admin.view-rfc-admin',$item->id) }}" style="margin-bottom: 3rem!important;">
+                        <span class="badge bg-success" style="font-size: 70%;">
+                            RFC
+                            @if ($item->User->id == $item->id_user)
+                                {{ $item->ExpRfc->count() }}
+                            @endif
+                        </span>
+                    </a>
+
+                </div>
+
             </div>
         </div>
     </div>
