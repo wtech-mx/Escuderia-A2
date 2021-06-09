@@ -91,10 +91,10 @@ class VerificacionController extends Controller
         $verificacion->title = $request->get('title');
         $verificacion->color = $request->get('color');
         $verificacion->image = $request->get('image');
-        $verificacion->descripcion = $request->get('descripcion');
         $verificacion->device_token = $request->get('device_token');
         $verificacion->start = $request->get('primer_semestre');
         $verificacion->end = $request->get('primer_semestre');
+        $verificacion->descripcion = 'Le toca verificar el dia: ' . $verificacion->start;
 
         $verificacion->estatus = 0;
         $verificacion->estado_last_week = 0;

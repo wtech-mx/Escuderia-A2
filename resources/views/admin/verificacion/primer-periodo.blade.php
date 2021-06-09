@@ -26,11 +26,6 @@
         </div>
 
         <div class="input-group form-group">
-            <input type="hidden" class="form-control" id='descripcion' name="descripcion"
-                value="Le toca verificar el dia {{ $newDate }}">
-        </div>
-
-        <div class="input-group form-group">
             <input type="hidden" class="form-control" id='color' name="color" value="#FF0000">
         </div>
 
