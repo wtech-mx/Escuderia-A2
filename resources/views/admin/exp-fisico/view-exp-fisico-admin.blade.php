@@ -1,9 +1,7 @@
 @extends('admin.layouts.app')
 
 @section('css')
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.min.css" rel="stylesheet">
-    <link href="https://cdn.datatables.net/responsive/2.2.8/css/responsive.bootstrap5.min.css" rel="stylesheet">
 @endsection
 
 @section('content')
@@ -71,19 +69,7 @@
                                                 <th scope="col">Cliente</th>
                                                 <th scope="col">Placas</th>
                                                 <th scope="col">Modelo</th>
-                                                <th scope="col">Submarca</th>
-                                                <th scope="col">Factura</th>
-                                                <th scope="col">Tenencia</th>
-                                                <th scope="col">Carta Responsiva</th>
-                                                <th scope="col">Seguro</th>
-                                                <th scope="col">tarjeta de c.</th>
-                                                <th scope="col">Reemplacamiento</th>
-                                                <th scope="col">Verificaci&oacute;n</th>
-                                                <th scope="col">PLacas</th>
-                                                <th scope="col">INE</th>
-                                                <th scope="col">Domicilio</th>
-                                                <th scope="col">RFC</th>
-
+                                                <th scope="col">Más</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -92,106 +78,11 @@
                                                     <th>{{ $item->User->name }}</th>
                                                     <td>{{ $item->placas }}</td>
                                                     <td>{{ $item->Marca->nombre }}</td>
-                                                    <td>{{ $item->submarca }}</td>
                                                     <td>
-                                                        <a style="text-decoration: none;"
-                                                            href="{{ route('create_admin.view-factura-admin', $item->id) }}">
-                                                            Facturas
-                                                            @if ($item->User->id == $item->id_user)
-                                                                {{ $item->ExpFactura->count() }}
-                                                            @endif
-                                                        </a>
+                                                        <a data-toggle="modal" data-target="#example{{ $item->id }}"><img class=""
+                                                                src="{{ asset('img/icon/white/add.png') }}" width="15px"></a>
                                                     </td>
-                                                    <td>
-                                                        <a style="text-decoration: none;"
-                                                            href="{{ route('create_admin.view-tenencia-admin', $item->id) }}">
-                                                            Tenencias
-                                                            @if ($item->User->id == $item->id_user)
-                                                                {{ $item->ExpTenencias->count() }}
-                                                            @endif
-                                                        </a>
-                                                    </td>
-                                                    <td>
-                                                        <a style="text-decoration: none;"
-                                                            href="{{ route('create_admin.view-cr-admin', $item->id) }}">
-                                                            Carta Responsiva
-                                                            @if ($item->User->id == $item->id_user)
-                                                                {{ $item->ExpCarta->count() }}
-                                                            @endif
-                                                        </a>
-                                                    </td>
-                                                    <td>
-                                                        <a style="text-decoration: none;"
-                                                            href="{{ route('create_admin.view-poliza-admin', $item->id) }}">
-                                                            Póliza de Seguro
-                                                            @if ($item->User->id == $item->id_user)
-                                                                {{ $item->ExpPoliza->count() }}
-                                                            @endif
-                                                        </a>
-                                                    </td>
-                                                    <td>
-                                                        <a style="text-decoration: none;"
-                                                            href="{{ route('create_admin.view-tc-admin', $item->id) }}">
-                                                            tarjeta de circulaci&oacute;n
-                                                            @if ($item->User->id == $item->id_user)
-                                                                {{ $item->ExpTc->count() }}
-                                                            @endif
-                                                        </a>
-                                                    </td>
-                                                    <td>
-                                                        <a style="text-decoration: none;"
-                                                            href="{{ route('create_admin.view-reemplacamiento-admin', $item->id) }}">
-                                                            Reemplacamiento
-                                                            @if ($item->User->id == $item->id_user)
-                                                                {{ $item->ExpReemplacamiento->count() }}
-                                                            @endif
-                                                        </a>
-                                                    </td>
-                                                    <td>
-                                                        <a style="text-decoration: none;"
-                                                            href="{{ route('create_admin.view-certificado-admin', $item->id) }}">
-                                                            Verificaci&oacute;n
-                                                            @if ($item->User->id == $item->id_user)
-                                                                {{ $item->ExpCertificado->count() }}
-                                                            @endif
-                                                        </a>
-                                                    </td>
-                                                    <td>
-                                                        <a style="text-decoration: none;"
-                                                            href="{{ route('create_admin.view-bp-admin', $item->id) }}">
-                                                            Baja de placas
-                                                            @if ($item->User->id == $item->id_user)
-                                                                {{ $item->ExpPlacas->count() }}
-                                                            @endif
-                                                        </a>
-                                                    </td>
-                                                    <td>
-                                                        <a style="text-decoration: none;"
-                                                            href="{{ route('create_admin.view-ine-admin', $item->id) }}">
-                                                            INE
-                                                            @if ($item->User->id == $item->id_user)
-                                                                {{ $item->ExpIne->count() }}
-                                                            @endif
-                                                        </a>
-                                                    </td>
-                                                    <td>
-                                                        <a style="text-decoration: none;"
-                                                            href="{{ route('create_admin.view-cd-admin', $item->id) }}">
-                                                            Comprobante de domicilio
-                                                            @if ($item->User->id == $item->id_user)
-                                                                {{ $item->ExpDomicilio->count() }}
-                                                            @endif
-                                                        </a>
-                                                    </td>
-                                                    <td>
-                                                        <a style="text-decoration: none;"
-                                                            href="{{ route('create_admin.view-rfc-admin', $item->id) }}">
-                                                            RFC
-                                                            @if ($item->User->id == $item->id_user)
-                                                                {{ $item->ExpRfc->count() }}
-                                                            @endif
-                                                        </a>
-                                                    </td>
+                                                    @include('admin.exp-fisico.modal')
                                                 </tr>
                                             @endforeach
                                         </tbody>
@@ -221,32 +112,12 @@
     </div>
 
 @section('js')
-    <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js|https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js">
-    </script>
     <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script>
-    <script src="https://cdn.datatables.net/responsive/2.2.8/js/dataTables.responsive.min.js"></script>
-    <script src="https://cdn.datatables.net/responsive/2.2.8/js/responsive.bootstrap4.min.js">
-    </script>
+    <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.min.js"></script>
 
     <script>
         $(document).ready(function() {
-            $('#expedientes').DataTable({
-                responsive: {
-                    details: {
-                        display: $.fn.dataTable.Responsive.display.modal({
-                            header: function(row) {
-                                var data = row.data();
-                                return 'Detalles de ' + data[0] + ' ' + data[1];
-                            }
-                        }),
-                        renderer: $.fn.dataTable.Responsive.renderer.tableAll({
-                            tableClass: 'table'
-                        })
-                    }
-                }
-            });
+            $('#expedientes').DataTable();
         });
 
     </script>
