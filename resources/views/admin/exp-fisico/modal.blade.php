@@ -9,117 +9,186 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body mt-5" style="">
+            <div class="modal-body mt-2" style="">
 
-                <div class="d-flex justify-content-between">
+                <div class="row">
+                    <div class="col-12" style="margin-bottom: 3rem!important;">
 
-                    <a href="{{ route('create_admin.view-factura-admin',$item->id) }}">
-                        <span class="badge bg-primary" style="font-size: 70%;">
-                            Facturas
-                            @if ($item->User->id == $item->id_user)
-                                {{ $item->ExpFactura->count() }}
-                            @endif
-                        </span>
-                    </a>
+                        <div class="row">
 
-                    <a href="{{ route('create_admin.view-tenencia-admin',$item->id) }}">
-                        <span class="badge bg-primary" style="font-size: 70%;">
-                            Tenencias
-                            @if ($item->User->id == $item->id_user)
-                                {{ $item->ExpTenencias->count() }}
-                            @endif
-                        </span>
-                    </a>
+                            <div class="col-6 p-2">
 
-                    <a href="{{ route('create_admin.view-cr-admin',$item->id) }}">
-                        <span class="badge bg-primary" style="font-size: 70%;">
-                            Carta Responsiva
-                            @if ($item->User->id == $item->id_user)
-                                {{ $item->ExpCarta->count() }}
-                            @endif
-                        </span>
-                    </a>
+                              <a href="{{ route('create_admin.view-factura-admin',$item->id) }}">
+                                <div class="d-flex justify-content-between bg-dark text-white p-2" style="border-radius: 10px">
 
-                    <a href="{{ route('create_admin.view-poliza-admin',$item->id) }}">
-                        <span class="badge bg-primary" style="font-size: 70%;">
-                            Póliza de Seguro
-                            @if ($item->User->id == $item->id_user)
-                                {{ $item->ExpPoliza->count() }}
-                            @endif
-                        </span>
-                    </a>
+                                  <div class="mr-auto p-2">Facturas</div>
 
-                </div>
+                                  <div class="p-2">
+                                        <strong class="text-white p-2 " style="background-color: #00d62e;border-radius: 10px">
+                                            @if ($item->User->id == $item->id_user)
+                                                {{ $item->ExpFactura->count() }}
+                                            @endif
+                                        </strong>
+                                  </div>
 
-                <div class="d-flex justify-content-between">
+                                </div>
+                              </a>
 
-                    <a href="{{ route('create_admin.view-tc-admin',$item->id) }}">
-                        <span class="badge bg-secondary" style="font-size: 70%;">
-                            Tarjeta C.
-                            @if ($item->User->id == $item->id_user)
-                                {{ $item->ExpTc->count() }}
-                            @endif
-                        </span>
-                    </a>
+                            </div>
 
-                    <a href="{{ route('create_admin.view-reemplacamiento-admin',$item->id) }}">
-                        <span class="badge bg-secondary" style="font-size: 70%;">
-                            Reemplacamiento
-                            @if ($item->User->id == $item->id_user)
-                                {{ $item->ExpReemplacamiento->count() }}
-                            @endif
-                        </span>
-                    </a>
+                            <div class="col-6 p-2">
+                              <a href="{{ route('create_admin.view-tenencia-admin',$item->id) }}">
+                                <div class="d-flex justify-content-between bg-dark text-white p-2" style="border-radius: 10px">
+                                  <div class="mr-auto p-2">Tenencias</div>
+                                  <div class="p-2">
+                                        <strong class="text-white p-2 " style="background-color: #00d62e;border-radius: 10px">
+                                            @if ($item->User->id == $item->id_user)
+                                                {{ $item->ExpTenencias->count() }}
+                                            @endif
+                                        </strong>
+                                  </div>
+                                </div>
+                              </a>
+                            </div>
 
-                    <a href="{{ route('create_admin.view-reemplacamiento-admin',$item->id) }}">
-                        <span class="badge bg-secondary" style="font-size: 70%;">
-                            Verificacion
-                            @if ($item->User->id == $item->id_user)
-                                {{ $item->ExpCertificado->count() }}
-                            @endif
-                        </span>
-                    </a>
+                            <div class="col-6 p-2">
+                              <a href="{{ route('create_admin.view-cr-admin',$item->id) }}">
+                                <div class="d-flex justify-content-between bg-dark text-white p-2" style="border-radius: 10px">
+                                  <div class="mr-auto p-2"> Carta R.</div>
+                                  <div class="p-2">
+                                        <strong class="text-white p-2 " style="background-color: #00d62e;border-radius: 10px">
+                                            @if ($item->User->id == $item->id_user)
+                                                {{ $item->ExpCarta->count() }}
+                                            @endif
+                                        </strong>
+                                  </div>
+                                </div>
+                              </a>
+                            </div>
 
-                    <a href="{{ route('create_admin.view-bp-admin',$item->id) }}">
-                        <span class="badge bg-secondary" style="font-size: 70%;">
-                            Baja de placas
-                            @if ($item->User->id == $item->id_user)
-                                {{ $item->ExpPlacas->count() }}
-                            @endif
-                        </span>
-                    </a>
+                            <div class="col-6 p-2">
+                              <a href="{{ route('create_admin.view-poliza-admin',$item->id) }}">
+                                <div class="d-flex justify-content-between bg-dark text-white p-2" style="border-radius: 10px">
+                                  <div class="mr-auto p-2">Póliza</div>
+                                  <div class="p-2">
+                                        <strong class="text-white p-2 " style="background-color: #00d62e;border-radius: 10px">
+                                           @if ($item->User->id == $item->id_user)
+                                                {{ $item->ExpPoliza->count() }}
+                                            @endif
+                                        </strong>
+                                  </div>
+                                </div>
+                              </a>
+                            </div>
 
-                </div>
+                            <div class="col-6 p-2">
+                              <a href="{{ route('create_admin.view-tc-admin',$item->id) }}">
+                                <div class="d-flex justify-content-between bg-dark text-white p-2" style="border-radius: 10px">
+                                  <div class="mr-auto p-2">Tarjeta C.</div>
+                                  <div class="p-2">
+                                        <strong class="text-white p-2 " style="background-color: #00d62e;border-radius: 10px">
+                                            @if ($item->User->id == $item->id_user)
+                                                {{ $item->ExpTc->count() }}
+                                            @endif
+                                        </strong>
+                                  </div>
+                                </div>
+                              </a>
+                            </div>
 
-                <div class="d-flex justify-content-between">
+                            <div class="col-6 p-2">
+                              <a href="{{ route('create_admin.view-reemplacamiento-admin',$item->id) }}">
+                                <div class="d-flex justify-content-between bg-dark text-white p-2" style="border-radius: 10px">
+                                  <div class="mr-auto p-2">Reemp</div>
+                                  <div class="p-2">
+                                        <strong class="text-white p-2 " style="background-color: #00d62e;border-radius: 10px">
+                                            @if ($item->User->id == $item->id_user)
+                                                {{ $item->ExpReemplacamiento->count() }}
+                                            @endif
+                                        </strong>
+                                  </div>
+                                </div>
+                              </a>
+                            </div>
 
-                    <a href="{{ route('create_admin.view-ine-admin',$item->id) }}">
-                        <span class="badge bg-success" style="font-size: 70%;">
-                            INE
-                            @if ($item->User->id == $item->id_user)
-                                {{ $item->ExpIne->count() }}
-                            @endif
-                        </span>
-                    </a>
+                            <div class="col-6 p-2">
+                              <a href="{{ route('create_admin.view-reemplacamiento-admin',$item->id) }}">
+                                <div class="d-flex justify-content-between bg-dark text-white p-2" style="border-radius: 10px">
+                                  <div class="mr-auto p-2">Verificacion</div>
+                                  <div class="p-2">
+                                        <strong class="text-white p-2 " style="background-color: #00d62e;border-radius: 10px">
+                                            @if ($item->User->id == $item->id_user)
+                                                {{ $item->ExpCertificado->count() }}
+                                            @endif
+                                        </strong>
+                                  </div>
+                                </div>
+                              </a>
+                            </div>
 
-                    <a href="{{ route('create_admin.view-cd-admin',$item->id) }}">
-                        <span class="badge bg-success" style="font-size: 70%;">
-                            Comprobante de domicilio
-                            @if ($item->User->id == $item->id_user)
-                                {{ $item->ExpDomicilio->count() }}
-                            @endif
-                        </span>
-                    </a>
+                            <div class="col-6 p-2">
+                              <a href="{{ route('create_admin.view-bp-admin',$item->id) }}">
+                                <div class="d-flex justify-content-between bg-dark text-white p-2" style="border-radius: 10px">
+                                  <div class="mr-auto p-2">Baja de placas</div>
+                                  <div class="p-2">
+                                        <strong class="text-white p-2 " style="background-color: #00d62e;border-radius: 10px">
+                                        @if ($item->User->id == $item->id_user)
+                                            {{ $item->ExpPlacas->count() }}
+                                        @endif
+                                        </strong>
+                                  </div>
+                                </div>
+                              </a>
+                            </div>
 
-                    <a href="{{ route('create_admin.view-rfc-admin',$item->id) }}" style="margin-bottom: 3rem!important;">
-                        <span class="badge bg-success" style="font-size: 70%;">
-                            RFC
-                            @if ($item->User->id == $item->id_user)
-                                {{ $item->ExpRfc->count() }}
-                            @endif
-                        </span>
-                    </a>
+                            <div class="col-6 p-2">
+                              <a href="{{ route('create_admin.view-ine-admin',$item->id) }}">
+                                <div class="d-flex justify-content-between bg-dark text-white p-2" style="border-radius: 10px">
+                                  <div class="mr-auto p-2">INE</div>
+                                  <div class="p-2">
+                                        <strong class="text-white p-2 " style="background-color: #00d62e;border-radius: 10px">
+                                            @if ($item->User->id == $item->id_user)
+                                                {{ $item->ExpIne->count() }}
+                                            @endif
+                                        </strong>
+                                  </div>
+                                </div>
+                              </a>
+                            </div>
 
+                            <div class="col-6 p-2">
+                              <a href="{{ route('create_admin.view-cd-admin',$item->id) }}">
+                                <div class="d-flex justify-content-between bg-dark text-white p-2" style="border-radius: 10px">
+                                  <div class="mr-auto p-2">Comprobante D.</div>
+                                  <div class="p-2">
+                                        <strong class="text-white p-2 " style="background-color: #00d62e;border-radius: 10px">
+                                            @if ($item->User->id == $item->id_user)
+                                                {{ $item->ExpDomicilio->count() }}
+                                            @endif
+                                        </strong>
+                                  </div>
+                                </div>
+                              </a>
+                            </div>
+
+                            <div class="col-6 p-2">
+                              <a href="{{ route('create_admin.view-rfc-admin',$item->id) }}">
+                                <div class="d-flex justify-content-between bg-dark text-white p-2" style="border-radius: 10px">
+                                  <div class="mr-auto p-2">RFC</div>
+                                  <div class="p-2">
+                                        <strong class="text-white p-2 " style="background-color: #00d62e;border-radius: 10px">
+                                        @if ($item->User->id == $item->id_user)
+                                            {{ $item->ExpRfc->count() }}
+                                        @endif
+                                        </strong>
+                                  </div>
+                                </div>
+                              </a>
+                            </div>
+
+                        </div>
+
+                    </div>
                 </div>
 
             </div>
