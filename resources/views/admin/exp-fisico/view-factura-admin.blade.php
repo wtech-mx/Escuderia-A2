@@ -249,13 +249,15 @@
         <script>
             $('#factura').ijaboCropTool({
 
+                fileName:'file_name',
                 preview: '.image-previewer',
-                setRatio: 1,
+                setRatio: 4/8,
                 allowedExtensions: ['jpg', 'jpeg', 'png'],
                 buttonsText: ['Cortar', 'Cerrar'],
                 buttonsColor: ['#30bf7d', '#ee5155', -15],
                 processUrl: '{{ route('store_admin.view-factura-admin', $automovil->id) }}',
                 withCSRF: ['_token', '{{ csrf_token() }}'],
+
                 onSuccess: function(message, element, status) {
                     window.location.reload();
 
