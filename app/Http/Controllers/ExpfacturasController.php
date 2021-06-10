@@ -34,8 +34,6 @@ class ExpfacturasController extends Controller
 
     function index()
     {
-
-
         $user = DB::table('users')
             ->where('id', '=', auth()->user()->id)
             ->first();
@@ -61,7 +59,6 @@ class ExpfacturasController extends Controller
 
     public function store(Request $request)
     {
-
         $validate = $this->validate($request, [
             'factura' => 'mimes:jpeg,bpm,jpg,png,pdf',
         ]);
@@ -167,35 +164,56 @@ class ExpfacturasController extends Controller
 
         if ($request->hasFile('factura')) {
 
-              $path = 'exp-factura/';
-              $file = $request->file('factura');
-              $new_image_name = 'UIMG'.date('Ymd').uniqid().'.jpg';
-              $upload = $file->move(public_path($path), $new_image_name);
-              $exp->factura = $new_image_name;
+            $path = 'exp-factura/';
+            $file = $request->file('factura');
+            $new_image_name = 'UIMG' . date('Ymd') . uniqid() . '.jpg';
+            $upload = $file->move(public_path($path), $new_image_name);
+            $exp->factura = $new_image_name;
 
-              }
+            $filepath = public_path('/exp-factura/' . $exp->factura);
 
-              /* Compara el auto que se selecciono con la db */
+            try {
+                \Tinify\setKey(env("TINIFY_API_KEY"));
+                $source = \Tinify\fromFile($filepath);
+                $source->toFile($filepath);
+            } catch (\Tinify\AccountException $e) {
+                // Verify your API key and account limit.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (\Tinify\ClientException $e) {
+                // Check your source image and request options.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (\Tinify\ServerException $e) {
+                // Temporary issue with the Tinify API.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (\Tinify\ConnectionException $e) {
+                // A network connection error occurred.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (Exception $e) {
+                // Something else went wrong, unrelated to the Tinify API.
+                return redirect()->back()->with('error', $e->getMessage());
+            }
+        }
 
-                $automovil = DB::table('automovil')
-                    ->where('id','=',$id)
-                    ->first();
+        /* Compara el auto que se selecciono con la db */
 
-                $exp->current_auto = $automovil->id;
-                $exp->id_user = $automovil->id_user;
+        $automovil = DB::table('automovil')
+            ->where('id', '=', $id)
+            ->first();
 
-              if($exp->save()){
-                 Session::flash('success', 'Se ha guardado sus datos con exito');
-                 return response()->json([
-                     'status'=>1,
-                     'success' => true,
-                     'msg'=>'Image has been cropped successfully.'
-                 ]);
+        $exp->current_auto = $automovil->id;
+        $exp->id_user = $automovil->id_user;
 
-//                return redirect()->back();
-              }else{
-                    return response()->json(['status'=>0, 'msg'=>'Something went wrong, try again later']);
-              }
+        if ($exp->save()) {
+            Session::flash('success', 'Se ha guardado sus datos con exito');
+            return response()->json([
+                'status' => 1,
+                'success' => true,
+                'msg' => 'Image has been cropped successfully.'
+            ]);
 
+            //                return redirect()->back();
+        } else {
+            return response()->json(['status' => 0, 'msg' => 'Something went wrong, try again later']);
+        }
     }
 }
