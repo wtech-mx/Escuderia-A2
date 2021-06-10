@@ -2,8 +2,11 @@
 
 @section('content')
 
- <link href="{{ asset('css/dashboard-admin.css') }}" rel="stylesheet">
-<link href="{{ asset('css/profile.css') }}" rel="stylesheet">
+    @section('crop-css')
+    <link href="{{ asset('css/dashboard-admin.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/ijaboCropTool.min.css') }}">
+    @endsection
 
                     <div class="row bg-down-blue " style="border-radius: 0 0 0 0;">
 
@@ -79,18 +82,18 @@
 
                     </div>
 
-                    <div class="row bg-down-blue " style="border-radius: 0 0 0 0; height: 90vh;">
-                                <div class="col-12">
-                                    <div class="d-flex justify-content-center"  style="position: relative;top: -80px">
-                                        {!! $exp_factura->links() !!}
-                                    </div>
-                                </div>
+                    <div class="row bg-down-blue " style="border-radius: 0 0 0 0;background-repeat: space repeat;">
+{{--                                <div class="col-12">--}}
+{{--                                    <div class="d-flex justify-content-center"  style="position: relative;top: -80px">--}}
+{{--                                        {!! $exp_factura->links() !!}--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
                     @if ($exp_factura->count())
                         @foreach($exp_factura as $item)
                             @php
                                 $texto= substr($item->factura, -3);
                             @endphp
-                                <div class="col-6 text-center">
+                                <div class="col-6 text-center" >
                                     <a  class="" data-toggle="modal" data-target="#modal-doc-{{$item->id}}">
                                         @if($texto == 'pdf')
                                             <p class="text-center">
@@ -143,8 +146,10 @@
                             @include('exp-fisico.eliminar')
                         @endforeach
                     @else
+                    <div class="content-son-exp" style=" height: 90vh;">
 
-                        <div class="col-12 mb3">
+
+                        <div class="col-12 mb-3" style="">
                             <p class="text-center title-car">
                             <img class="d-inline mb-2" src="{{ asset('img/icon/white/paper (1).png') }}" alt="Icon documento" width="150px">
 
@@ -168,7 +173,7 @@
                                 Escanea tu Expediente
                             </p>
                         </div>
-
+                    </div>
                         @endif
 
                         <!-- Modal -->
@@ -184,8 +189,6 @@
                                     </p>
                                   </div>
 
-                               <form method="POST" action="{{route('store_admin.view-factura-admin', $automovil->id)}}" enctype="multipart/form-data" role="form">
-                                @csrf
 
                                     <div class="col-12">
                                          <label for="">
@@ -204,7 +207,7 @@
 
                                     <div class="col-12 mt-3">
                                         <div class=" custom-file mb-3">
-                                            <input type="file" class="custom-file-input input-group-text" name="factura">
+                                            <input type="file" class="custom-file-input input-group-text image" name="factura" id="factura">
                                         </div>
 
                                         <p class="text-center">
@@ -219,16 +222,37 @@
 
                                         </p>
                                     </div>
-                               </form>
-
                               </div>
 
 
                             </div>
                           </div>
                         </div>
+
      </div>
 
+@section('crop-js')
+    <script src="{{ asset('js/ijaboCropTool.min.js') }}"></script>
+    <script>
+           $('#factura').ijaboCropTool({
+
+              preview : '.image-previewer',
+              setRatio:1,
+              allowedExtensions: ['jpg', 'jpeg','png'],
+              buttonsText:['Cortar','Cerrar'],
+              buttonsColor:['#30bf7d','#ee5155', -15],
+              processUrl:'{{route('store_admin.view-factura-admin', $automovil->id)}}',
+              withCSRF:['_token','{{ csrf_token() }}'],
+              onSuccess:function(message, element, status){
+                 window.location.reload();
+
+              },
+              onError:function(message, element, status){
+                alert(message);
+              }
+           });
+      </script>
+@endsection
 
 @endsection
 

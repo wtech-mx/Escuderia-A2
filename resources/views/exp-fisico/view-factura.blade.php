@@ -2,6 +2,8 @@
 
 @section('content')
 
+
+
 <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
 
 <div class="row bg-down-blue " style="border-radius: 0 0 0 0; height: 100vh;">
@@ -168,14 +170,12 @@
                             <div class="modal-content">
 
                               <div class="modal-body">
-
-                                  <div class="col-12">
-                                    <p class="text-center text-dark" style="font: normal normal bold 23px/31px Segoe UI;">
-                                        Agregar Imagen
-                                    </p>
-                                  </div>
-
-                               <form method="POST" action="{{route('store.exp-factura')}}" enctype="multipart/form-data" role="form">
+                                      <div class="col-12">
+                                        <p class="text-center text-dark" style="font: normal normal bold 23px/31px Segoe UI;">
+                                            Agregar Imagen
+                                        </p>
+                                      </div>
+                                    <form method="POST" action="{{route('store.exp-factura')}}" enctype="multipart/form-data" role="form">
                                          @csrf
 
                                     <div class="col-12">
@@ -193,33 +193,30 @@
                                          </div>
                                     </div>
 
-                                <div class="col-12 mt-3">
-                                          <div class=" custom-file mb-3">
-                                            <input type="file" class="custom-file-input input-group-text" name="factura">
-                                            <label class="custom-file-label">Elegir img...</label>
-                                          </div>
+                                    <div class="col-12 mt-3">
+                                              <div class=" custom-file mb-3">
+                                                <input type="file" class="custom-file-input input-group-text" name="factura">
+                                                <label class="custom-file-label">Elegir img...</label>
+                                              </div>
+                                        <p class="text-center">
+                                            Agregar <br>
+                                            Facturas
 
-                                    <p class="text-center">
-                                        Agregar <br>
-                                        Facturas
-
-                                        <br>
-
-                                                <button type="submit" class="btn btn-success btn-save text-white">
-                                                    <img class="d-inline" src="{{ asset('img/icon/white/save-file-option (1).png') }}" alt="Icon documento" width="30px">
-                                                    Guardar
-                                                </button>
-                                    </p>
-                                </div>
+                                            <br>
+                                            <button type="submit" class="btn btn-success btn-save text-white">
+                                                <img class="d-inline" src="{{ asset('img/icon/white/save-file-option (1).png') }}" alt="Icon documento" width="30px">
+                                                Guardar
+                                            </button>
+                                        </p>
+                                    </div>
                                </form>
-
                               </div>
-
 
                             </div>
                           </div>
                         </div>
 
 </div>
+
 
 @endsection

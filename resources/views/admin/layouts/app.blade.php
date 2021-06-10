@@ -36,6 +36,8 @@
     <link href="{{ asset('css/container-responsive.css') }}" rel="stylesheet">
     <link href="{{ asset('css/preloader.css') }}" rel="stylesheet">
 
+     @yield('crop-css')
+
     <link href="{{ asset('fonts/font-awesome.min.css') }}" rel="stylesheet">
     <link href="{{ asset('fonts/all.min.css') }}" rel="stylesheet">
     {{-- <link href="{{ asset('fonts/font-awesome.min.js') }}" rel="stylesheet"> --}}
@@ -107,7 +109,9 @@
             @include('admin.layouts.offline')
         </div>
     @endauth
+
     @yield('js')
+    @yield('crop-js')
 
 </body>
 

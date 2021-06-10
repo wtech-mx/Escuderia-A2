@@ -78,8 +78,8 @@
                                                     <td>{{ $item->placas }}</td>
                                                     <td>{{ $item->Marca->nombre }}</td>
                                                     <td>
-                                                        <a data-toggle="modal" data-target="#example{{ $item->id }}"><img class=""
-                                                                src="{{ asset('img/icon/white/add.png') }}" width="15px"></a>
+                                                        <a data-toggle="modal" data-target="#example{{ $item->id }}">
+                                                            <img class="icon-effect"  src="{{ asset('img/icon/white/add.png') }}" width="15px"></a>
                                                     </td>
                                                     @include('admin.exp-fisico.modal')
                                                 </tr>
