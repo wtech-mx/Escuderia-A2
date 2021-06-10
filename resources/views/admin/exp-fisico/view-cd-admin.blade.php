@@ -63,6 +63,8 @@
                             </div>
                         </div>
 
+                        <strong class="text-center" style="color: rgb(102, 223, 66)">  {{ $automovil->placas }}</strong>
+
                         <div class="col-12 mt-3 mb-5">
                             <div class="d-flex justify-content-between">
                             <p class="text-center text-white">

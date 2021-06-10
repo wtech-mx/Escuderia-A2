@@ -63,6 +63,8 @@
                             </div>
                         </div>
 
+                        <strong class="text-center" style="color: rgb(102, 223, 66)"> {{ $automovil->placas }}</strong>
+
                         <div class="col-12 mt-3">
                             <div class="d-flex justify-content-between">
                             <p class="text-center text-white">
@@ -76,11 +78,7 @@
 
                             </div>
                         </div>
-                                <div class="col-12 mt-4 ">
-                                    <div class="d-flex justify-content-center">
-                                        {!! $exp_tenencias->links() !!}
-                                    </div>
-                                </div>
+
                     @if ($exp_tenencias->count())
                         @foreach($exp_tenencias as $item)
                             @php

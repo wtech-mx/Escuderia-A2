@@ -68,10 +68,11 @@ $newDate = date("d/m/Y", strtotime($originalDate));
                                         </script>
                             @endif
 
-                        <p class="text-left text-white mt-5 mb-5" style="font: normal normal bold 20px/27px Segoe UI;">
-                            <strong>Tarjeta de Circulaci&oacute;n De -</strong>
-                            <strong style="color: #00d62e">{{$tarjeta_circulacion->User->name}}</strong>
+                        <p class="text-left text-white mt-5" style="font: normal normal bold 20px/27px Segoe UI;">
+                            <strong>Tarjeta de Circulaci&oacute;n</strong>
                         </p>
+
+                        <p class="text-center mb-5" style="color: #00d62e; font: normal normal bold 20px/27px Segoe UI;"><strong>{{$tarjeta_circulacion->User->name}} / {{$tarjeta_circulacion->Automovil->placas}}</strong></p>
 
                         {{--Datos para el calendario--}}
                         <div class="input-group form-group">

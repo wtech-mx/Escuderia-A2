@@ -51,6 +51,9 @@
             </div>
         </div>
 
+        <p class="text-center" style="color: #00d62e; font: normal normal bold 20px/27px Segoe UI;"><strong>{{$licencia->User->name}}</strong></p>
+
+
     </div>
     <style>
         input.form-control {

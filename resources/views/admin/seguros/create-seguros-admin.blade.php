@@ -82,10 +82,11 @@
         <div class="row bg-image">
             <div class="col-12 mt-3">
 
-                <p class="text-left text-white" style="font: normal normal bold 20px/27px Segoe UI;">
-                    <strong>Detalles del Seguro De -</strong>
-                    <strong style="color: #00d62e">{{ $seguro->User->name }}</strong>
+                <p class="text-center text-white" style="font: normal normal bold 20px/27px Segoe UI;">
+                    <strong>Detalles del Seguro</strong>
                 </p>
+
+                <p class="text-center" style="color: #00d62e; font: normal normal bold 20px/27px Segoe UI;"><strong>{{$seguro->User->name}} / {{$seguro->Automovil->placas}}</strong></p>
 
                 <label for="">
                     <p class="text-white"><strong>Seguro</strong></p>

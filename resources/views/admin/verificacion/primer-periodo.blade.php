@@ -15,10 +15,11 @@
     <input type="hidden" name="_method" value="PATCH">
     <div class="col-12 mt-1">
 
-        <p class="text-left text-white" style="font: normal normal bold 20px/27px Segoe UI;">
-            <strong>Primer Periodo de Verificaci&oacute;n - </strong>
-            <strong style="color: #00d62e">{{ $verificacion->User->name }}</strong>
+        <p class="text-center text-white" style="font: normal normal bold 20px/27px Segoe UI;">
+            <strong>Primer Periodo de Verificaci&oacute;n </strong>
         </p>
+        <p class="text-center" style="color: #00d62e; font: normal normal bold 20px/27px Segoe UI;"><strong>{{$verificacion->User->name}} / {{$verificacion->Automovil->placas}}</strong></p>
+
         {{-- Datos para el calendario --}}
         <div class="input-group form-group">
             <input type="hidden" class="form-control" id='title' name="title"
