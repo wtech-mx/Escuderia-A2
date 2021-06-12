@@ -2,6 +2,12 @@
 
 @section('content')
 
+@section('crop-css')
+    <link href="{{ asset('css/dashboard-admin.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/ijaboCropTool.min.css') }}">
+@endsection
+
 <link href="{{ asset('css/dashboard-admin.css') }}" rel="stylesheet">
 
 <div class="row bg-down-blue " style="border-radius: 0 0 0 0; height: 95vh;">
@@ -200,7 +206,7 @@
 
                                 <div class="col-12 mt-3">
                                           <div class=" custom-file mb-3">
-                                            <input type="file" class="custom-file-input input-group-text" name="domicilio">
+                                            <input type="file" class="custom-file-input input-group-text image" id="domicilio" name="domicilio">
                                             <label class="custom-file-label">Elegir img...</label>
                                           </div>
 
@@ -228,5 +234,32 @@
                         </div>
 
 </div>
+
+
+@section('crop-js')
+<script src="{{ asset('js/ijaboCropTool.min.js') }}"></script>
+<script>
+    $('#domicilio').ijaboCropTool({
+
+        fileName:'file_name',
+        preview: '.image-previewer',
+        setRatio: 4/8,
+        allowedExtensions: ['jpg', 'jpeg', 'png'],
+        buttonsText: ['Cortar', 'Cerrar'],
+        buttonsColor: ['#30bf7d', '#ee5155', -15],
+        processUrl: '{{ route('store_admin.view-bp-admin', $automovil->id) }}',
+        withCSRF: ['_token', '{{ csrf_token() }}'],
+
+        onSuccess: function(message, element, status) {
+            window.location.reload();
+
+        },
+        onError: function(message, element, status) {
+            alert(message);
+        }
+    });
+
+</script>
+@endsection
 
 @endsection
