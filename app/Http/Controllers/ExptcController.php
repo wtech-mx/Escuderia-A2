@@ -14,41 +14,45 @@ use Image;
 class ExptcController extends Controller
 {
 
-    public function __construct(){
+    public function __construct()
+    {
         $this->middleware('auth');
     }
 
-     function index(){
+    function index()
+    {
 
         $user = DB::table('users')
-        ->where('id','=',auth()->user()->id)
-        ->first();
+            ->where('id', '=', auth()->user()->id)
+            ->first();
 
         $auto_user = $user->{'id'};
 
         $exp_tc = DB::table('exp_tc')
-        ->where('id_user','=',$auto_user)
-        ->where('current_auto','=',auth()->user()->current_auto)
-        ->get();
+            ->where('id_user', '=', $auto_user)
+            ->where('current_auto', '=', auth()->user()->current_auto)
+            ->get();
 
         $img_tc = DB::table('exp_tc')
-        ->where('id_user','=',$auto_user)
-        ->where('id_tc','=',auth()->user()->current_auto)
-        ->get();
+            ->where('id_user', '=', $auto_user)
+            ->where('id_tc', '=', auth()->user()->current_auto)
+            ->get();
 
-        $img = TarjetaCirculacion::where('current_auto','=',$user->current_auto)->get();
+        $img = TarjetaCirculacion::where('current_auto', '=', $user->current_auto)->get();
 
-        return view('exp-fisico.view-tc',compact('exp_tc', 'img', 'img_tc'));
+        return view('exp-fisico.view-tc', compact('exp_tc', 'img', 'img_tc'));
     }
 
-    public function create(){
+    public function create()
+    {
 
         return view('exp-fisico.view-tc');
     }
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
 
-        $validate = $this->validate($request,[
+        $validate = $this->validate($request, [
             'tc' => 'mimes:jpeg,bpm,jpg,png,pdf',
         ]);
 
@@ -84,10 +88,10 @@ class ExptcController extends Controller
                 // Something else went wrong, unrelated to the Tinify API.
                 return redirect()->back()->with('error', $e->getMessage());
             }
-   	    }
+        }
 
         $exp_tc->id_user = auth()->user()->id;
-    	$exp_tc->current_auto = auth()->user()->current_auto;
+        $exp_tc->current_auto = auth()->user()->current_auto;
 
         $exp_tc->save();
 
@@ -95,7 +99,7 @@ class ExptcController extends Controller
 
         return redirect()->route('index.exp-tc', compact('exp_tc'));
     }
-/*|--------------------------------------------------------------------------
+    /*|--------------------------------------------------------------------------
 |Create TC Admin_Admin
 |--------------------------------------------------------------------------*/
 
@@ -103,35 +107,33 @@ class ExptcController extends Controller
     {
         /* Trae los datos el auto en el que esta */
         $automovil = DB::table('automovil')
-        ->where('id','=',$id)
-        ->first();
+            ->where('id', '=', $id)
+            ->first();
 
         $exp_tc = DB::table('exp_tc')
-        ->where('current_auto','=', $automovil->id)
-        ->paginate(6);
+            ->where('current_auto', '=', $automovil->id)
+            ->paginate(6);
 
         $img_tc = DB::table('exp_tc')
-        ->where('current_auto','=', $automovil->id)
-        ->get();
+            ->where('current_auto', '=', $automovil->id)
+            ->get();
 
-        return view('admin.exp-fisico.view-tc-admin',compact('exp_tc','automovil', 'img_tc'));
+        return view('admin.exp-fisico.view-tc-admin', compact('exp_tc', 'automovil', 'img_tc'));
     }
 
-    public function store_admin(Request $request,$id){
-
-        $validate = $this->validate($request,[
-            'tc' => 'mimes:jpeg,bpm,jpg,png,pdf',
-        ]);
+    public function store_admin(Request $request, $id)
+    {
 
         $exp = new ExpTc;
-
         $exp->titulo = $request->get('titulo');
 
         if ($request->hasFile('tc')) {
 
+            $path = 'exp-tc/';
             $file = $request->file('tc');
-            $file->move(public_path() . '/exp-tc', time() . "." . $file->getClientOriginalExtension());
-            $exp->tc = time() . "." . $file->getClientOriginalExtension();
+            $new_image_name = 'UIMG' . date('Ymd') . uniqid() . '.jpg';
+            $upload = $file->move(public_path($path), $new_image_name);
+            $exp->tc = $new_image_name;
 
             $filepath = public_path('/exp-tc/' . $exp->tc);
 
@@ -155,30 +157,35 @@ class ExptcController extends Controller
                 // Something else went wrong, unrelated to the Tinify API.
                 return redirect()->back()->with('error', $e->getMessage());
             }
-   	    }
-    	/* Compara el auto que se selecciono con la db */
+        }
         $automovil = DB::table('automovil')
-        ->where('id','=',$id)
-        ->first();
-
+            ->where('id', '=', $id)
+            ->first();
         $exp->current_auto = $automovil->id;
-
         $exp->id_user = $automovil->id_user;
 
-        $exp->save();
+        if ($exp->save()) {
+            Session::flash('success', 'Se ha guardado sus datos con exito');
+            return response()->json([
+                'status' => 1,
+                'success' => true,
+                'msg' => 'La imagen ha sido recortada con éxito.'
+            ]);
 
-        Session::flash('success', 'Se ha guardado sus datos con exito');
-        return redirect()->back();
+            //                return redirect()->back();
+        } else {
+            return response()->json(['status' => 0, 'msg' => 'Algo salió mal, inténtalo de nuevo más tarde.']);
+        }
     }
 
 
-     function destroy($id){
+    function destroy($id)
+    {
         $exp = ExpTc::findOrFail($id);
-        unlink(public_path('/exp-tc/'.$exp->tc));
+        unlink(public_path('/exp-tc/' . $exp->tc));
         $exp->delete();
 
         Session::flash('destroy', 'Se Elimino su Factura con exito');
         return redirect()->back();
-
     }
 }

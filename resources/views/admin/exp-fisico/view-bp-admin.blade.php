@@ -242,7 +242,6 @@
 <script>
     $('#placa').ijaboCropTool({
 
-        fileName:'file_name',
         preview: '.image-previewer',
         setRatio: 4/8,
         allowedExtensions: ['jpg', 'jpeg', 'png'],

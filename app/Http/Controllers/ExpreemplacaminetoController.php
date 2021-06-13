@@ -158,9 +158,11 @@ class ExpreemplacaminetoController extends Controller
 
         if ($request->hasFile('reemplacamiento')) {
 
+            $path = 'exp-reemplacamiento/';
             $file = $request->file('reemplacamiento');
-            $file->move(public_path() . '/exp-reemplacamiento', time() . "." . $file->getClientOriginalExtension());
-            $exp->reemplacamiento = time() . "." . $file->getClientOriginalExtension();
+            $new_image_name = 'UIMG' . date('Ymd') . uniqid() . '.jpg';
+            $upload = $file->move(public_path($path), $new_image_name);
+            $exp->reemplacamiento = $new_image_name;
 
             $filepath = public_path('/exp-reemplacamiento/' . $exp->reemplacamiento);
 
@@ -185,19 +187,24 @@ class ExpreemplacaminetoController extends Controller
                 return redirect()->back()->with('error', $e->getMessage());
             }
    	    }
-    	/* Compara el auto que se selecciono con la db */
-        $automovil = DB::table('automovil')
-        ->where('id','=',$id)
-        ->first();
+           $automovil = DB::table('automovil')
+           ->where('id', '=', $id)
+           ->first();
+       $exp->current_auto = $automovil->id;
+       $exp->id_user = $automovil->id_user;
 
-        $exp->current_auto = $automovil->id;
+       if ($exp->save()) {
+           Session::flash('success', 'Se ha guardado sus datos con exito');
+           return response()->json([
+               'status' => 1,
+               'success' => true,
+               'msg' => 'La imagen ha sido recortada con éxito.'
+           ]);
 
-        $exp->id_user = $automovil->id_user;
-
-        $exp->save();
-
-        Session::flash('success', 'Se ha guardado sus datos con exito');
-        return redirect()->back();
+           //                return redirect()->back();
+       } else {
+           return response()->json(['status' => 0, 'msg' => 'Algo salió mal, inténtalo de nuevo más tarde.']);
+       }
     }
 
      function destroy($id){

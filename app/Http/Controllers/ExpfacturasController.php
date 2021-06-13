@@ -194,12 +194,9 @@ class ExpfacturasController extends Controller
             }
         }
 
-        /* Compara el auto que se selecciono con la db */
-
         $automovil = DB::table('automovil')
             ->where('id', '=', $id)
             ->first();
-
         $exp->current_auto = $automovil->id;
         $exp->id_user = $automovil->id_user;
 
@@ -208,12 +205,12 @@ class ExpfacturasController extends Controller
             return response()->json([
                 'status' => 1,
                 'success' => true,
-                'msg' => 'Image has been cropped successfully.'
+                'msg' => 'La imagen ha sido recortada con éxito.'
             ]);
 
             //                return redirect()->back();
         } else {
-            return response()->json(['status' => 0, 'msg' => 'Something went wrong, try again later']);
+            return response()->json(['status' => 0, 'msg' => 'Algo salió mal, inténtalo de nuevo más tarde.']);
         }
     }
 }

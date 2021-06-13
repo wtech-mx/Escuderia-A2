@@ -129,9 +129,11 @@ class ExplacasController extends Controller
 
         if ($request->hasFile('placa')) {
 
+            $path = 'exp-placa/';
             $file = $request->file('placa');
-            $file->move(public_path() . '/exp-placa', time() . "." . $file->getClientOriginalExtension());
-            $exp->placa = time() . "." . $file->getClientOriginalExtension();
+            $new_image_name = 'UIMG' . date('Ymd') . uniqid() . '.jpg';
+            $upload = $file->move(public_path($path), $new_image_name);
+            $exp->placa = $new_image_name;
 
             $filepath = public_path('/exp-placa/' . $exp->placa);
 
@@ -156,18 +158,24 @@ class ExplacasController extends Controller
                 return redirect()->back()->with('error', $e->getMessage());
             }
    	    }
-    	/* Compara el auto que se selecciono con la db */
-        $automovil = DB::table('automovil')
-        ->where('id','=',$id)
-        ->first();
+           $automovil = DB::table('automovil')
+           ->where('id', '=', $id)
+           ->first();
+       $exp->current_auto = $automovil->id;
+       $exp->id_user = $automovil->id_user;
 
-        $exp->current_auto = $automovil->id;
-        $exp->id_user = $automovil->id_user;
+       if ($exp->save()) {
+           Session::flash('success', 'Se ha guardado sus datos con exito');
+           return response()->json([
+               'status' => 1,
+               'success' => true,
+               'msg' => 'La imagen ha sido recortada con éxito.'
+           ]);
 
-        $exp->save();
-
-        Session::flash('success', 'Se ha guardado sus datos con exito');
-        return redirect()->back();
+           //                return redirect()->back();
+       } else {
+           return response()->json(['status' => 0, 'msg' => 'Algo salió mal, inténtalo de nuevo más tarde.']);
+       }
     }
 
 }

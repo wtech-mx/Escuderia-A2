@@ -67,7 +67,7 @@
             </div>
         </div>
     </div>
-    
+
     <strong class="text-center" style="color: rgb(102, 223, 66)">  {{ $automovil->placas }}</strong>
 
     <div class="col-12 mt-5 mb-3">
@@ -251,7 +251,6 @@
         <script>
             $('#factura').ijaboCropTool({
 
-                fileName:'file_name',
                 preview: '.image-previewer',
                 setRatio: 4/8,
                 allowedExtensions: ['jpg', 'jpeg', 'png'],

@@ -92,15 +92,24 @@ class ExpcartaController extends Controller
                 return redirect()->back()->with('error', $e->getMessage());
             }
         }
+        $automovil = DB::table('automovil')
+            ->where('id', '=', $id)
+            ->first();
+        $exp->current_auto = $automovil->id;
+        $exp->id_user = $automovil->id_user;
 
-        $exp_carta->id_user = auth()->user()->id;
-        $exp_carta->current_auto = auth()->user()->current_auto;
+        if ($exp->save()) {
+            Session::flash('success', 'Se ha guardado sus datos con exito');
+            return response()->json([
+                'status' => 1,
+                'success' => true,
+                'msg' => 'La imagen ha sido recortada con éxito.'
+            ]);
 
-        $exp_carta->save();
-
-        Session::flash('success', 'Se ha guardado sus datos con exito');
-
-        return redirect()->route('index.exp-cr', compact('exp_carta'));
+            //                return redirect()->back();
+        } else {
+            return response()->json(['status' => 0, 'msg' => 'Algo salió mal, inténtalo de nuevo más tarde.']);
+        }
     }
 
     public function create_admin($id)
