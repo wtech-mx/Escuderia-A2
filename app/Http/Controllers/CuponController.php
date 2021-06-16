@@ -62,7 +62,7 @@ class CuponController extends Controller
 
         $new_image_name = 'Cupon' . date('Ymd') . uniqid() . '.svg';
         $qrimage = public_path('qr/' . $new_image_name);
-        QRCode::color(0, 249, 76)->generate('https://checkn-go.com.mx/admin/cupon/edit/', $qrimage);
+        QRCode::color(0, 249, 76)->generate('https://checkn-go.com.mx', $qrimage);
         $cupon->qr = $new_image_name;
 
         if ($request->hasFile('img1')) {
@@ -221,6 +221,18 @@ class CuponController extends Controller
         }
     }
 
+    public function lista_check($id)
+    {
+        if (auth()->user()->role != 1) {
+            return view('errors.403');
+        } else {
+            $cupon = Cupon::findOrFail($id);
+            $cupons = CuponUser::where('check', '=', 1)->get();
+
+            return view('admin.cupon.lista-check', compact('cupons', 'cupon'));
+        }
+    }
+
     public function update_check(Request $request, $id)
     {
         $cupon_user = CuponUser::findOrFail($request->get('id_user'));
@@ -229,7 +241,7 @@ class CuponController extends Controller
         $cupon_user->save();
 
         Session::flash('create', 'Se ha actualizado su cupon con exito');
-        return redirect()->back();
+        return view('admin.cupon.lista-check');
     }
 
     function destroy($id)

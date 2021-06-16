@@ -256,18 +256,6 @@
             </a>
         </div>
 
-        <div class="col-6 text-center">
-            <a href="{{ route('index_admin.cupon') }}" class="text-white">
-
-                <div class="card" style="border-radius: 15px">
-                    <div class="card-body">
-                        <i class="fas fa-qrcode icon-effect-dashboard"></i>
-                        <p class=" card-text text-white"><strong>Qr</strong></p>
-                    </div>
-                </div>
-            </a>
-        </div>
-
         @include('admin.notas.create')
         @include('admin.modal-services')
     </div>
