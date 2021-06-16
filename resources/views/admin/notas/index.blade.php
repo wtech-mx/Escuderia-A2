@@ -55,7 +55,7 @@
                                     <tr>
                                         <th scope="col">Usuario</th>
                                         <th scope="col">Nota</th>
-                                        <th scope="col">Más</th>
+                                        <th scope="col">Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>

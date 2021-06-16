@@ -20,7 +20,7 @@ class CreateLicenciaTable extends Migration
             $table->date('expedicion')->nullable();
             $table->date('antiguedad')->nullable();
             $table->date('vigencia')->nullable();
-            $table->int('permanente')->nullable();
+            $table->integer('permanente')->nullable();
             $table->string('nacionalidad')->nullable();
             $table->string('sangre')->nullable();
             $table->string('rfc')->nullable();

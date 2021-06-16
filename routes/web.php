@@ -392,4 +392,21 @@ Route::get('admin/licencia/index', 'LicenciaController@index_admin')->name('inde
 Route::get('admin/licencia/edit/{id}', 'LicenciaController@edit_admin')->name('edit_admin.licencia');
 Route::patch('admin/licencia/update/{id}', 'LicenciaController@update_admin')->name('update_admin.licencia');
 
+/*|--------------------------------------------------------------------------
+|Cupones
+|--------------------------------------------------------------------------*/
+Route::get('admin/cupon/view', 'CuponController@index_admin')->name('index_admin.cupon');
+Route::get('admin/cupon/crear', 'CuponController@create_admin')->name('create_admin.cupon');
+Route::post('admin/cupon/store', 'CuponController@store_admin')->name('store_admin.cupon');
+Route::get('admin/cupon/edit/{id}', 'CuponController@edit_admin')->name('edit_admin.cupon');
+Route::patch('admin/cupon/update/{id}', 'CuponController@update_admin')->name('update_admin.cupon');
+Route::delete('admin/cupon/destroy/{id}', 'CuponController@destroy')->name('destroy.cupon');
+
+Route::get('changeStatus', 'CuponController@ChangeUserStatus')->name('ChangeUserStatus.cupon');
+
+Route::post('admin/cupon/asignacion/store', 'CuponController@store_asignacion')->name('store_asignacion.cupon');
+
+Route::get('admin/cupon/check/edit/{id}', 'CuponController@edit_check')->name('edit_check.cupon');
+Route::patch('admin/cupon/check/update/{id}', 'CuponController@update_check')->name('update_check.cupon');
+
 require __DIR__ . '/auth.php';
