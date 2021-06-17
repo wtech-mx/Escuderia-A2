@@ -65,7 +65,7 @@
                       <div class="d-flex card text-center" style="background: {{$cupons->color}}">
 
                           <div class="content-cupon p-3 bg-white" style="border-radius: 20px">
-                              <img class="" src="{{ asset('qr/'.$cupons->qr) }}" alt="{{ asset('img/qr/'.$cupons->qr) }}" width="85">
+                              <img class="" src="{{ asset('qr/'.$cupons->qr) }}"  width="85">
                           </div>
 
                           <h1 class="mt-3">

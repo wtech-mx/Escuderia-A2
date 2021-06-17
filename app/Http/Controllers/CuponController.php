@@ -66,10 +66,20 @@ class CuponController extends Controller
 
         $new_image_name = 'Cupon' . date('Ymd') . uniqid() . '.svg';
         $qrimage = public_path('qr/' . $new_image_name);
-        QRCode::color(0, 0, 0)->generate('https://checkn-go.com.mx', $qrimage);
+
+        QRCode::color(0, 0, 0)->generate('https://checkn-go.com.mx/admin/cupon/check/edit/'.$cupon->id, $qrimage);
         $cupon->qr = $new_image_name;
 
-        $cupon->save();
+        if ($cupon->save()){
+            $latestId = Cupon::latest('id')->first()->id;
+            $cupon = Cupon::findOrFail($latestId);
+            $new_image_name = 'Cupon' . date('Ymd') . uniqid() . '.svg';
+            $qrimage = public_path('qr/' . $new_image_name);
+
+            QRCode::color(0, 0, 0)->generate('https://checkn-go.com.mx/admin/cupon/check/edit/'.$latestId, $qrimage);
+            $cupon->qr = $new_image_name;
+            $cupon->save();
+        }
 
         $cupon_user = new  CuponUser;
         $cupon_user->id_cupon = $cupon->id;
