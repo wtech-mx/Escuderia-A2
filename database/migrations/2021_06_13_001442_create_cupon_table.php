@@ -16,12 +16,10 @@ class CreateCuponTable extends Migration
         Schema::create('cupon', function (Blueprint $table) {
             $table->id();
             $table->string('titulo')->nullable();
-            $table->string('img1')->nullable();
-            $table->string('img2')->nullable();
-            $table->string('validez')->nullable();
+            $table->string('color')->nullable();
             $table->string('aplicacion')->nullable();
             $table->string('qr')->nullable();
-            $table->integer('precio')->nullable();
+            $table->string('precio')->nullable();
             $table->integer('estado')->nullable();
             $table->timestamps();
         });

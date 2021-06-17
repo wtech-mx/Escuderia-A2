@@ -52,7 +52,7 @@
     </div>
 
     <div class="row  bg-down-image-border" >
-        <div class="col-12">
+        <div class="col-12 mt-5">
             <form method="POST" action="{{ route('store_admin.cupon') }}" enctype="multipart/form-data" role="form">
             @csrf
 
@@ -70,8 +70,8 @@
                                <input type="text" class="form-control" name="titulo" id="titulo" placeholder="Titulo">
                            </div>
 
-                           <label for="">
-                                <p class="text-white"><strong>Texto de Validez</strong></p>
+                            <label for="">
+                                <p class="text-white"><strong>Oferta o Precio</strong></p>
                             </label>
 
                             <div class="input-group form-group mb-5">
@@ -81,11 +81,26 @@
                                     </span>
                                 </div>
 
-                                <input type="text" class="form-control" name="validez" id="validez" placeholder="Valido hasta...">
+                                <input type="text" class="form-control" name="precio" id="precio" placeholder="Precio $">
                             </div>
 
                             <label for="">
-                                <p class="text-white"><strong>Texto Aplación</strong></p>
+                                <p class="text-white"><strong>Color</strong></p>
+                            </label>
+
+                           <div class="input-group form-group mb-5">
+                               <div class="input-group-prepend">
+                                   <span class="input-group-text">
+                                       <i class="fas fa-signature icon-tc"></i>
+                                   </span>
+                               </div>
+
+                               <input type="color" class="form-control" name="color" id="color"value="#563d7c">
+
+                           </div>
+
+                            <label for="">
+                                <p class="text-white"><strong>Terminos</strong></p>
                             </label>
 
                             <div class="input-group form-group mb-5">
@@ -98,22 +113,8 @@
                                 <input type="text" class="form-control" name="aplicacion" id="aplicacion" placeholder="Aplica en la compra...">
                             </div>
 
-                            <label for="">
-                                <p class="text-white"><strong>Precio</strong></p>
-                            </label>
-
-                            <div class="input-group form-group mb-5">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">
-                                        <i class="fas fa-signature icon-tc"></i>
-                                    </span>
-                                </div>
-
-                                <input type="number" class="form-control" name="precio" id="precio" placeholder="Precio $">
-                            </div>
-
                            <label for="">
-                                <p class="text-white"><strong>Fecha de limite</strong></p>
+                                <p class="text-white"><strong>Fecha limite</strong></p>
                             </label>
 
                             <div class="input-group form-group mb-5">
@@ -125,33 +126,6 @@
                                     <input type="date" class="form-control" name="end" id="end" placeholder="MM/YYYY">
                             </div>
 
-                           <label for="">
-                                <p class="text-white"><strong>Imagen Grande</strong></p>
-                            </label>
-
-                            <div class="input-group form-group mb-5">
-                                <div class="input-group-prepend " >
-                                    <span class="input-group-text" >
-                                        <i class="fas fa-user-shield icon-tc"></i>
-                                    </span>
-                                </div>
-
-                                <input type="file" class="custom-file-input input-group-text" id="img1" name="img1">
-                            </div>
-
-                            <label for="">
-                                <p class="text-white"><strong>Imagen chica</strong></p>
-                            </label>
-
-                            <div class="input-group form-group mb-5">
-                                <div class="input-group-prepend " >
-                                    <span class="input-group-text" >
-                                        <i class="fas fa-user-shield icon-tc"></i>
-                                    </span>
-                                </div>
-
-                                <input type="file" class="custom-file-input input-group-text" id="img2" name="img2">
-                            </div>
 
                     <div class="col-12 mt-5">
                         <button class="btn btn-lg btn-success btn-save-neon text-white"

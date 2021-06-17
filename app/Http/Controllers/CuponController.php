@@ -54,86 +54,28 @@ class CuponController extends Controller
     public function store_admin(Request $request)
     {
 
+        $validate = $this->validate($request, [
+            'titulo' => 'required',
+        ]);
+
         $cupon = new  Cupon;
         $cupon->titulo = $request->get('titulo');
-        $cupon->validez = $request->get('validez');
+        $cupon->color = $request->get('color');
         $cupon->aplicacion = $request->get('aplicacion');
         $cupon->precio = $request->get('precio');
 
         $new_image_name = 'Cupon' . date('Ymd') . uniqid() . '.svg';
         $qrimage = public_path('qr/' . $new_image_name);
-        QRCode::color(0, 249, 76)->generate('https://checkn-go.com.mx', $qrimage);
+        QRCode::color(0, 0, 0)->generate('https://checkn-go.com.mx', $qrimage);
         $cupon->qr = $new_image_name;
 
-        if ($request->hasFile('img1')) {
-
-            $path = 'cupon/';
-            $file = $request->file('img1');
-            $new_image_name = date('Ymd') . uniqid() . '.jpg';
-            $upload = $file->move(public_path($path), $new_image_name);
-            $cupon->img1 = $new_image_name;
-
-            $filepath = public_path('/cupon/' . $cupon->img1);
-
-            try {
-                \Tinify\setKey(env("TINIFY_API_KEY"));
-                $source = \Tinify\fromFile($filepath);
-                $source->toFile($filepath);
-            } catch (\Tinify\AccountException $e) {
-                // Verify your API key and account limit.
-                return redirect()->back()->with('error', $e->getMessage());
-            } catch (\Tinify\ClientException $e) {
-                // Check your source image and request options.
-                return redirect()->back()->with('error', $e->getMessage());
-            } catch (\Tinify\ServerException $e) {
-                // Temporary issue with the Tinify API.
-                return redirect()->back()->with('error', $e->getMessage());
-            } catch (\Tinify\ConnectionException $e) {
-                // A network connection error occurred.
-                return redirect()->back()->with('error', $e->getMessage());
-            } catch (Exception $e) {
-                // Something else went wrong, unrelated to the Tinify API.
-                return redirect()->back()->with('error', $e->getMessage());
-            }
-        }
-
-        if ($request->hasFile('img2')) {
-
-            $path = 'cupon/';
-            $file = $request->file('img2');
-            $new_image_name = date('Ymd') . uniqid() . '.jpg';
-            $upload = $file->move(public_path($path), $new_image_name);
-            $cupon->img2 = $new_image_name;
-
-            $filepath = public_path('/cupon/' . $cupon->img2);
-
-            try {
-                \Tinify\setKey(env("TINIFY_API_KEY"));
-                $source = \Tinify\fromFile($filepath);
-                $source->toFile($filepath);
-            } catch (\Tinify\AccountException $e) {
-                // Verify your API key and account limit.
-                return redirect()->back()->with('error', $e->getMessage());
-            } catch (\Tinify\ClientException $e) {
-                // Check your source image and request options.
-                return redirect()->back()->with('error', $e->getMessage());
-            } catch (\Tinify\ServerException $e) {
-                // Temporary issue with the Tinify API.
-                return redirect()->back()->with('error', $e->getMessage());
-            } catch (\Tinify\ConnectionException $e) {
-                // A network connection error occurred.
-                return redirect()->back()->with('error', $e->getMessage());
-            } catch (Exception $e) {
-                // Something else went wrong, unrelated to the Tinify API.
-                return redirect()->back()->with('error', $e->getMessage());
-            }
-        }
         $cupon->save();
 
         $cupon_user = new  CuponUser;
         $cupon_user->id_cupon = $cupon->id;
         $cupon_user->id_user = $request->get('id_user');
         $cupon_user->titulo = $cupon->titulo;
+        $cupon_user->color = $cupon->color;
         $cupon_user->descripcion = 'Hola, Tienes un cupon disponible.';
         $cupon_user->end = $request->get('end');
         $cupon_user->enviado = 0;
@@ -199,7 +141,7 @@ class CuponController extends Controller
     {
         $cupon = Cupon::findOrFail($id);
         $cupon->titulo = $request->get('titulo');
-        $cupon->validez = $request->get('validez');
+        $cupon->color = $request->get('color');
         $cupon->aplicacion = $request->get('aplicacion');
         $cupon->precio = $request->get('precio');
         $cupon->qr = $request->get('qr');

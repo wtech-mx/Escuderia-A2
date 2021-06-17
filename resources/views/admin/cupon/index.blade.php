@@ -1,7 +1,11 @@
 @extends('admin.layouts.app')
+
 @section('css')
     <link href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+    <link href="{{ asset('css/cupones.css') }}" rel="stylesheet">
+
 @endsection
+
 @section('content')
 
     <link href="{{ asset('css/login-form.css') }}" rel="stylesheet">
@@ -61,9 +65,11 @@
                         <tbody>
                             @foreach ($cupon as $item)
                                 <tr>
-                                    <th><a style="text-decoration: none;"
+                                    <th>
+                                        <a style="text-decoration: none;"
                                             href="{{ route('edit_admin.cupon', $item->id) }}">
-                                            Titulo</a>
+                                            {{ $item->titulo }}
+                                        </a>
                                     </th>
                                     <td>
                                         <input data-id="{{ $item->id }}" class="toggle-class" type="checkbox"
@@ -71,18 +77,18 @@
                                             data-on="Active" data-off="InActive" {{ $item->estado ? 'checked' : '' }}>
                                     </td>
                                     <td>
-                                        <a type="button" class="btn text-white" data-toggle="modal"
+                                        <a type="button" class="text-white" data-toggle="modal"
                                             data-target="#example{{ $item->id }}"
                                             style="background: transparent !important; padding: 1px;">
                                             <i class="fa fa-eye icon-users-edit" style="font-size: 15px;"></i>
                                         </a>
 
-                                        <a type="button" class="btn text-white" data-toggle="modal"
+                                        <a type="button" class="text-white" data-toggle="modal"
                                             data-target="#modaleliminar{{ $item->id }}">
                                             <i class="fas fa-trash icon-users-edit" style="font-size: 15px;"></i>
                                         </a>
 
-                                        <a type="button" class="btn text-white" data-toggle="modal"
+                                        <a type="button" class="text-white" data-toggle="modal"
                                             data-target="#user{{ $item->id }}" style="padding: 1px;">
                                             <i class="fas fa-users icon-users-edit" style="font-size: 15px;"></i>
                                         </a>

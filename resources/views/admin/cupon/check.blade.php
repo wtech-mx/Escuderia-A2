@@ -4,6 +4,7 @@
 
 @section('css')
     <link href="{{ asset('css/select2.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('css/cupones.css') }}" rel="stylesheet">
 @endsection
 
 @section('content')
@@ -57,36 +58,67 @@
 
 
         <div class="content container-res-max">
+
             <div class="col-12">
-                <div class="text-center text-white mt-5 mb-5">
-                    <h2>Cupon</h2>
-                    <h2 style="color: #00d62e;"><strong>{{ $cupons->titulo }}</strong></h2>
+
+                <div class="d-flex justify-content-center align-items-center container p-5">
+                      <div class="d-flex card text-center" style="background: {{$cupons->color}}">
+
+                          <div class="content-cupon p-3 bg-white" style="border-radius: 20px">
+                              <img class="" src="{{ asset('qr/'.$cupons->qr) }}" alt="{{ asset('img/qr/'.$cupons->qr) }}" width="85">
+                          </div>
+
+                          <h1 class="mt-3">
+                              <strong>  {{$cupons->precio}} </strong>
+                          </h1>
+
+                          <h2 class="mt-3">
+                              <strong>  {{$cupons->titulo}} </strong>
+                          </h2>
+
+                          <div class="mt-4">
+                              <h3>5 Dias Restantes</h3>
+                          </div>
+
+                          <div class="mt-4">
+                              <small> Terminos y/o condiciones : <br> <strong> {{$cupons->aplicacion}} </strong></small>
+                          </div>
+
+                          <div class="mt-4">
+                              @if($cupons->estado == 1)
+                                  <button type="button" class="btn btn-outline-success text-white">
+                                      ACTIVADO
+                                  </button>
+                              @else
+                                  <button type="button" class="btn btn-outline-danger text-white">
+                                      DESACTIVADO
+                                  </button>
+                              @endif
+                          </div>
+
+                      </div>
                 </div>
-                <p class="text-white">{{ $cupons->precio }}</p>
-                <p class="text-white">{{ $cupons->validez }}</p>
-                <p class="text-white  mb-5">{{ $cupons->aplicacion }}</p>
-                <form method="POST" action="{{ route('update_check.cupon', $cupons->id) }}" enctype="multipart/form-data"
+
+                <form class="p-5" method="POST" action="{{ route('update_check.cupon', $cupons->id) }}" enctype="multipart/form-data"
                     role="form">
                     @csrf
                     <input type="hidden" name="_method" value="PATCH">
 
-                    <select class="form-control js-example-basic-single" id="id_user" name="id_user">
-                        @foreach ($cupons_user as $item)
-                            <option value="{{ $item->id }}">{{ $item->User->name }}</option>
-                        @endforeach
-                    </select>
+                        <select class="form-control js-example-basic-single " id="id_user" name="id_user">
+                            @foreach ($cupons_user as $item)
+                                <option value="{{ $item->id }}">{{ $item->User->name }}</option>
+                            @endforeach
+                        </select>
 
-
-                    <div class="col-12 mt-5">
-                        <button class="btn btn-lg btn-success btn-save-neon text-white"
-                            style="margin-bottom: 15rem !important;">
+                        <button class="btn btn-lg btn-success btn-save-neon text-white mt-5">
                             <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}" width="20px">
                             Guardar
                         </button>
-                    </div>
 
                 </form>
+
             </div>
+
         </div>
     </div>
 @endsection

@@ -1,12 +1,13 @@
 @extends('admin.layouts.app')
 @section('css')
     <link href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.min.css" rel="stylesheet">
-@endsection
-@section('content')
-
     <link href="{{ asset('css/login-form.css') }}" rel="stylesheet">
     <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
     <link href="{{ asset('css/dashboard-admin.css') }}" rel="stylesheet">
+@endsection
+@section('content')
+
+
 <div class="row bg-image">
 
         <div class="col-2  mt-4">

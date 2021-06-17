@@ -14,9 +14,7 @@ class Cupon extends Model
 
     protected $fillable = [
         'titulo',
-        'img1',
-        'img2',
-        'validez',
+        'color',
         'aplicacion',
         'qr',
         'precio',

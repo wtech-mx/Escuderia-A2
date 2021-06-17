@@ -61,8 +61,10 @@
                 role="form">
                 @csrf
                 <input type="hidden" name="_method" value="PATCH">
+
                 <div class="text-white ">
                     @foreach ($cupon as $item)
+
                     <label for="">
                         <p class="text-white"><strong>Titulo</strong></p>
                     </label>
@@ -77,8 +79,8 @@
                        <input type="text" class="form-control" name="titulo" id="titulo" value="{{$item->titulo}}">
                    </div>
 
-                   <label for="">
-                        <p class="text-white"><strong>Texto de Validez</strong></p>
+                    <label for="">
+                        <p class="text-white"><strong>Oferta o Precio</strong></p>
                     </label>
 
                     <div class="input-group form-group mb-5">
@@ -88,8 +90,22 @@
                             </span>
                         </div>
 
-                        <input type="text" class="form-control" name="validez" id="validez" value="{{$item->validez}}">
+                        <input type="text" class="form-control" name="precio" id="precio"value="{{$item->precio}}">
                     </div>
+
+                    <label for="">
+                        <p class="text-white"><strong>Color</strong></p>
+                    </label>
+
+                   <div class="input-group form-group mb-5">
+                       <div class="input-group-prepend">
+                           <span class="input-group-text">
+                               <i class="fas fa-signature icon-tc"></i>
+                           </span>
+                       </div>
+
+                       <input type="color" class="form-control" name="color" id="color" value="{{$item->color}}">
+                   </div>
 
                     <label for="">
                         <p class="text-white"><strong>Texto Aplación</strong></p>
@@ -105,19 +121,6 @@
                         <input type="text" class="form-control" name="aplicacion" id="aplicacion" value="{{$item->aplicacion}}">
                     </div>
 
-                    <label for="">
-                        <p class="text-white"><strong>Precio</strong></p>
-                    </label>
-
-                    <div class="input-group form-group mb-5">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">
-                                <i class="fas fa-signature icon-tc"></i>
-                            </span>
-                        </div>
-
-                        <input type="number" class="form-control" name="precio" id="precio"value="{{$item->precio}}">
-                    </div>
                     <input type="hidden" id="qr" name="qr" value="{{$item->qr}}">
                     @endforeach
                 </div>
