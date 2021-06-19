@@ -53,6 +53,7 @@
             </div>
         </div>
 
+        @if (auth()->user()->role == 1)
         <div class="col-6 mt-4">
             <a class="btn mb-3 mr-1" href="#carouselExampleControls" role="button" data-slide="prev">
                 <img class="" src="{{ asset('img/icon/white/flecha-izquierda.png') }}" width="25px">
@@ -62,8 +63,9 @@
                 <img class="" src="{{ asset('img/icon/white/flecha-correcta.png') }}" width="25px">
             </a>
         </div>
+        @endif
 
-        <div class="col-6 mt-4 d-inline">
+        <div class="col-6 mt-4 ">
 
             <h5 class="text-white text-tittle-app mr-3 d-inline" style="font: normal normal bold 15px/20px Segoe UI">
                 Agregar
@@ -76,6 +78,7 @@
 
         <div class="col-12">
 
+            @if (auth()->user()->role == 1)
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="90000">
 
                 <div class="carousel-inner">
@@ -169,60 +172,39 @@
 
                         </div>
 
+
                         <div class="row">
 
-                            <div class="content container-res-inter">
-                                <div class="col-12 mt-4">
-                                    @foreach ($automovil2 as $item)
-                                        <div class="card card-slide-garaje mt-3">
-                                            <div class="card-body p-2">
-                                                <div class="row ">
-                                                    <div class="col-6 mt-3 ">
-                                                        <a class="card-text"
-                                                            href="{{ route('edit_admin.automovil', $item->id) }}"><strong
-                                                                style="font: normal normal bold 20px/27px Segoe UI;">{{ $item->Empresa->nombre }}</strong></a>
+                            <div class="content container-res-max">
+                                <div class="col-lg-12">
 
-                                                        <div class="d-flex justify-content-start">
-                                                            <p class="text-center"><strong>Submarca:
-                                                                </strong>{{ $item->submarca }}</p>
-                                                            <br>
-                                                            <p class="text-center"><strong>- Tipo:
-                                                                    -</strong>{{ $item->tipo }}</p>
-                                                        </div>
+                                    <table id="automoviles_empresas" class="table text-white">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Empresa</th>
+                                                <th scope="col">Placas</th>
+                                                <th scope="col">Modelo</th>
+                                                <th scope="col">Submarca</th>
+                                                <th scope="col">Año</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($automovil2 as $item)
+                                                <tr>
+                                                    <th><a style="text-decoration: none;"
+                                                            href="{{ route('edit_admin.automovil', $item->id) }}">{{ $item->UserEmpresa->name }}</a>
+                                                    </th>
+                                                    <td>{{ $item->placas }}</td>
+                                                    <td>{{ $item->Marca->nombre }}</td>
+                                                    <td>{{ $item->submarca }}</td>
+                                                    <td>{{ $item->año }}</td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
 
-                                                        <div class="d-flex justify-content-start">
-                                                            <p class="text-center"><strong> Año:
-                                                                </strong>{{ $item->año }}</p>
-                                                            <br>
-                                                            <p class="text-center"><strong> Placas:
-                                                                </strong>{{ $item->placas }}</p>
-                                                        </div>
-
-                                                        <p class="card-text" style="font-size: 12px"><strong>KM Recorridos:
-                                                            </strong> {{ $item->kilometraje }} KM</p>
-                                                    </div>
-
-                                                    @if ($item->img == null)
-                                                        <div class="col-6">
-                                                            <img class="d-inline mb-2"
-                                                                src="{{ asset('img/icon/car.png') }}" width="150px">
-                                                        </div>
-                                                    @else
-                                                        <div class="col-6">
-                                                            <img class="d-inline mb-2"
-                                                                src="{{ asset('img-auto/' . $item->img) }}"
-                                                                width="150px">
-                                                        </div>
-                                                    @endif
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    @endforeach
                                 </div>
                             </div>
-
-
                         </div>
 
                     </div>
@@ -230,6 +212,40 @@
                 </div>
 
             </div>
+            @else
+                <div class="row">
+
+                    <div class="content container-res-max">
+                        <div class="col-lg-12">
+
+                            <table id="empresa" class="table text-white">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Placas</th>
+                                        <th scope="col">Modelo</th>
+                                        <th scope="col">Submarca</th>
+                                        <th scope="col">Año</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($automovil_empresa as $item)
+                                        <tr>
+                                            <td><a style="text-decoration: none;"
+                                                href="{{ route('edit_admin.automovil', $item->id) }}">{{ $item->placas }}</a>
+                                            </td>
+                                            <td>{{ $item->Marca->nombre }}</td>
+                                            <td>{{ $item->submarca }}</td>
+                                            <td>{{ $item->año }}</td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            @endif
+
 
         </div>
 
@@ -262,6 +278,28 @@
                     }
                 }
             });
+        });
+
+        $(document).ready(function() {
+            $('#automoviles_empresas').DataTable({
+                responsive: {
+                    details: {
+                        display: $.fn.dataTable.Responsive.display.modal({
+                            header: function(row) {
+                                var data = row.data();
+                                return 'Detalles de ' + data[0] + ' ' + data[1];
+                            }
+                        }),
+                        renderer: $.fn.dataTable.Responsive.renderer.tableAll({
+                            tableClass: 'table'
+                        })
+                    }
+                }
+            });
+        });
+
+        $(document).ready(function() {
+            $('#empresa').DataTable();
         });
 
     </script>

@@ -25,7 +25,7 @@ class CreateVerificacionTable extends Migration
             $table->unsignedBigInteger('id_empresa')->nullable();
 
             $table->foreign('id_empresa')
-                ->references('id')->on('empresa')
+                ->references('id')->on('users')
                 ->inDelete('set null');
 
             $table->unsignedBigInteger('current_auto')->nullable();

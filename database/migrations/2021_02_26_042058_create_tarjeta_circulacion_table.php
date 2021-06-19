@@ -25,7 +25,7 @@ class CreateTarjetaCirculacionTable extends Migration
                 ->inDelete('set null');
 
             $table->foreign('id_empresa')
-                ->references('id')->on('empresa')
+                ->references('id')->on('users')
                 ->inDelete('set null');
 
             $table->integer('id_tc')->unsigned()->index()->nullable();

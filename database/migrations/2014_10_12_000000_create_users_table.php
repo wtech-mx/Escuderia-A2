@@ -18,6 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('name')->nullable();
             $table->integer('current_auto')->unsigned()->index()->nullable();
             $table->boolean('role')->nullable();
+            $table->boolean('empresa')->nullable();
             $table->string('telefono')->nullable();
             $table->date('fecha_nacimiento')->nullable();
             $table->string('direccion')->nullable();

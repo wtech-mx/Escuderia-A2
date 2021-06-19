@@ -28,6 +28,12 @@ class CreateLlantasTable extends Migration
                 ->references('id')->on('users')
                 ->inDelete('set null');
 
+            $table->unsignedBigInteger('id_empresa')->nullable();
+
+            $table->foreign('id_empresa')
+                ->references('id')->on('users')
+                ->inDelete('set null');
+
             $table->string('title')->nullable();
             $table->text('descripcion')->nullable();
             $table->string('color')->nullable();

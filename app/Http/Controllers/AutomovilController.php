@@ -277,7 +277,7 @@ class AutomovilController extends Controller
 
     function index_admin()
     {
-        if (auth()->user()->role != 1) {
+        if (auth()->user()->role == 0 ) {
             return view('errors.403');
         } else {
 
@@ -286,29 +286,30 @@ class AutomovilController extends Controller
 
             $automovil2 = Automovil::where('id_user', '=', NULL)
                 ->get();
-            //            ->get();
 
-            $user = DB::table('users')
-                ->where('role', '=', '0')
+            $automovil_empresa = Automovil::
+                where('id_empresa', '=', auth()->user()->id)
                 ->get();
 
-            return view('admin.garaje.view-garaje-admin', compact('automovil', 'automovil2', 'user'));
+            return view('admin.garaje.view-garaje-admin', compact('automovil', 'automovil2', 'automovil_empresa'));
         }
     }
 
     public function create_admin()
     {
-        if (auth()->user()->role != 1) {
+        if (auth()->user()->role == 0) {
             return view('errors.403');
         } else {
             $marca = DB::table('marca')
                 ->get();
 
             $user = DB::table('users')
+                ->where('empresa', '=', 0)
                 ->where('role', '=', '0')
                 ->get();
 
-            $empresa = DB::table('empresa')
+            $empresa = DB::table('users')
+                ->where('empresa', '=', 1)
                 ->get();
 
 
@@ -420,10 +421,17 @@ class AutomovilController extends Controller
         $verificacion_segunda->check = 0;
         $verificacion_segunda->save();
 
-        $id = $automovil->id_user;
-        $user = User::findOrFail($id);
-        $user->current_auto = $automovil->id;
-        $user->update();
+        if ($automovil->id_user == NULL) {
+            $id = $automovil->id_empresa;
+            $user = User::findOrFail($id);
+            $user->current_auto = $automovil->id;
+            $user->update();
+        } else {
+            $id = $automovil->id_user;
+            $user = User::findOrFail($id);
+            $user->current_auto = $automovil->id;
+            $user->update();
+        }
 
         Session::flash('auto', 'Se ha guardado sus datos con exito');
 
@@ -432,7 +440,7 @@ class AutomovilController extends Controller
 
     public function  edit_admin($id)
     {
-        if (auth()->user()->role != 1) {
+        if (auth()->user()->role == 0) {
             return view('errors.403');
         } else {
             $automovil = Automovil::findOrFail($id);
@@ -440,11 +448,13 @@ class AutomovilController extends Controller
             $marca = DB::table('marca')
                 ->get();
 
-            $empresa = DB::table('empresa')
+            $empresa = DB::table('users')
+                ->where('empresa', '=', 1)
                 ->get();
 
             $user = DB::table('users')
                 ->where('role', '=', '0')
+                ->where('empresa', '=', 0)
                 ->get();
 
             return view('admin.garaje.edit-garaje-admin', compact('automovil', 'marca', 'user', 'empresa'));

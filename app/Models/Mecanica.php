@@ -87,7 +87,7 @@ class Mecanica extends Model
        return $this->belongsTo(Automovil::class,'current_auto2');
     }
     public function Empresa(){
-       return $this->belongsTo(Empresa::class, 'id_empresa');
+       return $this->belongsTo(User::class, 'id_empresa');
     }
     public function Automovil(){
        return $this->belongsTo(Automovil::class,'current_auto');
@@ -99,7 +99,7 @@ class Mecanica extends Model
        return $this->belongsTo(User::class, 'id_userbn');
     }
     public function Empresabn(){
-       return $this->belongsTo(Empresa::class, 'id_empresabn');
+       return $this->belongsTo(User::class, 'id_empresabn');
     }
     public function Automovilbn(){
        return $this->belongsTo(Automovil::class,'current_autobn');

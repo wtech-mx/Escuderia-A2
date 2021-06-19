@@ -91,13 +91,14 @@
                         Datos de auto
                     </a>
                 </li>
-
+                @if (auth()->user()->role == 1)
                 <li class="nav-item">
                     <a class="nav-link a-auto" id="pills-Vinculacion-tab" data-toggle="pill" href="#pills-Vinculacion"
                         role="tab" aria-controls="pills-Vinculacion" aria-selected="false">
                         Vinculaci&oacute;n
                     </a>
                 </li>
+                @endif
 
             </ul>
             <form method="POST" action="{{ route('store_admin.automovil') }}" enctype="multipart/form-data" role="form">
@@ -105,7 +106,6 @@
                 <div class="tab-content" id="pills-tabContent">
 
                     <div class="tab-pane fade show active" id="auto" role="tabpanel" aria-labelledby="pills-auto-tab">
-
 
                         <div class="col-12 mb-3">
                             <div class="input-group form-group">
@@ -258,7 +258,7 @@
                             </div>
                         </div>
 
-                        <div class="col-12 " style="margin-bottom: 8rem !important;">
+                        <div class="col-12 mb-2">
                             <div class="input-group form-group">
                                 <div class="input-group-prepend ">
                                     <span class="input-group-text span-edit-car">
@@ -270,18 +270,30 @@
                             </div>
                         </div>
 
+                        @if (auth()->user()->role == 2)
+                        <input type="hidden" class="form-control input-edit-car" id="id_empresa"
+                        name="id_empresa" value="{{ auth()->user()->id }}">
+
+                        <div class="col-12" style="margin-bottom: 8rem !important;">
+                            <button type="submit" class="btn btn-lg btn-save-dark text-white mt-5">
+                                <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}"
+                                    width="20px">
+                                Guardar
+                            </button>
+                        </div>
+                        @endif
                     </div>
 
                     {{-- -------------------------------------------------------------------------- --}}
                     {{-- |Tab seguridad --}}
                     {{-- |-------------------------------------------------------------------------- --}}
-
+                    @if (auth()->user()->role == 1)
                     <div class="tab-pane fade" id="pills-Vinculacion" role="tabpanel"
                         aria-labelledby="pills-Vinculacion-tab">
 
                         <div class="col-12 text-center mt-5 mb-5">
 
-                            <label class="mb-5" for="">
+                            <label class="mb-2" for="">
                                 <p class="subtitle-label"><strong>¿Este auto pertenece a una empresa?</strong></p>
                             </label>
 
@@ -299,7 +311,7 @@
                                         <select class="form-control" id="id_empresa" name="id_empresa">
                                             <option value="">Seleccione empresa</option>
                                             @foreach ($empresa as $item)
-                                                <option value="{{ $item->id }}">{{ $item->nombre }}</option>
+                                                <option value="{{ $item->id }}">{{ $item->name }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -314,7 +326,7 @@
 
                             </div>
 
-                            <label class="mb-5" for="">
+                            <label class="mb-2" for="">
                                 <p class="subtitle-label"><strong>¿Este auto pertenece a una persona?</strong></p>
                             </label>
 
@@ -359,6 +371,7 @@
                         </div>
 
                     </div>
+                    @endif
                 </div>
             </form>
             @include('admin.garaje.add-bussines-modal')

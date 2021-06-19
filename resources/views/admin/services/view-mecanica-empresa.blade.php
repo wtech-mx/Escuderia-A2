@@ -1,45 +1,71 @@
-   <div class="row bg-blue" style="background: #050F55 0% 0% no-repeat padding-box;">
-                        <div class="col-6 mt-4">
-                            <a class="btn mb-3 mr-1" href="#carouselExampleControls2" role="button" data-slide="prev">
-                                <img class="" src="{{ asset('img/icon/white/flecha-izquierda.png') }}" width="25px" >
-                            </a>
+<div class="carousel-inner">
+    <h5 class="text-center text-white mt-4 ml-4 mr-4 ">
+        <strong>Servicios</strong>
+    </h5>
 
-                            <a class="btn mb-3 " href="#carouselExampleControls2" role="button" data-slide="next">
-                                <img class="" src="{{ asset('img/icon/white/flecha-correcta.png') }}" width="25px" >
-                            </a>
-                        </div>
+    <div class="row">
+        <div class="col-12">
+            <table id="servicio" class="table text-white">
+                <thead>
+                    <tr>
+                        <th scope="col">Fecha</th>
+                        <th scope="col">Servicio</th>
+                        <th scope="col">Usuario</th>
+                        <th scope="col">Auto</th>
+                        <th scope="col">Más</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($mecanica_empresa as $item)
+                        @php
+                            switch ($item) {
+                                case $item->Mecanica->servicio == '1':
+                                    $servicio = 'Llanta';
+                                    break;
+                                //Banda
+                                case $item->Mecanica->servicio == '2':
+                                    $servicio = 'Banda';
+                                    break;
+                                //Frenos
+                                case $item->Mecanica->servicio == '3':
+                                    $servicio = 'Freno';
+                                    break;
+                                //Aceite
+                                case $item->Mecanica->servicio == '4':
+                                    $servicio = 'Aceite';
+                                    break;
+                                //Afinacion
+                                case $item->Mecanica->servicio == '5':
+                                    $servicio = 'Afinación';
+                                    break;
+                                //Amorting
+                                case $item->Mecanica->servicio == '6':
+                                    $servicio = 'Amortiguadores';
+                                    break;
+                                //Bateria
+                                case $item->Mecanica->servicio == '7':
+                                    $servicio = 'Bateria';
+                                    break;
+                                case $item->Mecanica->servicio == '8':
+                                    $servicio = 'Otro';
+                                    break;
+                            }
+                        @endphp
+                        <tr>
+                            <td>{{ $item->Mecanica->fecha_servicio }}</td>
+                            <td>{{ $servicio }}</td>
+                            <td>{{ $item->UserEmpresa->name }}</td>
+                            <td>{{ $item->Automovil->placas }}</td>
+                            <td>
+                                <a data-toggle="modal" data-target="#example{{ $item->Mecanica->id }}"><img class=""
+                                        src="{{ asset('img/icon/white/add.png') }}" width="15px"></a>
+                            </td>
+                            @include('admin.services.view-servicio-empresa')
+                        </tr>
+                    @endforeach
+                </tbody>
 
-                        <div class="col-6 mt-4 d-inline">
-                            <h5 class="text-white text-tittle-app mr-3 d-inline" style="font: normal normal bold 15px/20px Segoe UI">
-                                Agregar
-                            </h5>
-
-                            <a class="btn" href="{{ route('create_servicio.servicio') }}">
-                                <img class="" src="{{ asset('img/icon/white/plus.png') }}" width="30px" >
-                            </a>
-                        </div>
-   </div>
-<div class="col-12">
-
-                        <div id="carouselExampleControls2" class="carousel slide" data-ride="carousel" data-interval="60000">
-                              <div class="carousel-inner">
-
-                                {{-- ----------------------------------------------------------------------------}}
-                                {{-- |Servicios Llantas--}}
-                                {{-- |----------------------------------------------------------------------------}}
-
-                                <div class="carousel-item active">
-                                    <h5 class="text-center text-white mt-4 ml-4 mr-4 ">
-                                        <strong>Servicios Llantas</strong>
-                                    </h5>
-
-
-                                </div>
-
-                                </div>
-
-                              </div>
-
-                        </div>
-
-                    </div>
+            </table>
+        </div>
+    </div>
+</div>

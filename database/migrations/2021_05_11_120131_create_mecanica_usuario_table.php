@@ -17,20 +17,21 @@ class CreateMecanicaUsuarioTable extends Migration
             $table->id();
             $table->unsignedBigInteger('id_mecanica');
             $table->unsignedBigInteger('id_usuario');
+            $table->unsignedBigInteger('id_empresa');
             $table->unsignedBigInteger('id_automovil');
             $table->timestamps();
 
             $table->foreign('id_mecanica')
-            ->references('id')->on('mecanica')
-            ->inDelete('set null');
+                ->references('id')->on('mecanica')
+                ->inDelete('set null');
 
             $table->foreign('id_usuario')
-            ->references('id')->on('users')
-            ->inDelete('set null');
+                ->references('id')->on('users')
+                ->inDelete('set null');
 
             $table->foreign('id_automovil')
-            ->references('id')->on('automovil')
-            ->inDelete('set null');
+                ->references('id')->on('automovil')
+                ->inDelete('set null');
         });
     }
 

@@ -31,29 +31,26 @@ class Seguros extends Model
     {
     }
 
-    public function scopeSeguro($query,$seguro)
+    public function scopeSeguro($query, $seguro)
     {
         if ($seguro)
-            return $query->where('seguro','LIKE',"%$seguro%");
+            return $query->where('seguro', 'LIKE', "%$seguro%");
     }
 
-    protected $guarded=[
-
-    ];
+    protected $guarded = [];
 
     public function User()
     {
-       return $this->belongsTo(User::class,'id_user');
+        return $this->belongsTo(User::class, 'id_user');
     }
 
-    public function Empresa()
+    public function UserEmpresa()
     {
-       return $this->belongsTo(Empresa::class,'id_empresa');
+        return $this->belongsTo(User::class, 'id_empresa');
     }
 
-        public function Automovil()
+    public function Automovil()
     {
-       return $this->belongsTo(Automovil::class,'current_auto');
+        return $this->belongsTo(Automovil::class, 'current_auto');
     }
-
 }

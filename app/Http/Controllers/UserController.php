@@ -31,6 +31,7 @@ class UserController extends Controller
     public function create()
     {
         $users = DB::table('users')
+            ->where('empresa', '=', 0)
             ->get();
 
         return view('admin.garaje.create-garaje-admin', compact('users'));
@@ -133,6 +134,7 @@ class UserController extends Controller
         $user = User::findOrFail($id);
 
         $users = DB::table('users')
+            ->where('empresa', '=', 0)
             ->get();
 
         return view('profile.profile', compact('user', 'users'));
@@ -205,9 +207,11 @@ class UserController extends Controller
             return view('errors.403');
         } else {
 
-            $user = User::get();
+            $user = User::where('empresa', '=', 0)
+                ->get();
 
             $users = DB::table('users')
+                ->where('empresa', '=', 0)
                 ->get();
 
 
@@ -221,8 +225,10 @@ class UserController extends Controller
             return view('errors.403');
         } else {
             $user = DB::table('users')
+                ->where('empresa', '=', 0)
                 ->get();
             $users = DB::table('users')
+                ->where('empresa', '=', 0)
                 ->get();
 
             return view('admin.user.add-user-admin', compact('user', 'users'));
@@ -292,6 +298,7 @@ class UserController extends Controller
             $user = User::findOrFail($id);
 
             $users = DB::table('users')
+                ->where('empresa', '=', 0)
                 ->get();
 
             return view('admin.user.edit-user-admin', compact('user', 'users'));

@@ -35,7 +35,7 @@ class CreateAutomovilTable extends Migration
                 ->inDelete('set null');
 
             $table->foreign('id_empresa')
-                ->references('id')->on('empresa')
+                ->references('id')->on('users')
                 ->inDelete('set null');
 
             $table->foreign('id_marca')

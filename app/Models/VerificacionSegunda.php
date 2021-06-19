@@ -31,4 +31,8 @@ class VerificacionSegunda extends Model
     {
        return $this->belongsTo(User::class,'id_user');
     }
+    public function UserEmpresa()
+    {
+       return $this->belongsTo(User::class,'id_empresa');
+    }
 }

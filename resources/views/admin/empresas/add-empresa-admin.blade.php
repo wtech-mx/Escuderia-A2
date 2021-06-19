@@ -85,7 +85,7 @@
                                              <img class="" src="{{ asset('img/icon/white/edificio-de-oficinas.png') }}" width="25px" >
                                         </span>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="Nombre" id="nombre" name="nombre" >
+                                    <input type="text" class="form-control" placeholder="Nombre" id="name" name="name" >
                                 </div>
 
                                  <label for="">

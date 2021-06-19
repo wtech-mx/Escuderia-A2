@@ -99,24 +99,27 @@ class TarjetaCirculacionController extends Controller
 |--------------------------------------------------------------------------*/
     public function indextc_admin(Request $request)
     {
-        if (auth()->user()->role != 1) {
+        if (auth()->user()->role == 0) {
             return view('errors.403');
         } else {
             $nombre = $request->get('nombre');
 
             $tarjeta_circulacion = TarjetaCirculacion::orderBy('id', 'DESC')
-                ->nombre($nombre)
                 ->where('id_empresa', '=', NULL)
                 ->get();
 
-            $tarjeta_circulacion2 = TarjetaCirculacion::orderBy('id', 'DESC')
-                ->where('id_user', '=', NULL)
+            $tarjeta_circulacion2 = TarjetaCirculacion::
+                where('id_user', '=', NULL)
+                ->get();
+
+            $tarjeta_circulacion_empresa = TarjetaCirculacion::
+                where('current_auto', '=', auth()->user()->current_auto)
                 ->get();
 
             $user = DB::table('users')
                 ->get();
 
-            return view('admin.tarjeta-circulacion.view-tc-admin', compact('tarjeta_circulacion', 'user', 'tarjeta_circulacion2'));
+            return view('admin.tarjeta-circulacion.view-tc-admin', compact('tarjeta_circulacion', 'user', 'tarjeta_circulacion2', 'tarjeta_circulacion_empresa'));
         }
     }
 

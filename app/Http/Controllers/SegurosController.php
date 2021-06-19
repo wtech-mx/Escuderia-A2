@@ -180,10 +180,9 @@ class SegurosController extends Controller
                 ->seguro($seguro)
                 ->get();
 
-            $seguros2 = Seguros::orderBy('id', 'DESC')
-                ->where('id_user', '=', NULL)
-                ->seguro($seguro)
-                ->paginate(5);
+            $seguros2 = Seguros::
+                where('id_user', '=', NULL)
+                ->get();
 
             $user = DB::table('users')
                 ->where('role', '=', '0')

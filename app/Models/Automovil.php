@@ -54,9 +54,9 @@ class Automovil extends Model
        return $this->belongsTo(User::class,'id_user');
     }
 
-    public function Empresa()
+    public function UserEmpresa()
     {
-       return $this->belongsTo(Empresa::class,'id_empresa');
+       return $this->belongsTo(User::class,'id_empresa');
     }
 
     public function Seguros()

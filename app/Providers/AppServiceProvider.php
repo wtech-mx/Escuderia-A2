@@ -479,10 +479,10 @@ class AppServiceProvider extends ServiceProvider
                                  $servicios->save();
                               }
                           }else{
-                               $verificacion_segunda->estado_tomorrow = 1;
-                               $verificacion_segunda->estado_last_week = 1;
-                               $verificacion_segunda->estatus = 1;
-                               $verificacion_segunda->save();
+                               $servicios->estado_tomorrow = 1;
+                               $servicios->estado_last_week = 1;
+                               $servicios->estatus = 1;
+                               $servicios->save();
                           }
                       }
                       $view->with(['alert2'=> $alert2, 'seguro_alerta'=> $seguro_alerta, 'tc_alerta'=> $tc_alerta, 'verificacion'=> $verificacion]);

@@ -47,7 +47,7 @@
                                                 <select class="form-control" id="id_empresaaf" name="id_empresaaf">
                                                      <option value="">Seleccione empresa</option>
                                                      @foreach($empresa as $item)
-                                                        <option value="{{$item->id}}">{{ ucfirst($item->nombre)}}</option>
+                                                        <option value="{{$item->id}}">{{ ucfirst($item->name)}}</option>
                                                      @endforeach
                                                 </select>
                                         </div>

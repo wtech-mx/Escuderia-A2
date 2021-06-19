@@ -99,13 +99,46 @@
                     {{-- |----------------------------------------------------------------------------}}
 
                     <div class="carousel-item ">
+                        <h5 class="text-center text-white mt-4 ml-4 mr-4 ">
+                            <strong>Expediente Empresas</strong>
+                        </h5>
                         <div class="row">
                             <div class="col-12">
 
                                 <div class="d-flex justify-content-center">
-                                    <h5 class="text-center text-white mt-4 ml-4 mr-4 ">
-                                        <strong>Expediente Empresas</strong>
-                                    </h5>
+
+                                    <div class="row">
+                                        <div class="content container-res-max">
+                                            <div class="col-12">
+
+                                                <table id="expedientes_empresa" class="table text-white">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">Empresa</th>
+                                                            <th scope="col">Placas</th>
+                                                            <th scope="col">Modelo</th>
+                                                            <th scope="col">Más</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @foreach ($automovil2 as $item)
+                                                            <tr>
+                                                                <th>{{ $item->UserEmpresa->name }}</th>
+                                                                <td>{{ $item->placas }}</td>
+                                                                <td>{{ $item->Marca->nombre }}</td>
+                                                                <td>
+                                                                    <a data-toggle="modal" data-target="#example{{ $item->id }}">
+                                                                        <img class="icon-effect"  src="{{ asset('img/icon/white/add.png') }}" width="15px"></a>
+                                                                </td>
+                                                                @include('admin.exp-fisico.model_empresa')
+                                                            </tr>
+                                                        @endforeach
+                                                    </tbody>
+                                                </table>
+
+                                            </div>
+                                        </div>
+                                    </div>
 
                                 </div>
 
@@ -129,6 +162,10 @@
     <script>
         $(document).ready(function() {
             $('#expedientes').DataTable();
+        });
+
+        $(document).ready(function() {
+            $('#expedientes_empresa').DataTable();
         });
 
     </script>

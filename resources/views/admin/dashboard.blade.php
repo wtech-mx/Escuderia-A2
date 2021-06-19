@@ -94,7 +94,11 @@
             </div>
         </div>
 
-        @include('admin.alerts.calendar')
+        @if($users->role == 1)
+            @include('admin.alerts.calendar')
+        @else
+            @include('alerts.calendar')
+        @endif
 
     </div>
 
@@ -108,6 +112,7 @@
             </h6>
         </div>
 
+        @if($users->role == 1)
         <div class="col-6 text-center">
             <a href="{{ route('index_admin.user') }}">
                 <div class="card" style="border-radius: 15px">
@@ -118,6 +123,18 @@
                 </div>
             </a>
         </div>
+        @else
+        <div class="col-6 text-center">
+            <a href="{{ route('edit.profile', $users->id) }}">
+                <div class="card" style="border-radius: 15px">
+                    <div class="card-body">
+                        <i class="fas fa-user icon-effect-dashboard"></i>
+                        <p class="card-text text-white"><strong>Datos de empresa</strong></p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        @endif
 
         <div class="col-6 text-center">
             <a href="{{ route('index.alert') }}">
@@ -184,7 +201,7 @@
                 </div>
             </a>
         </div>
-
+        @if($users->role == 1)
         <div class="col-6 text-center mt-4">
             <a href="{{ route('index_admin.empresa') }}" class="text-white">
 
@@ -196,6 +213,7 @@
                 </div>
             </a>
         </div>
+        @endif
 
         <div class="col-6 text-center mt-4">
             <a href="{{ route('index_admin.verificacion') }}" class="text-white">
@@ -244,6 +262,7 @@
             </a>
         </div>
 
+        @if($users->role == 1)
         <div class="col-6 text-center mt-4">
             <a href="{{ route('index_admin.cupon') }}" class="text-white">
 
@@ -255,6 +274,7 @@
                 </div>
             </a>
         </div>
+        @endif
 
         @include('admin.notas.create')
         @include('admin.modal-services')

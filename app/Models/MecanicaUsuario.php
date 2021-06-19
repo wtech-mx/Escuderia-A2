@@ -30,6 +30,11 @@ class MecanicaUsuario extends Model
         return $this->belongsTo(User::class, 'id_usuario');
     }
 
+    public function UserEmpresa()
+    {
+       return $this->belongsTo(User::class,'id_empresa');
+    }
+
     public function Automovil()
     {
         return $this->belongsTo(Automovil::class, 'id_automovil');

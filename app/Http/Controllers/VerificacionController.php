@@ -49,8 +49,8 @@ class VerificacionController extends Controller
             $verificacion_user = Verificacion::where('id_empresa', '=', NULL)
                 ->get();
 
-            $verificacion_empresa = Verificacion::orderBy('id', 'DESC')
-                ->where('id_user', '=', NULL)
+            $verificacion_empresa = Verificacion::
+                where('id_user', '=', NULL)
                 ->get();
 
             $user = DB::table('users')

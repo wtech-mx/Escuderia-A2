@@ -56,7 +56,7 @@
                                                value="{{ old('id_empresaot') }}">
                                                <option value="">Seleccione empresa</option>
                                                @foreach ($empresa as $item)
-                                                   <option value="{{ $item->id }}">{{ ucfirst($item->nombre) }}
+                                                   <option value="{{ $item->id }}">{{ ucfirst($item->name) }}
                                                    </option>
                                                @endforeach
                                            </select>

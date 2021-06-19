@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Empresa;
+use App\Models\User;
 use DB;
 use Session;
 use Illuminate\Support\Facades\Redirect;
@@ -39,13 +39,15 @@ class EmpresasController extends Controller
     {
 
         $validate = $this->validate($request, [
-            'nombre' => 'required|max:191',
+            'name' => 'required|max:191',
             'email' => 'required|string|email|max:191',
             'password' => 'required|string|confirmed|min:8',
         ]);
 
-        $empresa = new Empresa;
-        $empresa->nombre = $request->get('nombre');
+        $empresa = new User;
+        $empresa->name = $request->get('name');
+        $empresa->empresa = 1;
+        $empresa->role = 2;
         $empresa->telefono = $request->get('telefono');
         $empresa->direccion = $request->get('direccion');
         $empresa->referencia = $request->get('referencia');
@@ -75,11 +77,11 @@ class EmpresasController extends Controller
         if (auth()->user()->role != 1) {
             return view('errors.403');
         } else {
-            $empresa = Empresa::paginate(6);
+            $empresa = User::where('empresa', '=', 1)->get();
 
             $user = DB::table('users')
                 ->where('role', '=', '0')
-                ->paginate(6);
+                ->get();
 
 
             return view('admin.empresas.view-empresas-admin', compact('empresa', 'user'));
@@ -102,12 +104,14 @@ class EmpresasController extends Controller
     public function store_admin(Request $request)
     {
         $validate = $this->validate($request, [
-            'nombre' => 'required|string|max:191',
+            'name' => 'required|string|max:191',
             'email' => 'required|string|email|max:191|unique:users',
         ]);
 
-        $empresa = new Empresa;
-        $empresa->nombre = $request->get('nombre');
+        $empresa = new User;
+        $empresa->name = $request->get('name');
+        $empresa->empresa = 1;
+        $empresa->role = 2;
         $empresa->telefono = $request->get('telefono');
         $empresa->direccion = $request->get('direccion');
         $empresa->referencia = $request->get('referencia');
@@ -135,12 +139,14 @@ class EmpresasController extends Controller
         if (auth()->user()->role != 1) {
             return view('errors.403');
         } else {
-            $empresa = Empresa::findOrFail($id);
+            $empresa = User::findOrFail($id);
 
-            $empresas = DB::table('empresa')
+            $empresas = DB::table('user')
+                ->where('empresa', '=', 1)
                 ->get();
 
             $user = DB::table('users')
+                ->where('empresa', '=', 0)
                 ->get();
 
             return view('admin.empresas.edit-empresa-admin', compact('empresa', 'empresas', 'user'));
@@ -149,9 +155,9 @@ class EmpresasController extends Controller
 
     public function update_admin(Request $request, $id)
     {
-        $empresa = Empresa::findOrFail($id);
+        $empresa = User::findOrFail($id);
 
-        $empresa->nombre = $request->get('nombre');
+        $empresa->name = $request->get('name');
         $empresa->telefono = $request->get('telefono');
         $empresa->direccion = $request->get('direccion');
         $empresa->referencia = $request->get('referencia');

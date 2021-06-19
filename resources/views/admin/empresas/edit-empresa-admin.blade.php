@@ -95,7 +95,7 @@
                                              <img class="" src="{{ asset('img/icon/white/edificio-de-oficinas.png') }}" width="25px" >
                                         </span>
                                     </div>
-                                    <input type="text" class="form-control"  id="nombre" name="nombre" value="{{$empresa->nombre}}" style="border-radius: 0  10px 10px 0;">
+                                    <input type="text" class="form-control"  id="name" name="name" value="{{$empresa->nombre}}" style="border-radius: 0  10px 10px 0;">
                                 </div>
 
                                  <label for="">
