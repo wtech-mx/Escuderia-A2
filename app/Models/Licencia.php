@@ -31,4 +31,8 @@ class Licencia extends Model
     {
         return $this->belongsTo(User::class, 'id_user');
     }
+    public function Automovil()
+    {
+        return $this->belongsTo(Automovil::class, 'current_auto');
+    }
 }
