@@ -27,6 +27,8 @@ class CreateSegurosTable extends Migration
             $table->string('costo')->nullable();
             $table->string('costo_anual')->nullable();
             $table->integer('estatus');
+            $table->integer('estado_last_week');
+            $table->integer('estado_tomorrow');
             $table->integer('check')->nullable();
 
             $table->string('title')->nullable();

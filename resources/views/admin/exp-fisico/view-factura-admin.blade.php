@@ -5,7 +5,6 @@
 @section('crop-css')
     <link href="{{ asset('css/dashboard-admin.css') }}" rel="stylesheet">
     <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('css/ijaboCropTool.min.css') }}">
 @endsection
 
 <div class="row bg-down-blue " style="border-radius: 0 0 0 0;">
@@ -23,7 +22,6 @@
                 imageHeight: 150,
                 imageAlt: 'Facturas IMG',
             })
-
         </script>
     @endif
 
@@ -40,7 +38,6 @@
                 imageHeight: 150,
                 imageAlt: 'Facturas IMG',
             })
-
         </script>
     @endif
     <div class="col-2  mt-4">
@@ -68,7 +65,7 @@
         </div>
     </div>
 
-    <strong class="text-center" style="color: rgb(102, 223, 66)">  {{ $automovil->placas }}</strong>
+    <strong class="text-center" style="color: rgb(102, 223, 66)"> {{ $automovil->placas }}</strong>
 
     <div class="col-12 mt-5 mb-3">
         <div class="d-flex justify-content-between">
@@ -200,43 +197,47 @@
                             </p>
                         </div>
 
+                        <form method="POST" action="{{ route('store_admin.view-factura-admin', $automovil->id) }}"
+                            enctype="multipart/form-data" role="form">
+                            @csrf
 
-                        <div class="col-12">
-                            <label for="">
-                                <p class="text-white"><strong>T&iacute;tulo</strong></p>
-                            </label>
+                            <div class="col-12">
+                                <label for="">
+                                    <p class="text-white"><strong>T&iacute;tulo</strong></p>
+                                </label>
 
-                            <div class="input-group form-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text input-modal">
-                                        <img class="" src="{{ asset('img/icon/white/fuente.png') }}" width="25px">
-                                    </span>
+                                <div class="input-group form-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text input-modal">
+                                            <img class="" src="{{ asset('img/icon/white/fuente.png') }}"
+                                                width="25px">
+                                        </span>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="Titulo" id="titulo"
+                                        name="titulo" style="border-radius: 0  10px 10px 0;">
                                 </div>
-                                <input type="text" class="form-control" placeholder="Titulo" id="titulo" name="titulo"
-                                    style="border-radius: 0  10px 10px 0;">
-                            </div>
-                        </div>
-
-                        <div class="col-12 mt-3">
-                            <div class=" custom-file mb-3">
-                                <input type="file" class="custom-file-input input-group-text image" name="factura"
-                                    id="factura">
                             </div>
 
-                            <p class="text-center">
-                                Agregar <br>
-                                Facturas
-                                <br>
+                            <div class="col-12 mt-3">
+                                <div class=" custom-file mb-3">
+                                    <input type="file" class="custom-file-input input-group-text" name="factura">
+                                    <label class="custom-file-label">Elegir img...</label>
+                                </div>
 
-                                <button type="submit" class="btn btn-success btn-save text-white">
-                                    <img class="d-inline"
-                                        src="{{ asset('img/icon/white/save-file-option (1).png') }}"
-                                        alt="Icon documento" width="30px">
-                                    Guardar
-                                </button>
+                                <p class="text-center">
+                                    Agregar <br>
+                                    Facturas
+                                    <br>
 
-                            </p>
-                        </div>
+                                    <button type="submit" class="btn btn-lg btn-save-dark text-white mt-5">
+                                        <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}"
+                                            width="20px">
+                                        Guardar
+                                    </button>
+
+                                </p>
+                            </div>
+                        </form>
                     </div>
 
 
@@ -245,30 +246,5 @@
         </div>
 
     </div>
-
-    @section('crop-js')
-        <script src="{{ asset('js/ijaboCropTool.min.js') }}"></script>
-        <script>
-            $('#factura').ijaboCropTool({
-
-                preview: '.image-previewer',
-                setRatio: 4/8,
-                allowedExtensions: ['jpg', 'jpeg', 'png'],
-                buttonsText: ['Cortar', 'Cerrar'],
-                buttonsColor: ['#30bf7d', '#ee5155', -15],
-                processUrl: '{{ route('store_admin.view-factura-admin', $automovil->id) }}',
-                withCSRF: ['_token', '{{ csrf_token() }}'],
-
-                onSuccess: function(message, element, status) {
-                    window.location.reload();
-
-                },
-                onError: function(message, element, status) {
-                    alert(message);
-                }
-            });
-
-        </script>
-    @endsection
 
 @endsection

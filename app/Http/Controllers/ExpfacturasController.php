@@ -132,8 +132,7 @@ class ExpfacturasController extends Controller
             $automovil2 = Automovil::where('id_user', '=', NULL)
                 ->get();
 
-            $automovil_empresa = Automovil::
-                where('id_empresa', '=', auth()->user()->id)
+            $automovil_empresa = Automovil::where('id_empresa', '=', auth()->user()->id)
                 ->get();
 
             return view('admin.exp-fisico.view-exp-fisico-admin', compact('automovil', 'automovil2', 'automovil_empresa'));
@@ -168,11 +167,9 @@ class ExpfacturasController extends Controller
 
         if ($request->hasFile('factura')) {
 
-            $path = 'exp-factura/';
             $file = $request->file('factura');
-            $new_image_name = 'UIMG' . date('Ymd') . uniqid() . '.jpg';
-            $upload = $file->move(public_path($path), $new_image_name);
-            $exp->factura = $new_image_name;
+            $file->move(public_path() . '/exp-factura', time() . "." . $file->getClientOriginalExtension());
+            $exp->factura = time() . "." . $file->getClientOriginalExtension();
 
             $filepath = public_path('/exp-factura/' . $exp->factura);
 
@@ -205,17 +202,9 @@ class ExpfacturasController extends Controller
         $exp->id_user = $automovil->id_user;
         $exp->id_empresa = $automovil->id_empresa;
 
-        if ($exp->save()) {
-            Session::flash('success', 'Se ha guardado sus datos con exito');
-            return response()->json([
-                'status' => 1,
-                'success' => true,
-                'msg' => 'La imagen ha sido recortada con éxito.'
-            ]);
+        $exp->save();
 
-            //                return redirect()->back();
-        } else {
-            return response()->json(['status' => 0, 'msg' => 'Algo salió mal, inténtalo de nuevo más tarde.']);
-        }
+        Session::flash('success', 'Se ha guardado sus datos con exito');
+        return redirect()->back();
     }
 }

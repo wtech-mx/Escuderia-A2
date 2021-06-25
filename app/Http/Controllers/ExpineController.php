@@ -153,18 +153,10 @@ class ExpineController extends Controller
        $exp->id_user = $automovil->id_user;
        $exp->id_empresa = $automovil->id_empresa;
 
-       if ($exp->save()) {
-           Session::flash('success', 'Se ha guardado sus datos con exito');
-           return response()->json([
-               'status' => 1,
-               'success' => true,
-               'msg' => 'La imagen ha sido recortada con éxito.'
-           ]);
+       $exp->save();
 
-           //                return redirect()->back();
-       } else {
-           return response()->json(['status' => 0, 'msg' => 'Algo salió mal, inténtalo de nuevo más tarde.']);
-       }
+       Session::flash('success', 'Se ha guardado sus datos con exito');
+       return redirect()->back();
     }
 
      function destroy($id){
