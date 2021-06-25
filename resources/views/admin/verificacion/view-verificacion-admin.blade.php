@@ -33,73 +33,74 @@
             </div>
         </div>
 
-        <div class="col-6 mt-4">
-            <a class="btn mb-3 mr-1" href="#carouselExampleControls" role="button" data-slide="prev">
-                <img class="" src="{{ asset('img/icon/white/flecha-izquierda.png') }}" width="25px">
-            </a>
+        @if (auth()->user()->role == 1)
+            <div class="col-6 mt-4">
+                <a class="btn mb-3 mr-1" href="#carouselExampleControls" role="button" data-slide="prev">
+                    <img class="" src="{{ asset('img/icon/white/flecha-izquierda.png') }}" width="25px">
+                </a>
 
-            <a class="btn mb-3 " href="#carouselExampleControls" role="button" data-slide="next">
-                <img class="" src="{{ asset('img/icon/white/flecha-correcta.png') }}" width="25px">
-            </a>
-        </div>
+                <a class="btn mb-3 " href="#carouselExampleControls" role="button" data-slide="next">
+                    <img class="" src="{{ asset('img/icon/white/flecha-correcta.png') }}" width="25px">
+                </a>
+            </div>
 
-        <div class="col-12">
-            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="60000">
-                <div class="carousel-inner">
+            <div class="col-12">
+                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="60000">
+                    <div class="carousel-inner">
 
-                    {{-- -------------------------------------------------------------------------- --}}
-                    {{-- |Vehculos de user --}}
-                    {{-- |-------------------------------------------------------------------------- --}}
+                        {{-- -------------------------------------------------------------------------- --}}
+                        {{-- |Vehculos de user --}}
+                        {{-- |-------------------------------------------------------------------------- --}}
 
-                    <div class="carousel-item active">
-                        <h5 class="text-center text-white mt-4 ml-4 mr-4 ">
-                            <strong>Verificaciones Personales</strong>
-                        </h5>
+                        <div class="carousel-item active">
+                            <h5 class="text-center text-white mt-4 ml-4 mr-4 ">
+                                <strong>Verificaciones Personales</strong>
+                            </h5>
 
-                        <div class="row">
-                            <div class="content container-res-max">
-                                <div class="col-12 mt-4">
+                            <div class="row">
+                                <div class="content container-res-max">
+                                    <div class="col-12 mt-4">
 
-                                    <table id="verificacion" class="table text-white">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">Cliente</th>
-                                                <th scope="col">Submarca</th>
-                                                <th scope="col">Placas</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @foreach ($verificacion_user as $item)
+                                        <table id="verificacion" class="table text-white">
+                                            <thead>
                                                 <tr>
-                                                    <th><a style="text-decoration: none;"
-                                                            href="{{ route('edit_admin.verificacion', $item->id) }}">
-                                                            {{ $item->User->name }}</a>
-                                                    </th>
-                                                    <td>{{ $item->Automovil->submarca }}</td>
-                                                    <td>{{ $item->Automovil->placas }}</td>
+                                                    <th scope="col">Cliente</th>
+                                                    <th scope="col">Submarca</th>
+                                                    <th scope="col">Placas</th>
                                                 </tr>
-                                            @endforeach
-                                        </tbody>
-                                    </table>
+                                            </thead>
+                                            <tbody>
+                                                @foreach ($verificacion_user as $item)
+                                                    <tr>
+                                                        <th><a style="text-decoration: none;"
+                                                                href="{{ route('edit_admin.verificacion', $item->id) }}">
+                                                                {{ $item->User->name }}</a>
+                                                        </th>
+                                                        <td>{{ $item->Automovil->submarca }}</td>
+                                                        <td>{{ $item->Automovil->placas }}</td>
+                                                    </tr>
+                                                @endforeach
+                                            </tbody>
+                                        </table>
 
+                                    </div>
                                 </div>
                             </div>
+
                         </div>
 
-                    </div>
+                        {{-- -------------------------------------------------------------------------- --}}
+                        {{-- |Vehculos de empresa --}}
+                        {{-- |-------------------------------------------------------------------------- --}}
 
-                    {{-- -------------------------------------------------------------------------- --}}
-                    {{-- |Vehculos de empresa --}}
-                    {{-- |-------------------------------------------------------------------------- --}}
+                        <div class="carousel-item ">
 
-                    <div class="carousel-item ">
+                            <h5 class="text-center text-white mt-4 ml-4 mr-4 ">
+                                <strong>Verificación Empresas</strong>
+                            </h5>
 
-                                    <h5 class="text-center text-white mt-4 ml-4 mr-4 ">
-                                        <strong>Verificación Empresas</strong>
-                                    </h5>
-
-                                  <div class="row">
-                                    <div class="content container-res-max">
+                            <div class="row">
+                                <div class="content container-res-max">
                                     <table id="verificacion_empresa" class="table text-white">
                                         <thead>
                                             <tr>
@@ -121,16 +122,49 @@
                                             @endforeach
                                         </tbody>
                                     </table>
-                                    </div>
-                                  </div>
-
                                 </div>
+                            </div>
+
+                        </div>
+
+                    </div>
 
                 </div>
 
             </div>
+        @else
+            <h5 class="text-center text-white mt-4 ml-4 mr-4 ">
+                <strong>Verificaciones Personales</strong>
+            </h5>
 
-        </div>
+            <div class="row">
+                <div class="content container-res-max">
+                    <div class="col-12 mt-4">
+
+                        <table id="verificacion" class="table text-white">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Submarca</th>
+                                    <th scope="col">Placas</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($verificacion_empresas as $item)
+                                    <tr>
+                                        <th><a style="text-decoration: none;"
+                                                href="{{ route('edit_admin.verificacion', $item->id) }}">
+                                                {{ $item->Automovil->submarca }}</a>
+                                        </th>
+                                        <td>{{ $item->Automovil->placas }}</td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        @endif
 
     </div>
 
@@ -147,7 +181,6 @@
         $(document).ready(function() {
             $('#verificacion_empresa').DataTable();
         });
-
     </script>
 
 @endsection

@@ -122,7 +122,7 @@ class ExpfacturasController extends Controller
         |--------------------------------------------------------------------------*/
     function index_admin()
     {
-        if (auth()->user()->role != 1) {
+        if (auth()->user()->role == 0) {
             return view('errors.403');
         } else {
 
@@ -132,7 +132,11 @@ class ExpfacturasController extends Controller
             $automovil2 = Automovil::where('id_user', '=', NULL)
                 ->get();
 
-            return view('admin.exp-fisico.view-exp-fisico-admin', compact('automovil', 'automovil2'));
+            $automovil_empresa = Automovil::
+                where('id_empresa', '=', auth()->user()->id)
+                ->get();
+
+            return view('admin.exp-fisico.view-exp-fisico-admin', compact('automovil', 'automovil2', 'automovil_empresa'));
         }
     }
 

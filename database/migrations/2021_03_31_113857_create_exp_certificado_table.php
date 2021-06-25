@@ -29,7 +29,6 @@ class CreateExpCertificadoTable extends Migration
                 ->references('id')->on('users')
                 ->inDelete('set null');
             $table->timestamps();
-            $table->timestamps();
         });
     }
 

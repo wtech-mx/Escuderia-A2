@@ -28,7 +28,6 @@
                     imageHeight: 150,
                     imageAlt: 'Nota IMG',
                 })
-
             </script>
         @endif
 
@@ -51,7 +50,7 @@
                             <div class="card card-body ">
                                 <a class="text-dark " href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
-                                                                                                                                                                                                                                                                                   document.getElementById('logout-form').submit();">
+                                                                                                                                                                                                                                                                                       document.getElementById('logout-form').submit();">
                                     <img class="rounded-circle" src="{{ asset('img/icon/white/exit.png') }}" width="15">
                                 </a>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST"
@@ -94,7 +93,7 @@
             </div>
         </div>
 
-        @if($users->role == 1)
+        @if ($users->role == 1)
             @include('admin.alerts.calendar')
         @else
             @include('alerts.calendar')
@@ -112,28 +111,28 @@
             </h6>
         </div>
 
-        @if($users->role == 1)
-        <div class="col-6 text-center">
-            <a href="{{ route('index_admin.user') }}">
-                <div class="card" style="border-radius: 15px">
-                    <div class="card-body">
-                        <i class="fas fa-users icon-effect-dashboard"></i>
-                        <p class="card-text text-white"><strong>Usuarios</strong></p>
+        @if ($users->role == 1)
+            <div class="col-6 text-center">
+                <a href="{{ route('index_admin.user') }}">
+                    <div class="card" style="border-radius: 15px">
+                        <div class="card-body">
+                            <i class="fas fa-users icon-effect-dashboard"></i>
+                            <p class="card-text text-white"><strong>Usuarios</strong></p>
+                        </div>
                     </div>
-                </div>
-            </a>
-        </div>
+                </a>
+            </div>
         @else
-        <div class="col-6 text-center">
-            <a href="{{ route('edit.profile', $users->id) }}">
-                <div class="card" style="border-radius: 15px">
-                    <div class="card-body">
-                        <i class="fas fa-user icon-effect-dashboard"></i>
-                        <p class="card-text text-white"><strong>Datos de empresa</strong></p>
+            <div class="col-6 text-center">
+                <a href="{{ route('edit.profile', $users->id) }}">
+                    <div class="card" style="border-radius: 15px">
+                        <div class="card-body">
+                            <i class="fas fa-user icon-effect-dashboard"></i>
+                            <p class="card-text text-white"><strong>Datos de empresa</strong></p>
+                        </div>
                     </div>
-                </div>
-            </a>
-        </div>
+                </a>
+            </div>
         @endif
 
         <div class="col-6 text-center">
@@ -201,18 +200,18 @@
                 </div>
             </a>
         </div>
-        @if($users->role == 1)
-        <div class="col-6 text-center mt-4">
-            <a href="{{ route('index_admin.empresa') }}" class="text-white">
+        @if ($users->role == 1)
+            <div class="col-6 text-center mt-4">
+                <a href="{{ route('index_admin.empresa') }}" class="text-white">
 
-                <div class="card" style="border-radius: 15px">
-                    <div class="card-body">
-                        <i class="fas fa-building icon-effect-dashboard"></i>
-                        <p class="card-text text-white"><strong>Empresas</strong></p>
+                    <div class="card" style="border-radius: 15px">
+                        <div class="card-body">
+                            <i class="fas fa-building icon-effect-dashboard"></i>
+                            <p class="card-text text-white"><strong>Empresas</strong></p>
+                        </div>
                     </div>
-                </div>
-            </a>
-        </div>
+                </a>
+            </div>
         @endif
 
         <div class="col-6 text-center mt-4">
@@ -227,17 +226,19 @@
             </a>
         </div>
 
-        <div class="col-6 text-center mt-4">
-            <a href="{{ route('index_admin.licencia') }}" class="text-white">
+        @if ($users->role == 1)
+            <div class="col-6 text-center mt-4">
+                <a href="{{ route('index_admin.licencia') }}" class="text-white">
 
-                <div class="card" style="border-radius: 15px">
-                    <div class="card-body">
-                        <i class="far fa-id-badge icon-effect-dashboard"></i>
-                        <p class=" card-text text-white"><strong>Licencia Conducir</strong></p>
+                    <div class="card" style="border-radius: 15px">
+                        <div class="card-body">
+                            <i class="far fa-id-badge icon-effect-dashboard"></i>
+                            <p class=" card-text text-white"><strong>Licencia Conducir</strong></p>
+                        </div>
                     </div>
-                </div>
-            </a>
-        </div>
+                </a>
+            </div>
+        @endif
 
         <div class="col-6 text-center position-relative mt-4" style="margin-bottom: 8rem !important;">
 
@@ -262,18 +263,18 @@
             </a>
         </div>
 
-        @if($users->role == 1)
-        <div class="col-6 text-center mt-4">
-            <a href="{{ route('index_admin.cupon') }}" class="text-white">
+        @if ($users->role == 1)
+            <div class="col-6 text-center mt-4">
+                <a href="{{ route('index_admin.cupon') }}" class="text-white">
 
-                <div class="card" style="border-radius: 15px">
-                    <div class="card-body">
-                        <i class="fas fa-qrcode icon-effect-dashboard"></i>
-                        <p class=" card-text text-white"><strong>Cupones</strong></p>
+                    <div class="card" style="border-radius: 15px">
+                        <div class="card-body">
+                            <i class="fas fa-qrcode icon-effect-dashboard"></i>
+                            <p class=" card-text text-white"><strong>Cupones</strong></p>
+                        </div>
                     </div>
-                </div>
-            </a>
-        </div>
+                </a>
+            </div>
         @endif
 
         @include('admin.notas.create')

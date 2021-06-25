@@ -34,7 +34,7 @@
             </div>
         </div>
 
-
+        @if (auth()->user()->role == 1)
         <div class="col-6 mt-4">
             <a class="btn mb-3 mr-1" href="#carouselExampleControls" role="button" data-slide="prev">
                 <img class="" src="{{ asset('img/icon/white/flecha-izquierda.png') }}" width="25px">
@@ -151,6 +151,42 @@
 
 
         </div>
+        @else
+            <h5 class="text-center text-white mt-4 ml-4 mr-4 ">
+                <strong>Expedientes</strong>
+            </h5>
+
+            <div class="row">
+                <div class="content container-res-max">
+                    <div class="col-12">
+
+                        <table id="expedientes" class="table text-white">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Placas</th>
+                                    <th scope="col">Modelo</th>
+                                    <th scope="col">Más</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($automovil_empresa as $item)
+                                    <tr>
+                                        <td>{{ $item->placas }}</td>
+                                        <td>{{ $item->Marca->nombre }}</td>
+                                        <td>
+                                            <a data-toggle="modal" data-target="#example{{ $item->id }}">
+                                                <img class="icon-effect"  src="{{ asset('img/icon/white/add.png') }}" width="15px"></a>
+                                        </td>
+                                        @include('admin.exp-fisico.model_empresa')
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        @endif
 
     </div>
 

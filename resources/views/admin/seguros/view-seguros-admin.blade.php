@@ -32,114 +32,116 @@
             </div>
         </div>
 
-        <div class="col-6 mt-4">
-            <a class="btn mb-3 mr-1" href="#carouselExampleControls" role="button" data-slide="prev">
-                <img class="" src="{{ asset('img/icon/white/flecha-izquierda.png') }}" width="25px">
-            </a>
+        @if (auth()->user()->role == 1)
+            <div class="col-6 mt-4">
+                <a class="btn mb-3 mr-1" href="#carouselExampleControls" role="button" data-slide="prev">
+                    <img class="" src="{{ asset('img/icon/white/flecha-izquierda.png') }}" width="25px">
+                </a>
 
-            <a class="btn mb-3 " href="#carouselExampleControls" role="button" data-slide="next">
-                <img class="" src="{{ asset('img/icon/white/flecha-correcta.png') }}" width="25px">
-            </a>
-        </div>
+                <a class="btn mb-3 " href="#carouselExampleControls" role="button" data-slide="next">
+                    <img class="" src="{{ asset('img/icon/white/flecha-correcta.png') }}" width="25px">
+                </a>
+            </div>
 
 
-        <div class="col-12">
+            <div class="col-12">
+                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="60000">
+                    <div class="carousel-inner">
 
-            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="60000">
-                <div class="carousel-inner">
+                        {{-- -------------------------------------------------------------------------- --}}
+                        {{-- |Vehculos de user --}}
+                        {{-- |-------------------------------------------------------------------------- --}}
 
-                    {{-- -------------------------------------------------------------------------- --}}
-                    {{-- |Vehculos de user --}}
-                    {{-- |-------------------------------------------------------------------------- --}}
-
-                    <div class="carousel-item active">
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="d-flex justify-content-center">
-                                    <a class="text-white mt-3 p-2" href="/exportar/seguro">
-                                        <i class="fa fa-download icon-effect-sm" aria-hidden="true"></i>
-                                    </a>
-
-                                    <h5 class="text-center text-white mt-4 ml-4 mr-4 ">
-                                        <strong>Seguros Personales</strong>
-                                    </h5>
-                                </div>
-                            </div>
-
-                            <div class="content container-res-inter">
+                        <div class="carousel-item active">
+                            <div class="row">
                                 <div class="col-12">
+                                    <div class="d-flex justify-content-center">
+                                        <a class="text-white mt-3 p-2" href="/exportar/seguro">
+                                            <i class="fa fa-download icon-effect-sm" aria-hidden="true"></i>
+                                        </a>
 
-                                    <table id="seguro" class="table text-white">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">Cliente</th>
-                                                <th scope="col">Submarca</th>
-                                                <th scope="col">Seguro</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @foreach ($seguros as $item)
-                                                <tr>
-                                                    <th><a style="text-decoration: none;"
-                                                            href="{{ route('edit_admin.seguro', $item->id) }}">
-                                                            {{ $item->User->name }}</a>
-                                                    </th>
-                                                    <td>{{ $item->Automovil->submarca }}</td>
-                                                    <td>{{ $item->seguro }}</td>
-                                                </tr>
-                                            @endforeach
-                                        </tbody>
-                                    </table>
-
+                                        <h5 class="text-center text-white mt-4 ml-4 mr-4 ">
+                                            <strong>Seguros Personales</strong>
+                                        </h5>
+                                    </div>
                                 </div>
+
+                                <div class="content container-res-inter">
+                                    <div class="col-12">
+
+                                        <table id="seguro" class="table text-white">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Cliente</th>
+                                                    <th scope="col">Submarca</th>
+                                                    <th scope="col">Seguro</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach ($seguros as $item)
+                                                    <tr>
+                                                        <th><a style="text-decoration: none;"
+                                                                href="{{ route('edit_admin.seguro', $item->id) }}">
+                                                                {{ $item->User->name }}</a>
+                                                        </th>
+                                                        <td>{{ $item->Automovil->submarca }}</td>
+                                                        <td>{{ $item->seguro }}</td>
+                                                    </tr>
+                                                @endforeach
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+                                </div>
+
                             </div>
 
                         </div>
 
-                    </div>
+                        {{-- -------------------------------------------------------------------------- --}}
+                        {{-- |Vehculos de empresa --}}
+                        {{-- |-------------------------------------------------------------------------- --}}
 
-                    {{-- -------------------------------------------------------------------------- --}}
-                    {{-- |Vehculos de empresa --}}
-                    {{-- |-------------------------------------------------------------------------- --}}
+                        <div class="carousel-item ">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="d-flex justify-content-center">
+                                        <a class="text-white mt-3 p-2" href="/exportar/seguro/empresa">
+                                            <i class="fa fa-download icon-effect-sm" aria-hidden="true"></i>
+                                        </a>
 
-                    <div class="carousel-item ">
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="d-flex justify-content-center">
-                                    <a class="text-white mt-3 p-2" href="/exportar/seguro/empresa">
-                                        <i class="fa fa-download icon-effect-sm" aria-hidden="true"></i>
-                                    </a>
-
-                                    <h5 class="text-center text-white mt-4 ml-4 mr-4 ">
-                                        <strong>Seguros Empresas</strong>
-                                    </h5>
+                                        <h5 class="text-center text-white mt-4 ml-4 mr-4 ">
+                                            <strong>Seguros Empresas</strong>
+                                        </h5>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="content container-res-max">
-                                <div class="col-12 mt-4">
-                                    <table id="seguro_empresa" class="table text-white">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">Cliente</th>
-                                                <th scope="col">Submarca</th>
-                                                <th scope="col">Seguro</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @foreach ($seguros2 as $item)
+                                <div class="content container-res-max">
+                                    <div class="col-12 mt-4">
+                                        <table id="seguro_empresa" class="table text-white">
+                                            <thead>
                                                 <tr>
-                                                    <th><a style="text-decoration: none;"
-                                                            href="{{ route('edit_admin.seguro', $item->id) }}">
-                                                            {{ $item->UserEmpresa->name }}</a>
-                                                    </th>
-                                                    <td>{{ $item->Automovil->submarca }}</td>
-                                                    <td>{{ $item->seguro }}</td>
+                                                    <th scope="col">Cliente</th>
+                                                    <th scope="col">Submarca</th>
+                                                    <th scope="col">Seguro</th>
                                                 </tr>
-                                            @endforeach
-                                        </tbody>
-                                    </table>
+                                            </thead>
+                                            <tbody>
+                                                @foreach ($seguros2 as $item)
+                                                    <tr>
+                                                        <th><a style="text-decoration: none;"
+                                                                href="{{ route('edit_admin.seguro', $item->id) }}">
+                                                                {{ $item->UserEmpresa->name }}</a>
+                                                        </th>
+                                                        <td>{{ $item->Automovil->submarca }}</td>
+                                                        <td>{{ $item->seguro }}</td>
+                                                    </tr>
+                                                @endforeach
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
+
                             </div>
 
                         </div>
@@ -147,10 +149,51 @@
                     </div>
 
                 </div>
+            </div>
+        @else
+            <div class="row">
+                <div class="col-12">
+                    <div class="d-flex justify-content-center">
+                        <a class="text-white mt-4 p-2 " href="/exportar/seguro">
+                            <i class="fa fa-download icon-effect-sm" aria-hidden="true"></i>
+                        </a>
+
+                        <h5 class="text-center text-white mt-5 ml-4 mr-4 ">
+                            <strong>Seguros Empresa</strong>
+                        </h5>
+                    </div>
+                </div>
+
+                <div class="content container-res-max">
+                    <div class="col-12">
+
+                        <table id="seguro" class="table text-white">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Submarca</th>
+                                    <th scope="col">Seguro</th>
+                                    <th scope="col">Tipo Cobertura</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($seguros_empresa as $item)
+                                    <tr>
+                                        <th><a style="text-decoration: none;"
+                                                href="{{ route('edit_admin.seguro', $item->id) }}">
+                                                {{ $item->Automovil->submarca }}</a>
+                                        </th>
+                                        <td>{{ $item->seguro }}</td>
+                                        <td>{{ $item->tipo_cobertura }}</td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
 
             </div>
-
-        </div>
+        @endif
 
     </div>
 
@@ -166,7 +209,6 @@
         $(document).ready(function() {
             $('#seguro_empresa').DataTable();
         });
-
     </script>
 
 @endsection

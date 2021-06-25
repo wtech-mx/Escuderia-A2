@@ -171,17 +171,18 @@ class SegurosController extends Controller
 |--------------------------------------------------------------------------*/
     function index_admin(Request $request)
     {
-        if (auth()->user()->role != 1) {
+        if (auth()->user()->role == 0) {
             return view('errors.403');
         } else {
             $seguro = $request->get('seguro');
 
             $seguros = Seguros::where('id_empresa', '=', NULL)
-                ->seguro($seguro)
                 ->get();
 
-            $seguros2 = Seguros::
-                where('id_user', '=', NULL)
+            $seguros2 = Seguros::where('id_user', '=', NULL)
+                ->get();
+
+            $seguros_empresa = Seguros::where('id_empresa', '=', auth()->user()->id)
                 ->get();
 
             $user = DB::table('users')
@@ -191,13 +192,13 @@ class SegurosController extends Controller
             $users = DB::table('users')
                 ->get();
 
-            return view('admin.seguros.view-seguros-admin', compact('seguros', 'seguros2', 'user', 'users'));
+            return view('admin.seguros.view-seguros-admin', compact('seguros', 'seguros2', 'user', 'users', 'seguros_empresa'));
         }
     }
 
     public function edit_admin($id)
     {
-        if (auth()->user()->role != 1) {
+        if (auth()->user()->role == 0) {
             return view('errors.403');
         } else {
             $seguro = Seguros::findOrFail($id);

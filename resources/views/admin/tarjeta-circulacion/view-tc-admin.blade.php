@@ -41,15 +41,15 @@
             </h5>
         </div>
 
-        <div class="col-2  mt-4">
+        <div class="col-2  mt-4 mb-5">
             <div class="d-flex justify-content-start">
                 <div class="text-center text-white bg-white" style="border-radius: 50px;padding: 5px">
                     <img class="" src="{{ asset('img/icon/color/campana.png') }}" width="25px">
                 </div>
             </div>
         </div>
-
-        <div class="col-6 mt-4">
+    @if (auth()->user()->role == 1)
+        <div class="col-6 mt-5">
             <a class="btn mb-3 mr-1" href="#carouselExampleControls" role="button" data-slide="prev">
                 <img class="" src="{{ asset('img/icon/white/flecha-izquierda.png') }}" width="25px">
             </a>
@@ -58,6 +58,7 @@
                 <img class="" src="{{ asset('img/icon/white/flecha-correcta.png') }}" width="25px">
             </a>
         </div>
+
 
         <div class="col-12">
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="60000">
@@ -183,6 +184,36 @@
             </div>
 
         </div>
+     @else
+        <div class="row">
+
+            <div class="content container-res-max">
+                <div class="col-lg-12">
+                    <table id="tc_empresa" class="table text-white">
+                        <thead>
+                            <tr>
+                                <th scope="col">Cliente</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Modelo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($tarjeta_circulacion_empresa as $item)
+                                <tr>
+                                    <th><a style="text-decoration: none;"
+                                            href="{{ route('edit_admin.tarjeta-circulacion', $item->id) }}">
+                                            {{ $item->UserEmpresa->name }}</a>
+                                    </th>
+                                    <td>{{ $item->nombre }}</td>
+                                    <td>{{ $item->Automovil->Marca->nombre }}</td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+     @endif
 
     </div>
 @section('js')

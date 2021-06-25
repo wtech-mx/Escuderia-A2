@@ -104,8 +104,8 @@ class TarjetaCirculacionController extends Controller
         } else {
             $nombre = $request->get('nombre');
 
-            $tarjeta_circulacion = TarjetaCirculacion::orderBy('id', 'DESC')
-                ->where('id_empresa', '=', NULL)
+            $tarjeta_circulacion = TarjetaCirculacion::
+                where('id_empresa', '=', NULL)
                 ->get();
 
             $tarjeta_circulacion2 = TarjetaCirculacion::
@@ -113,7 +113,7 @@ class TarjetaCirculacionController extends Controller
                 ->get();
 
             $tarjeta_circulacion_empresa = TarjetaCirculacion::
-                where('current_auto', '=', auth()->user()->current_auto)
+                where('id_empresa', '=', auth()->user()->id)
                 ->get();
 
             $user = DB::table('users')
@@ -125,7 +125,7 @@ class TarjetaCirculacionController extends Controller
 
     public function  edit_admin($id)
     {
-        if (auth()->user()->role != 1) {
+        if (auth()->user()->role == 0) {
             return view('errors.403');
         } else {
             $tarjeta_circulacion = TarjetaCirculacion::findOrFail($id);

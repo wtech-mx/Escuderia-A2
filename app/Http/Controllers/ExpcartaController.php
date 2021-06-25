@@ -176,6 +176,7 @@ class ExpcartaController extends Controller
         $exp->current_auto = $automovil->id;
 
         $exp->id_user = $automovil->id_user;
+        $exp->id_empresa = $automovil->id_empresa;
 
         $exp->save();
 
