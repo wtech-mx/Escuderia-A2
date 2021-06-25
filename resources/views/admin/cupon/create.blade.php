@@ -9,22 +9,7 @@
     <link href="{{ asset('css/dashboard-admin.css') }}" rel="stylesheet">
 
     <div class="row bg-profile" style="z-index: 100000">
-        @if (Session::has('create'))
-            <script>
-                Swal.fire({
-                    title: 'Exito!!',
-                    html: 'Se ha agragado el <b>Cupon</b>, ' +
-                        'Exitosamente',
-                    // text: 'Se ha agragado la "MARCA" Exitosamente',
-                    imageUrl: '{{ asset('img/icon/color/cupon.png') }}',
-                    background: '#fff',
-                    imageWidth: 150,
-                    imageHeight: 150,
-                    imageAlt: 'Cupon IMG',
-                })
 
-            </script>
-        @endif
 
         <div class="col-2">
             <div class="d-flex justify-content-start">
@@ -123,7 +108,7 @@
                                             <i class="far fa-calendar-alt icon-tc"></i>
                                     </span>
                                 </div>
-                                    <input type="date" class="form-control" name="end" id="end" placeholder="MM/YYYY">
+                                    <input type="date" class="form-control" name="fecha_caducidad" id="fecha_caducidad" placeholder="MM/YYYY">
                             </div>
 
 

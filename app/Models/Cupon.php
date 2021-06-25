@@ -17,6 +17,7 @@ class Cupon extends Model
         'color',
         'aplicacion',
         'qr',
+        'fecha_caducidad',
         'precio',
         'estado',
     ];

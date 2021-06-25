@@ -8,25 +8,25 @@
 
       <div class="modal-body bg-down-blue" style="border-radius: 30px;">
 
-          <div class="row">
-              <div class="col-10">
-                <h2 class="text-center text-white mt-3">
-                    Auto de empresas
-                </h2>
-              </div>
+                  <div class="row">
+                      <div class="col-10">
+                        <h2 class="text-center text-white mt-3">
+                            Auto de empresas
+                        </h2>
+                      </div>
 
-              <div class="col-2">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
+                      <div class="col-2">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
 
-              <div class="col-12">
-                  <p class="text-center mt-3">
-                       <img class="img-thumbnail" src="{{ asset('img/icon/color/edificio-de-oficinas (3).png') }}" width="80px" style="padding: 20px;border-radius: 10px">
-                  </p>
-              </div>
-          </div>
+                      <div class="col-12">
+                          <p class="text-center mt-3">
+                               <img class="img-thumbnail" src="{{ asset('img/icon/color/edificio-de-oficinas (3).png') }}" width="80px" style="padding: 20px;border-radius: 10px">
+                          </p>
+                      </div>
+                  </div>
 
                     <div class="row " >
                         <div class="col-12 ">
@@ -46,7 +46,8 @@
                               </li>
 
                             </ul>
-                     <form method="POST" action="{{route('store_empresa.empresa')}}" enctype="multipart/form-data" role="form">
+
+                            <form method="POST" action="{{route('store_empresa.empresa')}}" enctype="multipart/form-data" role="form">
                          @csrf
                             <div class="tab-content" id="pills-tabContent">
 

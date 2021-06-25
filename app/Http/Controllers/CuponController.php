@@ -61,8 +61,10 @@ class CuponController extends Controller
         $cupon = new  Cupon;
         $cupon->titulo = $request->get('titulo');
         $cupon->color = $request->get('color');
+        $cupon->estado = 0;
         $cupon->aplicacion = $request->get('aplicacion');
         $cupon->precio = $request->get('precio');
+        $cupon->fecha_caducidad = $request->get('fecha_caducidad');
 
         $new_image_name = 'Cupon' . date('Ymd') . uniqid() . '.svg';
         $qrimage = public_path('qr/' . $new_image_name);
@@ -79,21 +81,22 @@ class CuponController extends Controller
             QRCode::color(0, 0, 0)->generate('https://checkn-go.com.mx/admin/cupon/check/edit/'.$latestId, $qrimage);
             $cupon->qr = $new_image_name;
             $cupon->save();
+
+            $cupon_user = new  CuponUser;
+            $cupon_user->id_cupon = $cupon->id;
+            $cupon_user->id_user = $request->get('id_user');
+            $cupon_user->titulo = $cupon->titulo;
+            $cupon_user->color = $cupon->color;
+            $cupon_user->descripcion = 'Hola, Tienes un cupon disponible.';
+            $cupon_user->end = $request->get('fecha_caducidad');
+            $cupon_user->enviado = 0;
+            $cupon_user->check = 0;
+            $cupon_user->save();
+
         }
 
-        $cupon_user = new  CuponUser;
-        $cupon_user->id_cupon = $cupon->id;
-        $cupon_user->id_user = $request->get('id_user');
-        $cupon_user->titulo = $cupon->titulo;
-        $cupon_user->color = $cupon->color;
-        $cupon_user->descripcion = 'Hola, Tienes un cupon disponible.';
-        $cupon_user->end = $request->get('end');
-        $cupon_user->enviado = 0;
-        $cupon_user->check = 0;
-        $cupon_user->save();
-
         Session::flash('create', 'Se ha guardado su cupon con exito');
-        return redirect()->back();
+        return redirect()->route('index_admin.cupon');
     }
 
     public function create_asignacion()
@@ -109,8 +112,9 @@ class CuponController extends Controller
         }
     }
 
-    public function store_asignacion(Request $request)
+    public function update_asignacion(Request $request)
     {
+//        $cupon_user = CuponUser::findOrFail($id);
         $cupon_user = new  CuponUser;
         $cupon_user->id_cupon = $request->get('id_cupon');
         $cupon_user->id_user = $request->get('id_user');
@@ -121,8 +125,9 @@ class CuponController extends Controller
         $cupon_user->check = 0;
         $cupon_user->save();
 
-        Session::flash('create', 'Se ha guardado su cupon con exito');
+        Session::flash('asignacion', 'Se ha asignacion el cupon al usuario');
         return redirect()->back();
+
     }
 
     public function edit_admin($id)

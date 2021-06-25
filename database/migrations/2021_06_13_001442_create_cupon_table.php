@@ -21,6 +21,7 @@ class CreateCuponTable extends Migration
             $table->string('qr')->nullable();
             $table->string('precio')->nullable();
             $table->integer('estado')->nullable();
+            $table->date('fecha_caducidad')->nullable();
             $table->timestamps();
         });
     }

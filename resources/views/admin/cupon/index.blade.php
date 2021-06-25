@@ -2,19 +2,51 @@
 
 @section('css')
     <link href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+    <link href="{{ asset('css/select2.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/cupones.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/login-form.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/dashboard-admin.css') }}" rel="stylesheet">
 
 @endsection
 
 @section('content')
 
-    <link href="{{ asset('css/login-form.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/dashboard-admin.css') }}" rel="stylesheet">
+        @if (Session::has('create'))
+            <script>
+                Swal.fire({
+                    title: 'Exito!!',
+                    html: 'Se ha agragado el <b>Cupon</b>, ' +
+                        'Exitosamente',
+                    // text: 'Se ha agragado la "MARCA" Exitosamente',
+                    imageUrl: '{{ asset('img/icon/color/cupon.png') }}',
+                    background: '#fff',
+                    imageWidth: 150,
+                    imageHeight: 150,
+                    imageAlt: 'Cupon IMG',
+                })
+
+            </script>
+        @endif
+
+        @if (Session::has('asignacion'))
+            <script>
+                Swal.fire({
+                    title: 'Exito!!',
+                    html: ' Se ha asignacion el  <b>Cupon</b>, ' +
+                        ' al usuario Exitosamente',
+                    // text: 'Se ha agragado la "MARCA" Exitosamente',
+                    imageUrl: '{{ asset('img/icon/color/cupon.png') }}',
+                    background: '#fff',
+                    imageWidth: 150,
+                    imageHeight: 150,
+                    imageAlt: 'Cupon IMG',
+                })
+
+            </script>
+        @endif
 
     <div class="row bg-image">
-
-
         <div class="col-2  mt-4">
             <div class="d-flex justify-content-start">
                 <div class="text-center text-white">
@@ -115,10 +147,13 @@
 @section('js')
     <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.min.js"></script>
+     <script src="{{ asset('js/select2.full.min.js') }}"></script>
 
     <script>
         $(document).ready(function() {
             $('#cupones').DataTable();
+            $('.js-example-basic-single').select2();
+
         });
 
         $(function() {

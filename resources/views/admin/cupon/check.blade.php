@@ -5,13 +5,14 @@
 @section('css')
     <link href="{{ asset('css/select2.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/cupones.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/login-form.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/dashboard-admin.css') }}" rel="stylesheet">
 @endsection
 
 @section('content')
 
-    <link href="{{ asset('css/login-form.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/dashboard-admin.css') }}" rel="stylesheet">
+
     <div class="row  bg-image">
         <div class="row bg-profile" style="z-index: 100000">
             @if (Session::has('success'))

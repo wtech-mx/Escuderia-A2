@@ -404,7 +404,7 @@ Route::delete('admin/cupon/destroy/{id}', 'CuponController@destroy')->name('dest
 
 Route::get('changeStatus', 'CuponController@ChangeUserStatus')->name('ChangeUserStatus.cupon');
 
-Route::post('admin/cupon/asignacion/store', 'CuponController@store_asignacion')->name('store_asignacion.cupon');
+Route::post('admin/cupon/asignacion/crear/', 'CuponController@update_asignacion')->name('update_asignacion.cupon');
 
 Route::get('admin/cupon/lista-check/{id}', 'CuponController@lista_check')->name('lista_check.cupon');
 Route::get('admin/cupon/check/edit/{id}', 'CuponController@edit_check')->name('edit_check.cupon');

@@ -56,7 +56,6 @@
 <div class="text-center text-white mt-5 mb-5">
  <h2>Cupon</h2>
 </div>
-
             <form method="POST" action="{{ route('update_admin.cupon', $cupons->id) }}" enctype="multipart/form-data"
                 role="form">
                 @csrf
@@ -119,6 +118,19 @@
                         </div>
 
                         <input type="text" class="form-control" name="aplicacion" id="aplicacion" value="{{$item->aplicacion}}">
+                    </div>
+
+                    <label for="">
+                        <p class="text-white"><strong>Fecha limite</strong></p>
+                    </label>
+
+                    <div class="input-group form-group mb-5">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="far fa-calendar-alt icon-tc"></i>
+                            </span>
+                        </div>
+                        <input type="date" class="form-control" name="fecha_caducidad" id="fecha_caducidad" value="{{$item->fecha_caducidad}}">
                     </div>
 
                     <input type="hidden" id="qr" name="qr" value="{{$item->qr}}">
