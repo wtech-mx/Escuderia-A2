@@ -16,21 +16,20 @@ class ExpFactura extends Model
         'id_user',
         'current_auto',
         'factura',
+        'id_empresa',
     ];
 
-//        public function scopeName($query,$name)
-//    {
-//        if ($name)
-//            return $query->where('name','LIKE',"%$name%");
-//    }
+    //        public function scopeName($query,$name)
+    //    {
+    //        if ($name)
+    //            return $query->where('name','LIKE',"%$name%");
+    //    }
 
-    protected $guarded=[
+    protected $guarded = [];
 
-    ];
-
-//    public function User()
-//    {
-//       return $this->belongsTo(User::class,'id_user');
-//    }
+    //    public function User()
+    //    {
+    //       return $this->belongsTo(User::class,'id_user');
+    //    }
 
 }

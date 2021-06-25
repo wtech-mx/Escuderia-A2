@@ -25,7 +25,7 @@
 
                                   <div class="p-2">
                                         <strong class="text-white p-2 " style="background-color: #00d62e;border-radius: 10px">
-                                            @if ($item->UserEmpresa->id == $item->id_user)
+                                            @if ($item->UserEmpresa->id == $item->id_empresa)
                                                 {{ $item->ExpFactura->count() }}
                                             @endif
                                         </strong>
@@ -42,7 +42,7 @@
                                   <div class="mr-auto p-2">Tenencias</div>
                                   <div class="p-2">
                                         <strong class="text-white p-2 " style="background-color: #00d62e;border-radius: 10px">
-                                            @if ($item->UserEmpresa->id == $item->id_user)
+                                            @if ($item->UserEmpresa->id == $item->id_empresa)
                                                 {{ $item->ExpTenencias->count() }}
                                             @endif
                                         </strong>
@@ -57,7 +57,7 @@
                                   <div class="mr-auto p-2"> Carta R.</div>
                                   <div class="p-2">
                                         <strong class="text-white p-2 " style="background-color: #00d62e;border-radius: 10px">
-                                            @if ($item->UserEmpresa->id == $item->id_user)
+                                            @if ($item->UserEmpresa->id == $item->id_empresa)
                                                 {{ $item->ExpCarta->count() }}
                                             @endif
                                         </strong>
@@ -72,7 +72,7 @@
                                   <div class="mr-auto p-2">Póliza</div>
                                   <div class="p-2">
                                         <strong class="text-white p-2 " style="background-color: #00d62e;border-radius: 10px">
-                                           @if ($item->UserEmpresa->id == $item->id_user)
+                                           @if ($item->UserEmpresa->id == $item->id_empresa)
                                                 {{ $item->ExpPoliza->count() }}
                                             @endif
                                         </strong>
@@ -87,7 +87,7 @@
                                   <div class="mr-auto p-2">Tarjeta C.</div>
                                   <div class="p-2">
                                         <strong class="text-white p-2 " style="background-color: #00d62e;border-radius: 10px">
-                                            @if ($item->UserEmpresa->id == $item->id_user)
+                                            @if ($item->UserEmpresa->id == $item->id_empresa)
                                                 {{ $item->ExpTc->count() }}
                                             @endif
                                         </strong>
@@ -102,7 +102,7 @@
                                   <div class="mr-auto p-2">Reemp</div>
                                   <div class="p-2">
                                         <strong class="text-white p-2 " style="background-color: #00d62e;border-radius: 10px">
-                                            @if ($item->UserEmpresa->id == $item->id_user)
+                                            @if ($item->UserEmpresa->id == $item->id_empresa)
                                                 {{ $item->ExpReemplacamiento->count() }}
                                             @endif
                                         </strong>
@@ -117,7 +117,7 @@
                                   <div class="mr-auto p-2">Verificacion</div>
                                   <div class="p-2">
                                         <strong class="text-white p-2 " style="background-color: #00d62e;border-radius: 10px">
-                                            @if ($item->UserEmpresa->id == $item->id_user)
+                                            @if ($item->UserEmpresa->id == $item->id_empresa)
                                                 {{ $item->ExpCertificado->count() }}
                                             @endif
                                         </strong>
@@ -132,7 +132,7 @@
                                   <div class="mr-auto p-2">Baja de placas</div>
                                   <div class="p-2">
                                         <strong class="text-white p-2 " style="background-color: #00d62e;border-radius: 10px">
-                                        @if ($item->UserEmpresa->id == $item->id_user)
+                                        @if ($item->UserEmpresa->id == $item->id_empresa)
                                             {{ $item->ExpPlacas->count() }}
                                         @endif
                                         </strong>
@@ -147,7 +147,7 @@
                                   <div class="mr-auto p-2">INE</div>
                                   <div class="p-2">
                                         <strong class="text-white p-2 " style="background-color: #00d62e;border-radius: 10px">
-                                            @if ($item->UserEmpresa->id == $item->id_user)
+                                            @if ($item->UserEmpresa->id == $item->id_empresa)
                                                 {{ $item->ExpIne->count() }}
                                             @endif
                                         </strong>
@@ -162,7 +162,7 @@
                                   <div class="mr-auto p-2">Comprobante D.</div>
                                   <div class="p-2">
                                         <strong class="text-white p-2 " style="background-color: #00d62e;border-radius: 10px">
-                                            @if ($item->UserEmpresa->id == $item->id_user)
+                                            @if ($item->UserEmpresa->id == $item->id_empresa)
                                                 {{ $item->ExpDomicilio->count() }}
                                             @endif
                                         </strong>
@@ -177,7 +177,7 @@
                                   <div class="mr-auto p-2">RFC</div>
                                   <div class="p-2">
                                         <strong class="text-white p-2 " style="background-color: #00d62e;border-radius: 10px">
-                                        @if ($item->UserEmpresa->id == $item->id_user)
+                                        @if ($item->UserEmpresa->id == $item->id_empresa)
                                             {{ $item->ExpRfc->count() }}
                                         @endif
                                         </strong>

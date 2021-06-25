@@ -86,8 +86,13 @@
                     <strong>Detalles del Seguro</strong>
                 </p>
 
-                <p class="text-center" style="color: #00d62e; font: normal normal bold 20px/27px Segoe UI;"><strong>{{$seguro->User->name}} / {{$seguro->Automovil->placas}}</strong></p>
+                @if ($seguro->id_user == NULL)
+                <p class="text-center mb-5" style="color: #00d62e; font: normal normal bold 20px/27px Segoe UI;"><strong>{{$seguro->UserEmpresa->name}} / {{$seguro->Automovil->placas}}</strong></p>
 
+                @else
+                <p class="text-center mb-5" style="color: #00d62e; font: normal normal bold 20px/27px Segoe UI;"><strong>{{$seguro->User->name}} / {{$seguro->Automovil->placas}}</strong></p>
+                @endif
+                
                 <label for="">
                     <p class="text-white"><strong>Seguro</strong></p>
                 </label>

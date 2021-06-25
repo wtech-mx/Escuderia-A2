@@ -16,12 +16,19 @@ class CreateExpCertificadoTable extends Migration
         Schema::create('exp_certificado', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_user')->nullable();
+            $table->unsignedBigInteger('id_empresa')->nullable();
             $table->string('current_auto')->nullable();
             $table->string('certificado', 900);
             $table->string('titulo');
+
             $table->foreign('id_user')
                 ->references('id')->on('users')
                 ->inDelete('set null');
+
+            $table->foreign('id_empresa')
+                ->references('id')->on('users')
+                ->inDelete('set null');
+            $table->timestamps();
             $table->timestamps();
         });
     }

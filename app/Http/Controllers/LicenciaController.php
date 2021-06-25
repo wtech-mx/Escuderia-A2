@@ -51,9 +51,10 @@ class LicenciaController extends Controller
         if (auth()->user()->role != 1) {
             return view('errors.403');
         } else {
-            $licencia = Licencia::get();
+            $licencia = Licencia::where('id_empresa', '=', NULL)->get();
+            $licencia_empresa = Licencia::where('id_user', '=', NULL)->get();
 
-            return view('admin.licencia.index', compact('licencia'));
+            return view('admin.licencia.index', compact('licencia', 'licencia_empresa'));
         }
     }
 

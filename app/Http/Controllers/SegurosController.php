@@ -299,20 +299,20 @@ class SegurosController extends Controller
 
         $seguro->update();
 
-        $email = $seguro->User->email;
-        $subject = 'Bienvenido : ' . $email;
+        // $email = $seguro->User->email;
+        // $subject = 'Bienvenido : ' . $email;
 
-        $details = array(
-            'seguro' => $request->get('seguro'),
-            'fecha_expedicion' => $request->get('fecha_expedicion'),
-            'tipo_cobertura' => $request->get('tipo_cobertura'),
-            'costo' => $request->get('costo'),
-            'costo_anual' => $request->get('costo_anual'),
-            'end' => $seguro->end,
-            'email' => $email,
-            'auto' => $seguro->Automovil->placas,
-            'nombre' => $seguro->User->name,
-        );
+        // $details = array(
+        //     'seguro' => $request->get('seguro'),
+        //     'fecha_expedicion' => $request->get('fecha_expedicion'),
+        //     'tipo_cobertura' => $request->get('tipo_cobertura'),
+        //     'costo' => $request->get('costo'),
+        //     'costo_anual' => $request->get('costo_anual'),
+        //     'end' => $seguro->end,
+        //     'email' => $email,
+        //     'auto' => $seguro->Automovil->placas,
+        //     'nombre' => $seguro->User->name,
+        // );
 
         //        Mail::send('emails.seguroAdmin', $details, function ($message) use ($details,$subject) {
         //            $message->to($details['email'], $details['seguro'], $details['fecha_expedicion'], $details['tipo_cobertura'], $details['costo'], $details['costo_anual'], $details['end'], $details['auto'], $details['nombre'])

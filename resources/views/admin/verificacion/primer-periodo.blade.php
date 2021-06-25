@@ -18,8 +18,12 @@
         <p class="text-center text-white" style="font: normal normal bold 20px/27px Segoe UI;">
             <strong>Primer Periodo de Verificaci&oacute;n </strong>
         </p>
-        <p class="text-center" style="color: #00d62e; font: normal normal bold 20px/27px Segoe UI;"><strong>{{$verificacion->User->name}} / {{$verificacion->Automovil->placas}}</strong></p>
+        @if ($verificacion->id_user == NULL)
+        <p class="text-center mb-5" style="color: #00d62e; font: normal normal bold 20px/27px Segoe UI;"><strong>{{$verificacion->UserEmpresa->name}} / {{$verificacion->Automovil->placas}}</strong></p>
 
+        @else
+        <p class="text-center mb-5" style="color: #00d62e; font: normal normal bold 20px/27px Segoe UI;"><strong>{{$verificacion->User->name}} / {{$verificacion->Automovil->placas}}</strong></p>
+        @endif
         {{-- Datos para el calendario --}}
         <div class="input-group form-group">
             <input type="hidden" class="form-control" id='title' name="title"
