@@ -7,7 +7,8 @@
     <link href="{{ asset('css/login-form.css') }}" rel="stylesheet">
     <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
 
-    <div class="row bg-profile">
+
+    <div class="row bg-down-image-border">
 
         @include('seguros.modal-pol-img')
 
@@ -28,7 +29,7 @@
             </script>
         @endif
 
-        <div class="col-2">
+        <div class="col-2 mt-5">
             <div class="d-flex justify-content-start">
                 <div class="text-center text-white">
                     <a href="{{ route('index.dashboard') }}" style="background-color: transparent;clip-path: none">
@@ -38,14 +39,19 @@
             </div>
         </div>
 
-        <div class="col-8">
+        @if ($seguro == null)
+
+            @include('view-sin-auto');
+
+        @else
+        <div class="col-8 mt-5">
             <h5 class="text-center text-white ml-4 mr-4 ">
                 <strong>Seguro - {{ $seguro->Automovil->placas }} / {{ $seguro->Automovil->Marca->nombre }}</strong>
                 {{-- <strong>Seguro - {{$seguro->User->name}}</strong> --}}
             </h5>
         </div>
 
-        <div class="col-2">
+        <div class="col-2 mt-5">
             <div class="d-flex justify-content-start">
                 <div class="text-center text-white bg-white" style="border-radius: 50px;padding: 5px">
                     <img class="" src="{{ asset('img/icon/color/campana.png') }}" width="25px">
@@ -68,38 +74,6 @@
         @endif
 
     </div>
-
-    @if ($seguro == null)
-
-        <div class="col-12 mt-5">
-            <p class="text-center title-car">
-                <img class="d-inline mb-2" src="{{ asset('img/icon/white/seguro (1).png') }}" alt="Icon documento"
-                    width="120px">
-
-            </p>
-            <p class="text-center  text-white">
-                <strong style="font: normal normal bold 20px/20px Segoe UI;">A&uacute;n no tienes Seguro de auto! </strong>
-                <br> Cree un Auto para generar su Seguro <br>
-                <br>Click en el botón de + para <br> agregar
-            </p>
-        </div>
-
-        <div class="col-12 mt-5">
-            <p class="text-center">
-                <a type="button" class="btn " href="{{ route('create.automovil') }}">
-                    <img class="d-inline mb-2" src="{{ asset('img/icon/white/plus.png') }}" alt="Icon documento"
-                        width="60px">
-                </a>
-            </p>
-        </div>
-
-        <div class="col-12" style="margin-bottom: 9rem !important;">
-            <p class="text-center text-white">
-                Agrega tu Autom&oacute;vil
-            </p>
-        </div>
-
-    @else
 
         <?php
         $originalDate = $seguro->end;

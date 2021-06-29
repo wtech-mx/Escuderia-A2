@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Licencia;
 use Illuminate\Http\Request;
 use DB;
 use Illuminate\Support\Facades\Auth;
@@ -285,6 +286,11 @@ class UserController extends Controller
 
 
         $user->save();
+
+        $licencia = new Licencia;
+        $licencia->id_user = $user->id;
+        $licencia->tipo = 'sin licencia';
+        $licencia->save();
 
         Session::flash('success', 'Se ha actualizado sus datos con exito');
         return redirect()->route('index_admin.user');

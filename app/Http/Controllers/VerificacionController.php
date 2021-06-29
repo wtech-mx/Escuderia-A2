@@ -33,9 +33,12 @@ class VerificacionController extends Controller
         $verificacion = Verificacion::where('current_auto', '=', $auto->current_auto)
             ->first();
 
-        $verificacion_segunda = VerificacionSegunda::where('id_verificacion', '=', $verificacion->id)
-            ->get();
-
+        if ($verificacion != NULL) {
+            $verificacion_segunda = VerificacionSegunda::where('id_verificacion', '=', $verificacion->id)
+                ->get();
+        } else {
+            $verificacion_segunda = VerificacionSegunda::get();
+        }
         return view('verificacion.view-verificacion', compact('verificacion', 'verificacion_segunda'));
     }
     /*|--------------------------------------------------------------------------
@@ -49,8 +52,7 @@ class VerificacionController extends Controller
             $verificacion_user = Verificacion::where('id_empresa', '=', NULL)
                 ->get();
 
-            $verificacion_empresa = Verificacion::
-                where('id_user', '=', NULL)
+            $verificacion_empresa = Verificacion::where('id_user', '=', NULL)
                 ->get();
 
             $verificacion_empresas = Verificacion::where('id_empresa', '=', auth()->user()->id)
@@ -60,7 +62,7 @@ class VerificacionController extends Controller
                 ->where('role', '=', '0')
                 ->get();
 
-            return view('admin.verificacion.view-verificacion-admin', compact('verificacion_user', 'verificacion_empresa', 'verificacion_empresas','user'));
+            return view('admin.verificacion.view-verificacion-admin', compact('verificacion_user', 'verificacion_empresa', 'verificacion_empresas', 'user'));
         }
     }
 

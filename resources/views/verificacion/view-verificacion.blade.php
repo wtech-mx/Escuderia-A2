@@ -7,9 +7,9 @@
     <link href="{{ asset('css/login-form.css') }}" rel="stylesheet">
     <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
 
-    <div class="row bg-profile" style="z-index: 100000;height: 10vh">
+    <div class="row bg-down-image-border">
 
-        <div class="col-2">
+        <div class="col-2 mt-5">
             <div class="d-flex justify-content-start">
                 <div class="text-center text-white">
                     <a href="{{ route('index.dashboard') }}" style="background-color: transparent;clip-path: none">
@@ -19,20 +19,24 @@
             </div>
         </div>
 
-        <div class="col-8">
-            <h5 class="text-center text-white ml-4 mr-4 ">
-                <strong>Verificaci&oacute;n {{ $verificacion->Automovil->placas }} /
-                    {{ $verificacion->Automovil->Marca->nombre }}</strong>
-            </h5>
-        </div>
+    @if ($verificacion == null)
+        @include('view-sin-auto');
+    @else
 
-        <div class="col-2">
-            <div class="d-flex justify-content-start">
-                <div class="text-center text-white bg-white" style="border-radius: 50px;padding: 5px">
-                    <img class="" src="{{ asset('img/icon/color/campana.png') }}" width="25px">
+            <div class="col-8  mt-5">
+                <h5 class="text-center text-white ml-4 mr-4 ">
+                    <strong>Verificaci&oacute;n {{ $verificacion->Automovil->placas }} /
+                        {{ $verificacion->Automovil->Marca->nombre }}</strong>
+                </h5>
+            </div>
+
+            <div class="col-2  mt-5">
+                <div class="d-flex justify-content-start">
+                    <div class="text-center text-white bg-white" style="border-radius: 50px;padding: 5px">
+                        <img class="" src="{{ asset('img/icon/color/campana.png') }}" width="25px">
+                    </div>
                 </div>
             </div>
-        </div>
 
     </div>
 
@@ -95,4 +99,5 @@
         </div>
 
     </div>
+    @endif
 @endsection

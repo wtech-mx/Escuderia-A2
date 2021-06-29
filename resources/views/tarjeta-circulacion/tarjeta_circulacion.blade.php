@@ -38,6 +38,10 @@
             </div>
         </div>
 
+        @if ($tarjeta_circulacion == null)
+             @include('view-sin-auto');
+        @else
+
         <div class="col-8 mt-5">
             <h5 class="text-center text-white ml-4 mr-4 ">
                 <strong>Tarjeta de Circulaci&oacute;n {{ $tarjeta_circulacion->Automovil->placas }} /
@@ -56,36 +60,6 @@
     </div>
 
     <div class="row  bg-down-image-border">
-
-        @if ($tarjeta_circulacion == null)
-
-            <div class="row overflow-hidden" style="height: 85vh;">
-
-                <div class="col-12">
-                    <p class="text-center title-car">
-                        <img class="d-inline mb-2" src="{{ asset('img/icon/white/coche (7).png') }}" alt="Icon documento"
-                            width="150px">
-                    </p>
-
-                    <p class="text-center  text-white">
-                        <strong style="font: normal normal bold 20px/20px Segoe UI;">A&uacute;n no tienes Tarjeta de
-                            circulaci&oacute;n! </strong><br>
-                        <br> Cree un Auto para generar su tarjeta de circulaci&oacute;n <br>
-                        <br> click en el botón de + para <br> agregar tu Auto
-                    </p>
-
-                    <p class="text-center">
-                        <a class="btn " href="{{ route('create.automovil') }}">
-                            <img class="d-inline" src="{{ asset('img/icon/white/plus.png') }}" alt="Icon documento"
-                                width="60px">
-                        </a>
-                    </p>
-                </div>
-
-            </div>
-        @else
-
-
 
             @php
                 $originalDate = $tarjeta_circulacion->end;

@@ -13,6 +13,7 @@
                 </div>
             </div>
         </div>
+        @if ($automovil->count())
         <p style="display: none">{{ $userId = auth()->user() }}</p>
         <div class="col-8  mt-4">
             <h5 class="text-center text-white ml-4 mr-4 ">
@@ -31,7 +32,7 @@
         </div>
 
 
-        @if ($automovil->count())
+
             <div class="row" style="height: 140vh;">
 
                 <div class="col-6 mt-5">
@@ -168,30 +169,7 @@
 
             </div>
         @else
-            <div class="row overflow-hidden" style="height: 85vh;">
-
-                <div class="col-12 mt-5">
-                    <p class="text-center title-car">
-                        <img class="d-inline mb-2" src="{{ asset('img/icon/white/coche (7).png') }}" alt="Icon documento"
-                            width="150px">
-
-                    </p>
-                    <p class="text-center  text-white">
-                        <strong style="font: normal normal bold 20px/20px Segoe UI;">A&uacute;n no tienes Expedientes!
-                        </strong><br>
-                        <br> Cree un Auto para generar sus Expedientes <br>
-                        <br> click en el botón de + para <br> agregar tu Auto
-                    </p>
-
-                    <p class="text-center">
-                        <a class="btn " href="{{ route('create.automovil') }}">
-                            <img class="d-inline" src="{{ asset('img/icon/white/plus.png') }}" alt="Icon documento"
-                                width="60px">
-                        </a>
-                    </p>
-                </div>
-
-            </div>
+            @include('view-sin-auto');
         @endif
 
     </div>
