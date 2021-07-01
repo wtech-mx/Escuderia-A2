@@ -120,8 +120,7 @@
                                             <i class="fas fa-trash icon-users-edit" style="font-size: 15px;"></i>
                                         </a>
 
-                                        <a type="button" class="text-white" data-toggle="modal"
-                                            data-target="#user{{ $item->id }}" style="padding: 1px;">
+                                        <a href="{{ route('edit_asignacion.cupon', $item->id) }}">
                                             <i class="fas fa-users icon-users-edit" style="font-size: 15px;"></i>
                                         </a>
                                     </td>
@@ -131,7 +130,6 @@
                                         </a>
                                     </td>
                                     @include('admin.cupon.modal')
-                                    @include('admin.cupon.asignacion')
                                     @include('admin.cupon.eliminar')
                                 </tr>
                             @endforeach

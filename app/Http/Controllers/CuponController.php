@@ -112,6 +112,22 @@ class CuponController extends Controller
         }
     }
 
+    public function edit_asignacion($id)
+    {
+        if (auth()->user()->role != 1) {
+            return view('errors.403');
+        } else {
+            $cupon = Cupon::where('id', '=',  $id)->get();
+            $cupon_user = CuponUser::where('id_cupon', '=',  $id)->get();
+
+            $user = DB::table('users')
+            ->where('role', '=', '0')
+            ->get();
+
+            return view('admin.cupon.asignacion', compact('cupon', 'cupon_user', 'user'));
+        }
+    }
+
     public function update_asignacion(Request $request)
     {
 //        $cupon_user = CuponUser::findOrFail($id);

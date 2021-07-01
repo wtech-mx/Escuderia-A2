@@ -15,7 +15,7 @@
                             Swal.fire({
                               title: 'Exito!!',
                               html:
-                                'Se ha agragado la <b>BAJA DE PLACAS</b>, ' +
+                                'Se ha agragado la <b>Su reemplacamiento</b>, ' +
                                 'Exitosamente',
                               // text: 'Se ha agragado la "MARCA" Exitosamente',
                               imageUrl: '{{ asset('img/icon/color/matricula.png') }}',
@@ -32,7 +32,7 @@
                             Swal.fire({
                               title: 'Exito!!',
                               html:
-                                'Se ha eliminado su <b>BAJA DE PLACAS</b>, ' +
+                                'Se ha eliminado su <b>Su reemplacamiento</b>, ' +
                                 'Exitosamente',
                               // text: 'Se ha agragado la "MARCA" Exitosamente',
                               imageUrl: '{{ asset('img/icon/color/delete.png') }}',

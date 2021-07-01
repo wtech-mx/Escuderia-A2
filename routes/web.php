@@ -410,4 +410,6 @@ Route::get('admin/cupon/lista-check/{id}', 'CuponController@lista_check')->name(
 Route::get('admin/cupon/check/edit/{id}', 'CuponController@edit_check')->name('edit_check.cupon');
 Route::patch('admin/cupon/check/update/{id}', 'CuponController@update_check')->name('update_check.cupon');
 
+Route::get('admin/cupon/asignacion/edit/{id}', 'CuponController@edit_asignacion')->name('edit_asignacion.cupon');
+
 require __DIR__ . '/auth.php';
