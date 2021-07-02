@@ -12,45 +12,27 @@
 
 @section('content')
 
-        @if (Session::has('create'))
-            <script>
-                Swal.fire({
-                    title: 'Exito!!',
-                    html: 'Se ha agragado el <b>Cupon</b>, ' +
-                        'Exitosamente',
-                    // text: 'Se ha agragado la "MARCA" Exitosamente',
-                    imageUrl: '{{ asset('img/icon/color/cupon.png') }}',
-                    background: '#fff',
-                    imageWidth: 150,
-                    imageHeight: 150,
-                    imageAlt: 'Cupon IMG',
-                })
-
-            </script>
-        @endif
-
-        @if (Session::has('asignacion'))
-            <script>
-                Swal.fire({
-                    title: 'Exito!!',
-                    html: ' Se ha asignacion el  <b>Cupon</b>, ' +
-                        ' al usuario Exitosamente',
-                    // text: 'Se ha agragado la "MARCA" Exitosamente',
-                    imageUrl: '{{ asset('img/icon/color/cupon.png') }}',
-                    background: '#fff',
-                    imageWidth: 150,
-                    imageHeight: 150,
-                    imageAlt: 'Cupon IMG',
-                })
-
-            </script>
-        @endif
+    @if (Session::has('asignacion'))
+        <script>
+            Swal.fire({
+                title: 'Exito!!',
+                html: ' Se ha asignacion el  <b>Cupon</b>, ' +
+                    ' al usuario Exitosamente',
+                // text: 'Se ha agragado la "MARCA" Exitosamente',
+                imageUrl: '{{ asset('img/icon/color/cupon.png') }}',
+                background: '#fff',
+                imageWidth: 150,
+                imageHeight: 150,
+                imageAlt: 'Cupon IMG',
+            })
+        </script>
+    @endif
 
     <div class="row bg-image">
         <div class="col-2  mt-4">
             <div class="d-flex justify-content-start">
                 <div class="text-center text-white">
-                    <a href="{{ route('index.dashboard') }}" style="background-color: transparent;clip-path: none">
+                    <a href="{{ route('index_admin.cupon') }}" style="background-color: transparent;clip-path: none">
                         <img class="" src="{{ asset('img/icon/white/left-arrow.png') }}" width="25px">
                     </a>
                 </div>
@@ -81,10 +63,11 @@
             </a>
         </div>
 
-        <div class="col-12 mb-3">
+        <div class="col-12 mb-3 mt-2">
             <h5 class="text-center text-white ml-4 mr-4 ">
                 @foreach ($cupon as $item)
-                 Usuarios en cupon: <a class="text-center mb-5" style="color: #00d62e; font: normal normal bold 15px/27px Segoe UI;"><strong>{{$item->titulo }}</strong></a>
+                    Usuarios en cupon: <a class="text-center mb-5"
+                        style="color: #00d62e; font: normal normal bold 15px/27px Segoe UI;"><strong>{{ $item->titulo }}</strong></a>
                 @endforeach
             </h5>
         </div>
@@ -108,15 +91,26 @@
                                     </thead>
                                     <tbody>
                                         @foreach ($cupon_user as $item)
+                                            @php
+                                                $fechaEntera = strtotime($item->updated_at);
+                                                $anio = date('Y', $fechaEntera);
+                                                $mes = date('m', $fechaEntera);
+                                                $dia = date('d', $fechaEntera);
+                                            @endphp
                                             <tr>
                                                 <td>
                                                     {{ $item->User->name }}
                                                 </td>
                                                 <td>
-                                                    {{ $item->check }}
+                                                    @if ($item->check == 0)
+                                                        <p style="color: #00d62e;">Sin ocupar</p>
+                                                    @else
+                                                        <p style="color: #ff0202;"><strong>Ocupado</strong></p>
+                                                    @endif
                                                 </td>
+
                                                 <td>
-                                                    {{ $item->updated_at }}
+                                                    {{ $dia }}/{{ $mes }}/{{ $anio }}
                                                 </td>
                                             </tr>
                                         @endforeach
@@ -127,42 +121,49 @@
                     </div>
                 </div>
 
+
                 {{-- -------------------------------------------------------------------------- --}}
                 {{-- |Asignacion de Usuarios --}}
                 {{-- |-------------------------------------------------------------------------- --}}
 
-                    <div class="carousel-item ">
-                        <div class="row">
-                            <div class="content container-res-max">
-                                <div class="col-12">
-                                    <form method="POST" action="{{ route('update_asignacion.cupon') }}" enctype="multipart/form-data" role="form">
-                                        @csrf
+                <div class="carousel-item ">
+                    <div class="row">
+                        <div class="content container-res-max">
+                            <div class="col-12 mt-5 text-center">
+                                <form method="POST" action="{{ route('update_asignacion.cupon') }}"
+                                    enctype="multipart/form-data" role="form">
+                                    @csrf
 
-                                        <input type="hidden" class="form-control" name="titulo" id="titulo" value="{{$item->titulo}}">
-                                        <input type="hidden" class="form-control" name="id_cupon" id="id_cupon" value="{{$item->id}}">
+                                    @foreach ($cupon as $item)
+                                        <input type="hidden" class="form-control" name="titulo" id="titulo"
+                                            value="{{ $item->titulo }}">
+                                        <input type="hidden" class="form-control" name="id_cupon" id="id_cupon"
+                                            value="{{ $item->id }}">
+                                    @endforeach
 
-                                        <label for="">
-                                            <p class="text-white"><strong>Seleccione Usuario</strong></p>
-                                        </label>
+                                    <label for="">
+                                        <p class="text-white"><strong>Seleccione Usuario</strong></p>
+                                    </label>
 
-                                        <div class=" form-group mb-5">
-                                            <select class="form-control js-example-basic-single col-12" id="id_user" name="id_user">
-                                                @foreach ($user as $item)
-                                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
+                                    <div class=" form-group mb-5">
+                                        <select class="form-control js-example-basic-single" id="id_user" name="id_user">
+                                            @foreach ($user as $item)
+                                                <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
 
-                                        <button class="btn btn-success btn-save-neon text-white">
-                                            <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}" width="20px">
-                                            Guardar
-                                        </button>
+                                    <button class="btn btn-success btn-save-neon text-white">
+                                        <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}"
+                                            width="20px">
+                                        Guardar
+                                    </button>
 
-                                    </form>
-                                </div>
+                                </form>
                             </div>
                         </div>
                     </div>
+                </div>
             </div>
         </div>
 
@@ -180,7 +181,6 @@
             $('.js-example-basic-single').select2();
 
         });
-
     </script>
 
 @endsection

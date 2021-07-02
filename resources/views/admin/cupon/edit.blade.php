@@ -56,13 +56,14 @@
 <div class="text-center text-white mt-5 mb-5">
  <h2>Cupon</h2>
 </div>
-            <form method="POST" action="{{ route('update_admin.cupon', $cupons->id) }}" enctype="multipart/form-data"
+          @foreach ($cupon as $item)
+            <form method="POST" action="{{ route('update_admin.cupon', $item->id) }}" enctype="multipart/form-data"
                 role="form">
                 @csrf
                 <input type="hidden" name="_method" value="PATCH">
 
                 <div class="text-white ">
-                    @foreach ($cupon as $item)
+
 
                     <label for="">
                         <p class="text-white"><strong>Titulo</strong></p>
@@ -134,39 +135,8 @@
                     </div>
 
                     <input type="hidden" id="qr" name="qr" value="{{$item->qr}}">
-                    @endforeach
+
                 </div>
-
-                {{-- <label for="">
-                    <p class="text-white"><strong>Fecha de limite</strong></p>
-                </label>
-
-                <div class="input-group form-group mb-5">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">
-                                <i class="far fa-calendar-alt icon-tc"></i>
-                        </span>
-                    </div>
-                        <input type="date" class="form-control" name="end" id="end" value="{{$cupons->end}}">
-                </div> --}}
-
-
-                {{-- <input type="hidden" id="id_cupon" name="id_cupon" value="{{$cupons->id_cupon}}">
-                <input type="hidden" id="descripcion" name="descripcion" value="{{$cupons->descripcion}}">
-                <input type="hidden" id="enviado" name="enviado" value="{{$cupons->enviado}}">
-
-
-                <select class="form-control" id="id_user" name="id_user">
-                    @foreach ($cupon_user as $item)
-                      <option value="{{$item->id_user}}">{{ $item->User->name }}</option>
-                    @endforeach
-                </select>
-
-                @if ($cupons->check == 1)
-                <input class="form-check-input" type="checkbox" value="1" id="check" name="check" checked>
-                @else
-                <input class="form-check-input" type="checkbox" id="check" name="check" value="0">
-                @endif --}}
 
                     <div class="col-12 mt-5">
                         <button class="btn btn-lg btn-success btn-save-neon text-white"
@@ -177,6 +147,7 @@
                     </div>
 
             </form>
+          @endforeach
         </div>
     </div>
 @endsection
