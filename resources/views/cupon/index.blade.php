@@ -43,7 +43,6 @@
 
         @if ($cupon_user->count())
         @foreach ($cupon_user as $item)
-             @if ($item->Cupon->estado == 0)
 
              <div class="col-6 mt-3 mb-3">
                             <div class="d-flex justify-content-center">
@@ -90,10 +89,6 @@
                                 </div>
                             </div>
              </div>
-
-             @else
-             @include('cupon.view-sin-cupon');
-            @endif
         @endforeach
 
             @else
