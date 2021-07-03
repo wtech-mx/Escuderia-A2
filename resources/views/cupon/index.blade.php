@@ -41,7 +41,7 @@
 
     <div class="row bg-image" style="margin-bottom: 8rem!important;">
 
-
+        @if ($cupon_user->count())
         @foreach ($cupon_user as $item)
              @if ($item->Cupon->estado == 0)
 
@@ -90,10 +90,17 @@
                                 </div>
                             </div>
              </div>
-             @else
 
+             @else
+             @include('cupon.view-sin-cupon');
             @endif
         @endforeach
+
+            @else
+
+                @include('cupon.view-sin-cupon');
+
+        @endif
 
     </div>
 
