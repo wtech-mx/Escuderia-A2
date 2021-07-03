@@ -12,7 +12,7 @@
                         </div>
 
                         <div class="navbar__item -orange">
-                            <a href="#">
+                            <a href="{{ route('index.cupon') }}">
                                 <span class="navbar__icon">
                                     <img class="" src="{{ asset('img/icon/color/trophy.png') }}" width="25px">
                                 </span>

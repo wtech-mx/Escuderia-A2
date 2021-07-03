@@ -171,18 +171,19 @@
             </a>
         </div>
 
-         <div class="col-6 text-center mt-4" style="margin-bottom: 8rem !important;">
-            <a href="{{ route('index.cupon') }}" class="text-dark">
+        <div class="col-6 text-center mt-4 ">
+             <a href="{{ route('index.cupon') }}" class="text-dark">
                 <div class="card" style="border-radius: 15px">
                     <div class="card-body">
-                        <i class="fas fa-qrcode icon-effect-dashboard"></i>
-                        <p class=" card-text"><strong>Cupon</strong></p>
+                        <img class="d-inline mb-2" src="{{ asset('img/icon/black/cupon.png') }}" alt="Icon gift"
+                            width="50px">
+                        <p class="card-text"><strong>Cupon</strong></p>
                     </div>
                 </div>
             </a>
-         </div>
+        </div>
 
-        <div class="col-6 text-center mt-4 mb-5">
+        <div class="col-6 text-center mt-4 ">
             <a href="{{ route('view_user.servicio') }}" class="text-dark">
                 <div class="card" style="border-radius: 15px">
                     <div class="card-body">
@@ -194,7 +195,7 @@
             </a>
         </div>
 
-        <div class="col-6 text-center mb-5">
+        <div class="col-6 text-center mt-4" style="margin-bottom: 8rem!important;">
             <a href="{{ route('index.licencia') }}" class="text-dark">
                 <div class="card" style="border-radius: 15px">
                     <div class="card-body">

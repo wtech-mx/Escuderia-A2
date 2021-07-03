@@ -52,11 +52,13 @@
     background: #050F55 0% 0% no-repeat padding-box;
     position: relative;
     z-index: 10000;
+
 }
 
 .bg-image{
     background-image: url('../img/bg-medida.png');
     position: relative;
     z-index: 1000;
+    background-repeat: space repeat;
 }
 

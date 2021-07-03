@@ -39,77 +39,64 @@
 
     </div>
 
-    <div class="row bg-image" style="height: 85vh">
+    <div class="row bg-image" style="margin-bottom: 8rem!important;">
 
-        <div class="col-12 mt-5">
 
-            <table id="cupones_user" class="table text-white">
-                <thead>
-                    <tr>
-                        <th scope="col">Titulo</th>
-                        <th scope="col">estado</th>
-                        <th scope="col">Fecha Caducidad</th>
-                        <th scope="col">Ver más</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($cupon_user as $item)
-                        <tr>
-                            <th>
-                                {{ $item->titulo }}
-                            </th>
-                            <td>
-                                @if ($item->check == 0)
-                                    <p style="color: rgb(33, 243, 14)">
-                                        Sin ocupar
-                                    </p>
-                                @else
-                                    <p style="color: rgb(248, 0, 0)">
-                                        Ocupado
-                                    </p>
+        @foreach ($cupon_user as $item)
+             @if ($item->Cupon->estado == 0)
+
+             <div class="col-6 mt-3 mb-3">
+                            <div class="d-flex justify-content-center">
+                                <div class="d-flex card text-center position-relative" style="padding: 3px;height: 380px;background: {{ $item->Cupon->color }}">
+
+                                @if ($item->check == 1)
+                                   <img class="position-absolute" src="{{ asset('img/icon/color/utilizado.png') }}" width="130" style="top:40%">
                                 @endif
-                            </td>
-                            <td>
                                 @php
                                     $DateAndTime = date('Y-m-d', time());
                                 @endphp
                                 @if ($item->Cupon->fecha_caducidad <= $DateAndTime)
-                                <p style="color: rgb(248, 0, 0)">
-                                    Caducó
-                                </p>
-                                @else
-                                    {{ $item->Cupon->fecha_caducidad }}
-                                @endif
-                            </td>
-                            <td>
-                                @if ($item->Cupon->fecha_caducidad <= $DateAndTime)
-                                    <img class="" src="{{ asset('img/icon/white/add.png') }}" width="15px">
-                                @else
-                                    <a data-toggle="modal" data-target="#example{{ $item->id }}"><img class=""
-                                            src="{{ asset('img/icon/white/add.png') }}" width="15px"></a>
+                                   <img class="position-absolute" src="{{ asset('img/icon/color/expirado.png') }}" width="130" style="top:40%">
                                 @endif
 
-                            </td>
-                            @include('cupon.modal')
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
+                                    <div class="content-cupon p-3 bg-white" style="border-radius: 20px">
+                                        <img class="" src="{{ asset('qr/' . $item->Cupon->qr) }}"
+                                            alt="{{ asset('img/qr/' . $item->Cupon->qr) }}" width="65">
+                                    </div>
 
-        </div>
+                                    <h1 class="mt-3" style="font-size: 20px;">
+                                        <strong> {{ $item->Cupon->precio }} </strong>
+                                    </h1>
+
+                                    <h2 class="mt-3" style="font-size: 10px">
+                                        <strong> {{ $item->Cupon->titulo }} </strong>
+                                    </h2>
+
+                                    <div class="mt-4">
+                                        @php
+                                            $fecha_actual = date('Y-m-d');
+                                            $s = strtotime($item->Cupon->fecha_caducidad) - strtotime($fecha_actual);
+                                            $d = intval($s / 86400);
+                                        @endphp
+                                        <h3>{{ $d }} Dias Restantes</h3>
+                                    </div>
+
+                                    <div class="mt-4">
+                                        <small> Terminos y/o condiciones : <br> <strong> {{ $item->Cupon->aplicacion }}
+                                            </strong>
+                                        </small>
+                                    </div>
+
+                                </div>
+                            </div>
+             </div>
+             @else
+
+            @endif
+        @endforeach
 
     </div>
 
-    @section('js')
-        <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
-        <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.min.js"></script>
-
-        <script>
-            $(document).ready(function() {
-                $('#cupones_user').DataTable();
-            });
-        </script>
-    @endsection
 
 @endsection
 
