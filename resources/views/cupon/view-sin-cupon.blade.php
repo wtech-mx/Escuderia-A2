@@ -8,7 +8,7 @@
          </p>
 
         <p class="text-center  text-white">
-            <strong style="font: normal normal bold 20px/20px Segoe UI;">¡A&uacute;n no tienes un Cupones ! </strong><br>
+            <strong style="font: normal normal bold 20px/20px Segoe UI;">¡A&uacute;n no tienes Cupones disponibles! </strong><br>
             <br>Pronto recibirás cupones
         </p>
 
