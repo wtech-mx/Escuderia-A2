@@ -225,7 +225,7 @@
             </div>
         @endif
 
-        <div class="col-6 text-center position-relative mt-4" style="margin-bottom: 8rem !important;">
+        <div class="col-6 text-center position-relative mt-4" >
 
             <div class="card" style="border-radius: 15px">
 
@@ -248,7 +248,7 @@
             </a>
         </div>
 
-        <div class="col-6 text-center mt-4">
+        <div class="col-6 text-center mt-4" >
             <a href="{{ route('index_admin.cupon') }}" class="text-white">
 
                 <div class="card" style="border-radius: 15px">
@@ -260,12 +260,12 @@
             </a>
         </div>
 
-        <div class="col-6 text-center  mt-4">
+        <div class="col-6 text-center  mt-4" style="margin-bottom: 8rem !important;">
             <a href="{{ route('index_role.role') }}" class="text-white">
 
                 <div class="card" style="border-radius: 15px">
                     <div class="card-body">
-                        <i class="fas fa-calendar-check icon-effect-dashboard"></i>
+                        <i class="fas fa-users-cog icon-effect-dashboard"></i>
                         <p class="card-text text-white"><strong>Roles y Permisos</strong></p>
                     </div>
                 </div>

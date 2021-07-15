@@ -47,7 +47,7 @@
                     <div class="input-group form-group mb-5">
                         <div class="input-group-prepend">
                             <span class="input-group-text">
-                                <i class="fas fa-signature icon-tc"></i>
+                                <i class="fas fa-users-cog icon-tc"></i>
                             </span>
                         </div>
 

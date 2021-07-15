@@ -47,11 +47,11 @@ class AppServiceProvider extends ServiceProvider
                 ->first();
 
             //Cambiar estatus de cupon
-            $cupon = Cupon::where('estado', '=', 0)->OrderBy('fecha_caducidad', 'ASC')->first();
-            if ($cupon->fecha_caducidad == $current) {
-                $cupon->estado = 1;
-                $cupon->save();
-            }
+//            $cupon = Cupon::where('estado', '=', 0)->OrderBy('fecha_caducidad', 'ASC')->first();
+//            if ($cupon->fecha_caducidad == $current) {
+//                $cupon->estado = 1;
+//                $cupon->save();
+//            }
 
 
             //Trae la alerta Seguro
