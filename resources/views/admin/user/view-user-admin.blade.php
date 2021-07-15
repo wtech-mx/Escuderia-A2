@@ -44,6 +44,7 @@
                     <i class="fa fa-download icon-effect" aria-hidden="true"></i>
                 </a>
 
+                @can('create_admin')
                 <div class="content">
                     <a class="btn btn-circel" href="{{ route('create_admin.user') }}">
                         <i class="fas fa-plus-circle icon-effect"></i>
@@ -55,7 +56,9 @@
                         </h5>
                     </a>
 
+
                 </div>
+                @endcan
             </div>
 
         </div>
@@ -92,9 +95,12 @@
                             $dia = date('d', $fechaEntera);
                         @endphp
                             <tr>
-                                <td><a style="text-decoration: none;"
+                                @can('Editar Usuario')
+                                    <td><a style="text-decoration: none;"
                                         href="{{ route('edit_admin.user', $item->id) }}">{{ $item->name }}</a>
-                                </td>
+                                    </td>
+                                @endcan
+
                                 <td>{{ $item->email }}</td>
                                 <td>{{ $item->telefono }}</td>
                             </tr>
@@ -105,7 +111,6 @@
             </div>
 
         </div>
-
         {{-- {{ $user->render() }} --}}
 
     </div>

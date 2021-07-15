@@ -110,31 +110,16 @@
                 <strong style="font: normal normal bold 25px/33px Segoe UI;"> ¿Qué haremos hoy?</strong>
             </h6>
         </div>
-
-        @if ($users->role == 1)
-            <div class="col-6 text-center">
-                <a href="{{ route('index_admin.user') }}">
-                    <div class="card" style="border-radius: 15px">
-                        <div class="card-body">
-                            <i class="fas fa-users icon-effect-dashboard"></i>
-                            <p class="card-text text-white"><strong>Usuarios</strong></p>
+                <div class="col-6 text-center">
+                    <a href="{{ route('index_admin.user') }}">
+                        <div class="card" style="border-radius: 15px">
+                            <div class="card-body">
+                                <i class="fas fa-users icon-effect-dashboard"></i>
+                                <p class="card-text text-white"><strong>Usuarios</strong></p>
+                            </div>
                         </div>
-                    </div>
-                </a>
-            </div>
-        @else
-            <div class="col-6 text-center">
-                <a href="{{ route('edit.profile', $users->id) }}">
-                    <div class="card" style="border-radius: 15px">
-                        <div class="card-body">
-                            <i class="fas fa-user icon-effect-dashboard"></i>
-                            <p class="card-text text-white"><strong>Datos de empresa</strong></p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-        @endif
-
+                    </a>
+                </div>
         <div class="col-6 text-center">
             <a href="{{ route('index.alert') }}">
                 <div class="card" style="border-radius: 15px">
@@ -200,7 +185,7 @@
                 </div>
             </a>
         </div>
-        @if ($users->role == 1)
+        @if ($users->empresa == 0)
             <div class="col-6 text-center mt-4">
                 <a href="{{ route('index_admin.empresa') }}" class="text-white">
 
@@ -226,7 +211,7 @@
             </a>
         </div>
 
-        @if ($users->role == 1)
+        @if ($users->empresa == 0)
             <div class="col-6 text-center mt-4">
                 <a href="{{ route('index_admin.licencia') }}" class="text-white">
 
@@ -263,19 +248,29 @@
             </a>
         </div>
 
-        @if ($users->role == 1)
-            <div class="col-6 text-center mt-4">
-                <a href="{{ route('index_admin.cupon') }}" class="text-white">
+        <div class="col-6 text-center mt-4">
+            <a href="{{ route('index_admin.cupon') }}" class="text-white">
 
-                    <div class="card" style="border-radius: 15px">
-                        <div class="card-body">
-                            <i class="fas fa-qrcode icon-effect-dashboard"></i>
-                            <p class=" card-text text-white"><strong>Cupones</strong></p>
-                        </div>
+                <div class="card" style="border-radius: 15px">
+                    <div class="card-body">
+                        <i class="fas fa-qrcode icon-effect-dashboard"></i>
+                        <p class=" card-text text-white"><strong>Cupones</strong></p>
                     </div>
-                </a>
-            </div>
-        @endif
+                </div>
+            </a>
+        </div>
+
+        <div class="col-6 text-center  mt-4">
+            <a href="{{ route('index_role.role') }}" class="text-white">
+
+                <div class="card" style="border-radius: 15px">
+                    <div class="card-body">
+                        <i class="fas fa-calendar-check icon-effect-dashboard"></i>
+                        <p class="card-text text-white"><strong>Roles y Permisos</strong></p>
+                    </div>
+                </div>
+            </a>
+        </div>
 
         @include('admin.notas.create')
         @include('admin.modal-services')

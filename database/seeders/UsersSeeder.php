@@ -31,12 +31,5 @@ class UsersSeeder extends Seeder
             'password' => Hash::make('123456789'),
         ]);
 
-        User::insert([
-            'name' => 'pablo',
-            'email' => 'correo2@correo.com',
-            'role' => 1,
-            'password' => Hash::make('123456789'),
-        ]);
-
     }
 }

@@ -204,10 +204,6 @@ class UserController extends Controller
 |--------------------------------------------------------------------------*/
     function index_admin(Request $request)
     {
-        if (auth()->user()->role != 1) {
-            return view('errors.403');
-        } else {
-
             $user = User::where('empresa', '=', 0)
                 ->get();
 
@@ -215,16 +211,12 @@ class UserController extends Controller
                 ->where('empresa', '=', 0)
                 ->get();
 
-
             return view('admin.user.view-user-admin', compact('user', 'users'));
-        }
+
     }
 
     public function create_admin()
     {
-        if (auth()->user()->role != 1) {
-            return view('errors.403');
-        } else {
             $user = DB::table('users')
                 ->where('empresa', '=', 0)
                 ->get();
@@ -232,8 +224,10 @@ class UserController extends Controller
                 ->where('empresa', '=', 0)
                 ->get();
 
-            return view('admin.user.add-user-admin', compact('user', 'users'));
-        }
+            $roles = DB::table('roles')
+                ->get();
+
+            return view('admin.user.add-user-admin', compact('user', 'users', 'roles'));
     }
 
     public function store_admin(Request $request)
@@ -298,17 +292,16 @@ class UserController extends Controller
 
     public function edit_admin($id)
     {
-        if (auth()->user()->role != 1) {
-            return view('errors.403');
-        } else {
             $user = User::findOrFail($id);
 
             $users = DB::table('users')
                 ->where('empresa', '=', 0)
                 ->get();
 
-            return view('admin.user.edit-user-admin', compact('user', 'users'));
-        }
+            $roles = DB::table('roles')
+                ->get();
+
+            return view('admin.user.edit-user-admin', compact('user', 'users', 'roles'));
     }
 
     public function update_admin(Request $request, $id)

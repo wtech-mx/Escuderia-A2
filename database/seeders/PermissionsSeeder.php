@@ -6,7 +6,7 @@ use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use Illuminate\Support\Facades\Hash;
-use App\User;
+use App\Models\User;
 
 class PermissionsSeeder extends Seeder
 {
@@ -17,29 +17,63 @@ class PermissionsSeeder extends Seeder
      */
     public function run()
     {
-  /**      $permission_array = [];
-        array_push($permission_array, Permission::create(['name' => 'create_user']));
-        array_push($permission_array, Permission::create(['name' => 'edit_user']));
-        array_push($permission_array, Permission::create(['name' => 'delete_user']));
-        $ViewUser = Permission::create(['name' => 'view_user']);
-        array_push($permission_array, $ViewUser);
-        $superAdminRole = Role::create(['name' => 'super_admin']);
-        $superAdminRole->syncPermissions($permission_array);
-        $users = Role::create(['name' => 'users']);
-        $users->givePermissionsTo($ViewUser);
+        Permission::create(['name' => 'Ver Calendario']);
+        Permission::create(['name' => 'Crear Alerta']);
+        Permission::create(['name' => 'Editar Alerta']);
+        Permission::create(['name' => 'Eliminar Alerta']);
 
-        $superAdminRole = User::create([
-            'name' => 'admin',
-            'email' => 'admin@admin.com',
-            'password' => Hash::make('admin'),
-        ]);
-        $superAdminRole->assignRole('super_admin');
+        Permission::create(['name' => 'Ver Usuario']);
+        Permission::create(['name' => 'Crear Usuario']);
+        Permission::create(['name' => 'Editar Usuario']);
 
-        $users = User::create([
-            'name' => 'admin',
-            'email' => 'user@user.com',
-            'password' => Hash::make('user'),
-        ]);
-        $users->assignRole('user');  */
+        Permission::create(['name' => 'Ver Automovil']);
+        Permission::create(['name' => 'Crear Automovil']);
+        Permission::create(['name' => 'Edit Automovil']);
+
+        Permission::create(['name' => 'Ver Servicios']);
+        Permission::create(['name' => 'Crear Servicios']);
+
+        Permission::create(['name' => 'Ver Tarjeta de Circulacion']);
+        Permission::create(['name' => 'Editar Tarjeta de Circulacion']);
+
+        Permission::create(['name' => 'Ver Expedientes Fisicos']);
+        Permission::create(['name' => 'Agregar Expedientes Fisicos']);
+        Permission::create(['name' => 'Borrar Expedientes Fisicos']);
+
+        Permission::create(['name' => 'Ver Seguro']);
+        Permission::create(['name' => 'Editar Seguro']);
+
+        Permission::create(['name' => 'Ver Empresas']);
+        Permission::create(['name' => 'Crear Empresas']);
+        Permission::create(['name' => 'Editar Empresas']);
+
+        Permission::create(['name' => 'Ver Verificacion']);
+        Permission::create(['name' => 'Editar Verificacion']);
+
+        Permission::create(['name' => 'Ver Licencia de Conducir']);
+        Permission::create(['name' => 'Editar Licencia de Conducir']);
+
+        Permission::create(['name' => 'Ver Notas']);
+        Permission::create(['name' => 'Crear Notas']);
+        Permission::create(['name' => 'Editar Notas']);
+        Permission::create(['name' => 'Eliminar Notas']);
+
+        Permission::create(['name' => 'Ver Cupones']);
+        Permission::create(['name' => 'Crear Cupones']);
+        Permission::create(['name' => 'Editar Cupones']);
+        Permission::create(['name' => 'Eliminar Cupones']);
+        Permission::create(['name' => 'Asignar Usuarios Cupones']);
+        Permission::create(['name' => 'Cambiar Estados Cupones']);
+        Permission::create(['name' => 'Check en Usuarios Cupones']);
+
+        Permission::create(['name' => 'Crear Roles y Permisos']);
+
+        $user = new User;
+        $user->name = $request->get('name');
+        $user->role = $request->get('role');
+        $user->telefono = $request->get('telefono');
+        $user->email = $request->get('email');
+        $user->save();
+
     }
 }

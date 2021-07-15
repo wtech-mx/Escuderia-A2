@@ -166,8 +166,9 @@
                                     <img class="" src="{{ asset('img/icon/white/referencia (1).png') }}" width="25px">
                                 </span>
                             </div>
-                            <option value="">Seleccionar Referencia</option>
+
                             <select class="form-control" id="referencia" name="referencia">
+                                <option value="">Seleccionar Referencia</option>
                                 @foreach ($user as $item)
                                     <option value="{{ $item->id }}">{{ $item->name }}</option>
                                 @endforeach
@@ -187,11 +188,13 @@
 
                             <select class="form-control" id="role" name="role">
                                 <option value="0">Usuario</option>
-                                <option value="1">Administrador</option>
+                                @foreach ($roles as $role)
+                                    <option value="{{$role->id}}">{{$role->name}}</option>
+                                @endforeach
                             </select>
                         </div>
 
-                        <label for="" class="mt-3"> class="mt-3">
+                        <label for="" class="mt-3">
                             <p class="text-white"><strong>Foto de Perfil</strong></p>
                         </label>
 

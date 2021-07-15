@@ -224,13 +224,11 @@
                             </div>
 
                             <select class="form-control" id="role" name="role">
-                                @if ($item->role == 0)
-                                    <option value="{{ $item->role }}" selected>Usuario</option>
-                                @else
-                                    <option value="{{ $item->role }}" selected>Administrador</option>
-                                @endif
+                                <option value="{{ $user->role }}">Seleccione si va a cambiar de role</option>
+                                @foreach ($roles as $role)
+                                <option value="{{ $role->id }}">{{ $role->name }}</option>
+                                @endforeach
                                 <option value="0">Usuario</option>
-                                <option value="1">Administrador</option>
                             </select>
                         </div>
 

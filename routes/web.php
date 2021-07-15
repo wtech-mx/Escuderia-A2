@@ -241,13 +241,27 @@ Route::get('admin/user/create', 'UserController@create')->name('create.user');
 Route::post('admin/user/create', 'UserController@store_auto')->name('store_auto.user');
 
 /* Create User_Admin */
-Route::get('admin/usuario/index', 'UserController@index_admin')->name('index_admin.user');
-Route::get('admin/usuario/crear', 'UserController@create_admin')->name('create_admin.user');
-Route::post('admin/usuario/crear', 'UserController@store_admin')->name('store_admin.user');
+    Route::get('admin/usuario/index', 'UserController@index_admin')->name('index_admin.user');
 
-Route::get('admin/usuario/edit/{id}', 'UserController@edit_admin')->name('edit_admin.user');
-Route::patch('admin/usuario/update/{id}', 'UserController@update_admin')->name('update_admin.user');
-Route::patch('admin/usuario/update/password/{id}', 'UserController@update_admin_password')->name('update_admin_password.user');
+    Route::get('admin/usuario/crear', 'UserController@create_admin')->name('create_admin.user');
+    Route::post('admin/usuario/crear', 'UserController@store_admin')->name('store_admin.user');
+
+    Route::get('admin/usuario/edit/{id}', 'UserController@edit_admin')->name('edit_admin.user');
+    Route::patch('admin/usuario/update/{id}', 'UserController@update_admin')->name('update_admin.user');
+    Route::patch('admin/usuario/update/password/{id}', 'UserController@update_admin_password')->name('update_admin_password.user');
+
+
+/*|--------------------------------------------------------------------------
+|Create Role
+|--------------------------------------------------------------------------*/
+Route::get('admin/role/index', 'RoleController@index_role')->name('index_role.role');
+Route::get('admin/role/crear', 'RoleController@create_role')->name('create_role.role');
+Route::post('admin/role/store', 'RoleController@store_role')->name('store_role.role');
+
+Route::get('admin/role/edit/{id}', 'RoleController@edit_role')->name('edit_role.role');
+Route::patch('admin/role/edit/{id}', 'RoleController@update_role')->name('update_role.role');
+
+
 
 /*|--------------------------------------------------------------------------
 |garaje edit - Admin
