@@ -46,7 +46,7 @@
 }
 
 .arrow-conetn{
-    top: 220px;
+    top: 225px;
     position: relative;
     z-index: 100;
 }
@@ -221,7 +221,7 @@
 .list-group-item {
     background-color: #00ff37;
     border: none;
-    padding: 5px;
+    padding: 6px;
 }
 
 a.list-group-item {
