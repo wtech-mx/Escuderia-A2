@@ -30,6 +30,39 @@
     position: relative;
 }
 
+.icon-effect-roles-arrow{
+    color: #00ff37;
+    font-size: 25px;
+}
+
+.icon-effect-roles-arrow:hover{
+    color: #ffffff;
+}
+
+.icon-effect-roles-drupdwn{
+    color: #000000;
+    font-size: 15px;
+    padding: 5px;
+}
+
+.arrow-conetn{
+    top: 220px;
+    position: relative;
+    z-index: 100;
+}
+
+.circular-arrow{
+    width: 30px!important;
+    height: 30px!important;
+    border-radius: 15px;
+    padding: 2px 20px 20px 5px;
+    background-color: #ffffff;
+}
+
+.circular-arrow:hover{
+    background-color: #00FF31;
+}
+
 .carousel-indicators li {
     width: 20px!important;
     height: 20px!important;
@@ -163,4 +196,64 @@
 
 .fa {
     color: #FF5722
+}
+
+.contendor-tab{
+    position: absolute;
+    z-index: 100;
+    top: 130px;
+    left: 19px;
+}
+
+.contendor-tab-2{
+    position: absolute;
+    z-index: 100;
+    top: 130px;
+    right: 19px;
+}
+
+#main-menu {
+    background-color: #00ff37;
+    display:inline-block;
+    z-index: 10000;
+}
+
+.list-group-item {
+    background-color: #00ff37;
+    border: none;
+    padding: 5px;
+}
+
+a.list-group-item {
+    color: #FFF;
+}
+
+a.list-group-item:hover,
+a.list-group-item:focus {
+    background-color: #000000;
+}
+
+.icon-effect-roles-drupdwn:hover{
+    color: #00ff37;
+}
+
+a.list-group-item.active,
+a.list-group-item.active:hover,
+a.list-group-item.active:focus {
+    color: #FFF;
+    background-color: #43D5B1;
+    border: none;
+}
+
+.list-group-item:first-child,
+.list-group-item:last-child {
+    border-radius: 0;
+}
+
+.list-group-level1 .list-group-item {
+    padding-left:30px;
+}
+
+.list-group-level2 .list-group-item {
+    padding-left:60px;
 }

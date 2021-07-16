@@ -64,11 +64,77 @@
 
                             <div id="carouselExampleIndicators" class="carousel slide position-relative" data-ride="carousel" data-interval="60000">
 
-                              <ol class="carousel-indicators position-absolute" style="top: 450px">
-                                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                              </ol>
+                              <div class="contendor-tab">
+                                    <div id="main-menu" class="list-group">
+                                        <a href="#" class="list-group-item">
+                                           <i data-target="#carouselExampleIndicators" data-slide-to="0"  class="active fas fa-calendar-alt icon-effect-roles-drupdwn"></i>
+                                        </a>
+                                        <a href="#" class="list-group-item">
+                                           <i data-target="#carouselExampleIndicators" data-slide-to="1"  class="fas fa-users icon-effect-roles-drupdwn"></i>
+                                        </a>
+                                        <a href="#" class="list-group-item">
+                                            <i data-target="#carouselExampleIndicators" data-slide-to="2" class="fas fa-car icon-effect-roles-drupdwn"></i>
+                                        </a>
+                                        <a href="#" class="list-group-item">
+                                            <i data-target="#carouselExampleIndicators" data-slide-to="3" class="fas fa-cogs icon-effect-roles-drupdwn"></i>
+                                        </a>
+                                        <a href="#" class="list-group-item">
+                                            <i data-target="#carouselExampleIndicators" data-slide-to="4" class="fas fa-shield-alt icon-effect-roles-drupdwn"></i>
+                                        </a>
+                                        <a href="#" class="list-group-item">
+                                            <i data-target="#carouselExampleIndicators" data-slide-to="5" class="fas fa-money-check icon-effect-roles-drupdwn"></i>
+                                        </a>
+                                    </div>
+                              </div>
+
+                              <div class="contendor-tab-2">
+                                    <div id="main-menu" class="list-group">
+                                        <a href="#" class="list-group-item">
+                                           <i data-target="#carouselExampleIndicators" data-slide-to="6"  class="fas fa-folder-open icon-effect-roles-drupdwn"></i>
+                                        </a>
+                                        <a href="#" class="list-group-item">
+                                           <i data-target="#carouselExampleIndicators" data-slide-to="7"  class="fas fa-building  icon-effect-roles-drupdwn"></i>
+                                        </a>
+                                        <a href="#" class="list-group-item">
+                                            <i data-target="#carouselExampleIndicators" data-slide-to="8" class="fas fa-calendar-check icon-effect-roles-drupdwn"></i>
+                                        </a>
+                                        <a href="#" class="list-group-item">
+                                            <i data-target="#carouselExampleIndicators" data-slide-to="9" class="fas fa-qrcode  icon-effect-roles-drupdwn"></i>
+                                        </a>
+                                        <a href="#" class="list-group-item">
+                                            <i data-target="#carouselExampleIndicators" data-slide-to="10" class="fas fa-sticky-note icon-effect-roles-drupdwn"></i>
+                                        </a>
+                                        <a href="#" class="list-group-item">
+                                            <i data-target="#carouselExampleIndicators" data-slide-to="11" class="fas fa-id-badge icon-effect-roles-drupdwn"></i>
+                                        </a>
+                                       <a href="#" class="list-group-item">
+                                            <i data-target="#carouselExampleIndicators" data-slide-to="11" class="fas fa-users-cog icon-effect-roles-drupdwn"></i>
+                                        </a>
+                                    </div>
+                              </div>
+
+                              <div class="arrow-conetn" style="">
+                                        <div class="row ">
+
+                                            <div class="col-12">
+                                                <div class="d-flex justify-content-between">
+
+                                                    <div class="circular-arrow">
+                                                      <a class="" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                                                          <i class="fas fa-arrow-left icon-effect-roles-arrow"></i>
+                                                       </a>
+                                                    </div>
+
+                                                        <a class="circular-arrow" href="#carouselExampleIndicators" role="button" data-slide="next">
+                                                           <i class="fas fa-arrow-right icon-effect-roles-arrow"></i>
+                                                        </a>
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                </div>
 
                               <div class="carousel-inner">
 
@@ -144,25 +210,6 @@
                                                     </div>
                                                 </figcaption>
                                             </div>
-
-                                            <div class="bottom-wrap-payment">
-                                                <figcaption class="info-wrap">
-                                                    <div class="row text-center">
-                                                        <div class="col-6 ">
-                                                           <a class="" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                                                              Atras
-                                                           </a>
-                                                        </div>
-
-                                                        <div class="col-6 ">
-                                                            <a class="" href="#carouselExampleIndicators" role="button" data-slide="next">
-                                                                Siguiente
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </figcaption>
-                                            </div>
-
                                         </figure>
                                     </div>
                                 </div>
@@ -239,25 +286,6 @@
                                                     </div>
                                                 </figcaption>
                                             </div>
-
-                                            <div class="bottom-wrap-payment">
-                                                <figcaption class="info-wrap">
-                                                    <div class="row text-center">
-                                                        <div class="col-6 ">
-                                                           <a class="" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                                                              Atras
-                                                           </a>
-                                                        </div>
-
-                                                        <div class="col-6 ">
-                                                            <a class="" href="#carouselExampleIndicators" role="button" data-slide="next">
-                                                                Siguiente
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </figcaption>
-                                            </div>
-
                                         </figure>
                                     </div>
                                 </div>
@@ -337,25 +365,6 @@
                                                     </div>
                                                 </figcaption>
                                             </div>
-
-                                            <div class="bottom-wrap-payment">
-                                                <figcaption class="info-wrap">
-                                                    <div class="row text-center">
-                                                        <div class="col-6 ">
-                                                           <a class="" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                                                              Atras
-                                                           </a>
-                                                        </div>
-
-                                                        <div class="col-6 ">
-                                                            <a class="" href="#carouselExampleIndicators" role="button" data-slide="next">
-                                                                Siguiente
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </figcaption>
-                                            </div>
-
                                         </figure>
                                     </div>
                                 </div>
@@ -434,25 +443,6 @@
                                                     </div>
                                                 </figcaption>
                                             </div>
-
-                                            <div class="bottom-wrap-payment">
-                                                <figcaption class="info-wrap">
-                                                    <div class="row text-center">
-                                                        <div class="col-6 ">
-                                                           <a class="" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                                                              Atras
-                                                           </a>
-                                                        </div>
-
-                                                        <div class="col-6 ">
-                                                            <a class="" href="#carouselExampleIndicators" role="button" data-slide="next">
-                                                                Siguiente
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </figcaption>
-                                            </div>
-
                                         </figure>
                                     </div>
                                 </div>
@@ -531,25 +521,6 @@
                                                     </div>
                                                 </figcaption>
                                             </div>
-
-                                            <div class="bottom-wrap-payment">
-                                                <figcaption class="info-wrap">
-                                                    <div class="row text-center">
-                                                        <div class="col-6 ">
-                                                           <a class="" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                                                              Atras
-                                                           </a>
-                                                        </div>
-
-                                                        <div class="col-6 ">
-                                                            <a class="" href="#carouselExampleIndicators" role="button" data-slide="next">
-                                                                Siguiente
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </figcaption>
-                                            </div>
-
                                         </figure>
                                     </div>
                                 </div>
@@ -628,25 +599,6 @@
                                                     </div>
                                                 </figcaption>
                                             </div>
-
-                                            <div class="bottom-wrap-payment">
-                                                <figcaption class="info-wrap">
-                                                    <div class="row text-center">
-                                                        <div class="col-6 ">
-                                                           <a class="" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                                                              Atras
-                                                           </a>
-                                                        </div>
-
-                                                        <div class="col-6 ">
-                                                            <a class="" href="#carouselExampleIndicators" role="button" data-slide="next">
-                                                                Siguiente
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </figcaption>
-                                            </div>
-
                                         </figure>
                                     </div>
                                 </div>
@@ -726,25 +678,6 @@
                                                     </div>
                                                 </figcaption>
                                             </div>
-
-                                            <div class="bottom-wrap-payment">
-                                                <figcaption class="info-wrap">
-                                                    <div class="row text-center">
-                                                        <div class="col-6 ">
-                                                           <a class="" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                                                              Atras
-                                                           </a>
-                                                        </div>
-
-                                                        <div class="col-6 ">
-                                                            <a class="" href="#carouselExampleIndicators" role="button" data-slide="next">
-                                                                Siguiente
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </figcaption>
-                                            </div>
-
                                         </figure>
                                     </div>
                                 </div>
@@ -827,25 +760,6 @@
                                                     </div>
                                                 </figcaption>
                                             </div>
-
-                                            <div class="bottom-wrap-payment">
-                                                <figcaption class="info-wrap">
-                                                    <div class="row text-center">
-                                                        <div class="col-6 ">
-                                                           <a class="" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                                                              Atras
-                                                           </a>
-                                                        </div>
-
-                                                        <div class="col-6 ">
-                                                            <a class="" href="#carouselExampleIndicators" role="button" data-slide="next">
-                                                                Siguiente
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </figcaption>
-                                            </div>
-
                                         </figure>
                                     </div>
                                 </div>
@@ -927,25 +841,6 @@
                                                     </div>
                                                 </figcaption>
                                             </div>
-
-                                            <div class="bottom-wrap-payment">
-                                                <figcaption class="info-wrap">
-                                                    <div class="row text-center">
-                                                        <div class="col-6 ">
-                                                           <a class="" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                                                              Atras
-                                                           </a>
-                                                        </div>
-
-                                                        <div class="col-6 ">
-                                                            <a class="" href="#carouselExampleIndicators" role="button" data-slide="next">
-                                                                Siguiente
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </figcaption>
-                                            </div>
-
                                         </figure>
                                     </div>
                                 </div>
@@ -1029,25 +924,6 @@
                                                     </div>
                                                 </figcaption>
                                             </div>
-
-                                            <div class="bottom-wrap-payment">
-                                                <figcaption class="info-wrap">
-                                                    <div class="row text-center">
-                                                        <div class="col-6 ">
-                                                           <a class="" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                                                              Atras
-                                                           </a>
-                                                        </div>
-
-                                                        <div class="col-6 ">
-                                                            <a class="" href="#carouselExampleIndicators" role="button" data-slide="next">
-                                                                Siguiente
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </figcaption>
-                                            </div>
-
                                         </figure>
                                     </div>
                                 </div>
@@ -1131,25 +1007,6 @@
                                                     </div>
                                                 </figcaption>
                                             </div>
-
-                                            <div class="bottom-wrap-payment">
-                                                <figcaption class="info-wrap">
-                                                    <div class="row text-center">
-                                                        <div class="col-6 ">
-                                                           <a class="" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                                                              Atras
-                                                           </a>
-                                                        </div>
-
-                                                        <div class="col-6 ">
-                                                            <a class="" href="#carouselExampleIndicators" role="button" data-slide="next">
-                                                                Siguiente
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </figcaption>
-                                            </div>
-
                                         </figure>
                                     </div>
                                 </div>
@@ -1231,25 +1088,6 @@
                                                     </div>
                                                 </figcaption>
                                             </div>
-
-                                            <div class="bottom-wrap-payment">
-                                                <figcaption class="info-wrap">
-                                                    <div class="row text-center">
-                                                        <div class="col-6 ">
-                                                           <a class="" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                                                              Atras
-                                                           </a>
-                                                        </div>
-
-                                                        <div class="col-6 ">
-                                                            <a class="" href="#carouselExampleIndicators" role="button" data-slide="next">
-                                                                Siguiente
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </figcaption>
-                                            </div>
-
                                         </figure>
                                     </div>
                                 </div>
@@ -1329,25 +1167,6 @@
                                                     </div>
                                                 </figcaption>
                                             </div>
-
-                                            <div class="bottom-wrap-payment">
-                                                <figcaption class="info-wrap">
-                                                    <div class="row text-center">
-                                                        <div class="col-6 ">
-                                                           <a class="" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                                                              Atras
-                                                           </a>
-                                                        </div>
-
-                                                        <div class="col-6 ">
-                                                            <a class="" href="#carouselExampleIndicators" role="button" data-slide="next">
-                                                                Siguiente
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </figcaption>
-                                            </div>
-
                                         </figure>
                                     </div>
                                 </div>
