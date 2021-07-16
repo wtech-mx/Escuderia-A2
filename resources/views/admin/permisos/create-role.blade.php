@@ -7,6 +7,7 @@
     <link href="{{ asset('css/login-form.css') }}" rel="stylesheet">
     <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
     <link href="{{ asset('css/dashboard-admin.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/roles.css') }}" rel="stylesheet">
 
     <div class="row bg-image">
 
@@ -40,419 +41,1328 @@
                 <form method="POST" action="{{ route('store_role.role') }}" enctype="multipart/form-data" role="form">
                     @csrf
 
-                    <label for="">
-                        <p class="text-white"><strong>Nombre</strong></p>
-                    </label>
-
-                    <div class="input-group form-group mb-5">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">
-                                <i class="fas fa-users-cog icon-tc"></i>
-                            </span>
-                        </div>
-
-                        <input type="text" class="form-control" name="name" id="name" placeholder="Nombre del Role">
-                    </div>
-
                     <div class="row">
-                        <div class="col-4 mb-3">
-
-                            <label class="form-check-label" for="flexCheckDefault" style="color: rgb(16, 247, 16)">
-                                <strong>Calendario</strong>
+                        <div class="col-12" style="padding: 0rem 3rem 0rem 3rem;">
+                            <label for="">
+                                <p class="text-white"><strong>Nombre</strong></p>
                             </label>
-                            <input class="form-check-input" type="checkbox" onclick="toggle(this);" />
 
-                            <div class="col-12 mt-2">
-                                <input class="form-check-input" type="checkbox" name="permission[]" value="19"
-                                    id="calendario" />
-                                <label class="form-check-label text-white" for="flexCheckDefault">
-                                    Ver Calendario
-                                </label>
-                            </div>
-                            <div class="col-12">
-                                <input class="form-check-input" type="checkbox" name="permission[]" value="20"
-                                    id="calendario" />
-                                <label class="form-check-label text-white" for="flexCheckDefault">
-                                    Crear Alerta
-                                </label>
-                            </div>
-                            <div class="col-12">
-                                <input class="form-check-input" type="checkbox" name="permission[]" value="21"
-                                    id="calendario" />
-                                <label class="form-check-label text-white" for="flexCheckDefault">
-                                    Editar Alerta
-                                </label>
-                            </div>
-                            <div class="col-12">
-                                <input class="form-check-input" type="checkbox" name="permission[]" value="22"
-                                    id="calendario" />
-                                <label class="form-check-label text-white" for="flexCheckDefault">
-                                    Eliminar Alerta
-                                </label>
-                            </div>
-                        </div>
+                            <div class="input-group form-group ">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="fas fa-users-cog icon-tc"></i>
+                                    </span>
+                                </div>
 
-                        <div class="col-4 mb-3">
-                            <label class="form-check-label" for="flexCheckDefault" style="color: rgb(16, 247, 16)">
-                                <strong>Usuarios</strong>
-                            </label>
-                            <input class="form-check-input" type="checkbox" onclick="toggle2(this);" />
-
-                            <div class="col-12 mt-2">
-                                <input class="form-check-input" type="checkbox" name="permission[]" value="23"
-                                    id="usuario" />
-                                <label class="form-check-label text-white" for="flexCheckDefault">
-                                    Ver Usuario
-                                </label>
-                            </div>
-                            <div class="col-12">
-                                <input class="form-check-input" type="checkbox" name="permission[]" value="24"
-                                    id="usuario" />
-                                <label class="form-check-label text-white" for="flexCheckDefault">
-                                    Crear Usuario
-                                </label>
-                            </div>
-                            <div class="col-12">
-                                <input class="form-check-input" type="checkbox" name="permission[]" value="25"
-                                    id="usuario" />
-                                <label class="form-check-label text-white" for="flexCheckDefault">
-                                    Editar Usuario
-                                </label>
-                            </div>
-                        </div>
-
-                        <div class="col-4 mb-3">
-                            <label class="form-check-label" for="flexCheckDefault" style="color: rgb(16, 247, 16)">
-                                <strong>Automovil</strong>
-                            </label>
-                            <input class="form-check-input" type="checkbox" onclick="toggle3(this);" />
-
-                            <div class="col-12 mt-2">
-                                <input class="form-check-input" type="checkbox" name="permission[]" value="26"
-                                    id="automovil" />
-                                <label class="form-check-label text-white" for="flexCheckDefault">
-                                    Ver Auto
-                                </label>
-                            </div>
-                            <div class="col-12">
-                                <input class="form-check-input" type="checkbox" name="permission[]" value="27"
-                                    id="automovil" />
-                                <label class="form-check-label text-white" for="flexCheckDefault">
-                                    Crear Auto
-                                </label>
-                            </div>
-                            <div class="col-12">
-                                <input class="form-check-input" type="checkbox" name="permission[]" value="28"
-                                    id="automovil" />
-                                <label class="form-check-label text-white" for="flexCheckDefault">
-                                    Editar Auto
-                                </label>
+                                <input type="text" class="form-control" name="name" id="name" placeholder="Nombre del Role">
                             </div>
                         </div>
                     </div>
 
                     <div class="row">
-                        <div class="col-4 mb-3">
-                            <label class="form-check-label" for="flexCheckDefault" style="color: rgb(16, 247, 16)">
-                                <strong>Servicios</strong>
-                            </label>
-                            <input class="form-check-input" type="checkbox" onclick="toggle4(this);" />
+                        <div class="col-12">
 
-                            <div class="col-12 mt-2">
-                                <input class="form-check-input" type="checkbox" name="permission[]" value="29"
+                            <div id="carouselExampleIndicators" class="carousel slide position-relative" data-ride="carousel" data-interval="60000">
+
+                              <ol class="carousel-indicators position-absolute" style="top: 450px">
+                                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                              </ol>
+
+                              <div class="carousel-inner">
+
+                                <div class="carousel-item active">
+                                    <div class="container d-flex justify-content-center">
+                                        <figure class="card-permisos card-product-grid card-lg">
+                                            <a href="#" class="img-wrap" data-abc="true">
+                                                <i class="fas fa-calendar-alt icon-effect-roles"></i>
+                                            </a>
+
+                                            <figcaption class="info-wrap">
+                                                <div class="row">
+                                                    <div class="col-md-12 col-xs-12">
+                                                        <a href="#" class="title text-center mt-4" data-abc="true">
+                                                            <stromg style="">Calendario</stromg>
+                                                             <input class="form-check-input" type="checkbox" onclick="toggle(this);" />
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </figcaption>
+
+                                            <div class="bottom-wrap-payment">
+                                                <figcaption class="info-wrap">
+                                                    <div class="row text-center">
+                                                        <div class="col-6 ">
+                                                            <a href="#" class="title" data-abc="true">Ver</a>
+                                                        </div>
+
+                                                        <div class="col-6">
+                                                            <div class="rating text-right">
+                                                                 <input class="form-check-input" type="checkbox" name="permission[]" value="19" id="calendario" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                                <figcaption class="info-wrap">
+                                                    <div class="row text-center">
+                                                        <div class="col-6 ">
+                                                            <a href="#" class="title" data-abc="true">Crear</a>
+                                                        </div>
+
+                                                        <div class="col-6">
+                                                            <div class="rating text-right">
+                                                                <input class="form-check-input" type="checkbox" name="permission[]" value="20" id="calendario" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                                <figcaption class="info-wrap">
+                                                    <div class="row text-center">
+                                                        <div class="col-6 ">
+                                                            <a href="#" class="title" data-abc="true">Editar</a>
+                                                        </div>
+
+                                                        <div class="col-6">
+                                                            <div class="rating text-right">
+                                                                <input class="form-check-input" type="checkbox" name="permission[]" value="21"  id="calendario" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                                <figcaption class="info-wrap">
+                                                    <div class="row text-center">
+                                                        <div class="col-6 ">
+                                                            <a href="#" class="title" data-abc="true">Eliminar</a>
+                                                        </div>
+
+                                                        <div class="col-6">
+                                                            <div class="rating text-right">
+                                                                 <input class="form-check-input" type="checkbox" name="permission[]" value="22"  id="calendario" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                            </div>
+
+                                            <div class="bottom-wrap-payment">
+                                                <figcaption class="info-wrap">
+                                                    <div class="row text-center">
+                                                        <div class="col-6 ">
+                                                           <a class="" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                                                              Atras
+                                                           </a>
+                                                        </div>
+
+                                                        <div class="col-6 ">
+                                                            <a class="" href="#carouselExampleIndicators" role="button" data-slide="next">
+                                                                Siguiente
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                            </div>
+
+                                        </figure>
+                                    </div>
+                                </div>
+
+                                <div class="carousel-item">
+                                     <div class="container d-flex justify-content-center">
+                                        <figure class="card-permisos card-product-grid card-lg">
+                                            <a href="#" class="img-wrap" data-abc="true">
+                                                <i class="fas fa-users icon-effect-roles"></i>
+                                            </a>
+
+                                            <figcaption class="info-wrap">
+                                                <div class="row">
+                                                    <div class="col-md-12 col-xs-12">
+                                                        <a href="#" class="title text-center mt-4" data-abc="true">
+                                                            <stromg style="">Usuarios</stromg>
+                                                             <input class="form-check-input" type="checkbox" onclick="toggle2(this);" />
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </figcaption>
+
+                                            <div class="bottom-wrap-payment">
+                                                <figcaption class="info-wrap">
+                                                    <div class="row text-center">
+                                                        <div class="col-6 ">
+                                                            <a href="#" class="title" data-abc="true">Ver</a>
+                                                        </div>
+
+                                                        <div class="col-6">
+                                                            <div class="rating text-right">
+                                                                 <input class="form-check-input" type="checkbox" name="permission[]" value="23"  id="usuario" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                                <figcaption class="info-wrap">
+                                                    <div class="row text-center">
+                                                        <div class="col-6 ">
+                                                            <a href="#" class="title" data-abc="true">Crear</a>
+                                                        </div>
+
+                                                        <div class="col-6">
+                                                            <div class="rating text-right">
+                                                                 <input class="form-check-input" type="checkbox" name="permission[]" value="24"  id="usuario" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                                <figcaption class="info-wrap">
+                                                    <div class="row text-center">
+                                                        <div class="col-6 ">
+                                                            <a href="#" class="title" data-abc="true">Editar</a>
+                                                        </div>
+
+                                                        <div class="col-6">
+                                                            <div class="rating text-right">
+                                                                <input class="form-check-input" type="checkbox" name="permission[]" value="25"  id="usuario" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                                <figcaption class="info-wrap">
+                                                    <div class="row text-center">
+                                                        <div class="col-6 ">
+                                                            <a href="#" class="title" data-abc="true">-</a>
+                                                        </div>
+
+                                                        <div class="col-6">
+                                                            <div class="rating text-right">
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                            </div>
+
+                                            <div class="bottom-wrap-payment">
+                                                <figcaption class="info-wrap">
+                                                    <div class="row text-center">
+                                                        <div class="col-6 ">
+                                                           <a class="" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                                                              Atras
+                                                           </a>
+                                                        </div>
+
+                                                        <div class="col-6 ">
+                                                            <a class="" href="#carouselExampleIndicators" role="button" data-slide="next">
+                                                                Siguiente
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                            </div>
+
+                                        </figure>
+                                    </div>
+                                </div>
+
+                                <div class="carousel-item">
+                                    <div class="container d-flex justify-content-center">
+                                        <figure class="card-permisos card-product-grid card-lg">
+                                            <a href="#" class="img-wrap" data-abc="true">
+                                                <i class="fas fa-car icon-effect-roles"></i>
+                                            </a>
+
+                                            <figcaption class="info-wrap">
+                                                <div class="row">
+                                                    <div class="col-md-12 col-xs-12">
+                                                        <a href="#" class="title text-center mt-4" data-abc="true">
+                                                            <stromg style="">Automovil</stromg>
+                                                            <input class="form-check-input" type="checkbox" onclick="toggle3(this);" />
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </figcaption>
+
+                                            <div class="bottom-wrap-payment">
+                                                <figcaption class="info-wrap">
+                                                    <div class="row text-center">
+                                                        <div class="col-6 ">
+                                                            <a href="#" class="title" data-abc="true">Ver</a>
+                                                        </div>
+
+                                                        <div class="col-6">
+                                                            <div class="rating text-right">
+                                                                 <input class="form-check-input" type="checkbox" name="permission[]" value="26"
+                                    id="automovil" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                                <figcaption class="info-wrap">
+                                                    <div class="row text-center">
+                                                        <div class="col-6 ">
+                                                            <a href="#" class="title" data-abc="true">Crear</a>
+                                                        </div>
+
+                                                        <div class="col-6">
+                                                            <div class="rating text-right">
+                                                                  <input class="form-check-input" type="checkbox" name="permission[]" value="27"
+                                    id="automovil" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                                <figcaption class="info-wrap">
+                                                    <div class="row text-center">
+                                                        <div class="col-6 ">
+                                                            <a href="#" class="title" data-abc="true">Editar</a>
+                                                        </div>
+
+                                                        <div class="col-6">
+                                                            <div class="rating text-right">
+                                                                <input class="form-check-input" type="checkbox" name="permission[]" value="28"
+                                    id="automovil" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                                <figcaption class="info-wrap">
+                                                    <div class="row text-center">
+                                                        <div class="col-6 ">
+                                                            <a href="#" class="title" data-abc="true">-</a>
+                                                        </div>
+
+                                                        <div class="col-6">
+                                                            <div class="rating text-right">
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                            </div>
+
+                                            <div class="bottom-wrap-payment">
+                                                <figcaption class="info-wrap">
+                                                    <div class="row text-center">
+                                                        <div class="col-6 ">
+                                                           <a class="" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                                                              Atras
+                                                           </a>
+                                                        </div>
+
+                                                        <div class="col-6 ">
+                                                            <a class="" href="#carouselExampleIndicators" role="button" data-slide="next">
+                                                                Siguiente
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                            </div>
+
+                                        </figure>
+                                    </div>
+                                </div>
+
+                                <div class="carousel-item">
+                                    <div class="container d-flex justify-content-center">
+                                        <figure class="card-permisos card-product-grid card-lg">
+                                            <a href="#" class="img-wrap" data-abc="true">
+                                                <i class="fas fa-cogs icon-effect-roles"></i>
+                                            </a>
+
+                                            <figcaption class="info-wrap">
+                                                <div class="row">
+                                                    <div class="col-md-12 col-xs-12">
+                                                        <a href="#" class="title text-center mt-4" data-abc="true">
+                                                            <stromg style="">Servicios</stromg>
+                                                            <input class="form-check-input" type="checkbox" onclick="toggle4(this);" />
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </figcaption>
+
+                                            <div class="bottom-wrap-payment">
+                                                <figcaption class="info-wrap">
+                                                    <div class="row text-center">
+                                                        <div class="col-6 ">
+                                                            <a href="#" class="title" data-abc="true">Ver</a>
+                                                        </div>
+
+                                                        <div class="col-6">
+                                                            <div class="rating text-right">
+                                                                 <input class="form-check-input" type="checkbox" name="permission[]" value="29"
                                     id="servicio" />
-                                <label class="form-check-label text-white" for="flexCheckDefault">
-                                    Ver Servicios
-                                </label>
-                            </div>
-                            <div class="col-12">
-                                <input class="form-check-input" type="checkbox" name="permission[]" value="30"
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                                <figcaption class="info-wrap">
+                                                    <div class="row text-center">
+                                                        <div class="col-6 ">
+                                                            <a href="#" class="title" data-abc="true">Crear</a>
+                                                        </div>
+
+                                                        <div class="col-6">
+                                                            <div class="rating text-right">
+                                                                  <input class="form-check-input" type="checkbox" name="permission[]" value="30"
                                     id="servicio" />
-                                <label class="form-check-label text-white" for="flexCheckDefault">
-                                    Crear Servicios
-                                </label>
-                            </div>
-                        </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                                <figcaption class="info-wrap">
+                                                    <div class="row text-center">
+                                                        <div class="col-6 ">
+                                                            <a href="#" class="title" data-abc="true">-</a>
+                                                        </div>
 
-                        <div class="col-4 mb-3">
-                            <label class="form-check-label" for="flexCheckDefault" style="color: rgb(16, 247, 16)">
-                                <strong>Seguro</strong>
-                            </label>
-                            <input class="form-check-input" type="checkbox" onclick="toggle5(this);" />
+                                                        <div class="col-6">
+                                                            <div class="rating text-right">
 
-                            <div class="col-12 mt-2">
-                                <input class="form-check-input" type="checkbox" name="permission[]" value="36"
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                                <figcaption class="info-wrap">
+                                                    <div class="row text-center">
+                                                        <div class="col-6 ">
+                                                            <a href="#" class="title" data-abc="true">-</a>
+                                                        </div>
+
+                                                        <div class="col-6">
+                                                            <div class="rating text-right">
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                            </div>
+
+                                            <div class="bottom-wrap-payment">
+                                                <figcaption class="info-wrap">
+                                                    <div class="row text-center">
+                                                        <div class="col-6 ">
+                                                           <a class="" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                                                              Atras
+                                                           </a>
+                                                        </div>
+
+                                                        <div class="col-6 ">
+                                                            <a class="" href="#carouselExampleIndicators" role="button" data-slide="next">
+                                                                Siguiente
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                            </div>
+
+                                        </figure>
+                                    </div>
+                                </div>
+
+                                <div class="carousel-item">
+                                    <div class="container d-flex justify-content-center">
+                                        <figure class="card-permisos card-product-grid card-lg">
+                                            <a href="#" class="img-wrap" data-abc="true">
+                                                <i class="fas fa-shield-alt icon-effect-roles"></i>
+                                            </a>
+
+                                            <figcaption class="info-wrap">
+                                                <div class="row">
+                                                    <div class="col-md-12 col-xs-12">
+                                                        <a href="#" class="title text-center mt-4" data-abc="true">
+                                                            <stromg style="">Seguro</stromg>
+                                                            <input class="form-check-input" type="checkbox" onclick="toggle5(this);" />
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </figcaption>
+
+                                            <div class="bottom-wrap-payment">
+                                                <figcaption class="info-wrap">
+                                                    <div class="row text-center">
+                                                        <div class="col-6 ">
+                                                            <a href="#" class="title" data-abc="true">Ver</a>
+                                                        </div>
+
+                                                        <div class="col-6">
+                                                            <div class="rating text-right">
+                                                                 <input class="form-check-input" type="checkbox" name="permission[]" value="36"
                                     id="seguro" />
-                                <label class="form-check-label text-white" for="flexCheckDefault">
-                                    Ver Seguro
-                                </label>
-                            </div>
-                            <div class="col-12">
-                                <input class="form-check-input" type="checkbox" name="permission[]" value="37"
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                                <figcaption class="info-wrap">
+                                                    <div class="row text-center">
+                                                        <div class="col-6 ">
+                                                            <a href="#" class="title" data-abc="true">-</a>
+                                                        </div>
+
+                                                        <div class="col-6">
+                                                            <div class="rating text-right">
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                                <figcaption class="info-wrap">
+                                                    <div class="row text-center">
+                                                        <div class="col-6 ">
+                                                            <a href="#" class="title" data-abc="true">Editar</a>
+                                                        </div>
+
+                                                        <div class="col-6">
+                                                            <div class="rating text-right">
+                                                                <input class="form-check-input" type="checkbox" name="permission[]" value="37"
                                     id="seguro" />
-                                <label class="form-check-label text-white" for="flexCheckDefault">
-                                    Editar Seguro
-                                </label>
-                            </div>
-                        </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                                <figcaption class="info-wrap">
+                                                    <div class="row text-center">
+                                                        <div class="col-6 ">
+                                                            <a href="#" class="title" data-abc="true">-</a>
+                                                        </div>
 
-                        <div class="col-4 mb-3">
-                            <label class="form-check-label" for="flexCheckDefault" style="color: rgb(16, 247, 16)">
-                                <strong>Tarjeta C.</strong>
-                            </label>
-                            <input class="form-check-input" type="checkbox" onclick="toggle6(this);" />
+                                                        <div class="col-6">
+                                                            <div class="rating text-right">
 
-                            <div class="col-12 mt-2">
-                                <input class="form-check-input" type="checkbox" name="permission[]" value="31"
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                            </div>
+
+                                            <div class="bottom-wrap-payment">
+                                                <figcaption class="info-wrap">
+                                                    <div class="row text-center">
+                                                        <div class="col-6 ">
+                                                           <a class="" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                                                              Atras
+                                                           </a>
+                                                        </div>
+
+                                                        <div class="col-6 ">
+                                                            <a class="" href="#carouselExampleIndicators" role="button" data-slide="next">
+                                                                Siguiente
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                            </div>
+
+                                        </figure>
+                                    </div>
+                                </div>
+
+                                <div class="carousel-item">
+                                    <div class="container d-flex justify-content-center">
+                                        <figure class="card-permisos card-product-grid card-lg">
+                                            <a href="#" class="img-wrap" data-abc="true">
+                                                <i class="fas fa-money-check icon-effect-roles"></i>
+                                            </a>
+
+                                            <figcaption class="info-wrap">
+                                                <div class="row">
+                                                    <div class="col-md-12 col-xs-12">
+                                                        <a href="#" class="title text-center mt-4" data-abc="true">
+                                                            <stromg style="">Tarjeta C</stromg>
+                                                             <input class="form-check-input" type="checkbox" onclick="toggle6(this);" />
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </figcaption>
+
+                                            <div class="bottom-wrap-payment">
+                                                <figcaption class="info-wrap">
+                                                    <div class="row text-center">
+                                                        <div class="col-6 ">
+                                                            <a href="#" class="title" data-abc="true">Ver</a>
+                                                        </div>
+
+                                                        <div class="col-6">
+                                                            <div class="rating text-right">
+                                                                 <input class="form-check-input" type="checkbox" name="permission[]" value="31"
                                     id="tarjeta" />
-                                <label class="form-check-label text-white" for="flexCheckDefault">
-                                    Ver Tarjeta C.
-                                </label>
-                            </div>
-                            <div class="col-12">
-                                <input class="form-check-input" type="checkbox" name="permission[]" value="32"
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                                <figcaption class="info-wrap">
+                                                    <div class="row text-center">
+                                                        <div class="col-6 ">
+                                                            <a href="#" class="title" data-abc="true">-</a>
+                                                        </div>
+
+                                                        <div class="col-6">
+                                                            <div class="rating text-right">
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                                <figcaption class="info-wrap">
+                                                    <div class="row text-center">
+                                                        <div class="col-6 ">
+                                                            <a href="#" class="title" data-abc="true">Editar</a>
+                                                        </div>
+
+                                                        <div class="col-6">
+                                                            <div class="rating text-right">
+                                                                <input class="form-check-input" type="checkbox" name="permission[]" value="32"
                                     id="tarjeta" />
-                                <label class="form-check-label text-white" for="flexCheckDefault">
-                                    Edit Tarjeta C.
-                                </label>
-                            </div>
-                        </div>
-                    </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                                <figcaption class="info-wrap">
+                                                    <div class="row text-center">
+                                                        <div class="col-6 ">
+                                                            <a href="#" class="title" data-abc="true">-</a>
+                                                        </div>
 
-                    <div class="row">
-                        <div class="col-4 mb-3">
-                            <label class="form-check-label" for="flexCheckDefault" style="color: rgb(16, 247, 16)">
-                                <strong>Expedientes F.</strong>
-                            </label>
-                            <input class="form-check-input" type="checkbox" onclick="toggle7(this);" />
+                                                        <div class="col-6">
+                                                            <div class="rating text-right">
 
-                            <div class="col-12 mt-2">
-                                <input class="form-check-input" type="checkbox" name="permission[]" value="33"
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                            </div>
+
+                                            <div class="bottom-wrap-payment">
+                                                <figcaption class="info-wrap">
+                                                    <div class="row text-center">
+                                                        <div class="col-6 ">
+                                                           <a class="" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                                                              Atras
+                                                           </a>
+                                                        </div>
+
+                                                        <div class="col-6 ">
+                                                            <a class="" href="#carouselExampleIndicators" role="button" data-slide="next">
+                                                                Siguiente
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                            </div>
+
+                                        </figure>
+                                    </div>
+                                </div>
+
+                                <div class="carousel-item">
+                                    <div class="container d-flex justify-content-center">
+                                        <figure class="card-permisos card-product-grid card-lg">
+                                            <a href="#" class="img-wrap" data-abc="true">
+                                                <i class="fas fa-folder-open icon-effect-roles"></i>
+                                            </a>
+
+                                            <figcaption class="info-wrap">
+                                                <div class="row">
+                                                    <div class="col-md-12 col-xs-12">
+                                                        <a href="#" class="title text-center mt-4" data-abc="true">
+                                                            <stromg style="">Expedientes F.</stromg>
+                                                            <input class="form-check-input" type="checkbox" onclick="toggle7(this);" />
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </figcaption>
+
+                                            <div class="bottom-wrap-payment">
+                                                <figcaption class="info-wrap">
+                                                    <div class="row text-center">
+                                                        <div class="col-6 ">
+                                                            <a href="#" class="title" data-abc="true">Ver</a>
+                                                        </div>
+
+                                                        <div class="col-6">
+                                                            <div class="rating text-right">
+                                                                <input class="form-check-input" type="checkbox" name="permission[]" value="33"
                                     id="expediente" />
-                                <label class="form-check-label text-white" for="flexCheckDefault">
-                                    Ver Exp
-                                </label>
-                            </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                                <figcaption class="info-wrap">
+                                                    <div class="row text-center">
+                                                        <div class="col-6 ">
+                                                            <a href="#" class="title" data-abc="true">Crear</a>
+                                                        </div>
 
-                            <div class="col-12">
-                                <input class="form-check-input" type="checkbox" name="permission[]" value="34"
+                                                        <div class="col-6">
+                                                            <div class="rating text-right">
+                                                                <input class="form-check-input" type="checkbox" name="permission[]" value="34"
                                     id="expediente" />
-                                <label class="form-check-label text-white" for="flexCheckDefault">
-                                    Crear Exp
-                                </label>
-                            </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                                <figcaption class="info-wrap">
+                                                    <div class="row text-center">
+                                                        <div class="col-6 ">
+                                                            <a href="#" class="title" data-abc="true">-</a>
+                                                        </div>
 
-                            <div class="col-12">
-                                <input class="form-check-input" type="checkbox" name="permission[]" value="35"
+                                                        <div class="col-6">
+                                                            <div class="rating text-right">
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                                <figcaption class="info-wrap">
+                                                    <div class="row text-center">
+                                                        <div class="col-6 ">
+                                                             <a href="#" class="title" data-abc="true">Eliminar</a>
+                                                        </div>
+
+                                                        <div class="col-6">
+                                                            <div class="rating text-right">
+                                                                <input class="form-check-input" type="checkbox" name="permission[]" value="35"
                                     id="expediente" />
-                                <label class="form-check-label text-white" for="flexCheckDefault">
-                                    Borrar Exp
-                                </label>
-                            </div>
-                        </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                            </div>
 
-                        <div class="col-4 mb-3">
-                            <label class="form-check-label" for="flexCheckDefault" style="color: rgb(16, 247, 16)">
-                                <strong>Empresas</strong>
-                            </label>
-                            <input class="form-check-input" type="checkbox" onclick="toggle8(this);" />
+                                            <div class="bottom-wrap-payment">
+                                                <figcaption class="info-wrap">
+                                                    <div class="row text-center">
+                                                        <div class="col-6 ">
+                                                           <a class="" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                                                              Atras
+                                                           </a>
+                                                        </div>
 
-                            <div class="col-12 mt-2">
-                                <input class="form-check-input" type="checkbox" name="permission[]" value="38"
+                                                        <div class="col-6 ">
+                                                            <a class="" href="#carouselExampleIndicators" role="button" data-slide="next">
+                                                                Siguiente
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                            </div>
+
+                                        </figure>
+                                    </div>
+                                </div>
+
+                                <div class="carousel-item">
+                                    <div class="container d-flex justify-content-center">
+                                        <figure class="card-permisos card-product-grid card-lg">
+                                            <a href="#" class="img-wrap" data-abc="true">
+                                                <i class="fas fa-building icon-effect-roles"></i>
+                                            </a>
+
+                                            <figcaption class="info-wrap">
+                                                <div class="row">
+                                                    <div class="col-md-12 col-xs-12">
+                                                        <a href="#" class="title text-center mt-4" data-abc="true">
+                                                            <stromg style="">Empresas</stromg>
+                                                            <input class="form-check-input" type="checkbox" onclick="toggle8(this);" />
+
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </figcaption>
+
+                                            <div class="bottom-wrap-payment">
+                                                <figcaption class="info-wrap">
+                                                    <div class="row text-center">
+                                                        <div class="col-6 ">
+                                                            <a href="#" class="title" data-abc="true">Ver</a>
+                                                        </div>
+
+                                                        <div class="col-6">
+                                                            <div class="rating text-right">
+                                                                 <input class="form-check-input" type="checkbox" name="permission[]" value="38"
                                     id="empresa" />
-                                <label class="form-check-label text-white" for="flexCheckDefault">
-                                    Ver Emp
-                                </label>
-                            </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                                <figcaption class="info-wrap">
+                                                    <div class="row text-center">
+                                                        <div class="col-6 ">
+                                                            <a href="#" class="title" data-abc="true">Crear</a>
+                                                        </div>
 
-                            <div class="col-12">
-                                <input class="form-check-input" type="checkbox" name="permission[]" value="39"
+                                                        <div class="col-6">
+                                                            <div class="rating text-right">
+                                                               <input class="form-check-input" type="checkbox" name="permission[]" value="39"
                                     id="empresa" />
-                                <label class="form-check-label text-white" for="flexCheckDefault">
-                                    Crear Emp
-                                </label>
-                            </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                                <figcaption class="info-wrap">
+                                                    <div class="row text-center">
+                                                        <div class="col-6 ">
+                                                            <a href="#" class="title" data-abc="true">
+                                                                Editar
+                                                            </a>
+                                                        </div>
 
-                            <div class="col-12">
-                                <input class="form-check-input" type="checkbox" name="permission[]" value="40"
+                                                        <div class="col-6">
+                                                            <div class="rating text-right">
+                                                                <input class="form-check-input" type="checkbox" name="permission[]" value="40"
                                     id="empresa" />
-                                <label class="form-check-label text-white" for="flexCheckDefault">
-                                    Editar Emp
-                                </label>
-                            </div>
-                        </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                                <figcaption class="info-wrap">
+                                                    <div class="row text-center">
+                                                        <div class="col-6 ">
+                                                             <a href="#" class="title" data-abc="true">-</a>
+                                                        </div>
 
-                        <div class="col-4 mb-3">
-                            <label class="form-check-label" for="flexCheckDefault" style="color: rgb(16, 247, 16)">
-                                <strong>Verificacion</strong>
-                            </label>
-                            <input class="form-check-input" type="checkbox" onclick="toggle9(this);" />
+                                                        <div class="col-6">
+                                                            <div class="rating text-right">
 
-                            <div class="col-12 mt-2">
-                                <input class="form-check-input" type="checkbox" name="permission[]" value="41"
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                            </div>
+
+                                            <div class="bottom-wrap-payment">
+                                                <figcaption class="info-wrap">
+                                                    <div class="row text-center">
+                                                        <div class="col-6 ">
+                                                           <a class="" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                                                              Atras
+                                                           </a>
+                                                        </div>
+
+                                                        <div class="col-6 ">
+                                                            <a class="" href="#carouselExampleIndicators" role="button" data-slide="next">
+                                                                Siguiente
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                            </div>
+
+                                        </figure>
+                                    </div>
+                                </div>
+
+                                <div class="carousel-item">
+                                    <div class="container d-flex justify-content-center">
+                                        <figure class="card-permisos card-product-grid card-lg">
+                                            <a href="#" class="img-wrap" data-abc="true">
+                                                <i class="fas fa-calendar-check icon-effect-roles"></i>
+                                            </a>
+
+                                            <figcaption class="info-wrap">
+                                                <div class="row">
+                                                    <div class="col-md-12 col-xs-12">
+                                                        <a href="#" class="title text-center mt-4" data-abc="true">
+                                                            <stromg style="">Verificacion</stromg>
+                                                            <input class="form-check-input" type="checkbox" onclick="toggle9(this);" />
+
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </figcaption>
+
+                                            <div class="bottom-wrap-payment">
+                                                <figcaption class="info-wrap">
+                                                    <div class="row text-center">
+                                                        <div class="col-6 ">
+                                                            <a href="#" class="title" data-abc="true">Ver</a>
+                                                        </div>
+
+                                                        <div class="col-6">
+                                                            <div class="rating text-right">
+                                                                <input class="form-check-input" type="checkbox" name="permission[]" value="41"
                                     id="verificacion" />
-                                <label class="form-check-label text-white" for="flexCheckDefault">
-                                    Ver Veri.
-                                </label>
-                            </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                                <figcaption class="info-wrap">
+                                                    <div class="row text-center">
+                                                        <div class="col-6 ">
+                                                            <a href="#" class="title" data-abc="true">Crear</a>
+                                                        </div>
 
-                            <div class="col-12">
-                                <input class="form-check-input" type="checkbox" name="permission[]" value="42"
+                                                        <div class="col-6">
+                                                            <div class="rating text-right">
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                                <figcaption class="info-wrap">
+                                                    <div class="row text-center">
+                                                        <div class="col-6 ">
+                                                            <a href="#" class="title" data-abc="true">
+                                                                Editar
+                                                            </a>
+                                                        </div>
+
+                                                        <div class="col-6">
+                                                            <div class="rating text-right">
+                                                                <input class="form-check-input" type="checkbox" name="permission[]" value="42"
                                     id="verificacion" />
-                                <label class="form-check-label text-white" for="flexCheckDefault">
-                                    Editar Veri.
-                                </label>
-                            </div>
-                        </div>
-                    </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                                <figcaption class="info-wrap">
+                                                    <div class="row text-center">
+                                                        <div class="col-6 ">
+                                                             <a href="#" class="title" data-abc="true">-</a>
+                                                        </div>
 
-                    <div class="row">
-                        <div class="col-4 mb-3">
-                            <label class="form-check-label" for="flexCheckDefault" style="color: rgb(16, 247, 16)">
-                                <strong>Cupones</strong>
-                            </label>
-                            <input class="form-check-input" type="checkbox" onclick="toggle10(this);" />
+                                                        <div class="col-6">
+                                                            <div class="rating text-right">
 
-                            <div class="col-12 mt-2">
-                                <input class="form-check-input" type="checkbox" name="permission[]" value="49"
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                            </div>
+
+                                            <div class="bottom-wrap-payment">
+                                                <figcaption class="info-wrap">
+                                                    <div class="row text-center">
+                                                        <div class="col-6 ">
+                                                           <a class="" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                                                              Atras
+                                                           </a>
+                                                        </div>
+
+                                                        <div class="col-6 ">
+                                                            <a class="" href="#carouselExampleIndicators" role="button" data-slide="next">
+                                                                Siguiente
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                            </div>
+
+                                        </figure>
+                                    </div>
+                                </div>
+
+                                <div class="carousel-item">
+                                    <div class="container d-flex justify-content-center">
+                                        <figure class="card-permisos card-product-grid card-lg">
+                                            <a href="#" class="img-wrap" data-abc="true">
+                                                <i class="fas fa-qrcode icon-effect-roles"></i>
+                                            </a>
+
+                                            <figcaption class="info-wrap">
+                                                <div class="row">
+                                                    <div class="col-md-12 col-xs-12">
+                                                        <a href="#" class="title text-center mt-4" data-abc="true">
+                                                            <stromg style="">Cupones</stromg>
+                                                            <input class="form-check-input" type="checkbox" onclick="toggle10(this);" />
+
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </figcaption>
+
+                                            <div class="bottom-wrap-payment">
+                                                <figcaption class="info-wrap">
+                                                    <div class="row text-center">
+                                                        <div class="col-6 ">
+                                                            <a href="#" class="title" data-abc="true">Ver</a>
+                                                        </div>
+
+                                                        <div class="col-6">
+                                                            <div class="rating text-right">
+                                                                 <input class="form-check-input" type="checkbox" name="permission[]" value="49"
                                     id="cupon" />
-                                <label class="form-check-label text-white" for="flexCheckDefault">
-                                    Ver Cupon
-                                </label>
-                            </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                                <figcaption class="info-wrap">
+                                                    <div class="row text-center">
+                                                        <div class="col-6 ">
+                                                            <a href="#" class="title" data-abc="true">Crear</a>
+                                                        </div>
 
-                            <div class="col-12">
-                                <input class="form-check-input" type="checkbox" name="permission[]" value="50"
+                                                        <div class="col-6">
+                                                            <div class="rating text-right">
+                                                                <input class="form-check-input" type="checkbox" name="permission[]" value="50"
                                     id="cupon" />
-                                <label class="form-check-label text-white" for="flexCheckDefault">
-                                    Crear Cupon
-                                </label>
-                            </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                                <figcaption class="info-wrap">
+                                                    <div class="row text-center">
+                                                        <div class="col-6 ">
+                                                            <a href="#" class="title" data-abc="true">
+                                                                Editar
+                                                            </a>
+                                                        </div>
 
-                            <div class="col-12">
-                                <input class="form-check-input" type="checkbox" name="permission[]" value="51"
+                                                        <div class="col-6">
+                                                            <div class="rating text-right">
+                                                                <input class="form-check-input" type="checkbox" name="permission[]" value="51"
                                     id="cupon" />
-                                <label class="form-check-label text-white" for="flexCheckDefault">
-                                    Editar Cupon
-                                </label>
-                            </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                                <figcaption class="info-wrap">
+                                                    <div class="row text-center">
+                                                        <div class="col-6 ">
+                                                             <a href="#" class="title" data-abc="true">Eliminar</a>
+                                                        </div>
 
-                            <div class="col-12">
-                                <input class="form-check-input" type="checkbox" name="permission[]" value="52"
+                                                        <div class="col-6">
+                                                            <div class="rating text-right">
+                                                                <input class="form-check-input" type="checkbox" name="permission[]" value="52"
                                     id="cupon" />
-                                <label class="form-check-label text-white" for="flexCheckDefault">
-                                    Eliminar Cupon
-                                </label>
-                            </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                            </div>
 
-                            <div class="col-12">
-                                <input class="form-check-input" type="checkbox" name="permission[]" value="53"
-                                    id="cupon" />
-                                <label class="form-check-label text-white" for="flexCheckDefault">
-                                    Asig. Usuario
-                                </label>
-                            </div>
+                                            <div class="bottom-wrap-payment">
+                                                <figcaption class="info-wrap">
+                                                    <div class="row text-center">
+                                                        <div class="col-6 ">
+                                                           <a class="" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                                                              Atras
+                                                           </a>
+                                                        </div>
 
-                            <div class="col-12">
-                                <input class="form-check-input" type="checkbox" name="permission[]" value="54"
-                                    id="cupon" />
-                                <label class="form-check-label text-white" for="flexCheckDefault">
-                                    Cam. Estado
-                                </label>
-                            </div>
+                                                        <div class="col-6 ">
+                                                            <a class="" href="#carouselExampleIndicators" role="button" data-slide="next">
+                                                                Siguiente
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                            </div>
 
-                            <div class="col-12">
-                                <input class="form-check-input" type="checkbox" name="permission[]" value="55"
-                                    id="cupon" />
-                                <label class="form-check-label text-white" for="flexCheckDefault">
-                                    Check Usuario
-                                </label>
-                            </div>
-                        </div>
+                                        </figure>
+                                    </div>
+                                </div>
 
-                        <div class="col-4 mb-3">
-                            <label class="form-check-label" for="flexCheckDefault" style="color: rgb(16, 247, 16)">
-                                <strong>Nota</strong>
-                            </label>
-                            <input class="form-check-input" type="checkbox" onclick="toggle11(this);" />
+                                <div class="carousel-item">
+                                    <div class="container d-flex justify-content-center">
+                                        <figure class="card-permisos card-product-grid card-lg">
+                                            <a href="#" class="img-wrap" data-abc="true">
+                                                <i class="fas fa-sticky-note icon-effect-roles"></i>
+                                            </a>
 
-                            <div class="col-12 mt-2">
-                                <input class="form-check-input" type="checkbox" name="permission[]" value="45"
+                                            <figcaption class="info-wrap">
+                                                <div class="row">
+                                                    <div class="col-md-12 col-xs-12">
+                                                        <a href="#" class="title text-center mt-4" data-abc="true">
+                                                            <stromg style="">Nota</stromg>
+                                                           <input class="form-check-input" type="checkbox" onclick="toggle11(this);" />
+
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </figcaption>
+
+                                            <div class="bottom-wrap-payment">
+                                                <figcaption class="info-wrap">
+                                                    <div class="row text-center">
+                                                        <div class="col-6 ">
+                                                            <a href="#" class="title" data-abc="true">Ver</a>
+                                                        </div>
+
+                                                        <div class="col-6">
+                                                            <div class="rating text-right">
+                                                                  <input class="form-check-input" type="checkbox" name="permission[]" value="45"
                                     id="nota" />
-                                <label class="form-check-label text-white" for="flexCheckDefault">
-                                    Ver Nota
-                                </label>
-                            </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                                <figcaption class="info-wrap">
+                                                    <div class="row text-center">
+                                                        <div class="col-6 ">
+                                                            <a href="#" class="title" data-abc="true">Crear</a>
+                                                        </div>
 
-                            <div class="col-12">
-                                <input class="form-check-input" type="checkbox" name="permission[]" value="46"
+                                                        <div class="col-6">
+                                                            <div class="rating text-right">
+                                                                <input class="form-check-input" type="checkbox" name="permission[]" value="46"
                                     id="nota" />
-                                <label class="form-check-label text-white" for="flexCheckDefault">
-                                    Crear Nota
-                                </label>
-                            </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                                <figcaption class="info-wrap">
+                                                    <div class="row text-center">
+                                                        <div class="col-6 ">
+                                                            <a href="#" class="title" data-abc="true">
+                                                                Editar
+                                                            </a>
+                                                        </div>
 
-                            <div class="col-12">
-                                <input class="form-check-input" type="checkbox" name="permission[]" value="47"
+                                                        <div class="col-6">
+                                                            <div class="rating text-right">
+                                                               <input class="form-check-input" type="checkbox" name="permission[]" value="47"
                                     id="nota" />
-                                <label class="form-check-label text-white" for="flexCheckDefault">
-                                    Editar Nota
-                                </label>
-                            </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                                <figcaption class="info-wrap">
+                                                    <div class="row text-center">
+                                                        <div class="col-6 ">
+                                                             <a href="#" class="title" data-abc="true">Eliminar</a>
+                                                        </div>
 
-                            <div class="col-12">
-                                <input class="form-check-input" type="checkbox" name="permission[]" value="48"
+                                                        <div class="col-6">
+                                                            <div class="rating text-right">
+                                                               <input class="form-check-input" type="checkbox" name="permission[]" value="48"
                                     id="nota" />
-                                <label class="form-check-label text-white" for="flexCheckDefault">
-                                    Eliminar Nota
-                                </label>
-                            </div>
-                        </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                            </div>
 
-                        <div class="col-4 mb-3">
-                            <label class="form-check-label" for="flexCheckDefault" style="color: rgb(16, 247, 16)">
-                                <strong>Licencia C.</strong>
-                            </label>
-                            <input class="form-check-input" type="checkbox" onclick="toggle12(this);" />
+                                            <div class="bottom-wrap-payment">
+                                                <figcaption class="info-wrap">
+                                                    <div class="row text-center">
+                                                        <div class="col-6 ">
+                                                           <a class="" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                                                              Atras
+                                                           </a>
+                                                        </div>
 
-                            <div class="col-12 mt-2">
-                                <input class="form-check-input" type="checkbox" name="permission[]" value="43"
+                                                        <div class="col-6 ">
+                                                            <a class="" href="#carouselExampleIndicators" role="button" data-slide="next">
+                                                                Siguiente
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                            </div>
+
+                                        </figure>
+                                    </div>
+                                </div>
+
+                                <div class="carousel-item">
+                                    <div class="container d-flex justify-content-center">
+                                        <figure class="card-permisos card-product-grid card-lg">
+                                            <a href="#" class="img-wrap" data-abc="true">
+                                                <i class="far fa-id-badge icon-effect-roles"></i>
+                                            </a>
+
+                                            <figcaption class="info-wrap">
+                                                <div class="row">
+                                                    <div class="col-md-12 col-xs-12">
+                                                        <a href="#" class="title text-center mt-4" data-abc="true">
+                                                            <stromg style="">Licencia C.</stromg>
+                                                            <input class="form-check-input" type="checkbox" onclick="toggle12(this);" />
+
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </figcaption>
+
+                                            <div class="bottom-wrap-payment">
+                                                <figcaption class="info-wrap">
+                                                    <div class="row text-center">
+                                                        <div class="col-6 ">
+                                                            <a href="#" class="title" data-abc="true">Ver</a>
+                                                        </div>
+
+                                                        <div class="col-6">
+                                                            <div class="rating text-right">
+                                                                   <input class="form-check-input" type="checkbox" name="permission[]" value="43"
                                     id="licencia" />
-                                <label class="form-check-label text-white" for="flexCheckDefault">
-                                    Ver Licencia
-                                </label>
-                            </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                                <figcaption class="info-wrap">
+                                                    <div class="row text-center">
+                                                        <div class="col-6 ">
+                                                            <a href="#" class="title" data-abc="true">Crear</a>
+                                                        </div>
 
-                            <div class="col-12">
-                                <input class="form-check-input" type="checkbox" name="permission[]" value="44"
+                                                        <div class="col-6">
+                                                            <div class="rating text-right">
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                                <figcaption class="info-wrap">
+                                                    <div class="row text-center">
+                                                        <div class="col-6 ">
+                                                            <a href="#" class="title" data-abc="true">
+                                                                Editar
+                                                            </a>
+                                                        </div>
+
+                                                        <div class="col-6">
+                                                            <div class="rating text-right">
+                                                               <input class="form-check-input" type="checkbox" name="permission[]" value="44"
                                     id="licencia" />
-                                <label class="form-check-label text-white" for="flexCheckDefault">
-                                    Editar Licencia
-                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                                <figcaption class="info-wrap">
+                                                    <div class="row text-center">
+                                                        <div class="col-6 ">
+                                                             <a href="#" class="title" data-abc="true">Eliminar</a>
+                                                        </div>
+
+                                                        <div class="col-6">
+                                                            <div class="rating text-right">
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                            </div>
+
+                                            <div class="bottom-wrap-payment">
+                                                <figcaption class="info-wrap">
+                                                    <div class="row text-center">
+                                                        <div class="col-6 ">
+                                                           <a class="" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                                                              Atras
+                                                           </a>
+                                                        </div>
+
+                                                        <div class="col-6 ">
+                                                            <a class="" href="#carouselExampleIndicators" role="button" data-slide="next">
+                                                                Siguiente
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                            </div>
+
+                                        </figure>
+                                    </div>
+                                </div>
+
+                                <div class="carousel-item">
+                                    <div class="container d-flex justify-content-center">
+                                        <figure class="card-permisos card-product-grid card-lg">
+                                            <a href="#" class="img-wrap" data-abc="true">
+                                                <i class="fas fa-users-cog icon-effect-roles"></i>
+                                            </a>
+
+                                            <figcaption class="info-wrap">
+                                                <div class="row">
+                                                    <div class="col-md-12 col-xs-12">
+                                                        <a href="#" class="title text-center mt-4" data-abc="true">
+                                                            <stromg style="">Roles y Permisos</stromg>
+                                                            <input class="form-check-input" type="checkbox" onclick="toggle12(this);" />
+
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </figcaption>
+
+                                            <div class="bottom-wrap-payment">
+                                                <figcaption class="info-wrap">
+                                                    <div class="row text-center">
+                                                        <div class="col-6 ">
+                                                            <a href="#" class="title" data-abc="true">Ver</a>
+                                                        </div>
+
+                                                        <div class="col-6">
+                                                            <div class="rating text-right">
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                                <figcaption class="info-wrap">
+                                                    <div class="row text-center">
+                                                        <div class="col-6 ">
+                                                            <a href="#" class="title" data-abc="true">Crear</a>
+                                                        </div>
+
+                                                        <div class="col-6">
+                                                            <div class="rating text-right">
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                                <figcaption class="info-wrap">
+                                                    <div class="row text-center">
+                                                        <div class="col-6 ">
+                                                            <a href="#" class="title" data-abc="true">
+                                                                Editar
+                                                            </a>
+                                                        </div>
+
+                                                        <div class="col-6">
+                                                            <div class="rating text-right">
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                                <figcaption class="info-wrap">
+                                                    <div class="row text-center">
+                                                        <div class="col-6 ">
+                                                             <a href="#" class="title" data-abc="true">Eliminar</a>
+                                                        </div>
+
+                                                        <div class="col-6">
+                                                            <div class="rating text-right">
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                            </div>
+
+                                            <div class="bottom-wrap-payment">
+                                                <figcaption class="info-wrap">
+                                                    <div class="row text-center">
+                                                        <div class="col-6 ">
+                                                           <a class="" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                                                              Atras
+                                                           </a>
+                                                        </div>
+
+                                                        <div class="col-6 ">
+                                                            <a class="" href="#carouselExampleIndicators" role="button" data-slide="next">
+                                                                Siguiente
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                            </div>
+
+                                        </figure>
+                                    </div>
+                                </div>
+
+                              </div>
+
                             </div>
-                        </div>
 
-                    </div>
-
-                    <div class="row">
-                        <div class="col-12 mt-3 mb-3">
-                            <p class="form-check-label" for="flexCheckDefault" style="color: rgb(16, 247, 16)">
-                                <strong>Roles y Permisos</strong>
-                            </p>
-
-                            <input class="form-check-input" type="checkbox" name="permission[]" value="56"/>
-                            <label class="form-check-label text-white" for="flexCheckDefault">
-                                Crear Role
-                            </label>
                         </div>
                     </div>
-
-
 
                 <div class="row">
-                    <div class="col-12 mt-5">
+                    <div class="col-12" style="padding: 3rem 3rem 0rem 3rem;">
                         <button class="btn btn-lg btn-success btn-save-neon text-white"
-                            style="margin-bottom: 15rem !important;">
+                            style="border-radius: 30px">
                             <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}" width="20px">
                             Guardar
                         </button>
