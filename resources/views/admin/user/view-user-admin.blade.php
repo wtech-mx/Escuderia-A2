@@ -99,6 +99,9 @@
                                     <td><a style="text-decoration: none;"
                                         href="{{ route('edit_admin.user', $item->id) }}">{{ $item->name }}</a>
                                     </td>
+                                    @else
+                                    <td>{{ $item->name }}
+                                    </td>
                                 @endcan
 
                                 <td>{{ $item->email }}</td>

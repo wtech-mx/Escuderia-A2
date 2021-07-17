@@ -68,12 +68,5 @@ class PermissionsSeeder extends Seeder
 
         Permission::create(['name' => 'Crear Roles y Permisos']);
 
-        $user = new User;
-        $user->name = $request->get('name');
-        $user->role = $request->get('role');
-        $user->telefono = $request->get('telefono');
-        $user->email = $request->get('email');
-        $user->save();
-
     }
 }
