@@ -207,6 +207,7 @@
             </a>
         </div>
 
+        @include('layouts.warning')
 
     </div>
 @endsection

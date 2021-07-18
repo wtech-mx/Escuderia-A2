@@ -6,7 +6,7 @@
 	display: flex;
 	flex-direction: column;
 	align-items: flex-end;
-	z-index: 1000;
+	z-index: 100000;
 }
 
 .icon {
@@ -25,7 +25,6 @@
 	background: #339DC5;
 }
 
-
 .icon-telephone {
 	background: #3F60A5;
 }
@@ -43,3 +42,38 @@
 	border-radius: 1rem 0 0 1rem;
 	box-shadow: 0 0 .5rem rgba(0, 0, 0, 0.42);
 }
+
+/*BTN emergency*/
+
+.emergency-btn{
+	position: fixed;
+	left: 15px;
+	top: 76%;
+	z-index: 100000;
+    background-color: #00ff37;
+    width: 35px;
+    height: 35px;
+    border-radius: 30px;
+}
+
+.emergency-btn:hover{
+    background-color: #000000;
+    border: solid #00ff37;
+}
+
+.contenedor-emergencia{
+	position: fixed;
+    left: 19.9px;
+    top: 76.9%;
+}
+
+
+.icon-emergency{
+    font-size: 25px;
+    color: #000000;
+}
+
+.icon-emergency:hover{
+    color: #00ff37;
+}
+

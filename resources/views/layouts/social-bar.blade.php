@@ -10,3 +10,13 @@
         <i class="bi bi-telephone-fill" style="top: 69px;position: absolute;font-size: 15px"></i>
     </a>
 </div>
+
+<div class="emergency-btn">
+    <a href="#" class="contenedor-emergencia" id="menu-toggle" >
+        <i class="fas fa-exclamation-circle icon-emergency"></i>
+    </a>
+</div>
+
+
+
+

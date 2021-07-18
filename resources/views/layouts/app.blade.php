@@ -55,6 +55,7 @@ if (!isset($_COOKIE['mostrarModal'])) {
     <link href="{{ asset('css/calendario.css') }}" rel="stylesheet">
     <link href="{{ asset('css/pwa.css') }}" rel="stylesheet">
     <link href="{{ asset('css/preloader.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/sidebar.css') }}" rel="stylesheet">
 
     <link href="{{ asset('fonts/font-awesome.min.css') }}" rel="stylesheet">
     <link href="{{ asset('fonts/all.min.css') }}" rel="stylesheet">
@@ -73,11 +74,11 @@ if (!isset($_COOKIE['mostrarModal'])) {
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
     <script src="{{ asset('js/preloader.js') }}"></script>
+    <script src="{{ asset('js/sidebar.js') }}"></script>
     {{-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" ></script> --}}
 
     <!-- bootstrap JavaScript -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-
     {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
 
     @laravelPWA
@@ -85,6 +86,7 @@ if (!isset($_COOKIE['mostrarModal'])) {
     @yield('scripts')
 
     <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+
     <script>
         window.OneSignal = window.OneSignal || [];
         OneSignal.push(function() {
@@ -101,6 +103,8 @@ if (!isset($_COOKIE['mostrarModal'])) {
 </head>
 
 <body>
+
+    @include('layouts.warning')
 
     <p style="display: none">{{ $userId = Auth::id() }}</p>
 
