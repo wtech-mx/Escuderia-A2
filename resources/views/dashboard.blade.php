@@ -76,9 +76,9 @@
                 <a href="{{ route('index.seguro') }}"> <span class="badge badge-pill"
                         style="background-color: #8E44AD">Seguro</span> </a>
                 <a href="{{ route('index.tc') }}"> <span class="badge badge-pill"
-                        style="background-color: #F1C40F;color: #faf7f7">Tarjeta Circulaci&oacute;n</span> </a>
+                        style="background-color: #F1C40F;color: #faf7f7">Tarjeta C.</span> </a>
                 <a href="{{ route('index.verificacion') }}"> <span class="badge badge-pill"
-                        style="background-color: #FF0000">Verificaci&oacute;n</span> </a>
+                        style="background-color: #FF0000">Verifica.</span> </a>
                 <a href="{{ route('view_user.servicio') }}"> <span class="badge badge-pill"
                         style="background-color: #2980B9">Servicios</span> </a>
             </div>

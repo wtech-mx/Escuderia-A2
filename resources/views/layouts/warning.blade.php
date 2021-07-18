@@ -1,4 +1,4 @@
-  <div id="wrapper" class="menuDisplayed">
+  <div id="wrapper" class="">
     <div id="sidebar-wrapper">
       <ul class="sidebar-nav">
 

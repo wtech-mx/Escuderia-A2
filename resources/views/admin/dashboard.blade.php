@@ -86,9 +86,9 @@
                 <a href="{{ route('index_admin.seguros') }}"> <span class="badge badge-pill"
                         style="background-color: #8E44AD">Seguro</span> </a>
                 <a href="{{ route('indextc_admin.tarjeta-circulacion') }}"> <span class="badge badge-pill"
-                        style="background-color: #F1C40F;color: #000000">Tarjeta Circulaci&oacute;n</span> </a>
+                        style="background-color: #F1C40F;color: #000000">Tarjeta C.</span> </a>
                 <a href="{{ route('index_admin.verificacion') }}"> <span class="badge badge-pill"
-                        style="background-color: #FF0000">Verificaci&oacute;n</span> </a>
+                        style="background-color: #FF0000">Verifica.</span> </a>
                 <a href="#"> <span class="badge badge-pill" style="background-color: #2980B9">Servicios</span> </a>
             </div>
         </div>
@@ -98,23 +98,23 @@
         @else
             @include('alerts.calendar')
         @endif
-
     </div>
 
     <div class="row-content" style="position: relative;background-color: #31ba4b;width: 360px;left: -10px"></div>
     <div class="row bg-down-blue"
         style="z-index:1000;top: -30px;background-image: linear-gradient(to bottom, #00d62e, #2ce048, #43eb5f, #56f574, #68ff88);border-radius: 30px 30px 0 0;">
 
-        <div class="col-12 p-4">
-            <h6 class="text-center text-white">
-                <strong style="font: normal normal bold 25px/33px Segoe UI;"> ¿Qué haremos hoy?</strong>
-            </h6>
-        </div>
-
+            <div class="col-12 p-4">
+                <h6 class="text-center text-white">
+                    <strong style="font: normal normal bold 25px/33px Segoe UI;"> ¿Qué haremos hoy?</strong>
+                </h6>
+            </div>
 
             <div class="col-6 text-center">
                 @can('ver_usuario')
                 <a href="{{ route('index_admin.user') }}">
+                @else
+                <a  data-toggle="modal" data-target="#modal-permisos">
                 @endcan
                     <div class="card" style="border-radius: 15px">
                         <div class="card-body">
@@ -125,10 +125,11 @@
                 </a>
             </div>
 
-
             <div class="col-6 text-center">
                 @can('Ver Calendario')
                 <a href="{{ route('index.alert') }}">
+                @else
+                <a data-toggle="modal" data-target="#modal-permisos">
                 @endcan
                     <div class="card" style="border-radius: 15px">
                         <div class="card-body">
@@ -139,10 +140,11 @@
                 </a>
             </div>
 
-
             <div class="col-6 text-center mt-4">
                 @can('Ver Automovil')
                 <a href="{{ route('index_admin.automovil') }}">
+                @else
+                <a  data-toggle="modal" data-target="#modal-permisos">
                 @endcan
                     <div class="card" style="border-radius: 15px">
                         <div class="card-body">
@@ -152,7 +154,6 @@
                     </div>
                 </a>
             </div>
-
 
             <div class="col-6 text-center mt-4">
                 <a class="text-white" data-toggle="modal" data-target="#Servicios" style="cursor: pointer">
@@ -165,10 +166,11 @@
                 </a>
             </div>
 
-
             <div class="col-6 text-center mt-4">
                 @can('Ver Tarjeta C.')
                 <a href="{{ route('indextc_admin.tarjeta-circulacion') }}" class="text-white">
+                @else
+                <a  data-toggle="modal" data-target="#modal-permisos">
                 @endcan
                     <div class="card" style="border-radius: 15px">
                         <div class="card-body">
@@ -179,10 +181,11 @@
                 </a>
             </div>
 
-
             <div class="col-6 text-center mt-4">
                 @can('Ver Expedientes')
                 <a href="{{ route('index_admin.view-exp-fisico-admin') }}" class="text-white">
+                @else
+                <a  data-toggle="modal" data-target="#modal-permisos">
                 @endcan
                     <div class="card" style="border-radius: 15px">
                         <div class="card-body">
@@ -193,11 +196,11 @@
                 </a>
             </div>
 
-
-
         <div class="col-6 text-center mt-4">
             @can('Ver Seguro')
             <a href="{{ route('index_admin.seguros') }}" class="text-white">
+            @else
+            <a  data-toggle="modal" data-target="#modal-permisos">
             @endcan
                 <div class="card" style="border-radius: 15px">
                     <div class="card-body">
@@ -208,11 +211,12 @@
             </a>
         </div>
 
-
         @if ($users->empresa == 0)
                 <div class="col-6 text-center mt-4">
                     @can('Ver Emp')
                     <a href="{{ route('index_admin.empresa') }}" class="text-white">
+                    @else
+                    <a  data-toggle="modal" data-target="#modal-permisos">
                     @endcan
                         <div class="card" style="border-radius: 15px">
                             <div class="card-body">
@@ -228,6 +232,8 @@
         <div class="col-6 text-center mt-4">
             @can('Ver Veri')
             <a href="{{ route('index_admin.verificacion') }}" class="text-white">
+            @else
+                <a  data-toggle="modal" data-target="#modal-permisos">
             @endcan
                 <div class="card" style="border-radius: 15px">
                     <div class="card-body">
@@ -243,6 +249,8 @@
                 <div class="col-6 text-center mt-4">
                     @can('Ver Licencia de Conducir')
                     <a href="{{ route('index_admin.licencia') }}" class="text-white">
+                    @else
+                    <a  data-toggle="modal" data-target="#modal-permisos">
                     @endcan
                         <div class="card" style="border-radius: 15px">
                             <div class="card-body">
@@ -254,11 +262,12 @@
                 </div>
         @endif
 
-
         <div class="col-6 text-center position-relative mt-4" >
             <div class="card" style="border-radius: 15px">
                 @can('Ver Notas')
                 <a href="{{ route('index.notas') }}">
+                @else
+                <a  data-toggle="modal" data-target="#modal-permisos">
                 @endcan
                     <div class="contenedor-inter-card position-absolute">
                         <p clas="text-vertical-l"
@@ -268,22 +277,23 @@
                 </a>
                 @can('Crear Notas')
                 <a data-toggle="modal" data-target="#modalNotas" class="text-white">
+                @else
+                <a  data-toggle="modal" data-target="#modal-permisos">
                 @endcan
                     <div class="card-body">
                         <i class="fas fa-sticky-note icon-effect-dashboard"></i>
                         <p class="card-text text-white"><strong>Notas</strong></p>
                     </div>
                 </a>
-
-
             </div>
             </a>
         </div>
 
-
             <div class="col-6 text-center mt-4" >
                 @can('Ver Cupones')
                 <a href="{{ route('index_admin.cupon') }}" class="text-white">
+                @else
+                <a  data-toggle="modal" data-target="#modal-permisos">
                 @endcan
                     <div class="card" style="border-radius: 15px">
                         <div class="card-body">
@@ -294,10 +304,11 @@
                 </a>
             </div>
 
-
             <div class="col-6 text-center  mt-4" style="margin-bottom: 8rem !important;">
                 @can('Crear Roles y Permisos')
                 <a href="{{ route('index_role.role') }}" class="text-white">
+                @else
+                <a  data-toggle="modal" data-target="#modal-permisos">
                 @endcan
                     <div class="card" style="border-radius: 15px">
                         <div class="card-body">
@@ -308,10 +319,8 @@
                 </a>
             </div>
 
-
         @include('admin.notas.create')
         @include('admin.modal-services')
     </div>
-
 
 @endsection

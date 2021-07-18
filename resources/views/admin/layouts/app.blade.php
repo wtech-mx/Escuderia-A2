@@ -107,6 +107,7 @@
 
             @include('admin.layouts.tab-bar')
             @include('admin.layouts.offline')
+            @include('admin.layouts.modal-permisos-denegado')
         </div>
     @endauth
 
