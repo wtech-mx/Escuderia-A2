@@ -46,9 +46,6 @@ class VerificacionController extends Controller
 |--------------------------------------------------------------------------*/
     function index_admin()
     {
-        if (auth()->user()->role == 0) {
-            return view('errors.403');
-        } else {
             $verificacion_user = Verificacion::where('id_empresa', '=', NULL)
                 ->get();
 
@@ -63,14 +60,11 @@ class VerificacionController extends Controller
                 ->get();
 
             return view('admin.verificacion.view-verificacion-admin', compact('verificacion_user', 'verificacion_empresa', 'verificacion_empresas', 'user'));
-        }
+
     }
 
     public function edit_admin($id)
     {
-        if (auth()->user()->role == 0) {
-            return view('errors.403');
-        } else {
             $verificacion = Verificacion::findOrFail($id);
 
             $verificacion_segunda = VerificacionSegunda::where('id_verificacion', '=', $id)->first();
@@ -79,7 +73,6 @@ class VerificacionController extends Controller
                 ->get();
 
             return view('admin.verificacion.create-verificacion-admin', compact('verificacion', 'verificacion_segunda', 'users'));
-        }
     }
 
     public function update_admin(Request $request, $id)

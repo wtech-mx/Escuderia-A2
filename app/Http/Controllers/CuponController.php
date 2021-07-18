@@ -32,10 +32,6 @@ class CuponController extends Controller
 
     public function index_admin(Request $request)
     {
-        if (auth()->user()->role != 1) {
-            return view('errors.403');
-        } else {
-
             $cupon = Cupon::get();
             $cupon_user = CuponUser::get();
 
@@ -45,20 +41,15 @@ class CuponController extends Controller
 
 
             return view('admin.cupon.index', compact('cupon', 'cupon_user', 'user'));
-        }
     }
 
     public function create_admin()
     {
-        if (auth()->user()->role != 1) {
-            return view('errors.403');
-        } else {
             $user = DB::table('users')
                 ->where('role', '=', '0')
                 ->get();
 
             return view('admin.cupon.create', compact('user'));
-        }
     }
 
     public function store_admin(Request $request)
@@ -99,22 +90,15 @@ class CuponController extends Controller
 
     public function create_asignacion()
     {
-        if (auth()->user()->role != 1) {
-            return view('errors.403');
-        } else {
             $user = DB::table('users')
                 ->where('role', '=', '0')
                 ->get();
 
             return view('admin.cupon.asignacion', compact('user'));
-        }
     }
 
     public function edit_asignacion($id)
     {
-        if (auth()->user()->role != 1) {
-            return view('errors.403');
-        } else {
             $cupon = Cupon::where('id', '=',  $id)->get();
             $cupon_user = CuponUser::where('id_cupon', '=',  $id)->get();
 
@@ -123,7 +107,6 @@ class CuponController extends Controller
                 ->get();
 
             return view('admin.cupon.asignacion', compact('cupon', 'cupon_user', 'user'));
-        }
     }
 
     public function update_asignacion(Request $request)
@@ -144,14 +127,10 @@ class CuponController extends Controller
 
     public function edit_admin($id)
     {
-        if (auth()->user()->role != 1) {
-            return view('errors.403');
-        } else {
             $cupon = Cupon::where('id', '=',  $id)->get();
             $cupon_user = CuponUser::where('id_cupon', '=',  $id)->get();
 
             return view('admin.cupon.edit', compact('cupon', 'cupon_user'));
-        }
     }
 
     public function changeUserStatus(Request $request)
@@ -180,14 +159,10 @@ class CuponController extends Controller
 
     public function edit_check($id)
     {
-        if (auth()->user()->role != 1) {
-            return view('errors.403');
-        } else {
             $cupons = Cupon::findOrFail($id);
             $cupons_user = CuponUser::where('id_cupon', '=', $id)->where('check', '=', 0)->get();
 
             return view('admin.cupon.check', compact('cupons', 'cupons_user'));
-        }
     }
 
     public function update_check(Request $request, $id)

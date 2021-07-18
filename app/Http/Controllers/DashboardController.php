@@ -11,39 +11,37 @@ use Session;
 
 class DashboardController extends Controller
 {
-    public function __construct(){
+    public function __construct()
+    {
         $this->middleware('auth');
     }
 
-   public function index()
+    public function index()
     {
-        $users = User::where('id','=',auth()->user()->id)
-        ->first();
+        $users = User::where('id', '=', auth()->user()->id)
+            ->first();
 
         $user = DB::table('users')
-            ->where('role','=', 0)
+            ->where('role', '=', 0)
             ->get();
 
-          if($users->role == 0){
-              return view('dashboard',compact('users','user'));
-          }else{
-              return view('admin.dashboard',compact('users','user'));
-          }
+        if ($users->role == 0) {
+            return view('dashboard', compact('users', 'user'));
+        } else {
+            return view('admin.dashboard', compact('users', 'user'));
+        }
     }
 
-   public function store(Request $request)
+    public function store(Request $request)
     {
-        $users = User::where('id','=',auth()->user()->id)->first();
+        $users = User::where('id', '=', auth()->user()->id)->first();
 
         $users->device_token = $request->get('user_id');
-        if($users->device_token == NULL){
-
-        }else{
+        if ($users->device_token == NULL) {
+        } else {
             $users->save();
         }
 
-              return view('layouts.app');
-
+        return view('layouts.app');
     }
-
 }

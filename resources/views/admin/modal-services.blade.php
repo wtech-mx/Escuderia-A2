@@ -21,7 +21,9 @@
                         <div class="row">
 
                             <div class="col-9  mr-3 car-modal " style="height: 60px;border-radius: 20px  0 0 20px;">
+                                @can('Crear Servicios')
                                 <a href="{{ route('create_servicio.servicio') }}">
+                                @endcan
                                     <p class="text-center mt-2"
                                         style="font: normal normal bold 25px/33px Segoe UI;color: #FFFFFF">
                                         <img src="{{ asset('img/icon/color/coche (5).png') }}" alt="Icon documento"
@@ -33,7 +35,9 @@
 
                             <div class="col-2 car-modal "
                                 style="height: 60px;background-color: #24f740;border: 1px solid #24f740;border-radius: 0  20px 20px 0;">
+                                @can('Ver Servicios')
                                 <a href="{{ route('view.servicio') }}">
+                                @endcan
                                     <p class="text-center mt-2"
                                         style="font: normal normal bold 25px/33px Segoe UI;color: #FFFFFF">
                                         <img src="{{ asset('img/icon/white/documento (2).png') }}"

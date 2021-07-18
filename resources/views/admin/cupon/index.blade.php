@@ -71,16 +71,16 @@
             </div>
         </div>
 
+        @can('Crear Cupones')
         <div class="d-flex flex-row-reverse mt-4 mb-3">
-
             <a class="btn p-2 " href="{{ route('create_admin.cupon') }}">
                 <i class="fas fa-plus-circle icon-effect"></i>
             </a>
             <h5 class="text-white p-2">
                 Agregar
             </h5>
-
         </div>
+        @endcan
 
         <div class="col-12">
             <div class="row">
@@ -97,12 +97,19 @@
                         <tbody>
                             @foreach ($cupon as $item)
                                 <tr>
+                                    @can('Editar Cupones')
                                     <th>
                                         <a style="text-decoration: none;"
                                             href="{{ route('edit_admin.cupon', $item->id) }}">
                                             {{ $item->titulo }}
                                         </a>
                                     </th>
+                                    @else
+                                    <th>
+                                            {{ $item->titulo }}
+                                    </th>
+                                    @endcan
+
                                     <td>
                                         <input data-id="{{ $item->id }}" class="toggle-class" type="checkbox"
                                             data-onstyle="success" data-offstyle="danger" data-toggle="toggle"
@@ -115,10 +122,12 @@
                                             <i class="fa fa-eye icon-users-edit" style="font-size: 15px;"></i>
                                         </a>
 
-                                        <a type="button" class="text-white" data-toggle="modal"
-                                            data-target="#modaleliminar{{ $item->id }}">
-                                            <i class="fas fa-trash icon-users-edit" style="font-size: 15px;"></i>
-                                        </a>
+                                        @can('Eliminar Cupones')
+                                            <a type="button" class="text-white" data-toggle="modal"
+                                                data-target="#modaleliminar{{ $item->id }}">
+                                                <i class="fas fa-trash icon-users-edit" style="font-size: 15px;"></i>
+                                            </a>
+                                        @endcan
 
                                         <a href="{{ route('edit_asignacion.cupon', $item->id) }}">
                                             <i class="fas fa-users icon-users-edit" style="font-size: 15px;"></i>

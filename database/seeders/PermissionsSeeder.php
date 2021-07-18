@@ -17,6 +17,7 @@ class PermissionsSeeder extends Seeder
      */
     public function run()
     {
+
         Permission::create(['name' => 'Ver Calendario']);
         Permission::create(['name' => 'Crear Alerta']);
         Permission::create(['name' => 'Editar Alerta']);
@@ -67,6 +68,5 @@ class PermissionsSeeder extends Seeder
         Permission::create(['name' => 'Check en Usuarios Cupones']);
 
         Permission::create(['name' => 'Crear Roles y Permisos']);
-
     }
 }

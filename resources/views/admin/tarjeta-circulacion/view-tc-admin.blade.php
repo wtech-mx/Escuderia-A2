@@ -48,7 +48,7 @@
                 </div>
             </div>
         </div>
-    @if (auth()->user()->role == 1)
+    @if (auth()->user()->admin == 0)
         <div class="col-6 mt-5">
             <a class="btn mb-3 mr-1" href="#carouselExampleControls" role="button" data-slide="prev">
                 <img class="" src="{{ asset('img/icon/white/flecha-izquierda.png') }}" width="25px">
@@ -106,9 +106,14 @@
                                         <tbody>
                                             @foreach ($tarjeta_circulacion as $item)
                                                 <tr>
+                                                    @can('Editar Tarjeta C.')
                                                     <th><a style="text-decoration: none;"
-                                                            href="{{ route('edit_admin.tarjeta-circulacion', $item->id) }}">
-                                                            {{ $item->User->name }}</a>
+                                                        href="{{ route('edit_admin.tarjeta-circulacion', $item->id) }}">
+                                                        {{ $item->User->name }}</a>
+                                                    </th>
+                                                    @endcan
+                                                    <th>
+                                                        {{ $item->User->name }}
                                                     </th>
                                                     <td>{{ $item->nombre }}</td>
                                                     <td>{{ $item->Automovil->Marca->nombre }}</td>
@@ -164,10 +169,16 @@
                                         <tbody>
                                             @foreach ($tarjeta_circulacion2 as $item)
                                                 <tr>
+                                                    @can('Editar Tarjeta C.')
                                                     <th><a style="text-decoration: none;"
                                                             href="{{ route('edit_admin.tarjeta-circulacion', $item->id) }}">
                                                             {{ $item->UserEmpresa->name }}</a>
                                                     </th>
+                                                    @else
+                                                    <th>
+                                                        {{ $item->UserEmpresa->name }}
+                                                    </th>
+                                                    @endcan
                                                     <td>{{ $item->nombre }}</td>
                                                     <td>{{ $item->Automovil->Marca->nombre }}</td>
                                                 </tr>

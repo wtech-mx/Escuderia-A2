@@ -49,10 +49,17 @@
                     <tbody>
                         @foreach ($licencia as $item)
                             <tr>
+                                @can('Editar Licencia de Conducir')
                                 <th><a style="text-decoration: none;"
-                                        href="{{ route('edit_admin.licencia', $item->id) }}">
-                                        {{ $item->User->name }}</a>
+                                    href="{{ route('edit_admin.licencia', $item->id) }}">
+                                    {{ $item->User->name }}</a>
                                 </th>
+                                @else
+                                <th>
+                                    {{ $item->User->name }}
+                                </th>
+                                @endcan
+
                                 <td>{{ $item->tipo }}</td>
                                 <td>{{ $item->expedicion }}</td>
                             </tr>

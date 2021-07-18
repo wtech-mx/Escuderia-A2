@@ -55,8 +55,6 @@
                             Agregar
                         </h5>
                     </a>
-
-
                 </div>
                 @endcan
             </div>

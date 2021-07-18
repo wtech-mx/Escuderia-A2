@@ -42,9 +42,6 @@ class MecanicaController extends Controller
 |--------------------------------------------------------------------------*/
     public function view()
     {
-        if (auth()->user()->role == 0) {
-            return view('errors.403');
-        } else {
             $mecanica_user = Mecanica::get();
             $mecanica_empresa = MecanicaUsuario::where('id_usuario', '=', NULL)->get();
 
@@ -55,14 +52,10 @@ class MecanicaController extends Controller
             $autos = DB::table('mecanica_usuario')->get();
 
             return view('admin.services.view-mecanica', compact('mecanica_user', 'mecanica_empresa', 'users', 'proveedor', 'mecanica_usuario', 'autos'));
-        }
     }
 
     public function create_servicio()
     {
-        if (auth()->user()->role == 0) {
-            return view('errors.403');
-        } else {
             $user = DB::table('users')
                 ->where('role', '=', '0')
                 ->where('empresa', '=', 0)
@@ -85,14 +78,10 @@ class MecanicaController extends Controller
                 ->get();
 
             return view('admin.services.mecanica', compact('empresa', 'marca', 'automovil', 'user', 'proveedor'));
-        }
     }
 
     public function edit(Request $request, $id)
     {
-        if (auth()->user()->role != 1) {
-            return view('errors.403');
-        } else {
             $mecanica = Mecanica::findOrFail($id);
 
             $mecanica->llantas_delanteras = $request->get('llantas_delanteras');
@@ -122,7 +111,6 @@ class MecanicaController extends Controller
 
             Session::flash('success', 'Se ha guardado sus datos con exito');
             return redirect()->back();
-        }
     }
 
 

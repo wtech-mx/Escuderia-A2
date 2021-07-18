@@ -91,14 +91,12 @@
                         Datos de auto
                     </a>
                 </li>
-                @if (auth()->user()->role == 1)
                 <li class="nav-item">
                     <a class="nav-link a-auto" id="pills-Vinculacion-tab" data-toggle="pill" href="#pills-Vinculacion"
                         role="tab" aria-controls="pills-Vinculacion" aria-selected="false">
                         Vinculaci&oacute;n
                     </a>
                 </li>
-                @endif
 
             </ul>
             <form method="POST" action="{{ route('store_admin.automovil') }}" enctype="multipart/form-data" role="form">
@@ -270,7 +268,6 @@
                             </div>
                         </div>
 
-                        @if (auth()->user()->role == 2)
                         <input type="hidden" class="form-control input-edit-car" id="id_empresa"
                         name="id_empresa" value="{{ auth()->user()->id }}">
 
@@ -281,13 +278,12 @@
                                 Guardar
                             </button>
                         </div>
-                        @endif
                     </div>
 
                     {{-- -------------------------------------------------------------------------- --}}
                     {{-- |Tab seguridad --}}
                     {{-- |-------------------------------------------------------------------------- --}}
-                    @if (auth()->user()->role == 1)
+
                     <div class="tab-pane fade" id="pills-Vinculacion" role="tabpanel"
                         aria-labelledby="pills-Vinculacion-tab">
 
@@ -371,7 +367,7 @@
                         </div>
 
                     </div>
-                    @endif
+                
                 </div>
             </form>
             @include('admin.garaje.add-bussines-modal')

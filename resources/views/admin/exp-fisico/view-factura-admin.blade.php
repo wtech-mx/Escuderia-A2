@@ -67,20 +67,21 @@
 
     <strong class="text-center" style="color: rgb(102, 223, 66)"> {{ $automovil->placas }}</strong>
 
-    <div class="col-12 mt-5 mb-3">
+    @can('Crear Exp')
+    <div class="col-12 mt-3 mb-5">
         <div class="d-flex justify-content-between">
-            <p class="text-center text-white">
-                Agregar m&aacute;s
-            </p>
+        <p class="text-center text-white">
+            Agregar m&aacute;s
+        </p>
 
             <!-- Button trigger modal -->
-            <button class="btn " data-toggle="modal" data-target="#exampleModal">
-                <img class="d-inline" src="{{ asset('img/icon/white/plus.png') }}" alt="Icon documento" width="30px">
+            <button  class="btn " data-toggle="modal" data-target="#exampleModal">
+             <img class="d-inline mb-2" src="{{ asset('img/icon/white/plus.png') }}" alt="Icon documento" width="30px">
             </button>
 
         </div>
-
     </div>
+    @endcan
 
     <div class="row bg-down-blue " style="border-radius: 0 0 0 0;background-repeat: space repeat; height: 90vh">
         {{-- <div class="col-12"> --}}
@@ -133,10 +134,12 @@
                                             </p>
                                         </div>
                                         <div class="col-1">
+                                            @can('Borrar Exp')
                                             <a class="btn btn-danger text-white p-2 mt-5 mb-5" data-toggle="modal"
                                                 data-target="#modalfactura{{ $item->id }}">
                                                 <i class="fa fa-trash" aria-hidden="true"></i>
                                             </a>
+                                            @endcan
                                             <a class="btn btn-secondary p-2" data-dismiss="modal">
                                                 <i class="fa fa-window-close" aria-hidden="true"></i>
                                             </a>

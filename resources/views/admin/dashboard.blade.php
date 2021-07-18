@@ -110,73 +110,95 @@
                 <strong style="font: normal normal bold 25px/33px Segoe UI;"> ¿Qué haremos hoy?</strong>
             </h6>
         </div>
-                <div class="col-6 text-center">
-                    <a href="{{ route('index_admin.user') }}">
-                        <div class="card" style="border-radius: 15px">
-                            <div class="card-body">
-                                <i class="fas fa-users icon-effect-dashboard"></i>
-                                <p class="card-text text-white"><strong>Usuarios</strong></p>
-                            </div>
+
+
+            <div class="col-6 text-center">
+                @can('ver_usuario')
+                <a href="{{ route('index_admin.user') }}">
+                @endcan
+                    <div class="card" style="border-radius: 15px">
+                        <div class="card-body">
+                            <i class="fas fa-users icon-effect-dashboard"></i>
+                            <p class="card-text text-white"><strong>Usuarios</strong></p>
                         </div>
-                    </a>
-                </div>
-        <div class="col-6 text-center">
-            <a href="{{ route('index.alert') }}">
-                <div class="card" style="border-radius: 15px">
-                    <div class="card-body">
-                        <i class="fas fa-bell icon-effect-dashboard"></i>
-                        <p class="card-text text-white"><strong>Alertas</strong></p>
                     </div>
-                </div>
-            </a>
-        </div>
+                </a>
+            </div>
+
+
+            <div class="col-6 text-center">
+                @can('Ver Calendario')
+                <a href="{{ route('index.alert') }}">
+                @endcan
+                    <div class="card" style="border-radius: 15px">
+                        <div class="card-body">
+                            <i class="fas fa-bell icon-effect-dashboard"></i>
+                            <p class="card-text text-white"><strong>Alertas</strong></p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+
+            <div class="col-6 text-center mt-4">
+                @can('Ver Automovil')
+                <a href="{{ route('index_admin.automovil') }}">
+                @endcan
+                    <div class="card" style="border-radius: 15px">
+                        <div class="card-body">
+                            <i class="fas fa-car icon-effect-dashboard"></i>
+                            <p class="card-text text-white"><strong>Veh&iacute;culos</strong></p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+
+            <div class="col-6 text-center mt-4">
+                <a class="text-white" data-toggle="modal" data-target="#Servicios" style="cursor: pointer">
+                    <div class="card" style="border-radius: 15px">
+                        <div class="card-body">
+                            <i class="fas fa-cogs icon-effect-dashboard"></i>
+                            <p class="card-text"><strong>Servicios</strong></p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+
+            <div class="col-6 text-center mt-4">
+                @can('Ver Tarjeta C.')
+                <a href="{{ route('indextc_admin.tarjeta-circulacion') }}" class="text-white">
+                @endcan
+                    <div class="card" style="border-radius: 15px">
+                        <div class="card-body">
+                            <i class="fas fa-money-check icon-effect-dashboard"></i>
+                            <p class="card-text"><strong>T. Circulaci&oacute;n</strong></p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+
+            <div class="col-6 text-center mt-4">
+                @can('Ver Expedientes')
+                <a href="{{ route('index_admin.view-exp-fisico-admin') }}" class="text-white">
+                @endcan
+                    <div class="card" style="border-radius: 15px">
+                        <div class="card-body">
+                            <i class="fas fa-folder-open icon-effect-dashboard"></i>
+                            <p class="card-text"><strong>Exp F&iacute;sico</strong></p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+
 
         <div class="col-6 text-center mt-4">
-            <a href="{{ route('index_admin.automovil') }}">
-                <div class="card" style="border-radius: 15px">
-                    <div class="card-body">
-                        <i class="fas fa-car icon-effect-dashboard"></i>
-                        <p class="card-text text-white"><strong>Veh&iacute;culos</strong></p>
-                    </div>
-                </div>
-            </a>
-        </div>
-
-        <div class="col-6 text-center mt-4">
-            <a class="text-white" data-toggle="modal" data-target="#Servicios" style="cursor: pointer">
-                <div class="card" style="border-radius: 15px">
-                    <div class="card-body">
-                        <i class="fas fa-cogs icon-effect-dashboard"></i>
-                        <p class="card-text"><strong>Servicios</strong></p>
-                    </div>
-                </div>
-            </a>
-        </div>
-
-        <div class="col-6 text-center mt-4">
-            <a href="{{ route('indextc_admin.tarjeta-circulacion') }}" class="text-white">
-                <div class="card" style="border-radius: 15px">
-                    <div class="card-body">
-                        <i class="fas fa-money-check icon-effect-dashboard"></i>
-                        <p class="card-text"><strong>T. Circulaci&oacute;n</strong></p>
-                    </div>
-                </div>
-            </a>
-        </div>
-
-        <div class="col-6 text-center mt-4">
-            <a href="{{ route('index_admin.view-exp-fisico-admin') }}" class="text-white">
-                <div class="card" style="border-radius: 15px">
-                    <div class="card-body">
-                        <i class="fas fa-folder-open icon-effect-dashboard"></i>
-                        <p class="card-text"><strong>Exp F&iacute;sico</strong></p>
-                    </div>
-                </div>
-            </a>
-        </div>
-
-        <div class="col-6 text-center mt-4">
+            @can('Ver Seguro')
             <a href="{{ route('index_admin.seguros') }}" class="text-white">
+            @endcan
                 <div class="card" style="border-radius: 15px">
                     <div class="card-body">
                         <i class="fas fa-shield-alt icon-effect-dashboard"></i>
@@ -185,23 +207,28 @@
                 </div>
             </a>
         </div>
-        @if ($users->empresa == 0)
-            <div class="col-6 text-center mt-4">
-                <a href="{{ route('index_admin.empresa') }}" class="text-white">
 
-                    <div class="card" style="border-radius: 15px">
-                        <div class="card-body">
-                            <i class="fas fa-building icon-effect-dashboard"></i>
-                            <p class="card-text text-white"><strong>Empresas</strong></p>
+
+        @if ($users->empresa == 0)
+                <div class="col-6 text-center mt-4">
+                    @can('Ver Emp')
+                    <a href="{{ route('index_admin.empresa') }}" class="text-white">
+                    @endcan
+                        <div class="card" style="border-radius: 15px">
+                            <div class="card-body">
+                                <i class="fas fa-building icon-effect-dashboard"></i>
+                                <p class="card-text text-white"><strong>Empresas</strong></p>
+                            </div>
                         </div>
-                    </div>
-                </a>
-            </div>
+                    </a>
+                </div>
         @endif
 
-        <div class="col-6 text-center mt-4">
-            <a href="{{ route('index_admin.verificacion') }}" class="text-white">
 
+        <div class="col-6 text-center mt-4">
+            @can('Ver Veri')
+            <a href="{{ route('index_admin.verificacion') }}" class="text-white">
+            @endcan
                 <div class="card" style="border-radius: 15px">
                     <div class="card-body">
                         <i class="fas fa-calendar-check icon-effect-dashboard"></i>
@@ -211,66 +238,76 @@
             </a>
         </div>
 
-        @if ($users->empresa == 0)
-            <div class="col-6 text-center mt-4">
-                <a href="{{ route('index_admin.licencia') }}" class="text-white">
 
-                    <div class="card" style="border-radius: 15px">
-                        <div class="card-body">
-                            <i class="far fa-id-badge icon-effect-dashboard"></i>
-                            <p class=" card-text text-white"><strong>Licencia Conducir</strong></p>
+        @if ($users->empresa == 0)
+                <div class="col-6 text-center mt-4">
+                    @can('Ver Licencia de Conducir')
+                    <a href="{{ route('index_admin.licencia') }}" class="text-white">
+                    @endcan
+                        <div class="card" style="border-radius: 15px">
+                            <div class="card-body">
+                                <i class="far fa-id-badge icon-effect-dashboard"></i>
+                                <p class=" card-text text-white"><strong>Licencia Conducir</strong></p>
+                            </div>
                         </div>
-                    </div>
-                </a>
-            </div>
+                    </a>
+                </div>
         @endif
 
+
         <div class="col-6 text-center position-relative mt-4" >
-
             <div class="card" style="border-radius: 15px">
-
+                @can('Ver Notas')
                 <a href="{{ route('index.notas') }}">
+                @endcan
                     <div class="contenedor-inter-card position-absolute">
                         <p clas="text-vertical-l"
                             style="writing-mode: vertical-lr;color: #000;top:30px;margin-top: 2.3rem;margin-left: 5px!important;">
                             Historial</p>
                     </div>
                 </a>
-
+                @can('Crear Notas')
                 <a data-toggle="modal" data-target="#modalNotas" class="text-white">
+                @endcan
                     <div class="card-body">
                         <i class="fas fa-sticky-note icon-effect-dashboard"></i>
                         <p class="card-text text-white"><strong>Notas</strong></p>
                     </div>
                 </a>
 
+
             </div>
             </a>
         </div>
 
-        <div class="col-6 text-center mt-4" >
-            <a href="{{ route('index_admin.cupon') }}" class="text-white">
 
-                <div class="card" style="border-radius: 15px">
-                    <div class="card-body">
-                        <i class="fas fa-qrcode icon-effect-dashboard"></i>
-                        <p class=" card-text text-white"><strong>Cupones</strong></p>
+            <div class="col-6 text-center mt-4" >
+                @can('Ver Cupones')
+                <a href="{{ route('index_admin.cupon') }}" class="text-white">
+                @endcan
+                    <div class="card" style="border-radius: 15px">
+                        <div class="card-body">
+                            <i class="fas fa-qrcode icon-effect-dashboard"></i>
+                            <p class=" card-text text-white"><strong>Cupones</strong></p>
+                        </div>
                     </div>
-                </div>
-            </a>
-        </div>
+                </a>
+            </div>
 
-        <div class="col-6 text-center  mt-4" style="margin-bottom: 8rem !important;">
-            <a href="{{ route('index_role.role') }}" class="text-white">
 
-                <div class="card" style="border-radius: 15px">
-                    <div class="card-body">
-                        <i class="fas fa-users-cog icon-effect-dashboard"></i>
-                        <p class="card-text text-white"><strong>Roles y Permisos</strong></p>
+            <div class="col-6 text-center  mt-4" style="margin-bottom: 8rem !important;">
+                @can('Crear Roles y Permisos')
+                <a href="{{ route('index_role.role') }}" class="text-white">
+                @endcan
+                    <div class="card" style="border-radius: 15px">
+                        <div class="card-body">
+                            <i class="fas fa-users-cog icon-effect-dashboard"></i>
+                            <p class="card-text text-white"><strong>Roles y Permisos</strong></p>
+                        </div>
                     </div>
-                </div>
-            </a>
-        </div>
+                </a>
+            </div>
+
 
         @include('admin.notas.create')
         @include('admin.modal-services')

@@ -33,7 +33,7 @@
             </div>
         </div>
 
-        @if (auth()->user()->role == 1)
+        @if (auth()->user()->empresa == 0)
             <div class="col-6 mt-4">
                 <a class="btn mb-3 mr-1" href="#carouselExampleControls" role="button" data-slide="prev">
                     <img class="" src="{{ asset('img/icon/white/flecha-izquierda.png') }}" width="25px">
@@ -72,10 +72,17 @@
                                             <tbody>
                                                 @foreach ($verificacion_user as $item)
                                                     <tr>
+                                                        @can('Editar Veri')
                                                         <th><a style="text-decoration: none;"
-                                                                href="{{ route('edit_admin.verificacion', $item->id) }}">
-                                                                {{ $item->User->name }}</a>
+                                                            href="{{ route('edit_admin.verificacion', $item->id) }}">
+                                                            {{ $item->User->name }}</a>
                                                         </th>
+                                                        @else
+                                                        <th>
+                                                            {{ $item->User->name }}
+                                                        </th>
+                                                        @endcan
+
                                                         <td>{{ $item->Automovil->submarca }}</td>
                                                         <td>{{ $item->Automovil->placas }}</td>
                                                     </tr>
@@ -112,10 +119,16 @@
                                         <tbody>
                                             @foreach ($verificacion_empresa as $item)
                                                 <tr>
+                                                    @can('Editar Veri')
                                                     <th><a style="text-decoration: none;"
                                                             href="{{ route('edit_admin.verificacion', $item->id) }}">
                                                             {{ $item->UserEmpresa->name }}</a>
                                                     </th>
+                                                    @else
+                                                    <th>
+                                                        {{ $item->UserEmpresa->name }}
+                                                    </th>
+                                                    @endcan
                                                     <td>{{ $item->Automovil->submarca }}</td>
                                                     <td>{{ $item->Automovil->placas }}</td>
                                                 </tr>

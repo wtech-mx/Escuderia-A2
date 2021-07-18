@@ -67,9 +67,11 @@
 
         <div class="col-6 mt-4 ">
 
+            @can('Crear Automovil')
             <h5 class="text-white text-tittle-app mr-3 d-inline" style="font: normal normal bold 15px/20px Segoe UI">
                 Agregar
             </h5>
+            @endcan
 
             <a class="btn" href="{{ route('create_admin.automovil') }}">
                 <i class="fas fa-plus-circle icon-effect"></i>
@@ -78,7 +80,7 @@
 
         <div class="col-12">
 
-            @if (auth()->user()->role == 1)
+            @if (auth()->user()->empresa == 0)
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="90000">
 
                 <div class="carousel-inner">
@@ -133,9 +135,13 @@
                                         <tbody>
                                             @foreach ($automovil as $item)
                                                 <tr>
+                                                    @can('Edit Automovil')
                                                     <th><a style="text-decoration: none;"
                                                             href="{{ route('edit_admin.automovil', $item->id) }}">{{ $item->User->name }}</a>
                                                     </th>
+                                                    @else
+                                                    <th>{{ $item->User->name }} </th>
+                                                    @endcan
                                                     <td>{{ $item->placas }}</td>
                                                     <td>{{ $item->Marca->nombre }}</td>
                                                     <td>{{ $item->submarca }}</td>
@@ -191,9 +197,13 @@
                                         <tbody>
                                             @foreach ($automovil2 as $item)
                                                 <tr>
+                                                    @can('Edit Automovil')
                                                     <th><a style="text-decoration: none;"
                                                             href="{{ route('edit_admin.automovil', $item->id) }}">{{ $item->UserEmpresa->name }}</a>
                                                     </th>
+                                                    @else
+                                                    <th>{{ $item->UserEmpresa->name }} </th>
+                                                    @endcan
                                                     <td>{{ $item->placas }}</td>
                                                     <td>{{ $item->Marca->nombre }}</td>
                                                     <td>{{ $item->submarca }}</td>

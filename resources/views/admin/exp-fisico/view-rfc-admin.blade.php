@@ -71,6 +71,7 @@
 
                         <strong class="text-center" style="color: rgb(102, 223, 66)"> {{ $automovil->placas }}</strong>
 
+                        @can('Crear Exp')
                         <div class="col-12 mt-3 mb-5">
                             <div class="d-flex justify-content-between">
                             <p class="text-center text-white">
@@ -84,6 +85,7 @@
 
                             </div>
                         </div>
+                        @endcan
 
                     @if ($exp_rfc->count())
                         @foreach($exp_rfc as $item)
@@ -124,9 +126,11 @@
                                                   </p>
                                               </div>
                                               <div class="col-1">
+                                                @can('Borrar Exp')
                                                     <a  class="btn btn-danger text-white p-2 mt-5 mb-5" data-toggle="modal" data-target="#modalrfc{{$item->id}}">
                                                         <i class="fa fa-trash" aria-hidden="true"></i>
                                                     </a>
+                                                    @endcan
                                                     <a  class="btn btn-secondary p-2" data-dismiss="modal">
                                                         <i class="fa fa-window-close" aria-hidden="true"></i>
                                                     </a>

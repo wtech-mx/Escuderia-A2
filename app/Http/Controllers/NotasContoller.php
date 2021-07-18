@@ -21,30 +21,24 @@ class NotasContoller extends Controller
 
     public function index(Request $request)
     {
-        if (auth()->user()->role != 1) {
-            return view('errors.403');
-        } else {
             $nombre = $request->get('nombre');
 
             $notas = Notas::nombre($nombre)->get();
             $users = User::orderBy('name')->get();
 
             return view('admin.notas.index', compact('notas', 'users'));
-        }
+
     }
 
     public function create()
     {
-        if (auth()->user()->role != 1) {
-            return view('errors.403');
-        } else {
             $user = DB::table('users')
                 ->orderBy('name')
                 ->where('role', '=', '0')
                 ->get();
 
             return view('admin.notas.create', compact('user'));
-        }
+
     }
 
     public function store(Request $request)
@@ -65,16 +59,13 @@ class NotasContoller extends Controller
 
     public function edit($id)
     {
-        if (auth()->user()->role != 1) {
-            return view('errors.403');
-        } else {
             $nota = Notas::findOrFail($id);
             $user = DB::table('users')
                 ->where('role', '=', '0')
                 ->get();
 
             return view('admin.notas.update', compact('user', 'nota'));
-        }
+     
     }
 
     function update(Request $request, $id)

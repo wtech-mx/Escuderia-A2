@@ -209,5 +209,8 @@
 
                 </div>
 
+                @can('Ver Calendario')
                 @include('admin.alerts.modal')
+                @endcan
+
 

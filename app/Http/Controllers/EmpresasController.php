@@ -74,9 +74,6 @@ class EmpresasController extends Controller
 |--------------------------------------------------------------------------*/
     function index_admin()
     {
-        if (auth()->user()->role != 1) {
-            return view('errors.403');
-        } else {
             $empresa = User::where('empresa', '=', 1)->get();
 
             $user = DB::table('users')
@@ -85,20 +82,15 @@ class EmpresasController extends Controller
 
 
             return view('admin.empresas.view-empresas-admin', compact('empresa', 'user'));
-        }
     }
 
     public function create_admin()
     {
-        if (auth()->user()->role != 1) {
-            return view('errors.403');
-        } else {
             $user = DB::table('users')
                 ->where('role', '=', '0')
                 ->get();
 
             return view('admin.empresas.add-empresa-admin', compact('user'));
-        }
     }
 
     public function store_admin(Request $request)
@@ -136,9 +128,6 @@ class EmpresasController extends Controller
 
     public function edit_admin($id)
     {
-        if (auth()->user()->role != 1) {
-            return view('errors.403');
-        } else {
             $empresa = User::findOrFail($id);
 
             $empresas = DB::table('user')
@@ -150,7 +139,6 @@ class EmpresasController extends Controller
                 ->get();
 
             return view('admin.empresas.edit-empresa-admin', compact('empresa', 'empresas', 'user'));
-        }
     }
 
     public function update_admin(Request $request, $id)

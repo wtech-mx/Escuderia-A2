@@ -277,9 +277,6 @@ class AutomovilController extends Controller
 
     function index_admin()
     {
-        if (auth()->user()->role == 0 ) {
-            return view('errors.403');
-        } else {
 
             $automovil = Automovil::where('id_empresa', '=', NULL)
                 ->get();
@@ -292,14 +289,11 @@ class AutomovilController extends Controller
                 ->get();
 
             return view('admin.garaje.view-garaje-admin', compact('automovil', 'automovil2', 'automovil_empresa'));
-        }
+
     }
 
     public function create_admin()
     {
-        if (auth()->user()->role == 0) {
-            return view('errors.403');
-        } else {
             $marca = DB::table('marca')
                 ->get();
 
@@ -314,7 +308,6 @@ class AutomovilController extends Controller
 
 
             return view('admin.garaje.create-garaje-admin', compact('marca', 'user', 'empresa', 'user'));
-        }
     }
 
     public function store_admin(Request $request)
@@ -440,9 +433,6 @@ class AutomovilController extends Controller
 
     public function  edit_admin($id)
     {
-        if (auth()->user()->role == 0) {
-            return view('errors.403');
-        } else {
             $automovil = Automovil::findOrFail($id);
 
             $marca = DB::table('marca')
@@ -458,7 +448,6 @@ class AutomovilController extends Controller
                 ->get();
 
             return view('admin.garaje.edit-garaje-admin', compact('automovil', 'marca', 'user', 'empresa'));
-        }
     }
 
     function update_admin(Request $request, $id)

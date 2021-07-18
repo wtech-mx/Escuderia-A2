@@ -42,18 +42,20 @@
                 <a class="mt-1 ml-5 text-white " href="/exportar/empresas">
                     <i class="fa fa-download icon-effect" aria-hidden="true"></i>
                 </a>
+            @can('Crear Emp')
+            <div class="content">
+                <a class="btn btn-circel" href="{{ route('create_admin.empresa') }}">
+                    <h5 class="text-white text-tittle-app mt-2 " style="font: normal normal bold 15px/20px Segoe UI">
+                        Agregar
+                    </h5>
+                </a>
 
-                <div class="content">
-                    <a class="btn btn-circel" href="{{ route('create_admin.empresa') }}">
-                        <h5 class="text-white text-tittle-app mt-2 " style="font: normal normal bold 15px/20px Segoe UI">
-                            Agregar
-                        </h5>
-                    </a>
+                <a class="btn btn-circel" href="{{ route('create_admin.empresa') }}">
+                    <img class="" src="{{ asset('img/icon/white/plus.png') }}" width="30px">
+                </a>
+            </div>
+            @endcan
 
-                    <a class="btn btn-circel" href="{{ route('create_admin.empresa') }}">
-                        <img class="" src="{{ asset('img/icon/white/plus.png') }}" width="30px">
-                    </a>
-                </div>
             </div>
         </div>
         <div class="row ml-2 mr-2">
@@ -83,9 +85,15 @@
                         <tbody>
                             @foreach ($empresa as $item)
                                 <tr>
+                                    @can('Editar Emp')
                                     <td><a style="text-decoration: none;"
-                                            href="{{ route('edit_admin.empresa', $item->id) }}">{{ $item->name }}</a>
+                                        href="{{ route('edit_admin.empresa', $item->id) }}">{{ $item->name }}</a>
                                     </td>
+                                    @else
+                                    <td>{{ $item->name }}
+                                    </td>
+                                    @endcan
+
                                     <td>{{ $item->email }}</td>
                                     <td>{{ $item->telefono }}</td>
                                 </tr>

@@ -241,6 +241,7 @@ Route::get('admin/user/create', 'UserController@create')->name('create.user');
 Route::post('admin/user/create', 'UserController@store_auto')->name('store_auto.user');
 
 /* Create User_Admin */
+Route::group(['middleware' => ['permission:ver_usuario|create_admin|Editar Usuario']], function () {
     Route::get('admin/usuario/index', 'UserController@index_admin')->name('index_admin.user');
 
     Route::get('admin/usuario/crear', 'UserController@create_admin')->name('create_admin.user');
@@ -249,29 +250,32 @@ Route::post('admin/user/create', 'UserController@store_auto')->name('store_auto.
     Route::get('admin/usuario/edit/{id}', 'UserController@edit_admin')->name('edit_admin.user');
     Route::patch('admin/usuario/update/{id}', 'UserController@update_admin')->name('update_admin.user');
     Route::patch('admin/usuario/update/password/{id}', 'UserController@update_admin_password')->name('update_admin_password.user');
+});
+
 
 
 /*|--------------------------------------------------------------------------
 |Create Role
 |--------------------------------------------------------------------------*/
-Route::get('admin/role/index', 'RoleController@index_role')->name('index_role.role');
-Route::get('admin/role/crear', 'RoleController@create_role')->name('create_role.role');
-Route::post('admin/role/store', 'RoleController@store_role')->name('store_role.role');
+Route::group(['middleware' => ['permission:Crear Roles y Permisos']], function () {
+    Route::get('admin/role/index', 'RoleController@index_role')->name('index_role.role');
+    Route::get('admin/role/crear', 'RoleController@create_role')->name('create_role.role');
+    Route::post('admin/role/store', 'RoleController@store_role')->name('store_role.role');
 
-Route::get('admin/role/edit/{id}', 'RoleController@edit_role')->name('edit_role.role');
-Route::patch('admin/role/edit/{id}', 'RoleController@update_role')->name('update_role.role');
-
-
+    Route::get('admin/role/edit/{id}', 'RoleController@edit_role')->name('edit_role.role');
+    Route::patch('admin/role/edit/{id}', 'RoleController@update_role')->name('update_role.role');
+});
 
 /*|--------------------------------------------------------------------------
 |garaje edit - Admin
 |--------------------------------------------------------------------------*/
-
-Route::get('admin/automovil/index', 'AutomovilController@index_admin')->name('index_admin.automovil');
-Route::get('admin/automovil/crear', 'AutomovilController@create_admin')->name('create_admin.automovil');
-Route::post('admin/automovil/crear', 'AutomovilController@store_admin')->name('store_admin.automovil');
-Route::get('admin/automovil/edit/{id}', 'AutomovilController@edit_admin')->name('edit_admin.automovil');
-Route::patch('admin/automovil/update/{id}', 'AutomovilController@update_admin')->name('update_admin.automovil');
+Route::group(['middleware' => ['permission:Ver Automovil|Crear Automovil|Edit Automovil']], function () {
+    Route::get('admin/automovil/index', 'AutomovilController@index_admin')->name('index_admin.automovil');
+    Route::get('admin/automovil/crear', 'AutomovilController@create_admin')->name('create_admin.automovil');
+    Route::post('admin/automovil/crear', 'AutomovilController@store_admin')->name('store_admin.automovil');
+    Route::get('admin/automovil/edit/{id}', 'AutomovilController@edit_admin')->name('edit_admin.automovil');
+    Route::patch('admin/automovil/update/{id}', 'AutomovilController@update_admin')->name('update_admin.automovil');
+});
 
 /*|--------------------------------------------------------------------------
 |Empresas view
@@ -282,30 +286,35 @@ Route::get('admin/empresa/auto/crear', 'EmpresasController@create_empresa')->nam
 Route::post('admin/empresa/auto/crear', 'EmpresasController@store_empresa')->name('store_empresa.empresa');
 
 /* Create Empresa_Admin */
-Route::get('admin/empresa/index', 'EmpresasController@index_admin')->name('index_admin.empresa');
-Route::get('admin/empresa/create', 'EmpresasController@create_admin')->name('create_admin.empresa');
-Route::post('admin/empresa/create', 'EmpresasController@store_admin')->name('store_admin.empresa');
+Route::group(['middleware' => ['permission:Ver Emp|Crear Emp|Editar Emp']], function () {
+    Route::get('admin/empresa/index', 'EmpresasController@index_admin')->name('index_admin.empresa');
+    Route::get('admin/empresa/create', 'EmpresasController@create_admin')->name('create_admin.empresa');
+    Route::post('admin/empresa/create', 'EmpresasController@store_admin')->name('store_admin.empresa');
 
-Route::get('admin/empresa/edit/{id}', 'EmpresasController@edit_admin')->name('edit_admin.empresa');
-Route::patch('admin/empresa/update/{id}', 'EmpresasController@update_admin')->name('update_admin.empresa');
+    Route::get('admin/empresa/edit/{id}', 'EmpresasController@edit_admin')->name('edit_admin.empresa');
+    Route::patch('admin/empresa/update/{id}', 'EmpresasController@update_admin')->name('update_admin.empresa');
+});
 
 Route::get('/exportar/empresas', 'EmpresasController@export');
 
 /*|--------------------------------------------------------------------------
 |SEGUROS view
 |--------------------------------------------------------------------------*/
-Route::get('admin/seguros/index', 'SegurosController@index_admin')->name('index_admin.seguros');
-Route::get('admin/seguro/edit/{id}', 'SegurosController@edit_admin')->name('edit_admin.seguro');
-Route::patch('admin/seguro/update/{id}', 'SegurosController@update_admin')->name('update_admin.seguro');
-Route::post('admin/exp_poliza/crear/', 'ExpolizaController@store_admin_s')->name('store_admin_s.exp-poliza');
+Route::group(['middleware' => ['permission:Ver Seguro|Editar Seguro']], function () {
+    Route::get('admin/seguros/index', 'SegurosController@index_admin')->name('index_admin.seguros');
+    Route::get('admin/seguro/edit/{id}', 'SegurosController@edit_admin')->name('edit_admin.seguro');
+    Route::patch('admin/seguro/update/{id}', 'SegurosController@update_admin')->name('update_admin.seguro');
+    Route::post('admin/exp_poliza/crear/', 'ExpolizaController@store_admin_s')->name('store_admin_s.exp-poliza');
+});
 /*|--------------------------------------------------------------------------
 |Sevicios
 |--------------------------------------------------------------------------*/
-
-Route::get('admin/servicio/view', 'MecanicaController@view')->name('view.servicio');
-Route::patch('admin/servicio/update/{id}', 'MecanicaController@edit')->name('edit.servicio');
-Route::get('admin/servicio/crear', 'MecanicaController@create_servicio')->name('create_servicio.servicio');
-Route::post('admin/servicio/crear', 'MecanicaController@store_servicio')->name('store_servicio.servicio');
+Route::group(['middleware' => ['permission:Ver Servicios|Crear Servicios']], function () {
+    Route::get('admin/servicio/view', 'MecanicaController@view')->name('view.servicio');
+    Route::patch('admin/servicio/update/{id}', 'MecanicaController@edit')->name('edit.servicio');
+    Route::get('admin/servicio/crear', 'MecanicaController@create_servicio')->name('create_servicio.servicio');
+    Route::post('admin/servicio/crear', 'MecanicaController@store_servicio')->name('store_servicio.servicio');
+});
 
 Route::post('/automovil', 'MecanicaController@automovil')->name('automovil.servicio');
 
@@ -320,10 +329,11 @@ Route::get('admin/servicio/crear/empresa/{id}', 'MecanicaController@GetEmpreAgai
 |--------------------------------------------------------------------------*/
 
 /* Trae todos todos los autos */
-
-Route::get('admin/tarjeta-circulacion/index/', 'TarjetaCirculacionController@indextc_admin')->name('indextc_admin.tarjeta-circulacion');
-Route::get('admin/tarjeta-circulacion/edit/{id}', 'TarjetaCirculacionController@edit_admin')->name('edit_admin.tarjeta-circulacion');
-Route::patch('admin/tarjeta-circulacion/update/{id}', 'TarjetaCirculacionController@update_admin')->name('update_admin.tarjeta-circulacion');
+Route::group(['middleware' => ['permission:Ver Tarjeta C.|Editar Tarjeta C.']], function () {
+    Route::get('admin/tarjeta-circulacion/index/', 'TarjetaCirculacionController@indextc_admin')->name('indextc_admin.tarjeta-circulacion');
+    Route::get('admin/tarjeta-circulacion/edit/{id}', 'TarjetaCirculacionController@edit_admin')->name('edit_admin.tarjeta-circulacion');
+    Route::patch('admin/tarjeta-circulacion/update/{id}', 'TarjetaCirculacionController@update_admin')->name('update_admin.tarjeta-circulacion');
+});
 
 Route::post('admin/tarjeta-circulacion/create/', 'ImgTcController@store_admin')->name('store_admin.tarjeta-circulacion');
 
@@ -332,42 +342,43 @@ Route::post('admin/tarjeta-circulacion/create/', 'ImgTcController@store_admin')-
 |--------------------------------------------------------------------------*/
 
 /* Trae todos todos los autos */
-Route::get('admin/exp-fisico/index/', 'ExpfacturasController@index_admin')->name('index_admin.view-exp-fisico-admin');
+Route::group(['middleware' => ['permission:Ver Expedientes|Crear Exp|Borrar Exp']], function () {
+    Route::get('admin/exp-fisico/index/', 'ExpfacturasController@index_admin')->name('index_admin.view-exp-fisico-admin');
 
-/* Trae datos de facttura */
-Route::get('admin/exp-fisico/factura/view/{id}', 'ExpfacturasController@create_admin')->name('create_admin.view-factura-admin');
-Route::post('admin/exp-fisico/factura/crear/{id}', 'ExpfacturasController@store_admin')->name('store_admin.view-factura-admin');
+    /* Trae datos de facttura */
+    Route::get('admin/exp-fisico/factura/view/{id}', 'ExpfacturasController@create_admin')->name('create_admin.view-factura-admin');
+    Route::post('admin/exp-fisico/factura/crear/{id}', 'ExpfacturasController@store_admin')->name('store_admin.view-factura-admin');
 
-Route::get('admin/exp-fisico/bp/view/{id}', 'ExplacasController@create_admin')->name('create_admin.view-bp-admin');
-Route::post('admin/exp-fisico/bp/crear/{id}', 'ExplacasController@store_admin')->name('store_admin.view-bp-admin');
+    Route::get('admin/exp-fisico/bp/view/{id}', 'ExplacasController@create_admin')->name('create_admin.view-bp-admin');
+    Route::post('admin/exp-fisico/bp/crear/{id}', 'ExplacasController@store_admin')->name('store_admin.view-bp-admin');
 
-Route::get('admin/exp-fisico/cd/view/{id}', 'ExpdomicilioController@create_admin')->name('create_admin.view-cd-admin');
-Route::post('admin/exp-fisico/cd/crear/{id}', 'ExpdomicilioController@store_admin')->name('store_admin.view-cd-admin');
+    Route::get('admin/exp-fisico/cd/view/{id}', 'ExpdomicilioController@create_admin')->name('create_admin.view-cd-admin');
+    Route::post('admin/exp-fisico/cd/crear/{id}', 'ExpdomicilioController@store_admin')->name('store_admin.view-cd-admin');
 
-Route::get('admin/exp-fisico/cr/view/{id}', 'ExpcartaController@create_admin')->name('create_admin.view-cr-admin');
-Route::post('admin/exp-fisico/cr/crear/{id}', 'ExpcartaController@store_admin')->name('store_admin.view-cr-admin');
+    Route::get('admin/exp-fisico/cr/view/{id}', 'ExpcartaController@create_admin')->name('create_admin.view-cr-admin');
+    Route::post('admin/exp-fisico/cr/crear/{id}', 'ExpcartaController@store_admin')->name('store_admin.view-cr-admin');
 
-Route::get('admin/exp-fisico/ine/view/{id}', 'ExpineController@create_admin')->name('create_admin.view-ine-admin');
-Route::post('admin/exp-fisico/ine/crear/{id}', 'ExpineController@store_admin')->name('store_admin.view-ine-admin');
+    Route::get('admin/exp-fisico/ine/view/{id}', 'ExpineController@create_admin')->name('create_admin.view-ine-admin');
+    Route::post('admin/exp-fisico/ine/crear/{id}', 'ExpineController@store_admin')->name('store_admin.view-ine-admin');
 
-Route::get('admin/exp-fisico/poliza/view/{id}', 'ExpolizaController@create_admin')->name('create_admin.view-poliza-admin');
-Route::post('admin/exp-fisico/poliza/crear/{id}', 'ExpolizaController@store_admin')->name('store_admin.view-poliza-admin');
+    Route::get('admin/exp-fisico/poliza/view/{id}', 'ExpolizaController@create_admin')->name('create_admin.view-poliza-admin');
+    Route::post('admin/exp-fisico/poliza/crear/{id}', 'ExpolizaController@store_admin')->name('store_admin.view-poliza-admin');
 
-Route::get('admin/exp-fisico/reemplacamiento/view/{id}', 'ExpreemplacaminetoController@create_admin')->name('create_admin.view-reemplacamiento-admin');
-Route::post('admin/exp-fisico/reemplacamiento/crear/{id}', 'ExpreemplacaminetoController@store_admin')->name('store_admin.view-reemplacamiento-admin');
+    Route::get('admin/exp-fisico/reemplacamiento/view/{id}', 'ExpreemplacaminetoController@create_admin')->name('create_admin.view-reemplacamiento-admin');
+    Route::post('admin/exp-fisico/reemplacamiento/crear/{id}', 'ExpreemplacaminetoController@store_admin')->name('store_admin.view-reemplacamiento-admin');
 
-Route::get('admin/exp-fisico/rfc/view/{id}', 'ExprfcController@create_admin')->name('create_admin.view-rfc-admin');
-Route::post('admin/exp-fisico/rfc/crear/{id}', 'ExprfcController@store_admin')->name('store_admin.view-rfc-admin');
+    Route::get('admin/exp-fisico/rfc/view/{id}', 'ExprfcController@create_admin')->name('create_admin.view-rfc-admin');
+    Route::post('admin/exp-fisico/rfc/crear/{id}', 'ExprfcController@store_admin')->name('store_admin.view-rfc-admin');
 
-Route::get('admin/exp-fisico/tc/view/{id}', 'ExptcController@create_admin')->name('create_admin.view-tc-admin');
-Route::post('admin/exp-fisico/tc/crear/{id}', 'ExptcController@store_admin')->name('store_admin.view-tc-admin');
+    Route::get('admin/exp-fisico/tc/view/{id}', 'ExptcController@create_admin')->name('create_admin.view-tc-admin');
+    Route::post('admin/exp-fisico/tc/crear/{id}', 'ExptcController@store_admin')->name('store_admin.view-tc-admin');
 
-Route::get('admin/exp-fisico/tenencia/view/{id}', 'ExptenenciasController@create_admin')->name('create_admin.view-tenencia-admin');
-Route::post('admin/exp-fisico/tenencia/crear/{id}', 'ExptenenciasController@store_admin')->name('store_admin.view-tenencia-admin');
+    Route::get('admin/exp-fisico/tenencia/view/{id}', 'ExptenenciasController@create_admin')->name('create_admin.view-tenencia-admin');
+    Route::post('admin/exp-fisico/tenencia/crear/{id}', 'ExptenenciasController@store_admin')->name('store_admin.view-tenencia-admin');
 
-Route::get('admin/exp-fisico/certificado/view/{id}', 'ExpCertificadoController@create_admin')->name('create_admin.view-certificado-admin');
-Route::post('admin/exp-fisico/certificado/crear/{id}', 'ExpCertificadoController@store_admin')->name('store_admin.view-certificado-admin');
-
+    Route::get('admin/exp-fisico/certificado/view/{id}', 'ExpCertificadoController@create_admin')->name('create_admin.view-certificado-admin');
+    Route::post('admin/exp-fisico/certificado/crear/{id}', 'ExpCertificadoController@store_admin')->name('store_admin.view-certificado-admin');
+});
 /*|--------------------------------------------------------------------------
 |Marca
 |--------------------------------------------------------------------------*/
@@ -376,11 +387,13 @@ Route::post('admin/servicio/crear/marca', 'MarcaController@store')->name('store.
 /*|--------------------------------------------------------------------------
 |VERIFICACION view
 |--------------------------------------------------------------------------*/
-Route::get('admin/verificacion/index', 'VerificacionController@index_admin')->name('index_admin.verificacion');
-Route::get('admin/verificacion/edit/{id}', 'VerificacionController@edit_admin')->name('edit_admin.verificacion');
-Route::patch('admin/verificacion/update/{id}', 'VerificacionController@update_admin')->name('update_admin.verificacion');
+Route::group(['middleware' => ['permission:Ver Veri|Editar Veri']], function () {
+    Route::get('admin/verificacion/index', 'VerificacionController@index_admin')->name('index_admin.verificacion');
+    Route::get('admin/verificacion/edit/{id}', 'VerificacionController@edit_admin')->name('edit_admin.verificacion');
+    Route::patch('admin/verificacion/update/{id}', 'VerificacionController@update_admin')->name('update_admin.verificacion');
 
-Route::post('admin/periodo2/update/{id}', 'VerificacionController@update_periodo2')->name('update_periodo2.verificacion');
+    Route::post('admin/periodo2/update/{id}', 'VerificacionController@update_periodo2')->name('update_periodo2.verificacion');
+});
 /*|--------------------------------------------------------------------------
 |Correo view
 |--------------------------------------------------------------------------*/
@@ -389,43 +402,47 @@ Route::get('send-mail', [DashboardController::class, 'alerta']);
 /*|--------------------------------------------------------------------------
 |Notas
 |--------------------------------------------------------------------------*/
-Route::get('admin/notas/view', 'NotasContoller@index')->name('index.notas');
-Route::get('admin/notas/crear', 'NotasContoller@create')->name('create.notas');
-Route::post('admin/notas/store', 'NotasContoller@store')->name('store.notas');
-Route::post('admin/notas/edit', 'NotasContoller@edit')->name('edit.notas');
-Route::post('admin/notas/update/{id}', 'NotasContoller@update')->name('update.notas');
-Route::delete('admin/notas/destroy/{id}', 'NotasContoller@destroy')->name('destroy.notas');
-
+Route::group(['middleware' => ['permission:Ver Notas|Crear Notas|Editar Notas|Eliminar Notas']], function () {
+    Route::get('admin/notas/view', 'NotasContoller@index')->name('index.notas');
+    Route::get('admin/notas/crear', 'NotasContoller@create')->name('create.notas');
+    Route::post('admin/notas/store', 'NotasContoller@store')->name('store.notas');
+    Route::post('admin/notas/edit', 'NotasContoller@edit')->name('edit.notas');
+    Route::post('admin/notas/update/{id}', 'NotasContoller@update')->name('update.notas');
+    Route::delete('admin/notas/destroy/{id}', 'NotasContoller@destroy')->name('destroy.notas');
+});
 /*|--------------------------------------------------------------------------
 |Licencia de conducir view
 |--------------------------------------------------------------------------*/
-Route::get('licencia/index', 'LicenciaController@index')->name('index.licencia');
-Route::patch('licencia/update/{id}', 'LicenciaController@update')->name('update.licencia');
+Route::group(['middleware' => ['permission:Ver Licencia de Conducir|Editar Licencia de Conducir']], function () {
+    Route::get('licencia/index', 'LicenciaController@index')->name('index.licencia');
+    Route::patch('licencia/update/{id}', 'LicenciaController@update')->name('update.licencia');
 
-Route::get('admin/licencia/index', 'LicenciaController@index_admin')->name('index_admin.licencia');
-Route::get('admin/licencia/edit/{id}', 'LicenciaController@edit_admin')->name('edit_admin.licencia');
-Route::patch('admin/licencia/update/{id}', 'LicenciaController@update_admin')->name('update_admin.licencia');
-
+    Route::get('admin/licencia/index', 'LicenciaController@index_admin')->name('index_admin.licencia');
+    Route::get('admin/licencia/edit/{id}', 'LicenciaController@edit_admin')->name('edit_admin.licencia');
+    Route::patch('admin/licencia/update/{id}', 'LicenciaController@update_admin')->name('update_admin.licencia');
+});
 /*|--------------------------------------------------------------------------
 |Cupones
 |--------------------------------------------------------------------------*/
-Route::get('admin/cupon/view', 'CuponController@index_admin')->name('index_admin.cupon');
-Route::get('admin/cupon/crear', 'CuponController@create_admin')->name('create_admin.cupon');
-Route::post('admin/cupon/store', 'CuponController@store_admin')->name('store_admin.cupon');
-Route::get('admin/cupon/edit/{id}', 'CuponController@edit_admin')->name('edit_admin.cupon');
-Route::patch('admin/cupon/update/{id}', 'CuponController@update_admin')->name('update_admin.cupon');
-Route::delete('admin/cupon/destroy/{id}', 'CuponController@destroy')->name('destroy.cupon');
+Route::group(['middleware' => ['permission:Ver Cupones|Crear Cupones|Editar Cupones|Eliminar Cupones']], function () {
+    Route::get('admin/cupon/view', 'CuponController@index_admin')->name('index_admin.cupon');
+    Route::get('admin/cupon/crear', 'CuponController@create_admin')->name('create_admin.cupon');
+    Route::post('admin/cupon/store', 'CuponController@store_admin')->name('store_admin.cupon');
+    Route::get('admin/cupon/edit/{id}', 'CuponController@edit_admin')->name('edit_admin.cupon');
+    Route::patch('admin/cupon/update/{id}', 'CuponController@update_admin')->name('update_admin.cupon');
+    Route::delete('admin/cupon/destroy/{id}', 'CuponController@destroy')->name('destroy.cupon');
 
-Route::get('changeStatus', 'CuponController@ChangeUserStatus')->name('ChangeUserStatus.cupon');
+    Route::get('changeStatus', 'CuponController@ChangeUserStatus')->name('ChangeUserStatus.cupon');
 
-Route::post('admin/cupon/asignacion/crear/', 'CuponController@update_asignacion')->name('update_asignacion.cupon');
+    Route::post('admin/cupon/asignacion/crear/', 'CuponController@update_asignacion')->name('update_asignacion.cupon');
 
-Route::get('admin/cupon/lista-check/{id}', 'CuponController@lista_check')->name('lista_check.cupon');
-Route::get('admin/cupon/check/edit/{id}', 'CuponController@edit_check')->name('edit_check.cupon');
-Route::patch('admin/cupon/check/update/{id}', 'CuponController@update_check')->name('update_check.cupon');
+    Route::get('admin/cupon/lista-check/{id}', 'CuponController@lista_check')->name('lista_check.cupon');
+    Route::get('admin/cupon/check/edit/{id}', 'CuponController@edit_check')->name('edit_check.cupon');
+    Route::patch('admin/cupon/check/update/{id}', 'CuponController@update_check')->name('update_check.cupon');
 
-Route::get('admin/cupon/asignacion/edit/{id}', 'CuponController@edit_asignacion')->name('edit_asignacion.cupon');
+    Route::get('admin/cupon/asignacion/edit/{id}', 'CuponController@edit_asignacion')->name('edit_asignacion.cupon');
 
-Route::get('cupon/view', 'CuponController@index')->name('index.cupon');
+    Route::get('cupon/view', 'CuponController@index')->name('index.cupon');
+});
 
 require __DIR__ . '/auth.php';

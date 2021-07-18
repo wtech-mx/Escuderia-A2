@@ -70,6 +70,7 @@
 
                         <strong class="text-center" style="color: rgb(102, 223, 66)"> {{ $automovil->placas }}</strong>
 
+                        @can('Crear Exp')
                         <div class="col-12 mt-3 mb-5">
                             <div class="d-flex justify-content-between">
                             <p class="text-center text-white">
@@ -83,6 +84,7 @@
 
                             </div>
                         </div>
+                        @endcan
 
                     @if ($exp_poliza->count())
                         @foreach($exp_poliza as $item)
@@ -116,13 +118,13 @@
 
                                         <div class="botones-hijo position-absolute" style="z-index: 1000; top: 40%; right: 10px; padding: 5px">
                                             <div class="d-flex flex-column">
-
+                                                @can('Borrar Exp')
                                                   <div class="p-1">
                                                        <a  class="btn btn-danger text-white mt-5" data-toggle="modal" data-target="#modalpoliza{{$item->id}}">
                                                                 <i class="fa fa-trash" aria-hidden="true"></i>
                                                        </a>
                                                   </div>
-
+@endcan
                                                   <div class="p-1">
                                                       <a  class="btn btn-secondary" data-dismiss="modal">
                                                             <i class="fa fa-window-close" aria-hidden="true"></i>

@@ -39,6 +39,7 @@
             <div class="content container-res-max">
                 <div class="col-12">
 
+                    @can('Crear Notas')
                     <div class="d-flex flex-row-reverse">
                         <div class="mt-5 mb-2">
                             <a class="btn " data-toggle="modal" data-target="#modalNotas">
@@ -46,6 +47,8 @@
                             </a>
                         </div>
                     </div>
+                    @endcan
+
 
 
                     <div class="table-responsive">
@@ -67,16 +70,21 @@
                                             <td>{{ $item->User->name }}</td>
                                             <td>{{ $recorte }}...</td>
                                             <td>
+                                                @can('Editar Notas')
                                                 <a type="button" class="btn text-white" data-toggle="modal"
                                                     data-target="#modalNotasUpdate{{ $item->id }}"
                                                     style="background: transparent !important;">
                                                     <i class="fas fa-edit icon-users-edit" style="font-size: 15px;"></i>
                                                 </a>
+                                                @endcan
 
-                                                <a type="button" class="btn text-white" data-toggle="modal"
+                                                @can('Eliminar Notas')
+                                                    <a type="button" class="btn text-white" data-toggle="modal"
                                                     data-target="#modal-{{ $item->id }}">
                                                     <i class="fas fa-trash icon-users-edit" style="font-size: 15px;"></i>
-                                                </a>
+                                                    </a>
+                                                @endcan
+
 
                                             </td>
                                             @include('admin.notas.update')
