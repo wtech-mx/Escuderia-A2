@@ -441,8 +441,6 @@ Route::group(['middleware' => ['permission:Ver Cupones|Crear Cupones|Editar Cupo
     Route::patch('admin/cupon/check/update/{id}', 'CuponController@update_check')->name('update_check.cupon');
 
     Route::get('admin/cupon/asignacion/edit/{id}', 'CuponController@edit_asignacion')->name('edit_asignacion.cupon');
-
-    Route::get('cupon/view', 'CuponController@index')->name('index.cupon');
 });
-
+Route::get('cupon/view', 'CuponController@index')->name('index.cupon');
 require __DIR__ . '/auth.php';
