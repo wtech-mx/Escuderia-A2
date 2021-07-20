@@ -115,20 +115,16 @@
 
                               <div class="arrow-conetn" style="">
                                         <div class="row ">
-
                                             <div class="col-12">
                                                 <div class="d-flex justify-content-between">
-
                                                     <div class="circular-arrow">
                                                       <a class="" href="#carouselExampleIndicators" role="button" data-slide="prev">
                                                           <i class="fas fa-arrow-left icon-effect-roles-arrow"></i>
                                                        </a>
                                                     </div>
-
-                                                        <a class="circular-arrow" href="#carouselExampleIndicators" role="button" data-slide="next">
-                                                           <i class="fas fa-arrow-right icon-effect-roles-arrow"></i>
-                                                        </a>
-
+                                                    <a class="circular-arrow" href="#carouselExampleIndicators" role="button" data-slide="next">
+                                                       <i class="fas fa-arrow-right icon-effect-roles-arrow"></i>
+                                                    </a>
                                                 </div>
 
                                             </div>

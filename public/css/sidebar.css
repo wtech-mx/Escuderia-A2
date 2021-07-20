@@ -261,4 +261,141 @@
     position: relative;
 }
 
+.card-emergency{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+
+    flex: 1 1 auto;
+    padding: 1rem 1rem;
+
+    background-image: url('../img/bg-medida.png');
+    background-repeat: repeat;
+    height: 600px!important;
+    top: -20%;
+    z-index: 1;
+}
+
+.btn-emergency-collapese{
+    background-color: #00ff37;
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+    position: absolute;
+    left: 45%;
+    top: 70%;
+}
+
+.btn-emergency-collapese:hover{
+    background-color: #ffffff;
+}
+
+.icon-emergency-collapse{
+    color: #000000;
+    font-size: 20px;
+    position: relative;
+    top: 20%;
+}
+
+.icon-emergency-collapse{
+    color: #000000;
+}
+
+.btn-emergency-top{
+    background-color: #00ff37;
+    width: 35px;
+    height: 35px;
+    border-radius: 30px;
+    position: absolute;
+    align-items: center;
+    left: 45%;
+    top: 5%;
+}
+
+.icon-btn-emergency-2{
+    width: 20px;
+    top: 20%;
+    position: relative;
+}
+
+.h5-emergency{
+    margin-top: 5rem !important;
+    color: #00FF31;
+}
+
+.h6-emergency{
+    color: #00FF31;
+}
+
+.carousel-indicators-emergency{
+    position: absolute;
+    right: 0;
+    bottom: -30%;
+    left: 0;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    padding-left: 0;
+    margin-right: 15%;
+    margin-left: 15%;
+    list-style: none;
+}
+
+
+.arrow-conetn{
+    top: 225px;
+    position: relative;
+    z-index: 100;
+}
+
+.circular-arrow{
+    width: 30px!important;
+    height: 30px!important;
+    border-radius: 15px;
+    padding: 2px 20px 20px 5px;
+    background-color: #ffffff;
+}
+
+.circular-arrow:hover{
+    background-color: #00FF31;
+}
+
+.icon-effect-roles-arrow{
+    color: #00ff37;
+    font-size: 25px;
+}
+
+.icon-effect-roles-arrow:hover{
+    color: #ffffff;
+}
+
+.carousel-indicators li {
+    box-sizing: content-box;
+    flex: 0 1 auto;
+    width: 30px;
+    height: 5px;
+    margin-right: 3px;
+    margin-left: 3px;
+    /* text-indent: -999px; */
+    cursor: pointer;
+    background-color: #000;
+    background-clip: padding-box;
+    border-top: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+    opacity: 0.3;
+    transition: opacity 0.6s ease;
+}
+
+.carousel-indicators .active {
+    opacity: 1;
+}
+
+
+
 
