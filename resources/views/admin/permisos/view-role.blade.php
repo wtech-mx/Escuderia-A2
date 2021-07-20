@@ -63,7 +63,6 @@
                         <tr>
                             <th scope="col">nombre</th>
                             <th scope="col">acciones</th>
-                            <th scope="col">fecha</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -72,11 +71,10 @@
                                 <td>{{ $item->name }}
                                 </td>
                                 <td>
-                                    <a href="{{ route('edit_role.role', $item->id ) }}">
+                                    {{-- <a href="{{ route('edit_role.role', $item->id ) }}"> --}}
                                         <i class="fas fa-edit icon-users-edit" style="font-size: 15px;"></i>
-                                    </a>
+                                    {{-- </a> --}}
                                 </td>
-                                <td>{{ $item->created_at }}</td>
                             </tr>
                         @endforeach
                     </tbody>
