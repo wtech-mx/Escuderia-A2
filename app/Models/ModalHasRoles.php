@@ -9,7 +9,7 @@ class ModalHasRoles extends Model
 {
     use HasFactory;
     protected $table = "model_has_roles";
-    protected $primarykey = "id";
+    protected $primarykey = "model_id";
     public $timestamps = false;
 
     protected $fillable = [

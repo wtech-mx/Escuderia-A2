@@ -411,75 +411,79 @@ class UserController extends Controller
                 return redirect()->back()->with('error', $e->getMessage());
             }
         }
-
-
         $user->update();
 
-        $role = new ModalHasRoles;
-        $role->role_id = $user->role;
-        $role->model_type = 'App\Models\Alertas';
-        $role->model_id = $user->id;
-        $role->save();
+        if($user->role != 0){
+            $brorrarrole = ModalHasRoles::where('model_id', '=', $id)
+                ->delete();
 
-        $role = new ModalHasRoles;
-        $role->role_id = $user->role;
-        $role->model_type = 'App\Models\Automovil';
-        $role->model_id = $user->id;
-        $role->save();
+                $role = new ModalHasRoles;
+                $role->role_id = $user->role;
+                $role->model_type = 'App\Models\Alertas';
+                $role->model_id = $user->id;
+                $role->save();
 
-        $role = new ModalHasRoles;
-        $role->role_id = $user->role;
-        $role->model_type = 'App\Models\Cupon';
-        $role->model_id = $user->id;
-        $role->save();
+                $role = new ModalHasRoles;
+                $role->role_id = $user->role;
+                $role->model_type = 'App\Models\Automovil';
+                $role->model_id = $user->id;
+                $role->save();
 
-        $role = new ModalHasRoles;
-        $role->role_id = $user->role;
-        $role->model_type = 'App\Models\Licencia';
-        $role->model_id = $user->id;
-        $role->save();
+                $role = new ModalHasRoles;
+                $role->role_id = $user->role;
+                $role->model_type = 'App\Models\Cupon';
+                $role->model_id = $user->id;
+                $role->save();
 
-        $role = new ModalHasRoles;
-        $role->role_id = $user->role;
-        $role->model_type = 'App\Models\Mecanica';
-        $role->model_id = $user->id;
-        $role->save();
+                $role = new ModalHasRoles;
+                $role->role_id = $user->role;
+                $role->model_type = 'App\Models\Licencia';
+                $role->model_id = $user->id;
+                $role->save();
 
-        $role = new ModalHasRoles;
-        $role->role_id = $user->role;
-        $role->model_type = 'App\Models\Notas';
-        $role->model_id = $user->id;
-        $role->save();
+                $role = new ModalHasRoles;
+                $role->role_id = $user->role;
+                $role->model_type = 'App\Models\Mecanica';
+                $role->model_id = $user->id;
+                $role->save();
 
-        $role = new ModalHasRoles;
-        $role->role_id = $user->role;
-        $role->model_type = 'App\Models\Role';
-        $role->model_id = $user->id;
-        $role->save();
+                $role = new ModalHasRoles;
+                $role->role_id = $user->role;
+                $role->model_type = 'App\Models\Notas';
+                $role->model_id = $user->id;
+                $role->save();
 
-        $role = new ModalHasRoles;
-        $role->role_id = $user->role;
-        $role->model_type = 'App\Models\Seguros';
-        $role->model_id = $user->id;
-        $role->save();
+                $role = new ModalHasRoles;
+                $role->role_id = $user->role;
+                $role->model_type = 'App\Models\Role';
+                $role->model_id = $user->id;
+                $role->save();
 
-        $role = new ModalHasRoles;
-        $role->role_id = $user->role;
-        $role->model_type = 'App\Models\TarjetaCirculacion';
-        $role->model_id = $user->id;
-        $role->save();
+                $role = new ModalHasRoles;
+                $role->role_id = $user->role;
+                $role->model_type = 'App\Models\Seguros';
+                $role->model_id = $user->id;
+                $role->save();
 
-        $role = new ModalHasRoles;
-        $role->role_id = $user->role;
-        $role->model_type = 'App\Models\User';
-        $role->model_id = $user->id;
-        $role->save();
+                $role = new ModalHasRoles;
+                $role->role_id = $user->role;
+                $role->model_type = 'App\Models\TarjetaCirculacion';
+                $role->model_id = $user->id;
+                $role->save();
 
-        $role = new ModalHasRoles;
-        $role->role_id = $user->role;
-        $role->model_type = 'App\Models\Verificacion';
-        $role->model_id = $user->id;
-        $role->save();
+                $role = new ModalHasRoles;
+                $role->role_id = $user->role;
+                $role->model_type = 'App\Models\User';
+                $role->model_id = $user->id;
+                $role->save();
+
+                $role = new ModalHasRoles;
+                $role->role_id = $user->role;
+                $role->model_type = 'App\Models\Verificacion';
+                $role->model_id = $user->id;
+                $role->save();
+
+        }
 
         Session::flash('success', 'Se ha actualizado sus datos con exito');
         //        return redirect()->back();
