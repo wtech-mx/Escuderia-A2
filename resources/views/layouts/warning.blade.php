@@ -306,8 +306,9 @@
                                     </h6>
                                        <ul class="text-center text-white mt-5" style="position: relative;list-style: none;left: -5%;">
                                             <li>¿Necesitas ayuda?</li>
-                                            <li>Llama a la patrulla<a href="tel:911">911</a></li>
-                                            <li>Llama a la ambulancia<a href="tel:911">911</a></li>
+                                            <li>Llama a la patrulla<a href="tel:+066"> 066</a></li>
+                                            <li>Llama a la ambulancia<a href="tel:+065"> 065</a></li>
+                                            <li>Tambien puede llamar al<a href="tel:+911"> 911</a></li>
                                        </ul>
                                 </div>
 
