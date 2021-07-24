@@ -61,11 +61,11 @@
                                         Enojarte puede empeorar las cosas
                                     </h6>
                                        <ul class="text-center text-white mt-5" style="position: relative;list-style: none;left: -5%;">
-                                            <li>- kiasidasdjasoñdj9asdais</li>
-                                            <li>- kiasidasdjasoñdj9asdais</li>
-                                            <li>- kiasidasdjasoñdj9asdais</li>
-                                            <li>- kiasidasdjasoñdj9asdais</li>
-                                            <li>- kiasidasdjasoñdj9asdais</li>
+                                            <li>- Dirigete al oficial con respeto</li>
+                                            <li>- Quedate en el coche y baja el vidrio</li>
+                                            <li>- No salgas a menos que te den una razon especifica</li>
+                                            <li>- Puedes elegir no contestar preguntas</li>
+                                            <li>- No te pueden revisar los interiores ni la cajuela sin una orden judicial</li>
                                        </ul>
                                 </div>
 
@@ -103,17 +103,17 @@
                                         Me paro una patrulla
                                     </h5>
                                     <h1 class="text-white">
-                                        <strong>Manten la Calma</strong>
+                                        <strong>¿Qué pasó?</strong>
                                     </h1>
                                     <h6 class="text-white h6-emergency">
-                                        Enojarte puede empeorar las cosas
+                                        El oficial debe decirte porque te detuvo, mostrarte el artículo y sancion en el
                                     </h6>
                                        <ul class="text-center text-white mt-5" style="position: relative;list-style: none;left: -5%;">
-                                            <li>- kiasidasdjasoñdj9asdais</li>
-                                            <li>- kiasidasdjasoñdj9asdais</li>
-                                            <li>- kiasidasdjasoñdj9asdais</li>
-                                            <li>- kiasidasdjasoñdj9asdais</li>
-                                            <li>- kiasidasdjasoñdj9asdais</li>
+                                            <li><a href="">Ver Reglamento</a></li>
+                                            <li>Si no lo hace, pide que te explique</li>
+                                            <br>
+                                            <li>¿Te estan extorcionando?</li>
+                                            <li>Llama a la secretaria de Seguridad Pública</li>
                                        </ul>
                                 </div>
                               </div>
@@ -205,7 +205,7 @@
                                         Fijate si estas en lugar prohibido
                                     </h6>
                                        <ul class="text-center text-white mt-5" style="position: relative;list-style: none;left: -5%;">
-                                            <li>- kiasidasdjasoñdj9asdais</li>
+                                            <li></li>
                                             <li>- kiasidasdjasoñdj9asdais</li>
                                             <li>- kiasidasdjasoñdj9asdais</li>
                                             <li>- kiasidasdjasoñdj9asdais</li>
@@ -223,17 +223,17 @@
                                         Mi carro no esta
                                     </h5>
                                     <h1 class="text-white">
-                                        <strong>Manten la Calma</strong>
+                                        <strong>Requisitos</strong>
                                     </h1>
                                     <h6 class="text-white h6-emergency">
-                                        Fijate si estas en lugar prohibido
+                                        Debes reunir los sigueintes documentos en original y dos copias
                                     </h6>
                                        <ul class="text-center text-white mt-5" style="position: relative;list-style: none;left: -5%;">
-                                            <li>- kiasidasdjasoñdj9asdais</li>
-                                            <li>- kiasidasdjasoñdj9asdais</li>
-                                            <li>- kiasidasdjasoñdj9asdais</li>
-                                            <li>- kiasidasdjasoñdj9asdais</li>
-                                            <li>- kiasidasdjasoñdj9asdais</li>
+                                            <li>- Licencia de conducir vigente</li>
+                                            <li>- Identificacion Oficial(INE, pasaporte, cartilla o cedula profesional)</li>
+                                            <li>- Tenencias anteriores pagadas</li>
+                                            <li>- Haber cubierto el pago de infracciones o multas, en caso de tener alguna</li>
+                                            <li>- Tarjeta de circulacion</li>
                                        </ul>
                                 </div>
                               </div>
@@ -293,19 +293,37 @@
                                         </a>
                                     </p>
                                     <h5 class="text-center h5-emergency">
-                                        Mi carro no esta
+                                        Tuve un accidente
                                     </h5>
                                     <h1 class="text-white">
                                         <strong>Manten la Calma</strong>
                                     </h1>
                                     <h6 class="text-white h6-emergency">
-                                        Fijate si estas en lugar prohibido
+                                        Checa que tú y los involucrados no estén heridos
                                     </h6>
                                        <ul class="text-center text-white mt-5" style="position: relative;list-style: none;left: -5%;">
-                                            <li>- kiasidasdjasoñdj9asdais</li>
-                                            <li>- kiasidasdjasoñdj9asdais</li>
-                                            <li>- kiasidasdjasoñdj9asdais</li>
-                                            <li>- kiasidasdjasoñdj9asdais</li>
+                                            <li>¿Necesitas ayuda?</li>
+                                            <li>- Llama a la patrulla #555</li>
+                                            <li>- Lamma a la ambulancia #555</li>
+                                       </ul>
+                                </div>
+
+                                <div class="carousel-item ">
+                                    <p class="text-center">
+                                        <a href="#patrulla" class="btn-emergency-top">
+                                          <img class="icon-btn-emergency-2" src="{{ asset('img/icon/black/accident.png') }}">
+                                        </a>
+                                    </p>
+                                    <h5 class="text-center h5-emergency">
+                                        Tuve un accidente
+                                    </h5>
+                                    <h1 class="text-white">
+                                        <strong>Contacta con tu seguro</strong>
+                                    </h1>
+                                    <h6 class="text-white h6-emergency">
+                                        Afrime
+                                    </h6>
+                                       <ul class="text-center text-white mt-5" style="position: relative;list-style: none;left: -5%;">
                                             <li>- kiasidasdjasoñdj9asdais</li>
                                        </ul>
                                 </div>
@@ -317,37 +335,13 @@
                                         </a>
                                     </p>
                                     <h5 class="text-center h5-emergency">
-                                        Mi carro no esta
+                                        Tuve un accidente
                                     </h5>
                                     <h1 class="text-white">
-                                        <strong>Manten la Calma</strong>
+                                        <strong>Contacta con tu seguro</strong>
                                     </h1>
                                     <h6 class="text-white h6-emergency">
-                                        Fijate si estas en lugar prohibido
-                                    </h6>
-                                       <ul class="text-center text-white mt-5" style="position: relative;list-style: none;left: -5%;">
-                                            <li>- kiasidasdjasoñdj9asdais</li>
-                                            <li>- kiasidasdjasoñdj9asdais</li>
-                                            <li>- kiasidasdjasoñdj9asdais</li>
-                                            <li>- kiasidasdjasoñdj9asdais</li>
-                                            <li>- kiasidasdjasoñdj9asdais</li>
-                                       </ul>
-                                </div>
-
-                                <div class="carousel-item ">
-                                    <p class="text-center">
-                                        <a href="#patrulla" class="btn-emergency-top">
-                                          <img class="icon-btn-emergency-2" src="{{ asset('img/icon/black/accident.png') }}">
-                                        </a>
-                                    </p>
-                                    <h5 class="text-center h5-emergency">
-                                        Mi carro no esta
-                                    </h5>
-                                    <h1 class="text-white">
-                                        <strong>Manten la Calma</strong>
-                                    </h1>
-                                    <h6 class="text-white h6-emergency">
-                                        Fijate si estas en lugar prohibido
+                                        Afrime
                                     </h6>
                                        <ul class="text-center text-white mt-5" style="position: relative;list-style: none;left: -5%;">
                                             <li>- kiasidasdjasoñdj9asdais</li>
@@ -404,7 +398,6 @@
                               <ol class="carousel-indicators" style="bottom: -30%;background-color: #00ff37;border-radius: 30px;">
                                 <li class="li" data-target="#carruse-arana" data-slide-to="0" class="active"></li>
                                 <li class="li" data-target="#carruse-arana" data-slide-to="1"></li>
-                                <li class="li" data-target="#carruse-arana" data-slide-to="2"></li>
                               </ol>
 
                               <div class="carousel-inner">
@@ -415,20 +408,17 @@
                                         </a>
                                     </p>
                                     <h5 class="text-center h5-emergency">
-                                        Mi carro no esta
+                                        Me pusieron la araña
                                     </h5>
                                     <h1 class="text-white">
-                                        <strong>Manten la Calma</strong>
+                                        <strong>Busca la boleta de infraccion en tu parabrisas</strong>
                                     </h1>
                                     <h6 class="text-white h6-emergency">
-                                        Fijate si estas en lugar prohibido
+                                        En ella vendra el monto de la multa y del inmovilizador. Puedes pagarla en Oxxo y 7 eleven
                                     </h6>
                                        <ul class="text-center text-white mt-5" style="position: relative;list-style: none;left: -5%;">
-                                            <li>- kiasidasdjasoñdj9asdais</li>
-                                            <li>- kiasidasdjasoñdj9asdais</li>
-                                            <li>- kiasidasdjasoñdj9asdais</li>
-                                            <li>- kiasidasdjasoñdj9asdais</li>
-                                            <li>- kiasidasdjasoñdj9asdais</li>
+                                            <li>- Llama a ecoParq</li>
+                                            <li>- Una vez pagada la multa, habla al telefono que viene al reverso de la boleta para que te retiren la araña</li>
                                        </ul>
                                 </div>
 
@@ -456,29 +446,6 @@
                                        </ul>
                                 </div>
 
-                                <div class="carousel-item ">
-                                    <p class="text-center">
-                                        <a href="#patrulla" class="btn-emergency-top">
-                                          <img class="icon-btn-emergency-2" src="{{ asset('img/icon/black/rueda.png') }}">
-                                        </a>
-                                    </p>
-                                    <h5 class="text-center h5-emergency">
-                                        Mi carro no esta
-                                    </h5>
-                                    <h1 class="text-white">
-                                        <strong>Manten la Calma</strong>
-                                    </h1>
-                                    <h6 class="text-white h6-emergency">
-                                        Fijate si estas en lugar prohibido
-                                    </h6>
-                                       <ul class="text-center text-white mt-5" style="position: relative;list-style: none;left: -5%;">
-                                            <li>- kiasidasdjasoñdj9asdais</li>
-                                            <li>- kiasidasdjasoñdj9asdais</li>
-                                            <li>- kiasidasdjasoñdj9asdais</li>
-                                            <li>- kiasidasdjasoñdj9asdais</li>
-                                            <li>- kiasidasdjasoñdj9asdais</li>
-                                       </ul>
-                                </div>
                               </div>
                             </div>
 
