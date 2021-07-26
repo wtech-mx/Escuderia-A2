@@ -289,7 +289,7 @@
     border-radius: 30px;
     position: absolute;
     left: 45%;
-    top: 70%;
+    top: 90%;
 }
 
 .btn-emergency-collapese:hover{
@@ -396,6 +396,9 @@
     opacity: 1;
 }
 
+.auto-no{
+    width: 60px;
+}
 
 
 

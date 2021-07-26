@@ -20,7 +20,7 @@
                   <div class="row">
                       <div class="col-12">
 
-                            <div id="carruse-emergency" class="carousel slide" data-interval="5000" data-ride="carousel" data-touch="true">
+                            <div id="carruse-emergency" class="carousel slide"  data-ride="carousel" data-touch="true" data-interval="90000">
                               <div class="arrow-conetn" style="">
                                         <div class="row ">
                                             <div class="col-12">
@@ -42,6 +42,8 @@
                                 <li class="li" data-target="#carruse-emergency" data-slide-to="0" class="active"></li>
                                 <li class="li" data-target="#carruse-emergency" data-slide-to="1"></li>
                                 <li class="li" data-target="#carruse-emergency" data-slide-to="2"></li>
+                                <li class="li" data-target="#carruse-emergency" data-slide-to="3"></li>
+                                <li class="li" data-target="#carruse-emergency" data-slide-to="4"></li>
                               </ol>
 
                               <div class="carousel-inner">
@@ -57,15 +59,15 @@
                                     <h1 class="text-white">
                                         <strong>Manten la Calma</strong>
                                     </h1>
-                                    <h6 class="text-white h6-emergency">
+                                    <h6 class="h6-emergency">
                                         Enojarte puede empeorar las cosas
                                     </h6>
-                                       <ul class="text-center text-white mt-5" style="position: relative;list-style: none; left: -5%;">
-                                            <li>- Dirigete al oficial con respeto</li>
-                                            <li>- Quedate en el coche y baja el vidrio</li>
-                                            <li>- No salgas a menos que te den una razon especifica</li>
-                                            <li>- Puedes elegir no contestar preguntas</li>
-                                            <li>- No te pueden revisar los interiores ni la cajuela sin una orden judicial</li>
+                                       <ul class="text-left text-white mt-5" style="position: relative;list-style: none; left: -5%;">
+                                            <li class="p-2">- Dirigete al oficial con respeto</li>
+                                            <li class="p-2">- Quedate en el coche y baja el vidrio</li>
+                                            <li class="p-2">- No salgas a menos que te den una razon especifica</li>
+                                            <li class="p-2">- Puedes elegir no contestar preguntas</li>
+                                            <li class="p-2">- No te pueden revisar los interiores ni la cajuela sin una orden judicial</li>
                                        </ul>
                                 </div>
 
@@ -79,18 +81,15 @@
                                         Me paro una patrulla
                                     </h5>
                                     <h1 class="text-white">
-                                        <strong>Proximamente</strong>
+                                        <strong>Verifica al Policia</strong>
                                     </h1>
-                                    {{-- <h6 class="text-white h6-emergency">
-                                        Enojarte puede empeorar las cosas
+                                    <h6 class="h6-emergency">
+                                       Antes de dar cualquier documento, pidelo al oficial su nopmbre y <br>
+                                        placa para verificar que existe en el sistema.
                                     </h6>
                                        <ul class="text-center text-white mt-5" style="position: relative;list-style: none;left: -5%;">
-                                            <li>- kiasidasdjasoñdj9asdais</li>
-                                            <li>- kiasidasdjasoñdj9asdais</li>
-                                            <li>- kiasidasdjasoñdj9asdais</li>
-                                            <li>- kiasidasdjasoñdj9asdais</li>
-                                            <li>- kiasidasdjasoñdj9asdais</li>
-                                       </ul> --}}
+                                            <li>-</li>
+                                       </ul>
                                 </div>
 
                                 <div class="carousel-item ">
@@ -105,17 +104,81 @@
                                     <h1 class="text-white">
                                         <strong>¿Qué pasó?</strong>
                                     </h1>
-                                    <h6 class="text-white h6-emergency">
-                                        El oficial debe decirte porque te detuvo, mostrarte el artículo y sancion en el
+                                    <h6 class="h6-emergency">
+                                        El oficial debe decirte porque te detuvo, mostrarte <br> el artículo y sancion en el
+                                    </h6>
+                                     <p class="text-center p-3">
+                                         <button class="btn" style="background-color: #00FF31">
+                                             Reglamento de Transito
+                                         </button>
+                                     </p>
+                                    <h6 class="h6-emergency">
+                                         Si no lo hace, pide que te explique
                                     </h6>
                                        <ul class="text-center text-white mt-5" style="position: relative;list-style: none;left: -5%;">
-                                            <li><a href="">Ver Reglamento</a></li>
-                                            <li>Si no lo hace, pide que te explique</li>
-                                            <br>
                                             <li>¿Te estan extorcionando?</li>
-                                            <li>Llama a la secretaria de Seguridad Pública</li>
+                                            <li>
+                                                <a class="text-white" href="tel:+52089898">
+                                                  <i class="fas fa-phone" style="color:#ffffff;"></i>
+                                                   Llama a la secretaria de Seguridad <br> Publica
+                                                </a>
+                                            </li>
                                        </ul>
                                 </div>
+
+                                <div class="carousel-item ">
+                                    <p class="text-center">
+                                        <a href="#patrulla" class="btn-emergency-top">
+                                          <img class="icon-btn-emergency-2" src="{{ asset('img/icon/black/police-car.png') }}">
+                                        </a>
+                                    </p>
+                                    <h5 class="text-center h5-emergency">
+                                        Me paro una patrulla
+                                    </h5>
+                                    <h1 class="text-white">
+                                        <strong class="">Checa Tu multa</strong>
+                                    </h1>
+                                    <p class="p-3">
+                                        <i class="far fa-file-alt" style="color: #ffffff;font-size: 50px"></i>
+                                    </p>
+                                    <h6 class="h6-emergency">
+                                       Cuadno de den una infraccion , fijate que tenga la <br>
+                                        fecha, hora, lugar, tu nombre, numero de placa, falta <br> comedita y firma del oficial
+                                    </h6>
+                                       <ul class="text-center text-white mt-5" style="position: relative;list-style: none;left: -5%;">
+                                            <li>
+                                                Recuerda que cualquier patrulla puede detenerte ,<br>
+                                                <strong> pero solo Transito de puede multar</strong>
+                                            </li>
+                                       </ul>
+                                </div>
+
+                                <div class="carousel-item ">
+                                    <p class="text-center">
+                                        <a href="#patrulla" class="btn-emergency-top">
+                                          <img class="icon-btn-emergency-2" src="{{ asset('img/icon/black/police-car.png') }}">
+                                        </a>
+                                    </p>
+                                    <h5 class="text-center h5-emergency">
+                                        Me paro una patrulla
+                                    </h5>
+                                    <h1 class="text-white">
+                                        <strong class="">¿Y si se lleva mi coche?</strong>
+                                    </h1>
+                                    <p class="p-3">
+                                        <i class="fas fa-car" style="color: #ffffff;font-size: 50px"></i>
+                                    </p>
+                                    <h6 class="h6-emergency">
+                                       Si la falta amerita  corralon el oficial debe decirte a<br>
+                                        cual se lo llevaran y llamar  una grua para arrestarte
+                                    </h6>
+                                       <ul class="text-center text-white mt-5" style="position: relative;list-style: none;left: -5%;">
+                                            <li>
+                                                <strong>Nunca le des tus llaves</strong>
+                                            </li>
+                                       </ul>
+                                </div>
+
                               </div>
                             </div>
 
@@ -140,7 +203,7 @@
                   <div class="row">
                       <div class="col-12">
 
-                            <div id="carruse-auto" class="carousel slide" data-interval="5000" data-ride="carousel" data-touch="true">
+                            <div id="carruse-auto" class="carousel slide" data-ride="carousel" data-touch="true" data-interval="90000">
                               <div class="arrow-conetn" style="">
                                         <div class="row ">
                                             <div class="col-12">
@@ -166,7 +229,66 @@
 
                               <div class="carousel-inner">
 
-                                <div class="carousel-item active">
+                               <div class="carousel-item active">
+                                    <p class="text-center">
+                                        <a href="#patrulla" class="btn-emergency-top">
+                                          <img class="icon-btn-emergency-2" src="{{ asset('img/icon/black/emergency.png') }}">
+                                        </a>
+                                    </p>
+                                    <h5 class="text-center h5-emergency">
+                                        Mi carro no esta
+                                    </h5>
+                                    <h1 class="text-white">
+                                        <strong>Manetérm ña calma</strong>
+                                    </h1>
+                                    <h6 class="text-white h6-emergency">
+                                       Fijate si te estacionaste en un lugar<br>
+                                        prohibido o exclusivo
+                                    </h6>
+                                       <div class="row">
+                                           <div class="col-6 p-5">
+                                               <img class="auto-no" src="{{ asset('img/icon/white/peatonal.png') }}" >
+                                           </div>
+
+                                           <div class="col-6 p-5">
+                                                <img class="auto-no" src="{{ asset('img/icon/white/silla-de-ruedas.png') }}" >
+                                           </div>
+
+                                           <div class="col-6 p-5">
+                                                <img class="auto-no" src="{{ asset('img/icon/white/boca-de-incendio.png') }}" >
+                                           </div>
+
+                                           <div class="col-6 p-5">
+                                                <img class="auto-no" src="{{ asset('img/icon/white/no-parking.png') }}" >
+                                           </div>
+                                       </div>
+                                </div>
+
+                                <div class="carousel-item ">
+                                    <p class="text-center">
+                                        <a href="#patrulla" class="btn-emergency-top">
+                                          <img class="icon-btn-emergency-2" src="{{ asset('img/icon/black/emergency.png') }}">
+                                        </a>
+                                    </p>
+                                    <h5 class="text-center h5-emergency">
+                                        Mi carro no esta
+                                    </h5>
+                                    <h1 class="text-white">
+                                        <strong>¿Se lo llevo la grúa?</strong>
+                                    </h1>
+                                     <h6 class="text-white h6-emergency">
+                                        Fijate si estas en lugar prohibido
+                                    </h6>
+                                       <ul class="text-center text-white mt-5" style="position: relative;list-style: none;left: -5%;">
+                                            <li></li>
+                                            <li>- kiasidasdjasoñdj9asdais</li>
+                                            <li>- kiasidasdjasoñdj9asdais</li>
+                                            <li>- kiasidasdjasoñdj9asdais</li>
+                                            <li>- kiasidasdjasoñdj9asdais</li>
+                                       </ul>
+                                </div>
+
+                                <div class="carousel-item">
                                     <p class="text-center">
                                         <a href="#patrulla" class="btn-emergency-top">
                                           <img class="icon-btn-emergency-2" src="{{ asset('img/icon/black/emergency.png') }}">
@@ -188,54 +310,6 @@
                                             <li>- Haber cubierto el pago de infracciones o multas, en caso de tener alguna</li>
                                             <li>- Tarjeta de circulacion</li>
                                        </ul>
-                                </div>
-
-                                <div class="carousel-item ">
-                                    <p class="text-center">
-                                        <a href="#patrulla" class="btn-emergency-top">
-                                          <img class="icon-btn-emergency-2" src="{{ asset('img/icon/black/emergency.png') }}">
-                                        </a>
-                                    </p>
-                                    <h5 class="text-center h5-emergency">
-                                        Mi carro no esta
-                                    </h5>
-                                    <h1 class="text-white">
-                                        <strong>Proximamente</strong>
-                                    </h1>
-                                    {{-- <h6 class="text-white h6-emergency">
-                                        Fijate si estas en lugar prohibido
-                                    </h6>
-                                       <ul class="text-center text-white mt-5" style="position: relative;list-style: none;left: -5%;">
-                                            <li>- kiasidasdjasoñdj9asdais</li>
-                                            <li>- kiasidasdjasoñdj9asdais</li>
-                                            <li>- kiasidasdjasoñdj9asdais</li>
-                                            <li>- kiasidasdjasoñdj9asdais</li>
-                                            <li>- kiasidasdjasoñdj9asdais</li>
-                                       </ul> --}}
-                                </div>
-
-                                <div class="carousel-item ">
-                                    <p class="text-center">
-                                        <a href="#patrulla" class="btn-emergency-top">
-                                          <img class="icon-btn-emergency-2" src="{{ asset('img/icon/black/emergency.png') }}">
-                                        </a>
-                                    </p>
-                                    <h5 class="text-center h5-emergency">
-                                        Mi carro no esta
-                                    </h5>
-                                    <h1 class="text-white">
-                                        <strong>Proximamente</strong>
-                                    </h1>
-                                    {{-- <h6 class="text-white h6-emergency">
-                                        Fijate si estas en lugar prohibido
-                                    </h6>
-                                       <ul class="text-center text-white mt-5" style="position: relative;list-style: none;left: -5%;">
-                                            <li></li>
-                                            <li>- kiasidasdjasoñdj9asdais</li>
-                                            <li>- kiasidasdjasoñdj9asdais</li>
-                                            <li>- kiasidasdjasoñdj9asdais</li>
-                                            <li>- kiasidasdjasoñdj9asdais</li>
-                                       </ul> --}}
                                 </div>
 
 

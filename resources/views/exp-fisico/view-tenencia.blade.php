@@ -121,6 +121,18 @@
                                                     <a  class="btn btn-secondary p-2" data-dismiss="modal">
                                                         <i class="fa fa-window-close" aria-hidden="true"></i>
                                                     </a>
+
+{{--                                                    <button id="share-btn">Paylaş</button>--}}
+{{--                                                    <script>--}}
+{{--                                                        --}}
+{{--                                                        timeline.on('click', 'h5', function() {--}}
+
+{{--                                                            // console.log(  $(this)  );--}}
+{{--                                                            console.log(  $(this)  );--}}
+
+{{--                                                        });--}}
+
+{{--                                                    </script>--}}
                                               </div>
                                           </div>
                                       </div>
