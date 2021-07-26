@@ -565,26 +565,26 @@ class AppServiceProvider extends ServiceProvider
             $servicios_tomorrow = Llantas::where('estado_tomorrow', '=', 0)->where('check', '=', 0)->OrderBy('end', 'ASC')->first();
 
             //Alerta
-            if ($alert2 != NULL) {
-                if ($alert2->User->device_token != NULL) {
-                    //    Inicio Alerta
-                    $fecha = $alert2->end . ' 22:00 ' . 'GMT-5';
+            // if ($alert2 != NULL) {
+            //     if ($alert2->User->device_token != NULL) {
+            //         //    Inicio Alerta
+            //         $fecha = $alert2->end . ' 22:00 ' . 'GMT-5';
 
-                    $params = [];
-                    $params['include_player_ids'] = [$alert2->User->device_token];
-                    $contents = [
-                        "en" => $alert2->descripcion
-                    ];
-                    $params['contents'] = $contents;
-                    $params['delayed_option'] = "timezone"; // Will deliver on user's timezone
-                    $params['send_after'] = $fecha; // Delivery time
+            //         $params = [];
+            //         $params['include_player_ids'] = [$alert2->User->device_token];
+            //         $contents = [
+            //             "en" => $alert2->descripcion
+            //         ];
+            //         $params['contents'] = $contents;
+            //         $params['delayed_option'] = "timezone"; // Will deliver on user's timezone
+            //         $params['send_after'] = $fecha; // Delivery time
 
-                    OneSignal::sendNotificationCustom($params);
-                    //    Fin Alerta
-                    $alert2->estatus = 1;
-                    $alert2->save();
-                }
-            }
+            //         OneSignal::sendNotificationCustom($params);
+            //         //    Fin Alerta
+            //         $alert2->estatus = 1;
+            //         $alert2->save();
+            //     }
+            // }
 
             //Seguro
             if ($seguro_alerta != NULL) {
