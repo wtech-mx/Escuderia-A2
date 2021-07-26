@@ -2,7 +2,6 @@
 
 @section('content')
 
-
     <style>
         .bg-blue {
             background-color: #68fe87
@@ -155,14 +154,31 @@
                 </a>
             </div>
 
-            <div class="col-6 text-center mt-4">
-                <a class="text-white" data-toggle="modal" data-target="#Servicios" style="cursor: pointer">
-                    <div class="card" style="border-radius: 15px">
+
+            <div class="col-6 text-center position-relative mt-4" >
+                <div class="card" style="border-radius: 15px">
+                    @can('Ver Notas')
+                    <a href="{{ route('create.pronostico') }}">
+                    @else
+                    <a  data-toggle="modal" data-target="#modal-permisos">
+                    @endcan
+                        <div class="contenedor-inter-card position-absolute">
+                            <p clas="text-vertical-l"
+                                style="writing-mode: vertical-lr;color: #000;top:30px;margin-top: 2.3rem;margin-left: 5px!important;">
+                                Pronostico</p>
+                        </div>
+                    </a>
+                    @can('Crear Notas')
+                    <a data-toggle="modal" data-target="#Servicios" class="text-white">
+                    @else
+                    <a  data-toggle="modal" data-target="#modal-permisos">
+                    @endcan
                         <div class="card-body">
                             <i class="fas fa-cogs icon-effect-dashboard"></i>
-                            <p class="card-text"><strong>Servicios</strong></p>
+                            <p class="card-text text-white"><strong>Servicios</strong></p>
                         </div>
-                    </div>
+                    </a>
+                </div>
                 </a>
             </div>
 
@@ -323,4 +339,6 @@
         @include('admin.modal-services')
     </div>
 
+
 @endsection
+

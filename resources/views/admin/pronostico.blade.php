@@ -1,0 +1,177 @@
+@extends('admin.layouts.app')
+
+@section('bg-color', 'background-color: #000000;')
+
+@section('content')
+
+@section('css')
+    <link href="{{ asset('css/login-form.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/container-responsive.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/select2.min.css') }}" rel="stylesheet" />
+@endsection
+
+    @if (Session::has('success'))
+        <script>
+            Swal.fire({
+                title: 'Exito!!',
+                html: 'Se ha actualizado tu  <b>Licencia de Conducir</b>, ' +
+                    'Exitosamente',
+                // text: 'Se ha agragado la "MARCA" Exitosamente',
+                imageUrl: '{{ asset('img/icon/color/dosier.png') }}',
+                background: '#fff',
+                imageWidth: 150,
+                imageHeight: 150,
+                imageAlt: 'USUARIO IMG',
+            });
+
+        </script>
+    @endif
+
+    <div class="row bg-down-image-border">
+
+        <div class="col-2 mt-5">
+            <div class="d-flex justify-content-start">
+                <div class="text-center text-white">
+                    <a href="{{ route('index.dashboard') }}" style="background-color: transparent;clip-path: none">
+                        <img class="" src="{{ asset('img/icon/white/left-arrow.png') }}" width="25px">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-8 mt-5">
+            <h5 class="text-center text-white ml-4 mr-4 ">
+                <strong>Pronostico</strong>
+            </h5>
+        </div>
+
+        <div class="col-2 mt-5">
+            <div class="d-flex justify-content-start">
+                <div class="text-center text-white bg-white" style="border-radius: 50px;padding: 5px">
+                    <img class="" src="{{ asset('img/icon/color/campana.png') }}" width="25px">
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <form method="POST" action="{{ route('store.pronostico') }}" enctype="multipart/form-data"
+        role="form">
+
+        @csrf
+        <div class="row bg-image">
+            <div class="col-12 mt-3">
+
+                <div class="input-group form-group">
+
+                    <input type="hidden" class="form-control" id='image' name="image"
+                        value="{{ asset('img/icon/color/comprobado.png') }}">
+
+                    <label for="" class="mt-5">
+                        <p class="text-white"><strong>Usuario</strong></p>
+                    </label>
+
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="far fa-calendar-plus icon-tc"></i>
+                            </span>
+                        </div>
+                        <select class="col-10 js-example-basic-single" id="id_user" name="id_user">
+                            <option value="">Seleccione usuario</option>
+                            @foreach ($user as $item)
+                                <option value="{{ $item->id }}">{{ ucfirst($item->name) }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
+
+                    <label for="" class="mt-5">
+                        <p class="text-white"><strong>Servicio</strong></p>
+                    </label>
+                <div class="input-group form-group">
+
+                    <div class="input-group-prepend ">
+                        <span class="input-group-text">
+                            <i class="fas fa-shield-alt icon-tc"></i>
+                        </span>
+                    </div>
+
+                    <select class="form-control" id="servicio" name="servicio">
+                        <OPTION value="Llanta">Llanta</OPTION>
+                        <OPTION value="Banda">Banda</OPTION>
+                        <OPTION value="Freno">Freno</OPTION>
+                        <option value="Aceite">Aceite</option>
+                        <option value="Afinación">Afinacion</option>
+                        <option value="Amortiguadores">Amortiguadores</option>
+                        <option value="Bateria">Bateria</option>
+                        <option value="Otro">Otro</option>
+                    </select>
+
+                </div>
+
+                    <label for="" class="mt-5">
+                        <p class="text-white"><strong>Descripcion</strong></p>
+                    </label>
+
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="far fa-calendar-minus icon-tc"></i>
+                            </span>
+                        </div>
+                        <textarea class="form-control" id="descripcion" name="descripcion" rows="2"></textarea>
+                    </div>
+
+                    <label for="" class="mt-5">
+                        <p class="text-white"><strong>Fecha de pronostico</strong></p>
+                    </label>
+
+                    <div class="input-group form-group mb-5">
+                        <div class="input-group-prepend ">
+                            <span class="input-group-text">
+                                <i class="fas fa-shield-alt icon-tc"></i>
+                            </span>
+                        </div>
+                        <input type="date" class="form-control" placeholder="MM/DD/YYY"
+                        style="border-radius: 0  10px 10px 0;" id='end' name="end">
+                    </div>
+
+                    {{-- <label for="" class="mt-5">
+                        <p class="text-white"><strong>Color</strong></p>
+                    </label>
+
+                    <div class="input-group form-group">
+                        <input type="color" value="#563d7c" class="form-control input-edit-car" placeholder="Color"
+                        id="color" name="color">
+                    @if ($errors->has('color'))
+                        <span class="text-danger">{{ $errors->first('color') }}</span>
+                    @endif
+                    </div> --}}
+
+                    <div class="col-12 text-center mt-5" style="margin-bottom: 8rem !important;">
+                        <button class="btn btn-lg btn-save-neon text-white">
+                            <i class="fas fa-save icon-tc"></i>
+                            Guardar
+                        </button>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </form>
+
+@section('js')
+<script src="{{ asset('js/select2.full.min.js') }}"></script>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.js-example-basic-single').select2();
+    });
+
+</script>
+@endsection
+@endsection
+

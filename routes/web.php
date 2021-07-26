@@ -316,6 +316,9 @@ Route::group(['middleware' => ['permission:Ver Servicios|Crear Servicios']], fun
     Route::post('admin/servicio/crear', 'MecanicaController@store_servicio')->name('store_servicio.servicio');
 });
 
+Route::get('admin/pronostico/crear', 'PronosticoController@create')->name('create.pronostico');
+Route::post('admin/pronostico/crear', 'PronosticoController@store')->name('store.pronostico');
+
 Route::post('/automovil', 'MecanicaController@automovil')->name('automovil.servicio');
 
 Route::post('admin/servicio/proveedores/crear', 'MecanicaController@store_servicio_proveedor')->name('store_servicio_proveedor.servicio');

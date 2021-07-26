@@ -12,7 +12,6 @@
                         <th scope="col">Servicio</th>
                         <th scope="col">Usuario</th>
                         <th scope="col">Auto</th>
-                        <th scope="col">Más</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -52,15 +51,11 @@
                             }
                         @endphp
                         <tr>
-                            <td>{{ $item->Mecanica->fecha_servicio }}</td>
+                            <td><a style="color: #3490dc" data-toggle="modal" data-target="#example{{ $item->Mecanica->id }}">{{ $item->Mecanica->fecha_servicio }}</a></td>
                             <td>{{ $servicio }}</td>
                             <td>{{ $item->User->name }}</td>
                             <td>{{ $item->Automovil->placas }}</td>
                             @include('admin.services.view-servicio')
-                            <td>
-                                <a data-toggle="modal" data-target="#example{{ $item->Mecanica->id }}"><img class=""
-                                        src="{{ asset('img/icon/white/add.png') }}" width="15px"></a>
-                            </td>
                         </tr>
                     @endforeach
                 </tbody>

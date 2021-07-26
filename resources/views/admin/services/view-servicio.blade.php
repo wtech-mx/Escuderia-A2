@@ -41,6 +41,13 @@
                                        </li>
                                    @endif
                                @endforeach
+                               <li class="nav-item">
+                                    <a class="nav-link active" id="pills-servicio-tab" data-toggle="pill"
+                                        href="#pills-servicio{{ $item->Mecanica->id }}" role="tab"
+                                        aria-controls="pills-servicio" aria-selected="true">
+                                        Pronostico
+                                    </a>
+                                </li>
                            </ul>
                        </div>
                    </div>

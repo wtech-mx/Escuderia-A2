@@ -12,6 +12,7 @@ use App\Models\TarjetaCirculacion;
 use App\Models\VerificacionSegunda;
 use App\Models\Llantas;
 use App\Models\Verificacion;
+use App\Models\Pronostico;
 use Illuminate\Http\Request;
 use DB;
 use Session;
@@ -112,6 +113,7 @@ class AlertasController extends Controller
         $json5 = $data5['verificacion'] = Verificacion::all()->makeHidden('end');
         $json6 = $data6['mecanica'] = Llantas::all()->makeHidden('end');
         $json7 = $data7['verificacion_segunda'] = VerificacionSegunda::all()->makeHidden('end');
+        $json8 = $data8['pronostico'] = Pronostico::all()->makeHidden('end');
 
         //los convieerte en array
         $decode2 = json_decode($json2);
@@ -120,9 +122,10 @@ class AlertasController extends Controller
         $decode5 = json_decode($json5);
         $decode6 = json_decode($json6);
         $decode7 = json_decode($json7);
+        $decode8 = json_decode($json8);
 
         //Une los array en uno solo
-        $resultado = array_merge($decode2, $decode3, $decode4, $decode5, $decode6, $decode7);
+        $resultado = array_merge($decode2, $decode3, $decode4, $decode5, $decode6, $decode7, $decode8);
 
         //retorna a la vista sn json
         return response()->json($resultado);
@@ -175,6 +178,8 @@ class AlertasController extends Controller
 
         $json7 = $data7['verificacion_segunda'] = VerificacionSegunda::where('id_user', '=', auth()->user()->id)->get()->makeHidden('end');
 
+        $json8 = $data8['pronostico'] = Pronostico::where('id_user', '=', auth()->user()->id)->get()->makeHidden('end');
+
         //los convieerte en array
         $decode2 = json_decode($json2);
         $decode3 = json_decode($json3);
@@ -182,9 +187,10 @@ class AlertasController extends Controller
         $decode5 = json_decode($json5);
         $decode6 = json_decode($json6);
         $decode7 = json_decode($json7);
+        $decode8 = json_decode($json8);
 
         //Une los array en uno solo
-        $resultado = array_merge($decode2, $decode3, $decode4, $decode5, $decode6, $decode7);
+        $resultado = array_merge($decode2, $decode3, $decode4, $decode5, $decode6, $decode7, $decode8);
 
         //retorna a la vista sn json
         return response()->json($resultado);
@@ -195,11 +201,7 @@ class AlertasController extends Controller
         $datosEvento = request()->except(['_token', '_method']);
         $color = $datosEvento['color'];
         $title = $datosEvento['title'];
-        //            $respuesta = Alertas::all()->makeHidden('id_user')
-        //                ->where('id','=',$id)
-        //                ->where('id_user', '=', auth()->user()->id)
-        //                ->update($datosEvento);
-        //
+
         switch ($color) {
             case ($color == "#2ECC71"):
                 $respuesta = Alertas::where('id', '=', $id)->update($datosEvento);
@@ -218,6 +220,9 @@ class AlertasController extends Controller
                 break;
             case ($color == '#2980B9'):
                 $respuesta = Llantas::where('id', '=', $id)->update($datosEvento);
+                break;
+            case ($color == '#E0385D'):
+                $respuesta = Pronostico::where('id', '=', $id)->update($datosEvento);
                 break;
         }
     }
@@ -257,6 +262,11 @@ class AlertasController extends Controller
                 $servicios = Llantas::findOrFail($id);
                 $servicios->start = NULL;
                 $servicios->update();
+                break;
+            case ($color == '#E0385D'):
+                $pronostico = Pronostico::findOrFail($id);
+                $pronostico->start = NULL;
+                $pronostico->update();
                 break;
         }
 

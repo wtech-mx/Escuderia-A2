@@ -11,6 +11,7 @@ use App\Models\TarjetaCirculacion;
 use App\Models\Llantas;
 use App\Models\Verificacion;
 use App\Models\VerificacionSegunda;
+use App\Models\Pronostico;
 use App\Models\Cupon;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Pagination\Paginator;
@@ -47,11 +48,11 @@ class AppServiceProvider extends ServiceProvider
                 ->first();
 
             //Cambiar estatus de cupon
-//            $cupon = Cupon::where('estado', '=', 0)->OrderBy('fecha_caducidad', 'ASC')->first();
-//            if ($cupon->fecha_caducidad == $current) {
-//                $cupon->estado = 1;
-//                $cupon->save();
-//            }
+            //            $cupon = Cupon::where('estado', '=', 0)->OrderBy('fecha_caducidad', 'ASC')->first();
+            //            if ($cupon->fecha_caducidad == $current) {
+            //                $cupon->estado = 1;
+            //                $cupon->save();
+            //            }
 
 
             //Trae la alerta Seguro
@@ -80,6 +81,11 @@ class AppServiceProvider extends ServiceProvider
             $servicios_last_week = Llantas::where('estado_last_week', '=', 0)->where('check', '=', 0)->OrderBy('end', 'ASC')->first();
             $servicios_tomorrow = Llantas::where('estado_tomorrow', '=', 0)->where('check', '=', 0)->OrderBy('end', 'ASC')->first();
 
+            //Trae la alerta Pronostico
+            $pronostico = Pronostico::where('estatus', '=', 0)->where('check', '=', 0)->OrderBy('end', 'ASC')->first();
+            // $pronostico_last_week = Pronostico::where('estado_last_week', '=', 0)->where('check', '=', 0)->OrderBy('end', 'ASC')->first();
+            // $pronostico_tomorrow = Pronostico::where('estado_tomorrow', '=', 0)->where('check', '=', 0)->OrderBy('end', 'ASC')->first();
+
             //Alerta
             if ($alert2 != NULL) {
                 if ($alert2->User->device_token != NULL) {
@@ -97,6 +103,9 @@ class AppServiceProvider extends ServiceProvider
 
                     OneSignal::sendNotificationCustom($params);
                     //    Fin Alerta
+                    $alert2->estatus = 1;
+                    $alert2->save();
+                } else {
                     $alert2->estatus = 1;
                     $alert2->save();
                 }
@@ -493,6 +502,32 @@ class AppServiceProvider extends ServiceProvider
                     $servicios->save();
                 }
             }
+
+            //Pronostico
+            if ($pronostico != NULL) {
+                if ($pronostico->User->device_token != NULL) {
+                    //    Inicio Pronostico
+                    $fecha = $pronostico->end . ' 10:00 ' . 'GMT-5';
+
+                    $params = [];
+                    $params['include_player_ids'] = [$pronostico->User->device_token];
+                    $contents = [
+                        "en" => $pronostico->descripcion
+                    ];
+                    $params['contents'] = $contents;
+                    $params['delayed_option'] = "timezone"; // Will deliver on user's timezone
+                    $params['send_after'] = $fecha; // Delivery time
+
+                    OneSignal::sendNotificationCustom($params);
+                    //    Fin Pronostico
+                    $pronostico->estatus = 1;
+                    $pronostico->save();
+                } else {
+                    $pronostico->estatus = 1;
+                    $pronostico->save();
+                }
+            }
+
             $view->with(['alert2' => $alert2, 'seguro_alerta' => $seguro_alerta, 'tc_alerta' => $tc_alerta, 'verificacion' => $verificacion]);
         });
 
