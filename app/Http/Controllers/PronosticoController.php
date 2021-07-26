@@ -49,7 +49,7 @@ class PronosticoController extends Controller
         $alert->descripcion = $request->get('descripcion');
         $alert->start = $request->get('end');
         $alert->end = $request->get('end');
-        $alert->color = '#e7ab1d';
+        $alert->color = '#E0385D';
         $alert->image = $request->get('image');
         $alert->estatus = 0;
         $alert->check = 0;
