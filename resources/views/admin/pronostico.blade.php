@@ -74,9 +74,10 @@
                     <div class="input-group form-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text">
-                                <i class="far fa-calendar-plus icon-tc"></i>
+                                <i class="far fa-user icon-tc"></i>
                             </span>
                         </div>
+
                         <select class="col-10 js-example-basic-single" id="id_user" name="id_user">
                             <option value="">Seleccione usuario</option>
                             @foreach ($user as $item)
@@ -85,6 +86,22 @@
                             @endforeach
                         </select>
                     </div>
+
+                    <label for="" class="mt-5">
+                        <p class="text-white"><strong>Veh&iacute;culo</strong></p>
+                    </label>
+
+                   <div class="input-group form-group">
+                       <div class="input-group-prepend " >
+                           <span class="input-group-text input-services" >
+                                <img class="" src="{{ asset('img/icon/white/coche (7).png') }}" width="25px" >
+                           </span>
+                       </div>
+
+                       <select class="form-control" id="current_auto" name="current_auto">
+                         <option value="">seleccione auto</option>
+                       </select>
+                   </div>
 
                     <label for="" class="mt-5">
                         <p class="text-white"><strong>Servicio</strong></p>
@@ -117,7 +134,7 @@
                     <div class="input-group form-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text">
-                                <i class="far fa-calendar-minus icon-tc"></i>
+                                <img class="" src="{{ asset('img/icon/white/contrato.png') }}" width="25px" >
                             </span>
                         </div>
                         <textarea class="form-control" id="descripcion" name="descripcion" rows="2"></textarea>
@@ -130,7 +147,7 @@
                     <div class="input-group form-group mb-5">
                         <div class="input-group-prepend ">
                             <span class="input-group-text">
-                                <i class="fas fa-shield-alt icon-tc"></i>
+                                <i class="far fa-calendar-minus icon-tc"></i>
                             </span>
                         </div>
                         <input type="date" class="form-control" placeholder="MM/DD/YYY"
@@ -161,8 +178,32 @@
             </div>
         </div>
 
-    </form>
+        <script>
+            $(document).ready(function () {
+            $('#id_user').on('change', function () {
+            let id = $(this).val();
+            //id_user no esta en la tabla de automovil
+            $('#current_auto').empty();
+            $('#current_auto').append(`<option value="" disabled selected>Procesando..</option>`);
+            $.ajax({
+            type: 'GET',
+            url: 'crear/' + id,
+            success: function (response) {
+            var response = JSON.parse(response);
+            console.log(response);
+            //trae los automoviles relacionados con el id_user
+            $('#current_auto').empty();
+            $('#current_auto').append(`<option value="" disabled selected>Seleccione Autom&oacute;vil</option>`);
+            response.forEach(element => {
+                $('#current_auto').append(`<option value="${element['placas']}">${element['placas']}</option>`);
+                });
+            }
+        });
+    });
+    });
+    </script>
 
+    </form>
 @section('js')
 <script src="{{ asset('js/select2.full.min.js') }}"></script>
 
