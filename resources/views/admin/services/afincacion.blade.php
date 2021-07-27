@@ -121,7 +121,7 @@
 
                                   <div class="col-12 p-4">
 
-                                        <input type="button" class="proveedor4" id="proveedor4" value="Agregar">
+                                        <input type="button" class="proveedor4" id="proveedor4" value="Agregar proveedor">
                                         <div id="nuevo-form4"></div>
 
                                         <hr>

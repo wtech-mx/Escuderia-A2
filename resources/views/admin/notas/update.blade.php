@@ -42,11 +42,11 @@ $dia = date('d', $fechaEntera);
                     </div>
 
                     <label class="mt-3" for="">
-                        <p><strong>Notas</strong></p>
+                        <p><strong>Historial de Nota</strong></p>
                     </label>
 
                     <div class="input-group form-group mb-5">
-                        <textarea class="form-control" rows="5">
+                        <textarea class="form-control" rows="5" disabled>
                             @foreach ($notas as $item2)
                                 @if ($item2->id_user == $item->id_user)
                                     {{ $dia }}/{{ $mes }}/{{ $dia }} - {{ $item2->nota }}
@@ -54,6 +54,10 @@ $dia = date('d', $fechaEntera);
                             @endforeach
                         </textarea>
                     </div>
+
+                    <label class="mt-3" for="">
+                        <p><strong>Editar nota</strong></p>
+                    </label>
 
                     <div class="input-group form-group mb-5">
                         <textarea class="form-control" id="nota" name="nota" rows="3">{{ $item->nota }}</textarea>

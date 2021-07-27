@@ -420,7 +420,7 @@
 
                                                         <div class="col-6">
                                                             <div class="rating text-right">
-
+                                                                  {{-- <input class="form-check-input" type="checkbox" name="permission[]" value="57" id="servicio" /> --}}
                                                             </div>
                                                         </div>
                                                     </div>

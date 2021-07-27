@@ -316,8 +316,10 @@ Route::group(['middleware' => ['permission:Ver Servicios|Crear Servicios']], fun
     Route::post('admin/servicio/crear', 'MecanicaController@store_servicio')->name('store_servicio.servicio');
 });
 
+Route::group(['middleware' => ['permission:Pronostico']], function () {
 Route::get('admin/pronostico/crear', 'PronosticoController@create')->name('create.pronostico');
 Route::post('admin/pronostico/crear', 'PronosticoController@store')->name('store.pronostico');
+});
 
 Route::get('admin/pronostico/crear/{id}', 'PronosticoController@GetSubCatAgainstMainCatEdit');
 Route::post('/automovil', 'MecanicaController@automovil')->name('automovil.servicio');

@@ -92,11 +92,7 @@
             </div>
         </div>
 
-        @if ($users->role == 1)
             @include('admin.alerts.calendar')
-        @else
-            @include('alerts.calendar')
-        @endif
     </div>
 
     <div class="row-content" style="position: relative;background-color: #31ba4b;width: 360px;left: -10px"></div>
@@ -157,7 +153,7 @@
 
             <div class="col-6 text-center position-relative mt-4" >
                 <div class="card" style="border-radius: 15px">
-                    @can('Ver Notas')
+                    @can('Ver Servicios')
                     <a href="{{ route('create.pronostico') }}">
                     @else
                     <a  data-toggle="modal" data-target="#modal-permisos">
@@ -168,7 +164,7 @@
                                 Pronostico</p>
                         </div>
                     </a>
-                    @can('Crear Notas')
+                    @can('Ver Servicios')
                     <a data-toggle="modal" data-target="#Servicios" class="text-white">
                     @else
                     <a  data-toggle="modal" data-target="#modal-permisos">

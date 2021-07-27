@@ -153,7 +153,6 @@
 
                                   <div class="custom-file " style="margin-bottom: 8rem !important;">
                                       <input type="file" class="custom-file-input"  id='img' name="img" >
-                                      <label class="custom-file-label" for="img">Selecciona imagen</label>
                                   </div>
 
                               </div>

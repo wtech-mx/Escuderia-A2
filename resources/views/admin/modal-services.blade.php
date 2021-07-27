@@ -9,8 +9,7 @@
                     <div class="col-12">
                         <h2 class="text-center"
                             style="color: var(--unnamed-color-050f55);font: normal normal bold 25px/33px Segoe UI;">
-                            <img class="d-inline mr-2" src="{{ asset('img/icon/black/boton-circular-plus (1).png') }}"
-                                alt="Icon Seguro" width="20px">¿Qué haremos hoy?
+                             ¿Qué haremos hoy?
                         </h2>
                     </div>
                 </div>

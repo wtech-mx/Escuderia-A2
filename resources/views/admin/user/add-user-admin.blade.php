@@ -124,7 +124,7 @@
                                     <i class="fas fa-phone icon-users-edit"></i>
                                 </span>
                             </div>
-                            <input type="text" class="form-control" placeholder="00 0000-0000" id="telefono" name="telefono"
+                            <input type="number" class="form-control" placeholder="00 0000-0000" id="telefono" name="telefono"
                                 style="border-radius: 0  10px 10px 0;">
                         </div>
 

@@ -34,7 +34,7 @@
             </div>
         </div>
 
-        @if (auth()->user()->role == 1)
+        @if (auth()->user()->empresa == 0)
         <div class="col-6 mt-4">
             <a class="btn mb-3 mr-1" href="#carouselExampleControls" role="button" data-slide="prev">
                 <img class="" src="{{ asset('img/icon/white/flecha-izquierda.png') }}" width="25px">

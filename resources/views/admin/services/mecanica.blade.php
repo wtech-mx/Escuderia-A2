@@ -6,7 +6,7 @@
 
                 <link href="{{ asset('css/servicios.css') }}" rel="stylesheet">
 
-                <div class="row  bg-image" >
+                <div class="row bg-image" >
 
                     @if(Session::has('marca'))
                         <script>
@@ -56,7 +56,7 @@
                                 </h5>
                     </div>
 
-                    <div class="col-2  mt-5">
+                    <div class="col-2  mt-5 mb-5">
                         <div class="d-flex justify-content-start">
                                 <div class="text-center text-white bg-white" style="border-radius: 50px;padding: 5px">
                                   <img class="" src="{{ asset('img/icon/color/campana.png') }}" width="25px" >
@@ -65,7 +65,7 @@
                     </div>
                 </div>
 
-                <div class="row  bg-image mt-5" >
+                <div class="row bg-image" >
 
                     <div class="col-12 bg-white" style="height: 38px;">
 

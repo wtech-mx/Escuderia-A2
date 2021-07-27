@@ -92,7 +92,7 @@
                 @else
                 <p class="text-center mb-5" style="color: #00d62e; font: normal normal bold 20px/27px Segoe UI;"><strong>{{$seguro->User->name}} / {{$seguro->Automovil->placas}}</strong></p>
                 @endif
-                
+
                 <label for="">
                     <p class="text-white"><strong>Seguro</strong></p>
                 </label>
@@ -112,14 +112,14 @@
                         value="{{ asset('img/icon/color/comprobado.png') }}">
                     {{-- Datos para el calendario --}}
 
-                    <div class="input-group form-group">
+
                         <div class="input-group-prepend ">
                             <span class="input-group-text">
                                 <i class="fas fa-shield-alt icon-tc"></i>
                             </span>
                         </div>
-
-                        <select class="form-control js-example-basic-single" id="seguro" name="seguro">
+                    <div class=" form-group col-10">
+                        <select class="form-control js-example-basic-single " id="seguro" name="seguro">
                             <option value="{{ $seguro->seguro }}" selected>{{ $seguro->seguro }}</option>
                             <option value="aba">aba</option>
                             <option value="afirme">afirme</option>

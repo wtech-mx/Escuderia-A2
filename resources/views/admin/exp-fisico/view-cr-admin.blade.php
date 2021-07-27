@@ -215,10 +215,11 @@
 
                                             <br>
 
-                                                <button type="submit" class="btn btn-success btn-save text-white">
-                                                    <img class="d-inline" src="{{ asset('img/icon/white/save-file-option (1).png') }}" alt="Icon documento" width="30px">
-                                                    Guardar
-                                                </button>
+                                            <button type="submit" class="btn btn-lg btn-save-dark text-white mt-5">
+                                                <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}"
+                                                    width="20px">
+                                                Guardar
+                                            </button>
                                         </p>
 
 

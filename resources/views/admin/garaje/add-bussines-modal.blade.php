@@ -59,7 +59,7 @@
                                 <div class="input-group form-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text input-modal">
-                                             <img class="" src="{{ asset('img/icon/white/email.png') }}" width="25px" >
+                                            <i class="fa fa-building icon-users-edit" aria-hidden="true"></i>
                                         </span>
                                     </div>
                                     <input type="text" class="form-control" placeholder="Nombre Empresa" id="nombre" name="nombre" style="border-radius: 0  10px 10px 0;">
@@ -88,7 +88,7 @@
                                              <img class="" src="{{ asset('img/icon/white/call.png') }}" width="25px" >
                                         </span>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="00 0000-0000" id="telefono" name="telefono" style="border-radius: 0  10px 10px 0;">
+                                    <input type="number" class="form-control" placeholder="00 0000-0000" id="telefono" name="telefono" style="border-radius: 0  10px 10px 0;">
                                 </div>
 
 
@@ -235,7 +235,7 @@
                                 <div class="input-group form-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text input-modal">
-                                             <img class="" src="{{ asset('img/icon/white/email.png') }}" width="25px" >
+                                            <i class="fa fa-user icon-users-edit" aria-hidden="true"></i>
                                         </span>
                                     </div>
                                     <input type="text" class="form-control" placeholder="nombre" id="name" name="name" style="border-radius: 0  10px 10px 0;">
@@ -266,7 +266,7 @@
                                              <img class="" src="{{ asset('img/icon/white/call.png') }}" width="25px" >
                                         </span>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="00 0000-0000" id="telefono" name="telefono" style="border-radius: 0  10px 10px 0;">
+                                    <input type="number" class="form-control" placeholder="00 0000-0000" id="telefono" name="telefono" style="border-radius: 0  10px 10px 0;">
                                 </div>
 
 

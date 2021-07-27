@@ -136,7 +136,7 @@
                                     <i class="fas fa-phone icon-users-edit"></i>
                                 </span>
                             </div>
-                            <input type="text" class="form-control" id="telefono" name="telefono" placeholder="5500550055"
+                            <input type="number" class="form-control" id="telefono" name="telefono" placeholder="5500550055"
                                 value="{{ $user->telefono }}" style="border-radius: 0  10px 10px 0;">
                             @if ($errors->has('telefono'))
                                 <span class="text-danger">{{ $errors->first('telefono') }}</span>

@@ -130,7 +130,7 @@ class EmpresasController extends Controller
     {
             $empresa = User::findOrFail($id);
 
-            $empresas = DB::table('user')
+            $empresas = DB::table('users')
                 ->where('empresa', '=', 1)
                 ->get();
 
@@ -153,12 +153,33 @@ class EmpresasController extends Controller
         $empresa->password = Hash::make($request->password);
 
         if ($request->hasFile('img')) {
-            $urlfoto = $request->file('img');
-            $nombre = time() . "." . $urlfoto->guessExtension();
-            $ruta = public_path('/img-empresa/' . $nombre);
-            $compresion = Image::make($urlfoto->getRealPath())
-                ->save($ruta, 10);
-            $empresa->img = $compresion->basename;
+
+            $file = $request->file('img');
+            $file->move(public_path() . '/img-empresa', time() . "." . $file->getClientOriginalExtension());
+            $empresa->img = time() . "." . $file->getClientOriginalExtension();
+
+            $filepath = public_path('/img-empresa/' . $empresa->img);
+
+            try {
+                \Tinify\setKey(env("TINIFY_API_KEY"));
+                $source = \Tinify\fromFile($filepath);
+                $source->toFile($filepath);
+            } catch (\Tinify\AccountException $e) {
+                // Verify your API key and account limit.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (\Tinify\ClientException $e) {
+                // Check your source image and request options.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (\Tinify\ServerException $e) {
+                // Temporary issue with the Tinify API.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (\Tinify\ConnectionException $e) {
+                // A network connection error occurred.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (Exception $e) {
+                // Something else went wrong, unrelated to the Tinify API.
+                return redirect()->back()->with('error', $e->getMessage());
+            }
         }
 
         $empresa->update();

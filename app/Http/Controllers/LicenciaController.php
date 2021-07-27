@@ -48,8 +48,8 @@ class LicenciaController extends Controller
 |--------------------------------------------------------------------------*/
     public function index_admin()
     {
-            $licencia = Licencia::where('id_empresa', '=', NULL)->get();
-            $licencia_empresa = Licencia::where('id_user', '=', NULL)->get();
+            $licencia = Licencia::where('id_empresa', '=', 0)->get();
+            $licencia_empresa = Licencia::where('id_user', '=', 0)->get();
 
             return view('admin.licencia.index', compact('licencia', 'licencia_empresa'));
     }

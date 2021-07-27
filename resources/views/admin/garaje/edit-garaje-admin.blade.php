@@ -60,14 +60,12 @@
                     </a>
                 </li>
 
-                @if (auth()->user()->role == 1)
                 <li class="nav-item">
                     <a class="nav-link a-auto" id="pills-Vinculacion-tab" data-toggle="pill" href="#pills-Vinculacion"
                         role="tab" aria-controls="pills-Vinculacion" aria-selected="false">
                         Vinculaci&oacute;n
                     </a>
                 </li>
-                @endif
 
             </ul>
             <form method="POST" action="{{ route('update_admin.automovil', $automovil->id) }}"
@@ -224,7 +222,6 @@
                             </p>
                         </div>
 
-                        @if (auth()->user()->role == 2)
                         <input type="hidden" class="form-control input-edit-car" value="{{ auth()->user()->id }}"
                         id="id_empresa" name="id_empresa">
                             <button type="submit" class="btn btn-lg btn-save-dark text-white mt-5"
@@ -232,14 +229,11 @@
                                 <i class="fas fa-save icon-save"></i>
                                 Actualizar
                             </button>
-                        @endif
-
                     </div>
 
                     {{-- -------------------------------------------------------------------------- --}}
                     {{-- |Tab seguridad --}}
                     {{-- |-------------------------------------------------------------------------- --}}
-                    @if (auth()->user()->role == 1)
                     <div class="tab-pane fade" id="pills-Vinculacion" role="tabpanel"
                         aria-labelledby="pills-Vinculacion-tab">
 
@@ -262,7 +256,7 @@
 
                                         <select class="form-control" id="id_empresa" name="id_empresa">
                                             @if ($automovil->id_empresa == null)
-                                                <option>Seleccione una Empresa</option>
+                                                <option value="">Seleccione una Empresa</option>
                                             @else
                                                 <option value="{{ $automovil->id_user }}">
                                                     {{ $automovil->UserEmpresa->name }}
@@ -302,7 +296,7 @@
 
                                         <select class="form-control" id="id_user" name="id_user">
                                             @if ($automovil->id_user == null)
-                                                <option>Seleccione un Usuario</option>
+                                                <option value="">Seleccione un Usuario</option>
                                             @else
                                                 <option value="{{ $automovil->id_user }}">{{ $automovil->User->name }}
                                                 </option>
@@ -331,7 +325,6 @@
                         </div>
 
                     </div>
-                    @endif
                 </div>
             </form>
             @include('admin.garaje.add-bussines-modal')

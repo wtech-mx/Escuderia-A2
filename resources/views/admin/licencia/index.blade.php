@@ -24,7 +24,7 @@
             </h5>
         </div>
 
-        <div class="col-2  mt-4">
+        <div class="col-2  mt-4 mb-5">
             <div class="d-flex justify-content-start">
                 <div class="text-center text-white bg-white" style="border-radius: 50px;padding: 5px">
                     <img class="" src="{{ asset('img/icon/color/campana.png') }}" width="25px">
@@ -35,7 +35,7 @@
 
 
     <div class="row bg-image">
-        <div class="content container-res-max">
+        <div class="content container-res-max mt-5">
             <div class="col-12">
 
                 <table id="licencia" class="table text-white">

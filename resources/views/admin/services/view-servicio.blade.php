@@ -41,13 +41,6 @@
                                        </li>
                                    @endif
                                @endforeach
-                               <li class="nav-item">
-                                    <a class="nav-link active" id="pills-servicio-tab" data-toggle="pill"
-                                        href="#pills-servicio{{ $item->Mecanica->id }}" role="tab"
-                                        aria-controls="pills-servicio" aria-selected="true">
-                                        Pronostico
-                                    </a>
-                                </li>
                            </ul>
                        </div>
                    </div>
@@ -61,7 +54,7 @@
                            <div class="input-group form-group">
                                <div class="input-group-prepend ">
                                    <span class="input-group-text">
-                                       <img class="" src="{{ asset('img/icon/white/bolsa-de-dinero (1).png') }}"
+                                       <img class="" src="{{ asset('img/icon/white/calendario (5).png') }}"
                                            width="25px">
                                    </span>
                                </div>
@@ -211,7 +204,7 @@
                            <div class="input-group form-group">
                                <div class="input-group-prepend ">
                                    <span class="input-group-text">
-                                       <img class="" src="{{ asset('img/icon/white/bolsa-de-dinero (1).png') }}"
+                                       <img class="" src="{{ asset('img/icon/white/velocimetro.png') }}"
                                            width="25px">
                                    </span>
                                </div>
@@ -225,7 +218,7 @@
                            <div class="input-group form-group">
                                <div class="input-group-prepend ">
                                    <span class="input-group-text">
-                                       <img class="" src="{{ asset('img/icon/white/bolsa-de-dinero (1).png') }}"
+                                       <img class="" src="{{ asset('img/icon/white/editar.png') }}"
                                            width="25px">
                                    </span>
                                </div>
@@ -239,7 +232,7 @@
                            <div class="input-group form-group">
                                <div class="input-group-prepend ">
                                    <span class="input-group-text">
-                                       <img class="" src="{{ asset('img/icon/white/bolsa-de-dinero (1).png') }}"
+                                       <img class="" src="{{ asset('img/icon/white/calendario (1).png') }}"
                                            width="25px">
                                    </span>
                                </div>
@@ -262,7 +255,7 @@
                                                <div class="input-group-prepend ">
                                                    <span class="input-group-text">
                                                        <img class=""
-                                                           src="{{ asset('img/icon/white/bolsa-de-dinero (1).png') }}"
+                                                           src="{{ asset('img/icon/white/amortiguador (1).png') }}"
                                                            width="25px">
                                                    </span>
                                                </div>
@@ -278,7 +271,7 @@
                                                <div class="input-group-prepend ">
                                                    <span class="input-group-text">
                                                        <img class=""
-                                                           src="{{ asset('img/icon/white/bolsa-de-dinero (1).png') }}"
+                                                           src="{{ asset('img/icon/white/marca.png') }}"
                                                            width="25px">
                                                    </span>
                                                </div>
@@ -294,7 +287,7 @@
                                                <div class="input-group-prepend ">
                                                    <span class="input-group-text">
                                                        <img class=""
-                                                           src="{{ asset('img/icon/white/bolsa-de-dinero (1).png') }}"
+                                                           src="{{ asset('img/icon/white/garantia.png') }}"
                                                            width="25px">
                                                    </span>
                                                </div>
@@ -310,7 +303,7 @@
                                                <div class="input-group-prepend ">
                                                    <span class="input-group-text">
                                                        <img class=""
-                                                           src="{{ asset('img/icon/white/bolsa-de-dinero (1).png') }}"
+                                                           src="{{ asset('img/icon/white/numeros.png') }}"
                                                            width="25px">
                                                    </span>
                                                </div>

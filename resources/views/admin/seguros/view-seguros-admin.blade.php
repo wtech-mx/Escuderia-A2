@@ -66,7 +66,7 @@
                                     </div>
                                 </div>
 
-                                <div class="content container-res-inter">
+                                <div class="content container-res-max">
                                     <div class="col-12">
 
                                         <table id="seguro" class="table text-white">
