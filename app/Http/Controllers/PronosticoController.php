@@ -33,6 +33,12 @@ class PronosticoController extends Controller
         return view('admin.pronostico', compact('user'));
     }
 
+    /* Trae los automoviles con el user seleccionado  */
+    public function GetSubCatAgainstMainCatEdit($id)
+    {
+        echo json_encode(DB::table('automovil')->where('id_user', $id)->get());
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -41,12 +47,14 @@ class PronosticoController extends Controller
      */
     public function store(Request $request)
     {
+
         $alert = new Pronostico;
         $alert->id_user = $request->get('id_user');
         $alert->id_empresa = $request->get('id_empresa');
         $alert->servicio = $request->get('servicio');
+        $alert->current_auto = $request->get('current_auto');
         $alert->title = 'Pronostico ' . $alert->servicio;
-        $alert->descripcion = $request->get('descripcion');
+        $alert->descripcion = 'Pronostico para el automovil '. $request->get('current_auto') . ': ' . $request->get('descripcion');
         $alert->start = $request->get('end');
         $alert->end = $request->get('end');
         $alert->color = '#E0385D';
