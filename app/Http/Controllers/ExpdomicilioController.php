@@ -41,10 +41,6 @@ class ExpdomicilioController extends Controller
 
     public function store(Request $request){
 
-        $validate = $this->validate($request,[
-            'domicilio' => 'mimes:jpeg,bpm,jpg,png,pdf',
-        ]);
-
         $exp_domicilio = new ExpDomicilio;
 
         $exp_domicilio->titulo = $request->get('titulo');

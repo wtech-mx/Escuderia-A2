@@ -40,10 +40,6 @@ class ExplacasController extends Controller
 
     public function store(Request $request){
 
-        $validate = $this->validate($request,[
-            'placa' => 'mimes:jpeg,bpm,jpg,png,pdf',
-        ]);
-
         $exp_placas = new ExpPlacas;
 
         $exp_placas->titulo = $request->get('titulo');

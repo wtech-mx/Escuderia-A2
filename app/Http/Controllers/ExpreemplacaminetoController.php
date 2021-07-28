@@ -62,10 +62,6 @@ class ExpreemplacaminetoController extends Controller
 
     public function store(Request $request){
 
-        $validate = $this->validate($request,[
-            'reemplacamiento' => 'mimes:jpeg,bpm,jpg,png,pdf',
-        ]);
-
         $exp_reemplacamiento = new ExpReemplacamiento;
 
         $exp_reemplacamiento->titulo = $request->get('titulo');

@@ -55,10 +55,6 @@ class ExpcartaController extends Controller
     public function store(Request $request)
     {
 
-        $validate = $this->validate($request, [
-            'carta' => 'mimes:jpeg,bpm,jpg,png,pdf',
-        ]);
-
         $exp_carta = new ExpCarta;
 
         $exp_carta->titulo = $request->get('titulo');

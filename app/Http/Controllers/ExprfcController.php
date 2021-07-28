@@ -43,11 +43,6 @@ class ExprfcController extends Controller
 
     public function store(Request $request)
     {
-
-        $validate = $this->validate($request, [
-            'rfc' => 'mimes:jpeg,bpm,jpg,png,pdf',
-        ]);
-
         $exp_rfc = new ExpRfc;
 
         $exp_rfc->titulo = $request->get('titulo');

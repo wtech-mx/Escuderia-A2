@@ -39,11 +39,6 @@ class ExpCertificadoController extends Controller
 
     public function store(Request $request)
     {
-
-        $validate = $this->validate($request, [
-            'certificado' => 'mimes:jpeg,bpm,jpg,png,pdf',
-        ]);
-
         $exp_certificados = new ExpCertificado;
 
         $exp_certificados->titulo = $request->get('titulo');

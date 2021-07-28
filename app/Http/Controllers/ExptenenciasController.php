@@ -45,10 +45,6 @@ class ExptenenciasController extends Controller
     public function store(Request $request)
     {
 
-        $validate = $this->validate($request, [
-            'tenencia' => 'mimes:jpeg,bpm,jpg,png,pdf',
-        ]);
-
         $exp_tenencias = new ExpTenencias;
         $exp_tenencias->titulo = $request->get('titulo');
 

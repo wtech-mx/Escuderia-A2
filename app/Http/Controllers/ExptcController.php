@@ -52,10 +52,6 @@ class ExptcController extends Controller
     public function store(Request $request)
     {
 
-        $validate = $this->validate($request, [
-            'tc' => 'mimes:jpeg,bpm,jpg,png,pdf',
-        ]);
-
         $exp_tc = new ExpTc;
 
         $exp_tc->titulo = $request->get('titulo');

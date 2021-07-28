@@ -59,10 +59,6 @@ class ExpfacturasController extends Controller
 
     public function store(Request $request)
     {
-        $validate = $this->validate($request, [
-            'factura' => 'mimes:jpeg,bpm,jpg,png,pdf',
-        ]);
-
         $exp_factura = new ExpFactura;
 
         $exp_factura->titulo = $request->get('titulo');

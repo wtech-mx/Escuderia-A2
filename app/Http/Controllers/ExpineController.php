@@ -41,10 +41,6 @@ class ExpineController extends Controller
 
     public function store(Request $request){
 
-        $validate = $this->validate($request,[
-            'ine' => 'mimes:jpeg,bpm,jpg,png,pdf',
-        ]);
-
         $exp_ine = new ExpIne;
 
         $exp_ine->titulo = $request->get('titulo');
