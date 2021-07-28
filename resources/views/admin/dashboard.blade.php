@@ -153,22 +153,22 @@
 
             <div class="col-6 text-center position-relative mt-4" >
                 <div class="card" style="border-radius: 15px">
-                    @can('Ver Servicios')
+                    {{-- @can('Ver Servicios') --}}
                     <a href="{{ route('create.pronostico') }}">
-                    @else
+                    {{-- @else
                     <a  data-toggle="modal" data-target="#modal-permisos">
-                    @endcan
+                    @endcan --}}
                         <div class="contenedor-inter-card position-absolute">
                             <p clas="text-vertical-l"
                                 style="writing-mode: vertical-lr;color: #000;top:30px;margin-top: 2.3rem;margin-left: 5px!important;">
                                 Pronostico</p>
                         </div>
                     </a>
-                    @can('Ver Servicios')
+                    {{-- @can('Ver Servicios') --}}
                     <a data-toggle="modal" data-target="#Servicios" class="text-white">
-                    @else
+                    {{-- @else
                     <a  data-toggle="modal" data-target="#modal-permisos">
-                    @endcan
+                    @endcan --}}
                         <div class="card-body">
                             <i class="fas fa-cogs icon-effect-dashboard"></i>
                             <p class="card-text text-white"><strong>Servicios</strong></p>
