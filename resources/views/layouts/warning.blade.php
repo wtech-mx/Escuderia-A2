@@ -239,7 +239,7 @@
                                         Mi carro no esta
                                     </h5>
                                     <h1 class="text-white">
-                                        <strong>Manetérm ña calma</strong>
+                                        <strong>Manetérm la calma</strong>
                                     </h1>
                                     <h6 class="text-white h6-emergency">
                                        Fijate si te estacionaste en un lugar<br>
@@ -277,15 +277,16 @@
                                         <strong>¿Se lo llevo la grúa?</strong>
                                     </h1>
                                      <h6 class="text-white h6-emergency">
-                                        Fijate si estas en lugar prohibido
+                                        Verifica si se lo llevaron al corralon
                                     </h6>
-                                       <ul class="text-center text-white mt-5" style="position: relative;list-style: none;left: -5%;">
-                                            <li></li>
-                                            <li>- kiasidasdjasoñdj9asdais</li>
-                                            <li>- kiasidasdjasoñdj9asdais</li>
-                                            <li>- kiasidasdjasoñdj9asdais</li>
-                                            <li>- kiasidasdjasoñdj9asdais</li>
-                                       </ul>
+                                       <p class="text-center">
+                                           Ingresar Placa
+                                       </p>
+                                        <p class="text-center mt-3">
+                                            <button class="btn" style="background-color: #00FF31">
+                                                Buscar
+                                            </button>
+                                        </p>
                                 </div>
 
                                 <div class="carousel-item">
@@ -312,7 +313,6 @@
                                        </ul>
                                 </div>
 
-
                               </div>
                             </div>
 
@@ -338,7 +338,7 @@
                   <div class="row">
                       <div class="col-12">
 
-                            <div id="carruse-accidente" class="carousel slide" data-interval="5000" data-ride="carousel" data-touch="true">
+                            <div id="carruse-accidente" class="carousel slide" data-interval="90000" data-ride="carousel" data-touch="true">
                               <div class="arrow-conetn" style="">
                                         <div class="row ">
                                             <div class="col-12">
@@ -375,15 +375,41 @@
                                     <h1 class="text-white">
                                         <strong>Manten la Calma</strong>
                                     </h1>
-                                    <h6 class="text-white h6-emergency">
-                                        Checa que tú y los involucrados no estén heridos
+                                    <h6 class=" h6-emergency">
+                                        Checa que tú y los involucrados no estén heridos <br>
                                     </h6>
-                                       <ul class="text-center text-white mt-5" style="position: relative;list-style: none;left: -5%;">
-                                            <li>¿Necesitas ayuda?</li>
-                                            <li>Llama a la patrulla<a href="tel:+066"> 066</a></li>
-                                            <li>Llama a la ambulancia<a href="tel:+065"> 065</a></li>
-                                            <li>Tambien puede llamar al<a href="tel:+911"> 911</a></li>
-                                       </ul>
+                                    <p class="text-white">
+                                        ¿Necesitas ayuda?
+                                    </p>
+
+                                    <div class="row p-5">
+                                        <div class="col-4">
+                                            <a class="p-3" href="tel:066" style="background-color: #00FF31;border-radius: 10px">
+                                                <img class="" src="{{ asset('img/icon/white/badge.png') }}" width="30px">
+                                            </a>
+                                          <p class="text-center text-white mt-5'">
+                                                Llamar a una patruya
+                                          </p>
+                                        </div>
+                                        <div class="col-4">
+                                            <a class="p-3" href="tel:+065" style="background-color: #00FF31;border-radius: 10px">
+                                                <img class="" src="{{ asset('img/icon/white/ambulance.png') }}" width="30px">
+                                            </a>
+                                            <p class="text-center text-white mt-5'">
+                                            Llamar a una Ambulancia
+                                            </p>
+                                        </div>
+                                        <div class="col-4">
+                                            <a class="p-3" href="tel:911" style="background-color: #00FF31;border-radius: 10px">
+                                                <img class="" src="{{ asset('img/icon/white/emergency-call.png') }}" width="30px">
+                                            </a>
+                                            <p class="text-center text-white mt-5'">
+                                            Llamar al 911
+                                            </p>
+                                        </div>
+
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <div class="carousel-item ">
@@ -455,7 +481,7 @@
                   <div class="row">
                       <div class="col-12">
 
-                            <div id="carruse-arana" class="carousel slide" data-interval="5000" data-ride="carousel" data-touch="true">
+                            <div id="carruse-arana" class="carousel slide" data-interval="90000" data-ride="carousel" data-touch="true">
                               <div class="arrow-conetn" style="">
                                         <div class="row ">
                                             <div class="col-12">
