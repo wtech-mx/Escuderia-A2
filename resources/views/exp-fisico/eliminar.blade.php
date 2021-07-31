@@ -37,13 +37,14 @@
             break;
     }
 @endphp
-<div class="modal fade" id="modal{{$item->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade show" id="modal{{$item->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <form method="POST" action="{{route('destroy.expediente',$item->id)}}">
 
         {{csrf_field() }}
         <input type="hidden" name="_method" value="DELETE">
 
-        <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-dialog  modal-sm modal-dialog-centered" role="document">
+
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Eliminar Documento</h5>
@@ -60,6 +61,8 @@
 
                             <div class="modal-footer">
                                     <input type="submit" class="btn btn-danger text-white" value="Si">
+{{--                                    <button class="deleteRecord">Click me</button>--}}
+
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
                             </div>
 
@@ -71,3 +74,51 @@
         </div>
     </form>
 </div>
+
+<script !src="">
+{{--$(".deleteRecord").click(function(){--}}
+{{--    var id = $(this).data("id");--}}
+{{--    var token = $("meta[name='csrf-token']").attr("content");--}}
+
+{{--    $.ajax(--}}
+{{--    {--}}
+{{--        url: "{{route('destroy.expediente',$item->id)}}",--}}
+{{--        type: 'DELETE',--}}
+{{--        data: {--}}
+{{--            "id": id,--}}
+{{--            "_token": token,--}}
+{{--        },--}}
+{{--        success: function (){--}}
+{{--            console.log("it Works");--}}
+{{--        }--}}
+{{--    });--}}
+
+
+
+{{--$(".deleteProduct").click(function(){--}}
+{{--    $.ajaxSetup({--}}
+{{--        headers: {--}}
+{{--            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')--}}
+{{--        }--}}
+{{--    });--}}
+{{--    $.ajax(--}}
+{{--    {--}}
+{{--        url: "{{route('destroy.expediente',$item->id)}}"+id,--}}
+{{--        type: 'DELETE', // replaced from put--}}
+{{--        dataType: "JSON",--}}
+{{--        data: {--}}
+{{--            "id": id // method and token not needed in data--}}
+{{--        },--}}
+{{--        success: function (response)--}}
+{{--        {--}}
+{{--            console.log(response); // see the reponse sent--}}
+{{--        },--}}
+{{--        error: function(xhr) {--}}
+{{--         // this line will save you tons of hours while debugging--}}
+{{--         console.log(xhr.responseText);--}}
+{{--        // do something here because of error--}}
+{{--       }--}}
+{{--    });--}}
+{{--});--}}
+});
+</script>

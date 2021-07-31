@@ -48,7 +48,7 @@ switch($rest){
                             </p>
                         </div>
 
-                        <form method="POST" action="{{ route('store_admin.expedientes', $automovil->id) }}"
+                        <form id="fileUploadForm" method="POST" action="{{ route('store_admin.expedientes', $automovil->id) }}"
                             enctype="multipart/form-data" role="form">
                             @csrf
 
@@ -76,19 +76,21 @@ switch($rest){
                                     <input type="file" class="custom-file-input input-group-text" name="img">
                                 </div>
 
-                                <p class="text-center">
+                                <div class="form-group">
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-striped bg-success" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+                                    </div>
+                                </div>
 
-                                    <button type="submit" class="btn btn-lg btn-save-dark text-white mt-5">
-                                        <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}"
-                                            width="20px">
-                                        Guardar
-                                    </button>
+                                <button type="submit" class="btn btn-lg btn-save-dark text-white mt-5">
+                                    <img class="align-items-center" src="{{ asset('img/icon/white/save-file-option (1).png') }}"
+                                        width="20px">
+                                    Guardar
+                                </button>
 
-                                </p>
                             </div>
                         </form>
                     </div>
-
 
                 </div>
             </div>

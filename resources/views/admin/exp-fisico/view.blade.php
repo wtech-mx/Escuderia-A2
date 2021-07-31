@@ -9,7 +9,7 @@
 
 <link href="{{ asset('css/dashboard-admin.css') }}" rel="stylesheet">
 
-<div class="row bg-down-blue " style="border-radius: 0 0 0 0; height: 95vh;">
+                    <div class="row bg-down-blue " style="border-radius: 0 0 0 0; min-height: 10vh;">
 
                         @if(Session::has('success'))
                             <script>
@@ -95,6 +95,7 @@
                                     break;
                             }
                         @endphp
+
                         <div class="col-2  mt-4">
                             <div class="d-flex justify-content-start">
                                     <div class="text-center text-white">
@@ -119,15 +120,18 @@
                             </div>
                         </div>
 
+                    </div>
+
+                    <div class="row bg-down-blue " style="border-radius: 0 0 0 0; min-height: 10vh;">
+
                         <strong class="text-center" style="color: rgb(102, 223, 66)">  {{ $automovil->placas }}</strong>
 
                         @can('Crear Exp')
-                        <div class="col-12 mt-3 mb-5">
+                        <div class="col-12 p-5">
                             <div class="d-flex justify-content-between">
                             <p class="text-center text-white">
                                 Agregar m&aacute;s
                             </p>
-
                                 <!-- Button trigger modal -->
                                 <button  class="btn " data-toggle="modal" data-target="#exampleModal">
                                  <img class="d-inline mb-2" src="{{ asset('img/icon/white/plus.png') }}" alt="Icon documento" width="30px">
@@ -136,7 +140,9 @@
                             </div>
                         </div>
                         @endcan
+                    </div>
 
+                    <div id="dataTable"  class="row bg-down-blue " style="border-radius: 0 0 0 0;min-height:70vh">
                     @if ($expedientes->count())
 
                         @foreach($expedientes as $item)
@@ -178,8 +184,9 @@
                                     break;
                             }
                             @endphp
-                            <div class="col-6">
-                                <a  class="" data-toggle="modal" data-target="#modal-doc-{{$item->id}}">
+
+                            <div  class="col-6">
+                                <a   data-toggle="modal" data-target="#modal-doc-{{$item->id}}">
                                         @if($texto == 'pdf')
                                             <p class="text-center">
                                                 <iframe width="140" height="140" src="{{asset($ruta.$item->img)}}" frameborder="0"></iframe>
@@ -193,47 +200,14 @@
                                         @endif
                                 </a>
                             </div>
-                            <!-- Modal View -->
-                            <div class="modal fade" id="modal-doc-{{$item->id}}" tabindex="-1" role="dialog" aria-labelledby="modal-doc-{{$item->id}}" aria-hidden="true">
-                              <div class="modal-dialog  modal-sm modal-dialog-centered" role="document">
-                                <div class="modal-content">
 
-                                  <div class="modal-body">
-                                      <div class="row justify-content-center">
-                                          <div class="col-12 text-center mb-3">
-                                              <h5 class="modal-title"><strong>{{$item->titulo}}</strong></h5>
-                                          </div>
-                                      </div>
-                                      <div class="row justify-content-center">
-                                          <div class="d-flex align-items-center">
-                                              <div class="col-11">
-                                                  <p class="text-center">
-                                                      <img class="" src="{{asset($ruta. '/' . $item->img)}}" style="height: 300px!important;">
-                                                  </p>
-                                              </div>
-                                              <div class="col-1">
-                                                  @can('Borrar Exp')
-                                                  <a  class="btn btn-danger text-white p-2 mt-5 mb-5" data-toggle="modal" data-target="#modal{{$item->id}}">
-                                                    <i class="fa fa-trash" aria-hidden="true"></i>
-                                                  </a>
-                                                  @endcan
-                                                    <a  class="btn btn-secondary p-2" data-dismiss="modal">
-                                                        <i class="fa fa-window-close" aria-hidden="true"></i>
-                                                    </a>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </div>
-
-                                </div>
-                              </div>
-                            </div>
-
+                            @include('admin.exp-fisico.modal-view')
                             @include('exp-fisico.eliminar')
                         @endforeach
+                    </div>
 
                     @else
-
+                    <div class="row bg-down-blue " style="border-radius: 0 0 0 0;">
                         <div class="col-12 mb3">
                             <p class="text-center title-car">
                             <img class="d-inline mb-2" src="{{ asset('img/icon/white/paper (1).png') }}" alt="Icon documento" width="150px">
@@ -253,18 +227,83 @@
                             </p>
                         </div>
 
-
                         <div class="col-12 mt-3">
                             <p class="text-center text-white">
                                 Escanea tu Expediente
                             </p>
                         </div>
+                    </div>
 
                     @endif
 
-                        <!-- Modal -->
-                        @include('admin.exp-fisico.create')
+                     <!-- Modal -->
+                     @include('admin.exp-fisico.create')
 
-</div>
+    <script>
+
+        $(function () {
+            $(document).ready(function () {
+                $('#fileUploadForm').ajaxForm({
+                    beforeSend: function () {
+                        var percentage = '0';
+                    },
+                    uploadProgress: function (event, position, total, percentComplete) {
+                        var percentage = percentComplete;
+                        $('.progress .progress-bar').css("width", percentage+'%', function() {
+                          return $(this).attr("aria-valuenow", percentage) + "%";
+                        })
+                    },
+                    complete: function (xhr) {
+                        console.log('File has uploaded');
+                        location.reload();
+
+                    }
+                });
+            });
+        });
+
+
+    {{--$(function () {--}}
+    {{--    //ajax setup--}}
+    {{--    $.ajaxSetup({--}}
+    {{--        headers: {--}}
+    {{--            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')--}}
+    {{--        }--}}
+    {{--    });--}}
+
+    {{--    // datatable--}}
+    {{--    var table = $('#dataTable').DataTable({--}}
+    {{--        processing: true,--}}
+    {{--        serverSide: true,--}}
+    {{--        ajax: "{{route('index_admin.view-exp-fisico-admin')}}",--}}
+    {{--        columns: [--}}
+    {{--            {data: 'DT_RowIndex', name: 'DT_RowIndex'},--}}
+    {{--            {data: 'titulo', titulo: 'titulo'},--}}
+    {{--            {data: 'img', name: 'img'},--}}
+    {{--        ]--}}
+    {{--    });--}}
+
+
+    {{--    // delete book--}}
+    {{--    $('body').on('click', '.deleteBook', function () {--}}
+    {{--        var book_id = $(this).data("id");--}}
+    {{--        confirm("Are You sure want to delete !");--}}
+
+    {{--        $.ajax({--}}
+    {{--            type: "DELETE",--}}
+    {{--            url: "{{route('destroy.expediente',$item->id)}}" + '/' + book_id,--}}
+    {{--            success: function (data) {--}}
+    {{--                table.draw();--}}
+    {{--            },--}}
+    {{--            error: function (data) {--}}
+    {{--                console.log('Error:', data);--}}
+    {{--            }--}}
+    {{--        });--}}
+    {{--    });--}}
+
+    {{--});--}}
+
+
+    </script>
 
 @endsection

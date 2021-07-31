@@ -21,7 +21,7 @@ use Session;
 class ExpedientesController extends Controller
 {
 
-    function index()
+    public function index()
     {
         $user = DB::table('users')
             ->where('id', '=', auth()->user()->id)
@@ -142,13 +142,13 @@ class ExpedientesController extends Controller
         return redirect()->route('index.exp-factura', compact('exp_factura'));
     }
 
-    function destroy(Request $request, $id)
+    public function destroy(Request $request, $id)
     {
         $numero = $request->get('numero');
         switch ($numero) {
             case ($numero == 1):
                 $ruta = '/exp-factura';
-                $new = ExpFactura::findOrFail($id);
+                $new = ExpFactura::find($id);
                 break;
             case ($numero == 2):
                 $ruta = '/exp-placa';
@@ -192,13 +192,14 @@ class ExpedientesController extends Controller
                 break;
         }
 
-
         $exp = $new;
         unlink(public_path($ruta . '/' . $exp->img));
+
         $exp->delete();
 
         Session::flash('destroy', 'Se Elimino su Foto con exito');
         return redirect()->back();
+//        return response()->json(['success' => true],200);
     }
 
     /*|--------------------------------------------------------------------------
@@ -383,6 +384,8 @@ class ExpedientesController extends Controller
         $exp->save();
 
         Session::flash('success', 'Se ha guardado sus datos con exito');
-        return redirect()->back();
+//        return redirect()->back();
+        return response()->json(['success'=>'Successfully uploaded.']);
+
     }
 }
