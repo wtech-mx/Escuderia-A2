@@ -10,7 +10,7 @@
     <link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">
 
 
-    <div class="row bg-img-log" style="z-index:1000;background-color: #27de4e">
+    <div class="row bg-img-log" style="z-index:1000;background-color: #27de4e;min-height: 10vh;">
 
         <div class="col-2 ">
             <div class="d-flex justify-content-start">

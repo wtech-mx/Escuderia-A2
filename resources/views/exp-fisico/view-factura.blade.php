@@ -6,7 +6,7 @@
 
 <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
 
-<div class="row bg-down-blue " style="border-radius: 0 0 0 0; height: 100vh;">
+<div class="row bg-image " style="border-radius: 0 0 0 0;">
 
                         @if(Session::has('success'))
                         <script>
@@ -85,7 +85,7 @@
                             @php
                                 $texto= substr($item->factura, -3);
                             @endphp
-                                <div class="col-6">
+                                <div  class="col-6">
                                     <a  class="" data-toggle="modal" data-target="#modal-doc-{{$item->id}}">
                                         @if($texto == 'pdf')
                                             <p class="text-center">
@@ -94,12 +94,13 @@
                                             </p>
                                         @else
                                             <p class="text-center">
-                                                    <img class="d-inline mb-2" src="{{asset('exp-factura/'.$item->factura)}}" alt="{{$item->factura}}" width="100px">
+                                                    <img  class="d-inline mb-3 " src="{{asset('exp-factura/'.$item->factura)}}" alt="{{$item->factura}}" width="100px">
                                                     <p class="text-center text-white">{{$item->titulo}}</p>
                                             </p>
                                         @endif
                                      </a>
                                 </div>
+
                             <!-- Modal -->
                             <div class="modal fade" id="modal-doc-{{$item->id}}" tabindex="-1" role="dialog" aria-labelledby="modal-doc-{{$item->id}}" aria-hidden="true">
                               <div class="modal-dialog  modal-sm modal-dialog-centered" role="document">
@@ -162,7 +163,7 @@
                             </p>
                         </div>
 
-                        @endif
+                    @endif
 
                         <!-- Modal -->
                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -175,7 +176,7 @@
                                             Agregar Imagen
                                         </p>
                                       </div>
-                                    <form method="POST" action="{{route('store.exp-factura')}}" enctype="multipart/form-data" role="form">
+                                    <form id="fileUploadForm" method="POST" action="{{route('store.exp-factura')}}" enctype="multipart/form-data" role="form">
                                          @csrf
 
                                     <div class="col-12">
@@ -198,6 +199,11 @@
                                                 <input type="file" class="custom-file-input input-group-text" name="factura">
                                                 <label class="custom-file-label">Elegir img...</label>
                                               </div>
+                                                <div class="form-group">
+                                                    <div class="progress">
+                                                        <div class="progress-bar progress-bar-striped bg-success" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+                                                    </div>
+                                                </div>
                                         <p class="text-center">
                                             Agregar <br>
                                             Facturas
@@ -215,6 +221,30 @@
                             </div>
                           </div>
                         </div>
+
+    <script>
+
+        $(function () {
+            $(document).ready(function () {
+                $('#fileUploadForm').ajaxForm({
+                    beforeSend: function () {
+                        var percentage = '0';
+                    },
+                    uploadProgress: function (event, position, total, percentComplete) {
+                        var percentage = percentComplete;
+                        $('.progress .progress-bar').css("width", percentage+'%', function() {
+                          return $(this).attr("aria-valuenow", percentage) + "%";
+                        })
+                    },
+                    complete: function (xhr) {
+                        $("#table_refresh").load(" #table_refresh");
+                        console.log('File has uploaded');
+                    }
+                });
+            });
+        });
+
+    </script>
 
 </div>
 

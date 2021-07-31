@@ -59,6 +59,8 @@
     background-image: url('../img/bg-medida.png');
     position: relative;
     z-index: 1000;
-    background-repeat: space repeat;
+    background-repeat: repeat;
+    min-height: 100vh;
+    /*background-repeat: space repeat;*/
 }
 

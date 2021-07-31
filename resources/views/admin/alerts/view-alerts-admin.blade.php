@@ -3,7 +3,7 @@
 @section('content')
 
 <link href="{{ asset('css/dashboard-admin.css') }}" rel="stylesheet">
-                <div class="row bg-image" >
+                <div class="row bg-image"  style="min-height: 10vh;">
 
                         <div class="col-2  mt-4">
                             <div class="d-flex justify-content-start">

@@ -12,7 +12,7 @@
     <link href="{{ asset('css/login-form.css') }}" rel="stylesheet">
     <link href="{{ asset('css/dashboard-admin.css') }}" rel="stylesheet">
 
-    <div class="row bg-down-image-border">
+    <div class="row bg-down-image-border" style="min-height: 10vh;"">
 
         @if (Session::has('store'))
             <script>

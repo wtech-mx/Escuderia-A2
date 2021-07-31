@@ -6,7 +6,7 @@
 
                 <link href="{{ asset('css/servicios.css') }}" rel="stylesheet">
 
-                <div class="row bg-image" >
+                <div class="row bg-image" style="min-height: 10vh;">
 
                     @if(Session::has('marca'))
                         <script>
