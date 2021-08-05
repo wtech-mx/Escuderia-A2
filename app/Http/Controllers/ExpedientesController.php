@@ -179,6 +179,8 @@ class ExpedientesController extends Controller
 
         if ($request->hasFile('img')) {
 
+//            dd($request->hasFile('img'));
+
             $file = $request->file('img');
             $file->move(public_path() . $ruta . '/', time() . "." . $file->getClientOriginalExtension());
             $exp->img = time() . "." . $file->getClientOriginalExtension();

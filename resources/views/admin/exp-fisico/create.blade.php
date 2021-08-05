@@ -133,11 +133,14 @@
                                 <div class="custom-file mb-3 fallback">
                                     <input type="file" class="custom-file-input input-group-text" id="img" name="img">
                                 </div>
-                                <div class="col-6">
-                                    <div id="photo-btn" class="btn btn-primary fab-photo">
-                                         <i class="fa fa-camera"></i>
-                                    </div>
-                                </div>
+
+{{--                                <input  id="img" name="img"  type="text" value="">--}}
+
+{{--                                <div class="col-6">--}}
+{{--                                    <div id="photo-btn" class="btn btn-primary fab-photo">--}}
+{{--                                         <i class="fa fa-camera"></i>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
                             </div>
 
                             <div class="col-12 mt-3">
@@ -148,16 +151,17 @@
                                     </div>
                                 </div>
 
-                                <div class="d-flex justify-content-center">
-                                    <div class="camara-contenedor fadeIn fast oculto mt-5">
-                                        <video id="player" autoplay style="height: 300px;"></video>
-                                    </div>
-                                </div>
+{{--                                <div class="d-flex justify-content-center">--}}
+{{--                                    <div class="camara-contenedor fadeIn fast oculto mt-5">--}}
+{{--                                        <video id="player" autoplay style="height: 300px;"></video>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
 
-                                <button id="tomar-foto-btn" type='button'>
-                                    <i class="fa fa-camera"></i>
-                                    Tomar Foto
-                                </button>
+{{--                                <input id="tomar-foto-btn" type="button"/>--}}
+{{--                                <button id="tomar-foto-btn" type='button'>--}}
+{{--                                    <i class="fa fa-camera"></i>--}}
+{{--                                    Tomar Foto--}}
+{{--                                </button>--}}
 
                                 <button type="submit" class="btn btn-lg btn-save-dark text-white mt-5">
                                     <img class="align-items-center" src="{{ asset('img/icon/white/save-file-option (1).png') }}"
@@ -174,6 +178,7 @@
             </div>
         </div>
 
+
         <script>
             var btnTomarFoto     = $('#tomar-foto-btn');
             var btnPhoto         = $('#photo-btn');
@@ -188,11 +193,11 @@
             });
 
             // Boton para tomar la foto
-            btnTomarFoto.on('click', () => {
+                 btnTomarFoto.on('click', () => {
                 console.log('Botón tomar foto');
                 foto = camara.tomarFoto();
-
                 console.log(foto);
+
             });
 
         </script>
