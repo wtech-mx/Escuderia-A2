@@ -82,6 +82,11 @@
     @endphp
 @endif
 
+<style>
+.oculto {
+  display: none !important;
+}
+</style>
 
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-sm modal-dialog-centered">
@@ -143,15 +148,16 @@
                                     </div>
                                 </div>
 
-                                <div class="camara-contenedor fadeIn fast oculto mt-5" align="center">
-
-                                    <video id="player" autoplay style="height: 300px;"></video>
-
-                                    <button id="tomar-foto-btn">
-                                        <i class="fa fa-camera"></i>
-                                        Tomar Foto
-                                    </button>
+                                <div class="d-flex justify-content-center">
+                                    <div class="camara-contenedor fadeIn fast oculto mt-5">
+                                        <video id="player" autoplay style="height: 300px;"></video>
+                                    </div>
                                 </div>
+
+                                <button id="tomar-foto-btn" type='button'>
+                                    <i class="fa fa-camera"></i>
+                                    Tomar Foto
+                                </button>
 
                                 <button type="submit" class="btn btn-lg btn-save-dark text-white mt-5">
                                     <img class="align-items-center" src="{{ asset('img/icon/white/save-file-option (1).png') }}"
@@ -176,26 +182,17 @@
             const camara = new Camara( $('#player')[0] );
 
             btnPhoto.on('click', () => {
-
                 console.log('Inicializar camara');
                 contenedorCamara.removeClass('oculto');
-
                 camara.encender();
-
             });
-
 
             // Boton para tomar la foto
             btnTomarFoto.on('click', () => {
-
                 console.log('Botón tomar foto');
-
                 foto = camara.tomarFoto();
 
-                camara.apagar();
-
-                // console.log(foto);
-
+                console.log(foto);
             });
 
         </script>

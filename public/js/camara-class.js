@@ -13,7 +13,13 @@ class Camara {
 
         navigator.mediaDevices.getUserMedia({
             audio: false,
-            video: { width: 300, height: 300 }
+            video: {
+                width: 300,
+                height: 300,
+            },
+                facingMode: {
+                  exact: 'environment'
+                }
         }).then( stream => {
 
             this.videoNode.srcObject = stream;
