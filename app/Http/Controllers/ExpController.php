@@ -15,6 +15,7 @@ use App\Models\ExpRfc;
 use App\Models\ExpTc;
 use App\Models\ExpTenencias;
 use App\Models\ExpCertificado;
+use App\Models\ExpInventario;
 
 class ExpController extends Controller
 {
@@ -65,8 +66,10 @@ class ExpController extends Controller
 
         $rfc = ExpRfc::where('current_auto','=',auth()->user()->current_auto)->get()->count();
 
+        $inventario = ExpInventario::where('current_auto','=',auth()->user()->current_auto)->get()->count();
+
         return view('exp-fisico.view-exp-fisico',compact('carro', 'automovil', 'users', 'factura',
-                          'tenencias', 'carta', 'poliza', 'tc', 'reemplacamiento', 'placas', 'ine', 'comprobante', 'certificado', 'rfc'));
+                          'tenencias', 'carta', 'poliza', 'tc', 'reemplacamiento', 'placas', 'ine', 'comprobante', 'certificado', 'rfc', 'inventario'));
     }
 
 

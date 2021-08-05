@@ -208,6 +208,23 @@
                                 </a>
                             </div>
 
+                            <div class="col-6 p-2">
+                                <a href="{{ route('create_admin.view-inventario-admin', $item->id) }}">
+                                    <div class="d-flex justify-content-between bg-dark text-white p-2"
+                                        style="border-radius: 10px">
+                                        <div class="mr-auto p-2">Inventario</div>
+                                        <div class="p-2">
+                                            <strong class="text-white p-2 "
+                                                style="background-color: #00d62e;border-radius: 10px">
+                                                @if ($item->User->id == $item->id_user)
+                                                    {{ $item->ExpInventario->count() }}
+                                                @endif
+                                            </strong>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+
                         </div>
 
                     </div>

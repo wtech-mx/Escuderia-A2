@@ -7,6 +7,9 @@
 
                 <div class="row">
                     <div class="col-12">
+                        <a href="{{ route('create_servicio.servicio') }}">
+                        <img class="d-inline mr-2" src="{{ asset('img/icon/black/boton-circular-plus (1).png') }}"
+                                alt="Icon Seguro" width="20px"></a>
                         <h2 class="text-center"
                             style="color: var(--unnamed-color-050f55);font: normal normal bold 25px/33px Segoe UI;">
                              ¿Qué haremos hoy?

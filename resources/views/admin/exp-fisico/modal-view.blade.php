@@ -17,11 +17,18 @@
                                                   </p>
                                               </div>
                                               <div class="col-1">
-                                                  @can('Borrar Exp')
+                                                  @if (auth()->user()->role == 0)
                                                   <a  class="btn btn-danger text-white p-2 mt-5 mb-5" data-toggle="modal" data-target="#modal{{$item->id}}">
                                                     <i class="fa fa-trash" aria-hidden="true"></i>
                                                   </a>
-                                                  @endcan
+                                                  @else
+                                                    @can('Borrar Exp')
+                                                    <a  class="btn btn-danger text-white p-2 mt-5 mb-5" data-toggle="modal" data-target="#modal{{$item->id}}">
+                                                        <i class="fa fa-trash" aria-hidden="true"></i>
+                                                    </a>
+                                                    @endcan
+                                                  @endif
+
                                                     <a  class="btn btn-secondary p-2" data-dismiss="modal">
                                                         <i class="fa fa-window-close" aria-hidden="true"></i>
                                                     </a>

@@ -7,6 +7,10 @@
     <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
 @endsection
 
+{{-- @section('css')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/dropzone.min.css" integrity="sha512-jU/7UFiaW5UBGODEopEqnbIAHOI8fO6T99m7Tsmqs2gkdujByJfkCbbfPSN4Wlqlb9TGnsuC0YgUgWkRBK7B9A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+@endsection --}}
+
 <link href="{{ asset('css/dashboard-admin.css') }}" rel="stylesheet">
 
                     <div class="row bg-down-blue " style="border-radius: 0 0 0 0; min-height: 10vh;">
@@ -93,6 +97,10 @@
                                         $expedientes= $exp_certificado;
                                         $nombre = 'Certificado Verificación';
                                     break;
+                                case($rest == 'inventario/view/'.$automovil->id):
+                                        $expedientes= $exp_inventario;
+                                        $nombre = 'Inventario';
+                                    break;
                             }
                         @endphp
 
@@ -143,50 +151,53 @@
                     </div>
 
                     <div id="dataTable"  class="row bg-down-blue " style="border-radius: 0 0 0 0;min-height:70vh">
-                    @if ($expedientes->count())
+                        @if ($expedientes->count())
 
-                        @foreach($expedientes as $item)
-                            @php
-                            $texto= substr($item->img, -3);
-                            switch($rest){
-                                case($rest == 'factura/view/'.$automovil->id):
-                                    $ruta= 'exp-factura/';
-                                break;
-                                case($rest == 'bp/view/'.$automovil->id):
-                                    $ruta= 'exp-placa/';
-                                break;
-                                case($rest == 'cd/view/'.$automovil->id):
-                                    $ruta = 'exp-domicilio/';
-                                break;
-                                case($rest == 'cr/view/'.$automovil->id):
-                                    $ruta = 'exp-certificado/';
-                                    break;
-                                case($rest == 'ine/view/'.$automovil->id):
-                                    $ruta = 'exp-ine/';
-                                    break;
-                                case($rest == 'poliza/view/'.$automovil->id):
-                                    $ruta = 'exp-poliza/';
-                                    break;
-                                case($rest == 'reemplacamiento/view/'.$automovil->id):
-                                    $ruta = 'exp-reemplacamiento/';
-                                    break;
-                                case($rest == 'rfc/view/'.$automovil->id):
-                                    $ruta = 'exp-rfc/';
-                                    break;
-                                case($rest == 'tc/view/'.$automovil->id):
-                                    $ruta = 'exp-tc/';
-                                    break;
-                                case($rest == 'tenencia/view/'.$automovil->id):
-                                    $ruta = 'exp-tenencia/';
-                                    break;
-                                case($rest == 'certificado/view/'.$automovil->id):
-                                    $ruta = 'exp-certificado/';
-                                    break;
-                            }
-                            @endphp
+                            @foreach($expedientes as $item)
+                                @php
+                                    $texto= substr($item->img, -3);
+                                    switch($rest){
+                                        case($rest == 'factura/view/'.$automovil->id):
+                                            $ruta= 'exp-factura/';
+                                        break;
+                                        case($rest == 'bp/view/'.$automovil->id):
+                                            $ruta= 'exp-placa/';
+                                        break;
+                                        case($rest == 'cd/view/'.$automovil->id):
+                                            $ruta = 'exp-domicilio/';
+                                        break;
+                                        case($rest == 'cr/view/'.$automovil->id):
+                                            $ruta = 'exp-certificado/';
+                                            break;
+                                        case($rest == 'ine/view/'.$automovil->id):
+                                            $ruta = 'exp-ine/';
+                                            break;
+                                        case($rest == 'poliza/view/'.$automovil->id):
+                                            $ruta = 'exp-poliza/';
+                                            break;
+                                        case($rest == 'reemplacamiento/view/'.$automovil->id):
+                                            $ruta = 'exp-reemplacamiento/';
+                                            break;
+                                        case($rest == 'rfc/view/'.$automovil->id):
+                                            $ruta = 'exp-rfc/';
+                                            break;
+                                        case($rest == 'tc/view/'.$automovil->id):
+                                            $ruta = 'exp-tc/';
+                                            break;
+                                        case($rest == 'tenencia/view/'.$automovil->id):
+                                            $ruta = 'exp-tenencia/';
+                                            break;
+                                        case($rest == 'certificado/view/'.$automovil->id):
+                                            $ruta = 'exp-certificado/';
+                                            break;
+                                        case($rest == 'inventario/view/'.$automovil->id):
+                                            $ruta = 'exp-inventario/';
+                                            break;
+                                    }
+                                @endphp
 
-                            <div  class="col-6">
-                                <a   data-toggle="modal" data-target="#modal-doc-{{$item->id}}">
+                                <div  class="col-6">
+                                    <a   data-toggle="modal" data-target="#modal-doc-{{$item->id}}">
                                         @if($texto == 'pdf')
                                             <p class="text-center">
                                                 <iframe width="140" height="140" src="{{asset($ruta.$item->img)}}" frameborder="0"></iframe>
@@ -198,43 +209,43 @@
                                                     <p class="text-center text-white">{{$item->titulo}}</p>
                                             </p>
                                         @endif
-                                </a>
+                                    </a>
+                                </div>
+
+                                @include('admin.exp-fisico.modal-view')
+                                @include('exp-fisico.eliminar')
+                            @endforeach
+
+
+                        @else
+                            <div class="row bg-down-blue " style="border-radius: 0 0 0 0;">
+                                <div class="col-12 mb3">
+                                    <p class="text-center title-car">
+                                    <img class="d-inline mb-2" src="{{ asset('img/icon/white/paper (1).png') }}" alt="Icon documento" width="150px">
+
+                                    </p>
+                                    <p class="text-center  text-white">
+                                    <strong style="font: normal normal bold 20px/20px Segoe UI;">A&uacute;n no tienes Expedientes! </strong><br>
+                                    Escanea tus documentos has <br> click en el botón de + para <br> agregar tu expediente
+                                    </p>
+                                </div>
+
+                                <div class="col-12 mt-5">
+                                    <p class="text-center">
+                                        <button  class="btn " data-toggle="modal" data-target="#exampleModal">
+                                            <img class="d-inline mb-2" src="{{ asset('img/icon/white/plus.png') }}" alt="Icon documento" width="60px">
+                                        </button>
+                                    </p>
+                                </div>
+
+                                <div class="col-12 mt-3">
+                                    <p class="text-center text-white">
+                                        Escanea tu Expediente
+                                    </p>
+                                </div>
                             </div>
-
-                            @include('admin.exp-fisico.modal-view')
-                            @include('exp-fisico.eliminar')
-                        @endforeach
+                        @endif
                     </div>
-
-                    @else
-                    <div class="row bg-down-blue " style="border-radius: 0 0 0 0;">
-                        <div class="col-12 mb3">
-                            <p class="text-center title-car">
-                            <img class="d-inline mb-2" src="{{ asset('img/icon/white/paper (1).png') }}" alt="Icon documento" width="150px">
-
-                            </p>
-                            <p class="text-center  text-white">
-                             <strong style="font: normal normal bold 20px/20px Segoe UI;">A&uacute;n no tienes Expedientes! </strong><br>
-                             Escanea tus documentos has <br> click en el botón de + para <br> agregar tu expediente
-                            </p>
-                        </div>
-
-                        <div class="col-12 mt-5">
-                            <p class="text-center">
-                                 <button  class="btn " data-toggle="modal" data-target="#exampleModal">
-                                    <img class="d-inline mb-2" src="{{ asset('img/icon/white/plus.png') }}" alt="Icon documento" width="60px">
-                                </button>
-                            </p>
-                        </div>
-
-                        <div class="col-12 mt-3">
-                            <p class="text-center text-white">
-                                Escanea tu Expediente
-                            </p>
-                        </div>
-                    </div>
-
-                    @endif
 
                      <!-- Modal -->
                      @include('admin.exp-fisico.create')
@@ -263,47 +274,52 @@
         });
 
 
-    {{--$(function () {--}}
-    {{--    //ajax setup--}}
-    {{--    $.ajaxSetup({--}}
-    {{--        headers: {--}}
-    {{--            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')--}}
-    {{--        }--}}
-    {{--    });--}}
+        // {{--$(function () {--}}
+        // {{--    //ajax setup--}}
+        // {{--    $.ajaxSetup({--}}
+        // {{--        headers: {--}}
+        // {{--            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')--}}
+        // {{--        }--}}
+        // {{--    });--}}
 
-    {{--    // datatable--}}
-    {{--    var table = $('#dataTable').DataTable({--}}
-    {{--        processing: true,--}}
-    {{--        serverSide: true,--}}
-    {{--        ajax: "{{route('index_admin.view-exp-fisico-admin')}}",--}}
-    {{--        columns: [--}}
-    {{--            {data: 'DT_RowIndex', name: 'DT_RowIndex'},--}}
-    {{--            {data: 'titulo', titulo: 'titulo'},--}}
-    {{--            {data: 'img', name: 'img'},--}}
-    {{--        ]--}}
-    {{--    });--}}
+        // {{--    // datatable--}}
+        // {{--    var table = $('#dataTable').DataTable({--}}
+        // {{--        processing: true,--}}
+        // {{--        serverSide: true,--}}
+        // {{--        ajax: "{{route('index_admin.view-exp-fisico-admin')}}",--}}
+        // {{--        columns: [--}}
+        // {{--            {data: 'DT_RowIndex', name: 'DT_RowIndex'},--}}
+        // {{--            {data: 'titulo', titulo: 'titulo'},--}}
+        // {{--            {data: 'img', name: 'img'},--}}
+        // {{--        ]--}}
+        // {{--    });--}}
 
 
-    {{--    // delete book--}}
-    {{--    $('body').on('click', '.deleteBook', function () {--}}
-    {{--        var book_id = $(this).data("id");--}}
-    {{--        confirm("Are You sure want to delete !");--}}
+        // {{--    // delete book--}}
+        // {{--    $('body').on('click', '.deleteBook', function () {--}}
+        // {{--        var book_id = $(this).data("id");--}}
+        // {{--        confirm("Are You sure want to delete !");--}}
 
-    {{--        $.ajax({--}}
-    {{--            type: "DELETE",--}}
-    {{--            url: "{{route('destroy.expediente',$item->id)}}" + '/' + book_id,--}}
-    {{--            success: function (data) {--}}
-    {{--                table.draw();--}}
-    {{--            },--}}
-    {{--            error: function (data) {--}}
-    {{--                console.log('Error:', data);--}}
-    {{--            }--}}
-    {{--        });--}}
-    {{--    });--}}
+        // {{--        $.ajax({--}}
+        // {{--            type: "DELETE",--}}
+        // {{--            url: "{{route('destroy.expediente',$item->id)}}" + '/' + book_id,--}}
+        // {{--            success: function (data) {--}}
+        // {{--                table.draw();--}}
+        // {{--            },--}}
+        // {{--            error: function (data) {--}}
+        // {{--                console.log('Error:', data);--}}
+        // {{--            }--}}
+        // {{--        });--}}
+        // {{--    });--}}
 
-    {{--});--}}
+        // {{--});--}}
 
 
     </script>
 
 @endsection
+
+{{-- @section('js')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/min/dropzone.min.js"></script>
+
+@endsection --}}

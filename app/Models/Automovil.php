@@ -119,4 +119,9 @@ class Automovil extends Model
        return $this->hasMany(ExpRfc::class,'current_auto');
     }
 
+    public function ExpInventario()
+    {
+       return $this->hasMany(ExpInventario::class,'current_auto');
+    }
+
 }

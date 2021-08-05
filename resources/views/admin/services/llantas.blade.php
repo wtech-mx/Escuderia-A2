@@ -1,4 +1,5 @@
-                       <form method="POST" action="{{route('store_servicio.servicio')}}" enctype="multipart/form-data" role="form">
+
+        <form method="POST" action="{{route('store_servicio.servicio')}}" enctype="multipart/form-data" role="form">
                          @csrf
                                 <div class="col-12">
                                       <p class="title-services text-center p-3">
@@ -279,15 +280,15 @@
 
                                          {{-- <hr>
                                          <label for="">
-                                             <p class="text-white"><strong>V&iacute;deo Interior</strong></p>
+                                             <p class="text-white"><strong>Imagenes</strong></p>
                                          </label>
 
                                         <div class="custom-file">
-                                          <input type="file" class="custom-file-input " id="video" name="video">
-                                          <label class="custom-file-label " for="customFile">Selecciona V&iacute;deo</label>
-                                        </div>
+                                          <input type="file" name="file" id="video">
+                                          <label class="custom-file-label " for="customFile">Selecciona Imagenes</label>
+                                        </div> --}}
 
-                                         <label for="" class="mt-3">
+                                         {{-- <label for="" class="mt-3">
                                              <p class="text-white"><strong>V&iacute;deo Exterior</strong></p>
                                          </label>
 

@@ -1,40 +1,87 @@
-@php
-switch($rest){
-    case($rest == 'factura/view/'.$automovil->id):
-        $numero = 1;
-    break;
-    case($rest == 'bp/view/'.$automovil->id):
-        $numero = 2;
-    break;
-    case($rest == 'cd/view/'.$automovil->id):
-        $numero = 3;
-    break;
-    case($rest == 'cr/view/'.$automovil->id):
-        $numero = 4;
-        break;
-    case($rest == 'ine/view/'.$automovil->id):
-        $numero = 5;
-        break;
-    case($rest == 'poliza/view/'.$automovil->id):
-        $numero = 6;
-        break;
-    case($rest == 'reemplacamiento/view/'.$automovil->id):
-        $numero = 7;
-        break;
-    case($rest == 'rfc/view/'.$automovil->id):
-        $numero = 8;
-        break;
-    case($rest == 'tc/view/'.$automovil->id):
-        $numero = 9;
-        break;
-    case($rest == 'tenencia/view/'.$automovil->id):
-        $numero = 10;
-        break;
-    case($rest == 'certificado/view/'.$automovil->id):
-        $numero = 11;
-        break;
-}
-@endphp
+@if (auth()->user()->role == 0)
+    @php
+        switch($rest){
+            case($rest == 'factura/view'):
+                $numero = 1;
+            break;
+            case($rest == 'bp/view'):
+                $numero = 2;
+            break;
+            case($rest == 'cd/view'):
+                $numero = 3;
+            break;
+            case($rest == 'cr/view'):
+                $numero = 4;
+                break;
+            case($rest == 'ine/view'):
+                $numero = 5;
+                break;
+            case($rest == 'poliza/view'):
+                $numero = 6;
+                break;
+            case($rest == 'reemplacamiento/view'):
+                $numero = 7;
+                break;
+            case($rest == 'rfc/view'):
+                $numero = 8;
+                break;
+            case($rest == 'tc/view'):
+                $numero = 9;
+                break;
+            case($rest == 'tenencia/view'):
+                $numero = 10;
+                break;
+            case($rest == 'certificado/view'):
+                $numero = 11;
+                break;
+            case($rest == 'inventario/view'):
+                $numero = 12;
+                break;
+        }
+    @endphp
+    @else
+    @php
+        switch($rest){
+            case($rest == 'factura/view/'.$automovil->id):
+                $numero = 1;
+            break;
+            case($rest == 'bp/view/'.$automovil->id):
+                $numero = 2;
+            break;
+            case($rest == 'cd/view/'.$automovil->id):
+                $numero = 3;
+            break;
+            case($rest == 'cr/view/'.$automovil->id):
+                $numero = 4;
+                break;
+            case($rest == 'ine/view/'.$automovil->id):
+                $numero = 5;
+                break;
+            case($rest == 'poliza/view/'.$automovil->id):
+                $numero = 6;
+                break;
+            case($rest == 'reemplacamiento/view/'.$automovil->id):
+                $numero = 7;
+                break;
+            case($rest == 'rfc/view/'.$automovil->id):
+                $numero = 8;
+                break;
+            case($rest == 'tc/view/'.$automovil->id):
+                $numero = 9;
+                break;
+            case($rest == 'tenencia/view/'.$automovil->id):
+                $numero = 10;
+                break;
+            case($rest == 'certificado/view/'.$automovil->id):
+                $numero = 11;
+                break;
+            case($rest == 'inventario/view/'.$automovil->id):
+                $numero = 12;
+                break;
+        }
+    @endphp
+@endif
+
 
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-sm modal-dialog-centered">
@@ -48,8 +95,14 @@ switch($rest){
                             </p>
                         </div>
 
+                        @if (auth()->user()->role == 0)
+                        <form id="fileUploadForm" method="POST" action="{{ route('store.expexpediente') }}"
+                            enctype="multipart/form-data" role="form">
+                        @else
                         <form id="fileUploadForm" method="POST" action="{{ route('store_admin.expedientes', $automovil->id) }}"
                             enctype="multipart/form-data" role="form">
+                        @endif
+
                             @csrf
 
                             <div class="col-12">
@@ -72,8 +125,8 @@ switch($rest){
                             <input type="hidden" id="numero" name="numero" value="{{$numero}}">
 
                             <div class="col-12 mt-3">
-                                <div class=" custom-file mb-3">
-                                    <input type="file" class="custom-file-input input-group-text" name="img">
+                                <div class=" custom-file mb-3 fallback">
+                                    <input type="file" class="custom-file-input input-group-text" id="img" name="img">
                                 </div>
 
                                 <div class="form-group">
@@ -95,3 +148,9 @@ switch($rest){
                 </div>
             </div>
         </div>
+        {{-- <script>
+            Dropzone.options.myAwesomeDropzone = {
+                'X-CSRF-TOKEN' : "{{csrf_token()}}"
+                ''
+            };
+        </script> --}}

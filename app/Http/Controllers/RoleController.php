@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Role;
 use App\Models\RolePermissions;
+use App\Models\RoleHasPermissions;
 use DB;
 use Illuminate\Support\Facades\Redirect;
 use Session;
@@ -44,11 +45,11 @@ class RoleController extends Controller
         $role->guard_name = 'web';
         $role->save();
 
-
         $permissions = $request->input('permission');
         $roles = $role->id;
+
         foreach($permissions as $permissions){
-            $permissions_role = new RolePermissions;
+            $permissions_role = new RoleHasPermissions;
             $sundaysArray = $permissions;
             $permissions_role->permission_id = $sundaysArray;
             $permissions_role->role_id = $roles;
@@ -63,10 +64,12 @@ class RoleController extends Controller
     {
         $role = Role::findOrFail($id);
 
-        $role_permiso = DB::table('permissions')
+        $role_permiso21 = RoleHasPermissions::
+            where('role_id', '=', $id)
+            ->where('permission_id', '=', 19)
             ->get();
 
-        return view('admin.permisos.edit-role', compact('role', 'role_permiso'));
+        return view('admin.permisos.edit-role', compact('role', 'role_permiso21'));
     }
 
     public function update_role(Request $request, $id)

@@ -16,6 +16,8 @@ use App\Models\ExpRfc;
 use App\Models\ExpTc;
 use App\Models\ExpTenencias;
 use App\Models\ExpCertificado;
+use App\Models\ExpInventario;
+use Illuminate\Support\Facades\Storage;
 use Session;
 
 class ExpedientesController extends Controller
@@ -28,6 +30,7 @@ class ExpedientesController extends Controller
             ->first();
 
         $auto_user = $user->{'id'};
+        $automovil = auth()->user()->current_auto;
 
         $exp_factura = DB::table('exp_facturas')
             ->where('id_user', '=', $auto_user)
@@ -84,7 +87,27 @@ class ExpedientesController extends Controller
             ->where('current_auto', '=', auth()->user()->current_auto)
             ->get();
 
-        return view('exp-fisico.view-factura', compact('exp_factura'));
+        $exp_inventario = DB::table('exp_inventario')
+            ->where('id_user', '=', $auto_user)
+            ->where('current_auto', '=', auth()->user()->current_auto)
+            ->get();
+
+        return view('exp-fisico.view', compact(
+            'exp_factura',
+            'exp_placas',
+            'exp_carta',
+            'exp_certificado',
+            'exp_domicilio',
+            'exp_ine',
+            'exp_poliza',
+            'exp_reemplacamiento',
+            'exp_rfc',
+            'exp_tc',
+            'exp_tenencias',
+            'exp_inventario',
+            'automovil',
+            'user'
+        ));
     }
 
     public function create()
@@ -93,22 +116,74 @@ class ExpedientesController extends Controller
             ->where('role', '=', '0')
             ->get();
 
-        return view('exp-fisico.view-factura', compact('user'));
+        return view('exp-fisico.create', compact('user'));
     }
 
     public function store(Request $request)
     {
-        $exp_factura = new ExpFactura;
+        $numero = $request->get('numero');
+        $automovil = auth()->user()->current_auto;
+        switch ($numero) {
+            case ($numero == 1):
+                $ruta = '/exp-factura';
+                $new = new ExpFactura;
+                break;
+            case ($numero == 2):
+                $ruta = '/exp-placa';
+                $new = new ExpPlacas;
+                break;
+            case ($numero == 3):
+                $ruta = '/exp-domicilio';
+                $new = new ExpDomicilio;
+                break;
+            case ($numero == 4):
+                $ruta = '/exp-carta';
+                $new = new ExpCarta;
+                break;
+            case ($numero == 5):
+                $ruta = '/exp-ine';
+                $new = new ExpIne;
+                break;
+            case ($numero == 6):
+                $ruta = '/exp-poliza';
+                $new = new ExpPoliza;
+                break;
+            case ($numero == 7):
+                $ruta = '/exp-reemplacamiento';
+                $new = new ExpReemplacamiento;
+                break;
+            case ($numero == 8):
+                $ruta = '/exp-rfc';
+                $new = new ExpRfc;
+                break;
+            case ($numero == 9):
+                $ruta = '/exp-tc';
+                $new = new ExpTc;
+                break;
+            case ($numero == 10):
+                $ruta = '/exp-tenencia';
+                $new = new ExpTenencias;
+                break;
+            case ($numero == 11):
+                $ruta = '/exp-certificado';
+                $new = new ExpCertificado;
+                break;
+            case ($numero == 12):
+                $ruta = '/exp-inventario';
+                $new = new ExpInventario;
+                break;
+        }
 
-        $exp_factura->titulo = $request->get('titulo');
+        $exp = $new;
+        $exp->titulo = $request->get('titulo');
 
-        if ($request->hasFile('factura')) {
+        if ($request->hasFile('img')) {
 
-            $file = $request->file('factura');
-            $file->move(public_path() . '/exp-factura', time() . "." . $file->getClientOriginalExtension());
-            $exp_factura->factura = time() . "." . $file->getClientOriginalExtension();
+            $file = $request->file('img');
+            $file->move(public_path() . $ruta . '/', time() . "." . $file->getClientOriginalExtension());
+            $exp->img = time() . "." . $file->getClientOriginalExtension();
 
-            $filepath = public_path('/exp-factura/' . $exp_factura->factura);
+            $filepath = public_path($ruta . '/' . $exp->img);
 
             try {
                 \Tinify\setKey(env("TINIFY_API_KEY"));
@@ -132,74 +207,14 @@ class ExpedientesController extends Controller
             }
         }
 
-        $exp_factura->id_user = auth()->user()->id;
-        $exp_factura->current_auto = auth()->user()->current_auto;
+        $exp->id_user = auth()->user()->id;
+        $exp->current_auto = auth()->user()->current_auto;
 
-        $exp_factura->save();
+        $exp->save();
 
         Session::flash('success', 'Se ha guardado sus datos con exito');
-
-        return redirect()->route('index.exp-factura', compact('exp_factura'));
-    }
-
-    public function destroy(Request $request, $id)
-    {
-        $numero = $request->get('numero');
-        switch ($numero) {
-            case ($numero == 1):
-                $ruta = '/exp-factura';
-                $new = ExpFactura::find($id);
-                break;
-            case ($numero == 2):
-                $ruta = '/exp-placa';
-                $new = ExpPlacas::findOrFail($id);
-                break;
-            case ($numero == 3):
-                $ruta = '/exp-domicilio';
-                $new = ExpDomicilio::findOrFail($id);
-                break;
-            case ($numero == 4):
-                $ruta = '/exp-carta';
-                $new = ExpCarta::findOrFail($id);
-                break;
-            case ($numero == 5):
-                $ruta = '/exp-ine';
-                $new = ExpIne::findOrFail($id);
-                break;
-            case ($numero == 6):
-                $ruta = '/exp-poliza';
-                $new = ExpPoliza::findOrFail($id);
-                break;
-            case ($numero == 7):
-                $ruta = '/exp-reemplacamiento';
-                $new = ExpReemplacamiento::findOrFail($id);
-                break;
-            case ($numero == 8):
-                $ruta = '/exp-rfc';
-                $new = ExpRfc::findOrFail($id);
-                break;
-            case ($numero == 9):
-                $ruta = '/exp-tc';
-                $new = ExpTc::findOrFail($id);
-                break;
-            case ($numero == 10):
-                $ruta = '/exp-tenencia';
-                $new = ExpTenencias::findOrFail($id);
-                break;
-            case ($numero == 11):
-                $ruta = '/exp-certificado';
-                $new = ExpCertificado::findOrFail($id);
-                break;
-        }
-
-        $exp = $new;
-        unlink(public_path($ruta . '/' . $exp->img));
-
-        $exp->delete();
-
-        Session::flash('destroy', 'Se Elimino su Foto con exito');
         return redirect()->back();
-//        return response()->json(['success' => true],200);
+        //return response()->json(['success'=>'Successfully uploaded.']);
     }
 
     /*|--------------------------------------------------------------------------
@@ -274,6 +289,10 @@ class ExpedientesController extends Controller
             ->where('current_auto', '=', $automovil->id)
             ->get();
 
+        $exp_inventario = DB::table('exp_inventario')
+            ->where('current_auto', '=', $automovil->id)
+            ->get();
+
         return view('admin.exp-fisico.view', compact(
             'exp_factura',
             'exp_placas',
@@ -286,6 +305,7 @@ class ExpedientesController extends Controller
             'exp_rfc',
             'exp_tc',
             'exp_tenencias',
+            'exp_inventario',
             'automovil',
             'user'
         ));
@@ -342,6 +362,10 @@ class ExpedientesController extends Controller
                 $ruta = '/exp-certificado';
                 $new = new ExpCertificado;
                 break;
+            case ($numero == 12):
+                $ruta = '/exp-inventario';
+                $new = new ExpInventario;
+                break;
         }
 
         $exp = $new;
@@ -384,8 +408,70 @@ class ExpedientesController extends Controller
         $exp->save();
 
         Session::flash('success', 'Se ha guardado sus datos con exito');
-//        return redirect()->back();
-        return response()->json(['success'=>'Successfully uploaded.']);
+        // return redirect()->back();
+        return response()->json(['success' => 'Successfully uploaded.']);
+    }
 
+    public function destroy(Request $request, $id)
+    {
+        $numero = $request->get('numero');
+        switch ($numero) {
+            case ($numero == 1):
+                $ruta = '/exp-factura';
+                $new = ExpFactura::find($id);
+                break;
+            case ($numero == 2):
+                $ruta = '/exp-placa';
+                $new = ExpPlacas::findOrFail($id);
+                break;
+            case ($numero == 3):
+                $ruta = '/exp-domicilio';
+                $new = ExpDomicilio::findOrFail($id);
+                break;
+            case ($numero == 4):
+                $ruta = '/exp-carta';
+                $new = ExpCarta::findOrFail($id);
+                break;
+            case ($numero == 5):
+                $ruta = '/exp-ine';
+                $new = ExpIne::findOrFail($id);
+                break;
+            case ($numero == 6):
+                $ruta = '/exp-poliza';
+                $new = ExpPoliza::findOrFail($id);
+                break;
+            case ($numero == 7):
+                $ruta = '/exp-reemplacamiento';
+                $new = ExpReemplacamiento::findOrFail($id);
+                break;
+            case ($numero == 8):
+                $ruta = '/exp-rfc';
+                $new = ExpRfc::findOrFail($id);
+                break;
+            case ($numero == 9):
+                $ruta = '/exp-tc';
+                $new = ExpTc::findOrFail($id);
+                break;
+            case ($numero == 10):
+                $ruta = '/exp-tenencia';
+                $new = ExpTenencias::findOrFail($id);
+                break;
+            case ($numero == 11):
+                $ruta = '/exp-certificado';
+                $new = ExpCertificado::findOrFail($id);
+                break;
+            case ($numero == 12):
+                $ruta = '/exp-inventario';
+                $new = ExpInventario::findOrFail($id);
+                break;
+        }
+
+        $exp = $new;
+        unlink(public_path($ruta . '/' . $exp->img));
+
+        $exp->delete();
+
+        Session::flash('destroy', 'Se Elimino su Foto con exito');
+        return redirect()->back();
     }
 }

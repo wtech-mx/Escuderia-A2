@@ -1,3 +1,47 @@
+@if(auth()->user()->role == 0)
+@php
+    $host= $_SERVER["REQUEST_URI"];
+    $rest = substr($host, 1);
+    switch($rest){
+        case($rest == 'factura/view'):
+            $numero = 1;
+        break;
+        case($rest == 'bp/view'):
+            $numero = 2;
+        break;
+        case($rest == 'cd/view'):
+            $numero = 3;
+        break;
+        case($rest == 'cr/view'):
+            $numero = 4;
+            break;
+        case($rest == 'ine/view'):
+            $numero = 5;
+            break;
+        case($rest == 'poliza/view'):
+            $numero = 6;
+            break;
+        case($rest == 'reemplacamiento/view'):
+            $numero = 7;
+            break;
+        case($rest == 'rfc/view'):
+            $numero = 8;
+            break;
+        case($rest == 'tc/view'):
+            $numero = 9;
+            break;
+        case($rest == 'tenencia/view'):
+            $numero = 10;
+            break;
+        case($rest == 'certificado/view'):
+            $numero = 11;
+            break;
+        case($rest == 'inventario/view'):
+            $numero = 12;
+            break;
+    }
+@endphp
+@else
 @php
     $host= $_SERVER["REQUEST_URI"];
     $rest = substr($host, 18);
@@ -35,9 +79,15 @@
         case($rest == 'certificado/view/'.$automovil->id):
             $numero = 11;
             break;
+        case($rest == 'inventario/view/'.$automovil->id):
+            $numero = 12;
+            break;
     }
 @endphp
+@endif
+
 <div class="modal fade show" id="modal{{$item->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
     <form method="POST" action="{{route('destroy.expediente',$item->id)}}">
 
         {{csrf_field() }}

@@ -154,63 +154,33 @@ Route::post('documents/crear/lugar-tc', 'DocumentosLugarExpController@store')->n
 /*|--------------------------------------------------------------------------
 |Expedientes Fisicos
 |--------------------------------------------------------------------------*/
+Route::get('expediente/view-exp-fisico', 'ExpController@index')->name('index_exp');
+Route::post('expediente/crear', 'ExpedientesController@store')->name('store.expexpediente');
+Route::delete('expediente/eliminar/{id}', 'ExpedientesController@destroy_user')->name('destroy_user.expediente');
 
-Route::get('exp_carta/view/exp-cr', 'ExpcartaController@index')->name('index.exp-cr');
-Route::get('exp_carta/crear/exp-cr', 'ExpcartaController@create')->name('create.exp-cr');
-Route::post('exp_carta/crear/exp-cr', 'ExpcartaController@store')->name('store.exp-cr');
-Route::delete('exp_carta/eliminar/{id}', 'ExpcartaController@destroy')->name('destroy.exp-cr');
+Route::get('factura/view', 'ExpedientesController@index')->name('index.exp-factura');
 
-Route::get('exp_domicilio/view/exp-cd', 'ExpdomicilioController@index')->name('index.exp-cd');
-Route::get('exp_domicilio/crear/exp-cd', 'ExpdomicilioController@create')->name('create.exp-cd');
-Route::post('exp_domicilio/crear/exp-cd', 'ExpdomicilioController@store')->name('store.exp-cd');
-Route::delete('exp_domicilio/eliminar/{id}', 'ExpdomicilioController@destroy')->name('destroy.exp-cd');
+Route::get('bp/view', 'ExpedientesController@index')->name('index.exp-bp');
 
-Route::get('exp_factura/view/exp-factura', 'ExpfacturasController@index')->name('index.exp-factura');
-Route::get('exp_factura/crear/exp-factura', 'ExpfacturasController@create')->name('create.exp-factura');
-Route::post('exp_factura/crear/exp-factura', 'ExpfacturasController@store')->name('store.exp-factura');
-Route::delete('exp_factura/eliminar/{id}', 'ExpfacturasController@destroy')->name('destroy.exp-factura');
+Route::get('cd/view', 'ExpedientesController@index')->name('index.exp-cd');
 
-Route::get('exp_ine/view/exp-ine', 'ExpineController@index')->name('index.exp-ine');
-Route::get('exp_ine/crear/exp-ine', 'ExpineController@create')->name('create.exp-ine');
-Route::post('exp_ine/crear/exp-ine', 'ExpineController@store')->name('store.exp-ine');
-Route::delete('exp_ine/eliminar/{id}', 'ExpineController@destroy')->name('destroy.exp-ine');
+Route::get('cr/view', 'ExpedientesController@index')->name('index.exp-cr');
 
-Route::get('exp_bp/view/exp-bp', 'ExplacasController@index')->name('index.exp-bp');
-Route::get('exp_bp/crear/exp-bp', 'ExplacasController@create')->name('create.exp-bp');
-Route::post('exp_bp/crear/exp-bp', 'ExplacasController@store')->name('store.exp-bp');
-Route::delete('exp_bp/eliminar/{id}', 'ExplacasController@destroy')->name('destroy.exp-bp');
+Route::get('ine/view', 'ExpedientesController@index')->name('index.exp-ine');
 
-Route::get('exp_poliza/view/exp-poliza', 'ExpolizaController@index')->name('index.exp-poliza');
-Route::get('exp_poliza/crear/exp-poliza', 'ExpolizaController@create')->name('create.exp-poliza');
-Route::post('exp_poliza/crear/exp-poliza', 'ExpolizaController@store')->name('store.exp-poliza');
-Route::delete('exp_poliza/eliminar/{id}', 'ExpolizaController@destroy')->name('destroy.exp-poliza');
+Route::get('poliza/view', 'ExpedientesController@index')->name('index.exp-poliza');
 
-Route::get('exp_reemplacamiento/view', 'ExpreemplacaminetoController@index')->name('index.exp-reemplacamiento');
-Route::get('exp_reemplacamiento/crear', 'ExpreemplacaminetoController@create')->name('create.exp-reemplacamiento');
-Route::post('exp_reemplacamiento/crear', 'ExpreemplacaminetoController@store')->name('store.exp-reemplacamiento');
-Route::delete('exp_reemplacamiento/eliminar/{id}', 'ExpreemplacaminetoController@destroy')->name('destroy.exp-reemplacamiento');
+Route::get('reemplacamiento/view', 'ExpedientesController@index')->name('index.exp-reemplacamiento');
 
-Route::get('exp_rfc/view', 'ExprfcController@index')->name('index.exp-rfc');
-Route::get('exp_rfc/crear', 'ExprfcController@create')->name('create.exp-rfc');
-Route::post('exp_rfc/crear', 'ExprfcController@store')->name('store.exp-rfc');
-Route::delete('exp_rfc/eliminar/{id}', 'ExprfcController@destroy')->name('destroy.exp-rfc');
+Route::get('rfc/view', 'ExpedientesController@index')->name('index.exp-rfc');
 
-Route::get('exp_tc/view', 'ExptcController@index')->name('index.exp-tc');
-Route::get('exp_tc/crear', 'ExptcController@create')->name('create.exp-tc');
-Route::post('exp_tc/crear', 'ExptcController@store')->name('store.exp-tc');
-Route::delete('exp_tc/eliminar/{id}', 'ExptcController@destroy')->name('destroy.exp-tc');
+Route::get('tc/view', 'ExpedientesController@index')->name('index.exp-tc');
 
-Route::get('exp_tenencias/view', 'ExptenenciasController@index')->name('index.exp-tenencias');
-Route::get('exp_tenencias/crear', 'ExptenenciasController@create')->name('create.exp-tenencias');
-Route::post('exp_tenencias/crear', 'ExptenenciasController@store')->name('store.exp-tenencias');
-Route::delete('exp_tenencias/eliminar/{id}', 'ExptenenciasController@destroy')->name('destroy.exp-tenencias');
+Route::get('tenencia/view', 'ExpedientesController@index')->name('index.exp-tenencias');
 
-Route::get('exp_certificado/view', 'ExpCertificadoController@index')->name('index.exp-certificado');
-Route::get('exp_certificado/crear', 'ExpCertificadoController@create')->name('create.exp-certificado');
-Route::post('exp_certificado/crear', 'ExpCertificadoController@store')->name('store.exp-certificado');
-Route::delete('exp_certificado/eliminar/{id}', 'ExpCertificadoController@destroy')->name('destroy.exp-certificado');
+Route::get('certificado/view', 'ExpedientesController@index')->name('index.exp-certificado');
 
-Route::get('exp-fisico/view-exp-fisico', 'ExpController@index')->name('index_exp');
+Route::get('inventario/view', 'ExpedientesController@index')->name('index.exp-inventario');
 
 /*|--------------------------------------------------------------------------
 |Comparte y Gana
@@ -346,11 +316,10 @@ Route::post('admin/tarjeta-circulacion/create/', 'ImgTcController@store_admin')-
 /*|--------------------------------------------------------------------------
 |Expedientes Fisicos
 |--------------------------------------------------------------------------*/
-
+Route::delete('expediente/eliminar/{id}', 'ExpedientesController@destroy')->name('destroy.expediente');
 /* Trae todos todos los autos */
 Route::group(['middleware' => ['permission:Ver Expedientes|Crear Exp|Borrar Exp']], function () {
     Route::get('admin/exp-fisico/index/', 'ExpedientesController@index_admin')->name('index_admin.view-exp-fisico-admin');
-    Route::delete('expediente/eliminar/{id}', 'ExpedientesController@destroy')->name('destroy.expediente');
 
     /* Trae datos de facttura */
     Route::post('admin/exp-fisico/crear/{id}', 'ExpedientesController@store_admin')->name('store_admin.expedientes');
@@ -377,7 +346,7 @@ Route::group(['middleware' => ['permission:Ver Expedientes|Crear Exp|Borrar Exp'
 
     Route::get('admin/exp-fisico/certificado/view/{id}', 'ExpedientesController@create_admin')->name('create_admin.view-certificado-admin');
 });
-
+Route::get('admin/exp-fisico/inventario/view/{id}', 'ExpedientesController@create_admin')->name('create_admin.view-inventario-admin');
 /*|--------------------------------------------------------------------------
 |Marca
 |--------------------------------------------------------------------------*/
@@ -443,3 +412,10 @@ Route::group(['middleware' => ['permission:Ver Cupones|Crear Cupones|Editar Cupo
 });
 Route::get('cupon/view', 'CuponController@index')->name('index.cupon');
 require __DIR__ . '/auth.php';
+
+/*|--------------------------------------------------------------------------
+|Cotizacion
+|--------------------------------------------------------------------------*/
+Route::get('admin/cotizacion/view', 'CotizacionController@index')->name('index.cotizacion');
+Route::get('admin/cotizacion/crear', 'CotizacionController@create')->name('create.cotizacion');
+Route::post('admin/cotizacion/store', 'CotizacionController@store')->name('store.cotizacion');
