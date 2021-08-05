@@ -4,7 +4,7 @@
 
 
 
-    <div class="row bg-down-blue" style="border-radius: 0px;background: #191E25 0% 0% no-repeat padding-box;height: 50vh !important; overflow: hidden!important;">
+    <div class="row bg-down-blue" style="border-radius: 0px;background: #191E25 0% 0% no-repeat padding-box;min-height: 50vh !important; overflow: hidden!important;">
 
         <div class="col-md-12" style="margin-top: 160px">
 

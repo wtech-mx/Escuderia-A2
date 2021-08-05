@@ -56,6 +56,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.min.js"></script>
     <script src="{{ asset('js/preloader.js') }}"></script>
+    <script src="{{ asset('js/camara-class.js') }}"></script>
     {{-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" ></script> --}}
 
     <!-- bootstrap JavaScript -->

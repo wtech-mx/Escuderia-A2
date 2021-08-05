@@ -124,15 +124,33 @@
 
                             <input type="hidden" id="numero" name="numero" value="{{$numero}}">
 
-                            <div class="col-12 mt-3">
-                                <div class=" custom-file mb-3 fallback">
+                            <div class="col-6 mt-3">
+                                <div class="custom-file mb-3 fallback">
                                     <input type="file" class="custom-file-input input-group-text" id="img" name="img">
                                 </div>
+                                <div class="col-6">
+                                    <div id="photo-btn" class="btn btn-primary fab-photo">
+                                         <i class="fa fa-camera"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 mt-3">
 
                                 <div class="form-group">
                                     <div class="progress">
                                         <div class="progress-bar progress-bar-striped bg-success" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
                                     </div>
+                                </div>
+
+                                <div class="camara-contenedor fadeIn fast oculto mt-5" align="center">
+
+                                    <video id="player" autoplay style="height: 300px;"></video>
+
+                                    <button id="tomar-foto-btn">
+                                        <i class="fa fa-camera"></i>
+                                        Tomar Foto
+                                    </button>
                                 </div>
 
                                 <button type="submit" class="btn btn-lg btn-save-dark text-white mt-5">
@@ -142,15 +160,42 @@
                                 </button>
 
                             </div>
+
                         </form>
                     </div>
 
                 </div>
             </div>
         </div>
-        {{-- <script>
-            Dropzone.options.myAwesomeDropzone = {
-                'X-CSRF-TOKEN' : "{{csrf_token()}}"
-                ''
-            };
-        </script> --}}
+
+        <script>
+            var btnTomarFoto     = $('#tomar-foto-btn');
+            var btnPhoto         = $('#photo-btn');
+            var contenedorCamara = $('.camara-contenedor');
+
+            const camara = new Camara( $('#player')[0] );
+
+            btnPhoto.on('click', () => {
+
+                console.log('Inicializar camara');
+                contenedorCamara.removeClass('oculto');
+
+                camara.encender();
+
+            });
+
+
+            // Boton para tomar la foto
+            btnTomarFoto.on('click', () => {
+
+                console.log('Botón tomar foto');
+
+                foto = camara.tomarFoto();
+
+                camara.apagar();
+
+                // console.log(foto);
+
+            });
+
+        </script>
