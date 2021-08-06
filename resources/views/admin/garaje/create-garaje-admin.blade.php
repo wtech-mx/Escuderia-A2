@@ -271,13 +271,13 @@
                         <input type="hidden" class="form-control input-edit-car" id="id_empresa"
                         name="id_empresa" value="{{ auth()->user()->id }}">
 
-                        <div class="col-12" style="margin-bottom: 8rem !important;">
+                        {{-- <div class="col-12" style="margin-bottom: 8rem !important;">
                             <button type="submit" class="btn btn-lg btn-save-dark text-white mt-5">
                                 <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}"
                                     width="20px">
                                 Guardar
                             </button>
-                        </div>
+                        </div> --}}
                     </div>
 
                     {{-- -------------------------------------------------------------------------- --}}
@@ -367,7 +367,7 @@
                         </div>
 
                     </div>
-                
+
                 </div>
             </form>
             @include('admin.garaje.add-bussines-modal')
