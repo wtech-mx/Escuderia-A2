@@ -61,6 +61,8 @@ if (!isset($_COOKIE['mostrarModal'])) {
     <link href="{{ asset('fonts/all.min.css') }}" rel="stylesheet">
     {{-- <link href="{{ asset('fonts/font-awesome.min.js') }}" rel="stylesheet"> --}}
     <link href="{{ asset('fonts/all.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.3.0/min/dropzone.min.css">
+
 
     @yield('css')
     <!-- sweetalert2 JavaScript -->
@@ -80,6 +82,8 @@ if (!isset($_COOKIE['mostrarModal'])) {
 
     <!-- bootstrap JavaScript -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.3.0/min/dropzone.min.js"></script>
+
     {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
 
     @laravelPWA

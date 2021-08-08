@@ -100,78 +100,77 @@
                             </p>
                         </div>
 
-                        @if (auth()->user()->role == 0)
-                        <form id="fileUploadForm" method="POST" action="{{ route('store.expexpediente') }}"
-                            enctype="multipart/form-data" role="form">
-                        @else
-                        <form id="fileUploadForm" method="POST" action="{{ route('store_admin.expedientes', $automovil->id) }}"
-                            enctype="multipart/form-data" role="form">
-                        @endif
-
-                            @csrf
-
                             <div class="col-12">
-                                <label for="">
-                                    <p class="text-white"><strong>T&iacute;tulo</strong></p>
-                                </label>
 
-                                <div class="input-group form-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text input-modal">
-                                            <img class="" src="{{ asset('img/icon/white/fuente.png') }}"
-                                                width="25px">
-                                        </span>
+                                <p class="text-center">
+                                  <a class="btn btn-primary" data-toggle="collapse" href="#unafoto" role="button" aria-expanded="false" aria-controls="unafoto" style="background-color: #00d62e;border: solid 1px #00d62e">
+                                   Cargar una Foto
+                                  </a>
+
+                                  <a class="btn btn-primary" data-toggle="collapse" href="#lotefoto" role="button" aria-expanded="false" aria-controls="lotefoto" style="background-color: #00d62e;border: solid 1px #00d62e">
+                                    Cargar Lote de Fotos
+                                  </a>
+
+                                  <a class="btn btn-primary" data-toggle="collapse" href="#tomarfoto" role="button" aria-expanded="false" aria-controls="tomarfoto" style="background-color: #00d62e;border: solid 1px #00d62e">
+                                    Tomar Foto
+                                  </a>
+                                </p>
+
+                                <div class="collapse" id="unafoto">
+                                  <div class="card card-body" style="background-color: #ffffff;background-image: none;border: 1px solid #ffffff">
+
+                                @if (auth()->user()->role == 0)
+                                <form id="fileUploadForm" method="POST" action="{{ route('store.expexpediente') }}"
+                                    enctype="multipart/form-data" role="form">
+                                @else
+                                <form id="fileUploadForm" method="POST" action="{{ route('store_admin.expedientes', $automovil->id) }}"
+                                    enctype="multipart/form-data" role="form">
+                                @endif
+                                    @csrf
+
+                                    <div class="col-12 mb-3">
+                                        <div class="input-group form-group">
+                                            <div class="input-group-prepend ">
+                                                <span class="input-group-text input-modal">
+                                                    <img class="" src="{{ asset('img/icon/white/fuente.png') }}"
+                                                        width="25px">
+                                                </span>
+                                            </div>
+                                            <input type="text" class="form-control" placeholder="Titulo" id="titulo" name="titulo" style="border-radius: 0  10px 10px 0;">
+                                            <input type="hidden" id="numero" name="numero" value="{{$numero}}">
+
+                                        </div>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="Titulo" id="titulo"
-                                        name="titulo" style="border-radius: 0  10px 10px 0;">
-                                </div>
-                            </div>
 
-                            <input type="hidden" id="numero" name="numero" value="{{$numero}}">
-
-                            <div class="col-6 mt-3">
-                                <div class="custom-file mb-3 fallback">
-                                    <input type="file" class="custom-file-input input-group-text" id="img" name="img">
-                                </div>
-
-{{--                                <input  id="img" name="img"  type="text" value="">--}}
-
-{{--                                <div class="col-6">--}}
-{{--                                    <div id="photo-btn" class="btn btn-primary fab-photo">--}}
-{{--                                         <i class="fa fa-camera"></i>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-                            </div>
-
-                            <div class="col-12 mt-3">
-
-                                <div class="form-group">
-                                    <div class="progress">
-                                        <div class="progress-bar progress-bar-striped bg-success" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+                                    <div class="col-12 mb-3">
+                                        <div class="input-group form-group">
+                                            <div class="custom-file mb-3 fallback">
+                                                <input type="file" class="custom-file-input input-group-text" id="img" name="img">
+                                            </div>
+                                        </div>
                                     </div>
+
+                                    <div class="col-12 mb-3">
+                                      <div class="form-group">
+                                          <div class="progress">
+                                              <div class="progress-bar progress-bar-striped bg-success" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+                                          </div>
+                                      </div>
+                                      <button type="submit" class="btn btn-lg btn-save-dark text-white mt-5">
+                                          <img class="align-items-center" src="{{ asset('img/icon/white/save-file-option (1).png') }}"
+                                              width="20px">
+                                          Guardar
+                                      </button>
+                                    <div>
+                                </form>
+
+                                  </div>
                                 </div>
 
-{{--                                <div class="d-flex justify-content-center">--}}
-{{--                                    <div class="camara-contenedor fadeIn fast oculto mt-5">--}}
-{{--                                        <video id="player" autoplay style="height: 300px;"></video>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-
-{{--                                <input id="tomar-foto-btn" type="button"/>--}}
-{{--                                <button id="tomar-foto-btn" type='button'>--}}
-{{--                                    <i class="fa fa-camera"></i>--}}
-{{--                                    Tomar Foto--}}
-{{--                                </button>--}}
-
-                                <button type="submit" class="btn btn-lg btn-save-dark text-white mt-5">
-                                    <img class="align-items-center" src="{{ asset('img/icon/white/save-file-option (1).png') }}"
-                                        width="20px">
-                                    Guardar
-                                </button>
 
                             </div>
 
-                        </form>
+
                     </div>
 
                 </div>
@@ -180,6 +179,13 @@
 
 
         <script>
+
+            Dropzone.options.myAwesomeDropzone = {
+                paramName: "file", // Las imágenes se van a usar bajo este nombre de parámetro
+                maxFilesize: 2 // Tamaño máximo en MB
+            };
+
+
             var btnTomarFoto     = $('#tomar-foto-btn');
             var btnPhoto         = $('#photo-btn');
             var contenedorCamara = $('.camara-contenedor');

@@ -42,6 +42,8 @@
     <link href="{{ asset('fonts/all.min.css') }}" rel="stylesheet">
     {{-- <link href="{{ asset('fonts/font-awesome.min.js') }}" rel="stylesheet"> --}}
     <link href="{{ asset('fonts/all.min.js') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.3.0/min/dropzone.min.css">
+
 
     <!-- sweetalert2 JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
@@ -57,6 +59,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.min.js"></script>
     <script src="{{ asset('js/preloader.js') }}"></script>
     <script src="{{ asset('js/camara-class.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.3.0/min/dropzone.min.js"></script>
+
     {{-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" ></script> --}}
 
     <!-- bootstrap JavaScript -->
