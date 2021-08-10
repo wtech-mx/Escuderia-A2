@@ -158,6 +158,7 @@ Route::get('expediente/view-exp-fisico', 'ExpController@index')->name('index_exp
 Route::post('expediente/crear', 'ExpedientesController@store')->name('store.expexpediente');
 Route::delete('expediente/eliminar/{id}', 'ExpedientesController@destroy_user')->name('destroy_user.expediente');
 
+
 Route::get('factura/view', 'ExpedientesController@index')->name('index.exp-factura');
 
 Route::get('bp/view', 'ExpedientesController@index')->name('index.exp-bp');
@@ -322,6 +323,8 @@ Route::group(['middleware' => ['permission:Ver Expedientes|Crear Exp|Borrar Exp'
     Route::get('admin/exp-fisico/index/', 'ExpedientesController@index_admin')->name('index_admin.view-exp-fisico-admin');
 
     /* Trae datos de facttura */
+    Route::post('/expediente/view-exp-fisico/{id}', 'ExpedientesController@upload')->name('dropzone.store');
+
     Route::post('admin/exp-fisico/crear/{id}', 'ExpedientesController@store_admin')->name('store_admin.expedientes');
 
     Route::get('admin/exp-fisico/factura/view/{id}', 'ExpedientesController@create_admin')->name('create_admin.view-factura-admin');
@@ -335,6 +338,7 @@ Route::group(['middleware' => ['permission:Ver Expedientes|Crear Exp|Borrar Exp'
     Route::get('admin/exp-fisico/ine/view/{id}', 'ExpedientesController@create_admin')->name('create_admin.view-ine-admin');
 
     Route::get('admin/exp-fisico/poliza/view/{id}', 'ExpedientesController@create_admin')->name('create_admin.view-poliza-admin');
+
 
     Route::get('admin/exp-fisico/reemplacamiento/view/{id}', 'ExpedientesController@create_admin')->name('create_admin.view-reemplacamiento-admin');
 

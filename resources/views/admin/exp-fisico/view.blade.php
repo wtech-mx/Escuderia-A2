@@ -167,7 +167,7 @@
                                             $ruta = 'exp-domicilio/';
                                         break;
                                         case($rest == 'cr/view/'.$automovil->id):
-                                            $ruta = 'exp-certificado/';
+                                            $ruta = 'exp-carta/';
                                             break;
                                         case($rest == 'ine/view/'.$automovil->id):
                                             $ruta = 'exp-ine/';
@@ -254,7 +254,7 @@
 
         $(function () {
             $(document).ready(function () {
-                $('#fileUploadForm').ajaxForm({
+                $('.fileUploadForm').ajaxForm({
                     beforeSend: function () {
                         var percentage = '0';
                     },

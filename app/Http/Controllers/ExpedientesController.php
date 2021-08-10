@@ -179,7 +179,7 @@ class ExpedientesController extends Controller
 
         if ($request->hasFile('img')) {
 
-//            dd($request->hasFile('img'));
+//           dd($request->hasFile('img'));
 
             $file = $request->file('img');
             $file->move(public_path() . $ruta . '/', time() . "." . $file->getClientOriginalExtension());
@@ -218,6 +218,7 @@ class ExpedientesController extends Controller
         return redirect()->back();
         //return response()->json(['success'=>'Successfully uploaded.']);
     }
+
 
     /*|--------------------------------------------------------------------------
     |Create Doc Admin_Admin
@@ -376,6 +377,108 @@ class ExpedientesController extends Controller
         if ($request->hasFile('img')) {
 
             $file = $request->file('img');
+            $file->move(public_path() . $ruta . '/', time() . "." . $file->getClientOriginalExtension());
+            $exp->img = time() . "." . $file->getClientOriginalExtension();
+
+            $filepath = public_path($ruta . '/' . $exp->img);
+
+            try {
+                \Tinify\setKey(env("TINIFY_API_KEY"));
+                $source = \Tinify\fromFile($filepath);
+                $source->toFile($filepath);
+            } catch (\Tinify\AccountException $e) {
+                // Verify your API key and account limit.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (\Tinify\ClientException $e) {
+                // Check your source image and request options.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (\Tinify\ServerException $e) {
+                // Temporary issue with the Tinify API.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (\Tinify\ConnectionException $e) {
+                // A network connection error occurred.
+                return redirect()->back()->with('error', $e->getMessage());
+            } catch (Exception $e) {
+                // Something else went wrong, unrelated to the Tinify API.
+                return redirect()->back()->with('error', $e->getMessage());
+            }
+        }
+
+        $exp->current_auto = $automovil->id;
+        $exp->id_user = $automovil->id_user;
+        $exp->id_empresa = $automovil->id_empresa;
+
+        $exp->save();
+
+        Session::flash('success', 'Se ha guardado sus datos con exito');
+        // return redirect()->back();
+        return response()->json(['success' => 'Successfully uploaded.']);
+    }
+
+    public function upload( Request $request, $id)
+    {
+        $file = $request->file('file');
+        $numero = $request->get('numero');
+        $automovil = DB::table('automovil')
+            ->where('id', '=', $id)
+            ->first();
+        switch ($numero) {
+            case ($numero == 1):
+                $ruta = '/exp-factura';
+                $new = new ExpFactura;
+                break;
+            case ($numero == 2):
+                $ruta = '/exp-placa';
+                $new = new ExpPlacas;
+                break;
+            case ($numero == 3):
+                $ruta = '/exp-domicilio';
+                $new = new ExpDomicilio;
+                break;
+            case ($numero == 4):
+                $ruta = '/exp-carta';
+                $new = new ExpCarta;
+                break;
+            case ($numero == 5):
+                $ruta = '/exp-ine';
+                $new = new ExpIne;
+                break;
+            case ($numero == 6):
+                $ruta = '/exp-poliza';
+                $new = new ExpPoliza;
+                break;
+            case ($numero == 7):
+                $ruta = '/exp-reemplacamiento';
+                $new = new ExpReemplacamiento;
+                break;
+            case ($numero == 8):
+                $ruta = '/exp-rfc';
+                $new = new ExpRfc;
+                break;
+            case ($numero == 9):
+                $ruta = '/exp-tc';
+                $new = new ExpTc;
+                break;
+            case ($numero == 10):
+                $ruta = '/exp-tenencia';
+                $new = new ExpTenencias;
+                break;
+            case ($numero == 11):
+                $ruta = '/exp-certificado';
+                $new = new ExpCertificado;
+                break;
+            case ($numero == 12):
+                $ruta = '/exp-inventario';
+                $new = new ExpInventario;
+                break;
+        }
+
+        $exp = $new;
+        $exp->titulo = $request->get('titulo');
+
+        if ($request->file('file')) {
+
+            $file = $request->file('file');
             $file->move(public_path() . $ruta . '/', time() . "." . $file->getClientOriginalExtension());
             $exp->img = time() . "." . $file->getClientOriginalExtension();
 
