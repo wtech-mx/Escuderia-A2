@@ -418,6 +418,7 @@ class ExpedientesController extends Controller
     public function upload( Request $request, $id)
     {
         $file = $request->file('file');
+
         $numero = $request->get('numero');
         $automovil = DB::table('automovil')
             ->where('id', '=', $id)
@@ -519,6 +520,7 @@ class ExpedientesController extends Controller
 
     public function destroy(Request $request, $id)
     {
+
         $numero = $request->get('numero');
         switch ($numero) {
             case ($numero == 1):

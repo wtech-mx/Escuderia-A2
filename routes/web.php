@@ -319,11 +319,11 @@ Route::post('admin/tarjeta-circulacion/create/', 'ImgTcController@store_admin')-
 |--------------------------------------------------------------------------*/
 Route::delete('expediente/eliminar/{id}', 'ExpedientesController@destroy')->name('destroy.expediente');
 /* Trae todos todos los autos */
-Route::group(['middleware' => ['permission:Ver Expedientes|Crear Exp|Borrar Exp']], function () {
+    Route::group(['middleware' => ['permission:Ver Expedientes|Crear Exp|Borrar Exp']], function () {
     Route::get('admin/exp-fisico/index/', 'ExpedientesController@index_admin')->name('index_admin.view-exp-fisico-admin');
 
     /* Trae datos de facttura */
-    Route::post('/expediente/view-exp-fisico/{id}', 'ExpedientesController@upload')->name('dropzone.store');
+    Route::post('admin/expediente/view-exp-fisico/{id}', 'ExpedientesController@upload')->name('dropzone.store');
 
     Route::post('admin/exp-fisico/crear/{id}', 'ExpedientesController@store_admin')->name('store_admin.expedientes');
 
@@ -359,7 +359,7 @@ Route::post('admin/servicio/crear/marca', 'MarcaController@store')->name('store.
 /*|--------------------------------------------------------------------------
 |VERIFICACION view
 |--------------------------------------------------------------------------*/
-Route::group(['middleware' => ['permission:Ver Veri|Editar Veri']], function () {
+    Route::group(['middleware' => ['permission:Ver Veri|Editar Veri']], function () {
     Route::get('admin/verificacion/index', 'VerificacionController@index_admin')->name('index_admin.verificacion');
     Route::get('admin/verificacion/edit/{id}', 'VerificacionController@edit_admin')->name('edit_admin.verificacion');
     Route::patch('admin/verificacion/update/{id}', 'VerificacionController@update_admin')->name('update_admin.verificacion');

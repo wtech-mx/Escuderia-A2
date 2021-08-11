@@ -168,12 +168,15 @@
 
                                 <div class="collapse" id="lotefoto" data-parent="#myGroup">
                                     <div class="card card-body" style="background-color: #ffffff;background-image: none;border: 1px solid #ffffff">
-                                        <form action="{{ route('dropzone.store', $automovil->id) }}" method="post" enctype="multipart/form-data" id="image-upload" class="dropzone">
+                                        <form id="dropzoneForm" class="dropzone" action="{{ route('dropzone.store', $automovil->id) }}"  enctype="multipart/form-data" >
                                                @csrf
-
-                                            <input type="hidden" id="numero" name="numero" value="{{$numero}}">
-
+                                              <input type="hidden" id="numero" name="numero" value="{{$numero}}">
                                         </form>
+                                               <button type="button" class="btn btn-lg btn-save-dark text-white mt-5" id="submit-all">
+                                                      <img class="align-items-center" src="{{ asset('img/icon/white/save-file-option (1).png') }}"
+                                                          width="20px">
+                                                      Guardar
+                                               </button>
                                     </div>
                                 </div>
 
@@ -205,23 +208,52 @@
         </div>
 
 
-        <script>
+        <script type="text/javascript">
 
-        Dropzone.options.imageUpload = {
+        Dropzone.options.dropzoneForm = {
+            autoProcessQueue : false,
+            acceptedFiles : ".png,.jpg,.gif,.bmp,.jpeg",
             maxFilesize         :       9,
-            acceptedFiles: ".jpeg,.jpg,.png,.gif",
             dictDefaultMessage: "Arrastra las fotos aquí para subirlos",
             dictFallbackMessage: "El navegador no es compatible",
             dictFileTooBig: "Los archivos son muy pesados {filesize}, {maxFilesize} ",
             dictInvalidFileType: "El archivo no es una imagen ",
             dictResponseError: "Errro {statusCode} ",
-            dictCancelUpload: "Carga Canecalada",
+            dictCancelUpload: "Cancelar Carga ",
+            retryChunks:true,
+            addRemoveLinks:true,
 
-            success: function (file, response) {
-                console.log(response);
+            init:function (){
+              var submitButton = document.querySelector("#submit-all");
+              myDropzone = this;
+
+              submitButton.addEventListener('click', function(){
+                myDropzone.processQueue();
+              });
+
+              this.on("complete", function(){
+                if(this.getQueuedFiles().length == 0 && this.getUploadingFiles().length == 0)
+                {
+                  var _this = this;
+                  _this.removeAllFiles();
+                }
+                load_images();
+              });
+
             }
         };
+        load_images();
 
+      function load_images()
+      {
+        $.ajax({
+          url:"{{ route('dropzone.store', $automovil->id) }}",
+          success:function(data)
+          {
+            $('#uploaded_image').html(data);
+          }
+        })
+      }
 
             var btnTomarFoto     = $('#tomar-foto-btn');
             var btnPhoto         = $('#photo-btn');
