@@ -168,15 +168,15 @@
 
                                 <div class="collapse" id="lotefoto" data-parent="#myGroup">
                                     <div class="card card-body" style="background-color: #ffffff;background-image: none;border: 1px solid #ffffff">
-                                        <form id="dropzoneForm" class="dropzone" action="{{ route('dropzone.store', $automovil->id) }}"  enctype="multipart/form-data" >
-                                               @csrf
-                                              <input type="hidden" id="numero" name="numero" value="{{$numero}}">
-                                        </form>
-                                               <button type="button" class="btn btn-lg btn-save-dark text-white mt-5" id="submit-all">
+                                               <button type="button" class="btn btn-lg btn-save-dark text-white mb-3" id="submit-all">
                                                       <img class="align-items-center" src="{{ asset('img/icon/white/save-file-option (1).png') }}"
                                                           width="20px">
                                                       Guardar
                                                </button>
+                                        <form id="dropzoneForm" class="dropzone" action="{{ route('dropzone.store', $automovil->id) }}"  enctype="multipart/form-data" >
+                                               @csrf
+                                              <input type="hidden" id="numero" name="numero" value="{{$numero}}">
+                                        </form>
                                     </div>
                                 </div>
 
@@ -216,7 +216,7 @@
             forceFallback: false,
             maxFilesize:1000,
             parallelUploads: 100,
-            maxFiles: 6,
+            maxFiles: 8,
             dictDefaultMessage: "Arrastra las fotos aquí para subirlos",
             dictFallbackMessage: "El navegador no es compatible",
             dictFileTooBig: "Los archivos son muy pesados {filesize}, {maxFilesize} ",
