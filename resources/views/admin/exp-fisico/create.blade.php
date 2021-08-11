@@ -209,11 +209,14 @@
 
 
         <script type="text/javascript">
-
         Dropzone.options.dropzoneForm = {
             autoProcessQueue : false,
             acceptedFiles : ".png,.jpg,.gif,.bmp,.jpeg",
-            maxFilesize         :       9,
+            uploadMultiple :false,
+            forceFallback: false,
+            maxFilesize:1000,
+            parallelUploads: 100,
+            maxFiles: 6,
             dictDefaultMessage: "Arrastra las fotos aquí para subirlos",
             dictFallbackMessage: "El navegador no es compatible",
             dictFileTooBig: "Los archivos son muy pesados {filesize}, {maxFilesize} ",
@@ -223,37 +226,52 @@
             retryChunks:true,
             addRemoveLinks:true,
 
-            init:function (){
-              var submitButton = document.querySelector("#submit-all");
-              myDropzone = this;
+            init: function () {
 
-              submitButton.addEventListener('click', function(){
-                myDropzone.processQueue();
-              });
+                var myDropzone = this;
 
-              this.on("complete", function(){
-                if(this.getQueuedFiles().length == 0 && this.getUploadingFiles().length == 0)
-                {
-                  var _this = this;
-                  _this.removeAllFiles();
-                }
-                load_images();
-              });
+                // Update selector to match your button
+                $("#submit-all").click(function (e) {
+                    e.preventDefault();
+                    myDropzone.processQueue();
+                });
+                this.on('sending', function(file, xhr, formData) {
+                    // Anexar todas las entradas del formulario al formulario Data Dropzone POST
+                    var data = $('#dropzoneForm').serializeArray();
+                    $.each(data, function(key, el) {
+                        formData.append(el.name, el.value);
+                    });
+                });
+
+                this.on("success", function(file, responseText) {
+                    console.log(responseText);
+                    setTimeout('location.reload();',12000);
+                });
 
             }
-        };
-        load_images();
 
-      function load_images()
-      {
-        $.ajax({
-          url:"{{ route('dropzone.store', $automovil->id) }}",
-          success:function(data)
-          {
-            $('#uploaded_image').html(data);
-          }
-        })
-      }
+        }
+
+        $(function () {
+            $(document).ready(function () {
+                $('.fileUploadForm').ajaxForm({
+                    beforeSend: function () {
+                        var percentage = '0';
+                    },
+                    uploadProgress: function (event, position, total, percentComplete) {
+                        var percentage = percentComplete;
+                        $('.progress .progress-bar').css("width", percentage+'%', function() {
+                          return $(this).attr("aria-valuenow", percentage) + "%";
+                        })
+                    },
+                    complete: function (xhr) {
+                        console.log('File has uploaded');
+                        location.reload();
+                    }
+                });
+            });
+        });
+
 
             var btnTomarFoto     = $('#tomar-foto-btn');
             var btnPhoto         = $('#photo-btn');

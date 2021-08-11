@@ -234,6 +234,7 @@ class ExpedientesController extends Controller
         $automovil_empresa = Automovil::where('id_empresa', '=', auth()->user()->id)
             ->get();
 
+
         return view('admin.exp-fisico.view-exp-fisico-admin', compact('automovil', 'automovil2', 'automovil_empresa'));
     }
 
@@ -517,6 +518,7 @@ class ExpedientesController extends Controller
         // return redirect()->back();
         return response()->json(['success' => 'Successfully uploaded.']);
     }
+
 
     public function destroy(Request $request, $id)
     {

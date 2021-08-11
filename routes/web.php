@@ -325,6 +325,7 @@ Route::delete('expediente/eliminar/{id}', 'ExpedientesController@destroy')->name
     /* Trae datos de facttura */
     Route::post('admin/expediente/view-exp-fisico/{id}', 'ExpedientesController@upload')->name('dropzone.store');
 
+
     Route::post('admin/exp-fisico/crear/{id}', 'ExpedientesController@store_admin')->name('store_admin.expedientes');
 
     Route::get('admin/exp-fisico/factura/view/{id}', 'ExpedientesController@create_admin')->name('create_admin.view-factura-admin');
