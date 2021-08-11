@@ -245,7 +245,7 @@
 
                 this.on("success", function(file, responseText) {
                     console.log(responseText);
-                    setTimeout('location.reload();',12000);
+                    setTimeout('location.reload();',20000);
                 });
 
             }
