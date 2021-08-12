@@ -231,8 +231,8 @@ class MecanicaController extends Controller
                 if($mecanica_usuario->id_usuario == NULL){
                 $mecanica_usuario->id_empresa = $request->get('id_empresabn');
                 $mecanica_usuario->id_automovil = $request->get('current_autobn2');
-                                }else{
-                    $mecanica_usuario->id_automovil = $request->get('current_auto2');
+                }else{
+                    $mecanica_usuario->id_automovil = $request->get('current_autobn');
                 }
                 break;
                 //Frenos
@@ -250,9 +250,9 @@ class MecanicaController extends Controller
                 $mecanica_usuario->id_usuario = $request->get('id_userac');
                 if($mecanica_usuario->id_usuario == NULL){
                     $mecanica_usuario->id_empresa = $request->get('id_empresaac');
-                    $mecanica_usuario->id_automovil = $request->get('current_autoac2');
-                }else{
                     $mecanica_usuario->id_automovil = $request->get('current_autoac');
+                }else{
+                    $mecanica_usuario->id_automovil = $request->get('current_autoac2');
                 }
                 break;
                 //Afinacion
@@ -260,9 +260,9 @@ class MecanicaController extends Controller
                 $mecanica_usuario->id_usuario = $request->get('id_useraf');
                 if($mecanica_usuario->id_usuario == NULL){
                     $mecanica_usuario->id_empresa = $request->get('id_empresaaf');
-                    $mecanica_usuario->id_automovil = $request->get('current_autoaf2');
-                }else{
                     $mecanica_usuario->id_automovil = $request->get('current_autoaf');
+                }else{
+                    $mecanica_usuario->id_automovil = $request->get('current_autoaf2');
                 }
                 break;
                 //Amorting
@@ -270,9 +270,9 @@ class MecanicaController extends Controller
                 $mecanica_usuario->id_usuario = $request->get('id_useram');
                 if($mecanica_usuario->id_usuario == NULL){
                     $mecanica_usuario->id_empresa = $request->get('id_empresaam');
-                    $mecanica_usuario->id_automovil = $request->get('current_autoam2');
-                }else{
                     $mecanica_usuario->id_automovil = $request->get('current_autoam');
+                }else{
+                    $mecanica_usuario->id_automovil = $request->get('current_autoam2');
                 }
                 break;
                 //Bateria
@@ -280,9 +280,9 @@ class MecanicaController extends Controller
                 $mecanica_usuario->id_usuario = $request->get('id_userbt');
                 if($mecanica_usuario->id_usuario == NULL){
                     $mecanica_usuario->id_empresa = $request->get('id_empresabt');
-                    $mecanica_usuario->id_automovil = $request->get('current_autobt');
-                }else{
                     $mecanica_usuario->id_automovil = $request->get('current_autobt2');
+                }else{
+                    $mecanica_usuario->id_automovil = $request->get('current_autobt');
                 }
                 break;
                 //Otro
