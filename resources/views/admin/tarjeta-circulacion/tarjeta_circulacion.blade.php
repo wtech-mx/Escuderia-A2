@@ -12,8 +12,7 @@ $originalDate = $tarjeta_circulacion->end;
 $newDate = date("d/m/Y", strtotime($originalDate));
 ?>
 
-        <div class="row bg-down-image-border" >
-                @include('seguros.modal-pol-img')
+        <div class="row bg-down-image-border " >
                     <div class="col-2 mt-5">
                         <div class="d-flex justify-content-start">
                                 <div class="text-center text-white">
@@ -37,12 +36,6 @@ $newDate = date("d/m/Y", strtotime($originalDate));
                                 </div>
                         </div>
                     </div>
-
-        </div>
-
-
-
-                <div class="row  bg-down-image-border" >
 
                     <div class="col-12">
 

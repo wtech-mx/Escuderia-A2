@@ -90,8 +90,6 @@
                                 </script>
                             @endif
 
-
-
                             <div class="content container-res-max">
                                 <div class="col-12 ">
 
@@ -111,10 +109,11 @@
                                                         href="{{ route('edit_admin.tarjeta-circulacion', $item->id) }}">
                                                         {{ $item->User->name }}</a>
                                                     </th>
-                                                    @endcan
+                                                    @else
                                                     <th>
                                                         {{ $item->User->name }}
                                                     </th>
+                                                    @endcan
                                                     <td>{{ $item->nombre }}</td>
                                                     <td>{{ $item->Automovil->Marca->nombre }}</td>
                                                 </tr>
