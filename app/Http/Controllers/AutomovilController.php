@@ -278,36 +278,34 @@ class AutomovilController extends Controller
     function index_admin()
     {
 
-            $automovil = Automovil::where('id_empresa', '=', NULL)
-                ->get();
+        $automovil = Automovil::where('id_empresa', '=', NULL)
+            ->get();
 
-            $automovil2 = Automovil::where('id_user', '=', NULL)
-                ->get();
+        $automovil2 = Automovil::where('id_user', '=', NULL)
+            ->get();
 
-            $automovil_empresa = Automovil::
-                where('id_empresa', '=', auth()->user()->id)
-                ->get();
+        $automovil_empresa = Automovil::where('id_empresa', '=', auth()->user()->id)
+            ->get();
 
-            return view('admin.garaje.view-garaje-admin', compact('automovil', 'automovil2', 'automovil_empresa'));
-
+        return view('admin.garaje.view-garaje-admin', compact('automovil', 'automovil2', 'automovil_empresa'));
     }
 
     public function create_admin()
     {
-            $marca = DB::table('marca')
-                ->get();
+        $marca = DB::table('marca')
+            ->get();
 
-            $user = DB::table('users')
-                ->where('empresa', '=', 0)
-                ->where('role', '=', '0')
-                ->get();
+        $user = DB::table('users')
+            ->where('empresa', '=', 0)
+            ->where('role', '=', '0')
+            ->get();
 
-            $empresa = DB::table('users')
-                ->where('empresa', '=', 1)
-                ->get();
+        $empresa = DB::table('users')
+            ->where('empresa', '=', 1)
+            ->get();
 
 
-            return view('admin.garaje.create-garaje-admin', compact('marca', 'user', 'empresa', 'user'));
+        return view('admin.garaje.create-garaje-admin', compact('marca', 'user', 'empresa', 'user'));
     }
 
     public function store_admin(Request $request)
@@ -408,6 +406,7 @@ class AutomovilController extends Controller
         $verificacion_segunda = new VerificacionSegunda;
         $verificacion_segunda->id_verificacion = $verificacion->id;
         $verificacion_segunda->id_user = $verificacion->id_user;
+        $verificacion_segunda->id_empresa = $automovil->id_empresa;
         $verificacion_segunda->estatus = 0;
         $verificacion_segunda->estado_last_week = 0;
         $verificacion_segunda->estado_tomorrow = 0;
@@ -433,21 +432,21 @@ class AutomovilController extends Controller
 
     public function  edit_admin($id)
     {
-            $automovil = Automovil::findOrFail($id);
+        $automovil = Automovil::findOrFail($id);
 
-            $marca = DB::table('marca')
-                ->get();
+        $marca = DB::table('marca')
+            ->get();
 
-            $empresa = DB::table('users')
-                ->where('empresa', '=', 1)
-                ->get();
+        $empresa = DB::table('users')
+            ->where('empresa', '=', 1)
+            ->get();
 
-            $user = DB::table('users')
-                ->where('role', '=', '0')
-                ->where('empresa', '=', 0)
-                ->get();
+        $user = DB::table('users')
+            ->where('role', '=', '0')
+            ->where('empresa', '=', 0)
+            ->get();
 
-            return view('admin.garaje.edit-garaje-admin', compact('automovil', 'marca', 'user', 'empresa'));
+        return view('admin.garaje.edit-garaje-admin', compact('automovil', 'marca', 'user', 'empresa'));
     }
 
     function update_admin(Request $request, $id)
