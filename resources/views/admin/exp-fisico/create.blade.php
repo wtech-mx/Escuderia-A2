@@ -259,7 +259,7 @@
 
                 this.on("success", function(file, responseText) {
                     console.log(responseText);
-                    // setTimeout('location.reload();',6000);
+                    
                 });
 
             }
