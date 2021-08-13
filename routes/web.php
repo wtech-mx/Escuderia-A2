@@ -424,3 +424,8 @@ require __DIR__ . '/auth.php';
 Route::get('admin/cotizacion/view', 'CotizacionController@index')->name('index.cotizacion');
 Route::get('admin/cotizacion/crear', 'CotizacionController@create')->name('create.cotizacion');
 Route::post('admin/cotizacion/store', 'CotizacionController@store')->name('store.cotizacion');
+
+/*|--------------------------------------------------------------------------
+|PDF Cotizacion
+|--------------------------------------------------------------------------*/
+Route::get('/imprimir/{id}', 'CotizacionController@imprimir')->name('print');

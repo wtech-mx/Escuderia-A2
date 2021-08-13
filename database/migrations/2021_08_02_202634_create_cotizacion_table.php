@@ -26,8 +26,11 @@ class CreateCotizacionTable extends Migration
                 ->references('id')->on('users')
                 ->inDelete('set null');
 
-            $table->string('descripcion')->nullable();
-            $table->integer('total')->nullable();
+            $table->string('user')->nullable();
+            $table->string('empresa')->nullable();
+            $table->string('telefono')->nullable();
+            $table->string('correo')->nullable();
+            $table->string('total')->nullable();
 
             $table->timestamps();
         });
