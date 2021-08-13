@@ -168,13 +168,27 @@
 
                                 <div class="collapse" id="lotefoto" data-parent="#myGroup">
                                     <div class="card card-body" style="background-color: #ffffff;background-image: none;border: 1px solid #ffffff">
-                                               <button type="button" class="btn btn-lg btn-save-dark text-white mb-3" id="submit-all">
-                                                      <img class="align-items-center" src="{{ asset('img/icon/white/save-file-option (1).png') }}"
-                                                          width="20px">
-                                                      Guardar
-                                               </button>
+                                         <button type="button" class="btn btn-lg btn-save-dark text-white mb-3" id="submit-all">
+                                                <img class="align-items-center" src="{{ asset('img/icon/white/save-file-option (1).png') }}"
+                                                    width="20px">
+                                                Guardar
+                                         </button>
+
                                         <form id="dropzoneForm" class="dropzone" action="{{ route('dropzone.store', $automovil->id) }}"  enctype="multipart/form-data" >
                                                @csrf
+
+                                             <div class="col-12 mb-3">
+                                                <div class="input-group form-group">
+                                                    <div class="input-group-prepend ">
+                                                        <span class="input-group-text input-modal">
+                                                            <img class="" src="{{ asset('img/icon/white/fuente.png') }}"
+                                                                width="25px">
+                                                        </span>
+                                                    </div>
+                                                    <input type="text" class="form-control" placeholder="Titulo" id="titulo" name="titulo"  style="border-radius: 0  10px 10px 0;">
+                                                </div>
+                                            </div>
+
                                               <input type="hidden" id="numero" name="numero" value="{{$numero}}">
                                         </form>
                                     </div>
@@ -217,7 +231,7 @@
             maxFilesize:1000,
             parallelUploads: 100,
             maxFiles: 8,
-            dictDefaultMessage: "Arrastra las fotos aquí para subirlos",
+            dictDefaultMessage: "Click aqui para subir las fotos",
             dictFallbackMessage: "El navegador no es compatible",
             dictFileTooBig: "Los archivos son muy pesados {filesize}, {maxFilesize} ",
             dictInvalidFileType: "El archivo no es una imagen ",
@@ -245,7 +259,7 @@
 
                 this.on("success", function(file, responseText) {
                     console.log(responseText);
-                    setTimeout('location.reload();',20000);
+                    // setTimeout('location.reload();',6000);
                 });
 
             }

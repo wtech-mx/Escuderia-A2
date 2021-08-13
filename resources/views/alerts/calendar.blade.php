@@ -22,7 +22,7 @@
 
             height: 'auto',
             initialDate: '{{$Fecha}}',
-            initialView: 'listMonth',
+            initialView: 'dayGridMonth',
             navLinks: false,
             editable: true,
             dayMaxEvents: 3,

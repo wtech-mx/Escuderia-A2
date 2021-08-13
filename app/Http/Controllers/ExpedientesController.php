@@ -373,6 +373,12 @@ class ExpedientesController extends Controller
         }
 
         $exp = $new;
+
+        $Y = date('Y') ;
+        $M = date('m');
+        $D = date('d') ;
+        $Fecha = $Y."-".$M."-".$D;
+
         $exp->titulo = $request->get('titulo');
 
         if ($request->hasFile('img')) {
