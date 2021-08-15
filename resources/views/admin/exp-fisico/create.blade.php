@@ -174,7 +174,13 @@
                                                 Guardar
                                          </button>
 
-                                        <form id="dropzoneForm" class="dropzone" action="{{ route('dropzone.store', $automovil->id) }}"  enctype="multipart/form-data" >
+                                         @if (auth()->user()->role == 0)
+                                         <form id="dropzoneForm" class="dropzone" action="{{ route('dropzone_user.store') }}"  enctype="multipart/form-data" >
+                                         @else
+                                         <form id="dropzoneForm" class="dropzone" action="{{ route('dropzone.store', $automovil->id) }}"  enctype="multipart/form-data" >
+                                         @endif
+
+
                                                @csrf
 
                                              <div class="col-12 mb-3">
@@ -259,7 +265,7 @@
 
                 this.on("success", function(file, responseText) {
                     console.log(responseText);
-                    
+
                 });
 
             }

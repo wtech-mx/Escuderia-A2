@@ -37,9 +37,6 @@
             </div>
         </div>
 
-    </div>
-
-    <div class="row bg-image" style="margin-bottom: 8rem!important;">
 
         @if ($cupon_user->count())
         @foreach ($cupon_user as $item)

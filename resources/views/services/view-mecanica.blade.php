@@ -31,10 +31,8 @@
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="row bg-image" style="height: 100vh;">
-        <div class="col-12 mt-5 p-3">
+        <div class="col-12 mt-2 p-3">
             <table class="table text-white ">
                 <thead>
                     <tr>

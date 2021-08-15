@@ -10,8 +10,6 @@
 
     <div class="row bg-down-image-border">
 
-        @include('seguros.modal-pol-img')
-
         @if (Session::has('success'))
             <script>
                 Swal.fire({
@@ -73,7 +71,7 @@
             </div>
         @endif
 
-    </div>
+
 
         <?php
         $originalDate = $seguro->end;
@@ -233,7 +231,7 @@
                             id='costo_anual' name="costo_anual" value="{{ $seguro->costo_anual }}">
                     </div>
 
-                    <label for="">
+                    {{-- <label for="">
                         <p class="text-white mt-3"><strong>Foto P&oacute;liza Seguro</strong></p>
                     </label>
 
@@ -243,12 +241,12 @@
                             <img class="d-inline mb-2" src="{{ asset('img/icon/white/boton-circular-plus.png') }}"
                                 width="50px">
                         </button>
-                    </div>
+                    </div> --}}
 
 
                 </div>
 
-                <div class="col-12 text-center mt-5 " style="margin-bottom: 8rem !important;">
+                <div class="col-12 text-center mt-2 " style="margin-bottom: 8rem !important;">
                     <button class="btn btn-lg btn-save-neon text-white">
                         <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}" width="20px">
                         Actualizar

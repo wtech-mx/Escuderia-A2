@@ -51,7 +51,7 @@
             </div>
         </div>
 
-    </div>
+  
     <style>
         input.form-control {
             display: block;

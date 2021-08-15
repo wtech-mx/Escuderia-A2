@@ -157,6 +157,7 @@ Route::post('documents/crear/lugar-tc', 'DocumentosLugarExpController@store')->n
 Route::get('expediente/view-exp-fisico', 'ExpController@index')->name('index_exp');
 Route::post('expediente/crear', 'ExpedientesController@store')->name('store.expexpediente');
 Route::delete('expediente/eliminar/{id}', 'ExpedientesController@destroy_user')->name('destroy_user.expediente');
+Route::post('expediente/view-exp-fisico', 'ExpedientesController@upload_user')->name('dropzone_user.store');
 
 
 Route::get('factura/view', 'ExpedientesController@index')->name('index.exp-factura');
@@ -386,10 +387,10 @@ Route::group(['middleware' => ['permission:Ver Notas|Crear Notas|Editar Notas|El
 /*|--------------------------------------------------------------------------
 |Licencia de conducir view
 |--------------------------------------------------------------------------*/
-Route::group(['middleware' => ['permission:Ver Licencia de Conducir|Editar Licencia de Conducir']], function () {
-    Route::get('licencia/index', 'LicenciaController@index')->name('index.licencia');
-    Route::patch('licencia/update/{id}', 'LicenciaController@update')->name('update.licencia');
+Route::get('licencia/index', 'LicenciaController@index')->name('index.licencia');
+Route::patch('licencia/update/{id}', 'LicenciaController@update')->name('update.licencia');
 
+Route::group(['middleware' => ['permission:Ver Licencia de Conducir|Editar Licencia de Conducir']], function () {
     Route::get('admin/licencia/index', 'LicenciaController@index_admin')->name('index_admin.licencia');
     Route::get('admin/licencia/edit/{id}', 'LicenciaController@edit_admin')->name('edit_admin.licencia');
     Route::patch('admin/licencia/update/{id}', 'LicenciaController@update_admin')->name('update_admin.licencia');

@@ -26,8 +26,6 @@
             </script>
         @endif
 
-        @include('seguros.modal-pol-img')
-
         <div class="col-2 mt-5">
             <div class="d-flex justify-content-start">
                 <div class="text-center text-white">
@@ -57,9 +55,6 @@
             </div>
         </div>
 
-    </div>
-
-    <div class="row  bg-down-image-border">
 
             @php
                 $originalDate = $tarjeta_circulacion->end;
@@ -258,7 +253,7 @@
                             value="{{ $tarjeta_circulacion->end }}" required>
                     </div>
 
-                    <label for="">
+                    {{-- <label for="">
                         <p class="text-white mt-3"><strong>Agregar imagen</strong></p>
                     </label>
 
@@ -268,7 +263,7 @@
                                 <img class="d-inline mb-2" src="{{ asset('img/icon/white/add.png') }}" width="30px">
                             </a>
                         </div>
-                    </div>
+                    </div> --}}
 
                     <div class="col-12 text-center mt-5" style="margin-bottom: 8rem !important;">
                         <button class="btn btn-lg btn-save-neon text-white">
@@ -278,7 +273,6 @@
                     </div>
 
                 </form>
-                @include('tarjeta-circulacion.modal-ts-img')
             </div>
         @endif
 
