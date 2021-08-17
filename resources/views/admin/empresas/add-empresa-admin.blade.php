@@ -75,7 +75,7 @@
 
                               <div class="tab-pane fade show active" id="perfil" role="tabpanel" aria-labelledby="pills-perfil-tab">
 
-                                 <label for="">
+                                 <label for="" class="mt-2">
                                      <p class="text-white"><strong>Empresa</strong></p>
                                  </label>
 
@@ -88,7 +88,7 @@
                                     <input type="text" class="form-control" placeholder="Nombre" id="name" name="name" >
                                 </div>
 
-                                 <label for="">
+                                 <label for="" class="mt-2">
                                      <p class="text-white"><strong>Correo</strong></p>
                                  </label>
 
@@ -101,7 +101,7 @@
                                     <input type="text" class="form-control" placeholder="correo@correo.com" id="email" name="email" >
                                 </div>
 
-                                 <label for="">
+                                 <label for="" class="mt-2">
                                      <p class="text-white"><strong>Tel&eacute;fono</strong></p>
                                  </label>
 
@@ -115,7 +115,7 @@
                                 </div>
 
 
-                                 <label for="">
+                                 <label for="" class="mt-2">
                                      <p class="text-white"><strong>Direcci&oacute;n</strong></p>
                                  </label>
 
@@ -128,7 +128,7 @@
                                     <input type="text" class="form-control" placeholder="Direccion"  id="direccion" name="direccion">
                                 </div>
 
-                                 <label for="">
+                                 <label for="" class="mt-2">
                                      <p class="text-white"><strong>Referencia</strong></p>
                                  </label>
 
@@ -145,6 +145,24 @@
                                                 <option value="{{ $item->id }}">{{ $item->name }}</option>
                                             @endforeach
                                         </select>
+                                </div>
+
+                                <label for="" class="mt-2">>
+                                    <p class="text-white"><strong>Role</strong></p>
+                                </label>
+
+                                <div class="input-group form-group">
+                                    <div class="input-group-prepend ">
+                                        <span class="input-group-text">
+                                            <i class="fas fa-user-tag icon-users-edit"></i>
+                                        </span>
+                                    </div>
+
+                                    <select class="form-control" id="role" name="role">
+                                        @foreach ($roles as $role)
+                                            <option value="{{$role->id}}">{{$role->name}}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
 
                                   <label for="" class="mt-3">

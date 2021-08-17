@@ -112,7 +112,7 @@
                             </div>
 
                             <div class="col-6 p-2">
-                              <a href="{{ route('create_admin.view-reemplacamiento-admin',$item->id) }}">
+                              <a href="{{ route('create_admin.view-certificado-admin',$item->id) }}">
                                 <div class="d-flex justify-content-between bg-dark text-white p-2" style="border-radius: 10px">
                                   <div class="mr-auto p-2">Verificacion</div>
                                   <div class="p-2">

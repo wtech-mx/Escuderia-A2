@@ -29,7 +29,7 @@
                 })
             </script>
         @endif
-
+        <p style="display: none">{{ $userId = Auth::id() }}</p>
         <div class="col-2 mt-4">
             <div class="d-flex justify-content-start">
                 <a class="btn" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false"
@@ -92,7 +92,9 @@
             </div>
         </div>
 
+
             @include('admin.alerts.calendar')
+
     </div>
 
     <div class="row-content" style="position: relative;background-color: #31ba4b;width: 360px;left: -10px"></div>
@@ -107,7 +109,11 @@
 
             <div class="col-6 text-center">
                 @can('ver_usuario')
-                <a href="{{ route('index_admin.user') }}">
+                    @if ($users->empresa == 1)
+                        <a href="{{ route('edit.profile', $userId) }}">
+                    @else
+                        <a href="{{ route('index_admin.user') }}">
+                    @endif
                 @else
                 <a  data-toggle="modal" data-target="#modal-permisos">
                 @endcan

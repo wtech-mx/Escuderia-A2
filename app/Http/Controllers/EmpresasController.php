@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
 use Image;
+use App\Models\ModalHasRoles;
 
 use App\Exports\EmpresaExport;
 use Maatwebsite\Excel\Facades\Excel;
@@ -32,7 +33,10 @@ class EmpresasController extends Controller
             ->where('role', '=', '0')
             ->get();
 
-        return view('admin.garaje.create-garaje-admin', compact('user'));
+        $roles = DB::table('roles')
+            ->get();
+
+        return view('admin.garaje.create-garaje-admin', compact('user', 'roles'));
     }
 
     public function store_empresa(Request $request)
@@ -47,7 +51,7 @@ class EmpresasController extends Controller
         $empresa = new User;
         $empresa->name = $request->get('name');
         $empresa->empresa = 1;
-        $empresa->role = 2;
+        $empresa->role = $request->get('role');
         $empresa->telefono = $request->get('telefono');
         $empresa->direccion = $request->get('direccion');
         $empresa->referencia = $request->get('referencia');
@@ -64,6 +68,78 @@ class EmpresasController extends Controller
         }
 
         $empresa->save();
+
+        $role = new ModalHasRoles;
+        $role->role_id = $empresa->role;
+        $role->model_type = 'App\Models\Alertas';
+        $role->model_id = $empresa->id;
+        $role->save();
+
+        $role = new ModalHasRoles;
+        $role->role_id = $empresa->role;
+        $role->model_type = 'App\Models\Automovil';
+        $role->model_id = $empresa->id;
+        $role->save();
+
+        $role = new ModalHasRoles;
+        $role->role_id = $empresa->role;
+        $role->model_type = 'App\Models\Cupon';
+        $role->model_id = $empresa->id;
+        $role->save();
+
+        $role = new ModalHasRoles;
+        $role->role_id = $empresa->role;
+        $role->model_type = 'App\Models\Licencia';
+        $role->model_id = $empresa->id;
+        $role->save();
+
+        $role = new ModalHasRoles;
+        $role->role_id = $empresa->role;
+        $role->model_type = 'App\Models\Mecanica';
+        $role->model_id = $empresa->id;
+        $role->save();
+
+        $role = new ModalHasRoles;
+        $role->role_id = $empresa->role;
+        $role->model_type = 'App\Models\Notas';
+        $role->model_id = $empresa->id;
+        $role->save();
+
+        $role = new ModalHasRoles;
+        $role->role_id = $empresa->role;
+        $role->model_type = 'App\Models\Role';
+        $role->model_id = $empresa->id;
+        $role->save();
+
+        $role = new ModalHasRoles;
+        $role->role_id = $empresa->role;
+        $role->model_type = 'App\Models\Seguros';
+        $role->model_id = $empresa->id;
+        $role->save();
+
+        $role = new ModalHasRoles;
+        $role->role_id = $empresa->role;
+        $role->model_type = 'App\Models\TarjetaCirculacion';
+        $role->model_id = $empresa->id;
+        $role->save();
+
+        $role = new ModalHasRoles;
+        $role->role_id = $empresa->role;
+        $role->model_type = 'App\Models\User';
+        $role->model_id = $empresa->id;
+        $role->save();
+
+        $role = new ModalHasRoles;
+        $role->role_id = $empresa->role;
+        $role->model_type = 'App\Models\Verificacion';
+        $role->model_id = $empresa->id;
+        $role->save();
+
+        $role = new ModalHasRoles;
+        $role->role_id = $empresa->role;
+        $role->model_type = 'App\Models\Pronostico';
+        $role->model_id = $empresa->id;
+        $role->save();
 
         Session::flash('empresa', 'Se ha guardado sus datos con exito');
         return redirect()->route('create_admin.automovil');
@@ -90,7 +166,10 @@ class EmpresasController extends Controller
                 ->where('role', '=', '0')
                 ->get();
 
-            return view('admin.empresas.add-empresa-admin', compact('user'));
+            $roles = DB::table('roles')
+                ->get();
+
+            return view('admin.empresas.add-empresa-admin', compact('user', 'roles'));
     }
 
     public function store_admin(Request $request)
@@ -103,7 +182,7 @@ class EmpresasController extends Controller
         $empresa = new User;
         $empresa->name = $request->get('name');
         $empresa->empresa = 1;
-        $empresa->role = 2;
+        $empresa->role = $request->get('role');
         $empresa->telefono = $request->get('telefono');
         $empresa->direccion = $request->get('direccion');
         $empresa->referencia = $request->get('referencia');
@@ -119,8 +198,79 @@ class EmpresasController extends Controller
             $empresa->img = $compresion->basename;
         }
 
-
         $empresa->save();
+
+        $role = new ModalHasRoles;
+        $role->role_id = $empresa->role;
+        $role->model_type = 'App\Models\Alertas';
+        $role->model_id = $empresa->id;
+        $role->save();
+
+        $role = new ModalHasRoles;
+        $role->role_id = $empresa->role;
+        $role->model_type = 'App\Models\Automovil';
+        $role->model_id = $empresa->id;
+        $role->save();
+
+        $role = new ModalHasRoles;
+        $role->role_id = $empresa->role;
+        $role->model_type = 'App\Models\Cupon';
+        $role->model_id = $empresa->id;
+        $role->save();
+
+        $role = new ModalHasRoles;
+        $role->role_id = $empresa->role;
+        $role->model_type = 'App\Models\Licencia';
+        $role->model_id = $empresa->id;
+        $role->save();
+
+        $role = new ModalHasRoles;
+        $role->role_id = $empresa->role;
+        $role->model_type = 'App\Models\Mecanica';
+        $role->model_id = $empresa->id;
+        $role->save();
+
+        $role = new ModalHasRoles;
+        $role->role_id = $empresa->role;
+        $role->model_type = 'App\Models\Notas';
+        $role->model_id = $empresa->id;
+        $role->save();
+
+        $role = new ModalHasRoles;
+        $role->role_id = $empresa->role;
+        $role->model_type = 'App\Models\Role';
+        $role->model_id = $empresa->id;
+        $role->save();
+
+        $role = new ModalHasRoles;
+        $role->role_id = $empresa->role;
+        $role->model_type = 'App\Models\Seguros';
+        $role->model_id = $empresa->id;
+        $role->save();
+
+        $role = new ModalHasRoles;
+        $role->role_id = $empresa->role;
+        $role->model_type = 'App\Models\TarjetaCirculacion';
+        $role->model_id = $empresa->id;
+        $role->save();
+
+        $role = new ModalHasRoles;
+        $role->role_id = $empresa->role;
+        $role->model_type = 'App\Models\User';
+        $role->model_id = $empresa->id;
+        $role->save();
+
+        $role = new ModalHasRoles;
+        $role->role_id = $empresa->role;
+        $role->model_type = 'App\Models\Verificacion';
+        $role->model_id = $empresa->id;
+        $role->save();
+
+        $role = new ModalHasRoles;
+        $role->role_id = $empresa->role;
+        $role->model_type = 'App\Models\Pronostico';
+        $role->model_id = $empresa->id;
+        $role->save();
 
         Session::flash('success', 'Se ha actualizado sus datos con exito');
         return redirect()->route('index_admin.empresa');
@@ -183,6 +333,81 @@ class EmpresasController extends Controller
         }
 
         $empresa->update();
+
+        $brorrarrole = ModalHasRoles::where('model_id', '=', $id)
+        ->delete();
+
+    $role = new ModalHasRoles;
+    $role->role_id = $empresa->role;
+    $role->model_type = 'App\Models\Alertas';
+    $role->model_id = $empresa->id;
+    $role->save();
+
+    $role = new ModalHasRoles;
+    $role->role_id = $empresa->role;
+    $role->model_type = 'App\Models\Automovil';
+    $role->model_id = $empresa->id;
+    $role->save();
+
+    $role = new ModalHasRoles;
+    $role->role_id = $empresa->role;
+    $role->model_type = 'App\Models\Cupon';
+    $role->model_id = $empresa->id;
+    $role->save();
+
+    $role = new ModalHasRoles;
+    $role->role_id = $empresa->role;
+    $role->model_type = 'App\Models\Licencia';
+    $role->model_id = $empresa->id;
+    $role->save();
+
+    $role = new ModalHasRoles;
+    $role->role_id = $empresa->role;
+    $role->model_type = 'App\Models\Mecanica';
+    $role->model_id = $empresa->id;
+    $role->save();
+
+    $role = new ModalHasRoles;
+    $role->role_id = $empresa->role;
+    $role->model_type = 'App\Models\Notas';
+    $role->model_id = $empresa->id;
+    $role->save();
+
+    $role = new ModalHasRoles;
+    $role->role_id = $empresa->role;
+    $role->model_type = 'App\Models\Role';
+    $role->model_id = $empresa->id;
+    $role->save();
+
+    $role = new ModalHasRoles;
+    $role->role_id = $empresa->role;
+    $role->model_type = 'App\Models\Seguros';
+    $role->model_id = $empresa->id;
+    $role->save();
+
+    $role = new ModalHasRoles;
+    $role->role_id = $empresa->role;
+    $role->model_type = 'App\Models\TarjetaCirculacion';
+    $role->model_id = $empresa->id;
+    $role->save();
+
+    $role = new ModalHasRoles;
+    $role->role_id = $empresa->role;
+    $role->model_type = 'App\Models\User';
+    $role->model_id = $empresa->id;
+    $role->save();
+
+    $role = new ModalHasRoles;
+    $role->role_id = $empresa->role;
+    $role->model_type = 'App\Models\Verificacion';
+    $role->model_id = $empresa->id;
+    $role->save();
+
+    $role = new ModalHasRoles;
+    $role->role_id = $empresa->role;
+    $role->model_type = 'App\Models\Pronostico';
+    $role->model_id = $empresa->id;
+    $role->save();
 
         Session::flash('success', 'Se ha actualizado sus datos con exito');
 

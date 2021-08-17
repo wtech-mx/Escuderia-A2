@@ -91,12 +91,14 @@
                         Datos de auto
                     </a>
                 </li>
+                @if (auth()->user()->empresa == 0)
                 <li class="nav-item">
                     <a class="nav-link a-auto" id="pills-Vinculacion-tab" data-toggle="pill" href="#pills-Vinculacion"
                         role="tab" aria-controls="pills-Vinculacion" aria-selected="false">
                         Vinculaci&oacute;n
                     </a>
                 </li>
+                @endif
 
             </ul>
             <form method="POST" action="{{ route('store_admin.automovil') }}" enctype="multipart/form-data" role="form">
@@ -268,106 +270,109 @@
                             </div>
                         </div>
 
+                    @if (auth()->user()->empresa == 1)
                         <input type="hidden" class="form-control input-edit-car" id="id_empresa"
                         name="id_empresa" value="{{ auth()->user()->id }}">
 
-                        {{-- <div class="col-12" style="margin-bottom: 8rem !important;">
+                        <div class="col-12" style="margin-bottom: 8rem !important;">
                             <button type="submit" class="btn btn-lg btn-save-dark text-white mt-5">
                                 <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}"
                                     width="20px">
                                 Guardar
                             </button>
-                        </div> --}}
+                        </div>
+                    @endif
+
                     </div>
 
                     {{-- -------------------------------------------------------------------------- --}}
                     {{-- |Tab seguridad --}}
                     {{-- |-------------------------------------------------------------------------- --}}
+                    @if (auth()->user()->empresa == 0)
+                        <div class="tab-pane fade" id="pills-Vinculacion" role="tabpanel"
+                            aria-labelledby="pills-Vinculacion-tab">
 
-                    <div class="tab-pane fade" id="pills-Vinculacion" role="tabpanel"
-                        aria-labelledby="pills-Vinculacion-tab">
+                            <div class="col-12 text-center mt-5 mb-5">
 
-                        <div class="col-12 text-center mt-5 mb-5">
+                                <label class="mb-2" for="">
+                                    <p class="subtitle-label"><strong>¿Este auto pertenece a una empresa?</strong></p>
+                                </label>
 
-                            <label class="mb-2" for="">
-                                <p class="subtitle-label"><strong>¿Este auto pertenece a una empresa?</strong></p>
-                            </label>
+                                <div class="row">
 
-                            <div class="row">
+                                    <div class="col-9">
+                                        <div class="input-group form-group">
+                                            <div class="input-group-prepend ">
+                                                <span class="input-group-text input-vinculacion"
+                                                    style="background-color: #FFFFFF;border-radius: 10px 0px 0px 10px;">
+                                                    <i class="fas fa-building" style="font-size: 30px"></i>
+                                                </span>
+                                            </div>
 
-                                <div class="col-9">
-                                    <div class="input-group form-group">
-                                        <div class="input-group-prepend ">
-                                            <span class="input-group-text input-vinculacion"
-                                                style="background-color: #FFFFFF;border-radius: 10px 0px 0px 10px;">
-                                                <i class="fas fa-building" style="font-size: 30px"></i>
-                                            </span>
+                                            <select class="form-control" id="id_empresa" name="id_empresa">
+                                                <option value="">Seleccione empresa</option>
+                                                @foreach ($empresa as $item)
+                                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                                @endforeach
+                                            </select>
                                         </div>
-
-                                        <select class="form-control" id="id_empresa" name="id_empresa">
-                                            <option value="">Seleccione empresa</option>
-                                            @foreach ($empresa as $item)
-                                                <option value="{{ $item->id }}">{{ $item->name }}</option>
-                                            @endforeach
-                                        </select>
                                     </div>
+
+                                    <div class="col-3">
+                                        <!-- Button trigger modal -->
+                                        <a class="btn btn-circel" data-toggle="modal" data-target="#empresa">
+                                            <i class="fas fa-plus-circle icon-plus-effect"></i>
+                                        </a>
+                                    </div>
+
                                 </div>
 
-                                <div class="col-3">
-                                    <!-- Button trigger modal -->
-                                    <a class="btn btn-circel" data-toggle="modal" data-target="#empresa">
-                                        <i class="fas fa-plus-circle icon-plus-effect"></i>
-                                    </a>
+                                <label class="mb-2" for="">
+                                    <p class="subtitle-label"><strong>¿Este auto pertenece a una persona?</strong></p>
+                                </label>
+
+                                <div class="row">
+
+                                    <div class="col-9">
+                                        <div class="input-group form-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text input-vinculacion"
+                                                    style="background-color: #FFFFFF;border-radius: 10px 0px 0px 10px;">
+                                                    <i class="fas fa-user" style="font-size: 30px"></i>
+                                                </span>
+                                            </div>
+
+                                            <select class="form-control" id="id_user" name="id_user">
+                                                <option value="">Seleccione usuario</option>
+                                                @foreach ($user as $item)
+                                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                                @endforeach
+                                            </select>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="col-3">
+                                        <a class="btn btn-circel" data-toggle="modal" data-target="#persona">
+                                            <i class="fas fa-plus-circle icon-plus-effect"></i>
+                                        </a>
+                                    </div>
+
+                                    <div class="col-12" style="margin-bottom: 8rem !important;">
+                                        <button type="submit" class="btn btn-lg btn-save-dark text-white mt-5">
+                                            <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}"
+                                                width="20px">
+                                            Guardar
+                                        </button>
+                                    </div>
+
                                 </div>
+
 
                             </div>
-
-                            <label class="mb-2" for="">
-                                <p class="subtitle-label"><strong>¿Este auto pertenece a una persona?</strong></p>
-                            </label>
-
-                            <div class="row">
-
-                                <div class="col-9">
-                                    <div class="input-group form-group">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text input-vinculacion"
-                                                style="background-color: #FFFFFF;border-radius: 10px 0px 0px 10px;">
-                                                <i class="fas fa-user" style="font-size: 30px"></i>
-                                            </span>
-                                        </div>
-
-                                        <select class="form-control" id="id_user" name="id_user">
-                                            <option value="">Seleccione usuario</option>
-                                            @foreach ($user as $item)
-                                                <option value="{{ $item->id }}">{{ $item->name }}</option>
-                                            @endforeach
-                                        </select>
-
-                                    </div>
-                                </div>
-
-                                <div class="col-3">
-                                    <a class="btn btn-circel" data-toggle="modal" data-target="#persona">
-                                        <i class="fas fa-plus-circle icon-plus-effect"></i>
-                                    </a>
-                                </div>
-
-                                <div class="col-12" style="margin-bottom: 8rem !important;">
-                                    <button type="submit" class="btn btn-lg btn-save-dark text-white mt-5">
-                                        <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}"
-                                            width="20px">
-                                        Guardar
-                                    </button>
-                                </div>
-
-                            </div>
-
 
                         </div>
-
-                    </div>
-
+                    @endif
                 </div>
             </form>
             @include('admin.garaje.add-bussines-modal')

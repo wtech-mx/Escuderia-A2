@@ -105,27 +105,51 @@ class AlertasController extends Controller
 
     public function show_calendar()
     {
+        if(auth()->user()->empresa == 0){
+            //Trae datos de db to jason
+            $json2 = $data2['alertas'] = Alertas::all();
+            $json3 = $data3['seguros'] = Seguros::all()->makeHidden('end');
+            $json4 = $data3['tarjeta_circulacion'] = TarjetaCirculacion::all()->makeHidden('end');
+            $json5 = $data5['verificacion'] = Verificacion::all()->makeHidden('end');
+            $json6 = $data6['mecanica'] = Llantas::all()->makeHidden('end');
+            $json7 = $data7['verificacion_segunda'] = VerificacionSegunda::all()->makeHidden('end');
+            $json8 = $data8['pronostico'] = Pronostico::all()->makeHidden('end');
 
-        //Trae datos de db to jason
-        $json2 = $data2['alertas'] = Alertas::all();
-        $json3 = $data3['seguros'] = Seguros::all()->makeHidden('end');
-        $json4 = $data3['tarjeta_circulacion'] = TarjetaCirculacion::all()->makeHidden('end');
-        $json5 = $data5['verificacion'] = Verificacion::all()->makeHidden('end');
-        $json6 = $data6['mecanica'] = Llantas::all()->makeHidden('end');
-        $json7 = $data7['verificacion_segunda'] = VerificacionSegunda::all()->makeHidden('end');
-        $json8 = $data8['pronostico'] = Pronostico::all()->makeHidden('end');
+            //los convieerte en array
+            $decode2 = json_decode($json2);
+            $decode3 = json_decode($json3);
+            $decode4 = json_decode($json4);
+            $decode5 = json_decode($json5);
+            $decode6 = json_decode($json6);
+            $decode7 = json_decode($json7);
+            $decode8 = json_decode($json8);
 
-        //los convieerte en array
-        $decode2 = json_decode($json2);
-        $decode3 = json_decode($json3);
-        $decode4 = json_decode($json4);
-        $decode5 = json_decode($json5);
-        $decode6 = json_decode($json6);
-        $decode7 = json_decode($json7);
-        $decode8 = json_decode($json8);
+            //Une los array en uno solo
+            $resultado = array_merge($decode2, $decode3, $decode4, $decode5, $decode6, $decode7, $decode8);
+        }else{
 
-        //Une los array en uno solo
-        $resultado = array_merge($decode2, $decode3, $decode4, $decode5, $decode6, $decode7, $decode8);
+            $json2 = $data2['alertas'] = Alertas::where('id_empresa', '=', auth()->user()->id)->get();
+            $json3 = $data3['seguros'] = Seguros::where('id_empresa', '=', auth()->user()->id)->get();
+            $json4 = $data4['tarjeta_circulacion'] = TarjetaCirculacion::where('id_empresa', '=', auth()->user()->id)->get()->makeHidden('end');
+            $json5 = $data5['verificacion'] = Verificacion::where('id_empresa', '=', auth()->user()->id)->get()->makeHidden('end');
+            $json6 = $data6['mecanica'] = Llantas::where('id_empresa', '=', auth()->user()->id)->get()->makeHidden('end');
+            $json7 = $data7['verificacion_segunda'] = VerificacionSegunda::where('id_empresa', '=', auth()->user()->id)->get()->makeHidden('end');
+            $json8 = $data8['pronostico'] = Pronostico::where('id_empresa', '=', auth()->user()->id)->get()->makeHidden('end');
+
+            //los convieerte en array
+            $decode2 = json_decode($json2);
+            $decode3 = json_decode($json3);
+            $decode4 = json_decode($json4);
+            $decode5 = json_decode($json5);
+            $decode6 = json_decode($json6);
+            $decode7 = json_decode($json7);
+            $decode8 = json_decode($json8);
+
+            //Une los array en uno solo
+            $resultado = array_merge($decode2, $decode3, $decode4, $decode5, $decode6, $decode7, $decode8);
+
+        }
+
 
         //retorna a la vista sn json
         return response()->json($resultado);
