@@ -280,7 +280,7 @@
                 </div>
         @endif
 
-        <div class="col-6 text-center position-relative mt-4" >
+        <div class="col-6 text-center mt-4">
             <div class="card" style="border-radius: 15px">
                 @can('Ver Notas')
                 <a href="{{ route('index.notas') }}">
@@ -307,7 +307,8 @@
             </a>
         </div>
 
-            <div class="col-6 text-center mt-4" >
+        @if ($users->empresa == 0)
+            <div class="col-6 text-center mt-4">
                 @can('Ver Cupones')
                 <a href="{{ route('index_admin.cupon') }}" class="text-white">
                 @else
@@ -321,8 +322,9 @@
                     </div>
                 </a>
             </div>
+        @endif
 
-            <div class="col-6 text-center  mt-4" style="margin-bottom: 8rem !important;">
+            <div class="col-6 text-center  mt-4">
                 @can('Crear Roles y Permisos')
                 <a href="{{ route('index_role.role') }}" class="text-white">
                 @else
@@ -337,7 +339,7 @@
                 </a>
             </div>
 
-            <div class="col-6 text-center mt-4" >
+            <div class="col-6 text-center mt-4" style="margin-bottom: 8rem !important;">
                 @can('Ver Cupones')
                 <a href="{{ route('index.cotizacion') }}" class="text-white">
                 @else
