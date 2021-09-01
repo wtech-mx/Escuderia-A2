@@ -288,7 +288,10 @@ class EmpresasController extends Controller
                 ->where('empresa', '=', 0)
                 ->get();
 
-            return view('admin.empresas.edit-empresa-admin', compact('empresa', 'empresas', 'user'));
+            $roles = DB::table('roles')
+                ->get();
+
+            return view('admin.empresas.edit-empresa-admin', compact('empresa', 'empresas', 'user', 'roles'));
     }
 
     public function update_admin(Request $request, $id)

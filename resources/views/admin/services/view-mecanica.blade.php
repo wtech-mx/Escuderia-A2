@@ -41,19 +41,29 @@
                     <div class="d-flex">
                         <div class="p-2">
                             <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                                <li class="nav-item">
-                                    <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home"
-                                        role="tab" aria-controls="pills-home" aria-selected="true">
-                                        Usuarios
-                                    </a>
-                                </li>
+                                @if (auth()->user()->empresa == 0)
+                                    <li class="nav-item">
+                                        <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home"
+                                            role="tab" aria-controls="pills-home" aria-selected="true">
+                                            Usuarios
+                                        </a>
+                                    </li>
 
-                                <li class="nav-item">
-                                    <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile"
-                                        role="tab" aria-controls="pills-profile" aria-selected="false">
-                                        Empresas
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile"
+                                            role="tab" aria-controls="pills-profile" aria-selected="false">
+                                            Empresas
+                                        </a>
+                                    </li>
+                                @endif
+                                @if (auth()->user()->empresa == 1)
+                                <li class="nav-item ">
+                                    <a class="nav-link active" id="pills-Empresa-tab" data-toggle="pill" href="#pills-Empresa" role="tab" aria-controls="pills-Empresa" aria-selected="true">
+                                        <img class="" src="{{ asset('img/icon/color/edificio-de-oficinas (3).png') }}" width="25px" >
+                                        Sectores
                                     </a>
                                 </li>
+                              @endif
                             </ul>
                         </div>
 
@@ -67,14 +77,19 @@
 
 
                     <div class="tab-content" id="pills-tabContent">
-                        <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
-                            aria-labelledby="pills-home-tab">
-                            @include('admin.services.view-mecanica-user')
-                        </div>
+                        @if (auth()->user()->empresa == 0)
+                            <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
+                                aria-labelledby="pills-home-tab">
+                                @include('admin.services.view-mecanica-user')
+                            </div>
+                            <div class="tab-pane fade " id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                            @else
+                            <div class="tab-pane fade show active" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                        @endif
 
-                        <div class="tab-pane fade " id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-                            @include('admin.services.view-mecanica-empresa')
-                        </div>
+                                @include('admin.services.view-mecanica-empresa')
+                            </div>
+
                     </div>
                 </div>
             </div>

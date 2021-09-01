@@ -165,7 +165,9 @@
                                 <tr>
                                     <th scope="col">Placas</th>
                                     <th scope="col">Modelo</th>
+                                    <th scope="col">Sector</th>
                                     <th scope="col">Más</th>
+
                                 </tr>
                             </thead>
                             <tbody>
@@ -173,6 +175,7 @@
                                     <tr>
                                         <td>{{ $item->placas }}</td>
                                         <td>{{ $item->Marca->nombre }}</td>
+                                        <td>{{ $item->Sectores->sector }}</td>
                                         <td>
                                             <a data-toggle="modal" data-target="#example{{ $item->id }}">
                                                 <img class="icon-effect"  src="{{ asset('img/icon/white/add.png') }}" width="15px"></a>

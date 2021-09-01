@@ -161,6 +161,25 @@
                                             </select>
                                     </div>
 
+                                    <label for="" class="mt-3">>
+                                        <p class="text-white"><strong>Role</strong></p>
+                                    </label>
+
+                                    <div class="input-group form-group">
+                                        <div class="input-group-prepend ">
+                                            <span class="input-group-text">
+                                                <i class="fas fa-user-tag icon-users-edit"></i>
+                                            </span>
+                                        </div>
+
+                                        <select class="form-control" id="role" name="role">
+                                            <option value="{{$empresa->role}}">Seleccionar si desea cambiar el rol</option>
+                                            @foreach ($roles as $role)
+                                                <option value="{{$role->id}}">{{$role->name}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+
                                         <label for="" class="mt-3">
                                             <p class="text-white"><strong>Foto de la empresa</strong></p>
                                         </label>

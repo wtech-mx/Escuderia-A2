@@ -17,6 +17,7 @@ class CreateExpTenenciasTable extends Migration
             $table->id();
            $table->unsignedBigInteger('id_user')->nullable();
            $table->unsignedBigInteger('id_empresa')->nullable();
+           $table->unsignedBigInteger('id_sector');
             $table->string('current_auto')->nullable();
             $table->string('tenencia', 900);
             $table->string('titulo');

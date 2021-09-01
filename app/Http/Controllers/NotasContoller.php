@@ -23,7 +23,7 @@ class NotasContoller extends Controller
     {
             $nombre = $request->get('nombre');
 
-            $notas = Notas::nombre($nombre)->get();
+            $notas = Notas::nombre($nombre)->where('usuario', '=', auth()->user()->id)->get();
             $users = User::orderBy('name')->get();
 
             return view('admin.notas.index', compact('notas', 'users'));
@@ -51,6 +51,7 @@ class NotasContoller extends Controller
         $notas = new  Notas;
         $notas->id_user = $request->get('id_user');
         $notas->nota = $request->get('nota');
+        $notas->usuario = auth()->user()->id;
         $notas->save();
 
         Session::flash('store', 'Se ha guardado sus datos con exito');
@@ -65,7 +66,7 @@ class NotasContoller extends Controller
                 ->get();
 
             return view('admin.notas.update', compact('user', 'nota'));
-     
+
     }
 
     function update(Request $request, $id)

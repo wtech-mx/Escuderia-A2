@@ -39,6 +39,10 @@ class Verificacion extends Model
     {
        return $this->belongsTo(User::class,'id_empresa');
     }
+    public function Sectores()
+    {
+        return $this->belongsTo(Sectores::class, 'id_sector');
+    }
 
         public function Automovil()
     {

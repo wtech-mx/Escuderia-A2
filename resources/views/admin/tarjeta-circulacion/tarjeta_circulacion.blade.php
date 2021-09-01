@@ -61,12 +61,17 @@ $newDate = date("d/m/Y", strtotime($originalDate));
                                         </script>
                             @endif
 
+
                         <p class="text-left text-white mt-5" style="font: normal normal bold 20px/27px Segoe UI;">
                             <strong>Tarjeta de Circulaci&oacute;n</strong>
                         </p>
                         @if ($tarjeta_circulacion->id_user == NULL)
                         <p class="text-center mb-5" style="color: #00d62e; font: normal normal bold 20px/27px Segoe UI;"><strong>{{$tarjeta_circulacion->UserEmpresa->name}} / {{$tarjeta_circulacion->Automovil->placas}}</strong></p>
-
+                            @if (auth()->user()->id_sector == NULL)
+                                    <input type="hidden" class="form-control" id='id_sector' name="id_sector" value="{{ $tarjeta_circulacion->id_sector }}">
+                            @else
+                                <input type="hidden" class="form-control" id='id_sector' name="id_sector" value="{{ $tarjeta_circulacion->id_sector }}">
+                            @endif
                         @else
                         <p class="text-center mb-5" style="color: #00d62e; font: normal normal bold 20px/27px Segoe UI;"><strong>{{$tarjeta_circulacion->User->name}} / {{$tarjeta_circulacion->Automovil->placas}}</strong></p>
                         @endif

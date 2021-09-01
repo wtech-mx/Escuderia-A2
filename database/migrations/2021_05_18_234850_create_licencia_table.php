@@ -16,6 +16,7 @@ class CreateLicenciaTable extends Migration
         Schema::create('licencia', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_user');
+            $table->unsignedBigInteger('id_sector');
             $table->string('tipo')->nullable();
             $table->date('expedicion')->nullable();
             $table->date('antiguedad')->nullable();

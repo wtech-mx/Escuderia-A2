@@ -59,6 +59,11 @@ User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function Sectores()
+    {
+        return $this->belongsTo(Sectores::class, 'id_sector');
+    }
+
     public function Automovil()
     {
         //relationship of many users to many posts

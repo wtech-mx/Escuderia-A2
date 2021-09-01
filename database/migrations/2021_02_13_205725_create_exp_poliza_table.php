@@ -17,6 +17,7 @@ class CreateExpPolizaTable extends Migration
             $table->id();
             $table->unsignedBigInteger('id_user')->nullable();
             $table->unsignedBigInteger('id_empresa')->nullable();
+            $table->unsignedBigInteger('id_sector');
             $table->string('current_auto')->nullable();
             $table->string('poliza', 900);
             $table->string('titulo');

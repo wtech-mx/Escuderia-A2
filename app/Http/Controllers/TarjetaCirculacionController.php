@@ -109,14 +109,23 @@ class TarjetaCirculacionController extends Controller
                 where('id_user', '=', NULL)
                 ->get();
 
-            $tarjeta_circulacion_empresa = TarjetaCirculacion::
-                where('id_empresa', '=', auth()->user()->id)
-                ->get();
-
             $user = DB::table('users')
                 ->get();
+                
+            if(auth()->user()->empresa == 1){
+                if(auth()->user()->id_sector == NULL){
+                    $tarjeta_circulacion_empresa = TarjetaCirculacion::
+                    where('id_empresa', '=', auth()->user()->id)
+                    ->get();
+                }else{
+                    $tarjeta_circulacion_empresa = TarjetaCirculacion::
+                    where('id_sector', '=', auth()->user()->id_sector)
+                    ->get();
+                }
+                return view('admin.tarjeta-circulacion.view-tc-admin', compact('tarjeta_circulacion', 'user', 'tarjeta_circulacion2', 'tarjeta_circulacion_empresa'));
+            }
 
-            return view('admin.tarjeta-circulacion.view-tc-admin', compact('tarjeta_circulacion', 'user', 'tarjeta_circulacion2', 'tarjeta_circulacion_empresa'));
+            return view('admin.tarjeta-circulacion.view-tc-admin', compact('tarjeta_circulacion', 'user', 'tarjeta_circulacion2'));
     }
 
     public function  edit_admin($id)
@@ -141,6 +150,7 @@ class TarjetaCirculacionController extends Controller
         $tarjeta_circulacion->nombre = $request->get('nombre');
         $tarjeta_circulacion->tipo_placa = $request->get('tipo_placa');
         $tarjeta_circulacion->lugar_expedicion = $request->get('lugar_expedicion');
+        $tarjeta_circulacion->id_sector = $request->get('id_sector');
 
         $tarjeta_circulacion->fecha_emision = $request->get('fecha_emision');
         $tarjeta_circulacion->start = $request->get('end');

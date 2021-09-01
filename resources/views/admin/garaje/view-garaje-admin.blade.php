@@ -130,6 +130,7 @@
                                                 <th scope="col">Modelo</th>
                                                 <th scope="col">Submarca</th>
                                                 <th scope="col">Año</th>
+
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -234,7 +235,11 @@
                                         <th scope="col">Placas</th>
                                         <th scope="col">Modelo</th>
                                         <th scope="col">Submarca</th>
-                                        <th scope="col">Año</th>
+                                        @if (auth()->user()->empresa == 0)
+                                            <th scope="col">Año</th>
+                                        @else
+                                            <th scope="col">Sector</th>
+                                        @endif
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -245,7 +250,11 @@
                                             </td>
                                             <td>{{ $item->Marca->nombre }}</td>
                                             <td>{{ $item->submarca }}</td>
-                                            <td>{{ $item->año }}</td>
+                                            @if (auth()->user()->empresa == 0)
+                                                <td>{{ $item->año }}</td>
+                                            @else
+                                                <td>{{ $item->Sectores->sector }}</td>
+                                            @endif
                                         </tr>
                                     @endforeach
                                 </tbody>

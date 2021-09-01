@@ -109,11 +109,7 @@
 
             <div class="col-6 text-center">
                 @can('ver_usuario')
-                    @if ($users->empresa == 1)
-                        <a href="{{ route('edit.profile', $userId) }}">
-                    @else
                         <a href="{{ route('index_admin.user') }}">
-                    @endif
                 @else
                 <a  data-toggle="modal" data-target="#modal-permisos">
                 @endcan

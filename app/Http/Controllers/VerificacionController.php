@@ -21,7 +21,7 @@ class VerificacionController extends Controller
         $this->middleware('pagespeed');
     }
     /*|--------------------------------------------------------------------------
-|Create Verificacion Admin_Admin
+|Create Verificacion
 |--------------------------------------------------------------------------*/
     function index()
     {
@@ -52,15 +52,24 @@ class VerificacionController extends Controller
             $verificacion_empresa = Verificacion::where('id_user', '=', NULL)
                 ->get();
 
-            $verificacion_empresas = Verificacion::where('id_empresa', '=', auth()->user()->id)
-                ->get();
-
             $user = DB::table('users')
                 ->where('role', '=', '0')
                 ->get();
 
-            return view('admin.verificacion.view-verificacion-admin', compact('verificacion_user', 'verificacion_empresa', 'verificacion_empresas', 'user'));
+            if(auth()->user()->empresa == 1){
+                if(auth()->user()->id_sector == NULL){
+                    $verificacion_empresas = Verificacion::
+                    where('id_empresa', '=', auth()->user()->id)
+                    ->get();
+                }else{
+                    $verificacion_empresas = Seguros::
+                    where('id_sector', '=', auth()->user()->id_sector)
+                    ->get();
+                }
+                return view('admin.verificacion.view-verificacion-admin', compact('verificacion_user', 'verificacion_empresa', 'verificacion_empresas', 'user'));
+            }
 
+            return view('admin.verificacion.view-verificacion-admin', compact('verificacion_user', 'verificacion_empresa', 'user'));
     }
 
     public function edit_admin($id)
@@ -84,6 +93,7 @@ class VerificacionController extends Controller
         $verificacion->id_empresa = $request->get('id_empresa');
         $verificacion->current_auto = $request->get('current_auto');
         $verificacion->primer_semestre = $request->get('primer_semestre');
+        $verificacion->id_sector = $request->get('id_sector');
 
         //datos para el calednario
         $verificacion->title = $request->get('title');
@@ -112,6 +122,7 @@ class VerificacionController extends Controller
 
         $verificacion_segunda->title = $request->get('title');
         $verificacion_segunda->color = '#ff0000e8';
+        $verificacion_segunda->id_sector = $request->get('id_sector');
         $verificacion_segunda->segundo_semestre = $request->get('segundo_semestre');
         $verificacion_segunda->start = $request->get('segundo_semestre');
         $verificacion_segunda->end = $request->get('segundo_semestre');

@@ -35,6 +35,7 @@ class CreateVerificacionTable extends Migration
                 ->inDelete('set null');
 
             $table->date('primer_semestre')->nullable();
+            $table->unsignedBigInteger('id_sector');
 
             $table->string('title')->nullable();
             $table->text('descripcion')->nullable();

@@ -236,6 +236,7 @@ Route::group(['middleware' => ['permission:Crear Roles y Permisos']], function (
 
     Route::get('admin/role/edit/{id}', 'RoleController@edit_role')->name('edit_role.role');
     Route::patch('admin/role/edit/{id}', 'RoleController@update_role')->name('update_role.role');
+    Route::delete('admin/role/destroy/{id}', 'RoleController@destroy')->name('destroy.role');
 });
 
 /*|--------------------------------------------------------------------------
@@ -301,6 +302,7 @@ Route::post('admin/servicio/proveedores/crear', 'MecanicaController@store_servic
 /* Rutas para el select */
 Route::get('admin/servicio/crear/{id}', 'MecanicaController@GetSubCatAgainstMainCatEdit');
 Route::get('admin/servicio/crear/empresa/{id}', 'MecanicaController@GetEmpreAgainstMainCatEdit');
+Route::get('admin/servicio/crear/sector/{id}', 'MecanicaController@GetSectorAgainstMainCatEdit');
 
 /*|--------------------------------------------------------------------------
 |Documents
@@ -320,7 +322,7 @@ Route::post('admin/tarjeta-circulacion/create/', 'ImgTcController@store_admin')-
 |--------------------------------------------------------------------------*/
 Route::delete('expediente/eliminar/{id}', 'ExpedientesController@destroy')->name('destroy.expediente');
 /* Trae todos todos los autos */
-    Route::group(['middleware' => ['permission:Ver Expedientes|Crear Exp|Borrar Exp']], function () {
+Route::group(['middleware' => ['permission:Ver Expedientes|Crear Exp|Borrar Exp']], function () {
     Route::get('admin/exp-fisico/index/', 'ExpedientesController@index_admin')->name('index_admin.view-exp-fisico-admin');
 
     /* Trae datos de facttura */
@@ -361,7 +363,7 @@ Route::post('admin/servicio/crear/marca', 'MarcaController@store')->name('store.
 /*|--------------------------------------------------------------------------
 |VERIFICACION view
 |--------------------------------------------------------------------------*/
-    Route::group(['middleware' => ['permission:Ver Veri|Editar Veri']], function () {
+Route::group(['middleware' => ['permission:Ver Veri|Editar Veri']], function () {
     Route::get('admin/verificacion/index', 'VerificacionController@index_admin')->name('index_admin.verificacion');
     Route::get('admin/verificacion/edit/{id}', 'VerificacionController@edit_admin')->name('edit_admin.verificacion');
     Route::patch('admin/verificacion/update/{id}', 'VerificacionController@update_admin')->name('update_admin.verificacion');
@@ -430,3 +432,9 @@ Route::post('admin/cotizacion/store', 'CotizacionController@store')->name('store
 |PDF Cotizacion
 |--------------------------------------------------------------------------*/
 Route::get('/imprimir/{id}', 'CotizacionController@imprimir')->name('print');
+
+/*|--------------------------------------------------------------------------
+|sector
+|--------------------------------------------------------------------------*/
+Route::post('admin/sector/store', 'UserController@store_sector')->name('store.sector');
+Route::delete('admin/sector/destroy/{id}', 'UserController@destroy_sector')->name('destroy.sector');

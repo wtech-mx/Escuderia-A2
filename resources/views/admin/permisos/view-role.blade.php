@@ -71,11 +71,17 @@
                                 <td>{{ $item->name }}
                                 </td>
                                 <td>
-                                    {{-- <a href="{{ route('edit_role.role', $item->id ) }}"> --}}
+                                    {{-- <a href="{{ route('edit_role.role', $item->id ) }}">
                                         <i class="fas fa-edit icon-users-edit" style="font-size: 15px;"></i>
-                                    {{-- </a> --}}
+                                    </a> --}}
+
+                                     <a type="button" class="btn text-white" data-toggle="modal"
+                                     data-target="#modal-{{ $item->id }}">
+                                     <i class="fas fa-trash icon-users-edit" style="font-size: 15px;"></i>
+                                     </a>
                                 </td>
                             </tr>
+                            @include('admin.permisos.destroy')
                         @endforeach
                     </tbody>
                 </table>

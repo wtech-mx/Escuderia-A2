@@ -8,7 +8,10 @@ use App\Models\RolePermissions;
 use App\Models\RoleHasPermissions;
 use DB;
 use Illuminate\Support\Facades\Redirect;
+use App\Models\User;
 use Session;
+
+use App\Models\ModalHasRoles;
 
 class RoleController extends Controller
 {
@@ -75,15 +78,42 @@ class RoleController extends Controller
     public function update_role(Request $request, $id)
     {
 
-        $user = User::findOrFail($id);
+        $role = Role::findOrFail($id);
+        $role->name = $request->get('name');
+        $role->guard_name = 'web';
+        $role->save();
 
-        $user->name = $request->get('name');
-        $user->telefono = $request->get('telefono');
-        $user->email = $request->get('email');
-        $user->update();
+        $permissions = $request->input('permission');
+        $roles = $role->id;
+
+        $id_role = RoleHasPermissions::where('role_id', '=', $id)
+        ->get();
+
+        foreach($permissions as $permissions){
+            $permissions_role = RoleHasPermissions::findOrFail($id);
+            $sundaysArray = $permissions;
+            $permissions_role->permission_id = $sundaysArray;
+            $permissions_role->role_id = $roles;
+            $permissions_role->save();
+        }
 
         Session::flash('success', 'Se ha actualizado sus datos con exito');
 
         return redirect()->route('index_admin.user');
+    }
+
+    public function destroy($id)
+    {
+        $brorrarmodalrole = ModalHasRoles::where('role_id', '=', $id)
+        ->delete();
+
+        $brorrarrole = RoleHasPermissions::where('role_id', '=', $id)
+        ->delete();
+
+        $new = Role::findOrFail($id);
+        $new->delete();
+
+        Session::flash('destroy', 'Se Elimino su role con exito');
+        return redirect()->back();
     }
 }

@@ -108,6 +108,10 @@
                         <input type="hidden" class="form-control" id='color' name="color" value="#8E44AD">
                     </div>
 
+                    <div class="input-group form-group">
+                        <input type="hidden" class="form-control" id='id_sector' name="id_sector" value="{{ $seguro->id_sector }}">
+                    </div>
+
                     <input type="hidden" class="form-control" id='image' name="image"
                         value="{{ asset('img/icon/color/comprobado.png') }}">
                     {{-- Datos para el calendario --}}

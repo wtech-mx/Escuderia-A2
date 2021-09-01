@@ -204,7 +204,7 @@
                             <tr>
                                 <th scope="col">Cliente</th>
                                 <th scope="col">Nombre</th>
-                                <th scope="col">Modelo</th>
+                                <th scope="col">Sector</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -215,7 +215,8 @@
                                             {{ $item->UserEmpresa->name }}</a>
                                     </th>
                                     <td>{{ $item->nombre }}</td>
-                                    <td>{{ $item->Automovil->Marca->nombre }}</td>
+                                    <td>{{ $item->Sectores->sector }}</td>
+
                                 </tr>
                             @endforeach
                         </tbody>

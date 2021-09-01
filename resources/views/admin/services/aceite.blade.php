@@ -12,25 +12,37 @@
 
                                      <div class="d-flex justify-content-center">.
                                         <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                                          <li class="nav-item bg-white">
-                                            <a class="nav-link active" id="pills-Empresa-aceite-tab" data-toggle="pill" href="#pills-Empresa-aceite" role="tab" aria-controls="pills-Empresa-aceite" aria-selected="true">
-                                                <img class="" src="{{ asset('img/icon/color/edificio-de-oficinas (3).png') }}" width="25px" >
-                                                Empresa
-                                            </a>
-                                          </li>
+                                            @if (auth()->user()->empresa == 0)
+                                            <li class="nav-item bg-white">
+                                                <a class="nav-link active" id="pills-Empresa-tab" data-toggle="pill" href="#pills-Empresa" role="tab" aria-controls="pills-Empresa" aria-selected="true">
+                                                    <img class="" src="{{ asset('img/icon/color/edificio-de-oficinas (3).png') }}" width="25px" >
+                                                    Empresa
+                                                </a>
+                                            </li>
 
-                                          <li class="nav-item bg-white">
-                                            <a class="nav-link text-dark" id="pills-Usuario-aceite-tab" data-toggle="pill" href="#pills-Usuario-aceite" role="tab" aria-controls="pills-Usuario-aceite" aria-selected="false">
-                                                <img class="" src="{{ asset('img/icon/color/empresario.png') }}" width="25px" >
-                                                Usuario
-                                            </a>
-                                          </li>
+
+
+                                            <li class="nav-item bg-white">
+                                                <a class="nav-link text-dark" id="pills-Usuario-tab" data-toggle="pill" href="#pills-Usuario" role="tab" aria-controls="pills-Usuario" aria-selected="false">
+                                                    <img class="" src="{{ asset('img/icon/color/empresario.png') }}" width="25px" >
+                                                    Usuario
+                                                </a>
+                                            </li>
+                                          @endif
+                                          @if (auth()->user()->empresa == 1)
+                                            <li class="nav-item bg-white">
+                                                <a class="nav-link active" id="pills-Empresa-tab" data-toggle="pill" href="#pills-Empresa" role="tab" aria-controls="pills-Empresa" aria-selected="true">
+                                                    <img class="" src="{{ asset('img/icon/color/edificio-de-oficinas (3).png') }}" width="25px" >
+                                                    Sector
+                                                </a>
+                                            </li>
+                                          @endif
                                         </ul>
                                       </div>
 
 
                                     <div class="tab-content p-4" id="pills-tabContent">
-
+                                      @if (auth()->user()->empresa == 0)
                                       <div class="tab-pane fade show active mr-4 ml-4" id="pills-Empresa-aceite" role="tabpanel" aria-labelledby="pills-Empresa-aceite-tab">
 
                                          <label for="">
@@ -108,6 +120,49 @@
                                         </div>
 
                                       </div>
+                                      @endif
+
+                                      @if (auth()->user()->empresa == 1)
+                                        <div class="tab-pane fade show active mr-4 ml-4" id="pills-Empresa" role="tabpanel" aria-labelledby="pills-Empresa-tab">
+
+                                            <label for="">
+                                                <p class="text-white"><strong>Sectores</strong></p>
+                                            </label>
+
+                                        <div class="input-group form-group">
+                                            <div class="input-group-prepend " >
+                                                <span class="input-group-text input-services" >
+                                                        <img class="" src="{{ asset('img/icon/white/edificio-de-oficinas.png') }}" width="25px" >
+                                                </span>
+                                            </div>
+
+                                                <select class="form-control" id="id_empresa" name="id_empresa" value="{{ old('id_empresa') }}">
+                                                        <option value="">Seleccione sector</option>
+                                                        @foreach($sector as $item)
+                                                        <option value="{{$item->id}}">{{ ucfirst($item->sector)}}</option>
+                                                        @endforeach
+                                                </select>
+                                        </div>
+
+                                            <label for="">
+                                                <p class="text-white"><strong>Vehiculo</strong></p>
+                                            </label>
+
+                                        <div class="input-group form-group">
+                                            <div class="input-group-prepend " >
+                                                <span class="input-group-text input-services" >
+                                                        <img class="" src="{{ asset('img/icon/white/coche (7).png') }}" width="25px" >
+                                                </span>
+                                            </div>
+
+                                            <select class="form-control" id="current_auto" name="current_auto" value="{{ old('current_auto') }}">
+                                                <option value="">Seleccione auto</option>
+                                            </select>
+                                        </div>
+
+                                        </div>
+                                        </div>
+                                    @endif
 
                                     </div>
 
@@ -308,6 +363,31 @@
                                             });
                                         });
                                     </script>
+
+<script>
+    $(document).ready(function () {
+        $('#id_empresaac').on('change', function () {
+            let id = $(this).val();
+            //id_empresaac no esta en la tabla de automovil
+            $('#current_autoac').empty();
+            $('#current_autoac').append(`<option value="" disabled selected>Procesando..</option>`);
+                $.ajax({
+                type: 'GET',
+                url: 'crear/sector/' + id,
+                success: function (response) {
+                var response = JSON.parse(response);
+                console.log(response);
+                //trae los automoviles relacionados con el id_empresaac
+                $('#current_autoac').empty();
+                $('#current_autoac').append(`<option value="" disabled selected>Seleccione Autom&oacute;vil</option>`);
+                response.forEach(element => {
+                    $('#current_autoac').append(`<option value="${element['id']}">${element['submarca']}</option>`);
+                    });
+                }
+            });
+        });
+    });
+</script>
 
                                   <script>
                                     var agregar3 = document.getElementById('proveedor3');

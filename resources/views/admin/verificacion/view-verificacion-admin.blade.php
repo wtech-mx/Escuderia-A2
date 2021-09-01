@@ -146,10 +146,6 @@
 
             </div>
         @else
-            <h5 class="text-center text-white mt-4 ml-4 mr-4 ">
-                <strong>Verificaciones Personales</strong>
-            </h5>
-
             <div class="row">
                 <div class="content container-res-max">
                     <div class="col-12 mt-4">
@@ -159,6 +155,7 @@
                                 <tr>
                                     <th scope="col">Submarca</th>
                                     <th scope="col">Placas</th>
+                                    <th scope="col">Sector</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -169,6 +166,7 @@
                                                 {{ $item->Automovil->submarca }}</a>
                                         </th>
                                         <td>{{ $item->Automovil->placas }}</td>
+                                        <td>{{ $item->Sectores->sector }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>

@@ -242,6 +242,30 @@
                             </div>
                         </div>
 
+                        @if (auth()->user()->empresa == 1)
+                            @if (auth()->user()->id_sector == NULL)
+                                <div class="col-12 mb-3">
+                                    <div class="input-group form-group">
+                                        <div class="input-group-prepend ">
+                                            <span class="input-group-text span-edit-car">
+                                                <i class="fas fa-shield-alt icon-garaje" aria-hidden="true"></i>
+                                                <a class="input-a-text">Sector</a>
+                                            </span>
+                                        </div>
+                                        <select class="form-control input-edit-car" id="id_sector" name="id_sector"
+                                            value="{{ old('submarca') }}">
+                                            <option value="">Selecciona el sector de tu carro</option>
+                                            @foreach ($sector as $item)
+                                                <option value="{{ $item->id }}">{{ $item->sector }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                            @else
+                                <input type="hidden" id="id_sector" name="id_sector" value="{{auth()->user()->id_sector}}">
+                            @endif
+                        @endif
+
                         <div class="col-12 mb-3">
                             <div class="input-group form-group">
                                 <div class="input-group-prepend ">
@@ -271,8 +295,13 @@
                         </div>
 
                     @if (auth()->user()->empresa == 1)
-                        <input type="hidden" class="form-control input-edit-car" id="id_empresa"
-                        name="id_empresa" value="{{ auth()->user()->id }}">
+                        @if (auth()->user()->id_sector == NULL)
+                            <input type="hidden" class="form-control input-edit-car" id="id_empresa"
+                            name="id_empresa" value="{{ auth()->user()->id }}">
+                        @else
+                            <input type="hidden" class="form-control input-edit-car" id="id_empresa"
+                            name="id_empresa" value="{{ auth()->user()->id_empresa }}">
+                        @endif
 
                         <div class="col-12" style="margin-bottom: 8rem !important;">
                             <button type="submit" class="btn btn-lg btn-save-dark text-white mt-5">

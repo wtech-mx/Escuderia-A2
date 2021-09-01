@@ -6,12 +6,18 @@
 
 @section('content')
 
-
+@php
+if(auth()->user()->empresa == 0){
+    $usuarios = $user;
+}else{
+    $usuarios = $users_sector;
+}
+@endphp
 
     <link href="{{ asset('css/garje.css') }}" rel="stylesheet">
 
     <div class="row bg-image">
-
+        @include('admin.user.sector')
         <div class="col-2  mt-4">
             <div class="d-flex justify-content-start">
                 <div class="text-center text-white">
@@ -57,6 +63,22 @@
                     </a>
                 </div>
                 @endcan
+
+                @if (auth()->user()->empresa == 1 && auth()->user()->id_sector == NULL)
+                    <div class="content">
+                        <a type="button" class="btn" data-toggle="modal" data-target="#exampleModal"
+                            style="background: transparent !important;" src>
+                            <img class="" src="{{ asset('img/icon/white/sector.png') }}" width="25px">
+                        </a>
+
+                        <a type="button" class="btn" data-toggle="modal" data-target="#exampleModal"
+                        style="background: transparent !important;">
+                            <h5 class="text-white text-tittle-app  mt-2 " style="font: normal normal bold 15px/20px Segoe UI">
+                                Sector
+                            </h5>
+                        </a>
+                    </div>
+                @endif
             </div>
 
         </div>
@@ -81,11 +103,15 @@
                         <tr>
                             <th scope="col">Nombre</th>
                             <th scope="col">Correo</th>
-                            <th scope="col">Telefono</th>
+                            @if (auth()->user()->empresa == 0)
+                                <th scope="col">Telefono</th>
+                            @else
+                                <th scope="col">Sector</th>
+                            @endif
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($user as $item)
+                            @foreach ($usuarios as $item)
                         @php
                             $fechaEntera = strtotime($item->updated_at);
                             $anio = date('Y', $fechaEntera);
@@ -103,7 +129,11 @@
                                 @endcan
 
                                 <td>{{ $item->email }}</td>
-                                <td>{{ $item->telefono }}</td>
+                                @if (auth()->user()->empresa == 0)
+                                    <td>{{ $item->telefono }}</td>
+                                @else
+                                    <td>{{ $item->Sectores->sector }}</td>
+                                @endif
                             </tr>
                         @endforeach
                     </tbody>

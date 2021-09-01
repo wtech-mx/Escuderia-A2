@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Hash;
 
 use App\Exports\UsersExport;
+use App\Models\Sectores;
 use Maatwebsite\Excel\Facades\Excel;
 
 
@@ -207,13 +208,24 @@ class UserController extends Controller
     function index_admin(Request $request)
     {
         $user = User::where('empresa', '=', 0)
+        ->get();
+
+        if(auth()->user()->id_sector == NULL){
+            $users_sector = User::where('id_empresa', '=', auth()->user()->id)
             ->get();
+        }else{
+            $users_sector = User::where('id_sector', '=', auth()->user()->id_sector)
+            ->get();
+        }
 
         $users = DB::table('users')
             ->where('empresa', '=', 0)
             ->get();
 
-        return view('admin.user.view-user-admin', compact('user', 'users'));
+        $sector = Sectores::where('id_empresa', '=', auth()->user()->id)
+            ->get();
+
+        return view('admin.user.view-user-admin', compact('user', 'users', 'sector', 'users_sector'));
     }
 
     public function create_admin()
@@ -228,7 +240,10 @@ class UserController extends Controller
         $roles = DB::table('roles')
             ->get();
 
-        return view('admin.user.add-user-admin', compact('user', 'users', 'roles'));
+        $sector = Sectores::where('id_empresa', '=', auth()->user()->id)
+            ->get();
+
+        return view('admin.user.add-user-admin', compact('user', 'users', 'roles', 'sector'));
     }
 
     public function store_admin(Request $request)
@@ -248,6 +263,17 @@ class UserController extends Controller
         $user->direccion = $request->get('direccion');
         $user->referencia = $request->get('referencia');
         $user->genero = $request->get('genero');
+        $user->id_sector = $request->get('id_sector');
+        if(auth()->user()->empresa == 1){
+            if(auth()->user()->id_sector == NULL){
+            $user->id_empresa = auth()->user()->id;
+            $user->id_empresa = 1;
+            }else{
+            $user->id_empresa = auth()->user()->id_empresa;
+            $user->id_empresa = 1;
+            }
+        }
+
         $user->password = Hash::make($request->password);
 
         if ($request->hasFile('img')) {
@@ -377,7 +403,10 @@ class UserController extends Controller
         $roles = DB::table('roles')
             ->get();
 
-        return view('admin.user.edit-user-admin', compact('user', 'users', 'roles'));
+        $sector = Sectores::where('id_empresa', '=', auth()->user()->id)
+            ->get();
+
+        return view('admin.user.edit-user-admin', compact('user', 'users', 'roles', 'sector'));
     }
 
     public function update_admin(Request $request, $id)
@@ -393,6 +422,14 @@ class UserController extends Controller
         $user->referencia = $request->get('referencia');
         $user->genero = $request->get('genero');
         $user->role = $request->get('role');
+        $user->id_sector = $request->get('id_sector');
+        if(auth()->user()->empresa == 1){
+            if(auth()->user()->id_sector == NULL){
+            $user->id_empresa = auth()->user()->id;
+            }else{
+            $user->id_empresa = auth()->user()->id_empresa;
+            }
+        }
 
         if ($request->hasFile('img')) {
             $file = $request->file('img');
@@ -526,4 +563,34 @@ class UserController extends Controller
     {
         return Excel::download(new UsersExport, 'users.xlsx');
     }
+
+/*|--------------------------------------------------------------------------
+|Create Sector
+|--------------------------------------------------------------------------*/
+
+
+public function store_sector(Request $request)
+{
+    $validate = $this->validate($request, [
+        'sector' => 'required|string|max:191',
+    ]);
+
+    $sector = new Sectores;
+    $sector->sector = $request->get('sector');
+    $sector->id_empresa = auth()->user()->id;
+    $sector->save();
+
+
+    Session::flash('success', 'Se ha creado sus datos con exito');
+    return redirect()->route('index_admin.user');
+}
+
+public function destroy_sector(Sectores $id)
+{
+
+    $id->delete();
+    Session::flash('destroy', 'Se ha borrado sus datos con exito');
+    return redirect()->back();
+
+}
 }

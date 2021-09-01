@@ -17,6 +17,7 @@ use App\Models\VerificacionSegunda;
 use App\Exports\AutomovilExport;
 use App\Exports\AutomovilExportEmpresa;
 use Maatwebsite\Excel\Facades\Excel;
+use App\Models\Sectores;
 
 class AutomovilController extends Controller
 {
@@ -284,10 +285,20 @@ class AutomovilController extends Controller
         $automovil2 = Automovil::where('id_user', '=', NULL)
             ->get();
 
-        $automovil_empresa = Automovil::where('id_empresa', '=', auth()->user()->id)
+        $sector = Sectores::where('id_empresa', '=', auth()->user()->id)
             ->get();
+        if(auth()->user()->empresa == 1){
+            if(auth()->user()->id_sector == NULL){
+            $automovil_empresa = Automovil::where('id_empresa', '=', auth()->user()->id)
+                ->get();
+            }else{
+            $automovil_empresa = Automovil::where('id_sector', '=', auth()->user()->id_sector)
+                ->get();
+            }
+            return view('admin.garaje.view-garaje-admin', compact('automovil', 'automovil2', 'automovil_empresa', 'sector'));
+        }
 
-        return view('admin.garaje.view-garaje-admin', compact('automovil', 'automovil2', 'automovil_empresa'));
+        return view('admin.garaje.view-garaje-admin', compact('automovil', 'automovil2', 'sector'));
     }
 
     public function create_admin()
@@ -304,8 +315,10 @@ class AutomovilController extends Controller
             ->where('empresa', '=', 1)
             ->get();
 
+        $sector = Sectores::where('id_empresa', '=', auth()->user()->id)
+            ->get();
 
-        return view('admin.garaje.create-garaje-admin', compact('marca', 'user', 'empresa', 'user'));
+        return view('admin.garaje.create-garaje-admin', compact('marca', 'user', 'empresa', 'user', 'sector'));
     }
 
     public function store_admin(Request $request)
@@ -326,6 +339,7 @@ class AutomovilController extends Controller
         $automovil->id_user = $request->get('id_user');
         $automovil->id_empresa = $request->get('id_empresa');
         $automovil->id_marca = $request->get('id_marca');
+        $automovil->id_sector = $request->get('id_sector');
         $automovil->estatus = $request->get('estatus');
         $automovil->submarca = strtoupper($request->get('submarca'));
         $automovil->tipo = strtoupper($request->get('tipo'));
@@ -379,13 +393,14 @@ class AutomovilController extends Controller
         $seguro->costo_anual = '0';
         $seguro->id_user = $automovil->id_user;
         $seguro->id_empresa = $automovil->id_empresa;
+        $seguro->id_sector = $automovil->id_sector;
         $seguro->current_auto = $automovil->id;
-
         $seguro->save();
 
         $tarjeta_circulacion = new  TarjetaCirculacion;
         $tarjeta_circulacion->id_user = $automovil->id_user;
         $tarjeta_circulacion->id_empresa = $automovil->id_empresa;
+        $tarjeta_circulacion->id_sector = $automovil->id_sector;
         $tarjeta_circulacion->current_auto = $automovil->id;
         $tarjeta_circulacion->estatus = 0;
         $tarjeta_circulacion->estado_last_week = 0;
@@ -396,6 +411,7 @@ class AutomovilController extends Controller
         $verificacion = new  Verificacion;
         $verificacion->id_user = $automovil->id_user;
         $verificacion->id_empresa = $automovil->id_empresa;
+        $verificacion->id_sector = $automovil->id_sector;
         $verificacion->current_auto = $automovil->id;
         $verificacion->estatus = 0;
         $verificacion->estado_last_week = 0;
@@ -407,6 +423,7 @@ class AutomovilController extends Controller
         $verificacion_segunda->id_verificacion = $verificacion->id;
         $verificacion_segunda->id_user = $verificacion->id_user;
         $verificacion_segunda->id_empresa = $automovil->id_empresa;
+        $verificacion_segunda->id_sector = $automovil->id_sector;
         $verificacion_segunda->estatus = 0;
         $verificacion_segunda->estado_last_week = 0;
         $verificacion_segunda->estado_tomorrow = 0;
@@ -446,7 +463,10 @@ class AutomovilController extends Controller
             ->where('empresa', '=', 0)
             ->get();
 
-        return view('admin.garaje.edit-garaje-admin', compact('automovil', 'marca', 'user', 'empresa'));
+        $sector = Sectores::where('id_empresa', '=', auth()->user()->id)
+            ->get();
+
+        return view('admin.garaje.edit-garaje-admin', compact('automovil', 'marca', 'user', 'empresa', 'sector'));
     }
 
     function update_admin(Request $request, $id)
@@ -467,6 +487,7 @@ class AutomovilController extends Controller
         $automovil->id_user = $request->get('id_user');
         $automovil->id_empresa = $request->get('id_empresa');
         $automovil->id_marca = $request->get('id_marca');
+        $automovil->id_sector = $request->get('id_sector');
         $automovil->submarca = strtoupper($request->get('submarca'));
         $automovil->tipo = strtoupper($request->get('tipo'));
         $automovil->kilometraje = $request->get('kilometraje');

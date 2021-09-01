@@ -28,6 +28,7 @@ class CreateVerificacionSegundaTable extends Migration
                 ->inDelete('set null');
 
             $table->date('segundo_semestre')->nullable();
+            $table->unsignedBigInteger('id_sector');
 
             $table->string('title')->nullable();
             $table->text('descripcion')->nullable();

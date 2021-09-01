@@ -77,7 +77,11 @@ class MecanicaController extends Controller
             $proveedor = MecanicaProveedores::OrderBy('created_at', 'ASC')
                 ->get();
 
-            return view('admin.services.mecanica', compact('empresa', 'marca', 'automovil', 'user', 'proveedor'));
+            $sector = DB::table('sectores')
+                ->where('id_empresa', '=', auth()->user()->id)
+                ->get();
+
+            return view('admin.services.mecanica', compact('empresa', 'marca', 'automovil', 'user', 'proveedor', 'sector'));
     }
 
     public function edit(Request $request, $id)
@@ -122,6 +126,10 @@ class MecanicaController extends Controller
     public function GetEmpreAgainstMainCatEdit($id)
     {
         echo json_encode(DB::table('automovil')->where('id_empresa', $id)->get());
+    }
+    public function GetSectorAgainstMainCatEdit($id)
+    {
+        echo json_encode(DB::table('automovil')->where('id_sector', $id)->get());
     }
 
     public function store_servicio(Request $request)

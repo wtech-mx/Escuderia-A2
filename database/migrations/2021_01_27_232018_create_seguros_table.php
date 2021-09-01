@@ -18,6 +18,7 @@ class CreateSegurosTable extends Migration
 
             $table->unsignedBigInteger('id_user')->nullable();
             $table->unsignedBigInteger('id_empresa')->nullable();
+            $table->unsignedBigInteger('id_sector');
             $table->string('current_auto')->nullable();
             $table->string('seguro')->nullable();
              $table->date('fecha_expedicion')->nullable();

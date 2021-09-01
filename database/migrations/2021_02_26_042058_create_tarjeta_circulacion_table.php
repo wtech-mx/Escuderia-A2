@@ -18,6 +18,7 @@ class CreateTarjetaCirculacionTable extends Migration
 
             $table->unsignedBigInteger('id_user')->nullable();
             $table->unsignedBigInteger('id_empresa')->nullable();
+            $table->unsignedBigInteger('id_sector');
             $table->integer('current_auto')->unsigned()->index()->nullable();
 
             $table->foreign('id_user')

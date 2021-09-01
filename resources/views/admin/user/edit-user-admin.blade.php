@@ -232,6 +232,31 @@
                             </select>
                         </div>
 
+                        @if (auth()->user()->empresa == 1)
+                        @if (auth()->user()->id_sector == NULL)
+                            <label for="" class="mt-3">>
+                                <p class="text-white"><strong>Sector</strong></p>
+                            </label>
+
+                            <div class="input-group form-group">
+                                <div class="input-group-prepend ">
+                                    <span class="input-group-text">
+                                        <i class="fas fa-user-tag icon-users-edit"></i>
+                                    </span>
+                                </div>
+
+                                <select class="form-control" id="id_sector" name="id_sector">
+                                    <option value="{{ $user->id_sector }}">Seleccione un sector en caso de cambiarlo</option>
+                                    @foreach ($sector as $role)
+                                        <option value="{{$role->id}}">{{$role->sector}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            @else
+                                <input type="hidden" id="id_sector" name="id_sector" value="{{auth()->user()->id_sector}}">
+                            @endif
+                        @endif
+
                         <label for="" class="mt-3">
                             <p class="text-white"><strong>Género</strong></p>
                         </label>

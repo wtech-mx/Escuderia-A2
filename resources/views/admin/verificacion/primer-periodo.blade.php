@@ -14,6 +14,9 @@
     @csrf
     <input type="hidden" name="_method" value="PATCH">
     <div class="col-12 mt-1">
+        <div class="input-group form-group">
+            <input type="hidden" class="form-control" id='id_sector' name="id_sector" value="{{ $verificacion->id_sector }}">
+        </div>
 
         <p class="text-center text-white" style="font: normal normal bold 20px/27px Segoe UI;">
             <strong>Primer Periodo de Verificaci&oacute;n </strong>

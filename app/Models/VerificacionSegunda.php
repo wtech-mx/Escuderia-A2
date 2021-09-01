@@ -31,6 +31,10 @@ class VerificacionSegunda extends Model
     {
        return $this->belongsTo(User::class,'id_user');
     }
+    public function Sectores()
+    {
+        return $this->belongsTo(Sectores::class, 'id_sector');
+    }
     public function UserEmpresa()
     {
        return $this->belongsTo(User::class,'id_empresa');

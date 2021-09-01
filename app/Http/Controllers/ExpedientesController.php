@@ -334,11 +334,20 @@ class ExpedientesController extends Controller
         $automovil2 = Automovil::where('id_user', '=', NULL)
             ->get();
 
-        $automovil_empresa = Automovil::where('id_empresa', '=', auth()->user()->id)
-            ->get();
+        if(auth()->user()->empresa == 1){
+            if(auth()->user()->id_sector == NULL){
+                $automovil_empresa = Automovil::
+                where('id_empresa', '=', auth()->user()->id)
+                ->get();
+            }else{
+                $automovil_empresa = Automovil::
+                where('id_sector', '=', auth()->user()->id_sector)
+                ->get();
+            }
+            return view('admin.exp-fisico.view-exp-fisico-admin', compact('automovil', 'automovil2', 'automovil_empresa'));
+        }
 
-
-        return view('admin.exp-fisico.view-exp-fisico-admin', compact('automovil', 'automovil2', 'automovil_empresa'));
+        return view('admin.exp-fisico.view-exp-fisico-admin', compact('automovil', 'automovil2'));
     }
 
     public function create_admin($id)
@@ -424,6 +433,7 @@ class ExpedientesController extends Controller
         $automovil = DB::table('automovil')
             ->where('id', '=', $id)
             ->first();
+
         switch ($numero) {
             case ($numero == 1):
                 $ruta = '/exp-factura';
@@ -517,6 +527,8 @@ class ExpedientesController extends Controller
         $exp->current_auto = $automovil->id;
         $exp->id_user = $automovil->id_user;
         $exp->id_empresa = $automovil->id_empresa;
+
+
 
         $exp->save();
 

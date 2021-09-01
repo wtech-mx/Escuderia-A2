@@ -20,6 +20,7 @@ class CreateExpCertificadoTable extends Migration
             $table->string('current_auto')->nullable();
             $table->string('certificado', 900);
             $table->string('titulo');
+            $table->unsignedBigInteger('id_sector');
 
             $table->foreign('id_user')
                 ->references('id')->on('users')

@@ -48,7 +48,11 @@ class Automovil extends Model
        return $this->belongsTo(Marca::class,'id_marca');
     }
 
-
+    public function Sectores()
+    {
+        return $this->belongsTo(Sectores::class, 'id_sector');
+    }
+    
     public function User()
     {
        return $this->belongsTo(User::class,'id_user');

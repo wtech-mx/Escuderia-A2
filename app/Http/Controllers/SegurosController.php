@@ -122,6 +122,7 @@ class SegurosController extends Controller
         $seguro->fecha_expedicion = $request->get('fecha_expedicion');
         $seguro->start = $request->get('end');
         $seguro->end = $request->get('end');
+        $seguro->id_sector = $request->get('id_sector');
 
         $seguro->tipo_cobertura = $request->get('tipo_cobertura');
         $seguro->costo = $request->get('costo');
@@ -179,9 +180,6 @@ class SegurosController extends Controller
             $seguros2 = Seguros::where('id_user', '=', NULL)
                 ->get();
 
-            $seguros_empresa = Seguros::where('id_empresa', '=', auth()->user()->id)
-                ->get();
-
             $user = DB::table('users')
                 ->where('role', '=', '0')
                 ->get();
@@ -189,7 +187,22 @@ class SegurosController extends Controller
             $users = DB::table('users')
                 ->get();
 
-            return view('admin.seguros.view-seguros-admin', compact('seguros', 'seguros2', 'user', 'users', 'seguros_empresa'));
+            if(auth()->user()->empresa == 1){
+                if(auth()->user()->id_sector == NULL){
+                    $seguros_empresa = Seguros::
+                    where('id_empresa', '=', auth()->user()->id)
+                    ->get();
+                }else{
+                    $seguros_empresa = Seguros::
+                    where('id_sector', '=', auth()->user()->id_sector)
+                    ->get();
+                }
+                return view('admin.seguros.view-seguros-admin', compact('seguros', 'seguros2', 'user', 'users', 'seguros_empresa'));
+            }
+
+
+
+            return view('admin.seguros.view-seguros-admin', compact('seguros', 'seguros2', 'user', 'users'));
     }
 
     public function edit_admin($id)
@@ -291,27 +304,6 @@ class SegurosController extends Controller
         $seguro->check = 0;
 
         $seguro->update();
-
-        // $email = $seguro->User->email;
-        // $subject = 'Bienvenido : ' . $email;
-
-        // $details = array(
-        //     'seguro' => $request->get('seguro'),
-        //     'fecha_expedicion' => $request->get('fecha_expedicion'),
-        //     'tipo_cobertura' => $request->get('tipo_cobertura'),
-        //     'costo' => $request->get('costo'),
-        //     'costo_anual' => $request->get('costo_anual'),
-        //     'end' => $seguro->end,
-        //     'email' => $email,
-        //     'auto' => $seguro->Automovil->placas,
-        //     'nombre' => $seguro->User->name,
-        // );
-
-        //        Mail::send('emails.seguroAdmin', $details, function ($message) use ($details,$subject) {
-        //            $message->to($details['email'], $details['seguro'], $details['fecha_expedicion'], $details['tipo_cobertura'], $details['costo'], $details['costo_anual'], $details['end'], $details['auto'], $details['nombre'])
-        //                ->subject($subject)
-        //                ->from('contacto@checkngo.com.mx', 'Detalles de Seguro');
-        //        });
 
         Session::flash('success2', 'Se ha actualizado sus datos con exito');
         return redirect()->back();

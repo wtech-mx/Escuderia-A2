@@ -54,7 +54,7 @@
             </div>
         </div>
 
-    </div>
+    
     <form method="POST" action="{{ route('store.pronostico') }}" enctype="multipart/form-data"
         role="form">
 

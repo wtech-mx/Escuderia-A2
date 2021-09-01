@@ -38,7 +38,7 @@
 
         <div class="content container-res-max">
             <div class="col-12 mt-5">
-                <form method="POST" action="{{ route('update_role.role', $role->id ) }}" enctype="multipart/form-data" role="form">
+                <form method="POST" action="{{ route('store_role.role') }}" enctype="multipart/form-data" role="form">
                     @csrf
 
                     <div class="row">
@@ -145,7 +145,7 @@
                                                 <div class="row">
                                                     <div class="col-md-12 col-xs-12">
                                                         <a href="#" class="title text-center mt-4" data-abc="true">
-                                                            <strong style="">Calendario</strong>
+                                                            <stromg style="">Calendario</stromg>
                                                              <input class="form-check-input" type="checkbox" onclick="toggle(this);" />
                                                         </a>
                                                     </div>
@@ -161,16 +161,7 @@
 
                                                         <div class="col-6">
                                                             <div class="rating text-right">
-
-                                                                    @foreach ( $role_permiso21  as $item )
-                                                                    <input class="form-check-input" type="checkbox" name="permission[]" value="19" id="calendario" checked />
-                                                                    @if( $item == NULL)
-                                                                    <input class="form-check-input" type="checkbox" name="permission[]" value="19" id="calendario" />
-                                                                    @endif
-                                                                    @endforeach
-
-
-
+                                                                 <input class="form-check-input" type="checkbox" name="permission[]" value="19" id="calendario" />
                                                             </div>
                                                         </div>
                                                     </div>
@@ -183,7 +174,7 @@
 
                                                         <div class="col-6">
                                                             <div class="rating text-right">
-                                                                    <input class="form-check-input" type="checkbox" name="permission[]" value="20" id="calendario" checked />
+                                                                <input class="form-check-input" type="checkbox" name="permission[]" value="20" id="calendario" />
                                                             </div>
                                                         </div>
                                                     </div>
@@ -215,7 +206,6 @@
                                                     </div>
                                                 </figcaption>
                                             </div>
-
                                         </figure>
                                     </div>
                                 </div>
@@ -231,7 +221,7 @@
                                                 <div class="row">
                                                     <div class="col-md-12 col-xs-12">
                                                         <a href="#" class="title text-center mt-4" data-abc="true">
-                                                            <strong style="">Usuarios</strong>
+                                                            <stromg style="">Usuarios</stromg>
                                                              <input class="form-check-input" type="checkbox" onclick="toggle2(this);" />
                                                         </a>
                                                     </div>
@@ -307,7 +297,7 @@
                                                 <div class="row">
                                                     <div class="col-md-12 col-xs-12">
                                                         <a href="#" class="title text-center mt-4" data-abc="true">
-                                                            <strong style="">Automovil</strong>
+                                                            <stromg style="">Automovil</stromg>
                                                             <input class="form-check-input" type="checkbox" onclick="toggle3(this);" />
                                                         </a>
                                                     </div>
@@ -386,7 +376,7 @@
                                                 <div class="row">
                                                     <div class="col-md-12 col-xs-12">
                                                         <a href="#" class="title text-center mt-4" data-abc="true">
-                                                            <strong style="">Servicios</strong>
+                                                            <stromg style="">Servicios</stromg>
                                                             <input class="form-check-input" type="checkbox" onclick="toggle4(this);" />
                                                         </a>
                                                     </div>
@@ -430,7 +420,7 @@
 
                                                         <div class="col-6">
                                                             <div class="rating text-right">
-
+                                                                  {{-- <input class="form-check-input" type="checkbox" name="permission[]" value="57" id="servicio" /> --}}
                                                             </div>
                                                         </div>
                                                     </div>
@@ -464,7 +454,7 @@
                                                 <div class="row">
                                                     <div class="col-md-12 col-xs-12">
                                                         <a href="#" class="title text-center mt-4" data-abc="true">
-                                                            <strong style="">Seguro</strong>
+                                                            <stromg style="">Seguro</stromg>
                                                             <input class="form-check-input" type="checkbox" onclick="toggle5(this);" />
                                                         </a>
                                                     </div>
@@ -542,7 +532,7 @@
                                                 <div class="row">
                                                     <div class="col-md-12 col-xs-12">
                                                         <a href="#" class="title text-center mt-4" data-abc="true">
-                                                            <strong style="">Tarjeta C</strong>
+                                                            <stromg style="">Tarjeta C</stromg>
                                                              <input class="form-check-input" type="checkbox" onclick="toggle6(this);" />
                                                         </a>
                                                     </div>
@@ -620,7 +610,7 @@
                                                 <div class="row">
                                                     <div class="col-md-12 col-xs-12">
                                                         <a href="#" class="title text-center mt-4" data-abc="true">
-                                                            <strong style="">Expedientes F.</strong>
+                                                            <stromg style="">Expedientes F.</stromg>
                                                             <input class="form-check-input" type="checkbox" onclick="toggle7(this);" />
                                                         </a>
                                                     </div>
@@ -699,7 +689,7 @@
                                                 <div class="row">
                                                     <div class="col-md-12 col-xs-12">
                                                         <a href="#" class="title text-center mt-4" data-abc="true">
-                                                            <strong style="">Empresas</strong>
+                                                            <stromg style="">Empresas</stromg>
                                                             <input class="form-check-input" type="checkbox" onclick="toggle8(this);" />
 
                                                         </a>
@@ -781,7 +771,7 @@
                                                 <div class="row">
                                                     <div class="col-md-12 col-xs-12">
                                                         <a href="#" class="title text-center mt-4" data-abc="true">
-                                                            <strong style="">Verificacion</strong>
+                                                            <stromg style="">Verificacion</stromg>
                                                             <input class="form-check-input" type="checkbox" onclick="toggle9(this);" />
 
                                                         </a>
@@ -862,7 +852,7 @@
                                                 <div class="row">
                                                     <div class="col-md-12 col-xs-12">
                                                         <a href="#" class="title text-center mt-4" data-abc="true">
-                                                            <strong style="">Cupones</strong>
+                                                            <stromg style="">Cupones</stromg>
                                                             <input class="form-check-input" type="checkbox" onclick="toggle10(this);" />
 
                                                         </a>
@@ -945,7 +935,7 @@
                                                 <div class="row">
                                                     <div class="col-md-12 col-xs-12">
                                                         <a href="#" class="title text-center mt-4" data-abc="true">
-                                                            <strong style="">Nota</strong>
+                                                            <stromg style="">Nota</stromg>
                                                            <input class="form-check-input" type="checkbox" onclick="toggle11(this);" />
 
                                                         </a>
@@ -1028,7 +1018,7 @@
                                                 <div class="row">
                                                     <div class="col-md-12 col-xs-12">
                                                         <a href="#" class="title text-center mt-4" data-abc="true">
-                                                            <strong style="">Licencia C.</strong>
+                                                            <stromg style="">Licencia C.</stromg>
                                                             <input class="form-check-input" type="checkbox" onclick="toggle12(this);" />
 
                                                         </a>
@@ -1109,7 +1099,7 @@
                                                 <div class="row">
                                                     <div class="col-md-12 col-xs-12">
                                                         <a href="#" class="title text-center mt-4" data-abc="true">
-                                                            <strong style="">Roles y Permisos</strong>
+                                                            <stromg style="">Roles y Permisos</stromg>
                                                             <input class="form-check-input" type="checkbox" onclick="toggle12(this);" />
 
                                                         </a>

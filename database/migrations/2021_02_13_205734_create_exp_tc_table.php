@@ -17,6 +17,7 @@ class CreateExpTcTable extends Migration
             $table->id();
             $table->unsignedBigInteger('id_user')->nullable();
             $table->unsignedBigInteger('id_empresa')->nullable();
+            $table->unsignedBigInteger('id_sector');
             $table->unsignedBigInteger('id_tc')->nullable();
             $table->string('current_auto')->nullable();
             $table->string('tc', 900);

@@ -75,6 +75,7 @@
                                                     <th scope="col">Cliente</th>
                                                     <th scope="col">Submarca</th>
                                                     <th scope="col">Seguro</th>
+
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -185,7 +186,7 @@
                                 <tr>
                                     <th scope="col">Submarca</th>
                                     <th scope="col">Seguro</th>
-                                    <th scope="col">Tipo Cobertura</th>
+                                    <th scope="col">Sector</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -196,7 +197,7 @@
                                                 {{ $item->Automovil->submarca }}</a>
                                         </th>
                                         <td>{{ $item->seguro }}</td>
-                                        <td>{{ $item->tipo_cobertura }}</td>
+                                        <td>{{ $item->Sectores->sector }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>
