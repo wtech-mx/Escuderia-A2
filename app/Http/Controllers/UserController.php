@@ -267,10 +267,10 @@ class UserController extends Controller
         if(auth()->user()->empresa == 1){
             if(auth()->user()->id_sector == NULL){
             $user->id_empresa = auth()->user()->id;
-            $user->id_empresa = 1;
+            $user->empresa = 1;
             }else{
             $user->id_empresa = auth()->user()->id_empresa;
-            $user->id_empresa = 1;
+            $user->empresa = 1;
             }
         }
 
