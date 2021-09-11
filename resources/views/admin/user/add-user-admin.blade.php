@@ -194,31 +194,6 @@
                             </select>
                         </div>
 
-                        @if (auth()->user()->empresa == 1)
-                        @if (auth()->user()->id_sector == NULL)
-                            <label for="" class="mt-3">>
-                                <p class="text-white"><strong>Sector</strong></p>
-                            </label>
-
-                            <div class="input-group form-group">
-                                <div class="input-group-prepend ">
-                                    <span class="input-group-text">
-                                        <i class="fas fa-user-tag icon-users-edit"></i>
-                                    </span>
-                                </div>
-
-                                <select class="form-control" id="id_sector" name="id_sector" required>
-                                    @foreach ($sector as $role)
-                                        <option value="{{$role->id}}">{{$role->sector}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            @else
-                                <input type="hidden" id="id_sector" name="id_sector" value="{{auth()->user()->id_sector}}">
-                            @endif
-                        @endif
-
-
                         <label for="" class="mt-3">
                             <p class="text-white"><strong>Foto de Perfil</strong></p>
                         </label>
@@ -279,6 +254,31 @@
                     </div>
 
                     <div class="tab-pane fade" id="pills-Seguridad2" role="tabpanel" aria-labelledby="pills-Seguridad-tab">
+                        
+                        @if (auth()->user()->empresa == 1)
+                        @if (auth()->user()->id_sector == NULL)
+                            <label for="" class="mt-3">>
+                                <p class="text-white"><strong>Sector</strong></p>
+                            </label>
+
+                            <div class="input-group form-group">
+                                <div class="input-group-prepend ">
+                                    <span class="input-group-text">
+                                        <i class="fas fa-user-tag icon-users-edit"></i>
+                                    </span>
+                                </div>
+
+                                <select class="form-control" id="id_sector" name="id_sector" required>
+                                    <option value="">Seleccione un sector</option>
+                                    @foreach ($sector as $role)
+                                        <option value="{{$role->id}}">{{$role->sector}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            @else
+                                <input type="hidden" id="id_sector" name="id_sector" value="{{auth()->user()->id_sector}}">
+                            @endif
+                        @endif
 
                         <label for="" class="mt-3">>
                             <p class="text-white"><strong>Contraseña</strong></p>
