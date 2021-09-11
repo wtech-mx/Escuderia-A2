@@ -207,8 +207,7 @@
                                     </span>
                                 </div>
 
-                                <select class="form-control" id="id_sector" name="id_sector">
-                                    <option value="0">Sector</option>
+                                <select class="form-control" id="id_sector" name="id_sector" required>
                                     @foreach ($sector as $role)
                                         <option value="{{$role->id}}">{{$role->sector}}</option>
                                     @endforeach
