@@ -252,8 +252,7 @@
                                                 <a class="input-a-text">Sector</a>
                                             </span>
                                         </div>
-                                        <select class="form-control input-edit-car" id="id_sector" name="id_sector"
-                                            value="{{ old('submarca') }}">
+                                        <select class="form-control input-edit-car" id="id_sector" name="id_sector" required>
                                             <option value="">Selecciona el sector de tu carro</option>
                                             @foreach ($sector as $item)
                                                 <option value="{{ $item->id }}">{{ $item->sector }}</option>
