@@ -156,6 +156,7 @@
                                 name="fecha_nacimiento" style="border-radius: 0  10px 10px 0;" id='datetimepicker1'>
                         </div>
 
+                        @if (auth()->user()->empresa == 0)
                         <label for="" class="mt-3">>
                             <p class="text-white"><strong>Referencia</strong></p>
                         </label>
@@ -174,6 +175,7 @@
                                 @endforeach
                             </select>
                         </div>
+                        @endif
 
                         <label for="" class="mt-3">>
                             <p class="text-white"><strong>Role</strong></p>
@@ -203,58 +205,60 @@
                             <label class="custom-file-label" for="img">Selecciona imagen</label>
                         </div>
 
-                        <label for="" class="mt-3">>
-                            <p class="text-white"><strong>Género</strong></p>
-                        </label>
+                        @if (auth()->user()->empresa == 0)
+                            <label for="" class="mt-3">>
+                                <p class="text-white"><strong>Género</strong></p>
+                            </label>
 
-                        <div class="col-12 text-center mb-5" style="margin-bottom: 8rem !important;">
+                            <div class="col-12 text-center mb-5" style="margin-bottom: 8rem !important;">
 
-                            <div class="input-group form-group d-inline">
+                                <div class="input-group form-group d-inline">
 
-                                <div class="d-flex justify-content-between">
+                                    <div class="d-flex justify-content-between">
 
-                                    <div class="form-check form-check-inline d-block">
-                                        <div class="d-flex justify-content-center">
-                                            <input class="form-check-input d-block" type="radio" name="genero" id="genero"
-                                                value="masculino">
+                                        <div class="form-check form-check-inline d-block">
+                                            <div class="d-flex justify-content-center">
+                                                <input class="form-check-input d-block" type="radio" name="genero" id="genero"
+                                                    value="masculino">
+                                            </div>
+
+                                            <label class="form-check-label text-white" for="inlineRadio1">
+                                                Masculino
+                                            </label>
                                         </div>
 
-                                        <label class="form-check-label text-white" for="inlineRadio1">
-                                            Masculino
-                                        </label>
+                                        <div class="form-check form-check-inline d-block">
+                                            <div class="d-flex justify-content-center">
+                                                <input class="form-check-input  d-block" type="radio" name="genero" id="genero"
+                                                    value="femeninp">
+                                            </div>
+                                            <label class="form-check-label text-white" for="inlineRadio2">
+                                                Femenino
+                                            </label>
+                                        </div>
+
+                                        <div class="form-check form-check-inline d-block">
+                                            <div class="d-flex justify-content-center">
+                                                <input class="form-check-input d-block" type="radio" name="genero" id="genero"
+                                                    value="otro">
+                                            </div>
+                                            <label class="form-check-label text-white" for="inlineRadio3">
+                                                Otro
+                                            </label>
+                                        </div>
+
                                     </div>
 
-                                    <div class="form-check form-check-inline d-block">
-                                        <div class="d-flex justify-content-center">
-                                            <input class="form-check-input  d-block" type="radio" name="genero" id="genero"
-                                                value="femeninp">
-                                        </div>
-                                        <label class="form-check-label text-white" for="inlineRadio2">
-                                            Femenino
-                                        </label>
-                                    </div>
-
-                                    <div class="form-check form-check-inline d-block">
-                                        <div class="d-flex justify-content-center">
-                                            <input class="form-check-input d-block" type="radio" name="genero" id="genero"
-                                                value="otro">
-                                        </div>
-                                        <label class="form-check-label text-white" for="inlineRadio3">
-                                            Otro
-                                        </label>
-                                    </div>
 
                                 </div>
 
-
                             </div>
-
-                        </div>
+                        @endif
 
                     </div>
 
                     <div class="tab-pane fade" id="pills-Seguridad2" role="tabpanel" aria-labelledby="pills-Seguridad-tab">
-                        
+
                         @if (auth()->user()->empresa == 1)
                         @if (auth()->user()->id_sector == NULL)
                             <label for="" class="mt-3">>

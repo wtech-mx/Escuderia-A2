@@ -269,7 +269,7 @@ class AutomovilController extends Controller
         $user->current_auto = $request->get('current_auto');
         $user->update();
         Session::flash('succes', 'Se selecciono su pagina de edicion');
-        return redirect()->route('index.automovil');
+        return redirect()->back();
     }
 
     /*|--------------------------------------------------------------------------

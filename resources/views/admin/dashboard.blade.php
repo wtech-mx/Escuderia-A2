@@ -122,7 +122,7 @@
                 </a>
             </div>
 
-            <div class="col-6 text-center">
+            {{-- <div class="col-6 text-center">
                 @can('Ver Calendario')
                 <a href="{{ route('index.alert') }}">
                 @else
@@ -135,9 +135,9 @@
                         </div>
                     </div>
                 </a>
-            </div>
+            </div> --}}
 
-            <div class="col-6 text-center mt-4">
+            <div class="col-6 text-center">
                 @can('Ver Automovil')
                 <a href="{{ route('index_admin.automovil') }}">
                 @else

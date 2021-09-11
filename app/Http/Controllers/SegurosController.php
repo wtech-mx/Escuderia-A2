@@ -31,6 +31,9 @@ class SegurosController extends Controller
 |--------------------------------------------------------------------------*/
     public function index()
     {
+        $automovil = DB::table('automovil')
+        ->where('id_user', '=', auth()->user()->id)
+        ->get();
 
         $auto = DB::table('users')
             ->where('current_auto', '=', auth()->user()->current_auto)
@@ -109,7 +112,7 @@ class SegurosController extends Controller
         $users = DB::table('users')
             ->get();
 
-        return view('seguros.seguros', compact('seguro', 'img', 'users'));
+        return view('seguros.seguros', compact('seguro', 'img', 'users', 'automovil'));
     }
 
     public function update(Request $request, $id)

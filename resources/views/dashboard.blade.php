@@ -92,14 +92,17 @@
     <div class="row bg-down-blue" style="z-index:1000;top: -30px">
 
         <div class="col-12 p-4">
-            <h6 class="text-center text-white">
-
+            <h3 class="text-center text-white">
                 ¿Que estas buscando?
-
-            </h6>
+            </h3>
+            
+            <h3 class="text-center text-white" style="color: #fff">
+                <strong>Auto seleccionado</strong>
+                <strong style="color: rgb(94, 226, 41)">{{ $users->Automovil->placas }}</strong>
+            </h3>
         </div>
 
-        <div class="col-6 text-center">
+        {{-- <div class="col-6 text-center">
             <a href="{{ route('calendar.index_calendar_user') }}">
                 <div class="card" style="border-radius: 15px">
                     <div class="card-body">
@@ -109,7 +112,7 @@
                     </div>
                 </div>
             </a>
-        </div>
+        </div> --}}
 
         <div class="col-6 text-center">
             <a href="{{ route('edit.profile', $userId) }}">
@@ -123,7 +126,7 @@
             </a>
         </div>
 
-        <div class="col-6 text-center mt-4">
+        <div class="col-6 text-center">
             <a href="{{ route('index.automovil') }}">
                 <div class="card" style="border-radius: 15px">
                     <div class="card-body">

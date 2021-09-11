@@ -26,6 +26,10 @@ class VerificacionController extends Controller
     function index()
     {
 
+        $automovil = DB::table('automovil')
+        ->where('id_user', '=', auth()->user()->id)
+        ->get();
+
         $auto = DB::table('users')
             ->where('current_auto', '=', auth()->user()->current_auto)
             ->first();
@@ -39,7 +43,7 @@ class VerificacionController extends Controller
         } else {
             $verificacion_segunda = VerificacionSegunda::get();
         }
-        return view('verificacion.view-verificacion', compact('verificacion', 'verificacion_segunda'));
+        return view('verificacion.view-verificacion', compact('verificacion', 'verificacion_segunda', 'automovil'));
     }
     /*|--------------------------------------------------------------------------
 |Create Verificacion Admin_Admin

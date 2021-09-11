@@ -27,8 +27,13 @@ class TarjetaCirculacionController extends Controller
     /*|--------------------------------------------------------------------------
 |Create TarjetaCirculacion Usuario
 |--------------------------------------------------------------------------*/
+
     public function index()
     {
+
+        $automovil = DB::table('automovil')
+            ->where('id_user', '=', auth()->user()->id)
+            ->get();
 
         $auto = DB::table('users')
             ->where('current_auto', '=', auth()->user()->current_auto)
@@ -39,7 +44,7 @@ class TarjetaCirculacionController extends Controller
         $users = DB::table('users')
             ->get();
 
-        return view('tarjeta-circulacion.tarjeta_circulacion', compact('tarjeta_circulacion', 'users'));
+        return view('tarjeta-circulacion.tarjeta_circulacion', compact('tarjeta_circulacion', 'users', 'automovil'));
     }
 
     public function update(Request $request, $id)
@@ -111,7 +116,7 @@ class TarjetaCirculacionController extends Controller
 
             $user = DB::table('users')
                 ->get();
-                
+
             if(auth()->user()->empresa == 1){
                 if(auth()->user()->id_sector == NULL){
                     $tarjeta_circulacion_empresa = TarjetaCirculacion::

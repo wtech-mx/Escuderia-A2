@@ -13,7 +13,7 @@
                 </div>
             </div>
         </div>
-        @if ($automovil->count())
+
         <p style="display: none">{{ $userId = auth()->user() }}</p>
         <div class="col-8  mt-4">
             <h5 class="text-center text-white ml-4 mr-4 ">
@@ -31,9 +31,32 @@
             </div>
         </div>
 
+        @if ($automovil->count())
 
+        <form action="{{route('current_auto', auth()->user()->id)}}" method="POST" role="form">
+            @csrf
+            <input type="hidden" name="_method" value="PATCH">
 
-            <div class="row" style="height: 140vh;">
+            <div class="row mt-5">
+                <div class="col-4">
+                    <select class="form-control input-edit-car" id="current_auto" name="current_auto" required>
+                        <option value="">Cambiar de Auto</option>
+                        @foreach($automovil as $item)
+                            <option value="{{$item->id}}">{{$item->placas}}</option>
+                        @endforeach
+                    </select>
+                </div>
+
+                <div class="col-3">
+                    <button class="btn btn-save-neon text-white">
+                        Actualizar
+                    </button>
+                </div>
+            </div>
+
+        </form>
+
+         <div class="row" style="height: 140vh;">
 
                 <div class="col-6 mt-5">
                     <p class="text-center">
