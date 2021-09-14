@@ -30,8 +30,7 @@
                         <div class="collapse multi-collapse" id="multiCollapseExample1">
                             <div class="card card-body">
                                 <a class="text-dark" href="{{ route('logout') }}"
-                                    onclick="event.preventDefault();
-                                                                                   document.getElementById('logout-form').submit();">
+                                    onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                                     <img class="rounded-circle" src="{{ asset('img/icon/black/exit.png') }}" width="15">
                                 </a>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST"
@@ -95,11 +94,11 @@
             <h3 class="text-center text-white">
                 ¿Que estas buscando?
             </h3>
-            
-            <h3 class="text-center text-white" style="color: #fff">
-                <strong>Auto seleccionado</strong>
-                <strong style="color: rgb(94, 226, 41)">{{ $users->Automovil->placas }}</strong>
-            </h3>
+
+{{--            <h3 class="text-center text-white" style="color: #fff">--}}
+{{--                <strong>Auto seleccionado</strong>--}}
+{{--                <strong style="color: rgb(94, 226, 41)">{{ $users->Automovil->placas }}</strong>--}}
+{{--            </h3>--}}
         </div>
 
         {{-- <div class="col-6 text-center">
