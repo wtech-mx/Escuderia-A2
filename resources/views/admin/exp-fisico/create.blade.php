@@ -135,7 +135,7 @@
                                                         </span>
                                                     </div>
                                                     <input type="text" class="form-control" placeholder="Titulo" id="titulo" name="titulo" style="border-radius: 0  10px 10px 0;">
-                                                    <input type="text" id="numero" name="numero" value="{{$numero}}">
+                                                    <input type="hidden" id="numero" name="numero" value="{{$numero}}">
 
                                                 </div>
                                             </div>

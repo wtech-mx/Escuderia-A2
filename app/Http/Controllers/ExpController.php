@@ -41,6 +41,10 @@ class ExpController extends Controller
         ->where('id','=',auth()->user()->current_auto)
         ->get();
 
+        $automovile = DB::table('automovil')
+        ->where('id_user', '=', auth()->user()->id)
+        ->get();
+
         $users = DB::table('users')
         ->get();
 
@@ -68,7 +72,7 @@ class ExpController extends Controller
 
         $inventario = ExpInventario::where('current_auto','=',auth()->user()->current_auto)->get()->count();
 
-        return view('exp-fisico.view-exp-fisico',compact('carro', 'automovil', 'users', 'factura',
+        return view('exp-fisico.view-exp-fisico',compact('carro', 'automovil','automovile', 'users', 'factura',
                           'tenencias', 'carta', 'poliza', 'tc', 'reemplacamiento', 'placas', 'ine', 'comprobante', 'certificado', 'rfc', 'inventario'));
     }
 

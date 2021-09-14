@@ -71,34 +71,7 @@
             </div>
         @endif
 
-        <p class="text-left text-white" style="font: normal normal bold 20px/27px Segoe UI;">
-            <strong>Detalles de Seguro </strong> <strong
-                style="color: rgb(94, 226, 41)">{{ $seguro->Automovil->placas }}
-                / {{ $seguro->Automovil->Marca->nombre }}</strong>
-        </p>
 
-        <form action="{{route('current_auto', auth()->user()->id)}}" method="POST" role="form">
-            @csrf
-            <input type="hidden" name="_method" value="PATCH">
-
-            <div class="row mt-3">
-                <div class="col-4">
-                    <select class="form-control input-edit-car" id="current_auto" name="current_auto" required>
-                        <option value="">Cambiar de Auto</option>
-                        @foreach($automovil as $item)
-                            <option value="{{$item->id}}">{{$item->placas}}</option>
-                        @endforeach
-                    </select>
-                </div>
-
-                <div class="col-3">
-                    <button class="btn btn-save-neon text-white">
-                        Actualizar
-                    </button>
-                </div>
-            </div>
-
-        </form>
 
         <?php
         $originalDate = $seguro->end;
@@ -291,5 +264,13 @@
         });
 
     </script>
+
+    <div class="modal-cambio-car">
+        <button type="button" class="btn btn-primary cambio-carro" data-toggle="modal" data-target="#cambio-car">
+          Cambiar auto
+        </button>
+    </div>
+
+@include('layouts.change-car')
 
 @endsection

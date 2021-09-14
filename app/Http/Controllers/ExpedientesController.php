@@ -32,6 +32,10 @@ class ExpedientesController extends Controller
         $auto_user = $user->{'id'};
         $automovil = auth()->user()->current_auto;
 
+        $automovile = DB::table('automovil')
+        ->where('id_user','=',$auto_user)
+        ->get();
+
         $exp_factura = DB::table('exp_facturas')
             ->where('id_user', '=', $auto_user)
             ->where('current_auto', '=', auth()->user()->current_auto)
@@ -106,7 +110,8 @@ class ExpedientesController extends Controller
             'exp_tenencias',
             'exp_inventario',
             'automovil',
-            'user'
+            'user',
+            'automovile'
         ));
     }
 

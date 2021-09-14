@@ -267,6 +267,7 @@ class AutomovilController extends Controller
     {
         $user = User::findOrFail($id);
         $user->current_auto = $request->get('current_auto');
+
         $user->update();
         Session::flash('succes', 'Se selecciono su pagina de edicion');
         return redirect()->back();

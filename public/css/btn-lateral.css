@@ -9,6 +9,30 @@
 	z-index: 100000;
 }
 
+.modal-cambio-car {
+    padding:0px 0px 0px 0px;
+    text-align: center;
+    margin:0px;
+    z-index:100000;
+    -moz-transform:rotate(-90deg);
+    -ms-transform:rotate(-90deg);
+    -o-transform:rotate(-90deg);
+    -webkit-transform:rotate(-90deg);
+    transform-origin: bottom right;
+    position: fixed;
+    right: 0px;
+    top: 200px;
+}
+.modal-cambio-car button {
+    color:#000000;
+    background: #00ff37;
+    border: solid 1px #00ff37;
+    display:inline-block;
+    font-size: 1.1rem;
+    border-radius: 10px 10px 0px 0px;
+}
+
+
 .icon {
 	color: white;
 	text-decoration: none;

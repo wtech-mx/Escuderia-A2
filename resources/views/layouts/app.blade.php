@@ -110,6 +110,7 @@ if (!isset($_COOKIE['mostrarModal'])) {
 </head>
 
 <body>
+    <div id="page-loader"><span class="preloader-interior"></span></div>
 
     @include('layouts.warning')
 
@@ -126,6 +127,7 @@ if (!isset($_COOKIE['mostrarModal'])) {
                     Install
                 </button>
             </div>
+
 
             @include('layouts.tab-bar')
             @include('layouts.offline')
