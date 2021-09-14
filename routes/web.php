@@ -438,3 +438,10 @@ Route::get('/imprimir/{id}', 'CotizacionController@imprimir')->name('print');
 |--------------------------------------------------------------------------*/
 Route::post('admin/sector/store', 'UserController@store_sector')->name('store.sector');
 Route::delete('admin/sector/destroy/{id}', 'UserController@destroy_sector')->name('destroy.sector');
+
+/*|--------------------------------------------------------------------------
+|Gasolina
+|--------------------------------------------------------------------------*/
+Route::get('admin/gasolina/index', 'GasolinaController@index_admin')->name('index_admin.gasolina');
+Route::get('admin/gasolina/edit/{id}', 'GasolinaController@edit_admin')->name('edit_admin.gasolina');
+Route::patch('admin/gasolina/update/{id}', 'GasolinaController@update_admin')->name('update_admin.gasolina');
