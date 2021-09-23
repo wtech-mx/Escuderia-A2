@@ -11,7 +11,6 @@ class Gasolina extends Model
 
     protected $table = "gasolina";
     protected $primarykey = "id";
-    public $timestamps = false;
 
     protected $fillable = [
         'id_user',
@@ -35,6 +34,7 @@ class Gasolina extends Model
     {
         return $this->belongsTo(User::class, 'id_user');
     }
+
     public function Sectores()
     {
         return $this->belongsTo(Sectores::class, 'id_sector');

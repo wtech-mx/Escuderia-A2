@@ -180,7 +180,7 @@
                         <label for="" class="mt-3">>
                             <p class="text-white"><strong>Role</strong></p>
                         </label>
-
+                        @if (auth()->user()->id_sector == NULL)
                         <div class="input-group form-group">
                             <div class="input-group-prepend ">
                                 <span class="input-group-text">
@@ -189,12 +189,20 @@
                             </div>
 
                             <select class="form-control" id="role" name="role">
-                                <option value="0">Usuario</option>
+                                @if (auth()->user()->empresa == 0)
+                                    <option value="0">Usuario</option>
+                                    @else
+                                    <option value="0">Chofer</option>
+                                @endif
                                 @foreach ($roles as $role)
                                     <option value="{{$role->id}}">{{$role->name}}</option>
                                 @endforeach
                             </select>
                         </div>
+                        @else
+                        <input type="hidden" class="form-control input-edit-car" id="role"
+                        name="role" value="0">
+                        @endif
 
                         <label for="" class="mt-3">
                             <p class="text-white"><strong>Foto de Perfil</strong></p>

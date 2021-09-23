@@ -443,5 +443,10 @@ Route::delete('admin/sector/destroy/{id}', 'UserController@destroy_sector')->nam
 |Gasolina
 |--------------------------------------------------------------------------*/
 Route::get('admin/gasolina/index', 'GasolinaController@index_admin')->name('index_admin.gasolina');
+Route::get('admin/gasolina/crear', 'GasolinaController@create_admin')->name('create.gasolina');
+Route::post('admin/gasolina/store', 'GasolinaController@store_admin')->name('store.gasolina');
+Route::get('admin/gasolina/view/{id}', 'GasolinaController@show_admin')->name('show.gasolina');
 Route::get('admin/gasolina/edit/{id}', 'GasolinaController@edit_admin')->name('edit_admin.gasolina');
 Route::patch('admin/gasolina/update/{id}', 'GasolinaController@update_admin')->name('update_admin.gasolina');
+
+Route::get('admin/gasolina/crear/empresa/{id}', 'GasolinaController@GetSector2AgainstMainCatEdit');

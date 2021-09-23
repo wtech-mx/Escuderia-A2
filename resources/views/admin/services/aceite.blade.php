@@ -129,36 +129,36 @@
                                                 <p class="text-white"><strong>Sectores</strong></p>
                                             </label>
 
-                                        <div class="input-group form-group">
-                                            <div class="input-group-prepend " >
-                                                <span class="input-group-text input-services" >
-                                                        <img class="" src="{{ asset('img/icon/white/edificio-de-oficinas.png') }}" width="25px" >
-                                                </span>
+                                            <div class="input-group form-group">
+                                                <div class="input-group-prepend " >
+                                                    <span class="input-group-text input-services" >
+                                                            <img class="" src="{{ asset('img/icon/white/edificio-de-oficinas.png') }}" width="25px" >
+                                                    </span>
+                                                </div>
+
+                                                    <select class="form-control" id="id_empresa" name="id_empresa" value="{{ old('id_empresa') }}">
+                                                            <option value="">Seleccione sector</option>
+                                                            @foreach($sector as $item)
+                                                            <option value="{{$item->id}}">{{ ucfirst($item->sector)}}</option>
+                                                            @endforeach
+                                                    </select>
                                             </div>
 
-                                                <select class="form-control" id="id_empresa" name="id_empresa" value="{{ old('id_empresa') }}">
-                                                        <option value="">Seleccione sector</option>
-                                                        @foreach($sector as $item)
-                                                        <option value="{{$item->id}}">{{ ucfirst($item->sector)}}</option>
-                                                        @endforeach
+                                                <label for="">
+                                                    <p class="text-white"><strong>Vehiculo</strong></p>
+                                                </label>
+
+                                            <div class="input-group form-group">
+                                                <div class="input-group-prepend " >
+                                                    <span class="input-group-text input-services" >
+                                                            <img class="" src="{{ asset('img/icon/white/coche (7).png') }}" width="25px" >
+                                                    </span>
+                                                </div>
+
+                                                <select class="form-control" id="current_auto" name="current_auto" value="{{ old('current_auto') }}">
+                                                    <option value="">Seleccione auto</option>
                                                 </select>
-                                        </div>
-
-                                            <label for="">
-                                                <p class="text-white"><strong>Vehiculo</strong></p>
-                                            </label>
-
-                                        <div class="input-group form-group">
-                                            <div class="input-group-prepend " >
-                                                <span class="input-group-text input-services" >
-                                                        <img class="" src="{{ asset('img/icon/white/coche (7).png') }}" width="25px" >
-                                                </span>
                                             </div>
-
-                                            <select class="form-control" id="current_auto" name="current_auto" value="{{ old('current_auto') }}">
-                                                <option value="">Seleccione auto</option>
-                                            </select>
-                                        </div>
 
                                         </div>
                                         </div>

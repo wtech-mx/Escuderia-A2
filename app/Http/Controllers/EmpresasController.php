@@ -150,7 +150,9 @@ class EmpresasController extends Controller
 |--------------------------------------------------------------------------*/
     function index_admin()
     {
-            $empresa = User::where('empresa', '=', 1)->get();
+            $empresa = User::where('empresa', '=', 1)
+            ->where('id_empresa', '=', NULL)
+            ->get();
 
             $user = DB::table('users')
                 ->where('role', '=', '0')

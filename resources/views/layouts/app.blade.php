@@ -132,6 +132,7 @@ if (!isset($_COOKIE['mostrarModal'])) {
             @include('layouts.tab-bar')
             @include('layouts.offline')
             @include('modal-ios')
+            @include('admin.layouts.modal-permisos-denegado')
 
         @endauth
     </div>

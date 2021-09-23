@@ -136,9 +136,27 @@
                 </div>
             </a>
         </div>
+        
+        @if (auth()->user()->empresa == 1)
+        <div class="col-6 text-center mt-4">
+            <a href="{{ route('index_admin.gasolina') }}" class="text-dark">
+                <div class="card" style="border-radius: 15px">
+                    <div class="card-body">
+                        <img class="d-inline mb-2" src="{{ asset('img/icon/black/km.png') }}" alt="Icon User"
+                            width="50px">
+                            <p class="card-text"><strong>Gasolina</strong></p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        @endif
 
         <div class="col-6 text-center mt-4">
+            @if (auth()->user()->empresa == 1)
+            <a  data-toggle="modal" data-target="#modal-permisos">
+            @else
             <a href="{{ route('index.tc') }}" class="text-dark">
+            @endif
                 <div class="card" style="border-radius: 15px">
                     <div class="card-body">
                         <img class="d-inline mb-2" src="{{ asset('img/icon/black/documento.png') }}" alt="Icon documento"
@@ -149,8 +167,13 @@
             </a>
         </div>
 
+
         <div class="col-6 text-center mt-4">
+            @if (auth()->user()->empresa == 1)
+            <a  data-toggle="modal" data-target="#modal-permisos">
+            @else
             <a href="{{ route('index.seguro') }}" class="text-dark">
+            @endif
                 <div class="card" style="border-radius: 15px">
                     <div class="card-body">
                         <img class="d-inline mb-2" src="{{ asset('img/icon/black/seguro-de-coche.png') }}"
@@ -162,19 +185,31 @@
         </div>
 
         <div class="col-6 text-center mt-4">
+            @if (auth()->user()->empresa == 1)
+            <a href="{{ route('index.exp-inventario') }}" class="text-dark">
+            @else
             <a href="{{ route('index_exp') }}" class="text-dark">
+            @endif
                 <div class="card" style="border-radius: 15px">
                     <div class="card-body">
                         <img class="d-inline mb-2" src="{{ asset('img/icon/black/expediente.png') }}"
                             alt="Icon Exp Fisico" width="50px">
+                            @if (auth()->user()->empresa == 1)
                         <p class="card-text"><strong>Exp F&iacute;sico</strong></p>
+                        @else
+                        <p class="card-text"><strong>Inventario</strong></p>
+                        @endif
                     </div>
                 </div>
             </a>
         </div>
 
         <div class="col-6 text-center mt-4 ">
+            @if (auth()->user()->empresa == 1)
+            <a  data-toggle="modal" data-target="#modal-permisos">
+            @else
              <a href="{{ route('index.cupon') }}" class="text-dark">
+            @endif
                 <div class="card" style="border-radius: 15px">
                     <div class="card-body">
                         <img class="d-inline mb-2" src="{{ asset('img/icon/black/cupon.png') }}" alt="Icon gift"
@@ -186,7 +221,11 @@
         </div>
 
         <div class="col-6 text-center mt-4 ">
+            @if (auth()->user()->empresa == 1)
+            <a  data-toggle="modal" data-target="#modal-permisos">
+            @else
             <a href="{{ route('view_user.servicio') }}" class="text-dark">
+            @endif
                 <div class="card" style="border-radius: 15px">
                     <div class="card-body">
                         <img class="d-inline mb-2" src="{{ asset('img/icon/black/car-repair.png') }}" alt="Icon gift"

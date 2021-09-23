@@ -288,6 +288,7 @@ class AutomovilController extends Controller
 
         $sector = Sectores::where('id_empresa', '=', auth()->user()->id)
             ->get();
+
         if(auth()->user()->empresa == 1){
             if(auth()->user()->id_sector == NULL){
             $automovil_empresa = Automovil::where('id_empresa', '=', auth()->user()->id)
@@ -312,6 +313,12 @@ class AutomovilController extends Controller
             ->where('role', '=', '0')
             ->get();
 
+        $user_chofer = DB::table('users')
+            ->where('empresa', '=', 1)
+            ->where('id_sector', '=', auth()->user()->id_sector)
+            ->where('chofer', '=', 1)
+            ->get();
+
         $empresa = DB::table('users')
             ->where('empresa', '=', 1)
             ->get();
@@ -319,7 +326,7 @@ class AutomovilController extends Controller
         $sector = Sectores::where('id_empresa', '=', auth()->user()->id)
             ->get();
 
-        return view('admin.garaje.create-garaje-admin', compact('marca', 'user', 'empresa', 'user', 'sector'));
+        return view('admin.garaje.create-garaje-admin', compact('marca', 'user', 'empresa', 'user', 'sector', 'user_chofer'));
     }
 
     public function store_admin(Request $request)
@@ -341,10 +348,12 @@ class AutomovilController extends Controller
         $automovil->id_empresa = $request->get('id_empresa');
         $automovil->id_marca = $request->get('id_marca');
         $automovil->id_sector = $request->get('id_sector');
+        $automovil->chofer = $request->get('chofer');
         $automovil->estatus = $request->get('estatus');
         $automovil->submarca = strtoupper($request->get('submarca'));
         $automovil->tipo = strtoupper($request->get('tipo'));
         $automovil->kilometraje = $request->get('kilometraje');
+        $automovil->tanque = $request->get('tanque');
         $automovil->subtipo = strtoupper($request->get('subtipo'));
         $automovil->año = $request->get('año');
         $automovil->numero_serie = strtoupper($request->get('numero_serie'));
@@ -492,6 +501,7 @@ class AutomovilController extends Controller
         $automovil->submarca = strtoupper($request->get('submarca'));
         $automovil->tipo = strtoupper($request->get('tipo'));
         $automovil->kilometraje = $request->get('kilometraje');
+        $automovil->tanque = $request->get('tanque');
         $automovil->subtipo = strtoupper($request->get('subtipo'));
         $automovil->año = $request->get('año');
         $automovil->numero_serie = strtoupper($request->get('numero_serie'));

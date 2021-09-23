@@ -117,7 +117,7 @@
                                 <div class="collapse show" id="unafoto" data-parent="#myGroup">
                                     <div class="card card-body" style="background-color: #ffffff;background-image: none;border: 1px solid #ffffff">
 
-                                        @if (auth()->user()->empresa == 0)
+                                        @if (auth()->user()->role == 0)
                                         <form class="fileUploadForm" method="POST" action="{{ route('store.expexpediente') }}"
                                             enctype="multipart/form-data" role="form">
                                         @else

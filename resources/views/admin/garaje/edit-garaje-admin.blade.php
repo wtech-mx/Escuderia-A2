@@ -116,11 +116,24 @@
                                 <div class="input-group-prepend ">
                                     <span class="input-group-text span-edit-car">
                                         <i class="fas fa-car icon-garaje"></i>
-                                        <a class="input-a-text">Tipo</a>
+                                        <a class="input-a-text">tipo</a>
                                     </span>
                                 </div>
-                                <input type="text" class="form-control input-edit-car" value="{{ $automovil->tipo }}"
-                                    id="tipo" name="tipo">
+                                <input type="text" class="form-control input-edit-car" value="{{ $automovil->tipo }}" id="tipo"
+                                    name="tipo">
+                            </div>
+                        </div>
+
+                        <div class="col-12 mb-3">
+                            <div class="input-group form-group">
+                                <div class="input-group-prepend ">
+                                    <span class="input-group-text span-edit-car">
+                                        <i class="fas fa-car icon-garaje"></i>
+                                        <a class="input-a-text">Tanque</a>
+                                    </span>
+                                </div>
+                                <input type="text" class="form-control input-edit-car" value="{{ $automovil->tanque }}" id="tanque"
+                                    name="tanque">
                             </div>
                         </div>
 
@@ -248,7 +261,7 @@
                                 <input type="hidden" class="form-control input-edit-car" id="id_empresa"
                                 name="id_empresa" value="{{ auth()->user()->id }}">
                             @else
-                                <input type="text" class="form-control input-edit-car" id="id_empresa"
+                                <input type="hidden" class="form-control input-edit-car" id="id_empresa"
                                 name="id_empresa" value="{{ auth()->user()->id_empresa }}">
                             @endif
 

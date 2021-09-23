@@ -165,6 +165,22 @@
                                 <div class="input-group-prepend ">
                                     <span class="input-group-text span-edit-car">
                                         <i class="fas fa-car icon-garaje"></i>
+                                        <a class="input-a-text">Tanque</a>
+                                    </span>
+                                </div>
+                                <input type="number" class="form-control input-edit-car" placeholder="Capacidad del tanque (Litros)" id="tanque"
+                                    name="tanque" value="{{ old('tanque') }}">
+                                @if ($errors->has('tanque'))
+                                    <span class="text-danger">{{ $errors->first('tanque') }}</span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="col-12 mb-3">
+                            <div class="input-group form-group">
+                                <div class="input-group-prepend ">
+                                    <span class="input-group-text span-edit-car">
+                                        <i class="fas fa-car icon-garaje"></i>
                                         <a class="input-a-text">Transmisión</a>
                                     </span>
                                 </div>
@@ -297,9 +313,34 @@
                         @if (auth()->user()->id_sector == NULL)
                             <input type="hidden" class="form-control input-edit-car" id="id_empresa"
                             name="id_empresa" value="{{ auth()->user()->id }}">
+
+                            <input type="hidden" class="form-control input-edit-car" id="chofer"
+                            name="chofer" value="1">
                         @else
                             <input type="hidden" class="form-control input-edit-car" id="id_empresa"
                             name="id_empresa" value="{{ auth()->user()->id_empresa }}">
+
+                            <input type="hidden" class="form-control input-edit-car" id="chofer"
+                            name="chofer" value="1">
+
+                            <div class="col-12 mb-3">
+                                <div class="input-group form-group">
+                                    <div class="input-group-prepend ">
+                                        <span class="input-group-text span-edit-car">
+                                            <i class="fas fa-user icon-garaje" aria-hidden="true"></i>
+                                            <a class="input-a-text">Chofer</a>
+                                        </span>
+                                    </div>
+
+                                    <select class="form-control" id="id_user" name="id_user">
+                                        <option value="">Seleccione un chofer</option>
+                                        @foreach ($user_chofer as $item)
+                                            <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                        @endforeach
+                                    </select>
+
+                                </div>
+                            </div>
                         @endif
 
                         <div class="col-12" style="margin-bottom: 8rem !important;">
@@ -321,7 +362,7 @@
                             aria-labelledby="pills-Vinculacion-tab">
 
                             <div class="col-12 text-center mt-5 mb-5">
-
+{{--
                                 <label class="mb-2" for="">
                                     <p class="subtitle-label"><strong>¿Este auto pertenece a una empresa?</strong></p>
                                 </label>
@@ -353,10 +394,10 @@
                                         </a>
                                     </div>
 
-                                </div>
+                                </div> --}}
 
                                 <label class="mb-2" for="">
-                                    <p class="subtitle-label"><strong>¿Este auto pertenece a una persona?</strong></p>
+                                    <p class="subtitle-label"><strong>Seleccione un usuario</strong></p>
                                 </label>
 
                                 <div class="row">
@@ -370,7 +411,7 @@
                                                 </span>
                                             </div>
 
-                                            <select class="form-control" id="id_user" name="id_user">
+                                            <select class="form-control" id="id_user" name="id_user" required>
                                                 <option value="">Seleccione usuario</option>
                                                 @foreach ($user as $item)
                                                     <option value="{{ $item->id }}">{{ $item->name }}</option>

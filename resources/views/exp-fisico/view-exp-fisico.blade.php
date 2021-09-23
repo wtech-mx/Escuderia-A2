@@ -34,7 +34,7 @@
         </div>
 
         @if ($automovil->count())
-
+        @if (auth()->user()->empresa == 0)
          <div class="row" style="height: 140vh;">
 
                 <div class="col-6 mt-5">
@@ -180,6 +180,19 @@
                         inventario {{ $inventario }}
                     </p>
                 </div>
+                @else
+                <div class="col-6 mt-5" style="margin-bottom: 6rem !important;">
+                    <p class="text-center">
+                        <a href="{{ route('index.exp-inventario') }}">
+                            <img class="d-inline mb-2" src="{{ asset('img/icon/white/boton-circular-plus.png') }}"
+                                alt="Icon boton-circular-plus" width="30px">
+                        </a>
+                    </p>
+                    <p class="text-center text-white">
+                        inventario {{ $inventario }}
+                    </p>
+                </div>
+                @endif
 
             </div>
         @else

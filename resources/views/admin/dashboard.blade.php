@@ -122,22 +122,18 @@
                 </a>
             </div>
 
-            {{-- <div class="col-6 text-center">
-                @can('Ver Calendario')
-                <a href="{{ route('index.alert') }}">
-                @else
-                <a data-toggle="modal" data-target="#modal-permisos">
-                @endcan
+            <div class="col-6 text-center">
+                <a href="{{ route('index_admin.gasolina') }}">
                     <div class="card" style="border-radius: 15px">
                         <div class="card-body">
-                            <i class="fas fa-bell icon-effect-dashboard"></i>
-                            <p class="card-text text-white"><strong>Alertas</strong></p>
+                            <i class="fas fa-tachometer-alt icon-effect-dashboard"></i>
+                            <p class="card-text text-white"><strong>Gasolina</strong></p>
                         </div>
                     </div>
                 </a>
-            </div> --}}
+            </div>
 
-            <div class="col-6 text-center">
+            <div class="col-6 text-center mt-4">
                 @can('Ver Automovil')
                 <a href="{{ route('index_admin.automovil') }}">
                 @else

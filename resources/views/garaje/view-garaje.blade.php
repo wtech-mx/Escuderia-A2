@@ -64,13 +64,14 @@
 
                     {!! $automovil->links() !!}
                 </div>
-
+                @if (auth()->user()->chofer == NULL)
                 <div class="btn-add">
                     <a class="btn btn-garaje text-white" href="{{ route('create.automovil') }}">
                         Agregar
                         <img class="" src="{{ asset('img/icon/white/add.png') }}" width="20px">
                     </a>
                 </div>
+                @endif
             </div>
 
         </div>
@@ -140,10 +141,11 @@
                     <h4 class="text-white text-tittle-app mr-3">
                         Detalles de Veh&iacute;culo
                     </h4>
-
+                    @if (auth()->user()->chofer == NULL)
                     <a class="btn btn-garaje-2" href="{{ route('edit.automovil', $item->id) }}">
                         <img class="" src="{{ asset('img/icon/white/editar.png') }}" width="20px">
                     </a>
+                    @endif
                 </div>
             </div>
 

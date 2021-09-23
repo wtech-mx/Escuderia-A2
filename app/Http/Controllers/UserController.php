@@ -208,14 +208,15 @@ class UserController extends Controller
     function index_admin(Request $request)
     {
         $user = User::where('empresa', '=', 0)
-        ->get();
+            ->get();
 
-        if(auth()->user()->id_sector == NULL){
+        if (auth()->user()->id_sector == NULL) {
             $users_sector = User::where('id_empresa', '=', auth()->user()->id)
-            ->get();
-        }else{
+                ->get();
+        } else {
             $users_sector = User::where('id_sector', '=', auth()->user()->id_sector)
-            ->get();
+                ->where('chofer', '=', 1)
+                ->get();
         }
 
         $users = DB::table('users')
@@ -264,13 +265,17 @@ class UserController extends Controller
         $user->referencia = $request->get('referencia');
         $user->genero = $request->get('genero');
         $user->id_sector = $request->get('id_sector');
-        if(auth()->user()->empresa == 1){
-            if(auth()->user()->id_sector == NULL){
-            $user->id_empresa = auth()->user()->id;
-            $user->empresa = 1;
-            }else{
-            $user->id_empresa = auth()->user()->id_empresa;
-            $user->empresa = 1;
+        if (auth()->user()->empresa == 1) {
+            if (auth()->user()->id_sector == NULL) {
+                $user->id_empresa = auth()->user()->id;
+                $user->empresa = 1;
+                if ($user->role == 0) {
+                    $user->chofer = 1;
+                }
+            } else {
+                $user->id_empresa = auth()->user()->id_empresa;
+                $user->empresa = 1;
+                $user->chofer = 1;
             }
         }
 
@@ -423,11 +428,12 @@ class UserController extends Controller
         $user->genero = $request->get('genero');
         $user->role = $request->get('role');
         $user->id_sector = $request->get('id_sector');
-        if(auth()->user()->empresa == 1){
-            if(auth()->user()->id_sector == NULL){
-            $user->id_empresa = auth()->user()->id;
-            }else{
-            $user->id_empresa = auth()->user()->id_empresa;
+        if (auth()->user()->empresa == 1) {
+            if (auth()->user()->id_sector == NULL) {
+                $user->id_empresa = auth()->user()->id;
+            } else {
+                $user->id_empresa = auth()->user()->id_empresa;
+                $user->chofer = 1;
             }
         }
 
@@ -564,33 +570,32 @@ class UserController extends Controller
         return Excel::download(new UsersExport, 'users.xlsx');
     }
 
-/*|--------------------------------------------------------------------------
+    /*|--------------------------------------------------------------------------
 |Create Sector
 |--------------------------------------------------------------------------*/
 
 
-public function store_sector(Request $request)
-{
-    $validate = $this->validate($request, [
-        'sector' => 'required|string|max:191',
-    ]);
+    public function store_sector(Request $request)
+    {
+        $validate = $this->validate($request, [
+            'sector' => 'required|string|max:191',
+        ]);
 
-    $sector = new Sectores;
-    $sector->sector = $request->get('sector');
-    $sector->id_empresa = auth()->user()->id;
-    $sector->save();
+        $sector = new Sectores;
+        $sector->sector = $request->get('sector');
+        $sector->id_empresa = auth()->user()->id;
+        $sector->save();
 
 
-    Session::flash('success', 'Se ha creado sus datos con exito');
-    return redirect()->route('index_admin.user');
-}
+        Session::flash('success', 'Se ha creado sus datos con exito');
+        return redirect()->route('index_admin.user');
+    }
 
-public function destroy_sector(Sectores $id)
-{
+    public function destroy_sector(Sectores $id)
+    {
 
-    $id->delete();
-    Session::flash('destroy', 'Se ha borrado sus datos con exito');
-    return redirect()->back();
-
-}
+        $id->delete();
+        Session::flash('destroy', 'Se ha borrado sus datos con exito');
+        return redirect()->back();
+    }
 }

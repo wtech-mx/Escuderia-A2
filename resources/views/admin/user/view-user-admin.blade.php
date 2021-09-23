@@ -107,6 +107,7 @@ if(auth()->user()->empresa == 0){
                                 <th scope="col">Telefono</th>
                             @else
                                 <th scope="col">Sector</th>
+                                <th scope="col">Chofer</th>
                             @endif
                         </tr>
                     </thead>
@@ -133,6 +134,12 @@ if(auth()->user()->empresa == 0){
                                     <td>{{ $item->telefono }}</td>
                                 @else
                                     <td>{{ $item->Sectores->sector }}</td>
+
+                                    @if ($item->chofer == NULL)
+                                    <td>No</td>
+                                    @else
+                                    <td>Si</td>
+                                    @endif
                                 @endif
                             </tr>
                         @endforeach

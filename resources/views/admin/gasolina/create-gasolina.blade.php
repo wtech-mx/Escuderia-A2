@@ -7,8 +7,10 @@
         <link href="{{ asset('css/login-form.css') }}" rel="stylesheet">
         <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
         <link href="{{ asset('css/dashboard-admin.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/gauge.min.css') }}" rel="stylesheet">
 
-        <div class="row bg-down-image-border " >
+  <div class="row bg-down-image-border " >
+
                     <div class="col-2 mt-5">
                         <div class="d-flex justify-content-start">
                                 <div class="text-center text-white">
@@ -35,10 +37,8 @@
 
                     <div class="col-12">
 
-                    <form class="card-details" method="POST" action="{{route('update_admin.gasolina',$gasolina->id)}}" enctype="multipart/form-data" role="form">
+                    <form class="card-details" method="POST" action="{{route('store.gasolina')}}" enctype="multipart/form-data" role="form">
                         @csrf
-
-                        <input type="hidden" name="_method" value="PATCH">
 
                             @if(Session::has('success'))
                                         <script>
@@ -57,22 +57,30 @@
                                         </script>
                             @endif
 
-                        <p class="text-center mb-5" style="color: #00d62e; font: normal normal bold 20px/27px Segoe UI;"><strong>{{$gasolina->User->name}} / {{$gasolina->Automovil->placas}}</strong></p>
+                            @if (auth()->user()->chofer == 1)
+                             <input type="hidden" id="id_user" name="id_user" value="{{auth()->user()->id}}">
+                            @endif
 
-                            <label for="">
-                                <p class="text-white"><strong>Fecha Registo</strong></p>
+                            <label for="" class="mt-5">
+                                <p class="text-white"><strong>Automovil</strong></p>
                             </label>
 
-                            <div class="input-group form-group mb-5">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">
-                                            <i class="far fa-calendar-alt icon-tc"></i>
+                            <div class="input-group form-group">
+                                <div class="input-group-prepend " >
+                                    <span class="input-group-text input-services" >
+                                            <img class="" src="{{ asset('img/icon/white/edificio-de-oficinas.png') }}" width="25px" >
                                     </span>
                                 </div>
-                                    <input type="date" class="form-control" value="{{$gasolina->fecha_actual}}" disabled>
+
+                                    <select class="form-control" id="current_auto" name="current_auto" value="{{ old('current_auto') }}">
+                                            <option value="">Seleccione automovil</option>
+                                            @foreach($automovil as $item)
+                                            <option value="{{$item->id}}">{{ ucfirst($item->placas)}}</option>
+                                            @endforeach
+                                    </select>
                             </div>
 
-                             <label for="">
+                             <label for="" class="mt-5">
                                  <p class="text-white"><strong>KM Actual</strong></p>
                              </label>
 
@@ -83,10 +91,10 @@
                                     </span>
                                 </div>
 
-                                <input type="number" class="form-control" value="{{$gasolina->km_actual}}" disabled>
+                                <input type="number" class="form-control" name="km_actual" id="km_actual" placeholder="Km actual">
                             </div>
 
-                            <label for="">
+                            {{-- <label for="">
                                 <p class="text-white"><strong>Tanque Inicial</strong></p>
                             </label>
 
@@ -97,8 +105,8 @@
                                    </span>
                                </div>
 
-                               <input type="number" class="form-control" value="{{$gasolina->taque_inicial}}" disabled>
-                           </div>
+                               <input type="number" class="form-control" name="taque_inicial" id="taque_inicial" placeholder="tanque inicial">
+                           </div> --}}
 
                             <label for="">
                                 <p class="text-white"><strong>Importe</strong></p>
@@ -111,7 +119,7 @@
                                    </span>
                                </div>
 
-                               <input type="number" class="form-control" value="{{$gasolina->importe}}" disabled>
+                               <input type="number" class="form-control" name="importe" id="importe" placeholder="Importe">
                            </div>
 
                            <label for="">
@@ -125,7 +133,7 @@
                                     </span>
                                 </div>
 
-                                <input type="number" class="form-control" value="{{$gasolina->litros}}" disabled>
+                                <input type="number" class="form-control" name="litros" id="litros" placeholder="Litros">
                             </div>
 
                             <label for="">
@@ -139,8 +147,7 @@
                                    </span>
                                </div>
 
-                               <select class="form-control"  disabled>
-                                   <option value="{{$gasolina->tipo_pago}}" selected>{{$gasolina->tipo_pago}}</option>
+                               <select class="form-control" id="tipo_pago" name="tipo_pago" required>
                                    <option value="Tarjeta Credito">Magna</option>
                                    <option value="Tarjeta Debito">Premium</option>
                                </select>
@@ -157,8 +164,7 @@
                                     </span>
                                 </div>
 
-                                <select class="form-control" disabled>
-                                    <option value="{{$gasolina->tipo_pago}}" selected>{{$gasolina->tipo_pago}}</option>
+                                <select class="form-control" id="tipo_pago" name="tipo_pago" required>
                                     <option value="Tarjeta Credito">Tarjeta Credito</option>
                                     <option value="Tarjeta Debito">Tarjeta Debito</option>
                                     <option value="Tarjeta empresa">Tarjeta empresa</option>
@@ -166,25 +172,58 @@
                                 </select>
                             </div>
 
-                            <label for="">
-                                <p class="text-white"><strong>Estatus</strong></p>
+                            <label for="" class="mt-3">
+                                <p class="text-white mt-3"><strong>Foto odometro</strong></p>
                             </label>
 
-                           <div class="input-group form-group mb-5">
-                               <div class="input-group-prepend " >
-                                   <span class="input-group-text" >
-                                        <i class="fas fa-font icon-tc"></i>
-                                   </span>
-                               </div>
+                            <div class=" custom-file mb-3">
+                                <input type="file" class="custom-file-input input-group-text" name="odometro" id="odometro">
+                            </div>
 
-                               <select class="form-control" id="estatus" name="estatus" required>
-                                   <option value="{{$gasolina->estatus}}" selected>{{$gasolina->estatus}}</option>
-                                   <option value="Pagado">Pagado</option>
-                                   <option value="Rembolso">Rembolso</option>
-                                   <option value="No procede">No procede</option>
-                               </select>
-                           </div>
+                            <label for="" class="mt-3">
+                                <p class="text-white mt-3"><strong>Foto ticket</strong></p>
+                            </label>
 
+                            <div class=" custom-file mb-3">
+                                <input type="file" class="custom-file-input input-group-text" name="ticket" id="ticket">
+                            </div>
+
+                        <div style="background: #fff">
+                            <div>
+                                <div id="demoGauge" class="gauge" style="
+                                    --gauge-value:0;
+                                    width:200px;
+                                    height:200px;">
+
+                                    <div class="ticks">
+                                        <div class="tithe" style="--gauge-tithe-tick:1;"></div>
+                                        <div class="tithe" style="--gauge-tithe-tick:2;"></div>
+                                        <div class="tithe" style="--gauge-tithe-tick:3;"></div>
+                                        <div class="tithe" style="--gauge-tithe-tick:4;"></div>
+                                        <div class="tithe" style="--gauge-tithe-tick:6;"></div>
+                                        <div class="tithe" style="--gauge-tithe-tick:7;"></div>
+                                        <div class="tithe" style="--gauge-tithe-tick:8;"></div>
+                                        <div class="tithe" style="--gauge-tithe-tick:9;"></div>
+                                        <div class="min"></div>
+                                        <div class="mid"></div>
+                                        <div class="max"></div>
+                                    </div>
+                                    <div class="tick-circle"></div>
+
+                                    <div class="needle">
+                                        <div class="needle-head"></div>
+                                    </div>
+                                    <div class="labels">
+                                        <div class="value-label"></div>
+                                    </div>
+                                </div>
+                                <p>
+                                    <label for="points">Tanque Inicial</label><br />
+                                    <input type="range" id="gaugeValue-demoGauge" name="gaugeValue" min="0" max="100" value="0"
+                                        onInput="updateGauge('demoGauge', 0, 100);" onChange="updateGauge('demoGauge', 0, 100);" />
+                                </p>
+                            </div>
+                        </div>
 
                             <div class="col-12 text-center mt-2" style="margin-bottom: 8rem !important;">
                                 <button class="btn btn-lg btn-save-neon text-white">
@@ -193,8 +232,19 @@
                                 </button>
                             </div>
 
+                            <script type="text/javascript">
+                                //<![CDATA[
+                                function updateGauge(id, min, max) {
+                                    const newGaugeDisplayValue = document.getElementById("gaugeValue-" + id).value;
+                                    const newGaugeValue = Math.floor(((newGaugeDisplayValue - min) / (max - min)) * 100);
+                                    document.getElementById(id).style.setProperty('--gauge-display-value', newGaugeDisplayValue);
+                                    document.getElementById(id).style.setProperty('--gauge-value', newGaugeValue);
+                                }
+                            //]]>
+                            </script>
                         </form>
                     </div>
                 </div>
 
 @endsection
+
