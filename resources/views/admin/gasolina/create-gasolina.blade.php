@@ -150,6 +150,7 @@
                                <select class="form-control" id="gasolina" name="gasolina" required>
                                    <option value="Magna">Magna</option>
                                    <option value="Premium">Premium</option>
+                                   <option value="Disel">Disel</option>
                                </select>
                            </div>
 

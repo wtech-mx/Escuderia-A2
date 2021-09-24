@@ -161,6 +161,7 @@
                                    <option value="{{$gasolina->gasolina}}" selected>{{$gasolina->gasolina}}</option>
                                    <option value="Magna">Magna</option>
                                    <option value="Premium">Premium</option>
+                                   <option value="Disel">Disel</option>
                                </select>
                            </div>
 
@@ -271,7 +272,7 @@
                                     </p>
                                 </div>
                             </div>
-                            
+
                             <div class="col-12 text-center mt-2" style="margin-bottom: 8rem !important;">
                                 <button class="btn btn-lg btn-save-neon text-white">
                                     <i class="fas fa-save icon-tc"></i>
