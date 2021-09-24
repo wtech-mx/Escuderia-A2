@@ -123,17 +123,6 @@
             </div>
 
             <div class="col-6 text-center">
-                <a href="{{ route('index_admin.gasolina') }}">
-                    <div class="card" style="border-radius: 15px">
-                        <div class="card-body">
-                            <i class="fas fa-tachometer-alt icon-effect-dashboard"></i>
-                            <p class="card-text text-white"><strong>Gasolina</strong></p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-6 text-center mt-4">
                 @can('Ver Automovil')
                 <a href="{{ route('index_admin.automovil') }}">
                 @else
@@ -314,6 +303,19 @@
                     </div>
                 </a>
             </div>
+        @endif
+
+        @if ($users->empresa == 1)
+        <div class="col-6 text-center mt-4">
+            <a href="{{ route('index_admin.gasolina') }}">
+                <div class="card" style="border-radius: 15px">
+                    <div class="card-body">
+                        <i class="fas fa-tachometer-alt icon-effect-dashboard"></i>
+                        <p class="card-text text-white"><strong>Gasolina</strong></p>
+                    </div>
+                </div>
+            </a>
+        </div>
         @endif
 
             <div class="col-6 text-center  mt-4">
