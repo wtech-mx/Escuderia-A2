@@ -93,6 +93,7 @@ class AutomovilController extends Controller
         $automovil->tipo = strtoupper($request->get('tipo'));
         $automovil->kilometraje = $request->get('kilometraje');
         $automovil->subtipo = strtoupper($request->get('subtipo'));
+        $automovil->tanque = $request->get('tanque');
         $automovil->año = $request->get('año');
         $automovil->numero_serie = strtoupper($request->get('numero_serie'));
         $automovil->color = $request->get('color');
@@ -215,6 +216,7 @@ class AutomovilController extends Controller
         $automovil->id_marca = $request->get('id_marca');
         $automovil->submarca = strtoupper($request->get('submarca'));
         $automovil->tipo = strtoupper($request->get('tipo'));
+        $automovil->tanque = $request->get('tanque');
         $automovil->kilometraje = $request->get('kilometraje');
         $automovil->subtipo = strtoupper($request->get('subtipo'));
         $automovil->año = $request->get('año');

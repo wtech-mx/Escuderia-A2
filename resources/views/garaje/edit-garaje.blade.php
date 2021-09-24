@@ -176,6 +176,19 @@
                                     @endif
                         </div>
 
+                        <div class="col-12 mb-3">
+                            <div class="input-group form-group">
+                                <div class="input-group-prepend ">
+                                    <span class="input-group-text span-edit-car">
+                                        <i class="fas fa-car icon-garaje"></i>
+                                        <a class="input-a-text">Tanque</a>
+                                    </span>
+                                </div>
+                                <input type="number" class="form-control input-edit-car" placeholder="Capacidad del tanque (Litros)" id="tanque"
+                                    name="tanque" value="{{$automovil->tanque}}">
+                            </div>
+                        </div>
+
                         <div class="col-12 mt-3">
                             <div class="input-group form-group">
                                 <div class="input-group-prepend " >
