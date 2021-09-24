@@ -15,18 +15,15 @@ class GasolinaController extends Controller
     |--------------------------------------------------------------------------*/
     function index_admin()
     {
-        if(auth()->user()->chofer == 1){
-            $gasolina = Gasolina::
-            where('id_user', '=', auth()->user()->id)
-            ->get();
-        }elseif(auth()->user()->id_sector != NULL){
-            $gasolina = Gasolina::
-            where('id_sector', '=', auth()->user()->id_sector)
-            ->get();
-        }else{
-            $gasolina = Gasolina::
-            where('id_empresa', '=', auth()->user()->id)
-            ->get();
+        if (auth()->user()->chofer == 1) {
+            $gasolina = Gasolina::where('id_user', '=', auth()->user()->id)
+                ->get();
+        } elseif (auth()->user()->id_sector != NULL) {
+            $gasolina = Gasolina::where('id_sector', '=', auth()->user()->id_sector)
+                ->get();
+        } else {
+            $gasolina = Gasolina::where('id_empresa', '=', auth()->user()->id)
+                ->get();
         }
 
 
@@ -48,15 +45,92 @@ class GasolinaController extends Controller
     {
         $gasolina = new Gasolina;
 
-        $gasolina->current_auto = $request->get('current_auto');
+        if ($request->get('gaugeValue') == true) {
+            switch ($request->get('gaugeValue')) {
+                case ($request->get('gaugeValue') == 10):
+                    $gasolina2 = .16;
+                    break;
+                case ($request->get('gaugeValue') == 20):
+                    $gasolina2 = .2;
+                    break;
+                case ($request->get('gaugeValue') == 30):
+                    $gasolina2 = .25;
+                    break;
+                case ($request->get('gaugeValue') == 40):
+                    $gasolina2 = .33;
+                    break;
+                case ($request->get('gaugeValue') == 50):
+                    $gasolina2 = .5;
+                    break;
+                case ($request->get('gaugeValue') == 60):
+                    $gasolina2 = .66;
+                    break;
+                case ($request->get('gaugeValue') == 70):
+                    $gasolina2 = .75;
+                    break;
+                case ($request->get('gaugeValue') == 80):
+                    $gasolina2 = .8;
+                    break;
+                case ($request->get('gaugeValue') == 90):
+                    $gasolina2 = .83;
+                    break;
+                case ($request->get('gaugeValue') == 100):
+                    $gasolina2 = 1;
+                    break;
+            }
+            switch ($gasolina) {
+                case ($gasolina == 10):
+                    $gasolina3 = .16;
+                    break;
+                case ($request->get('gaugeValue2') == 20):
+                    $gasolina3 = .2;
+                    break;
+                case ($request->get('gaugeValue2') == 30):
+                    $gasolina3 = .25;
+                    break;
+                case ($request->get('gaugeValue2') == 40):
+                    $gasolina3 = .33;
+                    break;
+                case ($request->get('gaugeValue2') == 50):
+                    $gasolina3 = .5;
+                    break;
+                case ($request->get('gaugeValue2') == 60):
+                    $gasolina3 = .66;
+                    break;
+                case ($request->get('gaugeValue2') == 70):
+                    $gasolina3 = .75;
+                    break;
+                case ($request->get('gaugeValue2') == 80):
+                    $gasolina3 = .8;
+                    break;
+                case ($request->get('gaugeValue2') == 90):
+                    $gasolina3 = .83;
+                    break;
+                case ($request->get('gaugeValue2') == 100):
+                    $gasolina3 = 1;
+                    break;
+            }
+        }else{
+            $gasolina2 = 0;
+        }
+
+        $data = $request->get('current_auto');
+        $cadena = ",";
+        $separar = explode($cadena,  $data);
+
+        $cantidad_inicial = $gasolina2 * $separar[1];
+        $cantidad_final = $gasolina3 * $separar[1];
+
+        $gasolina->current_auto = $separar[0];
         $gasolina->id_user =  $request->get('id_user');
         $gasolina->id_sector = auth()->user()->id_sector;
         $gasolina->id_empresa = auth()->user()->id_empresa;
-        $gasolina->taque_inicial = $request->get('gaugeValue');
+        $gasolina->taque_inicial =  $cantidad_inicial;
         $gasolina->km_actual = $request->get('km_actual');
         $gasolina->importe = $request->get('importe');
         $gasolina->litros = $request->get('litros');
         $gasolina->gasolina = $request->get('gasolina');
+        $gasolina->cantidad_final = $cantidad_final;
 
         $gasolina->estatus = 'Pendiente';
         $gasolina->tipo_pago = $request->get('tipo_pago');
@@ -121,14 +195,13 @@ class GasolinaController extends Controller
             }
         }
 
-        if(Gasolina::where('id_user', '=', auth()->user()->id)->exists()){
-            $periodo = Gasolina::
-                where('id_user', '=', auth()->user()->id)
+        if (Gasolina::where('id_user', '=', auth()->user()->id)->exists()) {
+            $periodo = Gasolina::where('id_user', '=', auth()->user()->id)
                 ->latest()
                 ->take(1)
                 ->first();
 
-        $suma_anterior = $periodo->taque_inicial + $periodo->litros;
+            $suma_anterior = $periodo->taque_inicial + $periodo->litros;
 
             $gasolina->km_recorridos = $gasolina->km_actual - $periodo->km_actual;
             $gasolina->consumo = $suma_anterior - $gasolina->taque_inicial;

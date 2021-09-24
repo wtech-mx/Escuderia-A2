@@ -7,6 +7,7 @@
         <link href="{{ asset('css/login-form.css') }}" rel="stylesheet">
         <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
         <link href="{{ asset('css/dashboard-admin.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/gauge.min.css') }}" rel="stylesheet">
 @php
     $originalDate = $gasolina->created_at;
     $newDate = date("d/m/Y", strtotime($originalDate));
@@ -202,6 +203,81 @@
                                </select>
                            </div>
 
+                            <div style="background: #fff">
+                                <div>
+                                    <div id="demoGauge" class="gauge" style="
+                                        --gauge-value:{{ceil($gasolina->taque_inicial)}};
+                                        --gauge-display-value:{{ceil($gasolina->taque_inicial)}};
+                                        width:200px;
+                                        height:200px;">
+
+                                        <div class="ticks">
+                                            <div class="tithe" style="--gauge-tithe-tick:1;"></div>
+                                            <div class="tithe" style="--gauge-tithe-tick:2;"></div>
+                                            <div class="tithe" style="--gauge-tithe-tick:3;"></div>
+                                            <div class="tithe" style="--gauge-tithe-tick:4;"></div>
+                                            <div class="tithe" style="--gauge-tithe-tick:6;"></div>
+                                            <div class="tithe" style="--gauge-tithe-tick:7;"></div>
+                                            <div class="tithe" style="--gauge-tithe-tick:8;"></div>
+                                            <div class="tithe" style="--gauge-tithe-tick:9;"></div>
+                                            <div class="min"></div>
+                                            <div class="mid"></div>
+                                            <div class="max"></div>
+                                        </div>
+                                        <div class="tick-circle"></div>
+
+                                        <div class="needle">
+                                            <div class="needle-head"></div>
+                                        </div>
+                                        <div class="labels">
+                                            <div class="value-label"></div>
+                                        </div>
+                                    </div>
+                                    <p>
+                                        <label for="points">Tanque Inicial</label><br />
+                                        <input type="range" step="10" id="gaugeValue-demoGauge" name="gaugeValue" min="0" max="100" value="{{ceil($gasolina->taque_inicial)}}"
+                                            onInput="updateGauge('demoGauge', 0, 100);" onChange="updateGauge('demoGauge', 0, 100);" disabled/>
+                                    </p>
+                                </div>
+                            </div>
+                            <div style="background: #fff">
+                                <div>
+                                    <div id="demoGauge2" class="gauge" style="
+                                        --gauge-bg: #088478;
+                                        --gauge-value:{{ceil($gasolina->cantidad_final)}};
+                                        --gauge-display-value:{{ceil($gasolina->cantidad_final)}};
+                                        width:25vw;
+                                        height:25vw;">
+
+                                        <div class="ticks">
+                                            <div class="tithe" style="--gauge-tithe-tick:1;"></div>
+                                            <div class="tithe" style="--gauge-tithe-tick:2;"></div>
+                                            <div class="tithe" style="--gauge-tithe-tick:3;"></div>
+                                            <div class="tithe" style="--gauge-tithe-tick:4;"></div>
+                                            <div class="tithe" style="--gauge-tithe-tick:6;"></div>
+                                            <div class="tithe" style="--gauge-tithe-tick:7;"></div>
+                                            <div class="tithe" style="--gauge-tithe-tick:8;"></div>
+                                            <div class="tithe" style="--gauge-tithe-tick:9;"></div>
+                                            <div class="min"></div>
+                                            <div class="mid"></div>
+                                            <div class="max"></div>
+                                        </div>
+                                        <div class="tick-circle"></div>
+
+                                        <div class="needle">
+                                            <div class="needle-head"></div>
+                                        </div>
+                                        <div class="labels">
+                                            <div class="value-label"></div>
+                                        </div>
+                                    </div>
+                                    <p>
+                                        <label for="points">Tanque despues de carga</label><br />
+                                        <input type="range" step="10" id="gaugeValue-demoGauge2" name="gaugeValue2" min="0" max="100" value="{{ceil($gasolina->cantidad_final)}}"
+                                        onInput="updateGauge('demoGauge2', 0, 100);" onChange="updateGauge('demoGauge2', 0, 100);" disabled/>
+                                    </p>
+                                </div>
+                            </div>
 
                             <div class="col-12 text-center mt-2" style="margin-bottom: 8rem !important;">
                                 <button class="btn btn-lg btn-save-neon text-white">
@@ -210,8 +286,18 @@
                                 </button>
                             </div>
 
+
                         </form>
                     </div>
                 </div>
-
+                <script type="text/javascript">
+                    //<![CDATA[
+                    function updateGauge(id, min, max) {
+                        const newGaugeDisplayValue = document.getElementById("gaugeValue-" + id).value;
+                        const newGaugeValue = Math.floor(((newGaugeDisplayValue - min) / (max - min)) * 100);
+                        document.getElementById(id).style.setProperty('--gauge-display-value', newGaugeDisplayValue);
+                        document.getElementById(id).style.setProperty('--gauge-value', newGaugeValue);
+                    }
+                //]]>
+                </script>
 @endsection

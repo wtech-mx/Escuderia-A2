@@ -75,7 +75,7 @@
                                     <select class="form-control" id="current_auto" name="current_auto" value="{{ old('current_auto') }}">
                                             <option value="">Seleccione automovil</option>
                                             @foreach($automovil as $item)
-                                            <option value="{{$item->id}}">{{ ucfirst($item->placas)}}</option>
+                                            <option value="{{$item->id}} , {{$item->tanque}}">{{ ucfirst($item->placas)}}</option>
                                             @endforeach
                                     </select>
                             </div>
@@ -188,7 +188,81 @@
                                 <input type="file" class="custom-file-input input-group-text" name="ticket" id="ticket">
                             </div>
 
-                            <input type="number" class="form-control" name="gaugeValue" id="gaugeValue" placeholder="gaugeValue">
+                            <div style="background: #fff">
+                                <div>
+                                    <div id="demoGauge" class="gauge" style="
+                                        --gauge-value:0;
+                                        width:200px;
+                                        height:200px;">
+
+                                        <div class="ticks">
+                                            <div class="tithe" style="--gauge-tithe-tick:1;"></div>
+                                            <div class="tithe" style="--gauge-tithe-tick:2;"></div>
+                                            <div class="tithe" style="--gauge-tithe-tick:3;"></div>
+                                            <div class="tithe" style="--gauge-tithe-tick:4;"></div>
+                                            <div class="tithe" style="--gauge-tithe-tick:6;"></div>
+                                            <div class="tithe" style="--gauge-tithe-tick:7;"></div>
+                                            <div class="tithe" style="--gauge-tithe-tick:8;"></div>
+                                            <div class="tithe" style="--gauge-tithe-tick:9;"></div>
+                                            <div class="min"></div>
+                                            <div class="mid"></div>
+                                            <div class="max"></div>
+                                        </div>
+                                        <div class="tick-circle"></div>
+
+                                        <div class="needle">
+                                            <div class="needle-head"></div>
+                                        </div>
+                                        <div class="labels">
+                                            <div class="value-label"></div>
+                                        </div>
+                                    </div>
+                                    <p>
+                                        <label for="points">Tanque Inicial</label><br />
+                                        <input type="range" step="10" id="gaugeValue-demoGauge" name="gaugeValue" min="0" max="100" value="0"
+                                            onInput="updateGauge('demoGauge', 0, 100);" onChange="updateGauge('demoGauge', 0, 100);" />
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div style="background: #fff">
+                                <div>
+                                    <div id="demoGauge2" class="gauge" style="
+                                        --gauge-bg: #088478;
+                                        --gauge-value:0;
+                                        --gauge-display-value:0;
+                                        width:25vw;
+                                        height:25vw;">
+
+                                        <div class="ticks">
+                                            <div class="tithe" style="--gauge-tithe-tick:1;"></div>
+                                            <div class="tithe" style="--gauge-tithe-tick:2;"></div>
+                                            <div class="tithe" style="--gauge-tithe-tick:3;"></div>
+                                            <div class="tithe" style="--gauge-tithe-tick:4;"></div>
+                                            <div class="tithe" style="--gauge-tithe-tick:6;"></div>
+                                            <div class="tithe" style="--gauge-tithe-tick:7;"></div>
+                                            <div class="tithe" style="--gauge-tithe-tick:8;"></div>
+                                            <div class="tithe" style="--gauge-tithe-tick:9;"></div>
+                                            <div class="min"></div>
+                                            <div class="mid"></div>
+                                            <div class="max"></div>
+                                        </div>
+                                        <div class="tick-circle"></div>
+
+                                        <div class="needle">
+                                            <div class="needle-head"></div>
+                                        </div>
+                                        <div class="labels">
+                                            <div class="value-label"></div>
+                                        </div>
+                                    </div>
+                                    <p>
+                                        <label for="points">Tanque despues de carga</label><br />
+                                        <input type="range" step="10" id="gaugeValue-demoGauge2" name="gaugeValue2" min="0" max="100" value="0"
+                                        onInput="updateGauge('demoGauge2', 0, 100);" onChange="updateGauge('demoGauge2', 0, 100);" />
+                                    </p>
+                                </div>
+                            </div>
 
                             <div class="col-12 text-center mt-2" style="margin-bottom: 8rem !important;">
                                 <button class="btn btn-lg btn-save-neon text-white">
