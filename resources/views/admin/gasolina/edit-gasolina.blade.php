@@ -203,8 +203,6 @@
                                </select>
                            </div>
 
-                            <div style="background: #fff">
-                                <div>
                                     <div id="demoGauge" class="gauge" style="
                                         --gauge-value:{{ceil($gasolina->taque_inicial)}};
                                         --gauge-display-value:{{ceil($gasolina->taque_inicial)}};
@@ -238,10 +236,7 @@
                                         <input type="range" step="10" id="gaugeValue-demoGauge" name="gaugeValue" min="0" max="100" value="{{ceil($gasolina->taque_inicial)}}"
                                             onInput="updateGauge('demoGauge', 0, 100);" onChange="updateGauge('demoGauge', 0, 100);" disabled/>
                                     </p>
-                                </div>
-                            </div>
-                            <div style="background: #fff">
-                                <div>
+
                                     <div id="demoGauge2" class="gauge" style="
                                         --gauge-bg: #088478;
                                         --gauge-value:{{ceil($gasolina->cantidad_final)}};
@@ -276,8 +271,6 @@
                                         <input type="range" step="10" id="gaugeValue-demoGauge2" name="gaugeValue2" min="0" max="100" value="{{ceil($gasolina->cantidad_final)}}"
                                         onInput="updateGauge('demoGauge2', 0, 100);" onChange="updateGauge('demoGauge2', 0, 100);" disabled/>
                                     </p>
-                                </div>
-                            </div>
 
                             <div class="col-12 text-center mt-2" style="margin-bottom: 8rem !important;">
                                 <button class="btn btn-lg btn-save-neon text-white">
