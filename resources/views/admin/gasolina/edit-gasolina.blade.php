@@ -7,7 +7,10 @@
         <link href="{{ asset('css/login-form.css') }}" rel="stylesheet">
         <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
         <link href="{{ asset('css/dashboard-admin.css') }}" rel="stylesheet">
-
+@php
+    $originalDate = $gasolina->created_at;
+    $newDate = date("d/m/Y", strtotime($originalDate));
+@endphp
         <div class="row bg-down-image-border " >
                     <div class="col-2 mt-5">
                         <div class="d-flex justify-content-start">
@@ -34,6 +37,20 @@
                     </div>
 
                     <div class="col-12">
+                        <p class="text-center mb-5 mt-5" style="color: #00d62e; font: normal normal bold 20px/27px Segoe UI;"><strong>{{$gasolina->User->name}} / {{$gasolina->Automovil->placas}}</strong></p>
+
+                        @if($gasolina->km_recorridos != NULL)
+                            @php
+                                $costo= $gasolina->importe / $gasolina->litros;
+                                $rendimiento = $gasolina->km_recorridos / $gasolina->consumo;
+                            @endphp
+                            <div class="card card-body text-white">
+                              <p>KM Recorridos: {{$gasolina->km_recorridos}}</p>
+                              <p>Costo por litro: {{ round($costo, 2);}}</p>
+                              <p>Consumo litros: {{$gasolina->consumo}}</p>
+                              <p>Rendiemiento: {{ round($rendimiento, 2);}}</p>
+                            </div>
+                        @endif
 
                     <form class="card-details" method="POST" action="{{route('update_admin.gasolina',$gasolina->id)}}" enctype="multipart/form-data" role="form">
                         @csrf
@@ -57,7 +74,7 @@
                                         </script>
                             @endif
 
-                        <p class="text-center mb-5" style="color: #00d62e; font: normal normal bold 20px/27px Segoe UI;"><strong>{{$gasolina->User->name}} / {{$gasolina->Automovil->placas}}</strong></p>
+
 
                             <label for="">
                                 <p class="text-white"><strong>Fecha Registo</strong></p>
@@ -69,7 +86,7 @@
                                             <i class="far fa-calendar-alt icon-tc"></i>
                                     </span>
                                 </div>
-                                    <input type="date" class="form-control" value="{{$gasolina->fecha_actual}}" disabled>
+                                    <input type="text" class="form-control" value="{{$newDate}}" disabled>
                             </div>
 
                              <label for="">
@@ -140,9 +157,9 @@
                                </div>
 
                                <select class="form-control"  disabled>
-                                   <option value="{{$gasolina->tipo_pago}}" selected>{{$gasolina->tipo_pago}}</option>
-                                   <option value="Tarjeta Credito">Magna</option>
-                                   <option value="Tarjeta Debito">Premium</option>
+                                   <option value="{{$gasolina->gasolina}}" selected>{{$gasolina->gasolina}}</option>
+                                   <option value="Magna">Magna</option>
+                                   <option value="Premium">Premium</option>
                                </select>
                            </div>
 

@@ -17,7 +17,6 @@ class Gasolina extends Model
         'id_empresa',
         'id_sector',
         'current_auto',
-        'fecha_actual',
         'taque_inicial',
         'km_actual',
         'importe',

@@ -147,9 +147,9 @@
                                    </span>
                                </div>
 
-                               <select class="form-control" id="tipo_pago" name="tipo_pago" required>
-                                   <option value="Tarjeta Credito">Magna</option>
-                                   <option value="Tarjeta Debito">Premium</option>
+                               <select class="form-control" id="gasolina" name="gasolina" required>
+                                   <option value="Magna">Magna</option>
+                                   <option value="Premium">Premium</option>
                                </select>
                            </div>
 
@@ -188,42 +188,7 @@
                                 <input type="file" class="custom-file-input input-group-text" name="ticket" id="ticket">
                             </div>
 
-                        <div style="background: #fff">
-                            <div>
-                                <div id="demoGauge" class="gauge" style="
-                                    --gauge-value:0;
-                                    width:200px;
-                                    height:200px;">
-
-                                    <div class="ticks">
-                                        <div class="tithe" style="--gauge-tithe-tick:1;"></div>
-                                        <div class="tithe" style="--gauge-tithe-tick:2;"></div>
-                                        <div class="tithe" style="--gauge-tithe-tick:3;"></div>
-                                        <div class="tithe" style="--gauge-tithe-tick:4;"></div>
-                                        <div class="tithe" style="--gauge-tithe-tick:6;"></div>
-                                        <div class="tithe" style="--gauge-tithe-tick:7;"></div>
-                                        <div class="tithe" style="--gauge-tithe-tick:8;"></div>
-                                        <div class="tithe" style="--gauge-tithe-tick:9;"></div>
-                                        <div class="min"></div>
-                                        <div class="mid"></div>
-                                        <div class="max"></div>
-                                    </div>
-                                    <div class="tick-circle"></div>
-
-                                    <div class="needle">
-                                        <div class="needle-head"></div>
-                                    </div>
-                                    <div class="labels">
-                                        <div class="value-label"></div>
-                                    </div>
-                                </div>
-                                <p>
-                                    <label for="points">Tanque Inicial</label><br />
-                                    <input type="range" id="gaugeValue-demoGauge" name="gaugeValue" min="0" max="100" value="0"
-                                        onInput="updateGauge('demoGauge', 0, 100);" onChange="updateGauge('demoGauge', 0, 100);" />
-                                </p>
-                            </div>
-                        </div>
+                            <input type="number" class="form-control" name="gaugeValue" id="gaugeValue" placeholder="gaugeValue">
 
                             <div class="col-12 text-center mt-2" style="margin-bottom: 8rem !important;">
                                 <button class="btn btn-lg btn-save-neon text-white">

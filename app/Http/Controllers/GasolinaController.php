@@ -15,10 +15,25 @@ class GasolinaController extends Controller
     |--------------------------------------------------------------------------*/
     function index_admin()
     {
-        $gasolina = Gasolina::get();
+        if(auth()->user()->chofer == 1){
+            $gasolina = Gasolina::
+            where('id_user', '=', auth()->user()->id)
+            ->get();
+        }elseif(auth()->user()->id_sector != NULL){
+            $gasolina = Gasolina::
+            where('id_sector', '=', auth()->user()->id_sector)
+            ->get();
+        }else{
+            $gasolina = Gasolina::
+            where('id_empresa', '=', auth()->user()->id)
+            ->get();
+        }
+
+
 
         return view('admin.gasolina.index-gasolina', compact('gasolina'));
     }
+
     public function create_admin()
     {
         $automovil = DB::table('automovil')
@@ -37,10 +52,7 @@ class GasolinaController extends Controller
         $gasolina->id_user =  $request->get('id_user');
         $gasolina->id_sector = auth()->user()->id_sector;
         $gasolina->id_empresa = auth()->user()->id_empresa;
-
-        $gasolina->fecha_actual = $request->get('fecha_actual');
         $gasolina->taque_inicial = $request->get('gaugeValue');
-        dd($gasolina->taque_inicial);
         $gasolina->km_actual = $request->get('km_actual');
         $gasolina->importe = $request->get('importe');
         $gasolina->litros = $request->get('litros');
@@ -109,10 +121,22 @@ class GasolinaController extends Controller
             }
         }
 
+        if(Gasolina::where('id_user', '=', auth()->user()->id)->exists()){
+            $periodo = Gasolina::
+                where('id_user', '=', auth()->user()->id)
+                ->latest()
+                ->take(1)
+                ->first();
+
+        $suma_anterior = $periodo->taque_inicial + $periodo->litros;
+
+            $gasolina->km_recorridos = $gasolina->km_actual - $periodo->km_actual;
+            $gasolina->consumo = $suma_anterior - $gasolina->taque_inicial;
+        }
         $gasolina->save();
 
         Session::flash('success', 'Se ha guardado sus datos con exito');
-        return redirect()->back();
+        return redirect()->route('index_admin.gasolina');
     }
 
     public function edit_admin($id)
