@@ -203,11 +203,14 @@
                                </select>
                            </div>
 
+                           <div class="row mt-5 mb-5">
+                                 <div class="col-6">
                                     <div id="demoGauge" class="gauge" style="
+                                        --gauge-bg: #088478;
                                         --gauge-value:{{ceil($gasolina->taque_inicial)}};
                                         --gauge-display-value:{{ceil($gasolina->taque_inicial)}};
-                                        width:200px;
-                                        height:200px;">
+                                        width:150px;
+                                        height:150px;">
 
                                         <div class="ticks">
                                             <div class="tithe" style="--gauge-tithe-tick:1;"></div>
@@ -233,13 +236,14 @@
                                         <input type="range" step="10" id="gaugeValue-demoGauge" name="gaugeValue" min="0" max="100" value="{{ceil($gasolina->taque_inicial)}}"
                                             onInput="updateGauge('demoGauge', 0, 100);" onChange="updateGauge('demoGauge', 0, 100);" disabled/>
                                     </p>
-
+                                </div>
+                                <div class="col-6">
                                     <div id="demoGauge2" class="gauge" style="
                                         --gauge-bg: #088478;
                                         --gauge-value:{{ceil($gasolina->cantidad_final)}};
                                         --gauge-display-value:{{ceil($gasolina->cantidad_final)}};
-                                        width:200px;
-                                        height:200px;">
+                                        width:150px;
+                                        height:150px;">
 
                                         <div class="ticks">
                                             <div class="tithe" style="--gauge-tithe-tick:1;"></div>
@@ -265,7 +269,9 @@
                                         <input type="range" step="10" id="gaugeValue-demoGauge2" name="gaugeValue2" min="0" max="100" value="{{ceil($gasolina->cantidad_final)}}"
                                         onInput="updateGauge('demoGauge2', 0, 100);" onChange="updateGauge('demoGauge2', 0, 100);" disabled/>
                                     </p>
-
+                                </div>
+                            </div>
+                            
                             <div class="col-12 text-center mt-2" style="margin-bottom: 8rem !important;">
                                 <button class="btn btn-lg btn-save-neon text-white">
                                     <i class="fas fa-save icon-tc"></i>
