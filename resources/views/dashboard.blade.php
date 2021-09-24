@@ -126,7 +126,11 @@
         </div>
 
         <div class="col-6 text-center">
+            @if (auth()->user()->empresa == 1)
+            <a  data-toggle="modal" data-target="#modal-permisos">
+            @else
             <a href="{{ route('index.automovil') }}">
+            @endif
                 <div class="card" style="border-radius: 15px">
                     <div class="card-body">
                         <img class="d-inline mb-2" src="{{ asset('img/icon/black/coche (2).png') }}" alt="Icon User"
@@ -136,7 +140,7 @@
                 </div>
             </a>
         </div>
-        
+
         @if (auth()->user()->empresa == 1)
         <div class="col-6 text-center mt-4">
             <a href="{{ route('index_admin.gasolina') }}" class="text-dark">

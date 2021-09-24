@@ -78,8 +78,8 @@ class GasolinaController extends Controller
                     $gasolina2 = 1;
                     break;
             }
-            switch ($gasolina) {
-                case ($gasolina == 10):
+            switch ($request->get('gaugeValue2') ) {
+                case ($request->get('gaugeValue2')  == 10):
                     $gasolina3 = .16;
                     break;
                 case ($request->get('gaugeValue2') == 20):
