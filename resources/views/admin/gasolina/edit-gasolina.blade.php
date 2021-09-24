@@ -227,12 +227,9 @@
                                         <div class="needle">
                                             <div class="needle-head"></div>
                                         </div>
-                                        <div class="labels">
-                                            <div class="value-label"></div>
-                                        </div>
                                     </div>
                                     <p>
-                                        <label for="points">Tanque Inicial</label><br />
+                                        <label class="text-white" for="points">Tanque Inicial</label><br />
                                         <input type="range" step="10" id="gaugeValue-demoGauge" name="gaugeValue" min="0" max="100" value="{{ceil($gasolina->taque_inicial)}}"
                                             onInput="updateGauge('demoGauge', 0, 100);" onChange="updateGauge('demoGauge', 0, 100);" disabled/>
                                     </p>
@@ -241,8 +238,8 @@
                                         --gauge-bg: #088478;
                                         --gauge-value:{{ceil($gasolina->cantidad_final)}};
                                         --gauge-display-value:{{ceil($gasolina->cantidad_final)}};
-                                        width:25vw;
-                                        height:25vw;">
+                                        width:200px;
+                                        height:200px;">
 
                                         <div class="ticks">
                                             <div class="tithe" style="--gauge-tithe-tick:1;"></div>
@@ -262,12 +259,9 @@
                                         <div class="needle">
                                             <div class="needle-head"></div>
                                         </div>
-                                        <div class="labels">
-                                            <div class="value-label"></div>
-                                        </div>
                                     </div>
                                     <p>
-                                        <label for="points">Tanque despues de carga</label><br />
+                                        <label class="text-white" for="points">Tanque despues de carga</label><br />
                                         <input type="range" step="10" id="gaugeValue-demoGauge2" name="gaugeValue2" min="0" max="100" value="{{ceil($gasolina->cantidad_final)}}"
                                         onInput="updateGauge('demoGauge2', 0, 100);" onChange="updateGauge('demoGauge2', 0, 100);" disabled/>
                                     </p>
