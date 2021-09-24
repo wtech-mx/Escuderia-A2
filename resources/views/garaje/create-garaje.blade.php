@@ -171,8 +171,8 @@
                                         <span class="text-danger">{{ $errors->first('placas') }}</span>
                                     @endif
                         </div>
-                        
-                        <div class="col-12 mb-3">
+
+                        <div class="col-12 mt-3">
                             <div class="input-group form-group">
                                 <div class="input-group-prepend ">
                                     <span class="input-group-text span-edit-car">
