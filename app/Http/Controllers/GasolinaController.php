@@ -78,7 +78,7 @@ class GasolinaController extends Controller
                     $gasolina2 = 1;
                     break;
             }
-            switch ($request->get('gaugeValue2') ) {
+            switch ($request->get('gaugeValue2')) {
                 case ($request->get('gaugeValue2')  == 10):
                     $gasolina3 = .16;
                     break;
@@ -110,7 +110,7 @@ class GasolinaController extends Controller
                     $gasolina3 = 1;
                     break;
             }
-        }else{
+        } else {
             $gasolina2 = 0;
         }
 
@@ -138,10 +138,10 @@ class GasolinaController extends Controller
         if ($request->file('odometro')) {
 
             $file = $request->file('odometro');
-            $file->move(public_path() . 'gasolina/odometro/', time() . "." . $file->getClientOriginalExtension());
+            $file->move(public_path() . '/gasolina/odometro/', time() . "." . $file->getClientOriginalExtension());
             $gasolina->odometro = time() . "." . $file->getClientOriginalExtension();
 
-            $filepath = public_path('gasolina/odometro/' . $gasolina->odometro);
+            $filepath = public_path('/gasolina/odometro/' . $gasolina->odometro);
 
             try {
                 \Tinify\setKey(env("TINIFY_API_KEY"));
@@ -168,10 +168,10 @@ class GasolinaController extends Controller
         if ($request->file('ticket')) {
 
             $file = $request->file('ticket');
-            $file->move(public_path() . 'gasolina/ticket/', time() . "." . $file->getClientOriginalExtension());
+            $file->move(public_path() . '/gasolina/ticket/', time() . "." . $file->getClientOriginalExtension());
             $gasolina->ticket = time() . "." . $file->getClientOriginalExtension();
 
-            $filepath = public_path('gasolina/ticket/' . $gasolina->ticket);
+            $filepath = public_path('/gasolina/ticket/' . $gasolina->ticket);
 
             try {
                 \Tinify\setKey(env("TINIFY_API_KEY"));
@@ -206,6 +206,7 @@ class GasolinaController extends Controller
             $gasolina->km_recorridos = $gasolina->km_actual - $periodo->km_actual;
             $gasolina->consumo = $suma_anterior - $gasolina->taque_inicial;
         }
+
         $gasolina->save();
 
         Session::flash('success', 'Se ha guardado sus datos con exito');

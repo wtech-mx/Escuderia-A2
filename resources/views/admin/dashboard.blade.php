@@ -137,6 +137,110 @@
                 </a>
             </div>
 
+            <div class="col-6 text-center mt-4">
+                @can('Ver Tarjeta C.')
+                <a href="{{ route('indextc_admin.tarjeta-circulacion') }}" class="text-white">
+                @else
+                <a  data-toggle="modal" data-target="#modal-permisos">
+                @endcan
+                    <div class="card" style="border-radius: 15px">
+                        <div class="card-body">
+                            <i class="fas fa-money-check icon-effect-dashboard"></i>
+                            <p class="card-text"><strong>T. Circulaci&oacute;n</strong></p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-6 text-center mt-4">
+                <a href="{{ route('index_admin.gasolina') }}">
+                    <div class="card" style="border-radius: 15px">
+                        <div class="card-body">
+                            <i class="fas fa-tachometer-alt icon-effect-dashboard"></i>
+                            <p class="card-text text-white"><strong>Gasolina</strong></p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-6 text-center mt-4">
+                @can('Ver Seguro')
+                <a href="{{ route('index_admin.seguros') }}" class="text-white">
+                @else
+                <a  data-toggle="modal" data-target="#modal-permisos">
+                @endcan
+                    <div class="card" style="border-radius: 15px">
+                        <div class="card-body">
+                            <i class="fas fa-shield-alt icon-effect-dashboard"></i>
+                            <p class="card-text text-white"><strong>Seguros</strong></p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-6 text-center mt-4">
+                @can('Ver Expedientes')
+                <a href="{{ route('index_admin.view-exp-fisico-admin') }}" class="text-white">
+                @else
+                <a  data-toggle="modal" data-target="#modal-permisos">
+                @endcan
+                    <div class="card" style="border-radius: 15px">
+                        <div class="card-body">
+                            <i class="fas fa-folder-open icon-effect-dashboard"></i>
+                            <p class="card-text"><strong>Exp F&iacute;sico</strong></p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            @if ($users->empresa == 0)
+                <div class="col-6 text-center mt-4">
+                    @can('Ver Licencia de Conducir')
+                    <a href="{{ route('index_admin.licencia') }}" class="text-white">
+                    @else
+                    <a  data-toggle="modal" data-target="#modal-permisos">
+                    @endcan
+                        <div class="card" style="border-radius: 15px">
+                            <div class="card-body">
+                                <i class="far fa-id-badge icon-effect-dashboard"></i>
+                                <p class=" card-text text-white"><strong>Licencia Conducir</strong></p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            @endif
+
+            <div class="col-6 text-center mt-4">
+                @can('Ver Veri')
+                <a href="{{ route('index_admin.verificacion') }}" class="text-white">
+                @else
+                    <a  data-toggle="modal" data-target="#modal-permisos">
+                @endcan
+                    <div class="card" style="border-radius: 15px">
+                        <div class="card-body">
+                            <i class="fas fa-calendar-check icon-effect-dashboard"></i>
+                            <p class="card-text text-white"><strong>Verificaci&oacute;n</strong></p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            @if ($users->empresa == 0)
+                <div class="col-6 text-center mt-4">
+                    @can('Ver Emp')
+                    <a href="{{ route('index_admin.empresa') }}" class="text-white">
+                    @else
+                    <a  data-toggle="modal" data-target="#modal-permisos">
+                    @endcan
+                        <div class="card" style="border-radius: 15px">
+                            <div class="card-body">
+                                <i class="fas fa-building icon-effect-dashboard"></i>
+                                <p class="card-text text-white"><strong>Empresas</strong></p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            @endif
 
             <div class="col-6 text-center position-relative mt-4" >
                 <div class="card" style="border-radius: 15px">
@@ -165,100 +269,21 @@
                 </a>
             </div>
 
+        @if ($users->empresa == 0)
             <div class="col-6 text-center mt-4">
-                @can('Ver Tarjeta C.')
-                <a href="{{ route('indextc_admin.tarjeta-circulacion') }}" class="text-white">
+                @can('Ver Cupones')
+                <a href="{{ route('index_admin.cupon') }}" class="text-white">
                 @else
                 <a  data-toggle="modal" data-target="#modal-permisos">
                 @endcan
                     <div class="card" style="border-radius: 15px">
                         <div class="card-body">
-                            <i class="fas fa-money-check icon-effect-dashboard"></i>
-                            <p class="card-text"><strong>T. Circulaci&oacute;n</strong></p>
+                            <i class="fas fa-qrcode icon-effect-dashboard"></i>
+                            <p class=" card-text text-white"><strong>Cupones</strong></p>
                         </div>
                     </div>
                 </a>
             </div>
-
-            <div class="col-6 text-center mt-4">
-                @can('Ver Expedientes')
-                <a href="{{ route('index_admin.view-exp-fisico-admin') }}" class="text-white">
-                @else
-                <a  data-toggle="modal" data-target="#modal-permisos">
-                @endcan
-                    <div class="card" style="border-radius: 15px">
-                        <div class="card-body">
-                            <i class="fas fa-folder-open icon-effect-dashboard"></i>
-                            <p class="card-text"><strong>Exp F&iacute;sico</strong></p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-        <div class="col-6 text-center mt-4">
-            @can('Ver Seguro')
-            <a href="{{ route('index_admin.seguros') }}" class="text-white">
-            @else
-            <a  data-toggle="modal" data-target="#modal-permisos">
-            @endcan
-                <div class="card" style="border-radius: 15px">
-                    <div class="card-body">
-                        <i class="fas fa-shield-alt icon-effect-dashboard"></i>
-                        <p class="card-text text-white"><strong>Seguros</strong></p>
-                    </div>
-                </div>
-            </a>
-        </div>
-
-        @if ($users->empresa == 0)
-                <div class="col-6 text-center mt-4">
-                    @can('Ver Emp')
-                    <a href="{{ route('index_admin.empresa') }}" class="text-white">
-                    @else
-                    <a  data-toggle="modal" data-target="#modal-permisos">
-                    @endcan
-                        <div class="card" style="border-radius: 15px">
-                            <div class="card-body">
-                                <i class="fas fa-building icon-effect-dashboard"></i>
-                                <p class="card-text text-white"><strong>Empresas</strong></p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-        @endif
-
-
-        <div class="col-6 text-center mt-4">
-            @can('Ver Veri')
-            <a href="{{ route('index_admin.verificacion') }}" class="text-white">
-            @else
-                <a  data-toggle="modal" data-target="#modal-permisos">
-            @endcan
-                <div class="card" style="border-radius: 15px">
-                    <div class="card-body">
-                        <i class="fas fa-calendar-check icon-effect-dashboard"></i>
-                        <p class="card-text text-white"><strong>Verificaci&oacute;n</strong></p>
-                    </div>
-                </div>
-            </a>
-        </div>
-
-
-        @if ($users->empresa == 0)
-                <div class="col-6 text-center mt-4">
-                    @can('Ver Licencia de Conducir')
-                    <a href="{{ route('index_admin.licencia') }}" class="text-white">
-                    @else
-                    <a  data-toggle="modal" data-target="#modal-permisos">
-                    @endcan
-                        <div class="card" style="border-radius: 15px">
-                            <div class="card-body">
-                                <i class="far fa-id-badge icon-effect-dashboard"></i>
-                                <p class=" card-text text-white"><strong>Licencia Conducir</strong></p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
         @endif
 
         <div class="col-6 text-center mt-4">
@@ -288,35 +313,20 @@
             </a>
         </div>
 
-        @if ($users->empresa == 0)
-            <div class="col-6 text-center mt-4">
-                @can('Ver Cupones')
-                <a href="{{ route('index_admin.cupon') }}" class="text-white">
-                @else
-                <a  data-toggle="modal" data-target="#modal-permisos">
-                @endcan
-                    <div class="card" style="border-radius: 15px">
-                        <div class="card-body">
-                            <i class="fas fa-qrcode icon-effect-dashboard"></i>
-                            <p class=" card-text text-white"><strong>Cupones</strong></p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-        @endif
-
-        @if ($users->empresa == 1)
-        <div class="col-6 text-center mt-4">
-            <a href="{{ route('index_admin.gasolina') }}">
+        <div class="col-6 text-center mt-4" style="margin-bottom: 8rem !important;">
+            @can('Ver Cupones')
+            <a href="{{ route('index.cotizacion') }}" class="text-white">
+            @else
+            <a  data-toggle="modal" data-target="#modal-permisos">
+            @endcan
                 <div class="card" style="border-radius: 15px">
                     <div class="card-body">
-                        <i class="fas fa-tachometer-alt icon-effect-dashboard"></i>
-                        <p class="card-text text-white"><strong>Gasolina</strong></p>
+                        <i class="fas fa-file-invoice-dollar icon-effect-dashboard"></i>
+                        <p class=" card-text text-white"><strong>Cotizacion</strong></p>
                     </div>
                 </div>
             </a>
         </div>
-        @endif
 
             <div class="col-6 text-center  mt-4">
                 @can('Crear Roles y Permisos')
@@ -333,20 +343,6 @@
                 </a>
             </div>
 
-            <div class="col-6 text-center mt-4" style="margin-bottom: 8rem !important;">
-                @can('Ver Cupones')
-                <a href="{{ route('index.cotizacion') }}" class="text-white">
-                @else
-                <a  data-toggle="modal" data-target="#modal-permisos">
-                @endcan
-                    <div class="card" style="border-radius: 15px">
-                        <div class="card-body">
-                            <i class="fas fa-file-invoice-dollar icon-effect-dashboard"></i>
-                            <p class=" card-text text-white"><strong>Cotizacion</strong></p>
-                        </div>
-                    </div>
-                </a>
-            </div>
 
         @include('admin.notas.create')
         @include('admin.modal-services')

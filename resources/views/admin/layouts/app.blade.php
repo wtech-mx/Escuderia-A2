@@ -60,6 +60,7 @@
     <script src="{{ asset('js/preloader.js') }}"></script>
     <script src="{{ asset('js/camara-class.js') }}"></script>
     <script src="{{ asset('js/dropzone.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/venobox/1.9.3/venobox.min.js"></script>
     {{-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" ></script> --}}
 
     <!-- bootstrap JavaScript -->

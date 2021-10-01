@@ -91,7 +91,7 @@
                                     </span>
                                 </div>
 
-                                <input type="number" class="form-control" name="km_actual" id="km_actual" placeholder="Km actual">
+                                <input type="number" class="form-control" name="km_actual" id="km_actual" placeholder="Km actual" required>
                             </div>
 
                             {{-- <label for="">
@@ -119,7 +119,7 @@
                                    </span>
                                </div>
 
-                               <input type="number" class="form-control" name="importe" id="importe" placeholder="Importe">
+                               <input type="number" class="form-control" name="importe" id="importe" placeholder="Importe" required>
                            </div>
 
                            <label for="">
@@ -133,7 +133,7 @@
                                     </span>
                                 </div>
 
-                                <input type="number" class="form-control" name="litros" id="litros" placeholder="Litros">
+                                <input type="number" class="form-control" name="litros" id="litros" placeholder="Litros" required>
                             </div>
 
                             <label for="">
@@ -173,7 +173,7 @@
                                 </select>
                             </div>
 
-                            {{-- <label for="" class="mt-3">
+                             <label for="" class="mt-3">
                                 <p class="text-white mt-3"><strong>Foto odometro</strong></p>
                             </label>
 
@@ -187,7 +187,8 @@
 
                             <div class=" custom-file mb-3">
                                 <input type="file" class="custom-file-input input-group-text" name="ticket" id="ticket">
-                            </div> --}}
+                            </div>
+
                                 <div class="row mt-5 mb-5">
                                     <div class="col-6">
                                         <div id="demoGauge" class="gauge" style="
@@ -218,40 +219,7 @@
                                         <p>
                                             <label class="text-white" for="points">Tanque Inicial</label><br />
                                             <input type="range" step="10" id="gaugeValue-demoGauge" name="gaugeValue" min="0" max="100" value="0"
-                                                onInput="updateGauge('demoGauge', 0, 100);" onChange="updateGauge('demoGauge', 0, 100);" />
-                                        </p>
-                                    </div>
-                                    <div class="col-6">
-                                        <div id="demoGauge2" class="gauge" style="
-                                            --gauge-bg: #088478;
-                                            --gauge-value:0;
-                                            --gauge-display-value:0;
-                                            width:150px;
-                                            height:150px;">
-
-                                            <div class="ticks">
-                                                <div class="tithe" style="--gauge-tithe-tick:1;"></div>
-                                                <div class="tithe" style="--gauge-tithe-tick:2;"></div>
-                                                <div class="tithe" style="--gauge-tithe-tick:3;"></div>
-                                                <div class="tithe" style="--gauge-tithe-tick:4;"></div>
-                                                <div class="tithe" style="--gauge-tithe-tick:6;"></div>
-                                                <div class="tithe" style="--gauge-tithe-tick:7;"></div>
-                                                <div class="tithe" style="--gauge-tithe-tick:8;"></div>
-                                                <div class="tithe" style="--gauge-tithe-tick:9;"></div>
-                                                <div class="min"></div>
-                                                <div class="mid"></div>
-                                                <div class="max"></div>
-                                            </div>
-                                            <div class="tick-circle"></div>
-
-                                            <div class="needle">
-                                                <div class="needle-head"></div>
-                                            </div>
-                                        </div>
-                                        <p>
-                                            <label class="text-white" for="points">Tanque despues de carga</label><br />
-                                            <input type="range" step="10" id="gaugeValue-demoGauge2" name="gaugeValue2" min="0" max="100" value="0"
-                                            onInput="updateGauge('demoGauge2', 0, 100);" onChange="updateGauge('demoGauge2', 0, 100);" />
+                                                onInput="updateGauge('demoGauge', 0, 100);" onChange="updateGauge('demoGauge', 0, 100);" required/>
                                         </p>
                                     </div>
                                 </div>
