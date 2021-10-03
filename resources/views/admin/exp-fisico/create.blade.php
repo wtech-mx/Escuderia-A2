@@ -109,9 +109,9 @@
                                     <a class="btn "  data-toggle="collapse" href="#lotefoto" role="button" aria-expanded="false" aria-controls="lotefoto" style="background-color: #00d62e;border: solid 1px #00d62e">
                                        Cargar Lote de Fotos
                                     </a>
-                                    <a class="btn " id="photo-btn"  data-toggle="collapse" href="#tomarfoto" role="button" aria-expanded="false" aria-controls="tomarfoto" style="background-color: #00d62e;border: solid 1px #00d62e">
-                                       Tomar Foto
-                                    </a>
+{{--                                    <a class="btn " id="photo-btn"  data-toggle="collapse" href="#tomarfoto" role="button" aria-expanded="false" aria-controls="tomarfoto" style="background-color: #00d62e;border: solid 1px #00d62e">--}}
+{{--                                       Tomar Foto--}}
+{{--                                    </a>--}}
                                 </p>
 
                                 <div class="collapse show" id="unafoto" data-parent="#myGroup">
@@ -200,23 +200,23 @@
                                     </div>
                                 </div>
 
-                                <div class="collapse" id="tomarfoto" data-parent="#myGroup">
-                                    <div class="card card-body" style="background-color: #ffffff;background-image: none;border: 1px solid #ffffff">
+{{--                                <div class="collapse" id="tomarfoto" data-parent="#myGroup">--}}
+{{--                                    <div class="card card-body" style="background-color: #ffffff;background-image: none;border: 1px solid #ffffff">--}}
 
-                                        <div class="d-flex justify-content-center">
+{{--                                        <div class="d-flex justify-content-center">--}}
 
-                                            <div class="camara-contenedor fadeIn fast oculto mt-5">
-                                                <video id="player" autoplay style="height: 300px;"></video>
-                                            </div>
-                                        </div>
+{{--                                            <div class="camara-contenedor fadeIn fast oculto mt-5">--}}
+{{--                                                <video id="player" autoplay style="height: 300px;"></video>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
 
-                                         <button id="tomar-foto-btn" type="submit" class="btn btn-lg btn-save-dark text-white mt-5">
-                                            <i class="fa fa-camera"></i>
-                                            Tomar Foto
-                                        </button>
+{{--                                         <button id="tomar-foto-btn" type="submit" class="btn btn-lg btn-save-dark text-white mt-5">--}}
+{{--                                            <i class="fa fa-camera"></i>--}}
+{{--                                            Tomar Foto--}}
+{{--                                        </button>--}}
 
-                                    </div>
-                                </div>
+{{--                                    </div>--}}
+{{--                                </div>--}}
 
                             </div>
                         </div>
@@ -230,7 +230,7 @@
 
         <script type="text/javascript">
         Dropzone.options.dropzoneForm = {
-            autoProcessQueue : false,
+            autoProcessQueue : true,
             acceptedFiles : ".png,.jpg,.gif,.bmp,.jpeg",
             uploadMultiple :false,
             forceFallback: false,

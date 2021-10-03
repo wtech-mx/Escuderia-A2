@@ -146,7 +146,7 @@
                     <div class="card" style="border-radius: 15px">
                         <div class="card-body">
                             <i class="fas fa-money-check icon-effect-dashboard"></i>
-                            <p class="card-text"><strong>T. Circulaci&oacute;n</strong></p>
+                            <p class="card-text text-white"><strong>T. Circulaci&oacute;n</strong></p>
                         </div>
                     </div>
                 </a>
@@ -187,7 +187,7 @@
                     <div class="card" style="border-radius: 15px">
                         <div class="card-body">
                             <i class="fas fa-folder-open icon-effect-dashboard"></i>
-                            <p class="card-text"><strong>Exp F&iacute;sico</strong></p>
+                            <p class="card-text text-white"><strong>Exp F&iacute;sico</strong></p>
                         </div>
                     </div>
                 </a>
@@ -313,7 +313,7 @@
             </a>
         </div>
 
-        <div class="col-6 text-center mt-4" style="margin-bottom: 8rem !important;">
+        <div class="col-6 text-center mt-4" >
             @can('Ver Cupones')
             <a href="{{ route('index.cotizacion') }}" class="text-white">
             @else
