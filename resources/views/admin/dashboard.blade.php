@@ -313,7 +313,7 @@
             </a>
         </div>
 
-        <div class="col-6 text-center mt-4" >
+        <div class="col-6 text-center mt-4" style="margin-bottom: 8rem">
             @can('Ver Cupones')
             <a href="{{ route('index.cotizacion') }}" class="text-white">
             @else
@@ -328,7 +328,7 @@
             </a>
         </div>
 
-            <div class="col-6 text-center  mt-4">
+            <div class="col-6 text-center  mt-4" style="margin-bottom: 8rem">
                 @can('Crear Roles y Permisos')
                 <a href="{{ route('index_role.role') }}" class="text-white">
                 @else
