@@ -21,9 +21,11 @@ class GasolinaController extends Controller
         } elseif (auth()->user()->id_sector != NULL) {
             $gasolina = Gasolina::where('id_sector', '=', auth()->user()->id_sector)
                 ->get();
-        } else {
+        } elseif (auth()->user()->id_empresa != NULL) {
             $gasolina = Gasolina::where('id_empresa', '=', auth()->user()->id)
                 ->get();
+        }else{
+            $gasolina = Gasolina::get();
         }
 
 
@@ -211,6 +213,13 @@ class GasolinaController extends Controller
 
         Session::flash('success', 'Se ha guardado sus datos con exito');
         return redirect()->route('index_admin.gasolina');
+    }
+
+    public function show($id)
+    {
+        $gasolina = Gasolina::get();
+
+        return view('admin.gasolina.modal-view', compact('gasolina'));
     }
 
     public function edit_admin($id)
