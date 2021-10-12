@@ -5,6 +5,9 @@
 @section('content')
 
     <link href="{{ asset('css/garje.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/gauge.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/venobox/1.9.3/venobox.min.css" />
 
     <div class="row bg-image">
 
@@ -81,6 +84,7 @@
                                                     <th scope="col">Usuario</th>
                                                     <th scope="col">Submarca / placas</th>
                                                     <th scope="col">Estatus</th>
+                                                    <th scope="col">Accion</th>
 
                                                 </tr>
                                             </thead>
@@ -98,6 +102,13 @@
 
                                                         <td>{{ $item->Automovil->submarca }} /<br> {{ $item->Automovil->placas }}</td>
                                                         <td>{{ $item->estatus }}</td>
+
+                                                        <td>
+                                                            <a type="button" class="btn text-white" data-toggle="modal" data-target="#modal-{{ $item->id }}">
+                                                                <i class="far fa-eye icon-users-edit" style="font-size: 15px;"></i>
+                                                            </a>
+                                                        </td>
+@include('admin.gasolina.modal-view')
                                                     </tr>
                                                 @endforeach
                                             </tbody>
@@ -129,6 +140,17 @@
         $(document).ready(function() {
             $('#seguro_empresa').DataTable();
         });
+
+        function updateGauge(id, min, max) {
+                        const newGaugeDisplayValue = document.getElementById("gaugeValue-" + id).value;
+                        const newGaugeValue = Math.floor(((newGaugeDisplayValue - min) / (max - min)) * 100);
+                        document.getElementById(id).style.setProperty('--gauge-display-value', newGaugeDisplayValue);
+                        document.getElementById(id).style.setProperty('--gauge-value', newGaugeValue);
+                    }
+
+        $(document).ready(function(){
+                $('.venobox').venobox();
+                });
     </script>
 
 @endsection

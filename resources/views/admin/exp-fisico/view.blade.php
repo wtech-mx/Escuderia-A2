@@ -5,6 +5,7 @@
 @section('crop-css')
     <link href="{{ asset('css/dashboard-admin.css') }}" rel="stylesheet">
     <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/venobox/1.9.3/venobox.min.css" />
 @endsection
 
 {{-- @section('css')
@@ -196,21 +197,32 @@
                                     }
                                 @endphp
 
-                                <div  class="col-6">
-                                    <a   data-toggle="modal" data-target="#modal-doc-{{$item->id}}">
-                                        @if($texto == 'pdf')
+                                @if($texto == 'pdf')
+                                    <div  class="col-6">
+                                        <a   data-toggle="modal" data-target="#modal-doc-{{$item->id}}">
+
                                             <p class="text-center">
                                                 <iframe width="140" height="140" src="{{asset($ruta.$item->img)}}" frameborder="0"></iframe>
                                                 <p class="text-center text-white">{{$item->titulo}}</p>
                                             </p>
-                                        @else
-                                            <p class="text-center">
+
+                                        </a>
+                                    </div>
+                                @else
+                                    <div  class="col-6">
+                                        <a class="venobox" data-gall="myGallery" href="{{asset($ruta.$item->img)}}">
+                                                <p class="text-center">
                                                     <img class="d-inline mb-2" src="{{asset($ruta.$item->img)}}" width="100px">
                                                     <p class="text-center text-white">{{$item->titulo}}</p>
-                                            </p>
-                                        @endif
-                                    </a>
-                                </div>
+                                                </p>
+                                        </a>
+                                        @can('Borrar Exp')
+                                        <a  class="btn btn-danger text-white p-2 mt-5 mb-5" data-toggle="modal" data-target="{{$item->id}}">
+                                            <i class="fa fa-trash" aria-hidden="true"></i>
+                                        </a>
+                                        @endcan
+                                    </div>
+                                @endif
 
                                 @include('admin.exp-fisico.modal-view')
                                 @include('exp-fisico.eliminar')
@@ -291,9 +303,11 @@
         // {{--    });--}}
 
         // {{--});--}}
-
-
+        $(document).ready(function(){
+                $('.venobox').venobox();
+                });
     </script>
+
 
 @endsection
 
