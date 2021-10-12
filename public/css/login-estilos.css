@@ -40,6 +40,7 @@
     position: relative;
     background-repeat: repeat;
     min-height: 100vh;
+    padding: 0rem 0rem 6rem 0rem;
 }
 
 .bg-down-blue-border{
