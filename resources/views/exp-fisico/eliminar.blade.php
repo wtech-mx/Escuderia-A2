@@ -86,7 +86,7 @@
 @endphp
 @endif
 
-<div class="modal fade show" id="modal{{$item->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade show" id="modal-{{$item->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 
     <form method="POST" action="{{route('destroy.expediente',$item->id)}}">
 

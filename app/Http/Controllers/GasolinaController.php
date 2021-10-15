@@ -8,6 +8,9 @@ use Illuminate\Http\Request;
 use DB;
 use Session;
 
+use App\Exports\GasolinaExport;
+use Maatwebsite\Excel\Facades\Excel;
+
 class GasolinaController extends Controller
 {
     /*|--------------------------------------------------------------------------
@@ -240,5 +243,10 @@ class GasolinaController extends Controller
 
         Session::flash('success2', 'Se ha actualizado sus datos con exito');
         return redirect()->back();
+    }
+
+    public function export()
+    {
+        return Excel::download(new GasolinaExport, 'gasolina.xlsx');
     }
 }

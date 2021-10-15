@@ -211,17 +211,25 @@
                                 @else
                                     <div  class="col-6">
                                         <a class="venobox" data-gall="myGallery" href="{{asset($ruta.$item->img)}}">
-                                                <p class="text-center">
-                                                    <img class="d-inline mb-2" src="{{asset($ruta.$item->img)}}" width="100px">
-                                                    <p class="text-center text-white">{{$item->titulo}}</p>
-                                                </p>
+                                            <p class="text-center">
+                                                <img class="d-inline mb-2" src="{{asset($ruta.$item->img)}}" width="100px">
+                                            </p>
                                         </a>
-                                        @can('Borrar Exp')
-                                        <a  class="btn btn-danger text-white p-2 mt-5 mb-5" data-toggle="modal" data-target="{{$item->id}}">
-                                            <i class="fa fa-trash" aria-hidden="true"></i>
-                                        </a>
-                                        @endcan
+
+                                        <p class="text-white text-center">{{$item->titulo}}</p>
+                                        <p class="text-center ">
+                                            @can('Borrar Exp')
+                                            <a  class="btn btn-danger text-white" data-toggle="modal" data-target="#modal-{{$item->id}}">
+                                                <i class="fa fa-trash" aria-hidden="true"></i>
+                                            </a>
+                                            <a href="https://wa.me/5211234567890?text=Me%20gustaría%20saber%20el%20precio%20del%20coche" class="whatsapp" target="_blank">
+                                                 <i class="fa fa-whatsapp whatsapp-icon"></i>
+                                            </a>
+                                            @endcan
+                                        </p>
+
                                     </div>
+
                                 @endif
 
                                 @include('admin.exp-fisico.modal-view')

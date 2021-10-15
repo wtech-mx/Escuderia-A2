@@ -13,6 +13,7 @@ class Gasolina extends Model
     protected $primarykey = "id";
 
     protected $fillable = [
+        'id',
         'id_user',
         'id_empresa',
         'id_sector',
@@ -24,9 +25,11 @@ class Gasolina extends Model
         'gasolina',
         'tipo_pago',
         'estatus',
-        'fecha_estatus',
-        'img1',
-        'img2',
+        'km_recorridos',
+        'cantidad_final',
+        'consumo',
+        'odometro',
+        'ticket',
     ];
 
     public function User()

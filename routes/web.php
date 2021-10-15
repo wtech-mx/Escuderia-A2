@@ -36,6 +36,8 @@ Route::get('/exportar', 'UserController@export');
 
 Route::get('/exportar', 'AutomovilController@export');
 
+Route::get('/exportar', 'GasolinaController@export');
+
 Route::get('/export_empresa', 'AutomovilController@export_empresa');
 
 /*|--------------------------------------------------------------------------

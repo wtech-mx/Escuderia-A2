@@ -69,9 +69,13 @@
                                 <div class="col-12">
                                     <div class="d-flex justify-content-center">
 
-                                        <h5 class="text-center text-white mt-4 ml-4 mr-4 ">
+                                        <h5 class="text-center text-white mt-4 p-2">
                                             <strong>Registros Personales</strong>
                                         </h5>
+
+                                        <a class="text-white p-2" href="/exportar">
+                                            <i class="fa fa-download icon-effect" aria-hidden="true"></i>
+                                        </a>
                                     </div>
                                 </div>
 
