@@ -15,7 +15,7 @@
                     <i class="fa fa-window-close text-white" aria-hidden="true"></i>
                 </a>
             </div>
-
+{{-- Hola --}}
             <div class="modal-body">
 
                 <label for="">
