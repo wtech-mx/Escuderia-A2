@@ -13,3 +13,12 @@ npm-debug.log
 yarn-error.log
 *.xml
 .idea/workspace.xml
+.idea/Escuderia-A2.iml
+.idea/php.xml
+.idea/workspace.xml
+app/Http/Controllers/ExpedientesController.php
+composer.json
+composer.lock
+public/exp-factura/1633219399.png
+public/exp-factura/1633219400.png
+resources/views/admin/dashboard.blade.php

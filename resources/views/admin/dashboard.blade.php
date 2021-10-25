@@ -99,7 +99,7 @@
 
     <div class="row-content" style="position: relative;background-color: #31ba4b;width: 360px;left: -10px"></div>
     <div class="row bg-down-blue"
-        style="z-index:1000;top: -30px;background-image: linear-gradient(to bottom, #00d62e, #2ce048, #43eb5f, #56f574, #68ff88);border-radius: 30px 30px 0 0;">
+        style="z-index:1000;top: -30px;background-image: linear-gradient(to bottom, #00d62e, #2ce048, #43eb5f, #56f574, #68ff88);border-radius: 30px 30px 0 0; ">
 
             <div class="col-12 p-4">
                 <h6 class="text-center text-white">
@@ -313,7 +313,7 @@
             </a>
         </div>
 
-        <div class="col-6 text-center mt-4" style="margin-bottom: 8rem">
+        <div class="col-6 text-center mt-4" style="">
             @can('Ver Cupones')
             <a href="{{ route('index.cotizacion') }}" class="text-white">
             @else
@@ -328,7 +328,7 @@
             </a>
         </div>
 
-            <div class="col-6 text-center  mt-4" style="margin-bottom: 8rem">
+        <div class="col-6 text-center  mt-4" style="">
                 @can('Crear Roles y Permisos')
                 <a href="{{ route('index_role.role') }}" class="text-white">
                 @else

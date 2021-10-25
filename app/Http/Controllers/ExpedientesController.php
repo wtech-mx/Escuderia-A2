@@ -507,26 +507,26 @@ class ExpedientesController extends Controller
 
             $filepath = public_path($ruta . '/' . $exp->img);
 
-            try {
-                \Tinify\setKey(env("TINIFY_API_KEY"));
-                $source = \Tinify\fromFile($filepath);
-                $source->toFile($filepath);
-            } catch (\Tinify\AccountException $e) {
-                // Verify your API key and account limit.
-                return redirect()->back()->with('error', $e->getMessage());
-            } catch (\Tinify\ClientException $e) {
-                // Check your source image and request options.
-                return redirect()->back()->with('error', $e->getMessage());
-            } catch (\Tinify\ServerException $e) {
-                // Temporary issue with the Tinify API.
-                return redirect()->back()->with('error', $e->getMessage());
-            } catch (\Tinify\ConnectionException $e) {
-                // A network connection error occurred.
-                return redirect()->back()->with('error', $e->getMessage());
-            } catch (Exception $e) {
-                // Something else went wrong, unrelated to the Tinify API.
-                return redirect()->back()->with('error', $e->getMessage());
-            }
+//            try {
+//                \Tinify\setKey(env("TINIFY_API_KEY"));
+//                $source = \Tinify\fromFile($filepath);
+//                $source->toFile($filepath);
+//            } catch (\Tinify\AccountException $e) {
+//                // Verify your API key and account limit.
+//                return redirect()->back()->with('error', $e->getMessage());
+//            } catch (\Tinify\ClientException $e) {
+//                // Check your source image and request options.
+//                return redirect()->back()->with('error', $e->getMessage());
+//            } catch (\Tinify\ServerException $e) {
+//                // Temporary issue with the Tinify API.
+//                return redirect()->back()->with('error', $e->getMessage());
+//            } catch (\Tinify\ConnectionException $e) {
+//                // A network connection error occurred.
+//                return redirect()->back()->with('error', $e->getMessage());
+//            } catch (Exception $e) {
+//                // Something else went wrong, unrelated to the Tinify API.
+//                return redirect()->back()->with('error', $e->getMessage());
+//            }
         }
 
         $exp->current_auto = $automovil->id;
@@ -612,26 +612,26 @@ class ExpedientesController extends Controller
 
             $filepath = public_path($ruta . '/' . $exp->img);
 
-            try {
-                \Tinify\setKey(env("TINIFY_API_KEY"));
-                $source = \Tinify\fromFile($filepath);
-                $source->toFile($filepath);
-            } catch (\Tinify\AccountException $e) {
-                // Verify your API key and account limit.
-                return redirect()->back()->with('error', $e->getMessage());
-            } catch (\Tinify\ClientException $e) {
-                // Check your source image and request options.
-                return redirect()->back()->with('error', $e->getMessage());
-            } catch (\Tinify\ServerException $e) {
-                // Temporary issue with the Tinify API.
-                return redirect()->back()->with('error', $e->getMessage());
-            } catch (\Tinify\ConnectionException $e) {
-                // A network connection error occurred.
-                return redirect()->back()->with('error', $e->getMessage());
-            } catch (Exception $e) {
-                // Something else went wrong, unrelated to the Tinify API.
-                return redirect()->back()->with('error', $e->getMessage());
-            }
+//            try {
+//                \Tinify\setKey(env("TINIFY_API_KEY"));
+//                $source = \Tinify\fromFile($filepath);
+//                $source->toFile($filepath);
+//            } catch (\Tinify\AccountException $e) {
+//                // Verify your API key and account limit.
+//                return redirect()->back()->with('error', $e->getMessage());
+//            } catch (\Tinify\ClientException $e) {
+//                // Check your source image and request options.
+//                return redirect()->back()->with('error', $e->getMessage());
+//            } catch (\Tinify\ServerException $e) {
+//                // Temporary issue with the Tinify API.
+//                return redirect()->back()->with('error', $e->getMessage());
+//            } catch (\Tinify\ConnectionException $e) {
+//                // A network connection error occurred.
+//                return redirect()->back()->with('error', $e->getMessage());
+//            } catch (Exception $e) {
+//                // Something else went wrong, unrelated to the Tinify API.
+//                return redirect()->back()->with('error', $e->getMessage());
+//            }
         }
 
         $exp->current_auto = $automovil->id;
