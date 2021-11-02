@@ -2442,10 +2442,23 @@ textarea.form-control-lg {
   outline: 0;
   box-shadow: 0 0 0 0.25rem rgba(52, 144, 220, 0.25);
 }
-.form-check-input:checked {
+.form-check-input:checked{
   background-color: #3490dc;
   border-color: #3490dc;
 }
+
+.bueno .form-check-input:checked {
+    background-color: rgb(63, 240, 63);
+  }
+
+  .regular  .form-check-input:checked{
+    background-color: rgb(245, 145, 15);
+  }
+
+  .malo .form-check-input:checked {
+    background-color: rgb(230, 25, 25);
+  }
+
 .form-check-input:checked[type=checkbox] {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
 }

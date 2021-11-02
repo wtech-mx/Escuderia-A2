@@ -322,7 +322,7 @@
                 <div class="card" style="border-radius: 15px">
                     <div class="card-body">
                         <i class="fas fa-file-invoice-dollar icon-effect-dashboard"></i>
-                        <p class=" card-text text-white"><strong>Cotizacion</strong></p>
+                        <p class=" card-text text-white"><strong>Orden de servicio</strong></p>
                     </div>
                 </div>
             </a>

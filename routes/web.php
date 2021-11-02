@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use Illuminate\Support\Facades\Route;
+use App\Models\User;
 
 use App\Exports\UsersExport;
 use Illuminate\Support\Facades\Storage;
@@ -429,6 +430,22 @@ require __DIR__ . '/auth.php';
 Route::get('admin/cotizacion/view', 'CotizacionController@index')->name('index.cotizacion');
 Route::get('admin/cotizacion/crear', 'CotizacionController@create')->name('create.cotizacion');
 Route::post('admin/cotizacion/store', 'CotizacionController@store')->name('store.cotizacion');
+
+Route::get('admin/cotizacion/crear/{id}', 'CotizacionController@GetAutoAgainstMainCatEdit');
+
+Route::get('admin/cotizacion/crear/{user}', function (User $user) {
+    return $user->only('name');
+});
+
+/*|--------------------------------------------------------------------------
+|Diagnostico
+|--------------------------------------------------------------------------*/
+Route::get('admin/diagnostico/edit/{id}', 'CotizacionDiagnosticoController@edit')->name('edit.diagnostico');
+Route::post('admin/diagnostico/update/{id}', 'CotizacionDiagnosticoController@update')->name('update.diagnostico');
+
+Route::get('admin/taller/edit/{id}', 'TallerController@edit')->name('edit.taller');
+Route::post('admin/taller/update/{id}', 'TallerController@update')->name('update.taller');
+
 
 /*|--------------------------------------------------------------------------
 |PDF Cotizacion

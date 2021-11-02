@@ -364,30 +364,30 @@
                                         });
                                     </script>
 
-<script>
-    $(document).ready(function () {
-        $('#id_empresaac').on('change', function () {
-            let id = $(this).val();
-            //id_empresaac no esta en la tabla de automovil
-            $('#current_autoac').empty();
-            $('#current_autoac').append(`<option value="" disabled selected>Procesando..</option>`);
-                $.ajax({
-                type: 'GET',
-                url: 'crear/sector/' + id,
-                success: function (response) {
-                var response = JSON.parse(response);
-                console.log(response);
-                //trae los automoviles relacionados con el id_empresaac
-                $('#current_autoac').empty();
-                $('#current_autoac').append(`<option value="" disabled selected>Seleccione Autom&oacute;vil</option>`);
-                response.forEach(element => {
-                    $('#current_autoac').append(`<option value="${element['id']}">${element['submarca']}</option>`);
-                    });
-                }
-            });
-        });
-    });
-</script>
+                                    <script>
+                                        $(document).ready(function () {
+                                            $('#id_empresaac').on('change', function () {
+                                                let id = $(this).val();
+                                                //id_empresaac no esta en la tabla de automovil
+                                                $('#current_autoac').empty();
+                                                $('#current_autoac').append(`<option value="" disabled selected>Procesando..</option>`);
+                                                    $.ajax({
+                                                    type: 'GET',
+                                                    url: 'crear/sector/' + id,
+                                                    success: function (response) {
+                                                    var response = JSON.parse(response);
+                                                    console.log(response);
+                                                    //trae los automoviles relacionados con el id_empresaac
+                                                    $('#current_autoac').empty();
+                                                    $('#current_autoac').append(`<option value="" disabled selected>Seleccione Autom&oacute;vil</option>`);
+                                                    response.forEach(element => {
+                                                        $('#current_autoac').append(`<option value="${element['id']}">${element['submarca']}</option>`);
+                                                        });
+                                                    }
+                                                });
+                                            });
+                                        });
+                                    </script>
 
                                   <script>
                                     var agregar3 = document.getElementById('proveedor3');

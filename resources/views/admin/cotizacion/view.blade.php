@@ -20,7 +20,7 @@
 
         <div class="col-8  mt-4">
             <h5 class="text-center text-white ml-4 mr-4 ">
-                <strong>Cotización</strong>
+                <strong>Orden de Servicio</strong>
             </h5>
         </div>
 
@@ -61,34 +61,32 @@
                                 <thead>
                                     <tr>
                                         <th scope="col">Cliente</th>
-                                        <th scope="col">Monto $</th>
+                                        <th scope="col">Fecha</th>
+                                        <th scope="col">Estatus</th>
                                         <th scope="col">Acciones</th>
 
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($cotizacion as $item)
+                                    @foreach ($cotizacion_servicio as $item)
                                         <tr>
                                             <th>
-                                            @if ($item->id_user != NULL)
-                                                {{$item->User->name}}
-                                                @elseif ($item->user != NULL)
-                                                    {{$item->user}}
-                                                    @elseif ($item->id_empresa != NULL)
-                                                        {{$item->Empresa->name}}
-                                                        @else
-                                                            {{$item->empresa}}
-                                            @endif
+                                                {{$item->Cotizacion->User->name}}
                                             </th>
-                                            <td>{{ $item->total }}</td>
+                                            <td>{{ $item->Cotizacion->fecha }}</td>
+                                            <td>{{ $item->Cotizacion->estatus }}</td>
                                             <td>
-                                                <a href="{{ route('print', $item->id) }}">
-                                                    <i class="fas fa-file-pdf icon-users-edit" style="margin-right: 10px; font-size: 15px;"></i>
+                                                <a href="{{ route('edit.diagnostico', $item->id) }}">
+                                                    <i class="fas fa-oil-can icon-users-edit" style="margin-right: 10px; font-size: 15px;"></i>
+                                                </a>
+                                                <a href="">
+                                                    <i class="fas fa-tasks icon-users-edit" style="margin-right: 10px; font-size: 15px;"></i>
                                                 </a>
                                             </td>
 
+
                                         </tr>
-                                    @endforeach
+                                        @endforeach
                                 </tbody>
                             </table>
 

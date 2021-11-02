@@ -23,7 +23,7 @@
 
                     <div class="col-8 mt-5">
                                 <h5 class="text-center text-white ml-4 mr-4 ">
-                                    <strong>Cotización</strong>
+                                    <strong>Orden de servicio</strong>
                                 </h5>
                     </div>
 
@@ -63,158 +63,75 @@
                                         </script>
                             @endif
 
-                            <div id="accordion">
+                            <label for="" >
+                                <p class="text-white"><strong>Usario</strong></p>
+                            </label>
 
-                                <div class="card">
-                                  <div class="card-header" id="headingOne">
-                                    <h5 class="mb-0">
-                                      <a class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                        Información del cliente o Empresa
-                                      </a>
-                                    </h5>
-                                  </div>
+                            <div class="input-group form-group mb-5">
+                                <select class="col-12 usuario" id="id_userco" name="id_userco">
+                                    <option value="">Seleccione Cliente</option>
+                                   @foreach ($user as $item)
+                                       <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                   @endforeach
+                               </select>
+                            </div>
 
-                                  <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-                                    <div class="card-body">
+                            <label for="">
+                                <p class="text-white"><strong>Automovil</strong></p>
+                            </label>
 
-                                        <label for="">
-                                            <p ><strong>Cliente Existente</strong></p>
-                                        </label>
+                            <div class="input-group form-group mb-5">
+                                <select class="form-control" id="current_autoco" name="current_autoco">
+                                    <option value="">seleccione auto</option>
+                                    </select>
+                            </div>
 
-                                       <div class="input-group form-group mb-3">
-                                           <select class="col-12 usuario" id="id_user" name="id_user">
-                                                <option value="">Seleccione Cliente</option>
-                                               @foreach ($user as $item)
-                                                   <option value="{{ $item->id }}">{{ $item->name }}</option>
-                                               @endforeach
-                                           </select>
-                                       </div>
+                            <label for="">
+                                <p class="text-white"><strong>Fecha</strong></p>
+                            </label>
 
-                                       <label for="">
-                                            <p ><strong>Clinete no registrado</strong></p>
-                                        </label>
+                            <div class="input-group form-group mb-5">
+                                <input type="date" class="form-control" id="fecha" name="fecha">
+                            </div>
 
-                                        <div class="input-group form-group mb-5">
-                                            <input type="text" class="form-control" placeholder="Nombre Cliente Externo" id="user" name="user">
-                                        </div>
+                            <label for="">
+                                <p class="text-white"><strong>Descripción</strong></p>
+                            </label>
 
-
-                                       <label for="">
-                                            <p ><strong>Empresa</strong></p>
-                                        </label>
-
-                                        <div class="input-group form-group mb-3">
-                                            <select class="form-control" id="id_empresa" name="id_empresa">
-                                                    <option value="">Seleccione Empresa Interno</option>
-                                                @foreach ($empresa as $item)
-                                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-
-                                        <label for="">
-                                            <p ><strong>Empresa no registrada</strong></p>
-                                        </label>
-
-                                        <div class="input-group form-group mb-5">
-                                            <input type="text" class="form-control" placeholder="Nombre Empresa Externa" id="empresa" name="empresa">
-                                        </div>
-
-                                        <label for="">
-                                            <p ><strong>Telefono</strong></p>
-                                        </label>
-
-                                        <div class="input-group form-group mb-5">
-                                            <input type="number" class="form-control" placeholder="55 5555 5555" id="telefono" name="telefono">
-                                        </div>
-
-                                        <label for="">
-                                            <p ><strong>Correo</strong></p>
-                                        </label>
-
-                                        <div class="input-group form-group mb-5">
-                                            <input type="text" class="form-control" placeholder="correo@correo.com" id="correo" name="correo">
-                                        </div>
-
-                                    </div>
-                                  </div>
-                                </div>
-
-                                <div class="card">
-                                  <div class="card-header" id="headingTwo">
-                                    <h5 class="mb-0">
-                                      <a class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                        Servicio
-                                      </a>
-                                    </h5>
-                                    <input type="button" class="proveedor3" id="proveedor3" value="Agregar servicio">
-                                  </div>
-                                  <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                                    <div class="card-body">
-
-                                        <label>Servicio</label>
-                                        <div class="input-group form-group mb-4">
-                                            <input type="text" class="form-control" name="servicio[]" placeholder="Servicio">
-                                        </div>
-
-                                        <label>Pieza o Refacción</label>
-                                        <div class="input-group form-group mb-4">
-                                            <input type="text" class="form-control" name="pieza[]" placeholder="pieza / Refacción">
-                                        </div>
-
-                                        <label>Cantidad</label>
-                                        <div class="input-group form-group mb-4">
-                                            <input type="number" class="form-control" name="cantidad[]" placeholder="Cantidad">
-                                        </div>
-
-                                        <label>Mano de Obra</label>
-                                        <div class="input-group form-group mb-4">
-                                            <input type="number" class="form-control" name="mano_o[]" placeholder="Mano de Obra">
-                                        </div>
-
-                                        <div id="nuevo-form3"></div>
-
-                                        <label>Costo Total</label>
-                                        <div class="input-group form-group mb-4">
-                                            <input type="number" class="form-control" name="total" placeholder="Costo total">
-                                        </div>
-
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
+                            <div class="input-group form-group mb-5">
+                                <textarea class="form-control" rows="4" cols="50" id="descripcion" name="descripcion"></textarea>
+                            </div>
 
                             <div class="col-12 text-center mt-2" style="margin-bottom: 8rem !important;">
                                 <button class="btn btn-lg btn-save-neon text-white">
                                     <i class="fas fa-save icon-tc"></i>
-                                    Actualizar
+                                    Guardar
                                 </button>
                             </div>
 
-
                             <script>
-                                var agregar3 = document.getElementById('proveedor3');
-                                var contenedor3 = document.getElementById('nuevo-form3');
-                                var contador = 0;
-
-                                agregar3.addEventListener('click', function(){
-                                    contador++;
-                                    var _form3 = '<hr>'+
-                                                '<label>Servicio</label>' +
-                                                '<div class="input-group form-group mb-4">' +
-                                                '<input type="text" class="form-control" name="servicio[]" placeholder="Servicio"></div>' +
-                                                '<label>Pieza o Refacción</label>' +
-                                                '<div class="input-group form-group mb-4">' +
-                                                '<input type="text" class="form-control" name="pieza[]" placeholder="pieza / Refacción"></div>' +
-                                                '<label>Cantidad</label>' +
-                                                '<div class="input-group form-group mb-4">' +
-                                                '<input type="number" class="form-control" name="cantidad[]" placeholder="Cantidad"></div>' +
-                                                '<label>Mano de Obra</label>' +
-                                                '<div class="input-group form-group mb-4">' +
-                                                '<input type="number" class="form-control" name="mano_o[]" placeholder="Mano de Obra"></div>';
-
-                                    contenedor3.innerHTML += _form3;
-                                })
+                                            $(document).ready(function () {
+                                            $('#id_userco').on('change', function () {
+                                            let id = $(this).val();
+                                            //id_userco no esta en la tabla de automovil
+                                            $('#current_autoco').empty();
+                                            $('#current_autoco').append(`<option value="" disabled selected>Procesando..</option>`);
+                                            $.ajax({
+                                            type: 'GET',
+                                            url: 'crear/' + id,
+                                            success: function (response) {
+                                            var response = JSON.parse(response);
+                                            console.log(response);
+                                            //trae los automoviles relacionados con el id_userco
+                                            $('#current_autoco').empty();
+                                            $('#current_autoco').append(`<option value="" disabled selected>Seleccione Autom&oacute;vil</option>`);
+                                            response.forEach(element => {
+                                                $('#current_autoco').append(`<option value="${element['id']}">${element['placas']}${element['submarca']}</option>`);
+                                                });
+                                            }
+                                        });
+                                    });
+                                });
                             </script>
 
                         </form>

@@ -13,11 +13,19 @@ class CotizacionServicio extends Model
 
     protected $fillable = [
         'id_cotizacion',
-        'servicio',
-        'pieza',
-        'cantidad',
-        'mano_o',
-        'subtotal',
+        'carroceria',
+        'suspencion_d',
+        'suspencion_t',
+        'frenos_d',
+        'frenos_t',
+        'llantas_d',
+        'llantas_t',
+        'mangueras',
+        'luces',
+        'aceite',
+        'afinacion_b',
+        'afinacion_f',
+        'observaciones',
     ];
 
     public function Cotizacion()

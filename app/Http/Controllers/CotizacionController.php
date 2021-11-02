@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Cotizacion;
 use App\Models\CotizacionServicio;
+use App\Models\CotizacionDiagnostico;
+use App\Models\Taller;
 use Illuminate\Http\Request;
 use DB;
 use Session;
@@ -18,12 +20,13 @@ class CotizacionController extends Controller
     public function index()
     {
         $cotizacion = Cotizacion::get();
+        $cotizacion_servicio = CotizacionServicio::get();
 
         $user = DB::table('users')
             ->where('role', '=', '0')
             ->get();
 
-        return view('admin.cotizacion.view', compact('cotizacion', 'user'));
+        return view('admin.cotizacion.view', compact('cotizacion', 'user', 'cotizacion_servicio'));
     }
 
     /**
@@ -38,11 +41,16 @@ class CotizacionController extends Controller
             ->where('empresa', '=', '0')
             ->get();
 
-        $empresa = DB::table('users')
-            ->where('empresa', '=', '1')
+        $auto = DB::table('automovil')
             ->get();
 
-        return view('admin.cotizacion.create', compact('user', 'empresa'));
+        return view('admin.cotizacion.create', compact('user', 'auto'));
+    }
+
+    /* Trae los automoviles con el user seleccionado  */
+    public function GetAutoAgainstMainCatEdit($id)
+    {
+        echo json_encode(DB::table('automovil')->where('id_user', $id)->get());
     }
 
     /**
@@ -54,47 +62,29 @@ class CotizacionController extends Controller
     public function store(Request $request)
     {
         $cotizacion = new Cotizacion;
-        $cotizacion->id_user = $request->get('id_user');
-        $cotizacion->id_empresa = $request->get('id_empresa');
-        $cotizacion->user = $request->get('user');
-        $cotizacion->empresa = $request->get('empresa');
-        $cotizacion->telefono = $request->get('telefono');
-        $cotizacion->correo = $request->get('correo');
-        $cotizacion->total = $request->get('total');
+        $cotizacion->id_user = $request->get('id_userco');
+        $cotizacion->current_auto = $request->get('current_autoco');
+        $cotizacion->descripcion = $request->get('descripcion');
+        $cotizacion->fecha = $request->get('fecha');
+        $cotizacion->estatus = "pendiente";
         $cotizacion->save();
 
-        $servicio = $request->servicio;
-        $pieza = $request->pieza;
-        $cantidad = $request->cantidad;
-        $mano_o = $request->mano_o;
+        $cotizacion_servicio = new CotizacionServicio;
+        $cotizacion_servicio->id_cotizacion = $cotizacion->id;
+        $cotizacion_servicio->save();
 
-        for ($count = 0; $count < count($servicio); $count++) {
-            $data = array(
-                'servicio' => $servicio[$count],
-                'pieza' => $pieza[$count],
-                'cantidad' => $cantidad[$count],
-                'mano_o' => $mano_o[$count],
-                'id_cotizacion' => $cotizacion->id,
-            );
-            $insert_data[] = $data;
-        }
+        $cotizacion_diagnostico = new CotizacionDiagnostico;
+        $cotizacion_diagnostico->id_cotizacion_servicio = $cotizacion_servicio->id;
+        $cotizacion_diagnostico->save();
 
-        CotizacionServicio::insert($insert_data);
-
+        $cotizacion_taller = new Taller;
+        $cotizacion_taller->id_cotizacion = $cotizacion->id;
+        $cotizacion_taller->save();
 
         Session::flash('auto', 'Se ha guardado sus datos con exito');
         return redirect()->route('index.cotizacion', compact('cotizacion'));
     }
 
-    public function imprimir($id)
-    {
-        $cotizacions = CotizacionServicio::
-        where('id_cotizacion', '=', $id)
-        ->get();
-        $cotizacion = Cotizacion::findOrFail($id);
-        $pdf = \PDF::loadView('pdf-cotizacion', compact('cotizacions', 'cotizacion'));
-        return $pdf->download('cotizacion_'. $cotizacion->id .'.pdf');
-    }
 
     /**
      * Show the form for editing the specified resource.

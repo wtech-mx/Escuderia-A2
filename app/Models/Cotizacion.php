@@ -14,18 +14,18 @@ class Cotizacion extends Model
 
     protected $fillable = [
         'id_user',
-        'id_empresa',
+        'current_auto',
         'descripcion',
-        'total',
+        'fecha',
+        'estatus',
     ];
 
     public function User()
     {
         return $this->belongsTo(User::class, 'id_user');
     }
-    public function Empresa()
+    public function Automovil()
     {
-        return $this->belongsTo(User::class, 'id_empresa');
+        return $this->belongsTo(Automovil::class, 'current_auto');
     }
-
 }
