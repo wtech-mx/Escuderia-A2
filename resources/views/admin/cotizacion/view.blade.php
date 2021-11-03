@@ -41,8 +41,6 @@
             </h5>
         </div>
 
-
-
 <div class="col-12">
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="60000">
         <div class="carousel-inner">
@@ -82,8 +80,11 @@
                                                 <a href="">
                                                     <i class="fas fa-tasks icon-users-edit" style="margin-right: 10px; font-size: 15px;"></i>
                                                 </a>
+{{--                                                <a target="_blank" href="https://wa.me/52{{$item->Cotizacion->User->telefono}}/?text=Muy Buen dia {{$item->Cotizacion->User->name}} te mandamos tu Hoja de diagnostico ...:{{ route('edit.diagnostico', $item->id) }}">--}}
+                                                <a target="_blank" href="https://wa.me/52{{$item->Cotizacion->User->telefono}}?text=Hola%2C+{{$item->Cotizacion->User->name}}%3A%0D%0ATe+mandamos+tu+Hoja+de+diagnostico+de+tu+auto.%0D%0ADa+click+en+el+siguente+enlace%0D%0A%0D%0A{{ route('edit.diagnostico', $item->id) }}">
+                                                    <i class="fab fa-whatsapp icon-users-edit" style="margin-right: 10px; font-size: 15px;"></i>
+                                                </a>
                                             </td>
-
 
                                         </tr>
                                         @endforeach

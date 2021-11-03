@@ -36,35 +36,58 @@
                     </div>
 
                     <div class="col-6  mt-4">
+                        <p class="text-center  ml-4 mr-4 " style="color:#00ff37;font-weight: bold;">
+                            Fecha:
+                        </p>
                         <h5 class="text-center text-white ml-4 mr-4 ">
                             <strong>{{$cotizacion->Cotizacion->fecha}}</strong>
                         </h5>
                     </div>
 
                     <div class="col-6  mt-4">
+                        <p class="text-center  ml-4 mr-4 " style="color:#00ff37;font-weight: bold;">
+                            Telefono:
+                        </p>
                         <h5 class="text-center text-white ml-4 mr-4 ">
                             <strong>{{$cotizacion->Cotizacion->User->telefono}}</strong>
                         </h5>
                     </div>
 
                     <div class="col-6  mt-4">
+                        <p class="text-center  ml-4 mr-4 " style="color:#00ff37;font-weight: bold;">
+                            Nombre:
+                        </p>
                         <h5 class="text-center text-white ml-4 mr-4 ">
                             <strong>{{$cotizacion->Cotizacion->User->name}}</strong>
                         </h5>
                     </div>
 
-                    <div class="col-6  mt-4">
+                    <div class="col-3  mt-4">
+                        <p class="text-center  ml-4 mr-4 " style="color:#00ff37;font-weight: bold;">
+                            Marca:
+                        </p>
+                        <h5 class="text-center text-white ml-4 mr-4 ">
+                            <strong>{{$cotizacion->Cotizacion->Automovil->Marca->nombre}}</strong>
+                        </h5>
+                    </div>
+
+                    <div class="col-3  mt-4">
+                        <p class="text-center  ml-4 mr-4 " style="color:#00ff37;font-weight: bold;">
+                            Placas:
+                        </p>
                         <h5 class="text-center text-white ml-4 mr-4 ">
                             <strong>{{$cotizacion->Cotizacion->Automovil->placas}}</strong>
                         </h5>
                     </div>
         </div>
 
-
-
                 <div class="row  bg-down-image-border" >
 
                     <div class="col-12  mt-5">
+
+                        <h3 class="text-center  ml-4 mr-4 " style="color:#00ff37;font-weight: bold;">
+                            Servicios
+                        </h3>
 
                     <form class="card-details" method="POST" action="{{route('update.diagnostico', $cotizacion->id)}}" enctype="multipart/form-data" role="form">
                         @csrf
@@ -444,6 +467,10 @@
                             <div class="input-group form-group mb-5">
                                 <textarea class="form-control" rows="4" cols="6" value="3" id="observaciones" name="observaciones">{{$cotizacion->observaciones}}</textarea>
                             </div>
+
+                            <h3 class="text-center  ml-4 mr-4 " style="color:#00ff37;font-weight: bold;">
+                                Niveles
+                            </h3>
 
                             <table id="seguro" class="table text-white">
                                 <thead>
