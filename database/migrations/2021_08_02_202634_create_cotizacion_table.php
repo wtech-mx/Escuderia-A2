@@ -21,16 +21,11 @@ class CreateCotizacionTable extends Migration
                 ->references('id')->on('users')
                 ->inDelete('set null');
 
-            $table->unsignedBigInteger('id_empresa')->nullable();
-            $table->foreign('id_empresa')
-                ->references('id')->on('users')
-                ->inDelete('set null');
+            $table->unsignedBigInteger('current_auto')->nullable();
 
-            $table->string('user')->nullable();
-            $table->string('empresa')->nullable();
-            $table->string('telefono')->nullable();
-            $table->string('correo')->nullable();
-            $table->string('total')->nullable();
+            $table->text('descripcion')->nullable();
+            $table->date('fecha')->nullable();
+            $table->string('estatus')->nullable();
 
             $table->timestamps();
         });
