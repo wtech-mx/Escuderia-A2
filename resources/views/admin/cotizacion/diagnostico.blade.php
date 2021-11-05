@@ -62,16 +62,16 @@
                         </h5>
                     </div>
 
-                    <div class="col-3  mt-4">
+                    <div class="col-4  mt-4">
                         <p class="text-center  ml-4 mr-4 " style="color:#00ff37;font-weight: bold;">
-                            Marca:
+                            Submarca:
                         </p>
                         <h5 class="text-center text-white ml-4 mr-4 ">
-                            <strong>{{$cotizacion->Cotizacion->Automovil->Marca->nombre}}</strong>
+                            <strong>{{$cotizacion->Cotizacion->Automovil->submarca}}</strong>
                         </h5>
                     </div>
 
-                    <div class="col-3  mt-4">
+                    <div class="col-2  mt-4">
                         <p class="text-center  ml-4 mr-4 " style="color:#00ff37;font-weight: bold;">
                             Placas:
                         </p>
@@ -86,7 +86,7 @@
                     <div class="col-12  mt-5">
 
                         <h3 class="text-center  ml-4 mr-4 " style="color:#00ff37;font-weight: bold;">
-                            Servicios
+                            Diagnostico
                         </h3>
 
                     <form class="card-details" method="POST" action="{{route('update.diagnostico', $cotizacion->id)}}" enctype="multipart/form-data" role="form">
@@ -152,9 +152,10 @@
 
                                         <tr>
                                             <th>
-                                                suspencion delantera
+                                                Suspencion delantera
                                             </th>
-                                            <td><div class="bueno">
+                                            <td>
+                                                <div class="bueno">
                                                 @if($cotizacion->suspencion_d == 1)
                                                     <input class="form-check-input" value="1" type="radio" name="suspencion_d" id="suspencion_d" checked>
                                                     @else
@@ -180,7 +181,7 @@
 
                                         <tr>
                                             <th>
-                                                suspencion trasera
+                                                Suspencion trasera
                                             </th>
                                             <td><div class="bueno">
                                                 @if($cotizacion->suspencion_t == 1)
@@ -208,7 +209,7 @@
 
                                         <tr>
                                             <th>
-                                                frenos delanteros
+                                                Frenos delanteros
                                             </th>
                                             <td><div class="bueno">
                                                 @if($cotizacion->frenos_d == 1)
@@ -236,7 +237,7 @@
 
                                         <tr>
                                             <th>
-                                                frenos traseros
+                                                Frenos traseros
                                             </th>
                                             <td><div class="bueno">
                                                 @if($cotizacion->frenos_t == 1)
@@ -264,7 +265,7 @@
 
                                         <tr>
                                             <th>
-                                                llantas delanteras
+                                                Llantas delanteras
                                             </th>
                                             <td><div class="bueno">
                                                 @if($cotizacion->llantas_d == 1)
@@ -292,7 +293,7 @@
 
                                         <tr>
                                             <th>
-                                                llantas traseras
+                                                Llantas traseras
                                             </th>
                                             <td><div class="bueno">
                                                 @if($cotizacion->llantas_t == 1)
@@ -320,7 +321,7 @@
 
                                         <tr>
                                             <th>
-                                                mangueras
+                                                Mangueras
                                             </th>
                                             <td><div class="bueno">
                                                 @if($cotizacion->mangueras == 1)
@@ -348,7 +349,7 @@
 
                                         <tr>
                                             <th>
-                                                luces
+                                                Luces
                                             </th>
                                             <td><div class="bueno">
                                                 @if($cotizacion->luces == 1)
@@ -376,7 +377,7 @@
 
                                         <tr>
                                             <th>
-                                                aceite
+                                                Aceite
                                             </th>
                                             <td><div class="bueno">
                                                 @if($cotizacion->aceite == 1)
@@ -404,7 +405,7 @@
 
                                         <tr>
                                             <th>
-                                                afinacion bujias
+                                                 Bujias
                                             </th>
                                             <td><div class="bueno">
                                                 @if($cotizacion->afinacion_b == 1)
@@ -432,7 +433,7 @@
 
                                         <tr>
                                             <th>
-                                                afinacion filtro aire
+                                                 Filtro aire
                                             </th>
                                             <td><div class="bueno">
                                                 @if($cotizacion->afinacion_f == 1)
@@ -460,14 +461,6 @@
                                 </tbody>
                             </table>
 
-                            <label for="">
-                                <p class="text-white"><strong>Observaciones</strong></p>
-                            </label>
-
-                            <div class="input-group form-group mb-5">
-                                <textarea class="form-control" rows="4" cols="6" value="3" id="observaciones" name="observaciones">{{$cotizacion->observaciones}}</textarea>
-                            </div>
-
                             <h3 class="text-center  ml-4 mr-4 " style="color:#00ff37;font-weight: bold;">
                                 Niveles
                             </h3>
@@ -479,9 +472,9 @@
                                         <th scope="col">Normal</th>
                                         <th scope="col">Cambio</th>
                                         <th scope="col">Relleno</th>
-
                                     </tr>
                                 </thead>
+
                                 <tbody>
                                     @foreach ($cotizacion_diagnostico as $cotizacion2)
 

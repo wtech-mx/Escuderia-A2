@@ -63,28 +63,37 @@
                                         </script>
                             @endif
 
-                            <label for="" >
-                                <p class="text-white"><strong>Usario</strong></p>
-                            </label>
+                        <div class="form-group row">
+                            <div class="col-6">
+                                <label for="" >
+                                    <p class="text-white"><strong>Usario</strong></p>
+                                </label>
 
-                            <div class="input-group form-group mb-5">
-                                <select class="col-12 usuario" id="id_userco" name="id_userco">
-                                    <option value="">Seleccione Cliente</option>
-                                   @foreach ($user as $item)
-                                       <option value="{{ $item->id }}">{{ $item->name }}</option>
-                                   @endforeach
-                               </select>
+                                <div class="input-group  mb-5">
+                                    <select class="form-control usuario" id="id_userco" name="id_userco">
+                                        <option value="">Seleccione Cliente</option>
+                                       @foreach ($user as $item)
+                                           <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                       @endforeach
+                                   </select>
+                                </div>
                             </div>
 
-                            <label for="">
-                                <p class="text-white"><strong>Automovil</strong></p>
-                            </label>
+                            <div class="col-6">
+                                <label for="">
+                                    <p class="text-white"><strong>Automovil</strong></p>
+                                </label>
 
-                            <div class="input-group form-group mb-5">
-                                <select class="form-control" id="current_autoco" name="current_autoco">
-                                    <option value="">seleccione auto</option>
-                                    </select>
+                                <div class="input-group  mb-5">
+                                    <select class="form-control" id="current_autoco" name="current_autoco">
+                                        <option value="">seleccione auto</option>
+                                        </select>
+                                </div>
                             </div>
+
+                        </div>
+
+                        <div class="form-group row">
 
                             <label for="">
                                 <p class="text-white"><strong>Fecha</strong></p>
@@ -102,43 +111,161 @@
                                 <textarea class="form-control" rows="4" cols="50" id="descripcion" name="descripcion"></textarea>
                             </div>
 
-                            <div class="col-12 text-center mt-2" style="margin-bottom: 8rem !important;">
+                            <h4 class="text-center  ml-4 mr-4 " style="color:#00ff37;font-weight: bold;">
+                                Inventario:
+                            </h4>
+
+                            <div class="col-6 text-center mt-2" >
+                                <label for="">
+                                    <p class="text-white"><strong>Video Exterior</strong></p>
+                                </label>
+
+                                <input class="form-control" type="file" name="video_exterior">
+                            </div>
+
+                            <div class="col-6 text-center mt-2" >
+                                <label for="">
+                                    <p class="text-white"><strong>Video Interior</strong></p>
+                                </label>
+
+                                <input class="form-control" type="file" name="video_interior">
+                            </div>
+
+                            <div class="col-6 text-center mt-5" >
+                                <div class="row">
+
+                                    <div class="col-12 text-left mt-3 mb-3">
+
+                                        <label class="text-white ml-5" for="">
+                                            <strong>Tarjeta C.</strong>
+                                        </label>
+
+                                        <div class="form-check form-check-inline">
+                                          <input class="form-check-input" type="radio" name="tarjeta1" id="tarjeta1" value="tarjeta1">
+                                            <label class="form-check-label text-white" for="inlineRadio1">SI</label>
+                                        </div>
+
+                                        <div class="form-check form-check-inline">
+                                          <input class="form-check-input" type="radio" name="tarjeta1" id="tarjeta2" value="tarjeta1">
+                                            <label class="form-check-label text-white" for="inlineRadio1">NO</label>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="col-12 text-left mt-3 mb-3">
+
+                                        <label class="text-white ml-5" for="">
+                                            <strong>Verificacion</strong>
+                                        </label>
+
+                                        <div class="form-check form-check-inline">
+                                          <input class="form-check-input" type="radio" name="verificacion1" id="verificacion1" value="verificacion1">
+                                            <label class="form-check-label text-white" for="inlineRadio1">SI</label>
+                                        </div>
+
+                                        <div class="form-check form-check-inline">
+                                          <input class="form-check-input" type="radio" name="verificacion1" id="verificacion2" value="verificacion2">
+                                            <label class="form-check-label text-white" for="inlineRadio1">NO</label>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="col-6 text-center mt-5" >
+                                <div class="row">
+
+                                    <div class="col-12 text-left mt-3 mb-3">
+                                        <label class="text-white ml-5" for="">
+                                            <strong>Poliza</strong>
+                                        </label>
+
+                                        <div class="form-check form-check-inline">
+                                          <input class="form-check-input" type="radio" name="poliza" id="poliza1" value="poliza1">
+                                            <label class="form-check-label text-white" for="poliza">SI</label>
+                                        </div>
+
+                                        <div class="form-check form-check-inline">
+                                          <input class="form-check-input" type="radio" name="poliza" id="poliza2" value="poliza2">
+                                            <label class="form-check-label text-white" for="poliza2">NO</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 text-left mt-3 mb-3">
+                                        <label class="text-white ml-5" for="">
+                                            <strong>Manuales</strong>
+                                        </label>
+
+                                        <div class="form-check form-check-inline">
+                                          <input class="form-check-input" type="radio" name="manuales" id="manuales" value="manuales">
+                                            <label class="form-check-label text-white" for="manuales">SI</label>
+                                        </div>
+
+                                        <div class="form-check form-check-inline">
+                                          <input class="form-check-input" type="radio" name="manuales" id="manuales2" value="manuales2">
+                                            <label class="form-check-label text-white" for="manuales2">NO</label>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                           <div class="col-6 text-center mt-5" >
+                                <label for="">
+                                    <p class="text-white"><strong>Video Motor</strong></p>
+                                </label>
+
+                                <input class="form-control" type="file" name="video_motor">
+                            </div>
+
+                           <div class="col-6 text-center mt-5 mb-5" >
+                                <label for="">
+                                    <p class="text-white"><strong>Video Cajuela</strong></p>
+                                </label>
+
+                                <input class="form-control" type="file" name="video_cajuela">
+                            </div>
+
+                            <div class="col-12 text-center mt-2 mb-5" style="margin-bottom: 8rem !important;">
                                 <button class="btn btn-lg btn-save-neon text-white">
                                     <i class="fas fa-save icon-tc"></i>
                                     Guardar
                                 </button>
                             </div>
 
-                            <script>
-                                            $(document).ready(function () {
-                                            $('#id_userco').on('change', function () {
-                                            let id = $(this).val();
-                                            //id_userco no esta en la tabla de automovil
-                                            $('#current_autoco').empty();
-                                            $('#current_autoco').append(`<option value="" disabled selected>Procesando..</option>`);
-                                            $.ajax({
-                                            type: 'GET',
-                                            url: 'crear/' + id,
-                                            success: function (response) {
-                                            var response = JSON.parse(response);
-                                            console.log(response);
-                                            //trae los automoviles relacionados con el id_userco
-                                            $('#current_autoco').empty();
-                                            $('#current_autoco').append(`<option value="" disabled selected>Seleccione Autom&oacute;vil</option>`);
-                                            response.forEach(element => {
-                                                $('#current_autoco').append(`<option value="${element['id']}">${element['placas']}${element['submarca']}</option>`);
-                                                });
-                                            }
-                                        });
-                                    });
-                                });
-                            </script>
+                        </div>
 
                         </form>
                     </div>
                 </div>
 
     @section('js')
+        <script>
+    $(document).ready(function () {
+        $('#id_userco').on('change', function () {
+            let id = $(this).val();
+            //id_userco no esta en la tabla de automovil
+            $('#current_autoco').empty();
+            $('#current_autoco').append(`<option value="" disabled selected>Procesando..</option>`);
+            $.ajax({
+                type: 'GET',
+                url: 'crear/' + id,
+                success: function (response) {
+                    var response = JSON.parse(response);
+                    console.log(response);
+                    //trae los automoviles relacionados con el id_userco
+                    $('#current_autoco').empty();
+                    $('#current_autoco').append(`<option value="" disabled selected>Seleccione Autom&oacute;vil</option>`);
+                    response.forEach(element => {
+                        $('#current_autoco').append(`<option value="${element['id']}">${element['placas']}${element['submarca']}</option>`);
+                    });
+                }
+            });
+        });
+    });
+</script>
+
         <script src="{{ asset('js/select2.full.min.js') }}"></script>
 
         <script>

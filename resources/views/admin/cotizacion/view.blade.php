@@ -19,7 +19,7 @@
         </div>
 
         <div class="col-8  mt-4">
-            <h5 class="text-center text-white ml-4 mr-4 ">
+            <h5 class="text-center text-white ml-4 mr-4 ">Usario
                 <strong>Orden de Servicio</strong>
             </h5>
         </div>
