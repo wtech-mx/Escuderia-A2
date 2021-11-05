@@ -69,17 +69,20 @@ class CotizacionController extends Controller
         $cotizacion->estatus = "pendiente";
         $cotizacion->save();
 
+        $cotizacion_taller = new Taller;
+        $cotizacion_taller->id_cotizacion = $cotizacion->id;
+        $cotizacion_taller->save();
+
         $cotizacion_servicio = new CotizacionServicio;
         $cotizacion_servicio->id_cotizacion = $cotizacion->id;
+        $cotizacion_servicio->id_taller = $cotizacion_taller->id;
         $cotizacion_servicio->save();
 
         $cotizacion_diagnostico = new CotizacionDiagnostico;
         $cotizacion_diagnostico->id_cotizacion_servicio = $cotizacion_servicio->id;
         $cotizacion_diagnostico->save();
 
-        $cotizacion_taller = new Taller;
-        $cotizacion_taller->id_cotizacion = $cotizacion->id;
-        $cotizacion_taller->save();
+
 
         Session::flash('auto', 'Se ha guardado sus datos con exito');
         return redirect()->route('index.cotizacion', compact('cotizacion'));

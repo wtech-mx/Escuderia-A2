@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Cotizacion;
+use App\Models\CotizacionServicio;
 use App\Models\Taller;
 use Validator;
 use DB;
@@ -13,23 +13,29 @@ class TallerController extends Controller
 {
     public function edit($id)
     {
-        $taller = Taller::findOrFail($id);
+        $cotizacion = CotizacionServicio::where('id_taller', '=', $id)
+        ->first();
 
-        return view('admin.cotizacion.taller', compact('taller'));
+        $taller  = Taller::
+        where('id_cotizacion', '=', $cotizacion->id_cotizacion)
+        ->where('vendedor', '!=', NULL)
+        ->get();
+
+        return view('admin.cotizacion.taller', compact('cotizacion', 'taller'));
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         $rules = array(
-            'nombre.*',
-            'garantia.*',
-            'marca.*',
-            'proveedor.*',
-            'mano_o.*',
-            'costo.*',
-            'costo_total.*',
+            'vendedor.*',
+            'refaccion.*',
             'cantidad.*',
+            'importe_unitario.*',
+            'importe_total.*',
+            'mano_obra.*',
+            'total.*',
         );
+
         $error = Validator::make($request->all(), $rules);
 
         if ($error->fails()) {
@@ -38,26 +44,25 @@ class TallerController extends Controller
             ]);
         }
 
-        $nombre = $request->nombre;
-        $marca = $request->marca;
-        $garantia = $request->garantia;
-        $proveedor = $request->proveedor;
-        $mano_o = $request->mano_o;
-        $costo = $request->costo;
-        $costo_total = $request->costo_total;
+        $vendedor = $request->vendedor;
+        $refaccion = $request->refaccion;
         $cantidad = $request->cantidad;
+        $importe_unitario = $request->importe_unitario;
+        $importe_total = $request->importe_total;
+        $mano_obra = $request->mano_obra;
+        $total = $request->total;
+        $id_cotizacion = $request->id_cotizacion;
 
-        for ($count = 0; $count < count($nombre); $count++) {
+        for ($count = 0; $count < count($vendedor); $count++) {
             $data = array(
-                'nombre' => $nombre[$count],
-                'marca' => $marca[$count],
-                'garantia' => $garantia[$count],
-                'proveedor' => $proveedor[$count],
-                'mano_o' => $mano_o[$count],
-                'costo' => $costo[$count],
-                'costo_total' => $costo_total[$count],
+                'vendedor' => $vendedor[$count],
+                'refaccion' => $refaccion[$count],
                 'cantidad' => $cantidad[$count],
-                'id_servicio' => $id,
+                'importe_unitario' => $importe_unitario[$count],
+                'importe_total' => $importe_total[$count],
+                'mano_obra' => $mano_obra[$count],
+                'total' => $total[$count],
+                'id_cotizacion' => $id_cotizacion[$count],
             );
             $insert_data[] = $data;
         }
@@ -65,6 +70,6 @@ class TallerController extends Controller
         Taller::insert($insert_data);
 
         Session::flash('auto', 'Se ha guardado sus datos con exito');
-        return redirect()->route('index.cotizacion');
+        return redirect()->back();
     }
 }

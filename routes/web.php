@@ -444,7 +444,7 @@ Route::get('admin/diagnostico/edit/{id}', 'CotizacionDiagnosticoController@edit'
 Route::post('admin/diagnostico/update/{id}', 'CotizacionDiagnosticoController@update')->name('update.diagnostico');
 
 Route::get('admin/taller/edit/{id}', 'TallerController@edit')->name('edit.taller');
-Route::post('admin/taller/update/{id}', 'TallerController@update')->name('update.taller');
+Route::post('admin/taller/update', 'TallerController@update')->name('update.taller');
 
 
 /*|--------------------------------------------------------------------------

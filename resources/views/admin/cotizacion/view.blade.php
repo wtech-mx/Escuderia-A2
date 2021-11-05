@@ -77,7 +77,7 @@
                                                 <a href="{{ route('edit.diagnostico', $item->id) }}">
                                                     <i class="fas fa-oil-can icon-users-edit" style="margin-right: 10px; font-size: 15px;"></i>
                                                 </a>
-                                                <a href="">
+                                                <a href="{{ route('edit.taller', $item->id_taller) }}">
                                                     <i class="fas fa-tasks icon-users-edit" style="margin-right: 10px; font-size: 15px;"></i>
                                                 </a>
 {{--                                                <a target="_blank" href="https://wa.me/52{{$item->Cotizacion->User->telefono}}/?text=Muy Buen dia {{$item->Cotizacion->User->name}} te mandamos tu Hoja de diagnostico ...:{{ route('edit.diagnostico', $item->id) }}">--}}

@@ -32,4 +32,9 @@ class CotizacionServicio extends Model
     {
         return $this->belongsTo(Cotizacion::class, 'id_cotizacion');
     }
+
+    public function Taller()
+    {
+        return $this->belongsTo(Taller::class, 'id_taller');
+    }
 }
