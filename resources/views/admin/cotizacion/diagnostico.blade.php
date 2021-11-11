@@ -112,7 +112,7 @@
                             <table id="seguro" class="table text-white">
                                 <thead>
                                     <tr>
-                                        <th scope="col">Servicios</th>
+                                        <th scope="col">Revisión de:</th>
                                         <th scope="col">Bueno</th>
                                         <th scope="col">Regular</th>
                                         <th scope="col">Malo</th>
@@ -149,10 +149,15 @@
                                             </div>
                                         </td>
                                     </tr>
+                                    <tr style="color: #00ff37">
+                                        <th>
+                                           Suspención
+                                        </th>
+                                    </tr>
 
                                         <tr>
                                             <th>
-                                                Suspencion delantera
+                                                 Delantera
                                             </th>
                                             <td>
                                                 <div class="bueno">
@@ -181,7 +186,7 @@
 
                                         <tr>
                                             <th>
-                                                Suspencion trasera
+                                                Trasera
                                             </th>
                                             <td><div class="bueno">
                                                 @if($cotizacion->suspencion_t == 1)
@@ -207,9 +212,15 @@
                                                 </div></td>
                                         </tr>
 
+                                        <tr style="color: #00ff37">
+                                            <th>
+                                                Frenos
+                                            </th>
+                                        </tr>
+
                                         <tr>
                                             <th>
-                                                Frenos delanteros
+                                                Delanteros
                                             </th>
                                             <td><div class="bueno">
                                                 @if($cotizacion->frenos_d == 1)
@@ -237,7 +248,7 @@
 
                                         <tr>
                                             <th>
-                                                Frenos traseros
+                                                Traseros
                                             </th>
                                             <td><div class="bueno">
                                                 @if($cotizacion->frenos_t == 1)
@@ -263,9 +274,15 @@
                                                 </div></td>
                                         </tr>
 
+                                        <tr style="color: #00ff37">
+                                            <th>
+                                                Llantas
+                                            </th>
+                                        </tr>
+
                                         <tr>
                                             <th>
-                                                Llantas delanteras
+                                                Delanteras
                                             </th>
                                             <td><div class="bueno">
                                                 @if($cotizacion->llantas_d == 1)
@@ -293,7 +310,7 @@
 
                                         <tr>
                                             <th>
-                                                Llantas traseras
+                                                Traseras
                                             </th>
                                             <td><div class="bueno">
                                                 @if($cotizacion->llantas_t == 1)
@@ -317,6 +334,74 @@
                                                     <input class="form-check-input" value="3" type="radio" name="llantas_t" id="llantas_t">
                                                 @endif
                                                 </div></td>
+                                        </tr>
+
+                                        <tr style="color: #00ff37">
+                                            <th>
+                                                Luces Y Bateria
+                                            </th>
+                                        </tr>
+
+                                        <tr>
+                                            <th>
+                                                Delanteras
+                                            </th>
+                                            <td><div class="bueno">
+                                                @if($cotizacion->luces_d == 1)
+                                                    <input class="form-check-input" value="1" type="radio" name="luces_d" id="luces_d" checked>
+                                                    @else
+                                                    <input class="form-check-input" value="1" type="radio" name="luces_d" id="luces_d">
+                                                @endif
+                                                 </div>
+                                             </td>
+                                            <td><div class="regular">
+                                                @if($cotizacion->luces_d == 2)
+                                                    <input class="form-check-input" value="2" type="radio" name="luces_d" id="luces_d" checked>
+                                                    @else
+                                                    <input class="form-check-input" value="2" type="radio" name="luces_d" id="luces_d">
+                                                @endif
+                                                </div></td>
+                                            <td><div class="malo">
+                                                @if($cotizacion->luces_d == 3)
+                                                    <input class="form-check-input" value="3" type="radio" name="luces_d" id="luces_d" checked>
+                                                    @else
+                                                    <input class="form-check-input" value="3" type="radio" name="luces_d" id="luces_d">
+                                                @endif
+                                                </div></td>
+                                        </tr>
+
+                                        <tr>
+                                            <th>
+                                                Traseras
+                                            </th>
+                                            <td><div class="bueno">
+                                                @if($cotizacion->luces_t == 1)
+                                                    <input class="form-check-input" value="1" type="radio" name="luces_t" id="luces_t" checked>
+                                                    @else
+                                                    <input class="form-check-input" value="1" type="radio" name="luces_t" id="luces_t">
+                                                @endif
+                                                 </div>
+                                             </td>
+                                            <td><div class="regular">
+                                                @if($cotizacion->luces_t == 2)
+                                                    <input class="form-check-input" value="2" type="radio" name="luces_t" id="luces_t" checked>
+                                                    @else
+                                                    <input class="form-check-input" value="2" type="radio" name="luces_t" id="luces_t">
+                                                @endif
+                                                </div></td>
+                                            <td><div class="malo">
+                                                @if($cotizacion->luces_t == 3)
+                                                    <input class="form-check-input" value="3" type="radio" name="luces_t" id="luces_t" checked>
+                                                    @else
+                                                    <input class="form-check-input" value="3" type="radio" name="luces_t" id="luces_t">
+                                                @endif
+                                                </div></td>
+                                        </tr>
+
+                                        <tr style="color: #00ff37">
+                                            <th>
+                                                Motor
+                                            </th>
                                         </tr>
 
                                         <tr>
@@ -343,34 +428,6 @@
                                                     <input class="form-check-input" value="3" type="radio" name="mangueras" id="mangueras" checked>
                                                     @else
                                                     <input class="form-check-input" value="3" type="radio" name="mangueras" id="mangueras">
-                                                @endif
-                                                </div></td>
-                                        </tr>
-
-                                        <tr>
-                                            <th>
-                                                Luces
-                                            </th>
-                                            <td><div class="bueno">
-                                                @if($cotizacion->luces == 1)
-                                                    <input class="form-check-input" value="1" type="radio" name="luces" id="luces" checked>
-                                                    @else
-                                                    <input class="form-check-input" value="1" type="radio" name="luces" id="luces">
-                                                @endif
-                                                 </div>
-                                             </td>
-                                            <td><div class="regular">
-                                                @if($cotizacion->luces == 2)
-                                                    <input class="form-check-input" value="2" type="radio" name="luces" id="luces" checked>
-                                                    @else
-                                                    <input class="form-check-input" value="2" type="radio" name="luces" id="luces">
-                                                @endif
-                                                </div></td>
-                                            <td><div class="malo">
-                                                @if($cotizacion->luces == 3)
-                                                    <input class="form-check-input" value="3" type="radio" name="luces" id="luces" checked>
-                                                    @else
-                                                    <input class="form-check-input" value="3" type="radio" name="luces" id="luces">
                                                 @endif
                                                 </div></td>
                                         </tr>
@@ -470,8 +527,8 @@
                                     <tr>
                                         <th scope="col">Niveles</th>
                                         <th scope="col">Normal</th>
-                                        <th scope="col">Cambio</th>
-                                        <th scope="col">Relleno</th>
+                                        <th scope="col">Cambiar</th>
+                                        <th scope="col">Rellenar</th>
                                     </tr>
                                 </thead>
 

@@ -64,13 +64,11 @@
                                 <table class="table table-bordered" id="tabla">
                                     <thead class="table-dark">
                                         <tr class="text-center">
+                                            <th>Servicio</th>
                                             <th>Vendedor</th>
-                                            <th>Refaccion</th>
                                             <th>Cantidad</th>
                                             <th>I.U.</th>
                                             <th>I.T.</th>
-                                            <th>M.O.</th>
-                                            <th>Total</th>
                                         </tr>
                                     </thead>
                                 </table>
@@ -95,8 +93,6 @@
                                                 <th>Cantidad</th>
                                                 <th>I.U.</th>
                                                 <th>I.T.</th>
-                                                <th>M.O.</th>
-                                                <th>Total</th>
                                             </tr>
                                         <thead>
                                         <tbody>
@@ -107,8 +103,6 @@
                                                 <td>{{$item->cantidad}}</td>
                                                 <td>{{$item->importe_unitario}}</td>
                                                 <td>{{$item->importe_total}}</td>
-                                                <td>{{$item->mano_obra}}</td>
-                                                <td>{{$item->total}}</td>
                                             </tr>
                                             @endforeach
                                         </tbody>
@@ -132,8 +126,6 @@
                                     '<td><input type="number" class="form-control" placeholder="Cantidad" id="cantidad[]" name="cantidad[]"</td>'+
                                     '<td><input type="text" class="form-control" placeholder="Importe U." id="importe_unitario[]" name="importe_unitario[]"</td>'+
                                     '<td><input type="text" class="form-control" placeholder="Importe T." id="importe_total[]" name="importe_total[]"</td>'+
-                                    '<td><input type="text" class="form-control" placeholder="Mano O." id="mano_obra[]" name="mano_obra[]"</td>'+
-                                    '<td><input type="text" class="form-control" placeholder="Total" id="total[]" name="total[]"</td>'+
                                     '<td style="display: none"><input type="text" class="form-control" value="'+ id_co  +'" id="id_cotizacion[]" disable name="id_cotizacion[]"</td>'+
                                     '</tr>';
 

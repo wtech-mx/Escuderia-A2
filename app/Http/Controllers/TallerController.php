@@ -14,12 +14,11 @@ class TallerController extends Controller
     public function edit($id)
     {
         $cotizacion = CotizacionServicio::where('id_taller', '=', $id)
-        ->first();
+            ->first();
 
-        $taller  = Taller::
-        where('id_cotizacion', '=', $cotizacion->id_cotizacion)
-        ->where('vendedor', '!=', NULL)
-        ->get();
+        $taller  = Taller::where('id_cotizacion', '=', $cotizacion->id_cotizacion)
+            ->where('vendedor', '!=', NULL)
+            ->get();
 
         return view('admin.cotizacion.taller', compact('cotizacion', 'taller'));
     }
@@ -32,8 +31,6 @@ class TallerController extends Controller
             'cantidad.*',
             'importe_unitario.*',
             'importe_total.*',
-            'mano_obra.*',
-            'total.*',
         );
 
         $error = Validator::make($request->all(), $rules);
@@ -49,8 +46,6 @@ class TallerController extends Controller
         $cantidad = $request->cantidad;
         $importe_unitario = $request->importe_unitario;
         $importe_total = $request->importe_total;
-        $mano_obra = $request->mano_obra;
-        $total = $request->total;
         $id_cotizacion = $request->id_cotizacion;
 
         for ($count = 0; $count < count($vendedor); $count++) {
@@ -60,8 +55,6 @@ class TallerController extends Controller
                 'cantidad' => $cantidad[$count],
                 'importe_unitario' => $importe_unitario[$count],
                 'importe_total' => $importe_total[$count],
-                'mano_obra' => $mano_obra[$count],
-                'total' => $total[$count],
                 'id_cotizacion' => $id_cotizacion[$count],
             );
             $insert_data[] = $data;

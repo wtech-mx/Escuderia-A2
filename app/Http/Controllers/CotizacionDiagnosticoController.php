@@ -45,7 +45,8 @@ class CotizacionDiagnosticoController extends Controller
         $cotizacion->llantas_d = $request->get('llantas_d');
         $cotizacion->llantas_t = $request->get('llantas_t');
         $cotizacion->mangueras = $request->get('mangueras');
-        $cotizacion->luces = $request->get('luces');
+        $cotizacion->luces_d = $request->get('luces_d');
+        $cotizacion->luces_t = $request->get('luces_t');
         $cotizacion->aceite = $request->get('aceite');
         $cotizacion->afinacion_b = $request->get('afinacion_b');
         $cotizacion->afinacion_f = $request->get('afinacion_f');
