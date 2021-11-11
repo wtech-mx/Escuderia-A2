@@ -17,7 +17,7 @@
             </div>
 
             <div class="modal-body">
-
+            <div style="height: 1060px; overflow: scroll">
                 <label for="">
                     <p><strong>Fecha Registo</strong></p>
                 </label>
@@ -233,7 +233,7 @@
               </div>
 
 
-
+            </div>
             </div>
 
         </div>

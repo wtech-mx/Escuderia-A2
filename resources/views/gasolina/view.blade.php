@@ -1,4 +1,4 @@
-@extends('admin.layouts.app')
+@extends('layouts.app')
 
 @section('css')
     <link href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.min.css" rel="stylesheet">
@@ -40,17 +40,15 @@
             <div class="p-2">
 
                 <div class="content">
-                    @if (auth()->user()->chofer == 1)
-                    <a class="btn btn-circel" href="{{ route('create.gasolina') }}">
+                    <a class="btn btn-circel" href="{{ route('create2.gasolina') }}">
                         <i class="fas fa-plus-circle icon-effect"></i>
                     </a>
 
-                        <a class="btn btn-circel" href="{{ route('create.gasolina') }}">
+                        <a class="btn btn-circel" href="{{ route('create2.gasolina') }}">
                             <h5 class="text-white text-tittle-app  mt-2 " style="font: normal normal bold 15px/20px Segoe UI">
                                 Agregar
                             </h5>
                         </a>
-                    @endif
 
                 </div>
             </div>
@@ -96,14 +94,7 @@
                                             <tbody>
                                                 @foreach ($gasolina as $item)
                                                     <tr>
-                                                        @if (auth()->user()->chofer == NULL)
-                                                        <th><a style="text-decoration: none;"
-                                                            href="{{ route('edit_admin.gasolina', $item->id) }}">
-                                                            {{ $item->User->name }}</a>
-                                                        </th>
-                                                        @else
                                                         <th>{{ $item->User->name }}</th>
-                                                        @endif
 
                                                         <td>{{ $item->Automovil->submarca }} /<br> {{ $item->Automovil->placas }}</td>
                                                         <td>{{ $item->estatus }}</td>

@@ -469,3 +469,10 @@ Route::get('admin/gasolina/edit/{id}', 'GasolinaController@edit_admin')->name('e
 Route::patch('admin/gasolina/update/{id}', 'GasolinaController@update_admin')->name('update_admin.gasolina');
 
 Route::get('admin/gasolina/crear/empresa/{id}', 'GasolinaController@GetSector2AgainstMainCatEdit');
+
+/*|--------------------------------------------------------------------------
+|Gasolina User
+|--------------------------------------------------------------------------*/
+Route::get('gasolina/index', 'GasolinaController@index2')->name('index2.gasolina');
+Route::get('gasolina/crear', 'GasolinaController@create2')->name('create2.gasolina');
+Route::post('gasolina/store', 'GasolinaController@store2')->name('store2.gasolina');

@@ -141,9 +141,13 @@
             </a>
         </div>
 
-        @if (auth()->user()->empresa == 1)
+
         <div class="col-6 text-center mt-4">
+            @if (auth()->user()->empresa == 1)
             <a href="{{ route('index_admin.gasolina') }}" class="text-dark">
+                @else
+            <a href="{{ route('index2.gasolina') }}" class="text-dark">
+                @endif
                 <div class="card" style="border-radius: 15px">
                     <div class="card-body">
                         <img class="d-inline mb-2" src="{{ asset('img/icon/black/km.png') }}" alt="Icon User"
@@ -153,7 +157,7 @@
                 </div>
             </a>
         </div>
-        @endif
+
 
         <div class="col-6 text-center mt-4">
             @if (auth()->user()->empresa == 1)
