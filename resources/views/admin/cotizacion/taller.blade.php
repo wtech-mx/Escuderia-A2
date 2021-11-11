@@ -75,8 +75,8 @@
 
                                 <input class="form-control" type="text" name="id_co" id="id_co" value="{{ $cotizacion->id_cotizacion }}" style="display: none" disable>
 
-                                <a href="javascript:;" id="agregar" class="btn btn-success">Agregar a tabla</a>
-                                <button type="submit" class="btn btn-success">Guardar a la BD</button>
+                                <a href="javascript:;" id="agregar" class="btn btn-success">Agregar servicio</a>
+                                <button type="submit" class="btn btn-success">Guardar</button>
                             </form>
 
                             <a class="btn btn-primary mt-5" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
