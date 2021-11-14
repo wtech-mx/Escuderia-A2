@@ -61,12 +61,48 @@ class CotizacionController extends Controller
      */
     public function store(Request $request)
     {
+        $validate = $this->validate($request,[
+            'video_motor' => 'mimes:mpeg,ogg,mp4,webm,3gp,mov,flv,avi,wmv,ts',
+            'video_cajuela' => 'mimes:mpeg,ogg,mp4,webm,3gp,mov,flv,avi,wmv,ts',
+            'video_exterior' => 'mimes:mpeg,ogg,mp4,webm,3gp,mov,flv,avi,wmv,ts',
+            'video_interior' => 'mimes:mpeg,ogg,mp4,webm,3gp,mov,flv,avi,wmv,ts',
+        ]);
+
         $cotizacion = new Cotizacion;
         $cotizacion->id_user = $request->get('id_userco');
         $cotizacion->current_auto = $request->get('current_autoco');
         $cotizacion->descripcion = $request->get('descripcion');
         $cotizacion->fecha = $request->get('fecha');
+        $cotizacion->tarjeta = $request->get('tarjeta');
+        $cotizacion->verificacion = $request->get('verificacion');
+        $cotizacion->poliza = $request->get('poliza');
+        $cotizacion->manuales = $request->get('manuales');
         $cotizacion->estatus = "pendiente";
+
+    	if ($request->hasFile('video_motor')) {
+    		$file=$request->file('video_motor');
+    		$file->move(public_path().'/videos',time().".".$file->getClientOriginalExtension());
+    		$cotizacion->video_motor=time().".".$file->getClientOriginalExtension();
+    	}
+
+        if($request->hasFile('video_cajuela')){
+            $file=$request->file('video_cajuela');
+    		$file->move(public_path().'/videos',time().".".$file->getClientOriginalExtension());
+    		$cotizacion->video_cajuela=time().".".$file->getClientOriginalExtension();
+        }
+
+        if($request->hasFile('video_exterior')){
+            $file=$request->file('video_exterior');
+    		$file->move(public_path().'/videos',time().".".$file->getClientOriginalExtension());
+    		$cotizacion->video_exterior=time().".".$file->getClientOriginalExtension();
+        }
+
+        if($request->hasFile('video_interior')){
+            $file=$request->file('video_interior');
+    		$file->move(public_path().'/videos',time().".".$file->getClientOriginalExtension());
+    		$cotizacion->video_interior=time().".".$file->getClientOriginalExtension();
+        }
+        
         $cotizacion->save();
 
         $cotizacion_taller = new Taller;
@@ -95,9 +131,10 @@ class CotizacionController extends Controller
      * @param  \App\Models\Cotizacion  $cotizacion
      * @return \Illuminate\Http\Response
      */
-    public function edit(Cotizacion $cotizacion)
+    public function edit($id)
     {
-        //
+        $cotizacion = Cotizacion::findOrFail($id);
+        return view('admin.cotizacion.view_servicio', compact('cotizacion'));
     }
 
     /**

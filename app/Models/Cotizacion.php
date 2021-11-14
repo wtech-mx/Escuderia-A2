@@ -18,6 +18,14 @@ class Cotizacion extends Model
         'descripcion',
         'fecha',
         'estatus',
+        'video_motor',
+        'video_cajuela',
+        'video_exterior',
+        'video_interior',
+        'tarjeta',
+        'verificacion',
+        'poliza',
+        'manuales',
     ];
 
     public function User()

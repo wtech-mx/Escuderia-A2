@@ -43,39 +43,14 @@
 
                     <div class="col-12  mt-5">
 
-                    <form class="card-details" method="POST" action="{{route('store.cotizacion')}}" enctype="multipart/form-data" role="form">
-                        @csrf
-
-                            @if(Session::has('success'))
-                                        <script>
-                                            Swal.fire({
-                                              title: 'Exito!!',
-                                              html:
-                                                'Se ha actualizado tu  <b>Tarjeta de Circulaci&oacute;n</b>, ' +
-                                                'Exitosamente',
-                                              // text: 'Se ha agragado la "MARCA" Exitosamente',
-                                              imageUrl: '{{ asset('img/icon/color/dosier.png') }}',
-                                              background: '#fff',
-                                              imageWidth: 150,
-                                              imageHeight: 150,
-                                              imageAlt: 'USUARIO IMG',
-                                            })
-                                        </script>
-                            @endif
-
                         <div class="form-group row">
                             <div class="col-6">
                                 <label for="" >
                                     <p class="text-white"><strong>Usario</strong></p>
                                 </label>
 
-                                <div class="input-group  mb-5">
-                                    <select class="form-control usuario" id="id_userco" name="id_userco">
-                                        <option value="">Seleccione Cliente</option>
-                                       @foreach ($user as $item)
-                                           <option value="{{ $item->id }}">{{ $item->name }}</option>
-                                       @endforeach
-                                   </select>
+                                <div class="input-group ">
+                                    <p class="text-white"><strong style="color:#00ff37">{{$cotizacion->User->name}}</strong></p>
                                 </div>
                             </div>
 
@@ -85,9 +60,7 @@
                                 </label>
 
                                 <div class="input-group  mb-5">
-                                    <select class="form-control" id="current_autoco" name="current_autoco">
-                                        <option value="">seleccione auto</option>
-                                        </select>
+                                    <p class="text-white">Submarca: <strong style="color:#00ff37">{{$cotizacion->Automovil->submarca}}</strong> Placa: <strong style="color:#00ff37">{{$cotizacion->Automovil->placas}}</strong></p>
                                 </div>
                             </div>
 
@@ -95,20 +68,24 @@
 
                         <div class="form-group row">
 
-                            <label for="">
-                                <p class="text-white"><strong>Fecha</strong></p>
-                            </label>
+                            <div class="col-4">
+                                <label for="">
+                                    <p class="text-white"><strong>Fecha</strong></p>
+                                </label>
 
-                            <div class="input-group form-group mb-5">
-                                <input type="date" class="form-control" id="fecha" name="fecha">
+                                <div class="input-group form-group mb-5">
+                                    <p class="text-white"><strong style="color:#00ff37">{{$cotizacion->fecha}}</strong></p>
+                                </div>
                             </div>
 
-                            <label for="">
-                                <p class="text-white"><strong>Descripción</strong></p>
-                            </label>
+                            <div class="col-8">
+                                <label for="">
+                                    <p class="text-white"><strong>Descripción</strong></p>
+                                </label>
 
-                            <div class="input-group form-group mb-5">
-                                <textarea class="form-control" rows="4" cols="50" id="descripcion" name="descripcion"></textarea>
+                                <div class="input-group form-group mb-5">
+                                    <p class="text-white"><strong style="color:#00ff37">{{$cotizacion->descripcion}}</strong></p>
+                                </div>
                             </div>
 
                             <h4 class="text-center  ml-4 mr-4 " style="color:#00ff37;font-weight: bold;">
@@ -118,17 +95,19 @@
                             <div class="col-6 text-center mt-2" >
                                 <label for="">
                                     <p class="text-white"><strong>Video Exterior</strong></p>
-                                </label>
-
-                                <input class="form-control" type="file" name="video_exterior">
+                                </label><br>
+                                <video controls preload="auto" width="200" height="150" data-setup="{}" style="padding: 10px;">
+                                    <source src="{{asset('videos/'.$cotizacion->video_exterior)}}" type='video/mp4'>
+                                </video>
                             </div>
 
                             <div class="col-6 text-center mt-2" >
                                 <label for="">
                                     <p class="text-white"><strong>Video Interior</strong></p>
-                                </label>
-
-                                <input class="form-control" type="file" name="video_interior">
+                                </label><br>
+                                <video controls preload="auto" width="200" height="150" data-setup="{}" style="padding: 10px;">
+                                    <source src="{{asset('videos/'.$cotizacion->video_interior)}}" type='video/mp4'>
+                                </video>
                             </div>
 
                             <div class="col-6 text-center mt-5" >
@@ -140,15 +119,24 @@
                                             <strong>Tarjeta C.</strong>
                                         </label>
 
-                                        <div class="form-check form-check-inline">
-                                          <input class="form-check-input" type="radio" name="tarjeta" id="tarjeta" value="1">
-                                            <label class="form-check-label text-white" for="inlineRadio1">SI</label>
-                                        </div>
+                                            <div class="form-check form-check-inline">
+                                                @if ($cotizacion->tarjeta == 1)
+                                                <input class="form-check-input" type="radio" checked>
+                                                @else
+                                                <input class="form-check-input" type="radio" disabled>
+                                                @endif
+                                                <label class="form-check-label text-white" for="inlineRadio1">SI</label>
+                                            </div>
 
-                                        <div class="form-check form-check-inline">
-                                          <input class="form-check-input" type="radio" name="tarjeta" id="tarjeta" value="2">
-                                            <label class="form-check-label text-white" for="inlineRadio1">NO</label>
-                                        </div>
+                                            <div class="form-check form-check-inline">
+                                                @if ($cotizacion->tarjeta == 2)
+                                                <input class="form-check-input" type="radio" checked>
+                                                @else
+                                                <input class="form-check-input" type="radio" disabled>
+                                                @endif
+                                                <label class="form-check-label text-white" for="inlineRadio1">NO</label>
+                                            </div>
+
 
                                     </div>
 
@@ -159,12 +147,20 @@
                                         </label>
 
                                         <div class="form-check form-check-inline">
-                                          <input class="form-check-input" type="radio" name="verificacion" id="verificacion" value="1">
+                                            @if ($cotizacion->verificacion == 1)
+                                            <input class="form-check-input" type="radio" checked>
+                                            @else
+                                            <input class="form-check-input" type="radio" disabled>
+                                            @endif
                                             <label class="form-check-label text-white" for="inlineRadio1">SI</label>
                                         </div>
 
                                         <div class="form-check form-check-inline">
-                                          <input class="form-check-input" type="radio" name="verificacion" id="verificacion" value="2">
+                                            @if ($cotizacion->verificacion == 2)
+                                            <input class="form-check-input" type="radio" checked>
+                                            @else
+                                            <input class="form-check-input" type="radio" disabled>
+                                            @endif
                                             <label class="form-check-label text-white" for="inlineRadio1">NO</label>
                                         </div>
                                     </div>
@@ -181,13 +177,21 @@
                                         </label>
 
                                         <div class="form-check form-check-inline">
-                                          <input class="form-check-input" type="radio" name="poliza" id="poliza" value="1">
+                                            @if ($cotizacion->poliza == 1)
+                                            <input class="form-check-input" type="radio" checked>
+                                            @else
+                                            <input class="form-check-input" type="radio" disabled>
+                                            @endif
                                             <label class="form-check-label text-white" for="poliza">SI</label>
                                         </div>
 
                                         <div class="form-check form-check-inline">
-                                          <input class="form-check-input" type="radio" name="poliza" id="poliza" value="2">
-                                            <label class="form-check-label text-white" for="poliza">NO</label>
+                                          @if ($cotizacion->poliza == 2)
+                                          <input class="form-check-input" type="radio" checked>
+                                          @else
+                                          <input class="form-check-input" type="radio" disabled>
+                                          @endif
+                                          <label class="form-check-label text-white" for="poliza">NO</label>
                                         </div>
                                     </div>
 
@@ -197,12 +201,20 @@
                                         </label>
 
                                         <div class="form-check form-check-inline">
-                                          <input class="form-check-input" type="radio" name="manuales" id="manuales" value="1">
+                                            @if ($cotizacion->manuales == 1)
+                                            <input class="form-check-input" type="radio" checked>
+                                            @else
+                                            <input class="form-check-input" type="radio" disabled>
+                                            @endif
                                             <label class="form-check-label text-white" for="manuales">SI</label>
                                         </div>
 
                                         <div class="form-check form-check-inline">
-                                          <input class="form-check-input" type="radio" name="manuales" id="manuales" value="2">
+                                            @if ($cotizacion->manuales == 2)
+                                            <input class="form-check-input" type="radio" checked>
+                                            @else
+                                            <input class="form-check-input" type="radio" disabled>
+                                            @endif
                                             <label class="form-check-label text-white" for="manuales">NO</label>
                                         </div>
                                     </div>
@@ -214,29 +226,29 @@
                            <div class="col-6 text-center mt-5" >
                                 <label for="">
                                     <p class="text-white"><strong>Video Motor</strong></p>
-                                </label>
-
-                                <input class="form-control" type="file" name="video_motor">
+                                </label><br>
+                                <video controls preload="auto" width="200" height="150" data-setup="{}" style="padding: 10px;">
+                                    <source src="{{asset('videos/'.$cotizacion->video_motor)}}" type='video/mp4'>
+                                </video>
                             </div>
 
                            <div class="col-6 text-center mt-5 mb-5" >
                                 <label for="">
                                     <p class="text-white"><strong>Video Cajuela</strong></p>
-                                </label>
-
-                                <input class="form-control" type="file" name="video_cajuela">
+                                </label><br>
+                                <video controls preload="auto" width="200" height="150" data-setup="{}" style="padding: 10px;">
+                                    <source src="{{asset('videos/'.$cotizacion->video_cajuela)}}" type='video/mp4'>
+                                </video>
                             </div>
 
-                            <div class="col-12 text-center mt-2 mb-5" style="margin-bottom: 8rem !important;">
-                                <button class="btn btn-lg btn-save-neon text-white">
+                            <div class="col-12 text-center mt-2 mb-5">
+                                <button class="btn btn-lg btn-save-neon text-white" style="margin-bottom: 8rem !important;">
                                     <i class="fas fa-save icon-tc"></i>
                                     Guardar
                                 </button>
                             </div>
 
                         </div>
-
-                        </form>
                     </div>
                 </div>
 

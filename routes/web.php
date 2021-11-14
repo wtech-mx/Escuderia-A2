@@ -430,6 +430,7 @@ require __DIR__ . '/auth.php';
 Route::get('admin/cotizacion/view', 'CotizacionController@index')->name('index.cotizacion');
 Route::get('admin/cotizacion/crear', 'CotizacionController@create')->name('create.cotizacion');
 Route::post('admin/cotizacion/store', 'CotizacionController@store')->name('store.cotizacion');
+Route::get('admin/cotizacion/edit/{id}', 'CotizacionController@edit')->name('edit.cotizacion');
 
 Route::get('admin/cotizacion/crear/{id}', 'CotizacionController@GetAutoAgainstMainCatEdit');
 

@@ -14,9 +14,19 @@
                     <div class="col-2 mt-5">
                         <div class="d-flex justify-content-start">
                                 <div class="text-center text-white">
-                                    <a href="{{ route('index.cotizacion') }}" style="background-color: transparent;clip-path: none">
-                                        <img class="" src="{{ asset('img/icon/white/left-arrow.png') }}" width="25px" >
-                                    </a>
+
+                                    @if (Auth::check() == true)
+                                        @if (auth()->user()->role != 0)
+                                            <a href="{{ route('index.cotizacion') }}" style="background-color: transparent;clip-path: none">
+                                                <img class="" src="{{ asset('img/icon/white/left-arrow.png') }}" width="25px" >
+                                            </a>
+                                        @else
+                                            <a href="{{ route('index.dashboard') }}" style="background-color: transparent;clip-path: none">
+                                                <img class="" src="{{ asset('img/icon/white/left-arrow.png') }}" width="25px" >
+                                            </a>
+                                        @endif
+                                    @endif
+
                                 </div>
                         </div>
                     </div>
@@ -696,12 +706,16 @@
                                 <textarea class="form-control" rows="4" cols="6" value="3" id="observaciones2" name="observaciones2">{{$cotizacion2->observaciones}}</textarea>
                             </div>
 
-                            <div class="col-12 text-center mt-2" style="margin-bottom: 8rem !important;">
-                                <button class="btn btn-lg btn-save-neon text-white">
-                                    <i class="fas fa-save icon-tc"></i>
-                                    Guardar
-                                </button>
-                            </div>
+                            @if (Auth::check() == true)
+                                @if (auth()->user()->role != 0)
+                                    <div class="col-12 text-center mt-2" style="margin-bottom: 8rem !important;">
+                                        <button class="btn btn-lg btn-save-neon text-white">
+                                            <i class="fas fa-save icon-tc"></i>
+                                            Guardar
+                                        </button>
+                                    </div>
+                                @endif
+                            @endif
 
                         </form>
                     </div>
