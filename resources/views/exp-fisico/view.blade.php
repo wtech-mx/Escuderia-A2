@@ -184,7 +184,7 @@
                     <a   data-toggle="modal" data-target="#modal-doc-{{$item->id}}">
                         @if($texto == 'pdf')
                             <p class="text-center">
-                                <iframe width="140" height="140" src="{{asset($ruta.$item->img)}}" frameborder="0"></iframe>
+<iframe src="http://docs.google.com/gview?url={{asset($ruta.$item->img)}}&embedded=true" style="width:100%; height:700px;" frameborder="0" ></iframe>
                                 <p class="text-center text-white">{{$item->titulo}}</p>
                             </p>
                         @else
