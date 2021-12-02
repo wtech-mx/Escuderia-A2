@@ -74,7 +74,7 @@
                                             <strong>Registros Personales</strong>
                                         </h5>
 
-                                        <a class="text-white p-2" href="/exportar">
+                                        <a class="text-white p-2" href="/exportar/gasolina">
                                             <i class="fa fa-download icon-effect" aria-hidden="true"></i>
                                         </a>
                                     </div>

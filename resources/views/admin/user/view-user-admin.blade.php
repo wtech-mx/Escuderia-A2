@@ -46,7 +46,7 @@ if(auth()->user()->empresa == 0){
 
             <div class="d-flex justify-content-between">
 
-                <a class="mt-1 ml-5 text-white " href="/exportar">
+                <a class="mt-1 ml-5 text-white " href="/exportar/usuarios">
                     <i class="fa fa-download icon-effect" aria-hidden="true"></i>
                 </a>
 

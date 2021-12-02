@@ -93,7 +93,7 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="d-flex justify-content-center">
-                                    <a class="text-white mt-3 p-2" href="/exportar">
+                                    <a class="text-white mt-3 p-2" href="/exportar/automovil">
                                         <i class="fa fa-download icon-effect-sm" aria-hidden="true"></i>
                                     </a>
 
