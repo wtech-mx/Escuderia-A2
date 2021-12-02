@@ -5,7 +5,22 @@
 @section('content')
 @section('css')
     <link href="{{ asset('css/select2.min.css') }}" rel="stylesheet" />
+    <style>
+        .table > :not(caption) > * > *{
+            color: #fff;
+            font-size: 10px;
+        }
+        input::placeholder {
+          color: #00d62e!important;
+          font-size: 1.2em;
+          font-style: italic;
+        }
+        .table th, .table td{
+            padding: 0.75rem 0 0.75rem 0!important;
+        }
+    </style>
 @endsection
+
 
         <link href="{{ asset('css/login-form.css') }}" rel="stylesheet">
         <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
@@ -62,11 +77,12 @@
                                 @endif
 
                                 <table class="table table-bordered" id="tabla">
+
                                     <thead class="table-dark">
                                         <tr class="text-center">
-                                            <th>Servicio</th>
-                                            <th>Vendedor</th>
-                                            <th>Cantidad</th>
+                                            <th>Ser</th>
+                                            <th>Seller</th>
+                                            <th>Stock</th>
                                             <th>I.U.</th>
                                             <th>I.T.</th>
                                         </tr>
@@ -121,12 +137,12 @@
                                     var cantidad=$('#cantidad').val();
                                     var id_co=$('#id_co').val();
                                     var fila='<tr>'+
-                                    '<td><input type="text" class="form-control" placeholder="Vendedor" id="vendedor[]" name="vendedor[]"</td>'+
-                                    '<td><input type="text" class="form-control" placeholder="Refaccion" id="refaccion[]" name="refaccion[]"</td>'+
-                                    '<td><input type="number" class="form-control" placeholder="Cantidad" id="cantidad[]" name="cantidad[]"</td>'+
-                                    '<td><input type="text" class="form-control" placeholder="Importe U." id="importe_unitario[]" name="importe_unitario[]"</td>'+
-                                    '<td><input type="text" class="form-control" placeholder="Importe T." id="importe_total[]" name="importe_total[]"</td>'+
-                                    '<td style="display: none"><input type="text" class="form-control" value="'+ id_co  +'" id="id_cotizacion[]" disable name="id_cotizacion[]"</td>'+
+                                    '<td><input type="text" class="form-control" placeholder="Vendedor" id="vendedor[]" name="vendedor[]"></td>'+
+                                    '<td><input type="text" class="form-control" placeholder="Refaccion" id="refaccion[]" name="refaccion[]"></td>'+
+                                    '<td><input type="number" class="form-control" placeholder="Cantidad" id="cantidad[]" name="cantidad[]"></td>'+
+                                    '<td><input type="text" class="form-control" placeholder="Importe U." id="importe_unitario[]" name="importe_unitario[]"></td>'+
+                                    '<td><input type="text" class="form-control" placeholder="Importe T." id="importe_total[]" name="importe_total[]"></td>'+
+                                    '<td style="display: none"><input type="text" class="form-control" value="'+ id_co  +'" id="id_cotizacion[]" disable name="id_cotizacion[]"></td>'+
                                     '</tr>';
 
                                     $('#tabla').append(fila);
