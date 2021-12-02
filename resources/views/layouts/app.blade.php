@@ -109,7 +109,7 @@ if (!isset($_COOKIE['mostrarModal'])) {
 
 </head>
 
-<body>
+<body style="background-image: url('../img/bg-medida.png');">
     <div id="page-loader"><span class="preloader-interior"></span></div>
 
     @include('layouts.warning')
