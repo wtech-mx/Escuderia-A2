@@ -13,7 +13,11 @@
                                           <div class="d-flex align-items-center">
                                               <div class="col-11">
                                                   <p class="text-center">
-                                                      <img class="" src="{{asset($ruta. '/' . $item->img)}}" style="height: 300px!important;">
+                                                    @if($texto == 'pdf')
+                                                        <iframe width="140" height="140" src="{{asset($ruta. '/' . $item->img)}}" type="application/pdf"></iframe>
+                                                      @else
+                                                        <img class="" src="{{asset($ruta. '/' . $item->img)}}" style="height: 300px!important;">
+                                                      @endif
                                                   </p>
                                               </div>
                                               <div class="col-1">

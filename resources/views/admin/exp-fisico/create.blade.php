@@ -200,24 +200,6 @@
                                     </div>
                                 </div>
 
-{{--                                <div class="collapse" id="tomarfoto" data-parent="#myGroup">--}}
-{{--                                    <div class="card card-body" style="background-color: #ffffff;background-image: none;border: 1px solid #ffffff">--}}
-
-{{--                                        <div class="d-flex justify-content-center">--}}
-
-{{--                                            <div class="camara-contenedor fadeIn fast oculto mt-5">--}}
-{{--                                                <video id="player" autoplay style="height: 300px;"></video>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-
-{{--                                         <button id="tomar-foto-btn" type="submit" class="btn btn-lg btn-save-dark text-white mt-5">--}}
-{{--                                            <i class="fa fa-camera"></i>--}}
-{{--                                            Tomar Foto--}}
-{{--                                        </button>--}}
-
-{{--                                    </div>--}}
-{{--                                </div>--}}
-
                             </div>
                         </div>
 

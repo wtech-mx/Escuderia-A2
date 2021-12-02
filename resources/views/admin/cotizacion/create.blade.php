@@ -215,7 +215,6 @@
                                 <label for="">
                                     <p class="text-white"><strong>Video Motor</strong></p>
                                 </label>
-
                                 <input class="form-control" type="file" name="video_motor">
                             </div>
 
@@ -223,11 +222,11 @@
                                 <label for="">
                                     <p class="text-white"><strong>Video Cajuela</strong></p>
                                 </label>
-
                                 <input class="form-control" type="file" name="video_cajuela">
                             </div>
 
                             <div class="col-12 text-center mt-2 mb-5" style="margin-bottom: 8rem !important;">
+
                                 <button class="btn btn-lg btn-save-neon text-white">
                                     <i class="fas fa-save icon-tc"></i>
                                     Guardar
@@ -242,29 +241,29 @@
 
     @section('js')
         <script>
-    $(document).ready(function () {
-        $('#id_userco').on('change', function () {
-            let id = $(this).val();
-            //id_userco no esta en la tabla de automovil
-            $('#current_autoco').empty();
-            $('#current_autoco').append(`<option value="" disabled selected>Procesando..</option>`);
-            $.ajax({
-                type: 'GET',
-                url: 'crear/' + id,
-                success: function (response) {
-                    var response = JSON.parse(response);
-                    console.log(response);
-                    //trae los automoviles relacionados con el id_userco
+            $(document).ready(function () {
+                $('#id_userco').on('change', function () {
+                    let id = $(this).val();
+                    //id_userco no esta en la tabla de automovil
                     $('#current_autoco').empty();
-                    $('#current_autoco').append(`<option value="" disabled selected>Seleccione Autom&oacute;vil</option>`);
-                    response.forEach(element => {
-                        $('#current_autoco').append(`<option value="${element['id']}">${element['placas']}${element['submarca']}</option>`);
+                    $('#current_autoco').append(`<option value="" disabled selected>Procesando..</option>`);
+                    $.ajax({
+                        type: 'GET',
+                        url: 'crear/' + id,
+                        success: function (response) {
+                            var response = JSON.parse(response);
+                            console.log(response);
+                            //trae los automoviles relacionados con el id_userco
+                            $('#current_autoco').empty();
+                            $('#current_autoco').append(`<option value="" disabled selected>Seleccione Autom&oacute;vil</option>`);
+                            response.forEach(element => {
+                                $('#current_autoco').append(`<option value="${element['id']}">${element['placas']}${element['submarca']}</option>`);
+                            });
+                        }
                     });
-                }
+                });
             });
-        });
-    });
-</script>
+        </script>
 
         <script src="{{ asset('js/select2.full.min.js') }}"></script>
 
@@ -272,6 +271,7 @@
             $(document).ready(function() {
                 $('.usuario').select2();
             });
+
         </script>
 
     @endsection
