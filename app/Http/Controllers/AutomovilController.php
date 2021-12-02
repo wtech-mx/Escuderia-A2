@@ -34,16 +34,10 @@ class AutomovilController extends Controller
     function index()
     {
 
-        $user = DB::table('users')
-            ->where('id', '=', auth()->user()->id)
-            ->first();
-
-        $auto_user = $user->{'id'};
 
         $automovil = DB::table('automovil')
-            ->where('id_user', '=', $auto_user)
-            ->paginate(2);
-        //        ->get();
+            ->where('id_user', '=', auth()->user()->id)
+            ->get();
 
         $carro = DB::table('automovil')
             ->where('id', '=', auth()->user()->current_auto)
@@ -55,7 +49,7 @@ class AutomovilController extends Controller
         $marca = DB::table('marca')
             ->get();
 
-        return view('garaje.view-garaje', compact('carro', 'automovil', 'users', 'marca'));
+        return view('garaje.view-garaje', compact('carro', 'automovil', 'marca'));
     }
 
     public function create()

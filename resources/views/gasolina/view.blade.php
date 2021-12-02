@@ -150,5 +150,10 @@
     </script>
 
 @endsection
-
+<div class="modal-cambio-car">
+    <button type="button" class="btn btn-primary cambio-carro" data-toggle="modal" data-target="#cambio-car">
+      Cambiar auto
+    </button>
+</div>
+@include('layouts.change-car')
 @endsection

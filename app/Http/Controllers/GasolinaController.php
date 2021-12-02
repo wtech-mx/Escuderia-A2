@@ -18,8 +18,14 @@ class GasolinaController extends Controller
     {
             $gasolina = Gasolina::where('id_user', '=', auth()->user()->id)
                 ->get();
-        return view('gasolina.view', compact('gasolina'));
+
+            $automovil = DB::table('automovil')
+                ->where('id_user', '=', auth()->user()->id)
+                ->get();
+
+        return view('gasolina.view', compact('gasolina', 'automovil'));
     }
+    
     public function create2()
     {
         $automovil = DB::table('automovil')
@@ -213,7 +219,6 @@ class GasolinaController extends Controller
         }else{
             $gasolina = Gasolina::get();
         }
-
 
 
         return view('admin.gasolina.index-gasolina', compact('gasolina'));
