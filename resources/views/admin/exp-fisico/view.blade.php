@@ -200,7 +200,8 @@
                                 @if($texto == 'pdf')
                                     <div  class="col-6">
                                         <a   data-toggle="modal" data-target="#modal-doc-{{$item->id}}">
-                                            <p class="text-center"><iframe src="http://docs.google.com/gview?url=http://127.0.0.1:8000/exp-factura/1638419046.pdf&embedded=true" style="width:100%; height:700px;" frameborder="0" ></iframe>
+                                            <p class="text-center">
+                                                <iframe src="http://docs.google.com/gview?url=http://127.0.0.1:8000/exp-factura/1638419046.pdf&embedded=true" style="width:100%; height:700px;z-index: 10000000000000!important" frameborder="0" ></iframe>
                                                     <p class="text-center text-white">{{$item->titulo}}</p>
                                             </p>
 
