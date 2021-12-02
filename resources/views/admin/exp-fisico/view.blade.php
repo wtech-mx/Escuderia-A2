@@ -201,7 +201,9 @@
                                     <div  class="col-6">
                                         <a   data-toggle="modal" data-target="#modal-doc-{{$item->id}}">
                                             <p class="text-center">
-                                                <iframe src="http://docs.google.com/gview?url={{asset($ruta.$item->img)}}&embedded=true" style="width:100%; height:700px;z-index: 10000000000000!important" frameborder="0" ></iframe>
+                                                <iframe src="http://docs.google.com/gview?url={{asset($ruta.$item->img)}}&embedded=true" style="width:100%; height:300px;z-index: 10000000000000!important" frameborder="0" ></iframe>
+                                            <embed src="{{asset($ruta.$item->img)}}" type="application/pdf" width="100%" height="300px" />
+
                                                     <p class="text-center text-white">{{$item->titulo}}</p>
                                             </p>
 
