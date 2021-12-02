@@ -201,7 +201,7 @@
                                     <div  class="col-6">
                                         <a   data-toggle="modal" data-target="#modal-doc-{{$item->id}}">
                                             <p class="text-center">
-                                                <iframe src="http://docs.google.com/gview?url=http://127.0.0.1:8000/exp-factura/1638419046.pdf&embedded=true" style="width:100%; height:700px;z-index: 10000000000000!important" frameborder="0" ></iframe>
+                                                <iframe src="http://docs.google.com/gview?url={{asset($ruta.$item->img)}}&embedded=true" style="width:100%; height:700px;z-index: 10000000000000!important" frameborder="0" ></iframe>
                                                     <p class="text-center text-white">{{$item->titulo}}</p>
                                             </p>
 
@@ -240,7 +240,7 @@
                             <div class="row bg-down-blue " style="border-radius: 0 0 0 0;">
                                 <div class="col-12 mb3">
                                     <p class="text-center title-car">
-                                    <img class="d-inline mb-2" src="{{ asset('img/icon/white/paper (1).png') }}" alt="Icon documento" width="150px">
+                                    <img class="d-inline mb-2" src="{{ asset('img/icon/white/paper (1).png') }}"  width="150px">
 
                                     </p>
                                     <p class="text-center  text-white">
