@@ -95,7 +95,7 @@
 
 </head>
 
-<body>
+<body style="background-image: url('https://checkn-go.com.mx/img/bg-medida.png');">
     <div id="page-loader"><span class="preloader-interior"></span></div>
 
     <p style="display: none">{{ $userId = Auth::id() }}</p>

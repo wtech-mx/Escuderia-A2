@@ -195,6 +195,19 @@
                                 <div class="input-group-prepend ">
                                     <span class="input-group-text span-edit-car">
                                         <img class="" src="{{ asset('img/icon/black/placa.png') }}" width="35px">
+                                        <a class="input-a-text">Num Placas viejas</a>
+                                    </span>
+                                </div>
+                                <input type="text" class="form-control input-edit-car input-edit-car"
+                                    value="{{ $automovil->placas_viejas }}" id="placas_viejas" name="placas_viejas">
+                            </div>
+                        </div>
+
+                        <div class="col-12 mb-3">
+                            <div class="input-group form-group">
+                                <div class="input-group-prepend ">
+                                    <span class="input-group-text span-edit-car">
+                                        <img class="" src="{{ asset('img/icon/black/placa.png') }}" width="35px">
                                         <a class="input-a-text">Num Placas</a>
                                     </span>
                                 </div>

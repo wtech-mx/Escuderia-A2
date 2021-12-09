@@ -23,6 +23,7 @@ class Automovil extends Model
         'año',
         'numero_serie',
         'color',
+        'placas_viejas',
         'placas',
         'kilometraje',
     ];
@@ -52,7 +53,7 @@ class Automovil extends Model
     {
         return $this->belongsTo(Sectores::class, 'id_sector');
     }
-    
+
     public function User()
     {
        return $this->belongsTo(User::class,'id_user');
