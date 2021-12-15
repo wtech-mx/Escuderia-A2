@@ -93,6 +93,7 @@
                                 </tbody>
 
                             </table>
+                            @foreach ($cotizacion_servicio as $item)
                                 <div class="modal fade" id="exampleModal{{$item->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                     <div class="modal-content">
@@ -108,6 +109,7 @@
                                     </div>
                                     </div>
                                 </div>
+                           @endforeach
                         </div>
                     </div>
                 </div>
