@@ -83,24 +83,35 @@
                                                 <a href="{{ route('edit.taller', $item->id_taller) }}">
                                                     <i class="fas fa-tasks icon-users-edit" style="margin-right: 10px; font-size: 13px;"></i>
                                                 </a>
-{{--                                                <a target="_blank" href="https://wa.me/52{{$item->Cotizacion->User->telefono}}/?text=Muy Buen dia {{$item->Cotizacion->User->name}} te mandamos tu Hoja de diagnostico ...:{{ route('edit.diagnostico', $item->id) }}">--}}
-                                                <a target="_blank" href="https://wa.me/52{{$item->Cotizacion->User->telefono}}?text=Hola%2C+{{$item->Cotizacion->User->name}}%3A%0D%0ATe+mandamos+tu+Hoja+de+diagnostico+de+tu+auto.%0D%0ADa+click+en+el+siguente+enlace%0D%0A%0D%0A{{ route('edit.diagnostico', $item->id) }}">
+                                                <a   data-toggle="modal" data-target="#exampleModal{{$item->id}}">
                                                     <i class="fab fa-whatsapp icon-users-edit" style="margin-right: 10px; font-size: 12.5px;"></i>
-                                                </a>
+                                                 </a>
                                             </td>
 
                                         </tr>
                                         @endforeach
                                 </tbody>
-                            </table>
 
+                            </table>
+                                <div class="modal fade" id="exampleModal{{$item->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-body text-center">
+                                            <a type="button" class="btn btn-secondary" target="_blank" href="https://wa.me/52{{$item->Cotizacion->User->telefono}}?text=Hola%2C+{{$item->Cotizacion->User->name}}%3A%0D%0ATe+mandamos+tu+Hoja+de+diagnostico+de+tu+auto.%0D%0ADa+click+en+el+siguente+enlace%0D%0A%0D%0A{{ route('edit.diagnostico', $item->id) }}">
+                                                Hoja de Diagnostico
+                                            </a>
+
+                                            <a type="button" class="btn btn-primary" href="https://wa.me/52{{$item->Cotizacion->User->telefono}}?text=Hola%2C+{{$item->Cotizacion->User->name}}%3A%0D%0ATe+mandamos+tu+Cotizacion+de+tu+auto.%0D%0ADa+click+en+el+siguente+enlace%0D%0A%0D%0A{{ route('index_user.cotizacion', $item->id_taller) }}">
+                                                Cotización
+                                            </a>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
                         </div>
                     </div>
-
                 </div>
-
             </div>
-
         </div>
 
     </div>

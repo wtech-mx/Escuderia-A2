@@ -25,31 +25,43 @@
         <link href="{{ asset('css/login-form.css') }}" rel="stylesheet">
         <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
 
-        <div class="row bg-down-image-border" style=" min-height: 10vh">
-                    <div class="col-2 mt-5">
-                        <div class="d-flex justify-content-start">
-                                <div class="text-center text-white">
-                                    <a href="{{ route('index.cotizacion') }}" style="background-color: transparent;clip-path: none">
-                                        <img class="" src="{{ asset('img/icon/white/left-arrow.png') }}" width="25px" >
-                                    </a>
-                                </div>
-                        </div>
+        <div class="bg-down-image-border" style=" min-height: 10vh">
+            <div class="row">
+                <div class="col-2 mt-5">
+                    <div class="d-flex justify-content-start">
+                            <div class="text-center text-white">
+                                <a href="{{ route('index.cotizacion') }}" style="background-color: transparent;clip-path: none">
+                                    <img class="" src="{{ asset('img/icon/white/left-arrow.png') }}" width="25px" >
+                                </a>
+                            </div>
                     </div>
+                </div>
 
-                    <div class="col-8 mt-5">
-                                <h5 class="text-center text-white ml-4 mr-4 ">
-                                    <strong>Cotizacion Diagnostico</strong>
-                                </h5>
+                <div class="col-8 mt-5">
+                            <h5 class="text-center text-white ml-4 mr-4 ">
+                                <strong>Cotizacion Diagnostico</strong>
+                            </h5>
+                </div>
+
+                <div class="col-2 mt-5">
+                    <div class="d-flex justify-content-start">
+                            <div class="text-center text-white bg-white" style="border-radius: 50px;padding: 5px">
+                                <img class="" src="{{ asset('img/icon/color/campana.png') }}" width="25px" >
+                            </div>
                     </div>
-
-                    <div class="col-2 mt-5">
-                        <div class="d-flex justify-content-start">
-                                <div class="text-center text-white bg-white" style="border-radius: 50px;padding: 5px">
-                                  <img class="" src="{{ asset('img/icon/color/campana.png') }}" width="25px" >
-                                </div>
-                        </div>
-                    </div>
-
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6 mt-5">
+                    <strong style="color: #00d62e">Fecha:</strong> <a style="color: #fff; font-size:15px">{{ $cotizacion->Cotizacion->fecha }}</a><br>
+                    <strong style="color: #00d62e">Nombre:</strong> <a style="color: #fff; font-size:15px">{{ $cotizacion->Cotizacion->User->name }}</a><br>
+                    <strong style="color: #00d62e">Km:</strong> <a style="color: #fff; font-size:15px">{{ $cotizacion->Cotizacion->Automovil->kilometraje }}</a><br>
+                </div>
+                <div class="col-6 mt-5">
+                    <strong style="color: #00d62e">Telefono:</strong> <a href="tel:{{$cotizacion->Cotizacion->User->telefono}}" style="color: #fff; font-size:15px">{{ $cotizacion->Cotizacion->User->telefono }}</a><br>
+                    <strong style="color: #00d62e">Nombre:</strong> <a style="color: #fff; font-size:15px">{{ $cotizacion->Cotizacion->Automovil->placas }}</a><br>
+                </div>
+            </div>
         </div>
 
                 <div class="row  bg-down-image-border" >
@@ -104,9 +116,9 @@
                                     <table class="table table-bordered" id="tabla" >
                                         <thead class="table-dark">
                                             <tr class="text-center">
-                                                <th>Vendedor</th>
-                                                <th>Refaccion</th>
-                                                <th>Cantidad</th>
+                                                <th>Ven.</th>
+                                                <th>Refa.</th>
+                                                <th>Cant.</th>
                                                 <th>I.U.</th>
                                                 <th>I.T.</th>
                                             </tr>
@@ -114,11 +126,11 @@
                                         <tbody>
                                             @foreach ($taller as $item)
                                             <tr>
-                                                <td>{{$item->vendedor}}</td>
-                                                <td>{{$item->refaccion}}</td>
-                                                <td>{{$item->cantidad}}</td>
-                                                <td>{{$item->importe_unitario}}</td>
-                                                <td>{{$item->importe_total}}</td>
+                                                <td style="color: #070707">{{$item->vendedor}}</td>
+                                                <td style="color: #070707">{{$item->refaccion}}</td>
+                                                <td style="color: #070707">{{$item->cantidad}}</td>
+                                                <td style="color: #070707">{{$item->importe_unitario}}</td>
+                                                <td style="color: #070707">{{$item->importe_total}}</td>
                                             </tr>
                                             @endforeach
                                         </tbody>

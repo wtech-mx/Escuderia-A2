@@ -427,12 +427,17 @@ require __DIR__ . '/auth.php';
 /*|--------------------------------------------------------------------------
 |Cotizacion
 |--------------------------------------------------------------------------*/
-Route::get('admin/cotizacion/view', 'CotizacionController@index')->name('index.cotizacion');
-Route::get('admin/cotizacion/crear', 'CotizacionController@create')->name('create.cotizacion');
+Route::group(['middleware' => ['permission:Ver Cupones|Crear Cupones|Editar Cupones|Eliminar Cupones']], function () {
+    Route::get('admin/cotizacion/view', 'CotizacionController@index')->name('index.cotizacion');
+    Route::get('admin/cotizacion/crear', 'CotizacionController@create')->name('create.cotizacion');
+    Route::get('admin/cotizacion/crear/{id}', 'CotizacionController@GetAutoAgainstMainCatEdit');
+});
+Route::get('cotizacion/view/{id}', 'CotizacionController@index_user')->name('index_user.cotizacion');
+
+
 Route::post('admin/cotizacion/store', 'CotizacionController@store')->name('store.cotizacion');
 Route::get('admin/cotizacion/edit/{id}', 'CotizacionController@edit')->name('edit.cotizacion');
 
-Route::get('admin/cotizacion/crear/{id}', 'CotizacionController@GetAutoAgainstMainCatEdit');
 
 Route::get('admin/cotizacion/crear/{user}', function (User $user) {
     return $user->only('name');

@@ -29,6 +29,18 @@ class CotizacionController extends Controller
         return view('admin.cotizacion.view', compact('cotizacion', 'user', 'cotizacion_servicio'));
     }
 
+    public function index_user($id)
+    {
+        $cotizacion = CotizacionServicio::where('id_taller', '=', $id)
+        ->first();
+
+        $taller  = Taller::where('id_cotizacion', '=', $cotizacion->id_cotizacion)
+            ->where('vendedor', '!=', NULL)
+            ->get();
+
+        return view('admin.cotizacion.cotizacion_user', compact('taller'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -102,7 +114,7 @@ class CotizacionController extends Controller
     		$file->move(public_path().'/videos',time().".".$file->getClientOriginalExtension());
     		$cotizacion->video_interior=time().".".$file->getClientOriginalExtension();
         }
-        
+
         $cotizacion->save();
 
         $cotizacion_taller = new Taller;
