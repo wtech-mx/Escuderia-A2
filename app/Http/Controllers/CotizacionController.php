@@ -149,17 +149,6 @@ class CotizacionController extends Controller
         return view('admin.cotizacion.view_servicio', compact('cotizacion'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Cotizacion  $cotizacion
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Cotizacion $cotizacion)
-    {
-        //
-    }
 
     /**
      * Remove the specified resource from storage.

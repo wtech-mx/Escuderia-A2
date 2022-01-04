@@ -65,4 +65,25 @@ class TallerController extends Controller
         Session::flash('auto', 'Se ha guardado sus datos con exito');
         return redirect()->back();
     }
+
+    public function pdf($id)
+    {
+        $cotizacion = CotizacionServicio::where('id_taller', '=', $id)
+        ->first();
+
+        $taller  = Taller::where('vendedor', '!=', NULL)
+        ->where('id_cotizacion', '=', $cotizacion->id_cotizacion)
+        ->get();
+
+        $importe_unitario  = Taller::where('vendedor', '!=', NULL)
+        ->where('id_cotizacion', '=', $cotizacion->id_cotizacion)
+        ->sum('importe_unitario');
+
+        $importe_total  = Taller::where('vendedor', '!=', NULL)
+        ->where('id_cotizacion', '=', $cotizacion->id_cotizacion)
+        ->sum('importe_total');
+
+        $pdf = \PDF::loadView('admin.cotizacion.pdf', compact('cotizacion', 'taller', 'importe_unitario', 'importe_total'));
+        return $pdf->download('pdf.pdf');
+    }
 }

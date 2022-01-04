@@ -42,6 +42,11 @@ Route::get('/exportar/gasolina', 'GasolinaController@export');
 Route::get('/export_empresa', 'AutomovilController@export_empresa');
 
 /*|--------------------------------------------------------------------------
+|Exportacion de PDF
+|--------------------------------------------------------------------------*/
+Route::get('imprimir/{id}', 'TallerController@pdf')->name('print');
+
+/*|--------------------------------------------------------------------------
 |Forgot password
 |--------------------------------------------------------------------------*/
 
@@ -451,12 +456,6 @@ Route::post('admin/diagnostico/update/{id}', 'CotizacionDiagnosticoController@up
 
 Route::get('admin/taller/edit/{id}', 'TallerController@edit')->name('edit.taller');
 Route::post('admin/taller/update', 'TallerController@update')->name('update.taller');
-
-
-/*|--------------------------------------------------------------------------
-|PDF Cotizacion
-|--------------------------------------------------------------------------*/
-Route::get('/imprimir/{id}', 'CotizacionController@imprimir')->name('print');
 
 /*|--------------------------------------------------------------------------
 |sector

@@ -66,7 +66,6 @@ class NotasContoller extends Controller
                 ->get();
 
             return view('admin.notas.update', compact('user', 'nota'));
-
     }
 
     function update(Request $request, $id)
@@ -88,11 +87,9 @@ class NotasContoller extends Controller
 
     public function destroy(Notas $id)
     {
-
         $id->delete();
         Session::flash('destroy', 'Se ha guardado sus datos con exito');
         return redirect()->back();
-
     }
 
 }
