@@ -736,6 +736,8 @@
             </div>
         </btn-ss>
 
+{{$numero_aleatorio = rand(1,100)}}
+
 {{--    <script src="{{ asset('js/screenshot.js') }}"></script>--}}
 <script !src="">
     /**
@@ -769,7 +771,7 @@ $boton.addEventListener("click", () => {
       // Cuando se resuelva la promesa traerá el canvas
       // Crear un elemento <a>
       let enlace = document.createElement('a');
-      enlace.download = "Imagen-diagnostico_{{$cotizacion->Cotizacion->User->name}}_{{$cotizacion->Cotizacion->Automovil->placas}}.png";
+      enlace.download = "Imagen-diagnostico_{{$cotizacion->Cotizacion->User->name}}_{{$cotizacion->Cotizacion->Automovil->placas}}_{{$numero_aleatorio}}.png";
       // Convertir la imagen a Base64
       enlace.href = canvas.toDataURL();
       // Hacer click en él
