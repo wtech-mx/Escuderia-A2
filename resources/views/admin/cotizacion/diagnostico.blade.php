@@ -3,15 +3,18 @@
 @section('bg-color', 'background-color: #000000;')
 
 @section('content')
+
 @section('css')
+    <link href="{{ asset('css/btn-lateral.css') }}" rel="stylesheet">
     <link href="{{ asset('css/select2.min.css') }}" rel="stylesheet" />
 @endsection
 
         <link href="{{ asset('css/login-form.css') }}" rel="stylesheet">
         <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
-
-        <div class="row bg-down-image-border" style=" min-height: 10vh">
-                    <div class="col-2 mt-5">
+        <canvas id="canvas" style="width: 0px;height: 0px;">
+        </canvas>
+        <div class="row bg-down-image-border"   style=" min-height: 10vh">
+                    <div class="col-2 mt-5"  >
                         <div class="d-flex justify-content-start">
                                 <div class="text-center text-white">
 
@@ -34,6 +37,7 @@
                     <div class="col-8 mt-5">
                                 <h5 class="text-center text-white ml-4 mr-4 ">
                                     <strong>Hoja de diagnostico</strong>
+
                                 </h5>
                     </div>
 
@@ -90,9 +94,6 @@
                         </h5>
                     </div>
         </div>
-
-
-
 
                 <div class="row  bg-down-image-border">
 
@@ -710,7 +711,7 @@
                                 </div>
                             </div>
 
-                            <button onclick="screenShot()" type="button">Take a screenshot</button>
+
 
                             @if (Auth::check() == true)
                                 @if (auth()->user()->role != 0)
@@ -724,28 +725,61 @@
                             @endif
 
                         </form>
-
                     </div>
                 </div>
 
-                <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+        <btn-ss>
+            <div class="modal-cambio-car">
+                <button id="btnCapturar" class="btn btn-primary cambio-carro" >
+                  <i class="fas fa-camera"></i> Tomar captura
+                </button>
+            </div>
+        </btn-ss>
 
-    <script type="text/javascript">
+{{--    <script src="{{ asset('js/screenshot.js') }}"></script>--}}
+<script !src="">
+    /**
+ * Ejemplo 4 de html2canvas para convertir el HTML de una web
+ * a un elemento canvas - Descargar la captura como imagen PNG
+ *
+ * @author parzibyte
+ */
+//Definimos el botón para escuchar su click
+const $boton = document.querySelector("#btnCapturar"), // El botón que desencadena
+  $objetivo = document.body; // A qué le tomamos la fotocanvas
+// Nota: no necesitamos contenedor, pues vamos a descargarla
 
-function screenShot(){
-    html2canvas(document.querySelector("#canvasDiv")).then(canvas => {
-        var dataURL = canvas.toDataURL( "image/png" );
-        var data = atob( dataURL.substring( "data:image/png;base64,".length ) ),
-            asArray = new Uint8Array(data.length);
-
-        for( var i = 0, len = data.length; i < len; ++i ) {
-            asArray[i] = data.charCodeAt(i);
-        }
-
-        var blob = new Blob( [ asArray.buffer ], {type: "image/png"} );
-        saveAs(blob, "photo.png");
+// Agregar el listener al botón
+$boton.addEventListener("click", () => {
+  const opciones = {
+    ignoreElements: elemento => {
+      // Una función que ignora elementos. Regresa true si quieres que
+      // el elemento se ignore, y false en caso contrario
+      const tipo = elemento.nodeName.toLowerCase();
+      // Si es imagen o encabezado h1, ignorar
+      if (tipo === "navbar" || tipo === "btn-ss") {
+        return true;
+      }
+      // Para todo lo demás, no ignorar
+      return false
+    }
+  };
+  html2canvas($objetivo, opciones) // Llamar a html2canvas y pasarle el elemento
+    .then(canvas => {
+      // Cuando se resuelva la promesa traerá el canvas
+      // Crear un elemento <a>
+      let enlace = document.createElement('a');
+      enlace.download = "Imagen-diagnostico_{{$cotizacion->Cotizacion->User->name}}_{{$cotizacion->Cotizacion->Automovil->placas}}.png";
+      // Convertir la imagen a Base64
+      enlace.href = canvas.toDataURL();
+      // Hacer click en él
+      enlace.click();
     });
-}
-    </script>
+});
+</script>
+
+
+
 @endsection
+
 

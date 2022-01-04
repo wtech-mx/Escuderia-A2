@@ -65,6 +65,7 @@
 
     <!-- bootstrap JavaScript -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.1/dist/html2canvas.min.js"></script>
     {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
 
 
@@ -95,12 +96,12 @@
 
 </head>
 
-<body style="background-image: url('https://checkn-go.com.mx/img/bg-medida.png');">
+<body  style="background-image: url('https://checkn-go.com.mx/img/bg-medida.png');">
     <div id="page-loader"><span class="preloader-interior"></span></div>
 
     <p style="display: none">{{ $userId = Auth::id() }}</p>
 
-    <div class="container-fluid" style="@yield('bg-color')">
+    <div class="container-fluid"  style="@yield('bg-color')">
         @yield('content')
         @auth
 

@@ -14,6 +14,7 @@
                                 })
                             </script>
                         @endif
+             <navbar>
                 <div class="row bg-blue">
                     <div class="navbar">
 
@@ -78,3 +79,4 @@
 
                     @include('admin.modal-services')
                 </div>
+             </navbar>
