@@ -92,7 +92,7 @@
 
                             <thead class="table-dark">
                                 <tr class="text-center">
-                                    <th>Ser</th>
+                                    <th>Refa.</th>
                                     <th>Seller</th>
                                     <th>Stock</th>
                                     <th>I.U.</th>

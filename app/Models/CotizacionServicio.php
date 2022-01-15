@@ -26,6 +26,7 @@ class CotizacionServicio extends Model
         'aceite',
         'afinacion_b',
         'afinacion_f',
+        'otros',
         'observaciones',
     ];
 

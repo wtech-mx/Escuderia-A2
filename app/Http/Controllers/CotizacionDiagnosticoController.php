@@ -50,6 +50,7 @@ class CotizacionDiagnosticoController extends Controller
         $cotizacion->aceite = $request->get('aceite');
         $cotizacion->afinacion_b = $request->get('afinacion_b');
         $cotizacion->afinacion_f = $request->get('afinacion_f');
+        $cotizacion->otros = $request->get('otros');
         $cotizacion->observaciones = $request->get('observaciones');
         $cotizacion->update();
 

@@ -25,6 +25,7 @@ class Cotizacion extends Model
         'tarjeta',
         'verificacion',
         'poliza',
+        'km',
         'manuales',
     ];
 

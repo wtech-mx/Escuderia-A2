@@ -94,15 +94,28 @@
                         </div>
 
                         <div class="form-group row">
+                            <div class="col-6">
+                                <label for="">
+                                    <p class="text-white"><strong>Fecha</strong></p>
+                                </label>
 
-                            <label for="">
-                                <p class="text-white"><strong>Fecha</strong></p>
-                            </label>
-
-                            <div class="input-group form-group mb-5">
-                                <input type="date" class="form-control" id="fecha" name="fecha">
+                                <div class="input-group form-group mb-5">
+                                    <input type="date" class="form-control" id="fecha" name="fecha">
+                                </div>
                             </div>
 
+                            <div class="col-6">
+                                <label for="">
+                                    <p class="text-white"><strong>Kilometraje</strong></p>
+                                </label>
+
+                                <div class="input-group form-group mb-5">
+                                    <input type="text" class="form-control" placeholder="Kilometraje actual" id="km" name="km">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="">
                                 <p class="text-white"><strong>Descripción</strong></p>
                             </label>
