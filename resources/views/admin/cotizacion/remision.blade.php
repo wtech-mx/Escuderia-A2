@@ -67,7 +67,7 @@
                     </script>
                 @endif
 
-                <div class="col-4 mb-2">
+                <div class="col-6 mb-2">
                     <strong style="color: #00d62e">Fecha:</strong> <input class="form-control" type="date" name="fecha_cotizacion" id="fecha_cotizacion">
                 </div>
 
@@ -152,12 +152,12 @@
                             <div class="col-2">
                                 <strong>{{$total_remision->total_cotizacion}}</strong>
                             </div>
-                            <div class="col-4">
+                            <div class="col-2">
                             </div>
                             <div class="col-2">
                                     <strong>Total Remision</strong>
                             </div>
-                            <div class="col-2">
+                            <div class="col-4">
                                 <input class="form-control" type="number" value="{{$total_remision->total_remision}}" name="total_remision" id="total_remision">
                             </div>
                         </div>
