@@ -24,6 +24,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::view('remision', 'admin.cotizacion.remision')->name('remision');
 //Route::get('/', function () {
 //    Storage::disk('google')->put('hello.txt', "Hello world");
 //    return view('google');
@@ -40,11 +41,6 @@ Route::get('/exportar/automovil', 'AutomovilController@export');
 Route::get('/exportar/gasolina', 'GasolinaController@export');
 
 Route::get('/export_empresa', 'AutomovilController@export_empresa');
-
-/*|--------------------------------------------------------------------------
-|Exportacion de PDF
-|--------------------------------------------------------------------------*/
-Route::get('imprimir/{id}', 'TallerController@pdf')->name('print');
 
 /*|--------------------------------------------------------------------------
 |Forgot password
@@ -481,3 +477,15 @@ Route::get('admin/gasolina/crear/empresa/{id}', 'GasolinaController@GetSector2Ag
 Route::get('gasolina/index', 'GasolinaController@index2')->name('index2.gasolina');
 Route::get('gasolina/crear', 'GasolinaController@create2')->name('create2.gasolina');
 Route::post('gasolina/store', 'GasolinaController@store2')->name('store2.gasolina');
+
+/*|--------------------------------------------------------------------------
+|Remision
+|--------------------------------------------------------------------------*/
+Route::get('remision/edit/{id}', 'CotizacionRemisionController@edit')->name('edit.remision');
+Route::post('remision/update', 'CotizacionRemisionController@update')->name('update.remision');
+
+Route::post('remision/updater/{id}', 'CotizacionRemisionController@updateremision')->name('updateremision.remision');
+Route::get('changeAprobacion', 'CotizacionRemisionController@ChangeUserStatus')->name('ChangeUserStatus.remision');
+
+Route::get('imprimir/cotizacion/{id}', 'CotizacionRemisionController@pdf_cotizacion')->name('print.cotizacion');
+Route::get('imprimir/remision/{id}', 'CotizacionRemisionController@pdf_remision')->name('printf.remision');

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCotizacionRemisionTable extends Migration
+class CreateTotalRemisionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,19 +13,17 @@ class CreateCotizacionRemisionTable extends Migration
      */
     public function up()
     {
-        Schema::create('cotizacion_remision', function (Blueprint $table) {
+        Schema::create('total_remisions', function (Blueprint $table) {
             $table->id();
-
             $table->unsignedBigInteger('id_cotizacion');
             $table->foreign('id_cotizacion')
                 ->references('id')->on('cotizacion')
                 ->inDelete('set null');
 
-            $table->string('reparacion')->nullable();
-            $table->string('mano')->nullable();
-            $table->integer('importe')->nullable();
-            $table->integer('aprobacion')->nullable();
-
+            $table->string('total_cotizacion')->nullable();
+            $table->string('total_remision')->nullable();
+            $table->date('fecha_cotizacion')->nullable();
+            $table->date('fecha_remision')->nullable();
             $table->timestamps();
         });
     }
@@ -37,6 +35,6 @@ class CreateCotizacionRemisionTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cotizacion_remision');
+        Schema::dropIfExists('total_remisions');
     }
 }

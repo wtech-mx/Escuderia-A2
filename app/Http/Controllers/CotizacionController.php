@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Cotizacion;
 use App\Models\CotizacionServicio;
+use App\Models\CotizacionRemision;
+use App\Models\TotalRemision;
 use App\Models\CotizacionDiagnostico;
 use App\Models\Taller;
 use Illuminate\Http\Request;
@@ -131,7 +133,13 @@ class CotizacionController extends Controller
         $cotizacion_diagnostico->id_cotizacion_servicio = $cotizacion_servicio->id;
         $cotizacion_diagnostico->save();
 
+        $cotizacion_remision = new CotizacionRemision;
+        $cotizacion_remision->id_cotizacion = $cotizacion->id;
+        $cotizacion_remision->save();
 
+        $total_remision = new TotalRemision;
+        $total_remision->id_cotizacion = $cotizacion->id;
+        $total_remision->save();
 
         Session::flash('auto', 'Se ha guardado sus datos con exito');
         return redirect()->route('index.cotizacion', compact('cotizacion'));

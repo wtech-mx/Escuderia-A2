@@ -17,10 +17,8 @@
                 font-size: 80px;
             }
             .fecha{
-                position: absolute;
-                right: 3%;
-                padding: 30px;
-                font-size: 30px;
+                right: 5%;
+                padding: 35px;
             }
             .mensaje{
                 padding: 20px 0px 0px 0px;
@@ -80,7 +78,7 @@
             .pag{
                 position: absolute;
                 text-decoration: none;
-                color: #fff;
+                color: #191E25;
                 left: 40%;
                 display:block;
             }
@@ -112,14 +110,14 @@
 
                 <div class="padre">
                     <div class="hijo_uno">
-                        <h3 style="color: #1635d1;font-size: 40px;">Cotizacion</h3>
+                        <h3 style="color: #00d62e;font-size: 40px;">Remision</h3>
                     </div>
                 </div>
 
                 <div class="row" >
                     <div style="width: 50%; float:left">
                         <blockquote class="blockquote">
-                            <p class="display-4 from" style="color: #1635d1;font-size: 25px;">
+                            <p class="display-4 from" style="color: #00d62e;font-size: 25px;">
                                 <strong>Datos del automovil </strong>
                             </p>
                             <p class="text-right  text-white" style="color: #ccc;font-size: 18px;">
@@ -136,7 +134,7 @@
 
                     <div style="width: 50%; float:right">
                         <blockquote class="blockquote">
-                            <p class="display-4 from" style="color: #1635d1;font-size: 25px;">
+                            <p class="display-4 from" style="color: #00d62e;font-size: 25px;">
                                 <strong>Datos del cliente </strong>
                             </p>
                             <p class="blockquote-footer text-white para" style="color: #ccc;font-size: 18px;">
@@ -152,14 +150,16 @@
                     </div>
                 </div>
 
-                <div class="row mt-5" style="position: relative;">
+
+
+                <div class="row" style="position: relative;">
                     <div class="col-md-12">
-                        <p style="color: #ccc;font-size: 25px; padding-left: 35px;">
-                            <strong style="color: #1635d1">Fecha: </strong>{{$total_remision->fecha_cotizacion}}
+                        <p style="color: #ccc;font-size: 25px; padding-left: 25px;">
+                            <strong style="color: #00d62e">Fecha: </strong>{{$total_remision->fecha_remision}}
                         </p>
-                        <table id="ejemplo" class="table text-white tabla-completa" style="color: #ccc;width: 100%;padding: 30px;">
+                        <table id="ejemplo" class="table text-white tabla-completa" style="color: #ffffff;width: 100%;padding: 30px;">
                             <thead class="tabla-azul" style="padding: 100px;">
-                                <tr class="tr" style="background-color: #1635d1;height: 40px; color: #ffffff;">
+                                <tr class="tr" style="background-color: #00d62e;height: 40px; color: #191E25;">
                                     <th >
                                         Reparaciòn
                                     </th>
@@ -200,7 +200,7 @@
                             </div>
                             <div class="col-4 mb-5">
                                 <p style="color: #ccc;font-size: 25px; padding-left: 35px;">
-                                    <strong style="color: #1635d1">Total </strong>${{$total_remision->total_cotizacion}} mxn
+                                    <strong style="color: #00d62e">Total </strong>${{$total_remision->total_remision}} mxn
                                 </p>
                             </div>
                         </div>
@@ -211,7 +211,7 @@
                     <div class="col-md-6">
                         <address class="text-white datos-contacto" style="color: #ccc;font-size: 20px;text-decoration: none;">
                             <p>
-                            <ul style="color: #ccc"><p><strong>Nota: estos precios no Incluyen IVA</strong></p>
+                            <ul style="color: #ccc"> <p><strong>Nota: estos precios no Incluyen IVA</strong></p>
                                 <li>Atentamente: Dir. Comercial Alejandro</li>
                                 <li>Email: <a style="text-decoration: none;color:#fff" href="mailto:adiazm@eago.com.mx?subject=cotizacion" "email me">adiazm@eago.com.mx</a></li>
                                 <li>Telefono:<a style="text-decoration: none;color:#fff" href="tel:56 20453763" title="">5620453763</a></li>

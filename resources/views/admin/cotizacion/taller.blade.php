@@ -46,7 +46,9 @@
         <div class="col-2 mt-5">
             <div class="d-flex justify-content-start">
                     <div class="text-center text-white bg-white" style="border-radius: 50px;padding: 5px">
-                        <img class="" src="{{ asset('img/icon/color/campana.png') }}" width="25px" >
+                        <a href="{{ route('edit.remision', $cotizacion->id_cotizacion) }}">
+                        <img class="" src="{{ asset('img/icon/color/pdf.png') }}" width="25px" >
+                    </a>
                     </div>
             </div>
         </div>
@@ -93,8 +95,8 @@
                             <thead class="table-dark">
                                 <tr class="text-center">
                                     <th>Refa.</th>
-                                    <th>Seller</th>
-                                    <th>Stock</th>
+                                    <th>Pro.</th>
+                                    <th>Marca</th>
                                     <th>I.U.</th>
                                     <th>I.T.</th>
                                 </tr>
@@ -118,7 +120,7 @@
                                     <tr class="text-center">
                                         <th>Ven.</th>
                                         <th>Refa.</th>
-                                        <th>Cant.</th>
+                                        <th>Marca</th>
                                         <th>I.U.</th>
                                         <th>I.T.</th>
                                     </tr>
@@ -135,9 +137,6 @@
                                     @endforeach
                                 </tbody>
                             </table>
-                            <a class="btn btn-primary mt-5" href="{{route('print', $cotizacion->id_taller)}}" role="button">
-                                Descargar
-                            </a>
                         </div>
                     </div>
 
@@ -154,7 +153,7 @@
                             var fila='<tr>'+
                             '<td><input type="text" class="form-control" placeholder="Vendedor" id="vendedor[]" name="vendedor[]"></td>'+
                             '<td><input type="text" class="form-control" placeholder="Refaccion" id="refaccion[]" name="refaccion[]"></td>'+
-                            '<td><input type="number" class="form-control" placeholder="Cantidad" id="cantidad[]" name="cantidad[]"></td>'+
+                            '<td><input type="text" class="form-control" placeholder="Cantidad" id="cantidad[]" name="cantidad[]"></td>'+
                             '<td><input type="text" class="form-control" placeholder="Importe U." id="importe_unitario[]" name="importe_unitario[]"></td>'+
                             '<td><input type="text" class="form-control" placeholder="Importe T." id="importe_total[]" name="importe_total[]"></td>'+
                             '<td style="display: none"><input type="text" class="form-control" value="'+ id_co  +'" id="id_cotizacion[]" disable name="id_cotizacion[]"></td>'+
