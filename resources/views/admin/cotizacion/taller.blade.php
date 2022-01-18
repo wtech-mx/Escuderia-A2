@@ -57,7 +57,7 @@
         <div class="col-6 mt-5">
             <strong style="color: #00d62e">Fecha:</strong> <a style="color: #fff; font-size:15px">{{ $cotizacion->Cotizacion->fecha }}</a><br>
             <strong style="color: #00d62e">Nombre:</strong> <a style="color: #fff; font-size:15px">{{ $cotizacion->Cotizacion->User->name }}</a><br>
-            <strong style="color: #00d62e">Km:</strong> <a style="color: #fff; font-size:15px">{{ $cotizacion->Cotizacion->Automovil->kilometraje }} KM</a><br>
+            <strong style="color: #00d62e">Km:</strong> <a style="color: #fff; font-size:15px">{{ $cotizacion->Cotizacion->km }} KM</a><br>
         </div>
         <div class="col-6 mt-5">
             <strong style="color: #00d62e">Telefono:</strong> <a href="tel:{{$cotizacion->Cotizacion->User->telefono}}" style="color: #fff; font-size:15px">{{ $cotizacion->Cotizacion->User->telefono }}</a><br>
