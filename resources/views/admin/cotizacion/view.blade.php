@@ -99,7 +99,7 @@
                                     <div class="modal-content">
                                         <div class="modal-body text-center">
                                             <a type="button" class="btn" target="_blank" href="https://wa.me/52{{$item->Cotizacion->User->telefono}}?text=Hola%2C+{{$item->Cotizacion->User->name}}%3A%0D%0ATe+mandamos+los+videos+de+tu+auto.%0D%0ADa+click+en+el+siguente+enlace%0D%0A%0D%0A{{route('videos.cotizacion', $item->id_cotizacion)}}" style="background: #00BB2D; color: #ffff">
-                                                Compartir Videos
+                                                Hoja de servicio
                                             </a>
 
                                             <a type="button" class="btn btn-secondary" target="_blank" href="https://wa.me/52{{$item->Cotizacion->User->telefono}}?text=Hola%2C+{{$item->Cotizacion->User->name}}%3A%0D%0ATe+mandamos+tu+Hoja+de+diagnostico+de+tu+auto.%0D%0ADa+click+en+el+siguente+enlace%0D%0A%0D%0A{{ route('edit.diagnostico', $item->id) }}">
