@@ -49,7 +49,7 @@
                         <label for="">
                             <p class="text-white"><strong>Video Exterior</strong></p>
                         </label><br>
-                        <video controls preload="auto" width="200" height="150" data-setup="{}" style="padding: 10px;">
+                        <video controls preload="auto" width="300" height="200" data-setup="{}" style="padding: 10px;">
                             <source src="{{asset('videos/'.$cotizacion->video_exterior)}}" type='video/mp4'>
                         </video>
                     </div>
@@ -58,7 +58,7 @@
                         <label for="">
                             <p class="text-white"><strong>Video Interior</strong></p>
                         </label><br>
-                        <video controls preload="auto" width="200" height="150" data-setup="{}" style="padding: 10px;">
+                        <video controls preload="auto" width="300" height="200" data-setup="{}" style="padding: 10px;">
                             <source src="{{asset('videos/'.$cotizacion->video_interior)}}" type='video/mp4'>
                         </video>
                     </div>
@@ -67,7 +67,7 @@
                         <label for="">
                             <p class="text-white"><strong>Video Motor</strong></p>
                         </label><br>
-                        <video controls preload="auto" width="200" height="150" data-setup="{}" style="padding: 10px;">
+                        <video controls preload="auto" width="300" height="200" data-setup="{}" style="padding: 10px;">
                             <source src="{{asset('videos/'.$cotizacion->video_motor)}}" type='video/mp4'>
                         </video>
                     </div>
@@ -76,7 +76,7 @@
                         <label for="">
                             <p class="text-white"><strong>Video Cajuela</strong></p>
                         </label><br>
-                        <video controls preload="auto" width="200" height="150" data-setup="{}" style="padding: 10px;">
+                        <video controls preload="auto" width="300" height="200" data-setup="{}" style="padding: 10px;">
                             <source src="{{asset('videos/'.$cotizacion->video_cajuela)}}" type='video/mp4'>
                         </video>
                     </div>
