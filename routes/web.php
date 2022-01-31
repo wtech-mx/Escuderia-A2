@@ -439,6 +439,7 @@ Route::get('cotizacion/view/{id}', 'CotizacionController@index_user')->name('ind
 Route::post('admin/cotizacion/store', 'CotizacionController@store')->name('store.cotizacion');
 Route::get('admin/cotizacion/edit/{id}', 'CotizacionController@edit')->name('edit.cotizacion');
 
+Route::get('admin/cotizacion/videos/{id}', 'CotizacionController@videos')->name('videos.cotizacion');
 
 Route::get('admin/cotizacion/crear/{user}', function (User $user) {
     return $user->only('name');

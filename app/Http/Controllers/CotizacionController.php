@@ -43,6 +43,14 @@ class CotizacionController extends Controller
         return view('admin.cotizacion.cotizacion_user', compact('taller'));
     }
 
+    public function videos($id)
+    {
+        $cotizacion = Cotizacion::where('id', '=', $id)
+        ->first();
+
+        return view('admin.cotizacion.videos', compact('cotizacion'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -96,26 +104,26 @@ class CotizacionController extends Controller
 
         if ($request->hasFile('video_motor')) {
             $file = $request->file('video_motor');
-            $file->move(public_path() . '/videos', time() . "." . $file->getClientOriginalExtension());
-            $cotizacion->video_motor = time() . "." . $file->getClientOriginalExtension();
+            $file->move(public_path() . '/videos', "M" . time() . "." . $file->getClientOriginalExtension());
+            $cotizacion->video_motor = "M" . time() . "." . $file->getClientOriginalExtension();
         }
 
         if ($request->hasFile('video_cajuela')) {
             $file = $request->file('video_cajuela');
-            $file->move(public_path() . '/videos', time() . "." . $file->getClientOriginalExtension());
-            $cotizacion->video_cajuela = time() . "." . $file->getClientOriginalExtension();
+            $file->move(public_path() . '/videos', "C" . time() . "." . $file->getClientOriginalExtension());
+            $cotizacion->video_cajuela = "C" . time() . "." . $file->getClientOriginalExtension();
         }
 
         if ($request->hasFile('video_exterior')) {
             $file = $request->file('video_exterior');
-            $file->move(public_path() . '/videos', time() . "." . $file->getClientOriginalExtension());
-            $cotizacion->video_exterior = time() . "." . $file->getClientOriginalExtension();
+            $file->move(public_path() . '/videos', "E" . time() . "." . $file->getClientOriginalExtension());
+            $cotizacion->video_exterior = "E" . time() . "." . $file->getClientOriginalExtension();
         }
 
         if ($request->hasFile('video_interior')) {
             $file = $request->file('video_interior');
-            $file->move(public_path() . '/videos', time() . "." . $file->getClientOriginalExtension());
-            $cotizacion->video_interior = time() . "." . $file->getClientOriginalExtension();
+            $file->move(public_path() . '/videos', "I" . time() . "." . $file->getClientOriginalExtension());
+            $cotizacion->video_interior = "I" . time() . "." . $file->getClientOriginalExtension();
         }
 
         $cotizacion->save();

@@ -110,7 +110,7 @@
                                 </label>
 
                                 <div class="input-group form-group mb-5">
-                                    <input type="text" class="form-control" placeholder="Kilometraje actual" id="km" name="km">
+                                    <input type="number" class="form-control" placeholder="Kilometraje actual" id="km" name="km">
                                 </div>
                             </div>
                         </div>
