@@ -490,3 +490,14 @@ Route::get('changeAprobacion', 'CotizacionRemisionController@ChangeUserStatus')-
 
 Route::get('imprimir/cotizacion/{id}', 'CotizacionRemisionController@pdf_cotizacion')->name('print.cotizacion');
 Route::get('imprimir/remision/{id}', 'CotizacionRemisionController@pdf_remision')->name('printf.remision');
+
+/*|--------------------------------------------------------------------------
+|Key Empresas
+|--------------------------------------------------------------------------*/
+Route::get('key/index', 'KeyController@index')->name('index.key');
+Route::get('key/crear', 'KeyController@create')->name('create.key');
+Route::post('key/store', 'KeyController@store')->name('store.key');
+Route::get('key/edit/{id}', 'KeyController@edit')->name('edit.key');
+Route::patch('key/update/{id}', 'KeyController@update')->name('update.key');
+
+Route::get('changeAprobacion', 'KeyController@ChangeEmpresasStatus')->name('ChangeEmpresasStatus.key');

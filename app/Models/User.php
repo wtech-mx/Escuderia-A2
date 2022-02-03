@@ -31,13 +31,15 @@ User extends Authenticatable
         'role',
         'email',
         'password',
+        'id_key',
+        'act_key',
         'device_token'
 
     ];
-        public function scopeName($query,$name)
+    public function scopeName($query, $name)
     {
         if ($name)
-            return $query->where('name','LIKE',"%$name%");
+            return $query->where('name', 'LIKE', "%$name%");
     }
 
     /**
@@ -78,17 +80,16 @@ User extends Authenticatable
 
     public function Seguros()
     {
-       return $this->hasMany(Seguros::class,'id_user');
+        return $this->hasMany(Seguros::class, 'id_user');
     }
 
     public function TarjetaCirculacion()
     {
-       return $this->hasMany(TarjetaCirculacion::class,'id_user');
+        return $this->hasMany(TarjetaCirculacion::class, 'id_user');
     }
 
     public function ExpFactura()
     {
-       return $this->hasMany(ExpFactura::class,'id_user');
+        return $this->hasMany(ExpFactura::class, 'id_user');
     }
-
 }
