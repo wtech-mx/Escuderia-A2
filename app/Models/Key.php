@@ -9,7 +9,7 @@ class Key extends Model
 {
     use HasFactory;
 
-    protected $table = "key";
+    protected $table = "keys";
     protected $primarykey = "id";
 
     protected $fillable = [

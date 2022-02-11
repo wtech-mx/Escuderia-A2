@@ -15,32 +15,31 @@ class KeyController extends Controller
     {
             $key = Key::get();
 
-            return view('admin.key.index', compact('key'));
-    }
-
-    public function create()
-    {
             $user = DB::table('users')
-                ->orderBy('name')
-                ->where('role', '=', '0')
-                ->get();
+            ->where('empresa', '=', '1')
+            ->where('id_sector', '=', NULL)
+            ->get();
 
-            return view('admin.notas.create', compact('user'));
-
+            return view('admin.key.index', compact('key', 'user'));
     }
 
     public function store(Request $request)
     {
-
         $validate = $this->validate($request, [
-            'nota' => 'required|max:500',
+            'id_empresa' => 'required',
         ]);
 
-        $notas = new  Notas;
-        $notas->id_user = $request->get('id_user');
-        $notas->nota = $request->get('nota');
-        $notas->usuario = auth()->user()->id;
-        $notas->save();
+        $key = new  Key;
+        $key->id_empresa = $request->get('id_empresa');
+        $key->codigo = $request->get('codigo');
+        $key->estatus = $request->get('estatus');
+        $key->caducidad = $request->get('caducidad');
+        $key->save();
+
+        $user_key = user::findOrFail($key->id_empresa);
+        $user_key->id_key = $key->id;
+        $user_key->act_key =  $key->estatus;
+        $user_key->update();
 
         Session::flash('store', 'Se ha guardado sus datos con exito');
         return redirect()->back();
@@ -48,36 +47,41 @@ class KeyController extends Controller
 
     public function edit($id)
     {
-            $nota = Notas::findOrFail($id);
+            $key_update = Key::findOrFail($id);
             $user = DB::table('users')
-                ->where('role', '=', '0')
-                ->get();
+            ->where('empresa', '=', '1')
+            ->where('id_sector', '=', NULL)
+            ->get();
 
-            return view('admin.notas.update', compact('user', 'nota'));
+            return view('admin.key.edit', compact('user', 'key_update'));
     }
 
     function update(Request $request, $id)
     {
 
         $validate = $this->validate($request, [
-            'nota' => 'required|max:500',
+            'id_empresa' => 'required',
         ]);
 
-        $nota = Notas::findOrFail($id);
-        $nota->id_user = $request->get('id_user');
-        $nota->nota = $request->get('nota');
-
-        $nota->update();
+        $key = Key::findOrFail($id);
+        $key->id_empresa = $request->get('id_empresa');
+        $key->codigo = $request->get('codigo');
+        $key->caducidad = $request->get('caducidad');
+        $key->update();
 
         Session::flash('update', 'Se ha guardado sus datos con exito');
-        return redirect()->back();
+        return redirect()->route('index.key');
     }
 
-    public function ChangeEmpresasStatus(Request $request)
+    public function ChangeLlave(Request $request)
     {
-        $remision = CotizacionRemision::find($request->id);
-        $remision->aprobacion = $request->aprobacion;
-        $remision->save();
+        $key = Key::find($request->id);
+        $key->estatus = $request->estatus;
+        $key->save();
+
+        $user_key = user::findOrFail($key->id_empresa);
+        $user_key->act_key =  $key->estatus;
+        $user_key->update();
 
         return response()->json(['success' => 'Se cambio el estado exitosamente.']);
     }

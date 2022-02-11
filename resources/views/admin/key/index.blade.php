@@ -42,7 +42,7 @@
 
         <div class="col-8  mt-4">
             <h5 class="text-center text-white ml-4 mr-4 ">
-                <strong>Licencias</strong>
+                <strong>Llave</strong>
             </h5>
         </div>
 
@@ -55,7 +55,7 @@
         </div>
 
         <div class="d-flex flex-row-reverse mt-4 mb-3">
-            <a class="btn p-2 " href="{{ route('create.key') }}">
+            <a class="btn" data-toggle="modal" data-target="#modalLlave">
                 <i class="fas fa-plus-circle icon-effect"></i>
             </a>
             <h5 class="text-white p-2">
@@ -85,7 +85,7 @@
                                         </a>
                                     </th>
                                     <th>
-                                        {{ $item->Empresa-> }}
+                                        {{ $item->Empresa->name }}
                                     </th>
 
                                     <td>
@@ -93,6 +93,9 @@
                                             data-onstyle="success" data-offstyle="danger" data-toggle="toggle"
                                             data-on="Active" data-off="InActive" {{ $item->estatus ? 'checked' : '' }}>
                                     </td>
+                                    <th>
+                                            {{ $item->caducidad }}
+                                    </th>
                                 </tr>
                             @endforeach
                         </tbody>
@@ -100,7 +103,7 @@
                 </div>
             </div>
         </div>
-
+        @include('admin.key.create')
     </div>
 
 
@@ -124,7 +127,7 @@
                 $.ajax({
                     type: "GET",
                     dataType: "json",
-                    url: '{{ route('ChangeEmpresasStatus.key') }}',
+                    url: '{{ route('ChangeLlave.key') }}',
                     data: {
                         'estatus': estatus,
                         'id': id
