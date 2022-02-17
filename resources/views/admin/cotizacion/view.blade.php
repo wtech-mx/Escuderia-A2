@@ -83,7 +83,7 @@
                                                 <a href="{{ route('edit.taller', $item->id_taller) }}">
                                                     <i class="fas fa-tasks icon-users-edit" style="margin-right: 10px; font-size: 13px;"></i>
                                                 </a>
-                                                <a   data-toggle="modal" data-target="#exampleModal{{$item->id}}">
+                                                <a data-toggle="modal" data-target="#exampleModal{{$item->id}}">
                                                     <i class="fab fa-whatsapp icon-users-edit" style="margin-right: 10px; font-size: 12.5px;"></i>
                                                  </a>
                                             </td>

@@ -112,14 +112,14 @@
 
                 <div class="padre">
                     <div class="hijo_uno">
-                        <h3 style="color: #1635d1;font-size: 40px;">Cotizacion</h3>
+                        <h3 style="color: #1993B8;font-size: 40px;">Cotizacion</h3>
                     </div>
                 </div>
 
                 <div class="row" >
                     <div style="width: 50%; float:left">
                         <blockquote class="blockquote">
-                            <p class="display-4 from" style="color: #1635d1;font-size: 25px;">
+                            <p class="display-4 from" style="color: #1993B8;font-size: 25px;">
                                 <strong>Datos del automovil </strong>
                             </p>
                             <p class="text-right  text-white" style="color: #ccc;font-size: 18px;">
@@ -136,7 +136,7 @@
 
                     <div style="width: 50%; float:right">
                         <blockquote class="blockquote">
-                            <p class="display-4 from" style="color: #1635d1;font-size: 25px;">
+                            <p class="display-4 from" style="color: #1993B8;font-size: 25px;">
                                 <strong>Datos del cliente </strong>
                             </p>
                             <p class="blockquote-footer text-white para" style="color: #ccc;font-size: 18px;">
@@ -155,11 +155,11 @@
                 <div class="row mt-5" style="position: relative;">
                     <div class="col-md-12">
                         <p style="color: #ccc;font-size: 25px; padding-left: 35px;">
-                            <strong style="color: #1635d1">Fecha: </strong>{{$total_remision->fecha_cotizacion}}
+                            <strong style="color: #1993B8">Fecha: </strong>{{$total_remision->fecha_cotizacion}}
                         </p>
                         <table id="ejemplo" class="table text-white tabla-completa" style="color: #ccc;width: 100%;padding: 30px;">
                             <thead class="tabla-azul" style="padding: 100px;">
-                                <tr class="tr" style="background-color: #1635d1;height: 40px; color: #ffffff;">
+                                <tr class="tr" style="background-color: #1993B8;height: 40px; color: #ffffff;">
                                     <th >
                                         Reparaciòn
                                     </th>
@@ -200,7 +200,7 @@
                             </div>
                             <div class="col-4 mb-5">
                                 <p style="color: #ccc;font-size: 25px; padding-left: 35px;">
-                                    <strong style="color: #1635d1">Total </strong>${{$total_remision->total_cotizacion}} mxn
+                                    <strong style="color: #1993B8">Total </strong>${{$total_remision->total_cotizacion}} mxn
                                 </p>
                             </div>
                         </div>
@@ -212,7 +212,7 @@
                         <address class="text-white datos-contacto" style="color: #ccc;font-size: 20px;text-decoration: none;">
                             <p>
                             <ul style="color: #ccc"><p><strong>Nota: estos precios no Incluyen IVA</strong></p>
-                                <li>Atentamente: Dir. Comercial Alejandro</li>
+                                <li>Atentamente: Alejandro Diaz</li>
                                 <li>Email: <a style="text-decoration: none;color:#fff" href="mailto:adiazm@eago.com.mx?subject=cotizacion" "email me">adiazm@eago.com.mx</a></li>
                                 <li>Telefono:<a style="text-decoration: none;color:#fff" href="tel:56 20453763" title="">5620453763</a></li>
                             </ul>

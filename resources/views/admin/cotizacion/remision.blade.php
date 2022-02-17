@@ -206,7 +206,7 @@
                         $.ajax({
                             type: "GET",
                             dataType: "json",
-                            url: '{{ route('ChangeUserStatus.remision') }}',
+                            url: '{{ route('ChangeUserEstatus.remision') }}',
                             data: {
                                 'aprobacion': aprobacion,
                                 'id': id

@@ -86,7 +86,7 @@
 
                     <div class="tab-pane fade show active" id="perfil2" role="tabpanel" aria-labelledby="pills-perfil2-tab">
 
-                        <label for="" class="mt-3">>
+                        <label for="" class="mt-3">
                             <p class="text-white"><strong>Nombre</strong></p>
                         </label>
 
@@ -100,7 +100,7 @@
                                 style="border-radius: 0  10px 10px 0;" required>
                         </div>
 
-                        <label for="" class="mt-3">>
+                        <label for="" class="mt-3">
                             <p class="text-white"><strong>Correo</strong></p>
                         </label>
 
@@ -114,7 +114,7 @@
                                 style="border-radius: 0  10px 10px 0;" required>
                         </div>
 
-                        <label for="" class="mt-3">>
+                        <label for="" class="mt-3">
                             <p class="text-white"><strong>Tel&eacute;fono</strong></p>
                         </label>
 
@@ -128,7 +128,7 @@
                                 style="border-radius: 0  10px 10px 0;">
                         </div>
 
-                        <label for="" class="mt-3">>
+                        <label for="" class="mt-3">
                             <p class="text-white"><strong>Direcci&oacute;n</strong></p>
                         </label>
 
@@ -142,7 +142,7 @@
                                 style="border-radius: 0  10px 10px 0;" id='datetimepicker1'>
                         </div>
 
-                        <label for="" class="mt-3">>
+                        <label for="" class="mt-3">
                             <p class="text-white"><strong>Fecha de nacimiento</strong></p>
                         </label>
 
@@ -157,7 +157,7 @@
                         </div>
 
                         @if (auth()->user()->empresa == 0)
-                        <label for="" class="mt-3">>
+                        <label for="" class="mt-3">
                             <p class="text-white"><strong>Referencia</strong></p>
                         </label>
 
@@ -177,7 +177,7 @@
                         </div>
                         @endif
 
-                        <label for="" class="mt-3">>
+                        <label for="" class="mt-3">
                             <p class="text-white"><strong>Role</strong></p>
                         </label>
                         @if (auth()->user()->id_sector == NULL)
@@ -214,7 +214,7 @@
                         </div>
 
                         @if (auth()->user()->empresa == 0)
-                            <label for="" class="mt-3">>
+                            <label for="" class="mt-3">
                                 <p class="text-white"><strong>Género</strong></p>
                             </label>
 
@@ -269,7 +269,7 @@
 
                         @if (auth()->user()->empresa == 1)
                         @if (auth()->user()->id_sector == NULL)
-                            <label for="" class="mt-3">>
+                            <label for="" class="mt-3">
                                 <p class="text-white"><strong>Sector</strong></p>
                             </label>
 
@@ -292,7 +292,7 @@
                             @endif
                         @endif
 
-                        <label for="" class="mt-3">>
+                        <label for="" class="mt-3">
                             <p class="text-white"><strong>Contraseña</strong></p>
                         </label>
 
@@ -306,7 +306,7 @@
                                 style="border-radius: 0  10px 10px 0;">
                         </div>
 
-                        <label for="" class="mt-3">>
+                        <label for="" class="mt-3">
                             <p class="text-white"><strong>Confirmar Contraseña </strong></p>
                         </label>
 

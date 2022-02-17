@@ -486,7 +486,7 @@ Route::get('remision/edit/{id}', 'CotizacionRemisionController@edit')->name('edi
 Route::post('remision/update', 'CotizacionRemisionController@update')->name('update.remision');
 
 Route::post('remision/updater/{id}', 'CotizacionRemisionController@updateremision')->name('updateremision.remision');
-Route::get('changeAprobacion', 'CotizacionRemisionController@ChangeUserStatus')->name('ChangeUserStatus.remision');
+Route::get('changeAprobacionRemision', 'CotizacionRemisionController@ChangeUserEstatus')->name('ChangeUserEstatus.remision');
 
 Route::get('imprimir/cotizacion/{id}', 'CotizacionRemisionController@pdf_cotizacion')->name('print.cotizacion');
 Route::get('imprimir/remision/{id}', 'CotizacionRemisionController@pdf_remision')->name('printf.remision');
@@ -499,4 +499,4 @@ Route::post('key/store', 'KeyController@store')->name('store.key');
 Route::get('key/edit/{id}', 'KeyController@edit')->name('edit.key');
 Route::patch('key/update/{id}', 'KeyController@update')->name('update.key');
 
-Route::get('changeAprobacion', 'KeyController@ChangeLlave')->name('ChangeLlave.key');
+Route::get('changeAprobacionKey', 'KeyController@ChangeLlave')->name('ChangeLlave.key');

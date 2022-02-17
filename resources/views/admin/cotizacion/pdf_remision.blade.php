@@ -37,7 +37,7 @@
                 padding: 100px;
             }
             .tr{
-                background-color: #1993B8;
+                background-color: #51b9d8;
                 height: 40px;
             }
             td{
@@ -212,7 +212,7 @@
                         <address class="text-white datos-contacto" style="color: #ccc;font-size: 20px;text-decoration: none;">
                             <p>
                             <ul style="color: #ccc"> <p><strong>Nota: estos precios no Incluyen IVA</strong></p>
-                                <li>Atentamente: Dir. Comercial Alejandro</li>
+                                <li>Atentamente: Alejandro Díaz</li>
                                 <li>Email: <a style="text-decoration: none;color:#fff" href="mailto:adiazm@eago.com.mx?subject=cotizacion" "email me">adiazm@eago.com.mx</a></li>
                                 <li>Telefono:<a style="text-decoration: none;color:#fff" href="tel:56 20453763" title="">5620453763</a></li>
                             </ul>

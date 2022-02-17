@@ -15,7 +15,7 @@
                   <div class="form-row">
 
                       <div class="form-group col-12">
-{{--                        <label for="">id</label>--}}
+                        {{--<label for="">id</label>--}}
                         <input class="form-control" type="hidden" name="txtID" id="txtID">
                       </div>
 

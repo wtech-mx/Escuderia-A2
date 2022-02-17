@@ -284,10 +284,6 @@
                     </div>
                 @endif
 
-
-
-
-
             @if ($users->empresa == 0)
                 <div class="col-6 text-center mt-4">
                     @can('Ver Cupones')
@@ -333,7 +329,7 @@
             </div>
 
             @if ($users->empresa == 0)
-                <div class="col-6 text-center mt-4" style="margin-bottom: 8rem">
+                <div class="col-6 text-center mt-4">
                     @can('Ver Cupones')
                     <a href="{{ route('index.cotizacion') }}" class="text-white">
                     @else
@@ -349,7 +345,19 @@
                 </div>
             @endif
 
+            @if ($users->empresa == 0)
+                <div class="col-6 text-center mt-4" style="margin-bottom: 8rem">
+                    <a href="{{ route('index.key') }}" class="text-white">
 
+                        <div class="card" style="border-radius: 15px">
+                            <div class="card-body">
+                                <i class="fas fa-key icon-effect-dashboard"></i>
+                                <p class=" card-text text-white"><strong>Licencia Empresas</strong></p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            @endif
 
             @include('admin.notas.create')
             @include('admin.modal-services')

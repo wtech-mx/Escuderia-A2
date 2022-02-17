@@ -28,7 +28,7 @@ class TallerController extends Controller
         $rules = array(
             'vendedor.*',
             'refaccion.*',
-            'cantidad.*',
+            'mano_obra.*',
             'importe_unitario.*',
             'importe_total.*',
         );
@@ -43,7 +43,7 @@ class TallerController extends Controller
 
         $vendedor = $request->vendedor;
         $refaccion = $request->refaccion;
-        $cantidad = $request->cantidad;
+        $mano_obra = $request->mano_obra;
         $importe_unitario = $request->importe_unitario;
         $importe_total = $request->importe_total;
         $id_cotizacion = $request->id_cotizacion;
@@ -52,7 +52,7 @@ class TallerController extends Controller
             $data = array(
                 'vendedor' => $vendedor[$count],
                 'refaccion' => $refaccion[$count],
-                'cantidad' => $cantidad[$count],
+                'mano_obra' => $mano_obra[$count],
                 'importe_unitario' => $importe_unitario[$count],
                 'importe_total' => $importe_total[$count],
                 'id_cotizacion' => $id_cotizacion[$count],

@@ -130,7 +130,7 @@
                                     <tr>
                                         <td style="color: #070707">{{$item->vendedor}}</td>
                                         <td style="color: #070707">{{$item->refaccion}}</td>
-                                        <td style="color: #070707">{{$item->cantidad}}</td>
+                                        <td style="color: #070707">{{$item->mano_obra}}</td>
                                         <td style="color: #070707">{{$item->importe_unitario}}</td>
                                         <td style="color: #070707">{{$item->importe_total}}</td>
                                     </tr>
@@ -151,11 +151,11 @@
                             var cantidad=$('#cantidad').val();
                             var id_co=$('#id_co').val();
                             var fila='<tr>'+
-                            '<td><input type="text" class="form-control" placeholder="Vendedor" id="vendedor[]" name="vendedor[]"></td>'+
                             '<td><input type="text" class="form-control" placeholder="Refaccion" id="refaccion[]" name="refaccion[]"></td>'+
-                            '<td><input type="text" class="form-control" placeholder="Cantidad" id="cantidad[]" name="cantidad[]"></td>'+
-                            '<td><input type="text" class="form-control" placeholder="Importe U." id="importe_unitario[]" name="importe_unitario[]"></td>'+
-                            '<td><input type="text" class="form-control" placeholder="Importe T." id="importe_total[]" name="importe_total[]"></td>'+
+                            '<td><input type="text" class="form-control" placeholder="Proveedor" id="vendedor[]" name="vendedor[]"></td>'+
+                            '<td><input type="text" class="form-control" placeholder="Marca" id="mano_obra[]" name="mano_obra[]"></td>'+
+                            '<td><input type="number" class="form-control" placeholder="Importe U." id="importe_unitario[]" name="importe_unitario[]"></td>'+
+                            '<td><input type="number" class="form-control" placeholder="Importe T." id="importe_total[]" name="importe_total[]"></td>'+
                             '<td style="display: none"><input type="text" class="form-control" value="'+ id_co  +'" id="id_cotizacion[]" disable name="id_cotizacion[]"></td>'+
                             '</tr>';
 

@@ -85,7 +85,7 @@ class CotizacionRemisionController extends Controller
         return redirect()->back();
     }
 
-    public function changeUserStatus(Request $request)
+    public function ChangeUserEstatus(Request $request)
     {
         $remision = CotizacionRemision::find($request->id);
         $remision->aprobacion = $request->aprobacion;

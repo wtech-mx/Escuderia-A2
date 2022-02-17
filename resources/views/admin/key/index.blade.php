@@ -10,6 +10,7 @@
 
 @endsection
 
+
 @section('content')
 
         @if (Session::has('create'))
