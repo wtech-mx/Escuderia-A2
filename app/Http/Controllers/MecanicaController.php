@@ -42,79 +42,79 @@ class MecanicaController extends Controller
 |--------------------------------------------------------------------------*/
     public function view()
     {
-            $mecanica_user = Mecanica::get();
-            $mecanica_empresa = MecanicaUsuario::where('id_usuario', '=', NULL)->get();
+        $mecanica_user = Mecanica::get();
+        $mecanica_empresa = MecanicaUsuario::where('id_usuario', '=', NULL)->get();
 
-            $mecanica_usuario = MecanicaUsuario::where('id_empresa', '=', NULL)->get();
-            $proveedor = MecanicaProveedores::get();
+        $mecanica_usuario = MecanicaUsuario::where('id_empresa', '=', NULL)->get();
+        $proveedor = MecanicaProveedores::get();
 
-            $users = DB::table('users')->get();
-            $autos = DB::table('mecanica_usuario')->get();
+        $users = DB::table('users')->get();
+        $autos = DB::table('mecanica_usuario')->get();
 
-            return view('admin.services.view-mecanica', compact('mecanica_user', 'mecanica_empresa', 'users', 'proveedor', 'mecanica_usuario', 'autos'));
+        return view('admin.services.view-mecanica', compact('mecanica_user', 'mecanica_empresa', 'users', 'proveedor', 'mecanica_usuario', 'autos'));
     }
 
     public function create_servicio()
     {
-            $user = DB::table('users')
-                ->where('role', '=', '0')
-                ->where('empresa', '=', 0)
-                ->get();
+        $user = DB::table('users')
+            ->where('role', '=', '0')
+            ->where('empresa', '=', 0)
+            ->get();
 
-            $empresa = DB::table('users')
-                ->where('empresa', '=', 1)
-                ->get();
+        $empresa = DB::table('users')
+            ->where('empresa', '=', 1)
+            ->get();
 
-            $marca = DB::table('marca_product')
-                ->get();
+        $marca = DB::table('marca_product')
+            ->get();
 
-            $automovil = DB::table('automovil')
-                ->get();
+        $automovil = DB::table('automovil')
+            ->get();
 
-            $users = DB::table('users')
-                ->get();
+        $users = DB::table('users')
+            ->get();
 
-            $proveedor = MecanicaProveedores::OrderBy('created_at', 'ASC')
-                ->get();
+        $proveedor = MecanicaProveedores::OrderBy('created_at', 'ASC')
+            ->get();
 
-            $sector = DB::table('sectores')
-                ->where('id_empresa', '=', auth()->user()->id)
-                ->get();
+        $sector = DB::table('sectores')
+            ->where('id_empresa', '=', auth()->user()->id)
+            ->get();
 
-            return view('admin.services.mecanica', compact('empresa', 'marca', 'automovil', 'user', 'proveedor', 'sector'));
+        return view('admin.services.mecanica', compact('empresa', 'marca', 'automovil', 'user', 'proveedor', 'sector'));
     }
 
     public function edit(Request $request, $id)
     {
-            $mecanica = Mecanica::findOrFail($id);
+        $mecanica = Mecanica::findOrFail($id);
 
-            $mecanica->llantas_delanteras = $request->get('llantas_delanteras');
-            $mecanica->llantas_traseras = $request->get('llantas_traseras');
-            $mecanica->amortig_delanteras = $request->get('amortig_delanteras');
-            $mecanica->amortig_traseras = $request->get('amortig_traseras');
-            $mecanica->frenos_delanteras = $request->get('frenos_delanteras');
-            $mecanica->frenos_traseras = $request->get('frenos_traseras');
-            $mecanica->precio = $request->get('precio');
-            $mecanica->servicio = $request->get('servicio');
-            $mecanica->descripcion = $request->get('descripcion');
-            //$mecanica->garantia = $request->get('garantia');
-            $mecanica->vida_llantas = $request->get('vida_llantas');
-            $mecanica->km_actual = $request->get('km_actual');
-            $mecanica->km_estimado = $request->get('km_estimado');
-            $mecanica->fecha_servicio = $request->get('fecha_servicio');
+        $mecanica->llantas_delanteras = $request->get('llantas_delanteras');
+        $mecanica->llantas_traseras = $request->get('llantas_traseras');
+        $mecanica->amortig_delanteras = $request->get('amortig_delanteras');
+        $mecanica->amortig_traseras = $request->get('amortig_traseras');
+        $mecanica->frenos_delanteras = $request->get('frenos_delanteras');
+        $mecanica->frenos_traseras = $request->get('frenos_traseras');
+        $mecanica->precio = $request->get('precio');
+        $mecanica->servicio = $request->get('servicio');
+        $mecanica->descripcion = $request->get('descripcion');
+        //$mecanica->garantia = $request->get('garantia');
+        $mecanica->vida_llantas = $request->get('vida_llantas');
+        $mecanica->km_actual = $request->get('km_actual');
+        $mecanica->km_estimado = $request->get('km_estimado');
+        $mecanica->fecha_servicio = $request->get('fecha_servicio');
 
-            $mecanica->update();
+        $mecanica->update();
 
-            $mecanica_usuario = new MecanicaUsuario;
-            $mecanica_usuario->id_mecanica = $mecanica->id;
-            $mecanica_usuario->id_usuario = $request->get('id_user');
-            $mecanica_usuario->id_empresa = $request->get('id_empresa');
-            $mecanica_usuario->id_automovil = $request->get('current_auto');
+        $mecanica_usuario = new MecanicaUsuario;
+        $mecanica_usuario->id_mecanica = $mecanica->id;
+        $mecanica_usuario->id_usuario = $request->get('id_user');
+        $mecanica_usuario->id_empresa = $request->get('id_empresa');
+        $mecanica_usuario->id_automovil = $request->get('current_auto');
 
-            $mecanica_usuario->update();
+        $mecanica_usuario->update();
 
-            Session::flash('success', 'Se ha guardado sus datos con exito');
-            return redirect()->back();
+        Session::flash('success', 'Se ha guardado sus datos con exito');
+        return redirect()->back();
     }
 
 
@@ -226,80 +226,80 @@ class MecanicaController extends Controller
                 //Llantas
             case ($mecanica->servicio == '1'):
                 $mecanica_usuario->id_usuario = $request->get('id_user');
-                if($mecanica_usuario->id_usuario == NULL){
+                if ($mecanica_usuario->id_usuario == NULL) {
                     $mecanica_usuario->id_empresa = $request->get('id_empresa');
                     $mecanica_usuario->id_automovil = $request->get('current_auto');
-                }else{
+                } else {
                     $mecanica_usuario->id_automovil = $request->get('current_auto2');
                 }
                 break;
                 //Banda
             case ($mecanica->servicio == '2'):
                 $mecanica_usuario->id_usuario = $request->get('id_userbn');
-                if($mecanica_usuario->id_usuario == NULL){
-                $mecanica_usuario->id_empresa = $request->get('id_empresabn');
-                $mecanica_usuario->id_automovil = $request->get('current_autobn2');
-                }else{
+                if ($mecanica_usuario->id_usuario == NULL) {
+                    $mecanica_usuario->id_empresa = $request->get('id_empresabn');
+                    $mecanica_usuario->id_automovil = $request->get('current_autobn2');
+                } else {
                     $mecanica_usuario->id_automovil = $request->get('current_autobn');
                 }
                 break;
                 //Frenos
             case ($mecanica->servicio == '3'):
                 $mecanica_usuario->id_usuario = $request->get('id_userfr');
-                if($mecanica_usuario->id_usuario == NULL){
+                if ($mecanica_usuario->id_usuario == NULL) {
                     $mecanica_usuario->id_empresa = $request->get('id_empresafr');
                     $mecanica_usuario->id_automovil = $request->get('current_autofr2');
-                }else{
+                } else {
                     $mecanica_usuario->id_automovil = $request->get('current_autofr');
                 }
                 break;
                 //Aceite
             case ($mecanica->servicio == '4'):
                 $mecanica_usuario->id_usuario = $request->get('id_userac');
-                if($mecanica_usuario->id_usuario == NULL){
+                if ($mecanica_usuario->id_usuario == NULL) {
                     $mecanica_usuario->id_empresa = $request->get('id_empresaac');
                     $mecanica_usuario->id_automovil = $request->get('current_autoac');
-                }else{
+                } else {
                     $mecanica_usuario->id_automovil = $request->get('current_autoac2');
                 }
                 break;
                 //Afinacion
             case ($mecanica->servicio == '5'):
                 $mecanica_usuario->id_usuario = $request->get('id_useraf');
-                if($mecanica_usuario->id_usuario == NULL){
+                if ($mecanica_usuario->id_usuario == NULL) {
                     $mecanica_usuario->id_empresa = $request->get('id_empresaaf');
                     $mecanica_usuario->id_automovil = $request->get('current_autoaf');
-                }else{
+                } else {
                     $mecanica_usuario->id_automovil = $request->get('current_autoaf2');
                 }
                 break;
                 //Amorting
             case ($mecanica->servicio == '6'):
                 $mecanica_usuario->id_usuario = $request->get('id_useram');
-                if($mecanica_usuario->id_usuario == NULL){
+                if ($mecanica_usuario->id_usuario == NULL) {
                     $mecanica_usuario->id_empresa = $request->get('id_empresaam');
                     $mecanica_usuario->id_automovil = $request->get('current_autoam');
-                }else{
+                } else {
                     $mecanica_usuario->id_automovil = $request->get('current_autoam2');
                 }
                 break;
                 //Bateria
             case ($mecanica->servicio == '7'):
                 $mecanica_usuario->id_usuario = $request->get('id_userbt');
-                if($mecanica_usuario->id_usuario == NULL){
+                if ($mecanica_usuario->id_usuario == NULL) {
                     $mecanica_usuario->id_empresa = $request->get('id_empresabt');
                     $mecanica_usuario->id_automovil = $request->get('current_autobt2');
-                }else{
+                } else {
                     $mecanica_usuario->id_automovil = $request->get('current_autobt');
                 }
                 break;
                 //Otro
             case ($mecanica->servicio == '8'):
                 $mecanica_usuario->id_usuario = $request->get('id_userot');
-                if($mecanica_usuario->id_usuario == NULL){
+                if ($mecanica_usuario->id_usuario == NULL) {
                     $mecanica_usuario->id_empresa = $request->get('id_empresa');
                     $mecanica_usuario->id_automovil = $request->get('current_autoot2');
-                }else{
+                } else {
                     $mecanica_usuario->id_automovil = $request->get('current_autoot');
                 }
                 break;
@@ -313,66 +313,66 @@ class MecanicaController extends Controller
                 //Llantas
             case ($mecanica->servicio == '1'):
                 $llantas->id_user = $mecanica_usuario->id_usuario;
-                if($llantas->id_user == NULL){
+                if ($llantas->id_user == NULL) {
                     $llantas->id_user = $mecanica_usuario->id_empresa;
                 }
-                $llantas->title = $mecanica_usuario->Automovil->placas . '/' . $mecanica_usuario->Automovil->subtipo . ' - Llantas';
+                $llantas->title = $mecanica_usuario->Automovil->placas . '/' . $mecanica_usuario->Automovil->submarca . ' - Llantas';
                 break;
                 //Banda
             case ($mecanica->servicio == '2'):
-                                $llantas->id_user = $mecanica_usuario->id_usuario;
-                if($llantas->id_user == NULL){
+                $llantas->id_user = $mecanica_usuario->id_usuario;
+                if ($llantas->id_user == NULL) {
                     $llantas->id_user = $mecanica_usuario->id_empresa;
                 }
-                $llantas->title = $mecanica_usuario->Automovil->placas . '/' . $mecanica_usuario->Automovil->subtipo . ' - Banda';
+                $llantas->title = $mecanica_usuario->Automovil->placas . '/' . $mecanica_usuario->Automovil->submarca . ' - Banda';
                 break;
                 //Frenos
             case ($mecanica->servicio == '3'):
-                                $llantas->id_user = $mecanica_usuario->id_usuario;
-                if($llantas->id_user == NULL){
+                $llantas->id_user = $mecanica_usuario->id_usuario;
+                if ($llantas->id_user == NULL) {
                     $llantas->id_user = $mecanica_usuario->id_empresa;
                 }
-                $llantas->title = $mecanica_usuario->Automovil->placas . '/' . $mecanica_usuario->Automovil->subtipo . ' - Frenos';
+                $llantas->title = $mecanica_usuario->Automovil->placas . '/' . $mecanica_usuario->Automovil->submarca . ' - Frenos';
                 break;
                 //Aceite
             case ($mecanica->servicio == '4'):
-                                $llantas->id_user = $mecanica_usuario->id_usuario;
-                if($llantas->id_user == NULL){
+                $llantas->id_user = $mecanica_usuario->id_usuario;
+                if ($llantas->id_user == NULL) {
                     $llantas->id_user = $mecanica_usuario->id_empresa;
                 }
-                $llantas->title = $mecanica_usuario->Automovil->placas . '/' . $mecanica_usuario->Automovil->subtipo . ' - Aceite';
+                $llantas->title = $mecanica_usuario->Automovil->placas . '/' . $mecanica_usuario->Automovil->submarca . ' - Aceite';
                 break;
                 //Afinacion
             case ($mecanica->servicio == '5'):
-                                $llantas->id_user = $mecanica_usuario->id_usuario;
-                if($llantas->id_user == NULL){
+                $llantas->id_user = $mecanica_usuario->id_usuario;
+                if ($llantas->id_user == NULL) {
                     $llantas->id_user = $mecanica_usuario->id_empresa;
                 }
-                $llantas->title = $mecanica_usuario->Automovil->placas . '/' . $mecanica_usuario->Automovil->subtipo . ' - Afinación';
+                $llantas->title = $mecanica_usuario->Automovil->placas . '/' . $mecanica_usuario->Automovil->submarca . ' - Afinación';
                 break;
                 //Amorting
             case ($mecanica->servicio == '6'):
-                                $llantas->id_user = $mecanica_usuario->id_usuario;
-                if($llantas->id_user == NULL){
+                $llantas->id_user = $mecanica_usuario->id_usuario;
+                if ($llantas->id_user == NULL) {
                     $llantas->id_user = $mecanica_usuario->id_empresa;
                 }
-                $llantas->title = $mecanica_usuario->Automovil->placas . '/' . $mecanica_usuario->Automovil->subtipo . ' - Amortiguadores';
+                $llantas->title = $mecanica_usuario->Automovil->placas . '/' . $mecanica_usuario->Automovil->submarca . ' - Amortiguadores';
                 break;
                 //Bateria
             case ($mecanica->servicio == '7'):
-                                $llantas->id_user = $mecanica_usuario->id_usuario;
-                if($llantas->id_user == NULL){
+                $llantas->id_user = $mecanica_usuario->id_usuario;
+                if ($llantas->id_user == NULL) {
                     $llantas->id_user = $mecanica_usuario->id_empresa;
                 }
-                $llantas->title = $mecanica_usuario->Automovil->placas . '/' . $mecanica_usuario->Automovil->subtipo . ' - Bateria';
+                $llantas->title = $mecanica_usuario->Automovil->placas . '/' . $mecanica_usuario->Automovil->submarca . ' - Bateria';
                 break;
                 //Otro
             case ($mecanica->servicio == '8'):
-                                $llantas->id_user = $mecanica_usuario->id_usuario;
-                if($llantas->id_user == NULL){
+                $llantas->id_user = $mecanica_usuario->id_usuario;
+                if ($llantas->id_user == NULL) {
                     $llantas->id_user = $mecanica_usuario->id_empresa;
                 }
-                $llantas->title = $mecanica_usuario->Automovil->placas . '/' . $mecanica_usuario->Automovil->subtipo . ' - Otro';
+                $llantas->title = $mecanica_usuario->Automovil->placas . '/' . $mecanica_usuario->Automovil->submarca . ' - Otro';
                 break;
         }
         $llantas->id_mecanica = $mecanica->id;
