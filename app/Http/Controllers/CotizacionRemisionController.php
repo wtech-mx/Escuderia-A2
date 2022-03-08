@@ -94,6 +94,51 @@ class CotizacionRemisionController extends Controller
         return response()->json(['success' => 'Se cambio el estado exitosamente.']);
     }
 
+    public function reparacion(Request $request)
+    {
+        $key = CotizacionRemision::find($request->id);
+        $key->reparacion = $request->reparacion;
+        $key->save();
+
+        return response()->json(['success' => 'Se cambio el estado exitosamente.']);
+    }
+
+    public function mano(Request $request)
+    {
+        $key = CotizacionRemision::find($request->id);
+        $key->mano = $request->mano;
+        $key->save();
+
+        return response()->json(['success' => 'Se cambio el estado exitosamente.']);
+    }
+
+    public function importe(Request $request)
+    {
+        $key = CotizacionRemision::find($request->id);
+        $key->importe = $request->importe;
+        $key->save();
+
+        return response()->json(['success' => 'Se cambio el estado exitosamente.']);
+    }
+
+    public function fecha_cotizacion(Request $request)
+    {
+        $key = TotalRemision::find($request->id);
+        $key->fecha_cotizacion = $request->fecha_cotizacion;
+        $key->save();
+
+        return response()->json(['success' => 'Se cambio el estado exitosamente.']);
+    }
+
+    public function total_cotizacion(Request $request)
+    {
+        $key = TotalRemision::find($request->id);
+        $key->total_cotizacion = $request->total_cotizacion;
+        $key->save();
+
+        return response()->json(['success' => 'Se cambio el estado exitosamente.']);
+    }
+
     public function pdf_cotizacion($id)
     {
         $cotizacion = CotizacionServicio::where('id_cotizacion', '=', $id)

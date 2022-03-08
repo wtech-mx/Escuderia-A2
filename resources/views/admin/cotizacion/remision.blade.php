@@ -102,7 +102,7 @@
             </a>
 
             <div class="collapse" id="collapseExample">
-                <div class="card card-body">¨
+                <div class="card card-body">
                     <form class="card-details" method="POST" action="{{route('updateremision.remision', $cotizacion->id_cotizacion)}}" enctype="multipart/form-data" role="form">
                         @csrf
                     <div class="row mt-3 mb-3">
@@ -110,7 +110,7 @@
                             <strong>Fecha Cotizacion</strong>
                         </div>
                         <div class="col-4">
-                            <strong>{{$total_remision->fecha_cotizacion}}</strong>
+                                <input type="text" data-id="{{ $total_remision->id }}" class="form-control fecha_cotizacion" placeholder="{{$total_remision->fecha_cotizacion}}" id="fecha_cotizacion" name="fecha_cotizacion">
                         </div>
                         <div class="col-2">
                             <strong>Fecha Remision</strong>
@@ -126,6 +126,7 @@
                                 <th>Reparaciòn</th>
                                 <th>Mano O.</th>
                                 <th>Importe</th>
+                                <th>Borrar</th>
                             </tr>
                         <thead>
                         <tbody>
@@ -136,9 +137,12 @@
                                             data-onstyle="success" data-offstyle="danger" data-toggle="toggle"
                                             data-on="Active" data-off="InActive" {{ $item->aprobacion ? 'checked' : '' }}>
                                     </td>
-                                    <td style="color: #000000">{{$item->reparacion}}</td>
-                                    <td style="color: #000000">{{$item->mano}}</td>
-                                    <td style="color: #000000">{{$item->importe}}</td>
+                                    <td style="color: #000000"><input type="text" data-id="{{ $item->id }}" class="form-control reparacion" placeholder="{{$item->reparacion}}" id="reparacion" name="reparacion"></td>
+                                    <td style="color: #000000"><input type="text" data-id="{{ $item->id }}" class="form-control mano" placeholder="{{$item->mano}}" id="mano" name="mano"></td>
+                                    <td style="color: #000000"><input type="text" data-id="{{ $item->id }}" class="form-control importe" placeholder="{{$item->importe}}" id="importe" name="importe"></td>
+                                    <td>
+                                        <button class="btn btn-danger delete-link" value="{{$item->id}}" onclick="location.reload()"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>
@@ -149,7 +153,7 @@
                                     <strong>Total Cotizacion</strong>
                             </div>
                             <div class="col-2">
-                                <strong>{{$total_remision->total_cotizacion}}</strong>
+                                <input type="text" data-id="{{ $total_remision->id }}" class="form-control total_cotizacion" placeholder="{{$total_remision->total_cotizacion}}" id="total_cotizacion" name="total_cotizacion">
                             </div>
                             <div class="col-2">
                             </div>
@@ -178,44 +182,27 @@
                 </div>
             </div>
 
-            <script type="text/javascript">
-                $('#agregar').click(function(){
-                    agregar();
+            @include('admin.cotizacion.script-remision')
+            <script>
+                jQuery('.delete-link').click(function () {
+                    var id = $(this).val();
+                    $.ajaxSetup({
+                        headers: {
+                            'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
+                        }
+                    });
+                    $.ajax({
+                        type: "DELETE",
+                        url: '/remision/' + id,
+                        success: function (data) {
+                            console.log(data);
+                            $("#item" + id).remove();
+                        },
+                        error: function (data) {
+                            console.log('Error:', data);
+                        }
+                    });
                 });
 
-                function agregar(){
-                    var reparacion=$('#reparacion').val();
-                    var mano=$('#mano').val();
-                    var importe=$('#importe').val();
-                    var id_co=$('#id_co').val();
-                    var fila='<tr>'+
-                    '<td><input style="color: #fff; background-color: #00000000" type="text" class="form-control" placeholder="Reparacion" id="reparacion[]" name="reparacion[]"></td>'+
-                    '<td><input style="color: #fff; background-color: #00000000" type="number" class="form-control" placeholder="Mano O." id="mano[]" name="mano[]"></td>'+
-                    '<td><input style="color: #fff; background-color: #00000000" type="number" class="form-control" placeholder="Importe" id="importe[]" name="importe[]"></td>'+
-                    '<td style="display: none"><input type="text" class="form-control" value="'+ id_co  +'" id="id_cotizacion[]" disable name="id_cotizacion[]"></td>'+
-                    '</tr>';
-
-                    $('#tabla').append(fila);
-                }
-
-                $(function() {
-                    $('.toggle-class').change(function() {
-                        var aprobacion = $(this).prop('checked') == true ? 1 : 0;
-                        var id = $(this).data('id');
-
-                        $.ajax({
-                            type: "GET",
-                            dataType: "json",
-                            url: '{{ route('ChangeUserEstatus.remision') }}',
-                            data: {
-                                'aprobacion': aprobacion,
-                                'id': id
-                            },
-                            success: function(data) {
-                                console.log(data.success)
-                            }
-                        });
-                    })
-                })
             </script>
 @endsection

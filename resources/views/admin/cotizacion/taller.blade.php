@@ -115,7 +115,7 @@
 
                     <div class="collapse" id="collapseExample">
                         <div class="card card-body">
-                            <table class="table table-bordered" id="tabla" >
+                            <table class="table table-bordered" id="data_table" >
                                 <thead class="table-dark">
                                     <tr class="text-center">
                                         <th>Ven.</th>
@@ -123,16 +123,21 @@
                                         <th>Marca</th>
                                         <th>I.U.</th>
                                         <th>I.T.</th>
+                                        <th>Borrar</th>
                                     </tr>
                                 <thead>
                                 <tbody>
                                     @foreach ($taller as $item)
                                     <tr>
-                                        <td style="color: #070707">{{$item->vendedor}}</td>
-                                        <td style="color: #070707">{{$item->refaccion}}</td>
-                                        <td style="color: #070707">{{$item->mano_obra}}</td>
-                                        <td style="color: #070707">{{$item->importe_unitario}}</td>
-                                        <td style="color: #070707">{{$item->importe_total}}</td>
+                                        <td style="color: #070707"><input type="text" data-id="{{ $item->id }}" class="form-control toggle-class" placeholder="{{$item->vendedor}}" id="vendedor" name="vendedor"></td>
+                                        <td style="color: #070707"><input type="text" data-id="{{ $item->id }}" class="form-control refaccion" placeholder="{{$item->refaccion}}" id="refaccion" name="refaccion"></td>
+                                        <td style="color: #070707"><input type="text" data-id="{{ $item->id }}" class="form-control mano_obra" placeholder="{{$item->mano_obra}}" id="mano_obra" name="mano_obra"></td>
+                                        <td style="color: #070707"><input type="text" data-id="{{ $item->id }}" class="form-control importe_unitario" placeholder="{{$item->importe_unitario}}" id="importe_unitario" name="importe_unitario"></td>
+                                        <td style="color: #070707"><input type="text" data-id="{{ $item->id }}" class="form-control importe_total" placeholder="{{$item->importe_total}}" id="importe_total" name="importe_total"></td>
+                                        <td>
+                                            <button class="btn btn-danger delete-link" value="{{$item->id}}" onclick="location.reload()"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                                        </td>
+
                                     </tr>
                                     @endforeach
                                 </tbody>
@@ -140,26 +145,27 @@
                         </div>
                     </div>
 
-                    <script type="text/javascript">
-                        $('#agregar').click(function(){
-                            agregar();
+                    @include('admin.cotizacion.script-taller')
+                    <script>
+                        jQuery('.delete-link').click(function () {
+                            var id = $(this).val();
+                            $.ajaxSetup({
+                                headers: {
+                                    'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
+                                }
+                            });
+                            $.ajax({
+                                type: "DELETE",
+                                url: '/cotizacion/' + id,
+                                success: function (data) {
+                                    console.log(data);
+                                    $("#item" + id).remove();
+                                },
+                                error: function (data) {
+                                    console.log('Error:', data);
+                                }
+                            });
                         });
 
-                        function agregar(){
-                            var vendedor=$('#vendedor').val();
-                            var refaccion=$('#refaccion').val();
-                            var cantidad=$('#cantidad').val();
-                            var id_co=$('#id_co').val();
-                            var fila='<tr>'+
-                            '<td><input type="text" class="form-control" placeholder="Refaccion" id="refaccion[]" name="refaccion[]"></td>'+
-                            '<td><input type="text" class="form-control" placeholder="Proveedor" id="vendedor[]" name="vendedor[]"></td>'+
-                            '<td><input type="text" class="form-control" placeholder="Marca" id="mano_obra[]" name="mano_obra[]"></td>'+
-                            '<td><input type="number" class="form-control" placeholder="Importe U." id="importe_unitario[]" name="importe_unitario[]"></td>'+
-                            '<td><input type="number" class="form-control" placeholder="Importe T." id="importe_total[]" name="importe_total[]"></td>'+
-                            '<td style="display: none"><input type="text" class="form-control" value="'+ id_co  +'" id="id_cotizacion[]" disable name="id_cotizacion[]"></td>'+
-                            '</tr>';
-
-                            $('#tabla').append(fila);
-                        }
                     </script>
 @endsection

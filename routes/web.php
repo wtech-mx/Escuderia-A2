@@ -8,6 +8,8 @@ use App\Models\User;
 use App\Exports\UsersExport;
 use Illuminate\Support\Facades\Storage;
 use Maatwebsite\Excel\Facades\Excel;
+use App\Models\Taller;
+use App\Models\CotizacionRemision;
 
 /*
 |--------------------------------------------------------------------------
@@ -500,3 +502,32 @@ Route::get('key/edit/{id}', 'KeyController@edit')->name('edit.key');
 Route::patch('key/update/{id}', 'KeyController@update')->name('update.key');
 
 Route::get('changeAprobacionKey', 'KeyController@ChangeLlave')->name('ChangeLlave.key');
+
+/*|--------------------------------------------------------------------------
+|Cotizacion para Admin
+|--------------------------------------------------------------------------*/
+Route::get('cotizacion', 'TallerController@up')->name('up.cotizacion');
+Route::get('refaccion', 'TallerController@refaccion')->name('refaccion.cotizacion');
+Route::get('mano_obra', 'TallerController@mano_obra')->name('mano_obra.cotizacion');
+Route::get('importe_unitario', 'TallerController@importe_unitario')->name('importe_unitario.cotizacion');
+Route::get('importe_total', 'TallerController@importe_total')->name('importe_total.cotizacion');
+
+Route::delete('/cotizacion/{id}', function ($id) {
+    $item = Taller::destroy($id);
+    return Response::json($item);
+});
+
+
+/*|--------------------------------------------------------------------------
+|Cotizacion Para user
+|--------------------------------------------------------------------------*/
+Route::get('reparacion', 'CotizacionRemisionController@reparacion')->name('reparacion.remision');
+Route::get('mano', 'CotizacionRemisionController@mano')->name('mano.remision');
+Route::get('importe', 'CotizacionRemisionController@importe')->name('importe.remision');
+Route::get('fecha_cotizacion', 'CotizacionRemisionController@fecha_cotizacion')->name('fecha_cotizacion.remision');
+Route::get('total_cotizacion', 'CotizacionRemisionController@total_cotizacion')->name('total_cotizacion.remision');
+
+Route::delete('/remision/{id}', function ($id) {
+    $item = CotizacionRemision::destroy($id);
+    return Response::json($item);
+});

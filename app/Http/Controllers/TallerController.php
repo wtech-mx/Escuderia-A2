@@ -86,4 +86,49 @@ class TallerController extends Controller
         $pdf = \PDF::loadView('admin.cotizacion.pdf', compact('cotizacion', 'taller', 'importe_unitario', 'importe_total'));
         return $pdf->download('pdf.pdf');
     }
+
+    public function up(Request $request)
+    {
+        $key = Taller::find($request->id);
+        $key->vendedor = $request->vendedor;
+        $key->save();
+
+        return response()->json(['success' => 'Se cambio el estado exitosamente.']);
+    }
+
+    public function refaccion(Request $request)
+    {
+        $key = Taller::find($request->id);
+        $key->refaccion = $request->refaccion;
+        $key->save();
+
+        return response()->json(['success' => 'Se cambio el estado exitosamente.']);
+    }
+
+    public function mano_obra(Request $request)
+    {
+        $key = Taller::find($request->id);
+        $key->mano_obra = $request->mano_obra;
+        $key->save();
+
+        return response()->json(['success' => 'Se cambio el estado exitosamente.']);
+    }
+
+    public function importe_unitario(Request $request)
+    {
+        $key = Taller::find($request->id);
+        $key->importe_unitario = $request->importe_unitario;
+        $key->save();
+
+        return response()->json(['success' => 'Se cambio el estado exitosamente.']);
+    }
+
+    public function importe_total(Request $request)
+    {
+        $key = Taller::find($request->id);
+        $key->importe_total = $request->importe_total;
+        $key->save();
+
+        return response()->json(['success' => 'Se cambio el estado exitosamente.']);
+    }
 }
