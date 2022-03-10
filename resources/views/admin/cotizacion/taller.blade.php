@@ -97,7 +97,7 @@
                                     <th>Refa.</th>
                                     <th>Pro.</th>
                                     <th>Marca</th>
-                                    <th>I.U.</th>
+                                    <th>Refacción</th>
                                     <th>I.T.</th>
                                 </tr>
                             </thead>
@@ -121,7 +121,7 @@
                                         <th>Ven.</th>
                                         <th>Refa.</th>
                                         <th>Marca</th>
-                                        <th>I.U.</th>
+                                        <th>Refacción</th>
                                         <th>I.T.</th>
                                         <th>Borrar</th>
                                     </tr>

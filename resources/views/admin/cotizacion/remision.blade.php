@@ -76,7 +76,7 @@
                         <tr class="text-center">
                             <th>Reparaciòn</th>
                             <th>Mano O.</th>
-                            <th>Importe</th>
+                            <th>Refacción</th>
                         </tr>
                     </thead>
                 </table>
@@ -125,7 +125,7 @@
                                 <th>Apro.</th>
                                 <th>Reparaciòn</th>
                                 <th>Mano O.</th>
-                                <th>Importe</th>
+                                <th>Refacción</th>
                                 <th>Borrar</th>
                             </tr>
                         <thead>

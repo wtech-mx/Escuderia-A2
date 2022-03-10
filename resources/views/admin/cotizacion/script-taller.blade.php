@@ -12,7 +12,7 @@ function agregar(){
     '<td><input type="text" class="form-control" placeholder="Refaccion" id="refaccion[]" name="refaccion[]"></td>'+
     '<td><input type="text" class="form-control" placeholder="Proveedor" id="vendedor[]" name="vendedor[]"></td>'+
     '<td><input type="text" class="form-control" placeholder="Marca" id="mano_obra[]" name="mano_obra[]"></td>'+
-    '<td><input type="number" class="form-control" placeholder="Importe U." id="importe_unitario[]" name="importe_unitario[]"></td>'+
+    '<td><input type="number" class="form-control" placeholder="Refacción" id="importe_unitario[]" name="importe_unitario[]"></td>'+
     '<td><input type="number" class="form-control" placeholder="Importe T." id="importe_total[]" name="importe_total[]"></td>'+
     '<td style="display: none"><input type="text" class="form-control" value="'+ id_co  +'" id="id_cotizacion[]" disable name="id_cotizacion[]"></td>'+
     '</tr>';

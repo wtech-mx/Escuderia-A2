@@ -11,7 +11,7 @@
         var fila='<tr>'+
         '<td><input style="color: #fff; background-color: #00000000" type="text" class="form-control" placeholder="Reparacion" id="reparacion[]" name="reparacion[]"></td>'+
         '<td><input style="color: #fff; background-color: #00000000" type="number" class="form-control" placeholder="Mano O." id="mano[]" name="mano[]"></td>'+
-        '<td><input style="color: #fff; background-color: #00000000" type="number" class="form-control" placeholder="Importe" id="importe[]" name="importe[]"></td>'+
+        '<td><input style="color: #fff; background-color: #00000000" type="number" class="form-control" placeholder="Refacción" id="importe[]" name="importe[]"></td>'+
         '<td style="display: none"><input type="text" class="form-control" value="'+ id_co  +'" id="id_cotizacion[]" disable name="id_cotizacion[]"></td>'+
         '</tr>';
 
