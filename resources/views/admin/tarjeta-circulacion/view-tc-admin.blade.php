@@ -99,6 +99,10 @@
                                                 <th scope="col">Cliente</th>
                                                 <th scope="col">Nombre</th>
                                                 <th scope="col">Modelo</th>
+
+                                                <th scope="col" class="hidden_cont" ><p class="d-none d-md-block"> tipo_placa </p></th>
+                                                <th scope="col" class="hidden_cont" ><p class="d-none d-md-block"> lugar_expedicion </p></th>
+                                                <th scope="col" class="hidden_cont" ><p class="d-none d-md-block"> fecha_emision </p></th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -116,6 +120,10 @@
                                                     @endcan
                                                     <td>{{ $item->nombre }}</td>
                                                     <td>{{ $item->Automovil->Marca->nombre }}</td>
+
+                                                    <td class="hidden_cont"><p class="d-none d-md-block"> {{ $item->tipo_placa }} </p> </td>
+                                                    <td class="hidden_cont"><p class="d-none d-md-block"> {{ $item->lugar_expedicion }} </p> </td>
+                                                    <td class="hidden_cont"><p class="d-none d-md-block"> {{ $item->fecha_emision }} </p> </td>
                                                 </tr>
                                             @endforeach
                                         </tbody>

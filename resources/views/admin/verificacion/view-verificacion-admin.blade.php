@@ -67,6 +67,7 @@
                                                     <th scope="col">Cliente</th>
                                                     <th scope="col">Submarca</th>
                                                     <th scope="col">Placas</th>
+                                                    <th scope="col" class="hidden_cont" ><p class="d-none d-md-block"> primer_semestre </p></th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -85,6 +86,7 @@
 
                                                         <td>{{ $item->Automovil->submarca }}</td>
                                                         <td>{{ $item->Automovil->placas }}</td>
+                                                        <td class="hidden_cont"><p class="d-none d-md-block"> {{ $item->primer_semestre }} </p> </td>
                                                     </tr>
                                                 @endforeach
                                             </tbody>

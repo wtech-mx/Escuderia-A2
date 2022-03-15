@@ -75,7 +75,7 @@
                                                     <th scope="col">Cliente</th>
                                                     <th scope="col">Submarca</th>
                                                     <th scope="col">Seguro</th>
-
+                                                    <th scope="col" class="hidden_cont" ><p class="d-none d-md-block"> fecha_expedicion </p></th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -94,6 +94,7 @@
 
                                                         <td>{{ $item->Automovil->submarca }}</td>
                                                         <td>{{ $item->seguro }}</td>
+                                                        <td class="hidden_cont"><p class="d-none d-md-block"> {{ $item->fecha_expedicion }} </p> </td>
                                                     </tr>
                                                 @endforeach
                                             </tbody>

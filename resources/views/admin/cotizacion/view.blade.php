@@ -60,8 +60,12 @@
                                     <tr>
                                         <th scope="col">Cliente</th>
                                         <th scope="col">Fecha</th>
+
+                                        <th scope="col" class="hidden_cont" ><p class="d-none d-md-block"> km </p></th>
+
                                         <th scope="col">Estatus</th>
                                         <th scope="col">Acciones</th>
+
 
                                     </tr>
                                 </thead>
@@ -75,6 +79,9 @@
                                                 </a>
                                             </th>
                                             <td>{{ $item->Cotizacion->fecha }}</td>
+
+                                            <td class="hidden_cont"><p class="d-none d-md-block"> {{ $item->km }} </p> </td>
+
                                             <td>{{ $item->Cotizacion->estatus }}</td>
                                             <td>
                                                 <a href="{{ route('edit.diagnostico', $item->id) }}">

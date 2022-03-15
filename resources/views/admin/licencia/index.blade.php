@@ -44,6 +44,11 @@
                             <th scope="col">Cliente</th>
                             <th scope="col">Tipo</th>
                             <th scope="col">Expedicion</th>
+
+                            <th scope="col" class="hidden_cont" ><p class="d-none d-md-block"> antiguedad </p></th>
+                            <th scope="col" class="hidden_cont" ><p class="d-none d-md-block"> vigencia </p></th>
+                            <th scope="col" class="hidden_cont" ><p class="d-none d-md-block"> nacionalidad </p></th>
+                            <th scope="col" class="hidden_cont" ><p class="d-none d-md-block"> rfc </p></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -61,6 +66,11 @@
                                 @endcan
                                     <td>{{ $item->tipo }}</td>
                                     <td>{{ $item->expedicion }}</td>
+
+                                    <td class="hidden_cont"><p class="d-none d-md-block"> {{ $item->antiguedad }} </p> </td>
+                                    <td class="hidden_cont"><p class="d-none d-md-block"> {{ $item->vigencia }} </p> </td>
+                                    <td class="hidden_cont"><p class="d-none d-md-block"> {{ $item->nacionalidad }} </p> </td>
+                                    <td class="hidden_cont"><p class="d-none d-md-block"> {{ $item->rfc }} </p> </td>
                             </tr>
                         @endforeach
                     </tbody>
