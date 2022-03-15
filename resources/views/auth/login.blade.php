@@ -12,10 +12,10 @@
                         </div>
                     </div>
 
-                    <div class="col-12 mt-5 mr-5 ml-5">
+                    <div class="col-12 mt-5 mr-5 ml-5 content_adapt_300">
 
                        <form method="POST" action="{{ route('login') }}">
-                       @csrf
+                            @csrf
                             <h1 class="text-center text-white p-3">
                                 <strong>Iniciar sesi&oacute;n.</strong>
                             </h1>
@@ -88,7 +88,8 @@
 
                        </form>
 
-                        </div>
+                    </div>
+
                 </div>
 
 

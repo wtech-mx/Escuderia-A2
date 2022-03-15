@@ -1,0 +1,28 @@
+.bg_verdeb{
+    z-index:1000;
+    top: -30px;
+    background-image: linear-gradient(to bottom, #00d62e, #2ce048, #43eb5f, #56f574, #68ff88);border-radius: 30px 30px 0 0;
+}
+
+
+
+@media (min-width: 576px){
+
+    .content_adapt_300{
+        max-width: 350px;
+        margin: 0 auto;
+    }
+
+
+    .content_adapt_500{
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .bg_verdeb{
+    z-index:1000;
+    top: 0px;
+    background-image: linear-gradient(to bottom, #00d62e, #2ce048, #43eb5f, #56f574, #68ff88);border-radius: 30px 30px 0 0;
+    }
+
+}

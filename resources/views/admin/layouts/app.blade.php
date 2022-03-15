@@ -35,6 +35,7 @@
     <link href="{{ asset('css/effects.css') }}" rel="stylesheet">
     <link href="{{ asset('css/container-responsive.css') }}" rel="stylesheet">
     <link href="{{ asset('css/preloader.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/adaptabilidad.css') }}" rel="stylesheet">
 
      @yield('crop-css')
 

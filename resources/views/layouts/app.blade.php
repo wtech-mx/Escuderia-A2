@@ -56,6 +56,7 @@ if (!isset($_COOKIE['mostrarModal'])) {
     <link href="{{ asset('css/pwa.css') }}" rel="stylesheet">
     <link href="{{ asset('css/preloader.css') }}" rel="stylesheet">
     <link href="{{ asset('css/sidebar.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/adaptabilidad.css') }}" rel="stylesheet">
 
     <link href="{{ asset('fonts/font-awesome.min.css') }}" rel="stylesheet">
     <link href="{{ asset('fonts/all.min.css') }}" rel="stylesheet">

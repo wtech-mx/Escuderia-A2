@@ -8,15 +8,15 @@
 
            @csrf
 
-                <div class="row bg-down-blue" style="border-radius: 0 0 0 0;">
+                <div class="row bg-down-blue " style="border-radius: 0 0 0 0;">
 
-                    <div class="col-md-12  mb-3"  style="margin-top: 180px">
-                        <div class="d-flex justify-content-center mt-2"style="margin-bottom: 50px" >
+                    <div class="col-md-12  mb-2"  style="margin-top: 180px">
+                        <div class="d-flex justify-content-center mt-2" style="margin-bottom: 50px" >
                              <img  class="img-responsive" width="45%" src="{{ asset('img/logo-check.png') }}" alt="logo check go">
                         </div>
                     </div>
 
-                    <div class="col-12p-5">
+                    <div class="col-12 p-5 content_adapt_300">
 
                         <h1 class="text-center text-white p-3" style="margin-bottom: 50px">
                             <strong>¿Olvidate tu contraseña?</strong>
@@ -32,7 +32,7 @@
                                 @enderror
                         </div>
 
-                        <button class="btn btn-lg btn-is mt-3  text-white" type="submit" style="margin-bottom: 230px">
+                        <button class="btn btn-lg btn-is mt-2  text-white" type="submit" style="margin-bottom: 230px">
                             Recuperar
                         </button>
 

@@ -4,7 +4,7 @@
 
                 <link href="{{ asset('css/login-form.css') }}" rel="stylesheet">
 
-                <div class="row bg-img-log" style="background-image: url({{ asset('img/bg-log.png') }});">
+                <div class="row bg-img-log" style="background-image: url({{ asset('img/bg-log.png') }});min-height: 10vh;">
                     <div class="col-md-12 mt-3 mb-3">
 
                         <div class="d-flex justify-content-center mt-2" >
@@ -18,7 +18,7 @@
            @csrf
 
                 <div class="row bg-down-blue" style="">
-                    <div class="col-12 p-5">
+                    <div class="col-12 p-5 content_adapt_500">
 
                         <h1 class="text-center text-white p-3">
                             <strong>Registro</strong>
