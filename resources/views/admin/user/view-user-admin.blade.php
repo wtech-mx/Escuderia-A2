@@ -14,6 +14,8 @@ if(auth()->user()->empresa == 0){
 }
 @endphp
 
+
+
     <link href="{{ asset('css/garje.css') }}" rel="stylesheet">
 
     <div class="row bg-image">
@@ -30,7 +32,7 @@ if(auth()->user()->empresa == 0){
 
         <div class="col-8  mt-4">
             <h5 class="text-center text-white ml-4 mr-4 ">
-                <strong>Usuarios</strong>
+                <strong>Usuarios </strong>
             </h5>
         </div>
 
@@ -109,6 +111,13 @@ if(auth()->user()->empresa == 0){
                                 <th scope="col">Sector</th>
                                 <th scope="col">Chofer</th>
                             @endif
+
+                            <th scope="col" ><p class="d-none d-md-block"> fecha_nacimiento </p></th>
+                            <th scope="col" ><p class="d-none d-md-block"> direccion </p></th>
+                            <th scope="col" ><p class="d-none d-md-block"> referencia </p></th>
+                            <th scope="col" ><p class="d-none d-md-block"> genero </p></th>
+                            <th scope="col" ><p class="d-none d-md-block"> direccion </p></th>
+
                         </tr>
                     </thead>
                     <tbody>
@@ -141,6 +150,13 @@ if(auth()->user()->empresa == 0){
                                     <td>Si</td>
                                     @endif
                                 @endif
+                                    
+                                    <td class=""><p class="d-none d-md-block"> {{ $item->fecha_nacimiento }} </p> </td>
+                                    <td class=""><p class="d-none d-md-block"> {{ $item->direccion }} </p> </td>
+                                    <td class=""><p class="d-none d-md-block"> {{ $item->referencia }} </p> </td>
+                                    <td class=""><p class="d-none d-md-block"> {{ $item->genero }} </p> </td>
+                                    <td class=""><p class="d-none d-md-block"> {{ $item->direccion }} </p> </td>
+
                             </tr>
                         @endforeach
                     </tbody>

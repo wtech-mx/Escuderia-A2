@@ -323,7 +323,7 @@
                 @endif
 
                 @if ($users->empresa == 0)
-                    <div class="col-6 col-xs-6 col-sm-6 col-lg-4 text-center mt-4" style="margin-bottom: 8rem">
+                    <div class="col-6 text-center mt-4" style="margin-bottom: 8rem">
                         <a href="{{ route('index.key') }}" class="text-white">
 
                             <div class="card" style="border-radius: 15px">
