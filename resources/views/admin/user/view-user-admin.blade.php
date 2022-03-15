@@ -110,11 +110,11 @@ if(auth()->user()->empresa == 0){
                                 <th scope="col">Chofer</th>
                             @endif
 
-                            <th scope="col" ><p class="d-none d-md-block"> fecha_nacimiento </p></th>
-                            <th scope="col" ><p class="d-none d-md-block"> direccion </p></th>
-                            <th scope="col" ><p class="d-none d-md-block"> referencia </p></th>
-                            <th scope="col" ><p class="d-none d-md-block"> genero </p></th>
-                            <th scope="col" ><p class="d-none d-md-block"> direccion </p></th>
+                            <th scope="col" class="hidden_cont" ><p class="d-none d-md-block"> fecha_nacimiento </p></th>
+                            <th scope="col" class="hidden_cont" ><p class="d-none d-md-block"> direccion </p></th>
+                            <th scope="col" class="hidden_cont" ><p class="d-none d-md-block"> referencia </p></th>
+                            <th scope="col" class="hidden_cont" ><p class="d-none d-md-block"> genero </p></th>
+                            <th scope="col" class="hidden_cont" ><p class="d-none d-md-block"> direccion </p></th>
 
                         </tr>
                     </thead>
@@ -148,11 +148,11 @@ if(auth()->user()->empresa == 0){
                                     @endif
                                 @endif
 
-                                    <td class=""><p class="d-none d-md-block"> {{ $item->fecha_nacimiento }} </p> </td>
-                                    <td class=""><p class="d-none d-md-block"> {{ $item->direccion }} </p> </td>
-                                    <td class=""><p class="d-none d-md-block"> {{ $item->referencia }} </p> </td>
-                                    <td class=""><p class="d-none d-md-block"> {{ $item->genero }} </p> </td>
-                                    <td class=""><p class="d-none d-md-block"> {{ $item->direccion }} </p> </td>
+                                    <td class="hidden_cont"><p class="d-none d-md-block"> {{ $item->fecha_nacimiento }} </p> </td>
+                                    <td class="hidden_cont"><p class="d-none d-md-block"> {{ $item->direccion }} </p> </td>
+                                    <td class="hidden_cont"><p class="d-none d-md-block"> {{ $item->referencia }} </p> </td>
+                                    <td class="hidden_cont"><p class="d-none d-md-block"> {{ $item->genero }} </p> </td>
+                                    <td class="hidden_cont"><p class="d-none d-md-block"> {{ $item->direccion }} </p> </td>
 
                             </tr>
                         @endforeach

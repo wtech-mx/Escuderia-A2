@@ -130,12 +130,12 @@
                                                 <th scope="col">Modelo</th>
                                                 <th scope="col">Submarca</th>
                                                 <th scope="col">Año</th>
-                                                <th scope="col" ><p class="d-none d-md-block">tipo </p></th>
-                                                <th scope="col" ><p class="d-none d-md-block">subtipo</p></th>
-                                                <th scope="col" ><p class="d-none d-md-block">numero_serie</p></th>
-                                                <th scope="col" ><p class="d-none d-md-block">placas</p></th>
-                                                <th scope="col" ><p class="d-none d-md-block">kilometraje</p></th>
-                                                <th scope="col" ><p class="d-none d-md-block">tanque</p></th>
+                                                <th scope="col" class="hidden_cont" ><p class="d-none d-md-block">tipo </p></th>
+                                                <th scope="col" class="hidden_cont" ><p class="d-none d-md-block">subtipo</p></th>
+                                                <th scope="col" class="hidden_cont" ><p class="d-none d-md-block">numero_serie</p></th>
+                                                <th scope="col" class="hidden_cont" ><p class="d-none d-md-block">placas</p></th>
+                                                <th scope="col" class="hidden_cont" ><p class="d-none d-md-block">kilometraje</p></th>
+                                                <th scope="col" class="hidden_cont" ><p class="d-none d-md-block">tanque</p></th>
 
                                             </tr>
                                         </thead>
@@ -154,12 +154,12 @@
                                                     <td>{{ $item->submarca }}</td>
                                                     <td>{{ $item->año }}</td>
 
-                                                    <td><p class="d-none d-md-block">{{ $item->tipo }}</p></td>
-                                                    <td><p class="d-none d-md-block">{{ $item->subtipo }}</p></td>
-                                                    <td><p class="d-none d-md-block">{{ $item->numero_serie }}</p></td>
-                                                    <td><p class="d-none d-md-block">{{ $item->placas }}</p></td>
-                                                    <td><p class="d-none d-md-block">{{ $item->kilometraje }}</p></td>
-                                                    <td><p class="d-none d-md-block">{{ $item->tanque }}</p></td>
+                                                    <td class="hidden_cont"><p class="d-none d-md-block">{{ $item->tipo }}</p></td>
+                                                    <td class="hidden_cont"><p class="d-none d-md-block">{{ $item->subtipo }}</p></td>
+                                                    <td class="hidden_cont"><p class="d-none d-md-block">{{ $item->numero_serie }}</p></td>
+                                                    <td class="hidden_cont"><p class="d-none d-md-block">{{ $item->placas }}</p></td>
+                                                    <td class="hidden_cont"><p class="d-none d-md-block">{{ $item->kilometraje }}</p></td>
+                                                    <td class="hidden_cont"><p class="d-none d-md-block">{{ $item->tanque }}</p></td>
                                                 </tr>
                                             @endforeach
                                         </tbody>

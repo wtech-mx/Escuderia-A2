@@ -70,10 +70,10 @@
                                                 <th scope="col"><p class="d-none d-md-block">Telefono</p></th>
                                                 <th scope="col">Placas</th>
                                                 <th scope="col">Modelo</th>
-                                                <th scope="col"><p class="d-none d-md-block">Submarca</p></th>
-                                                <th scope="col"><p class="d-none d-md-block">Año</p></th>
-                                                <th scope="col" ><p class="d-none d-md-block">tanque</p></th>
-                                                <th scope="col">Más</th>
+                                                <th scope="col" class="hidden_cont"><p class="d-none d-md-block">Submarca</p></th>
+                                                <th scope="col" class="hidden_cont"><p class="d-none d-md-block">Año</p></th>
+                                                <th scope="col" class="hidden_cont" ><p class="d-none d-md-block">tanque</p></th>
+                                                <th scope="col" class="hidden_cont">Más</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -83,9 +83,9 @@
                                                     <td><p class="d-none d-md-block">{{ $item->User->telefono }}</p></td>
                                                     <td>{{ $item->placas }}</td>
                                                     <td>{{ $item->Marca->nombre }}</td>
-                                                    <td><p class="d-none d-md-block">{{ $item->submarca }}</p></td>
-                                                    <td><p class="d-none d-md-block">{{ $item->año }}</p></td>
-                                                    <td><p class="d-none d-md-block">{{ $item->tanque }}</p></td>
+                                                    <td class="hidden_cont"><p class="d-none d-md-block">{{ $item->submarca }}</p></td>
+                                                    <td class="hidden_cont"><p class="d-none d-md-block">{{ $item->año }}</p></td>
+                                                    <td class="hidden_cont"><p class="d-none d-md-block">{{ $item->tanque }}</p></td>
                                                     <td>
                                                         <a data-toggle="modal" data-target="#example{{ $item->id }}">
                                                             <img class="icon-effect"  src="{{ asset('img/icon/white/add.png') }}" width="15px"></a>
