@@ -86,7 +86,7 @@
                     </h6>
                 </div>
 
-                <div class="col-xs-6 col-sm-6 col-lg-3 text-center mt-4">
+                <div class="col-6 col-xs-6 col-sm-6 col-lg-3 text-center mt-4">
                     @can('ver_usuario')
                             <a href="{{ route('index_admin.user') }}">
                     @else
@@ -101,7 +101,7 @@
                             </a>
                 </div>
 
-                <div class="col-xs-6 col-sm-6 col-lg-3 text-center mt-4" >
+                <div class="col-6 col-xs-6 col-sm-6 col-lg-3 text-center mt-4" >
                     <div class="card" style="border-radius: 15px">
                         {{-- @can('Ver Servicios') --}}
                         <a href="{{ route('create.pronostico') }}">
@@ -127,7 +127,7 @@
                     </div>
                 </div>
 
-                <div class="col-xs-6 col-sm-6 col-lg-3 text-center mt-4">
+                <div class="col-6 col-xs-6 col-sm-6 col-lg-3 text-center mt-4">
                     @can('Ver Automovil')
                     <a href="{{ route('index_admin.automovil') }}">
                     @else
@@ -142,7 +142,7 @@
                     </a>
                 </div>
 
-                <div class="col-xs-6 col-sm-6 col-lg-3 text-center mt-4">
+                <div class="col-6 col-xs-6 col-sm-6 col-lg-3 text-center mt-4">
                     @can('Ver Expedientes')
                     <a href="{{ route('index_admin.view-exp-fisico-admin') }}" class="text-white">
                     @else
@@ -157,7 +157,7 @@
                     </a>
                 </div>
 
-                <div class="col-xs-6 col-sm-6 col-lg-3 text-center mt-4">
+                <div class="col-6 col-xs-6 col-sm-6 col-lg-3 text-center mt-4">
                     @can('Ver Tarjeta C.')
                     <a href="{{ route('indextc_admin.tarjeta-circulacion') }}" class="text-white">
                     @else
@@ -172,7 +172,7 @@
                     </a>
                 </div>
 
-                <div class="col-xs-6 col-sm-6 col-lg-3 text-center mt-4">
+                <div class="col-6 col-xs-6 col-sm-6 col-lg-3 text-center mt-4">
                     <a href="{{ route('index_admin.gasolina') }}">
                         <div class="card" style="border-radius: 15px">
                             <div class="card-body">
@@ -183,7 +183,7 @@
                     </a>
                 </div>
 
-                <div class="col-xs-6 col-sm-6 col-lg-3 text-center mt-4">
+                <div class="col-6 col-xs-6 col-sm-6 col-lg-3 text-center mt-4">
                     @can('Ver Veri')
                     <a href="{{ route('index_admin.verificacion') }}" class="text-white">
                     @else
@@ -199,7 +199,7 @@
                 </div>
 
                 @if ($users->empresa == 0)
-                <div class="col-xs-6 col-sm-6 col-lg-3 text-center mt-4">
+                <div class="col-6 col-xs-6 col-sm-6 col-lg-3 text-center mt-4">
                     @can('Ver Emp')
                     <a href="{{ route('index_admin.empresa') }}" class="text-white">
                     @else
@@ -215,7 +215,7 @@
                 </div>
                 @endif
 
-                <div class="col-xs-6 col-sm-6 col-lg-3 text-center mt-4">
+                <div class="col-6 col-xs-6 col-sm-6 col-lg-3 text-center mt-4">
                     @can('Ver Seguro')
                     <a href="{{ route('index_admin.seguros') }}" class="text-white">
                     @else
@@ -230,7 +230,7 @@
                     </a>
                 </div>
 
-                <div class="col-xs-6 col-sm-6 col-lg-3 text-center  mt-4">
+                <div class="col-6 col-xs-6 col-sm-6 col-lg-3 text-center  mt-4">
                     @can('Crear Roles y Permisos')
                     <a href="{{ route('index_role.role') }}" class="text-white">
                     @else
@@ -246,7 +246,7 @@
                 </div>
 
                 @if ($users->empresa == 0)
-                    <div class="col-xs-6 col-sm-6 col-lg-3 text-center mt-4">
+                    <div class="col-6 col-xs-6 col-sm-6 col-lg-3 text-center mt-4">
                         @can('Ver Licencia de Conducir')
                         <a href="{{ route('index_admin.licencia') }}" class="text-white">
                         @else
@@ -263,7 +263,7 @@
                 @endif
 
                 @if ($users->empresa == 0)
-                    <div class="col-xs-6 col-sm-6 col-lg-3 text-center mt-4">
+                    <div class="col-6 col-xs-6 col-sm-6 col-lg-3 text-center mt-4">
                         @can('Ver Cupones')
                         <a href="{{ route('index_admin.cupon') }}" class="text-white">
                         @else
@@ -279,7 +279,7 @@
                     </div>
                 @endif
 
-                <div class="col-xs-6 col-sm-6 col-lg-4 text-center mt-4">
+                <div class="col-6 col-xs-6 col-sm-6 col-lg-4 text-center mt-4">
                 <div class="card" style="border-radius: 15px">
                     @can('Ver Notas')
                     <a href="{{ route('index.notas') }}">
@@ -306,7 +306,7 @@
             </div>
 
                 @if ($users->empresa == 0)
-                    <div class="col-xs-6 col-sm-6 col-lg-4 text-center mt-4">
+                    <div class="col-6 col-xs-6 col-sm-6 col-lg-4 text-center mt-4">
                         @can('Ver Cupones')
                         <a href="{{ route('index.cotizacion') }}" class="text-white">
                         @else
@@ -323,7 +323,7 @@
                 @endif
 
                 @if ($users->empresa == 0)
-                    <div class="col-xs-6 col-sm-6 col-lg-4 text-center mt-4" style="margin-bottom: 8rem">
+                    <div class="col-6 col-xs-6 col-sm-6 col-lg-4 text-center mt-4" style="margin-bottom: 8rem">
                         <a href="{{ route('index.key') }}" class="text-white">
 
                             <div class="card" style="border-radius: 15px">
