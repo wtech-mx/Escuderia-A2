@@ -34,7 +34,7 @@
     <link href="{{ asset('css/pwa.css') }}" rel="stylesheet">
     <link href="{{ asset('css/effects.css') }}" rel="stylesheet">
     <link href="{{ asset('css/container-responsive.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/preloader.css') }}" rel="stylesheet">
+{{--    <link href="{{ asset('css/preloader.css') }}" rel="stylesheet">--}}
     <link href="{{ asset('css/adaptabilidad.css') }}" rel="stylesheet">
 
      @yield('crop-css')
@@ -58,7 +58,7 @@
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.min.js"></script>
-    <script src="{{ asset('js/preloader.js') }}"></script>
+{{--    <script src="{{ asset('js/preloader.js') }}"></script>--}}
     <script src="{{ asset('js/camara-class.js') }}"></script>
     <script src="{{ asset('js/dropzone.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/venobox/1.9.3/venobox.min.js"></script>

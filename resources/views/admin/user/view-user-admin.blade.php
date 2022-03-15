@@ -2,6 +2,7 @@
 
 @section('css')
     <link href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+    <link href="{{ asset('css/garje.css') }}" rel="stylesheet">
 @endsection
 
 @section('content')
@@ -14,12 +15,9 @@ if(auth()->user()->empresa == 0){
 }
 @endphp
 
-
-
-    <link href="{{ asset('css/garje.css') }}" rel="stylesheet">
-
     <div class="row bg-image">
         @include('admin.user.sector')
+
         <div class="col-2  mt-4">
             <div class="d-flex justify-content-start">
                 <div class="text-center text-white">
@@ -134,8 +132,7 @@ if(auth()->user()->empresa == 0){
                                         href="{{ route('edit_admin.user', $item->id) }}">{{ $item->name }}</a>
                                     </td>
                                     @else
-                                    <td>{{ $item->name }}
-                                    </td>
+                                    <td>{{ $item->name }}</td>
                                 @endcan
 
                                 <td>{{ $item->email }}</td>
@@ -150,7 +147,7 @@ if(auth()->user()->empresa == 0){
                                     <td>Si</td>
                                     @endif
                                 @endif
-                                    
+
                                     <td class=""><p class="d-none d-md-block"> {{ $item->fecha_nacimiento }} </p> </td>
                                     <td class=""><p class="d-none d-md-block"> {{ $item->direccion }} </p> </td>
                                     <td class=""><p class="d-none d-md-block"> {{ $item->referencia }} </p> </td>
@@ -170,8 +167,9 @@ if(auth()->user()->empresa == 0){
     </div>
 
 @section('js')
-<script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.min.js"></script>
+
+    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.min.js"></script>
 
     <script>
         $(document).ready(function() {
@@ -181,6 +179,5 @@ if(auth()->user()->empresa == 0){
     </script>
 
 @endsection
-
 
 @endsection

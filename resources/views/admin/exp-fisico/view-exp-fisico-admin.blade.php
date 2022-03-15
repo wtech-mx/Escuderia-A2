@@ -67,8 +67,12 @@
                                         <thead>
                                             <tr>
                                                 <th scope="col">Cliente</th>
+                                                <th scope="col"><p class="d-none d-md-block">Telefono</p></th>
                                                 <th scope="col">Placas</th>
                                                 <th scope="col">Modelo</th>
+                                                <th scope="col"><p class="d-none d-md-block">Submarca</p></th>
+                                                <th scope="col"><p class="d-none d-md-block">Año</p></th>
+                                                <th scope="col" ><p class="d-none d-md-block">tanque</p></th>
                                                 <th scope="col">Más</th>
                                             </tr>
                                         </thead>
@@ -76,8 +80,12 @@
                                             @foreach ($automovil as $item)
                                                 <tr>
                                                     <th>{{ $item->User->name }}</th>
+                                                    <td><p class="d-none d-md-block">{{ $item->User->telefono }}</p></td>
                                                     <td>{{ $item->placas }}</td>
                                                     <td>{{ $item->Marca->nombre }}</td>
+                                                    <td><p class="d-none d-md-block">{{ $item->submarca }}</p></td>
+                                                    <td><p class="d-none d-md-block">{{ $item->año }}</p></td>
+                                                    <td><p class="d-none d-md-block">{{ $item->tanque }}</p></td>
                                                     <td>
                                                         <a data-toggle="modal" data-target="#example{{ $item->id }}">
                                                             <img class="icon-effect"  src="{{ asset('img/icon/white/add.png') }}" width="15px"></a>
@@ -105,8 +113,6 @@
                         <div class="row">
                             <div class="col-12">
 
-                                <div class="d-flex justify-content-center">
-
                                     <div class="row">
                                         <div class="content container-res-max">
                                             <div class="col-12">
@@ -117,6 +123,9 @@
                                                             <th scope="col">Empresa</th>
                                                             <th scope="col">Placas</th>
                                                             <th scope="col">Modelo</th>
+                                                            <th scope="col"><p class="d-none d-md-block">Submarca</p></th>
+                                                            <th scope="col"><p class="d-none d-md-block">Año</p></th>
+                                                            <th scope="col" ><p class="d-none d-md-block">tanque</p></th>
                                                             <th scope="col">Más</th>
                                                         </tr>
                                                     </thead>
@@ -126,6 +135,9 @@
                                                                 <th>{{ $item->UserEmpresa->name }}</th>
                                                                 <td>{{ $item->placas }}</td>
                                                                 <td>{{ $item->Marca->nombre }}</td>
+                                                                <td><p class="d-none d-md-block">{{ $item->submarca }}</p></td>
+                                                                <td><p class="d-none d-md-block">{{ $item->año }}</p></td>
+                                                                <td><p class="d-none d-md-block">{{ $item->tanque }}</p></td>
                                                                 <td>
                                                                     <a data-toggle="modal" data-target="#example{{ $item->id }}">
                                                                         <img class="icon-effect"  src="{{ asset('img/icon/white/add.png') }}" width="15px"></a>
@@ -140,7 +152,7 @@
                                         </div>
                                     </div>
 
-                                </div>
+
 
                             </div>
                         </div>
