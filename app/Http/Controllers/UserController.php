@@ -556,10 +556,8 @@ class UserController extends Controller
         ]);
 
         $user = User::findOrFail($id);
-
-        $pass = $user->password = $request->password;
         $user->password = Hash::make($request->password);
-        $email = $user->email;
+        $user->update();
 
         Session::flash('success', 'Se ha actualizado su contrasena con exito');
         return redirect()->route('index_admin.user');
