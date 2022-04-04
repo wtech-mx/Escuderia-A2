@@ -64,7 +64,7 @@
                             </button>
 
                             <p class="text-center mt-3">
-                                <a  class="text-center " href="{{ route('password.request') }}" style="color: #FFFFFF">
+                                <a  class="text-center " href="{{ route('password.email') }}" style="color: #FFFFFF">
                                     ¿Olvidaste tu contraseña?
                                 </a>
                             </p>
