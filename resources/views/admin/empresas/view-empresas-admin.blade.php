@@ -80,6 +80,7 @@
                                 <th scope="col">Nombre</th>
                                 <th scope="col">Correo</th>
                                 <th scope="col">Telefono</th>
+                                <th scope="col" class="hidden_cont" ><p class="d-none d-md-block"> direccion </p></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -96,6 +97,7 @@
 
                                     <td>{{ $item->email }}</td>
                                     <td>{{ $item->telefono }}</td>
+                                    <td class="hidden_cont"><p class="d-none d-md-block"> {{ $item->direccion }} </p> </td>
                                 </tr>
                             @endforeach
                         </tbody>
