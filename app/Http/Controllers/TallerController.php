@@ -131,4 +131,13 @@ class TallerController extends Controller
 
         return response()->json(['success' => 'Se cambio el estado exitosamente.']);
     }
+
+    public function ChangeUserStatus(Request $request)
+    {
+        $remision = Taller::find($request->id);
+        $remision->estado = $request->estado;
+        $remision->save();
+
+        return response()->json(['success' => 'Se cambio el estado exitosamente.']);
+    }
 }

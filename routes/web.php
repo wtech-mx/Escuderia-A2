@@ -456,6 +456,8 @@ Route::post('admin/diagnostico/update/{id}', 'CotizacionDiagnosticoController@up
 Route::get('admin/taller/edit/{id}', 'TallerController@edit')->name('edit.taller');
 Route::post('admin/taller/update', 'TallerController@update')->name('update.taller');
 
+Route::get('admin/taller/changeStatus', 'TallerController@ChangeUserStatus')->name('ChangeUserStatus.taller');
+
 /*|--------------------------------------------------------------------------
 |sector
 |--------------------------------------------------------------------------*/

@@ -121,9 +121,9 @@
                                         <th>Ven.</th>
                                         <th>Refa.</th>
                                         <th>Marca</th>
-                                        <th>Refacción</th>
+                                        <th>Refa.</th>
                                         <th>I.T.</th>
-                                        <th>Borrar</th>
+                                        <th>Compra</th>
                                     </tr>
                                 <thead>
                                 <tbody>
@@ -135,7 +135,10 @@
                                         <td style="color: #070707"><input type="text" data-id="{{ $item->id }}" class="form-control importe_unitario" placeholder="{{$item->importe_unitario}}" id="importe_unitario" name="importe_unitario"></td>
                                         <td style="color: #070707"><input type="text" data-id="{{ $item->id }}" class="form-control importe_total" placeholder="{{$item->importe_total}}" id="importe_total" name="importe_total"></td>
                                         <td>
-                                            <button class="btn btn-danger delete-link" value="{{$item->id}}" onclick="location.reload()"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                                            <input data-id="{{ $item->id }}" class="toggle-class" type="checkbox"
+                                            data-onstyle="success" data-offstyle="danger" data-toggle="toggle"
+                                            data-on="Active" data-off="InActive" {{ $item->estado ? 'checked' : '' }}>
+                                            {{-- <button class="btn btn-danger delete-link" value="{{$item->id}}" onclick="location.reload()"><i class="fa fa-trash" aria-hidden="true"></i></button> --}}
                                         </td>
 
                                     </tr>
@@ -147,25 +150,44 @@
 
                     @include('admin.cotizacion.script-taller')
                     <script>
-                        jQuery('.delete-link').click(function () {
-                            var id = $(this).val();
-                            $.ajaxSetup({
-                                headers: {
-                                    'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
-                                }
-                            });
-                            $.ajax({
-                                type: "DELETE",
-                                url: '/cotizacion/' + id,
-                                success: function (data) {
-                                    console.log(data);
-                                    $("#item" + id).remove();
-                                },
-                                error: function (data) {
-                                    console.log('Error:', data);
-                                }
-                            });
-                        });
+                        // jQuery('.delete-link').click(function () {
+                        //     var id = $(this).val();
+                        //     $.ajaxSetup({
+                        //         headers: {
+                        //             'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
+                        //         }
+                        //     });
+                        //     $.ajax({
+                        //         type: "DELETE",
+                        //         url: '/cotizacion/' + id,
+                        //         success: function (data) {
+                        //             console.log(data);
+                        //             $("#item" + id).remove();
+                        //         },
+                        //         error: function (data) {
+                        //             console.log('Error:', data);
+                        //         }
+                        //     });
+                        // });
+                        $(function() {
+                            $('.toggle-class').change(function() {
+                                var estado = $(this).prop('checked') == true ? 1 : 0;
+                                var id = $(this).data('id');
+
+                                $.ajax({
+                                    type: "GET",
+                                    dataType: "json",
+                                    url: '{{ route('ChangeUserStatus.taller') }}',
+                                    data: {
+                                        'estado': estado,
+                                        'id': id
+                                    },
+                                    success: function(data) {
+                                        console.log(data.success)
+                                    }
+                                });
+                            })
+                        })
 
                     </script>
 @endsection
