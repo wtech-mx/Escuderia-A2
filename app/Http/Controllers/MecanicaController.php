@@ -13,6 +13,9 @@ use App\Models\MecanicaProveedores;
 use App\Models\MecanicaUsuario;
 use App\Models\User;
 use App\Models\Automovil;
+use App\Models\Cotizacion;
+use App\Models\CotizacionRemision;
+use App\Models\Taller;
 use Session;
 use Image;
 use Validator;
@@ -48,10 +51,14 @@ class MecanicaController extends Controller
         $mecanica_usuario = MecanicaUsuario::where('id_empresa', '=', NULL)->get();
         $proveedor = MecanicaProveedores::get();
 
+        $cotizacion = Cotizacion::get();
+        $cotizacion_remision = CotizacionRemision::where('reparacion', '!=', NULL)->where('aprobacion', '=', 1)->get();
+        $taller = Taller::where('vendedor', '!=', NULL)->where('estado', '=', 1)->get();
+
         $users = DB::table('users')->get();
         $autos = DB::table('mecanica_usuario')->get();
 
-        return view('admin.services.view-mecanica', compact('mecanica_user', 'mecanica_empresa', 'users', 'proveedor', 'mecanica_usuario', 'autos'));
+        return view('admin.services.view-mecanica', compact('mecanica_user', 'mecanica_empresa', 'users', 'proveedor', 'mecanica_usuario', 'autos', 'cotizacion', 'cotizacion_remision', 'taller'));
     }
 
     public function create_servicio()

@@ -18,7 +18,7 @@
 
         <div class="col-8 mt-5">
                     <h5 class="text-center text-white ml-4 mr-4 ">
-                        <strong>Cotizacion Diagnostico</strong>
+                        <strong>Remisión Diagnostico</strong>
                     </h5>
         </div>
 

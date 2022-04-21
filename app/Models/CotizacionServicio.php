@@ -39,4 +39,9 @@ class CotizacionServicio extends Model
     {
         return $this->belongsTo(Taller::class, 'id_taller');
     }
+
+    public function CotizacionDiagnostico()
+    {
+        return $this->hasOne(CotizacionDiagnostico::class, 'id_cotizacion_servicio');
+    }
 }

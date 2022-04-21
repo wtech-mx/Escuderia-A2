@@ -58,6 +58,15 @@
                             @include('admin.services.view-servicio')
                         </tr>
                     @endforeach
+                    @foreach ($cotizacion as $item)
+                        <tr>
+                            <td><a style="color: #3490dc" data-toggle="modal" data-target="#cotizacion{{ $item->id }}">{{ $item->fecha }}</a></td>
+                            <td>{{ $item->descripcion }}</td>
+                            <td>{{ $item->User->name }}</td>
+                            <td>{{ $item->Automovil->placas }}</td>
+                            @include('admin.services.modal-cotizacion')
+                        </tr>
+                    @endforeach
                 </tbody>
 
             </table>

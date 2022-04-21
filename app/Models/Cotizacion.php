@@ -37,4 +37,20 @@ class Cotizacion extends Model
     {
         return $this->belongsTo(Automovil::class, 'current_auto');
     }
+    public function CotizacionRemision()
+    {
+        return $this->hasOne(CotizacionRemision::class, 'id_cotizacion');
+    }
+    public function CotizacionServicio()
+    {
+        return $this->hasOne(CotizacionServicio::class, 'id_cotizacion');
+    }
+    public function Taller()
+    {
+        return $this->hasOne(Taller::class, 'id_cotizacion');
+    }
+    public function TotalRemision()
+    {
+        return $this->hasOne(TotalRemision::class, 'id_cotizacion');
+    }
 }

@@ -82,7 +82,26 @@
 
                                             <td class="hidden_cont"><p class="d-none d-md-block"> {{ $item->km }} </p> </td>
 
-                                            <td>{{ $item->Cotizacion->estatus }}</td>
+                                            <td>
+                                                @if($item->CotizacionDiagnostico->observaciones == NULL)
+                                                Di. <input class="form-check-input" type="checkbox" value="" id="flexCheckCheckedDisabled" disabled>
+                                                @else
+                                                Di. <input class="form-check-input" type="checkbox" value="" id="flexCheckCheckedDisabled" checked disabled>
+                                                @endif
+
+                                                @if($item->Cotizacion->TotalRemision->total_cotizacion == NULL)
+                                                Co. <input class="form-check-input" type="checkbox" value="" id="flexCheckCheckedDisabled" disabled><br>
+                                                @else
+                                                Co. <input class="form-check-input" type="checkbox" value="" id="flexCheckCheckedDisabled" checked disabled><br>
+                                                @endif
+
+                                                @if($item->Cotizacion->TotalRemision->total_remision == NULL)
+                                                Re. <input class="form-check-input" type="checkbox" value="" id="flexCheckCheckedDisabled" disabled>
+                                                @else
+                                                Re. <input class="form-check-input" type="checkbox" value="" id="flexCheckCheckedDisabled" checked disabled>
+                                                @endif
+
+                                            </td>
                                             <td>
                                                 <a href="{{ route('edit.diagnostico', $item->id) }}">
                                                     <i class="fas fa-oil-can icon-users-edit" style="margin-right: 10px; font-size: 13px;"></i>
