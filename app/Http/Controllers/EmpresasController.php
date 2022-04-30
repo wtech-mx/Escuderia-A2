@@ -21,6 +21,7 @@ class EmpresasController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('pagespeed');
     }
     /*|--------------------------------------------------------------------------
 |Create Empresa Auto_Admin

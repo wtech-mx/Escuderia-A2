@@ -106,9 +106,9 @@
                                     <a class="btn " data-toggle="collapse" href="#unafoto" role="button" aria-expanded="false" aria-controls="unafoto" style="background-color: #00d62e;border: solid 1px #00d62e">
                                        Cargar una Foto
                                     </a>
-                                    {{-- <a class="btn "  data-toggle="collapse" href="#lotefoto" role="button" aria-expanded="false" aria-controls="lotefoto" style="background-color: #00d62e;border: solid 1px #00d62e">
+                                    <a class="btn "  data-toggle="collapse" href="#lotefoto" role="button" aria-expanded="false" aria-controls="lotefoto" style="background-color: #00d62e;border: solid 1px #00d62e">
                                        Cargar Lote de Fotos
-                                    </a> --}}
+                                    </a>
 {{--                                    <a class="btn " id="photo-btn"  data-toggle="collapse" href="#tomarfoto" role="button" aria-expanded="false" aria-controls="tomarfoto" style="background-color: #00d62e;border: solid 1px #00d62e">--}}
 {{--                                       Tomar Foto--}}
 {{--                                    </a>--}}
