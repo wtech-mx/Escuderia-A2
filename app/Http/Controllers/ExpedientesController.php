@@ -545,8 +545,8 @@ class ExpedientesController extends Controller
         $exp->save();
 
         Session::flash('success', 'Se ha guardado sus datos con exito');
-        // return redirect()->back();
-        return response()->json(['success' => 'Successfully uploaded.']);
+        return redirect()->back();
+        // return response()->json(['success' => 'Successfully uploaded.']);
     }
 
     public function upload( Request $request, $id)
@@ -652,7 +652,6 @@ class ExpedientesController extends Controller
         return response()->json(['success' => 'Successfully uploaded.']);
     }
 
-
     public function destroy(Request $request, $id)
     {
 
@@ -716,4 +715,51 @@ class ExpedientesController extends Controller
         Session::flash('destroy', 'Se Elimino su Foto con exito');
         return redirect()->back();
     }
+
+    public function store_admin_s( Request $request){
+        $exp = new ExpPoliza;
+
+        if ($request->hasFile("poliza")) {
+
+            $file = $request->file('poliza');
+            $path = public_path() . '/exp-poliza';
+            $fileName = time() . "." . $file->getClientOriginalExtension();
+
+            $file->move($path, $fileName);
+
+            $exp->img = $fileName;
+        }
+
+        $exp->current_auto = $request->get('current_auto');
+        $exp->id_user = $request->get('id_user');
+
+        $exp->save();
+
+        Session::flash('success', 'Se ha guardado sus datos con exito');
+        return redirect()->back();
+    }
+
+    public function store_admin_tc( Request $request){
+        $exp = new ExpTc;
+
+        if ($request->hasFile("tc")) {
+
+            $file = $request->file('tc');
+            $path = public_path() . '/exp-tc';
+            $fileName = time() . "." . $file->getClientOriginalExtension();
+
+            $file->move($path, $fileName);
+
+            $exp->img = $fileName;
+        }
+
+        $exp->current_auto = $request->get('current_auto');
+        $exp->id_user = $request->get('id_user');
+
+        $exp->save();
+
+        Session::flash('success', 'Se ha guardado sus datos con exito');
+        return redirect()->back();
+    }
 }
+

@@ -283,7 +283,7 @@ Route::group(['middleware' => ['permission:Ver Seguro|Editar Seguro']], function
     Route::get('admin/seguros/index', 'SegurosController@index_admin')->name('index_admin.seguros');
     Route::get('admin/seguro/edit/{id}', 'SegurosController@edit_admin')->name('edit_admin.seguro');
     Route::patch('admin/seguro/update/{id}', 'SegurosController@update_admin')->name('update_admin.seguro');
-    Route::post('admin/exp_poliza/crear/', 'ExpolizaController@store_admin_s')->name('store_admin_s.exp-poliza');
+    Route::post('admin/exp_poliza/crear', 'ExpedientesController@store_admin_s')->name('store_admin_s.exp-poliza');
 });
 /*|--------------------------------------------------------------------------
 |Sevicios
@@ -321,7 +321,7 @@ Route::group(['middleware' => ['permission:Ver Tarjeta C.|Editar Tarjeta C.']], 
     Route::patch('admin/tarjeta-circulacion/update/{id}', 'TarjetaCirculacionController@update_admin')->name('update_admin.tarjeta-circulacion');
 });
 
-Route::post('admin/tarjeta-circulacion/create/', 'ImgTcController@store_admin')->name('store_admin.tarjeta-circulacion');
+Route::post('admin/tarjeta-circulacion/create/', 'ExpedientesController@store_admin_tc')->name('store_admin_tc.tarjeta-circulacion');
 
 /*|--------------------------------------------------------------------------
 |Expedientes Fisicos
