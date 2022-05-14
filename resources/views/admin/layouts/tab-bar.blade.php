@@ -14,8 +14,8 @@
                                 })
                             </script>
                         @endif
-             <navbar>
-                <div class="row bg-blue">
+             <navbar class="tab_bar_res">
+                <div class="row bg-blue ">
                     <div class="navbar">
 
                         <div class="navbar__item -blue">

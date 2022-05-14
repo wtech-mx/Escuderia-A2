@@ -20,12 +20,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="936a45dc-4f36-4130-a52f-695b08d602c5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/layouts/sidebar.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ExpedientesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ExpedientesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/dropzone.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/dropzone.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/alerts/calendar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/alerts/calendar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/exp-fisico/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/exp-fisico/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/alerts/calendar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/alerts/calendar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/adaptabilidad.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/adaptabilidad.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/dashboard.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/layouts/navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/layouts/navbar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/layouts/tab-bar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/layouts/tab-bar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/user/view-user-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/user/view-user-admin.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -372,28 +374,13 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="232" y="0" key="#Intentions" timestamp="1626588469664">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state x="648" y="443" key="NewPhpFileDialog" timestamp="1652483999711">
+      <screen x="0" y="0" width="2560" height="1032" />
     </state>
-    <state x="232" y="0" key="#Intentions/0.0.1280.680@0.0.1280.680" timestamp="1626588469664" />
-    <state x="948" y="396" key="NewPhpFileDialog" timestamp="1627699801095">
-      <screen x="0" y="0" width="2560" height="1040" />
+    <state x="648" y="443" key="NewPhpFileDialog/0.0.2560.1032/-2560.0.2560.1032@0.0.2560.1032" timestamp="1652483999711" />
+    <state x="522" y="241" width="583" height="566" key="find.popup" timestamp="1652483283051">
+      <screen x="0" y="0" width="2560" height="1032" />
     </state>
-    <state x="474" y="259" key="NewPhpFileDialog/0.0.1280.680@0.0.1280.680" timestamp="1626629222156" />
-    <state x="948" y="396" key="NewPhpFileDialog/0.0.2560.1040/-2560.0.2560.1040@0.0.2560.1040" timestamp="1627699801095" />
-    <state x="348" y="237" width="583" height="566" key="find.popup" timestamp="1627701582682">
-      <screen x="0" y="0" width="2560" height="1040" />
-    </state>
-    <state x="174" y="114" width="555" height="566" key="find.popup/0.0.1280.680@0.0.1280.680" timestamp="1626546076536" />
-    <state x="348" y="237" width="583" height="566" key="find.popup/0.0.2560.1040/-2560.0.2560.1040@0.0.2560.1040" timestamp="1627701582682" />
-    <state x="296" y="242" key="run.anything.popup" timestamp="1628814958081">
-      <screen x="0" y="0" width="2560" height="1040" />
-    </state>
-    <state x="296" y="242" key="run.anything.popup/0.0.2560.1040/-2560.0.2560.1040@0.0.2560.1040" timestamp="1628814958081" />
-    <state x="606" y="2" width="1344" height="1037" key="search.everywhere.popup" timestamp="1627698592311">
-      <screen x="0" y="0" width="2560" height="1040" />
-    </state>
-    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1626588335241" />
-    <state x="606" y="2" width="1344" height="1037" key="search.everywhere.popup/0.0.2560.1040/-2560.0.2560.1040@0.0.2560.1040" timestamp="1627698592311" />
+    <state x="522" y="241" width="583" height="566" key="find.popup/0.0.2560.1032/-2560.0.2560.1032@0.0.2560.1032" timestamp="1652483283051" />
   </component>
 </project>

@@ -16,46 +16,52 @@ if(auth()->user()->empresa == 0){
 @endphp
 
     <div class="row bg-image">
-        @include('admin.user.sector')
 
-        <div class="col-2  mt-4">
-            <div class="d-flex justify-content-start">
+         @include('admin.user.sector')
+
+        @if (Session::has('success'))
+            <script>
+                Swal.fire(
+                    'Exito!',
+                    'Se ha guardado exitosamiente.',
+                    'success'
+                )
+
+            </script>
+        @endif
+
+        <div class="content container-res-max">
+
+            @include('admin.layouts.sidebar')
+
+            <div class="col-10 ">
+
+            <div class="d-flex justify-content-between mt-5  mb-5">
                 <div class="text-center text-white">
                     <a href="{{ route('index.dashboard') }}" style="background-color: transparent;clip-path: none">
                         <img class="" src="{{ asset('img/icon/white/left-arrow.png') }}" width="25px">
                     </a>
                 </div>
-            </div>
-        </div>
 
-        <div class="col-8  mt-4">
-            <h5 class="text-center text-white ml-4 mr-4 ">
-                <strong>Usuarios </strong>
-            </h5>
-        </div>
+                <h5 class="text-center text-white ml-4 mr-4 ">
+                    <strong>Usuarios </strong>
+                </h5>
 
-        <div class="col-2  mt-4">
-            <div class="d-flex justify-content-start">
                 <div class="text-center text-white bg-white" style="border-radius: 50px;padding: 5px">
                     <img class="" src="{{ asset('img/icon/color/campana.png') }}" width="25px">
                 </div>
             </div>
-        </div>
 
-        <div class="col-12 mt-4 d-inline">
-
-            <div class="d-flex justify-content-between">
+            <div class="d-flex justify-content-between ">
 
                 <a class="mt-1 ml-5 text-white " href="/exportar/usuarios">
                     <i class="fa fa-download icon-effect" aria-hidden="true"></i>
                 </a>
-
                 @can('create_admin')
                 <div class="content">
                     <a class="btn btn-circel" href="{{ route('create_admin.user') }}">
                         <i class="fas fa-plus-circle icon-effect"></i>
                     </a>
-
                     <a class="btn btn-circel" href="{{ route('create_admin.user') }}">
                         <h5 class="text-white text-tittle-app  mt-2 " style="font: normal normal bold 15px/20px Segoe UI">
                             Agregar
@@ -81,24 +87,7 @@ if(auth()->user()->empresa == 0){
                 @endif
             </div>
 
-        </div>
-
-
-        @if (Session::has('success'))
-            <script>
-                Swal.fire(
-                    'Exito!',
-                    'Se ha guardado exitosamiente.',
-                    'success'
-                )
-
-            </script>
-        @endif
-
-        <div class="content container-res-max">
-            <div class="col-12 ">
-
-                <table id="usuarios" class="table text-white">
+                <table id="usuarios" class="table text-white mt-5">
                     <thead>
                         <tr>
                             <th scope="col">Nombre</th>
