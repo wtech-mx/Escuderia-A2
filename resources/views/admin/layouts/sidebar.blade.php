@@ -10,7 +10,7 @@
             <ul class="nav nav-pills flex-column mb-auto">
 
                <li class="nav-link-sidebar">
-                 <a href="#" class="a_sidebar ">
+                 <a href="{{ route('index_admin.user') }}" class="nav-link a_sidebar {{ (Request::is('admin/usuario*') ? 'active' : '') }} ">
                     <i class="fas fa-users icon_effect_res_dashboard"></i>
                   Usuarios
                 </a>
@@ -19,89 +19,96 @@
               <li class="nav-link-sidebar ">
                 <a href="#" class="a_sidebar">
                  <i class="fas fa-cogs icon_effect_res_dashboard"></i>
-                  Vehículos
+                  Servicios
                 </a>
               </li>
 
               <li class="nav-link-sidebar ">
-                <a href="#" class="a_sidebar">
+                <a href="{{ route('index_admin.automovil') }}" class="nav-link a_sidebar {{ (Request::is('admin/automovil*') ? 'active' : '') }}">
                     <i class="fas fa-car icon_effect_res_dashboard"></i>
                   Vehículos
                 </a>
               </li>
 
               <li class="nav-link-sidebar ">
-                <a href="#" class="a_sidebar">
+                <a href="{{ route('index_admin.view-exp-fisico-admin') }}" class="nav-link a_sidebar {{ (Request::is('admin/exp-fisico*') ? 'active' : '') }}">
                     <i class="fas fa-folder-open icon_effect_res_dashboard"></i>
                   Exp Físico
                 </a>
               </li>
 
               <li class="nav-link-sidebar ">
-                <a href="#" class="a_sidebar">
+                <a href="{{ route('indextc_admin.tarjeta-circulacion') }}" class="nav-link a_sidebar {{ (Request::is('admin/tarjeta-circulacion*') ? 'active' : '') }}">
                     <i class="fas fa-money-check icon_effect_res_dashboard"></i>
                   T. Circulación
                 </a>
               </li>
 
               <li class="nav-link-sidebar ">
-                <a href="#" class="a_sidebar">
+                <a href="{{ route('index_admin.gasolina') }}" class="nav-link a_sidebar {{ (Request::is('admin/gasolina*') ? 'active' : '') }}">
                     <i class="fas fa-tachometer-alt icon_effect_res_dashboard"></i>
                   Gasolina
                 </a>
               </li>
 
               <li class="nav-link-sidebar ">
-                <a href="#" class="a_sidebar">
+                <a href="{{ route('index_admin.verificacion') }}" class="nav-link a_sidebar {{ (Request::is('admin/verificacion*') ? 'active' : '') }}">
                  <i class="fas fa-calendar-check icon_effect_res_dashboard"></i>
                   Verificación
                 </a>
               </li>
 
               <li class="nav-link-sidebar ">
-                <a href="#" class="a_sidebar">
-                    <i class="fas fa-shield-alt icon_effect_res_dashboard"></i>
+                <a href="{{ route('index_admin.empresa') }}" class="nav-link a_sidebar {{ (Request::is('admin/empresa*') ? 'active' : '') }}">
+                    <i class="fas fa-building icon_effect_res_dashboard"></i>
                   Empresas
                 </a>
               </li>
 
               <li class="nav-link-sidebar ">
-                <a href="#" class="a_sidebar">
+                <a href="{{ route('index_admin.seguros') }}" class="nav-link a_sidebar {{ (Request::is('admin/seguros*') ? 'active' : '') }}">
+                    <i class="fas fa-shield-alt icon_effect_res_dashboard"></i>
+                  Seguros
+                </a>
+              </li>
+
+              <li class="nav-link-sidebar ">
+                <a href="{{ route('index_role.role') }}" class="nav-link a_sidebar {{ (Request::is('admin/role*') ? 'active' : '') }}">
                     <i class="fas fa-users-cog icon_effect_res_dashboard"></i>
                  Roles y Permisos
                 </a>
               </li>
 
               <li class="nav-link-sidebar ">
-                <a href="#" class="a_sidebar">
+                <a href="{{ route('index_admin.licencia') }}" class="nav-link a_sidebar {{ (Request::is('admin/licencia*') ? 'active' : '') }}">
                     <i class="far fa-id-badge icon_effect_res_dashboard"></i>
                  Licencia Conducir
                 </a>
               </li>
 
               <li class="nav-link-sidebar ">
-                <a href="#" class="a_sidebar">
+                <a href="{{ route('index_admin.cupon') }}" class="nav-link a_sidebar {{ (Request::is('admin/cupon*') ? 'active' : '') }}">
                     <i class="fas fa-qrcode icon_effect_res_dashboard"></i>
                   Cupones
                 </a>
               </li>
 
               <li class="nav-link-sidebar ">
-                <a href="#" class="a_sidebar">
+                <a href="{{ route('index.notas') }}" class="nav-link a_sidebar {{ (Request::is('admin/notas*') ? 'active' : '') }}">
                     <i class="fas fa-sticky-note icon_effect_res_dashboard"></i>
                  Notas
                 </a>
               </li>
 
               <li class="nav-link-sidebar ">
-                <a href="#" class="a_sidebar">
+                <a href="{{ route('index.cotizacion') }}" class="nav-link a_sidebar {{ (Request::is('admin/cotizacion*') ? 'active' : '') }}">
                     <i class="fas fa-file-invoice-dollar icon_effect_res_dashboard"></i>
                  Orden de servicio
                 </a>
               </li>
 
               <li class="nav-link-sidebar ">
-                <a href="#" class="a_sidebar">
+                <a href="{{ route('index.key') }}" class="nav-link a_sidebar {{ (Request::is('key/index*') ? 'active' : '') }}">
                     <i class="fas fa-key icon_effect_res_dashboard"></i>
                   Licencia Empresas
                 </a>

@@ -10,32 +10,26 @@
 
     <div class="row bg-down-image-border">
 
+        @include('admin.layouts.sidebar')
 
-        <div class="col-2  mt-4">
-            <div class="d-flex justify-content-start">
-                <div class="text-center text-white">
-                    <a href="{{ route('index.dashboard') }}" style="background-color: transparent;clip-path: none">
-                        <img class="" src="{{ asset('img/icon/white/left-arrow.png') }}" width="25px">
-                    </a>
-                </div>
-            </div>
-        </div>
+        <div class="col-10">
 
-        <div class="col-8  mt-4">
-            <h5 class="text-center text-white ml-4 mr-4 ">
-                <strong>Notas</strong>
-            </h5>
-        </div>
+         <div class="d-flex justify-content-between mt-5  mb-5">
+                    <div class="text-center text-white">
+                        <a href="{{ route('index.dashboard') }}" style="background-color: transparent;clip-path: none">
+                            <img class="" src="{{ asset('img/icon/white/left-arrow.png') }}" width="25px">
+                        </a>
+                    </div>
 
-        <div class="col-2  mt-4">
-            <div class="d-flex justify-content-start">
-                <div class="text-center text-white bg-white" style="border-radius: 50px;padding: 5px">
-                    <img class="" src="{{ asset('img/icon/color/campana.png') }}" width="25px">
-                </div>
-            </div>
-        </div>
+                    <h5 class="text-center text-white ml-4 mr-4 ">
+                        <strong>Notas</strong>
+                    </h5>
 
-        <div class="row  bg-down-image-border">
+                    <div class="text-center text-white bg-white" style="border-radius: 50px;padding: 5px">
+                        <img class="" src="{{ asset('img/icon/color/campana.png') }}" width="25px">
+                    </div>
+         </div>
+
             <div class="content container-res-max">
                 <div class="col-12">
 
@@ -48,8 +42,6 @@
                         </div>
                     </div>
                     @endcan
-
-
 
                     <div class="table-responsive">
                         <div class="container-res-max">

@@ -31,29 +31,26 @@
         @endif
 
     <div class="row bg-image">
-        <div class="col-2  mt-4">
-            <div class="d-flex justify-content-start">
-                <div class="text-center text-white">
-                    <a href="{{ route('index.dashboard') }}" style="background-color: transparent;clip-path: none">
-                        <img class="" src="{{ asset('img/icon/white/left-arrow.png') }}" width="25px">
-                    </a>
-                </div>
-            </div>
-        </div>
 
-        <div class="col-8  mt-4">
-            <h5 class="text-center text-white ml-4 mr-4 ">
-                <strong>Llave</strong>
-            </h5>
-        </div>
+        @include('admin.layouts.sidebar')
 
-        <div class="col-2  mt-4">
-            <div class="d-flex justify-content-start">
-                <div class="text-center text-white bg-white" style="border-radius: 50px;padding: 5px">
-                    <img class="" src="{{ asset('img/icon/color/campana.png') }}" width="25px">
-                </div>
-            </div>
-        </div>
+        <div class="col-10">
+
+         <div class="d-flex justify-content-between mt-5  mb-5">
+                    <div class="text-center text-white">
+                        <a href="{{ route('index.dashboard') }}" style="background-color: transparent;clip-path: none">
+                            <img class="" src="{{ asset('img/icon/white/left-arrow.png') }}" width="25px">
+                        </a>
+                    </div>
+
+                    <h5 class="text-center text-white ml-4 mr-4 ">
+                        <strong>Llave</strong>
+                    </h5>
+
+                    <div class="text-center text-white bg-white" style="border-radius: 50px;padding: 5px">
+                        <img class="" src="{{ asset('img/icon/color/campana.png') }}" width="25px">
+                    </div>
+         </div>
 
         <div class="d-flex flex-row-reverse mt-4 mb-3">
             <a class="btn" data-toggle="modal" data-target="#modalLlave">

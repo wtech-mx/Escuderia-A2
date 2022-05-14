@@ -11,30 +11,25 @@
 
     <div class="row bg-down-blue" style="border-radius: 0 0 0 0;">
 
+        @include('admin.layouts.sidebar')
 
-        <div class="col-2  mt-4">
-            <div class="d-flex justify-content-start">
-                <div class="text-center text-white">
-                    <a href="{{ route('index.dashboard') }}" style="background-color: transparent;clip-path: none">
-                        <img class="" src="{{ asset('img/icon/white/left-arrow.png') }}" width="25px">
-                    </a>
-                </div>
+        <div class="col-10">
+
+        <div class="d-flex justify-content-between mt-5  mb-5">
+                    <div class="text-center text-white">
+                        <a href="{{ route('index.dashboard') }}" style="background-color: transparent;clip-path: none">
+                            <img class="" src="{{ asset('img/icon/white/left-arrow.png') }}" width="25px">
+                        </a>
+                    </div>
+
+                    <h5 class="text-center text-white ml-4 mr-4 ">
+                        <strong>Empresas </strong>
+                    </h5>
+
+                    <div class="text-center text-white bg-white" style="border-radius: 50px;padding: 5px">
+                        <img class="" src="{{ asset('img/icon/color/campana.png') }}" width="25px">
+                    </div>
             </div>
-        </div>
-
-        <div class="col-8  mt-4">
-            <h5 class="text-center text-white ml-4 mr-4 ">
-                <strong>Empresas</strong>
-            </h5>
-        </div>
-
-        <div class="col-2  mt-4">
-            <div class="d-flex justify-content-start">
-                <div class="text-center text-white bg-white" style="border-radius: 50px;padding: 5px">
-                    <img class="" src="{{ asset('img/icon/color/campana.png') }}" width="25px">
-                </div>
-            </div>
-        </div>
 
         <div class="col-12 mt-4 d-inline">
             <div class="d-flex flex-row-reverse">
@@ -58,6 +53,7 @@
 
             </div>
         </div>
+
         <div class="row ml-2 mr-2">
 
             @if (Session::has('success'))

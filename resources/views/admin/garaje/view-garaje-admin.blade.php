@@ -29,56 +29,46 @@
             </script>
         @endif
 
-        <div class="col-2  mt-4">
-            <div class="d-flex justify-content-start">
-                <div class="text-center text-white">
-                    <a href="{{ route('index.dashboard') }}" style="background-color: transparent;clip-path: none">
-                        <img class="" src="{{ asset('img/icon/white/left-arrow.png') }}" width="25px">
+        @include('admin.layouts.sidebar')
+
+        <div class="col-10">
+
+            <div class="d-flex justify-content-between mt-5  mb-5">
+                    <div class="text-center text-white">
+                        <a href="{{ route('index.dashboard') }}" style="background-color: transparent;clip-path: none">
+                            <img class="" src="{{ asset('img/icon/white/left-arrow.png') }}" width="25px">
+                        </a>
+                    </div>
+
+                    <h5 class="text-center text-white ml-4 mr-4 ">
+                        <strong>Vehiculos </strong>
+                    </h5>
+
+                    <div class="text-center text-white bg-white" style="border-radius: 50px;padding: 5px">
+                        <img class="" src="{{ asset('img/icon/color/campana.png') }}" width="25px">
+                    </div>
+            </div>
+
+            <div class="d-flex justify-content-between mt-5  mb-5">
+
+                @if (auth()->user()->role == 1)
+                <div class="div">
+                    <a class="btn mb-3 mr-1" href="#carouselExampleControls" role="button" data-slide="prev">
+                        <img class="" src="{{ asset('img/icon/white/flecha-izquierda.png') }}" width="25px">
+                    </a>
+
+                    <a class="btn mb-3 " href="#carouselExampleControls" role="button" data-slide="next">
+                        <img class="" src="{{ asset('img/icon/white/flecha-correcta.png') }}" width="25px">
                     </a>
                 </div>
+
+                 @can('Crear Automovil')
+                <a class="btn" href="{{ route('create_admin.automovil') }}">
+                       Agregar<i class="fas fa-plus-circle icon-effect"></i>
+                </a>
+                @endcan
+                @endif
             </div>
-        </div>
-
-        <div class="col-8  mt-4">
-            <h5 class="text-center text-white ml-4 mr-4 ">
-                <strong>Veh&iacute;culos</strong>
-            </h5>
-        </div>
-
-        <div class="col-2  mt-4">
-            <div class="d-flex justify-content-start">
-                <div class="text-center text-white bg-white" style="border-radius: 50px;padding: 5px">
-                    <img class="" src="{{ asset('img/icon/color/campana.png') }}" width="25px">
-                </div>
-            </div>
-        </div>
-
-        @if (auth()->user()->role == 1)
-        <div class="col-6 mt-4">
-            <a class="btn mb-3 mr-1" href="#carouselExampleControls" role="button" data-slide="prev">
-                <img class="" src="{{ asset('img/icon/white/flecha-izquierda.png') }}" width="25px">
-            </a>
-
-            <a class="btn mb-3 " href="#carouselExampleControls" role="button" data-slide="next">
-                <img class="" src="{{ asset('img/icon/white/flecha-correcta.png') }}" width="25px">
-            </a>
-        </div>
-        @endif
-
-        <div class="col-6 mt-4 ">
-
-            @can('Crear Automovil')
-            <h5 class="text-white text-tittle-app mr-3 d-inline" style="font: normal normal bold 15px/20px Segoe UI">
-                Agregar
-            </h5>
-            @endcan
-
-            <a class="btn" href="{{ route('create_admin.automovil') }}">
-                <i class="fas fa-plus-circle icon-effect"></i>
-            </a>
-        </div>
-
-        <div class="col-12">
 
             @if (auth()->user()->empresa == 0)
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="90000">
@@ -116,12 +106,9 @@
                             </script>
                         @endif
 
-
                         <div class="row">
-
                             <div class="content container-res-max">
                                 <div class="col-lg-12">
-
                                     <table id="automoviles" class="table text-white">
                                         <thead>
                                             <tr>
@@ -164,22 +151,17 @@
                                             @endforeach
                                         </tbody>
                                     </table>
-
                                 </div>
                             </div>
                         </div>
-
                         {{-- {{ $automovil->render() }} --}}
-
                     </div>
-
                     {{-- -------------------------------------------------------------------------- --}}
                     {{-- |Vehculos de empresa --}}
                     {{-- |-------------------------------------------------------------------------- --}}
-
                     <div class="carousel-item ">
-
-                        <div class="col-12">
+                        <div class="row">
+                            <div class="col-12">
                             <div class="d-flex justify-content-center">
                                 <a class="text-white mt-3 p-2" href="/export_empresa">
                                     <i class="fa fa-download icon-effect-sm" aria-hidden="true"></i>
@@ -189,15 +171,12 @@
                                     <strong>Veh&iacute;culos Empresas</strong>
                                 </h5>
                             </div>
-
+                        </div>
                         </div>
 
-
                         <div class="row">
-
                             <div class="content container-res-max">
                                 <div class="col-lg-12">
-
                                     <table id="automoviles_empresas" class="table text-white">
                                         <thead>
                                             <tr>
@@ -206,6 +185,12 @@
                                                 <th scope="col">Modelo</th>
                                                 <th scope="col">Submarca</th>
                                                 <th scope="col">Año</th>
+                                                <th scope="col" class="hidden_cont" ><p class="d-none d-md-block">tipo </p></th>
+                                                <th scope="col" class="hidden_cont" ><p class="d-none d-md-block">subtipo</p></th>
+                                                <th scope="col" class="hidden_cont" ><p class="d-none d-md-block">numero_serie</p></th>
+                                                <th scope="col" class="hidden_cont" ><p class="d-none d-md-block">placas</p></th>
+                                                <th scope="col" class="hidden_cont" ><p class="d-none d-md-block">kilometraje</p></th>
+                                                <th scope="col" class="hidden_cont" ><p class="d-none d-md-block">tanque</p></th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -222,11 +207,17 @@
                                                     <td>{{ $item->Marca->nombre }}</td>
                                                     <td>{{ $item->submarca }}</td>
                                                     <td>{{ $item->año }}</td>
+
+                                                    <td class="hidden_cont"><p class="d-none d-md-block">{{ $item->tipo }}</p></td>
+                                                    <td class="hidden_cont"><p class="d-none d-md-block">{{ $item->subtipo }}</p></td>
+                                                    <td class="hidden_cont"><p class="d-none d-md-block">{{ $item->numero_serie }}</p></td>
+                                                    <td class="hidden_cont"><p class="d-none d-md-block">{{ $item->placas }}</p></td>
+                                                    <td class="hidden_cont"><p class="d-none d-md-block">{{ $item->kilometraje }}</p></td>
+                                                    <td class="hidden_cont"><p class="d-none d-md-block">{{ $item->tanque }}</p></td>
                                                 </tr>
                                             @endforeach
                                         </tbody>
                                     </table>
-
                                 </div>
                             </div>
                         </div>

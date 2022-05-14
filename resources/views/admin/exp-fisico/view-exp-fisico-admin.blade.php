@@ -10,31 +10,28 @@
 
     <div class="row bg-down-blue container-res" style="border-radius: 0 0 0 0; ">
 
-        <div class="col-2  mt-4">
-            <div class="d-flex justify-content-start">
-                <div class="text-center text-white">
-                    <a href="{{ route('index.dashboard') }}" style="background-color: transparent;clip-path: none">
-                        <img class="" src="{{ asset('img/icon/white/left-arrow.png') }}" width="25px">
-                    </a>
-                </div>
-            </div>
-        </div>
+        @include('admin.layouts.sidebar')
 
-        <div class="col-8  mt-4">
-            <h5 class="text-center text-white ml-4 mr-4 ">
-                <strong>Expediente F&iacute;sico</strong>
-            </h5>
-        </div>
+        <div class="col-10">
 
-        <div class="col-2  mt-4">
-            <div class="d-flex justify-content-start">
-                <div class="text-center text-white bg-white" style="border-radius: 50px;padding: 5px">
-                    <img class="" src="{{ asset('img/icon/color/campana.png') }}" width="25px">
-                </div>
+         <div class="d-flex justify-content-between mt-5  mb-5">
+                    <div class="text-center text-white">
+                        <a href="{{ route('index.dashboard') }}" style="background-color: transparent;clip-path: none">
+                            <img class="" src="{{ asset('img/icon/white/left-arrow.png') }}" width="25px">
+                        </a>
+                    </div>
+
+                    <h5 class="text-center text-white ml-4 mr-4 ">
+                        <strong>Expediente F&iacute;sico </strong>
+                    </h5>
+
+                    <div class="text-center text-white bg-white" style="border-radius: 50px;padding: 5px">
+                        <img class="" src="{{ asset('img/icon/color/campana.png') }}" width="25px">
+                    </div>
             </div>
-        </div>
 
         @if (auth()->user()->empresa == 0)
+
         <div class="col-6 mt-4">
             <a class="btn mb-3 mr-1" href="#carouselExampleControls" role="button" data-slide="prev">
                 <img class="" src="{{ asset('img/icon/white/flecha-izquierda.png') }}" width="25px">
