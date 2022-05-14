@@ -20,22 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="936a45dc-4f36-4130-a52f-695b08d602c5" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/Escuderia-A2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Escuderia-A2.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/adaptabilidad.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/adaptabilidad.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/cotizacion/view.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/cotizacion/view.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/cupon/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/cupon/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/empresas/view-empresas-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/empresas/view-empresas-admin.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/exp-fisico/view-exp-fisico-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/exp-fisico/view-exp-fisico-admin.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/garaje/view-garaje-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/garaje/view-garaje-admin.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/gasolina/index-gasolina.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/gasolina/index-gasolina.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/key/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/key/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/layouts/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/layouts/sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/licencia/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/licencia/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/notas/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/notas/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/permisos/view-role.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/permisos/view-role.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/seguros/view-seguros-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/seguros/view-seguros-admin.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/tarjeta-circulacion/view-tc-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/tarjeta-circulacion/view-tc-admin.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/verificacion/view-verificacion-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/verificacion/view-verificacion-admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/user/add-user-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/user/add-user-admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/user/edit-user-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/user/edit-user-admin.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -212,6 +201,17 @@
       <path value="$PROJECT_DIR$/vendor/simplesoftwareio/simple-qrcode" />
       <path value="$PROJECT_DIR$/vendor/laracasts/flash" />
       <path value="$PROJECT_DIR$/vendor/infyomlabs/laravel-generator" />
+      <path value="$PROJECT_DIR$/vendor/sabberworm/php-css-parser" />
+      <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-dompdf" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php81" />
+      <path value="$PROJECT_DIR$/vendor/laravel/serializable-closure" />
+      <path value="$PROJECT_DIR$/vendor/dflydev/dot-access-data" />
+      <path value="$PROJECT_DIR$/vendor/league/config" />
+      <path value="$PROJECT_DIR$/vendor/phenx/php-font-lib" />
+      <path value="$PROJECT_DIR$/vendor/dompdf/dompdf" />
+      <path value="$PROJECT_DIR$/vendor/phenx/php-svg-lib" />
+      <path value="$PROJECT_DIR$/vendor/nette/utils" />
+      <path value="$PROJECT_DIR$/vendor/nette/schema" />
     </include_path>
   </component>
   <component name="ProjectId" id="1nddPuT0xOiTmNx6JylkA59VRIp" />
@@ -226,7 +226,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/img/icon/black" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../bedental" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -363,6 +363,7 @@
       <workItem from="1628640481567" duration="9134000" />
       <workItem from="1628699566964" duration="17222000" />
       <workItem from="1628813853650" duration="3821000" />
+      <workItem from="1652557778743" duration="5959000" />
     </task>
     <servers />
   </component>
