@@ -95,7 +95,7 @@ if (!isset($_COOKIE['mostrarModal'])) {
 
     <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
 
-    <script>
+    {{-- <script>
         window.OneSignal = window.OneSignal || [];
         OneSignal.push(function() {
             OneSignal.init({
@@ -106,7 +106,7 @@ if (!isset($_COOKIE['mostrarModal'])) {
                 },
             });
         });
-    </script>
+    </script> --}}
 
 </head>
 

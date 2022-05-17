@@ -251,7 +251,7 @@
         </form>
     @endif
 
-    <script>
+    {{-- <script>
         window.OneSignal = window.OneSignal || [];
         OneSignal.push(function() {
             /* These examples are all valid */
@@ -263,7 +263,7 @@
             });
         });
 
-    </script>
+    </script> --}}
 
     <div class="modal-cambio-car">
         <button type="button" class="btn btn-primary cambio-carro" data-toggle="modal" data-target="#cambio-car">
