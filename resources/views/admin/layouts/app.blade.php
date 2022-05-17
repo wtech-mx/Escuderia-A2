@@ -74,7 +74,7 @@
 
     @yield('scripts')
 
-    <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+    {{-- <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
     <script>
         var OneSignal = window.OneSignal || [];
         var initConfig = {
@@ -93,7 +93,7 @@
             OneSignal.init(initConfig);
         });
 
-    </script>
+    </script> --}}
 
 </head>
 

@@ -278,7 +278,7 @@
 
     </div>
 
-    <script>
+    {{-- <script>
         window.OneSignal = window.OneSignal || [];
         OneSignal.push(function() {
             /* These examples are all valid */
@@ -290,7 +290,7 @@
             });
         });
 
-    </script>
+    </script> --}}
 
 
 
