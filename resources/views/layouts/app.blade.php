@@ -93,7 +93,7 @@ if (!isset($_COOKIE['mostrarModal'])) {
 
     @yield('scripts')
 
-    {{-- <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+    <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
 
     <script>
         window.OneSignal = window.OneSignal || [];
@@ -106,7 +106,7 @@ if (!isset($_COOKIE['mostrarModal'])) {
                 },
             });
         });
-    </script> --}}
+    </script>
 
 </head>
 

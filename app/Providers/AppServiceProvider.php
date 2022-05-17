@@ -15,6 +15,7 @@ use App\Models\Pronostico;
 use App\Models\Cupon;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Pagination\Paginator;
+use OneSignal;
 
 
 class AppServiceProvider extends ServiceProvider
@@ -100,7 +101,7 @@ class AppServiceProvider extends ServiceProvider
             //         $params['delayed_option'] = "timezone"; // Will deliver on user's timezone
             //         $params['send_after'] = $fecha; // Delivery time
 
-                    OneSignal::sendNotificationCustom($params);
+            //         OneSignal::sendNotificationCustom($params);
             //         //    Fin Alerta
             //         $alert2->estatus = 1;
             //         $alert2->save();
@@ -130,7 +131,7 @@ class AppServiceProvider extends ServiceProvider
                             $params['delayed_option'] = "timezone"; // Will deliver on user's timezone
                             $params['send_after'] = $fecha; // Delivery time
 
-                            // OneSignal::sendNotificationCustom($params);
+                            OneSignal::sendNotificationCustom($params);
 
                             $seguro_last_week->estado_last_week = 1;
                             $seguro_last_week->save();
@@ -153,7 +154,7 @@ class AppServiceProvider extends ServiceProvider
                             $params['delayed_option'] = "timezone"; // Will deliver on user's timezone
                             $params['send_after'] = $fecha; // Delivery time
 
-                            // OneSignal::sendNotificationCustom($params);
+                            OneSignal::sendNotificationCustom($params);
 
                             $seguro_tomorrow->estado_tomorrow = 1;
                             $seguro_tomorrow->estado_last_week = 1;
@@ -176,7 +177,7 @@ class AppServiceProvider extends ServiceProvider
                             $params['delayed_option'] = "timezone"; // Will deliver on user's timezone
                             $params['send_after'] = $fecha; // Delivery time
 
-                            // OneSignal::sendNotificationCustom($params);
+                            OneSignal::sendNotificationCustom($params);
                             $seguro_alerta->estatus = 1;
                             $seguro_alerta->save();
                         }
@@ -208,7 +209,7 @@ class AppServiceProvider extends ServiceProvider
                         $params['delayed_option'] = "timezone"; // Will deliver on user's timezone
                         $params['send_after'] = $fecha; // Delivery time
 
-                        // OneSignal::sendNotificationCustom($params);
+                        OneSignal::sendNotificationCustom($params);
 
                         $tc_last_week->estado_last_week = 1;
                         $tc_last_week->save();
@@ -231,7 +232,7 @@ class AppServiceProvider extends ServiceProvider
                         $params['delayed_option'] = "timezone"; // Will deliver on user's timezone
                         $params['send_after'] = $fecha; // Delivery time
 
-                        // OneSignal::sendNotificationCustom($params);
+                        OneSignal::sendNotificationCustom($params);
 
                         $tc_tomorrow->estado_tomorrow = 1;
                         $tc_tomorrow->estado_last_week = 1;
@@ -254,7 +255,7 @@ class AppServiceProvider extends ServiceProvider
                         $params['delayed_option'] = "timezone"; // Will deliver on user's timezone
                         $params['send_after'] = $fecha; // Delivery time
 
-                        // OneSignal::sendNotificationCustom($params);
+                        OneSignal::sendNotificationCustom($params);
                         $tc_alerta->estatus = 1;
                         $tc_alerta->save();
                     }
@@ -286,7 +287,7 @@ class AppServiceProvider extends ServiceProvider
                         $params['delayed_option'] = "timezone"; // Will deliver on user's timezone
                         $params['send_after'] = $fecha; // Delivery time
 
-                        // OneSignal::sendNotificationCustom($params);
+                        OneSignal::sendNotificationCustom($params);
 
                         $verificacion_last_week->estado_last_week = 1;
                         $verificacion_last_week->save();
@@ -309,7 +310,7 @@ class AppServiceProvider extends ServiceProvider
                         $params['delayed_option'] = "timezone"; // Will deliver on user's timezone
                         $params['send_after'] = $fecha; // Delivery time
 
-                        // OneSignal::sendNotificationCustom($params);
+                        OneSignal::sendNotificationCustom($params);
 
                         $verificacion_tomorrow->estado_tomorrow = 1;
                         $verificacion_tomorrow->estado_last_week = 1;
@@ -332,7 +333,7 @@ class AppServiceProvider extends ServiceProvider
                         $params['delayed_option'] = "timezone"; // Will deliver on user's timezone
                         $params['send_after'] = $fecha; // Delivery time
 
-                        // OneSignal::sendNotificationCustom($params);
+                        OneSignal::sendNotificationCustom($params);
                         $verificacion->estatus = 1;
                         $verificacion->estado_tomorrow = 1;
                         $verificacion->estado_last_week = 1;
@@ -366,7 +367,7 @@ class AppServiceProvider extends ServiceProvider
                         $params['delayed_option'] = "timezone"; // Will deliver on user's timezone
                         $params['send_after'] = $fecha; // Delivery time
 
-                        // OneSignal::sendNotificationCustom($params);
+                        OneSignal::sendNotificationCustom($params);
 
                         $verificacion_segunda_last_week->estado_last_week = 1;
                         $verificacion_segunda_last_week->save();
@@ -389,7 +390,7 @@ class AppServiceProvider extends ServiceProvider
                         $params['delayed_option'] = "timezone"; // Will deliver on user's timezone
                         $params['send_after'] = $fecha; // Delivery time
 
-                        // OneSignal::sendNotificationCustom($params);
+                        OneSignal::sendNotificationCustom($params);
 
                         $verificacion_segunda_tomorrow->estado_tomorrow = 1;
                         $verificacion_segunda_tomorrow->estado_last_week = 1;
@@ -412,7 +413,7 @@ class AppServiceProvider extends ServiceProvider
                         $params['delayed_option'] = "timezone"; // Will deliver on user's timezone
                         $params['send_after'] = $fecha; // Delivery time
 
-                        // OneSignal::sendNotificationCustom($params);
+                        OneSignal::sendNotificationCustom($params);
                         $verificacion_segunda->estatus = 1;
                         $verificacion_segunda->save();
                     }
@@ -444,7 +445,7 @@ class AppServiceProvider extends ServiceProvider
                         $params['delayed_option'] = "timezone"; // Will deliver on user's timezone
                         $params['send_after'] = $fecha; // Delivery time
 
-                        // OneSignal::sendNotificationCustom($params);
+                        OneSignal::sendNotificationCustom($params);
 
                         $servicios_last_week->estado_last_week = 1;
                         $servicios_last_week->save();
@@ -467,7 +468,7 @@ class AppServiceProvider extends ServiceProvider
                         $params['delayed_option'] = "timezone"; // Will deliver on user's timezone
                         $params['send_after'] = $fecha; // Delivery time
 
-                        // OneSignal::sendNotificationCustom($params);
+                        OneSignal::sendNotificationCustom($params);
 
                         $servicios_tomorrow->estado_tomorrow = 1;
                         $servicios_tomorrow->estado_last_week = 1;
@@ -490,7 +491,7 @@ class AppServiceProvider extends ServiceProvider
                         $params['delayed_option'] = "timezone"; // Will deliver on user's timezone
                         $params['send_after'] = $fecha; // Delivery time
 
-                        // OneSignal::sendNotificationCustom($params);
+                        OneSignal::sendNotificationCustom($params);
                         $servicios->estatus = 1;
                         $servicios->save();
                     }
@@ -517,7 +518,7 @@ class AppServiceProvider extends ServiceProvider
                     $params['delayed_option'] = "timezone"; // Will deliver on user's timezone
                     $params['send_after'] = $fecha; // Delivery time
 
-                    // OneSignal::sendNotificationCustom($params);
+                    OneSignal::sendNotificationCustom($params);
                     //    Fin Pronostico
                     $pronostico->estatus = 1;
                     $pronostico->save();
@@ -578,7 +579,7 @@ class AppServiceProvider extends ServiceProvider
             //         $params['delayed_option'] = "timezone"; // Will deliver on user's timezone
             //         $params['send_after'] = $fecha; // Delivery time
 
-                    OneSignal::sendNotificationCustom($params);
+            //         OneSignal::sendNotificationCustom($params);
             //         //    Fin Alerta
             //         $alert2->estatus = 1;
             //         $alert2->save();
@@ -605,7 +606,7 @@ class AppServiceProvider extends ServiceProvider
                         $params['delayed_option'] = "timezone"; // Will deliver on user's timezone
                         $params['send_after'] = $fecha; // Delivery time
 
-                        // OneSignal::sendNotificationCustom($params);
+                        OneSignal::sendNotificationCustom($params);
 
                         $seguro_last_week->estado_last_week = 1;
                         $seguro_last_week->save();
@@ -628,7 +629,7 @@ class AppServiceProvider extends ServiceProvider
                         $params['delayed_option'] = "timezone"; // Will deliver on user's timezone
                         $params['send_after'] = $fecha; // Delivery time
 
-                        // OneSignal::sendNotificationCustom($params);
+                        OneSignal::sendNotificationCustom($params);
 
                         $seguro_tomorrow->estado_tomorrow = 1;
                         $seguro_tomorrow->estado_last_week = 1;
@@ -651,7 +652,7 @@ class AppServiceProvider extends ServiceProvider
                         $params['delayed_option'] = "timezone"; // Will deliver on user's timezone
                         $params['send_after'] = $fecha; // Delivery time
 
-                        // OneSignal::sendNotificationCustom($params);
+                        OneSignal::sendNotificationCustom($params);
                         $seguro_alerta->estatus = 1;
                         $seguro_alerta->save();
                     }
@@ -683,7 +684,7 @@ class AppServiceProvider extends ServiceProvider
                         $params['delayed_option'] = "timezone"; // Will deliver on user's timezone
                         $params['send_after'] = $fecha; // Delivery time
 
-                        // OneSignal::sendNotificationCustom($params);
+                        OneSignal::sendNotificationCustom($params);
 
                         $tc_last_week->estado_last_week = 1;
                         $tc_last_week->save();
@@ -706,7 +707,7 @@ class AppServiceProvider extends ServiceProvider
                         $params['delayed_option'] = "timezone"; // Will deliver on user's timezone
                         $params['send_after'] = $fecha; // Delivery time
 
-                        // OneSignal::sendNotificationCustom($params);
+                        OneSignal::sendNotificationCustom($params);
 
                         $tc_tomorrow->estado_tomorrow = 1;
                         $tc_tomorrow->estado_last_week = 1;
@@ -729,7 +730,7 @@ class AppServiceProvider extends ServiceProvider
                         $params['delayed_option'] = "timezone"; // Will deliver on user's timezone
                         $params['send_after'] = $fecha; // Delivery time
 
-                        // OneSignal::sendNotificationCustom($params);
+                        OneSignal::sendNotificationCustom($params);
                         $tc_alerta->estatus = 1;
                         $tc_alerta->save();
                     }
@@ -761,7 +762,7 @@ class AppServiceProvider extends ServiceProvider
                         $params['delayed_option'] = "timezone"; // Will deliver on user's timezone
                         $params['send_after'] = $fecha; // Delivery time
 
-                        // OneSignal::sendNotificationCustom($params);
+                        OneSignal::sendNotificationCustom($params);
 
                         $verificacion_last_week->estado_last_week = 1;
                         $verificacion_last_week->save();
@@ -784,7 +785,7 @@ class AppServiceProvider extends ServiceProvider
                         $params['delayed_option'] = "timezone"; // Will deliver on user's timezone
                         $params['send_after'] = $fecha; // Delivery time
 
-                        // OneSignal::sendNotificationCustom($params);
+                        OneSignal::sendNotificationCustom($params);
 
                         $verificacion_tomorrow->estado_tomorrow = 1;
                         $verificacion_tomorrow->estado_last_week = 1;
@@ -807,7 +808,7 @@ class AppServiceProvider extends ServiceProvider
                         $params['delayed_option'] = "timezone"; // Will deliver on user's timezone
                         $params['send_after'] = $fecha; // Delivery time
 
-                        // OneSignal::sendNotificationCustom($params);
+                        OneSignal::sendNotificationCustom($params);
                         $verificacion->estatus = 1;
                         $verificacion->estado_tomorrow = 1;
                         $verificacion->estado_last_week = 1;
@@ -841,7 +842,7 @@ class AppServiceProvider extends ServiceProvider
                         $params['delayed_option'] = "timezone"; // Will deliver on user's timezone
                         $params['send_after'] = $fecha; // Delivery time
 
-                        // OneSignal::sendNotificationCustom($params);
+                        OneSignal::sendNotificationCustom($params);
 
                         $verificacion_segunda_last_week->estado_last_week = 1;
                         $verificacion_segunda_last_week->save();
@@ -864,7 +865,7 @@ class AppServiceProvider extends ServiceProvider
                         $params['delayed_option'] = "timezone"; // Will deliver on user's timezone
                         $params['send_after'] = $fecha; // Delivery time
 
-                        // OneSignal::sendNotificationCustom($params);
+                        OneSignal::sendNotificationCustom($params);
 
                         $verificacion_segunda_tomorrow->estado_tomorrow = 1;
                         $verificacion_segunda_tomorrow->estado_last_week = 1;
@@ -887,7 +888,7 @@ class AppServiceProvider extends ServiceProvider
                         $params['delayed_option'] = "timezone"; // Will deliver on user's timezone
                         $params['send_after'] = $fecha; // Delivery time
 
-                        // OneSignal::sendNotificationCustom($params);
+                        OneSignal::sendNotificationCustom($params);
                         $verificacion_segunda->estatus = 1;
                         $verificacion_segunda->save();
                     }
@@ -919,7 +920,7 @@ class AppServiceProvider extends ServiceProvider
                         $params['delayed_option'] = "timezone"; // Will deliver on user's timezone
                         $params['send_after'] = $fecha; // Delivery time
 
-                        // OneSignal::sendNotificationCustom($params);
+                        OneSignal::sendNotificationCustom($params);
 
                         $servicios_last_week->estado_last_week = 1;
                         $servicios_last_week->save();
@@ -942,7 +943,7 @@ class AppServiceProvider extends ServiceProvider
                         $params['delayed_option'] = "timezone"; // Will deliver on user's timezone
                         $params['send_after'] = $fecha; // Delivery time
 
-                        // OneSignal::sendNotificationCustom($params);
+                        OneSignal::sendNotificationCustom($params);
 
                         $servicios_tomorrow->estado_tomorrow = 1;
                         $servicios_tomorrow->estado_last_week = 1;
@@ -965,7 +966,7 @@ class AppServiceProvider extends ServiceProvider
                         $params['delayed_option'] = "timezone"; // Will deliver on user's timezone
                         $params['send_after'] = $fecha; // Delivery time
 
-                        // OneSignal::sendNotificationCustom($params);
+                        OneSignal::sendNotificationCustom($params);
                         $servicios->estatus = 1;
                         $servicios->save();
                     }
