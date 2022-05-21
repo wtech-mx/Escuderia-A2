@@ -20,11 +20,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="936a45dc-4f36-4130-a52f-695b08d602c5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Escuderia-A2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Escuderia-A2.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/user/add-user-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/user/add-user-admin.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/user/edit-user-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/user/edit-user-admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/cotizacion/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/cotizacion/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/cotizacion/view.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/cotizacion/view.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/cupon/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/cupon/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/exp-fisico/view-exp-fisico-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/exp-fisico/view-exp-fisico-admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/exp-fisico/view.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/exp-fisico/view.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/garaje/view-garaje-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/garaje/view-garaje-admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/notas/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/notas/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/user/view-user-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/user/view-user-admin.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -226,7 +230,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../bedental" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -363,7 +367,9 @@
       <workItem from="1628640481567" duration="9134000" />
       <workItem from="1628699566964" duration="17222000" />
       <workItem from="1628813853650" duration="3821000" />
-      <workItem from="1652557778743" duration="5959000" />
+      <workItem from="1652557778743" duration="7187000" />
+      <workItem from="1652584781326" duration="7938000" />
+      <workItem from="1653170008401" duration="2517000" />
     </task>
     <servers />
   </component>
@@ -383,6 +389,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="635" y="278" key="FileChooserDialogImpl" timestamp="1652563932584">
+      <screen x="0" y="0" width="2560" height="1032" />
+    </state>
+    <state x="635" y="278" key="FileChooserDialogImpl/0.0.2560.1032/-2560.0.2560.1032@0.0.2560.1032" timestamp="1652563932584" />
     <state x="648" y="443" key="NewPhpFileDialog" timestamp="1652483999711">
       <screen x="0" y="0" width="2560" height="1032" />
     </state>

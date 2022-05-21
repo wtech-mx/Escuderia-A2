@@ -81,7 +81,7 @@
 
         <div class="col-12">
             <div class="row">
-                <div class="content container-res-max">
+
                     <table id="cupones" class="table text-white">
                         <thead>
                             <tr>
@@ -141,7 +141,7 @@
                             @endforeach
                         </tbody>
                     </table>
-                </div>
+
             </div>
         </div>
 

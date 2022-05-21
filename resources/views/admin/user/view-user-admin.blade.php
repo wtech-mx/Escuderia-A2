@@ -34,7 +34,7 @@ if(auth()->user()->empresa == 0){
 
             @include('admin.layouts.sidebar')
 
-            <div class="col-10 ">
+            <div class="col-12 col-xs-12 col-sm-10 col-lg-10">
 
             <div class="d-flex justify-content-between mt-5  mb-5">
                 <div class="text-center text-white">

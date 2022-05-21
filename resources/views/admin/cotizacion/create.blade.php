@@ -10,7 +10,7 @@
         <link href="{{ asset('css/login-form.css') }}" rel="stylesheet">
         <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
 
-        <div class="row bg-down-image-border" style=" min-height: 10vh">
+        <div class="row bg-down-image-border" style="min-height: 10vh">
                     <div class="col-2 mt-5">
                         <div class="d-flex justify-content-start">
                                 <div class="text-center text-white">
@@ -34,12 +34,11 @@
                                 </div>
                         </div>
                     </div>
-
         </div>
 
 
 
-                <div class="row  bg-down-image-border" >
+       <div class="row  bg-down-image-border" >
 
                     <div class="col-12  mt-5">
 

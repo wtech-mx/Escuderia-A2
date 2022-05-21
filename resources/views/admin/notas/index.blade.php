@@ -12,7 +12,7 @@
 
         @include('admin.layouts.sidebar')
 
-        <div class="col-10">
+        <div class="col-12 col-xs-12 col-sm-10 col-lg-10">
 
          <div class="d-flex justify-content-between mt-5  mb-5">
                     <div class="text-center text-white">
@@ -30,7 +30,7 @@
                     </div>
          </div>
 
-            <div class="content container-res-max">
+
                 <div class="col-12">
 
                     @can('Crear Notas')
@@ -44,7 +44,7 @@
                     @endcan
 
                     <div class="table-responsive">
-                        <div class="container-res-max">
+
                             <table id="notas" class="table text-white">
                                 <thead>
                                     <tr>
@@ -85,13 +85,13 @@
                                     @endforeach
                                 </tbody>
                             </table>
-                        </div>
+
                         @include('admin.notas.modal')
                     </div>
 
 
                 </div>
-            </div>
+
 
         </div>
     </div>

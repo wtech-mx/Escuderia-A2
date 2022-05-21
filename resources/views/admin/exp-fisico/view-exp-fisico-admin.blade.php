@@ -12,7 +12,7 @@
 
         @include('admin.layouts.sidebar')
 
-        <div class="col-10">
+        <div class="col-12 col-xs-12 col-sm-10 col-lg-10">
 
          <div class="d-flex justify-content-between mt-5  mb-5">
                     <div class="text-center text-white">
@@ -42,7 +42,7 @@
             </a>
         </div>
 
-        <div class="col-12">
+        <div class="col-12 col-xs-12 col-sm-12 col-lg-12">
 
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="90000">
                 <div class="carousel-inner">
@@ -63,30 +63,27 @@
                                     <table id="expedientes" class="table text-white">
                                         <thead>
                                             <tr>
+                                                <th scope="col">Más</th>
                                                 <th scope="col">Cliente</th>
-                                                <th scope="col"><p class="d-none d-md-block">Telefono</p></th>
                                                 <th scope="col">Placas</th>
-                                                <th scope="col">Modelo</th>
-                                                <th scope="col" class="hidden_cont"><p class="d-none d-md-block">Submarca</p></th>
-                                                <th scope="col" class="hidden_cont"><p class="d-none d-md-block">Año</p></th>
-                                                <th scope="col" class="hidden_cont" ><p class="d-none d-md-block">tanque</p></th>
-                                                <th scope="col" class="hidden_cont">Más</th>
+                                                <th scope="col">Modelo y Submarca</th>
+                                                <th scope="col"><p class="">Año</p></th>
+                                                <th scope="col"><p class="">tanque</p></th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             @foreach ($automovil as $item)
                                                 <tr>
-                                                    <th>{{ $item->User->name }}</th>
-                                                    <td><p class="d-none d-md-block">{{ $item->User->telefono }}</p></td>
-                                                    <td>{{ $item->placas }}</td>
-                                                    <td>{{ $item->Marca->nombre }}</td>
-                                                    <td class="hidden_cont"><p class="d-none d-md-block">{{ $item->submarca }}</p></td>
-                                                    <td class="hidden_cont"><p class="d-none d-md-block">{{ $item->año }}</p></td>
-                                                    <td class="hidden_cont"><p class="d-none d-md-block">{{ $item->tanque }}</p></td>
                                                     <td>
                                                         <a data-toggle="modal" data-target="#example{{ $item->id }}">
-                                                            <img class="icon-effect"  src="{{ asset('img/icon/white/add.png') }}" width="15px"></a>
+                                                            <img class="icon-effect"  src="{{ asset('img/icon/white/add.png') }}" width="15px">
+                                                        </a>
                                                     </td>
+                                                    <th>{{ $item->User->name }} / <br> {{ $item->User->telefono }}</th>
+                                                    <td>{{ $item->placas }}</td>
+                                                    <td>{{ $item->Marca->nombre }} / <br> {{ $item->submarca }}</td>
+                                                    <td ><p class="">{{ $item->año }}</p></td>
+                                                    <td ><p class="">{{ $item->tanque }}</p></td>
                                                     @include('admin.exp-fisico.modal')
                                                 </tr>
                                             @endforeach
@@ -117,28 +114,26 @@
                                                 <table id="expedientes_empresa" class="table text-white">
                                                     <thead>
                                                         <tr>
+                                                            <th scope="col">Más</th>
                                                             <th scope="col">Empresa</th>
                                                             <th scope="col">Placas</th>
-                                                            <th scope="col">Modelo</th>
-                                                            <th scope="col"><p class="d-none d-md-block">Submarca</p></th>
-                                                            <th scope="col"><p class="d-none d-md-block">Año</p></th>
-                                                            <th scope="col" ><p class="d-none d-md-block">tanque</p></th>
-                                                            <th scope="col">Más</th>
+                                                            <th scope="col">Modelo y Submarca</th>
+                                                            <th scope="col"><p class="">Año</p></th>
+                                                            <th scope="col" ><p class="">tanque</p></th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
                                                         @foreach ($automovil2 as $item)
                                                             <tr>
-                                                                <th>{{ $item->UserEmpresa->name }}</th>
-                                                                <td>{{ $item->placas }}</td>
-                                                                <td>{{ $item->Marca->nombre }}</td>
-                                                                <td><p class="d-none d-md-block">{{ $item->submarca }}</p></td>
-                                                                <td><p class="d-none d-md-block">{{ $item->año }}</p></td>
-                                                                <td><p class="d-none d-md-block">{{ $item->tanque }}</p></td>
                                                                 <td>
                                                                     <a data-toggle="modal" data-target="#example{{ $item->id }}">
                                                                         <img class="icon-effect"  src="{{ asset('img/icon/white/add.png') }}" width="15px"></a>
                                                                 </td>
+                                                                <th>{{ $item->UserEmpresa->name }}</th>
+                                                                <td>{{ $item->placas }}</td>
+                                                                <td>{{ $item->Marca->nombre }} / {{ $item->submarca }}<br> </td>
+                                                                <td><p class="">{{ $item->año }}</p></td>
+                                                                <td><p class="">{{ $item->tanque }}</p></td>
                                                                 @include('admin.exp-fisico.model_empresa')
                                                             </tr>
                                                         @endforeach
