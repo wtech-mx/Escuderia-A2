@@ -169,7 +169,7 @@
                 </div>
             </div>
 
-            <div class="row">
+            {{-- <div class="row">
                 <div class="col-12">
                         <a class="btn btn-success mt-5" href="{{route('print.cotizacion', $cotizacion->id_cotizacion)}}">
                             Descargar Cotizaciòn
@@ -180,7 +180,7 @@
                             Descargar Remision
                         </a>
                 </div>
-            </div>
+            </div> --}}
 
             @include('admin.cotizacion.script-remision')
             <script>
