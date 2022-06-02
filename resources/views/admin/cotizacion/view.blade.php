@@ -1,6 +1,8 @@
 @extends('admin.layouts.app')
 @section('css')
 <link href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+<link href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css" rel="stylesheet">
+<link href="{{ asset('css/customtable.css') }}" rel="stylesheet">
 @endsection
 @section('content')
 
@@ -51,10 +53,12 @@
                             <div class="content container-res-max">
                                 <div class="col-12">
 
-                                    <table id="seguro" class="table text-white">
+                                    <table id="orden_servicio" class="table text-white">
                                         <thead>
                                             <tr>
                                                 <th scope="col">Cliente</th>
+                                                <th scope="col">Auto</th>
+                                                <th scope="col">Plcas</th>
                                                 <th scope="col">Fecha</th>
 
                                                 <th scope="col" class="hidden_cont">
@@ -75,6 +79,12 @@
                                                     <a href="{{ route('edit.cotizacion', $item->id_cotizacion) }}">
                                                         {{$item->Cotizacion->User->name}}
                                                     </a>
+                                                </th>
+                                                <th>
+                                                    {{$item->Cotizacion->User->Automovil->submarca}}
+                                                </th>
+                                                <th>
+                                                    {{$item->Cotizacion->User->Automovil->placas}}
                                                 </th>
                                                 <td>{{ $item->Cotizacion->fecha }}</td>
 
@@ -176,13 +186,36 @@
     <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.min.js"></script>
 
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.colVis.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
+
     <script>
         $(document).ready(function() {
-            $('#seguro').DataTable();
+            $('#orden_servicio').DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    {
+                        extend: 'print',
+                        exportOptions: {
+                            columns: ':visible'
+                        }
+                    },
+                    'colvis'
+                ],
+                columnDefs: [ {
+                    targets: -1,
+                    visible: false
+                } ],
+                language: {
+                    url: 'https://cdn.datatables.net/plug-ins/1.11.5/i18n/es-ES.json'
+                }
+            });
+
         });
 
         $(document).ready(function() {
-            $('#seguro_empresa').DataTable();
+            $('#orden_servicio_empresa').DataTable();
         });
     </script>
 
