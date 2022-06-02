@@ -85,15 +85,15 @@
                                                 <td>
                                                     @if($item->CotizacionDiagnostico->observaciones == NULL)
                                                     Di. <input class="form-check-input" type="checkbox" value=""
-                                                        id="flexCheckCheckedDisabled" disabled>
+                                                        id="flexCheckCheckedDisabled" disabled> <br>
                                                     @else
                                                     Di. <input class="form-check-input" type="checkbox" value=""
-                                                        id="flexCheckCheckedDisabled" checked disabled>
+                                                        id="flexCheckCheckedDisabled" checked disabled> <br>
                                                     @endif
 
                                                     @if($item->Cotizacion->TotalRemision->total_cotizacion == NULL)
                                                     Co. <input class="form-check-input" type="checkbox" value=""
-                                                        id="flexCheckCheckedDisabled" disabled><br>
+                                                        id="flexCheckCheckedDisabled" disabled><br> <br>
                                                     @else
                                                     Co. <input class="form-check-input" type="checkbox" value=""
                                                         id="flexCheckCheckedDisabled" checked disabled><br>
@@ -101,10 +101,10 @@
 
                                                     @if($item->Cotizacion->TotalRemision->total_remision == NULL)
                                                     Re. <input class="form-check-input" type="checkbox" value=""
-                                                        id="flexCheckCheckedDisabled" disabled>
+                                                        id="flexCheckCheckedDisabled" disabled> <br>
                                                     @else
                                                     Re. <input class="form-check-input" type="checkbox" value=""
-                                                        id="flexCheckCheckedDisabled" checked disabled>
+                                                        id="flexCheckCheckedDisabled" checked disabled> <br>
                                                     @endif
 
                                                 </td>
