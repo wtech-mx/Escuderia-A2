@@ -1,6 +1,9 @@
 @extends('admin.layouts.app')
 @section('css')
     <link href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/responsive/2.3.0/css/responsive.bootstrap4.min.css" rel="stylesheet">
+    <link href="{{ asset('css/customtable.css') }}" rel="stylesheet">
     <link href="{{ asset('css/garje.css') }}" rel="stylesheet">
 @endsection
 @section('content')
@@ -9,7 +12,7 @@
 
         @include('admin.layouts.sidebar')
 
-        <div class="col-10">
+        <div class="col-12 col-xs-12 col-sm-12 col-lg-12 col-xl-10">
 
         <div class="d-flex justify-content-between mt-5  mb-5">
                     <div class="text-center text-white">
@@ -52,16 +55,15 @@
                             </h5>
 
                             <div class="row">
-                                <div class="content container-res-max">
                                     <div class="col-12 mt-4">
 
-                                        <table id="verificacion" class="table text-white">
+                                        <table id="verificacion" class="table display nowrap text-white" cellspacing="0" width="100%">
                                             <thead>
                                                 <tr>
-                                                    <th scope="col">Cliente</th>
-                                                    <th scope="col">Submarca</th>
-                                                    <th scope="col">Placas</th>
-                                                    <th scope="col" class="hidden_cont" ><p class="d-none d-md-block"> primer_semestre </p></th>
+                                                    <th data-priority="1">Cliente</th>
+                                                    <th data-priority="2">Submarca</th>
+                                                    <th data-priority="3">Placas</th>
+                                                    <th data-priority="4">primer_semestre </th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -72,22 +74,15 @@
                                                             href="{{ route('edit_admin.verificacion', $item->id) }}">
                                                             {{ $item->User->name }}</a>
                                                         </th>
-                                                        @else
-                                                        <th>
-                                                            {{ $item->User->name }}
-                                                        </th>
                                                         @endcan
-
                                                         <td>{{ $item->Automovil->submarca }}</td>
                                                         <td>{{ $item->Automovil->placas }}</td>
-                                                        <td class="hidden_cont"><p class="d-none d-md-block"> {{ $item->primer_semestre }} </p> </td>
+                                                        <td>{{ $item->primer_semestre }}</td>
                                                     </tr>
                                                 @endforeach
                                             </tbody>
                                         </table>
-
                                     </div>
-                                </div>
                             </div>
 
                         </div>
@@ -103,37 +98,32 @@
                             </h5>
 
                             <div class="row">
-                                <div class="content container-res-max">
                                      <div class="col-12 mt-4">
-                                        <table id="verificacion_empresa" class="table text-white">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">Cliente</th>
-                                                <th scope="col">Submarca</th>
-                                                <th scope="col">Placas</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @foreach ($verificacion_empresa as $item)
+                                        <table id="verificacion_empresa" class="table display nowrap text-white" cellspacing="0" width="100%">
+                                            <thead>
                                                 <tr>
-                                                    @can('Editar Veri')
-                                                    <th><a style="text-decoration: none;"
-                                                            href="{{ route('edit_admin.verificacion', $item->id) }}">
-                                                            {{ $item->UserEmpresa->name }}</a>
-                                                    </th>
-                                                    @else
-                                                    <th>
-                                                        {{ $item->UserEmpresa->name }}
-                                                    </th>
-                                                    @endcan
-                                                    <td>{{ $item->Automovil->submarca }}</td>
-                                                    <td>{{ $item->Automovil->placas }}</td>
+                                                    <th data-priority="1">Cliente</th>
+                                                    <th data-priority="2">Submarca</th>
+                                                    <th data-priority="3">Placas</th>
                                                 </tr>
-                                            @endforeach
-                                        </tbody>
-                                    </table>
+                                            </thead>
+                                            <tbody>
+                                                @foreach ($verificacion_empresa as $item)
+                                                    <tr>
+                                                        @can('Editar Veri')
+                                                        <th><a style="text-decoration: none;"
+                                                                href="{{ route('edit_admin.verificacion', $item->id) }}">
+                                                                {{ $item->UserEmpresa->name }}</a>
+                                                        </th>
+                                                        @endcan
+
+                                                        <td>{{ $item->Automovil->submarca }}</td>
+                                                        <td>{{ $item->Automovil->placas }}</td>
+                                                    </tr>
+                                                @endforeach
+                                            </tbody>
+                                        </table>
                                      </div>
-                                </div>
                             </div>
 
                         </div>
@@ -145,15 +135,13 @@
             </div>
         @else
             <div class="row">
-                <div class="content container-res-max">
                     <div class="col-12 mt-4">
-
-                        <table id="verificacion" class="table text-white">
+                        <table id="verificacion" class="table display nowrap text-white" cellspacing="0" width="100%">
                             <thead>
                                 <tr>
-                                    <th scope="col">Submarca</th>
-                                    <th scope="col">Placas</th>
-                                    <th scope="col">Sector</th>
+                                    <th data-priority="1">Submarca</th>
+                                    <th data-priority="2">Placas</th>
+                                    <th data-priority="3">Sector</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -169,12 +157,9 @@
                                 @endforeach
                             </tbody>
                         </table>
-
                     </div>
-                </div>
             </div>
         @endif
-
     </div>
 
 
@@ -182,14 +167,80 @@
     <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.min.js"></script>
 
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.colVis.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
+
+     <script src="https://cdn.datatables.net/responsive/2.3.0/js/dataTables.responsive.min.js"></script>
+     <script src="https://cdn.datatables.net/responsive/2.3.0/js/responsive.bootstrap4.min.js"></script>
+
+
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
+
     <script>
         $(document).ready(function() {
-            $('#verificacion').DataTable();
+            $('#verificacion').DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    {
+                        extend: 'print',
+                        text: 'Imprimir',
+                        exportOptions: {
+                            columns: ':visible'
+                        }
+                    },
+                    'excel',
+                    'pdf',
+                    'colvis'
+                ],
+                responsive: true,
+                columnDefs: [
+                    // {targets: -1, visible: false},
+                    { responsivePriority: 1 , },
+                    { responsivePriority: 2 , },
+                    { responsivePriority: 3 , },
+                    { responsivePriority: 4 , },
+                ],
+
+                language: {
+                    url: 'https://cdn.datatables.net/plug-ins/1.11.5/i18n/es-ES.json'
+                }
+            });
         });
 
         $(document).ready(function() {
-            $('#verificacion_empresa').DataTable();
+            $('#verificacion_empresa').DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    {
+                        extend: 'print',
+                        text: 'Imprimir',
+                        exportOptions: {
+                            columns: ':visible'
+                        }
+                    },
+                    'excel',
+                    'pdf',
+                    'colvis'
+                ],
+                responsive: true,
+                columnDefs: [
+                    // {targets: -1, visible: false},
+                    { responsivePriority: 1 , },
+                    { responsivePriority: 2 , },
+                    { responsivePriority: 3 , },
+                ],
+
+                language: {
+                    url: 'https://cdn.datatables.net/plug-ins/1.11.5/i18n/es-ES.json'
+                }
+            });
         });
+
     </script>
 
 @endsection

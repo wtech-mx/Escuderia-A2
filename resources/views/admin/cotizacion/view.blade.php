@@ -2,6 +2,7 @@
 @section('css')
 <link href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.min.css" rel="stylesheet">
 <link href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css" rel="stylesheet">
+<link href="https://cdn.datatables.net/responsive/2.3.0/css/responsive.bootstrap4.min.css" rel="stylesheet">
 <link href="{{ asset('css/customtable.css') }}" rel="stylesheet">
 @endsection
 @section('content')
@@ -12,7 +13,7 @@
 
     @include('admin.layouts.sidebar')
 
-    <div class="col-12 col-xs-12 col-sm-10 col-lg-10">
+    <div class="col-12 col-xs-12 col-sm-12 col-lg-12 col-xl-10">
 
         <div class="d-flex justify-content-between mt-5  mb-5">
             <div class="text-center text-white">
@@ -52,23 +53,16 @@
 
                             <div class="content container-res-max">
                                 <div class="col-12">
-
-                                    <table id="orden_servicio" class="table text-white">
+                                    <table id="orden_servicio" class="table display nowrap text-white" cellspacing="0" width="100%">
                                         <thead>
                                             <tr>
-                                                <th scope="col">Cliente</th>
-                                                <th scope="col">Auto</th>
-                                                <th scope="col">Plcas</th>
-                                                <th scope="col">Fecha</th>
-
-                                                <th scope="col" class="hidden_cont">
-                                                    <p class="d-none d-md-block"> km </p>
-                                                </th>
-
-                                                <th scope="col">Estatus</th>
-                                                <th scope="col">Acciones</th>
-
-
+                                                <th  data-priority="2">Cliente</th>
+                                                <th  data-priority="3">Auto</th>
+                                                <th  data-priority="4">Plcas</th>
+                                                <th  data-priority="5">Fecha</th>
+                                                <th  data-priority="7">km</th>
+                                                <th  data-priority="6">Estatus</th>
+                                                <th  data-priority="1">Acciones</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -88,7 +82,7 @@
                                                 </th>
                                                 <td>{{ $item->Cotizacion->fecha }}</td>
 
-                                                <td class="hidden_cont">
+                                                <td>
                                                     <p class="d-none d-md-block"> {{ $item->km }} </p>
                                                 </td>
 
@@ -136,8 +130,6 @@
                                                         <i class="fa fa-file-pdf icon-users-edit"
                                                             style="margin-right: 10px; font-size: 12.5px;"></i>
                                                     </a>
-
-
                                                 </td>
 
                                             </tr>
@@ -190,6 +182,16 @@
     <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.colVis.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
 
+     <script src="https://cdn.datatables.net/responsive/2.3.0/js/dataTables.responsive.min.js"></script>
+     <script src="https://cdn.datatables.net/responsive/2.3.0/js/responsive.bootstrap4.min.js"></script>
+
+
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
+
     <script>
         $(document).ready(function() {
             $('#orden_servicio').DataTable({
@@ -197,21 +199,31 @@
                 buttons: [
                     {
                         extend: 'print',
+                        text: 'Imprimir',
                         exportOptions: {
                             columns: ':visible'
                         }
                     },
+                    'excel',
+                    'pdf',
                     'colvis'
                 ],
-                columnDefs: [ {
-                    targets: -1,
-                    visible: false
-                } ],
+                responsive: true,
+                columnDefs: [
+                    // {targets: -1, visible: false},
+                    { responsivePriority: 1 , },
+                    { responsivePriority: 2 , },
+                    { responsivePriority: 3 , },
+                    { responsivePriority: 4 , },
+                    { responsivePriority: 5 , },
+                    { responsivePriority: 6 , },
+                    { responsivePriority: 7 , },
+                ],
+
                 language: {
                     url: 'https://cdn.datatables.net/plug-ins/1.11.5/i18n/es-ES.json'
                 }
             });
-
         });
 
         $(document).ready(function() {

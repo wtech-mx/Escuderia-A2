@@ -2,6 +2,9 @@
 
 @section('css')
     <link href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/responsive/2.3.0/css/responsive.bootstrap4.min.css" rel="stylesheet">
+    <link href="{{ asset('css/customtable.css') }}" rel="stylesheet">
 @endsection
 
 @section('content')
@@ -12,7 +15,7 @@
 
         @include('admin.layouts.sidebar')
 
-        <div class="col-12 col-xs-12 col-sm-10 col-lg-10">
+        <div class="col-12 col-xs-12 col-sm-12 col-lg-12 col-xl-10">
 
          <div class="d-flex justify-content-between mt-5  mb-5">
                     <div class="text-center text-white">
@@ -57,45 +60,40 @@
                         </h5>
 
                         <div class="row">
-                            <div class="content container-res-max">
                                 <div class="col-12">
-
-                                    <table id="expedientes" class="table text-white">
+                                     <table id="expedientes" class="table display nowrap text-white mt-5e" cellspacing="0" width="100%">
                                         <thead>
                                             <tr>
-                                                <th scope="col">Más</th>
-                                                <th scope="col">Cliente</th>
-                                                <th scope="col">Placas</th>
-                                                <th scope="col">Modelo y Submarca</th>
-                                                <th scope="col"><p class="">Año</p></th>
-                                                <th scope="col"><p class="">tanque</p></th>
+                                                <th data-priority="2">Cliente</th>
+                                                <th data-priority="3">Placas</th>
+                                                <th data-priority="4">Modelo y Submarca</th>
+                                                <th data-priority="5">Año</th>
+                                                <th data-priority="6">tanque</th>
+                                                <th data-priority="1">Más</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             @foreach ($automovil as $item)
                                                 <tr>
+                                                    <th>{{ $item->User->name }} / <br> {{ $item->User->telefono }}</th>
+                                                    <td>{{ $item->placas }}</td>
+                                                    <td>{{ $item->Marca->nombre }} / <br> {{ $item->submarca }}</td>
+                                                    <td>{{ $item->año }}</td>
+                                                    <td>{{ $item->tanque }}</td>
                                                     <td>
                                                         <a data-toggle="modal" data-target="#example{{ $item->id }}">
                                                             <img class="icon-effect"  src="{{ asset('img/icon/white/add.png') }}" width="15px">
                                                         </a>
                                                     </td>
-                                                    <th>{{ $item->User->name }} / <br> {{ $item->User->telefono }}</th>
-                                                    <td>{{ $item->placas }}</td>
-                                                    <td>{{ $item->Marca->nombre }} / <br> {{ $item->submarca }}</td>
-                                                    <td ><p class="">{{ $item->año }}</p></td>
-                                                    <td ><p class="">{{ $item->tanque }}</p></td>
                                                     @include('admin.exp-fisico.modal')
                                                 </tr>
                                             @endforeach
                                         </tbody>
                                     </table>
-
                                 </div>
-                            </div>
                         </div>
 
                     </div>
-
                     {{-- ----------------------------------------------------------------------------}}
                     {{-- |Vehculos de empresa--}}
                     {{-- |----------------------------------------------------------------------------}}
@@ -106,46 +104,34 @@
                         </h5>
                         <div class="row">
                             <div class="col-12">
-
-                                    <div class="row">
-                                        <div class="content container-res-max">
-                                            <div class="col-12">
-
-                                                <table id="expedientes_empresa" class="table text-white">
+                                                <table id="expedientes_empresa" class="table display nowrap text-white mt-5e" cellspacing="0" width="100%">
                                                     <thead>
                                                         <tr>
-                                                            <th scope="col">Más</th>
-                                                            <th scope="col">Empresa</th>
-                                                            <th scope="col">Placas</th>
-                                                            <th scope="col">Modelo y Submarca</th>
-                                                            <th scope="col"><p class="">Año</p></th>
-                                                            <th scope="col" ><p class="">tanque</p></th>
+                                                            <th data-priority="2">Empresa</th>
+                                                            <th data-priority="3">Placas</th>
+                                                            <th data-priority="5">Modelo y Submarca</th>
+                                                            <th data-priority="6">Año</th>
+                                                            <th data-priority="7">tanque</th>
+                                                            <th data-priority="1">Más</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
                                                         @foreach ($automovil2 as $item)
                                                             <tr>
+                                                                <th>{{ $item->UserEmpresa->name }}</th>
+                                                                <td>{{ $item->placas }}</td>
+                                                                <td>{{ $item->Marca->nombre }} / {{ $item->submarca }}<br> </td>
+                                                                <td>{{ $item->año }}</td>
+                                                                <td>{{ $item->tanque }}</td>
+                                                                @include('admin.exp-fisico.model_empresa')
                                                                 <td>
                                                                     <a data-toggle="modal" data-target="#example{{ $item->id }}">
                                                                         <img class="icon-effect"  src="{{ asset('img/icon/white/add.png') }}" width="15px"></a>
                                                                 </td>
-                                                                <th>{{ $item->UserEmpresa->name }}</th>
-                                                                <td>{{ $item->placas }}</td>
-                                                                <td>{{ $item->Marca->nombre }} / {{ $item->submarca }}<br> </td>
-                                                                <td><p class="">{{ $item->año }}</p></td>
-                                                                <td><p class="">{{ $item->tanque }}</p></td>
-                                                                @include('admin.exp-fisico.model_empresa')
                                                             </tr>
                                                         @endforeach
                                                     </tbody>
                                                 </table>
-
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-
                             </div>
                         </div>
                     </div>
@@ -161,17 +147,14 @@
             </h5>
 
             <div class="row">
-                <div class="content container-res-max">
                     <div class="col-12">
-
-                        <table id="expedientes" class="table text-white">
+                        <table id="expedientes_empresa" class="table display nowrap text-white mt-5e" cellspacing="0" width="100%">
                             <thead>
                                 <tr>
-                                    <th scope="col">Placas</th>
-                                    <th scope="col">Modelo</th>
-                                    <th scope="col">Sector</th>
-                                    <th scope="col">Más</th>
-
+                                    <th data-priority="4">Placas</th>
+                                    <th data-priority="3">Modelo</th>
+                                    <th data-priority="2">Sector</th>
+                                    <th data-priority="1">Más</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -189,9 +172,7 @@
                                 @endforeach
                             </tbody>
                         </table>
-
                     </div>
-                </div>
             </div>
         @endif
 
@@ -202,13 +183,113 @@
     <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.min.js"></script>
 
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.colVis.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
+
+     <script src="https://cdn.datatables.net/responsive/2.3.0/js/dataTables.responsive.min.js"></script>
+     <script src="https://cdn.datatables.net/responsive/2.3.0/js/responsive.bootstrap4.min.js"></script>
+
+
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
+
     <script>
         $(document).ready(function() {
-            $('#expedientes').DataTable();
+            $('#expedientes').DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    {
+                        extend: 'print',
+                        text: 'Imprimir',
+                        exportOptions: {
+                            columns: ':visible'
+                        }
+                    },
+                    'excel',
+                    'pdf',
+                    'colvis'
+                ],
+                responsive: true,
+                columnDefs: [
+                    // {targets: -1, visible: false},
+                    { responsivePriority: 1 , },
+                    { responsivePriority: 2 , },
+                    { responsivePriority: 3 , },
+                    { responsivePriority: 4 , },
+                    { responsivePriority: 5 , },
+                    { responsivePriority: 6 , },
+                ],
+                language: {
+                    url: 'https://cdn.datatables.net/plug-ins/1.11.5/i18n/es-ES.json'
+                }
+            });
         });
 
         $(document).ready(function() {
-            $('#expedientes_empresa').DataTable();
+            $('#expedientes2').DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    {
+                        extend: 'print',
+                        text: 'Imprimir',
+                        exportOptions: {
+                            columns: ':visible'
+                        }
+                    },
+                    'excel',
+                    'pdf',
+                    'colvis'
+                ],
+                responsive: true,
+                columnDefs: [
+                    // {targets: -1, visible: false},
+                    { responsivePriority: 1 , },
+                    { responsivePriority: 2 , },
+                    { responsivePriority: 3 , },
+                    { responsivePriority: 4 , },
+                    { responsivePriority: 5 , },
+                    { responsivePriority: 6 , },
+                ],
+                language: {
+                    url: 'https://cdn.datatables.net/plug-ins/1.11.5/i18n/es-ES.json'
+                }
+            });
+        });
+
+        $(document).ready(function() {
+            $('#expedientes_empresa').DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    {
+                        extend: 'print',
+                        text: 'Imprimir',
+                        exportOptions: {
+                            columns: ':visible'
+                        }
+                    },
+                    'excel',
+                    'pdf',
+                    'colvis'
+                ],
+                responsive: true,
+                columnDefs: [
+                    // {targets: -1, visible: false},
+                    { responsivePriority: 1 , },
+                    { responsivePriority: 2 , },
+                    { responsivePriority: 3 , },
+                    { responsivePriority: 4 , },
+                    { responsivePriority: 5 , },
+                    { responsivePriority: 6 , },
+                    { responsivePriority: 7 , },
+                ],
+                language: {
+                    url: 'https://cdn.datatables.net/plug-ins/1.11.5/i18n/es-ES.json'
+                }
+            });
         });
 
     </script>

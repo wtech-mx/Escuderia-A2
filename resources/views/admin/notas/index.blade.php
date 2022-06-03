@@ -2,6 +2,9 @@
 
 @section('css')
     <link href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/responsive/2.3.0/css/responsive.bootstrap4.min.css" rel="stylesheet">
+    <link href="{{ asset('css/customtable.css') }}" rel="stylesheet">
 @endsection
 
 @section('content')
@@ -12,7 +15,7 @@
 
         @include('admin.layouts.sidebar')
 
-        <div class="col-12 col-xs-12 col-sm-10 col-lg-10">
+        <div class="col-12 col-xs-12 col-sm-12 col-lg-12 col-xl-10">
 
          <div class="d-flex justify-content-between mt-5  mb-5">
                     <div class="text-center text-white">
@@ -44,13 +47,12 @@
                     @endcan
 
                     <div class="table-responsive">
-
-                            <table id="notas" class="table text-white">
+                            <table id="notas" class="table display nowrap text-white" cellspacing="0" width="100%">
                                 <thead>
                                     <tr>
-                                        <th scope="col">Usuario</th>
-                                        <th scope="col">Nota</th>
-                                        <th scope="col">Acciones</th>
+                                        <th data-priority="2">Usuario</th>
+                                        <th data-priority="3">Nota</th>
+                                        <th data-priority="1">Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -69,15 +71,12 @@
                                                     <i class="fas fa-edit icon-users-edit" style="font-size: 15px;"></i>
                                                 </a>
                                                 @endcan
-
                                                 @can('Eliminar Notas')
                                                     <a type="button" class="btn text-white" data-toggle="modal"
                                                     data-target="#modal-{{ $item->id }}">
                                                     <i class="fas fa-trash icon-users-edit" style="font-size: 15px;"></i>
                                                     </a>
                                                 @endcan
-
-
                                             </td>
                                             @include('admin.notas.update')
                                             @include('admin.notas.destroy')
@@ -88,11 +87,7 @@
 
                         @include('admin.notas.modal')
                     </div>
-
-
                 </div>
-
-
         </div>
     </div>
 
@@ -100,9 +95,48 @@
     <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.min.js"></script>
 
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.colVis.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
+
+     <script src="https://cdn.datatables.net/responsive/2.3.0/js/dataTables.responsive.min.js"></script>
+     <script src="https://cdn.datatables.net/responsive/2.3.0/js/responsive.bootstrap4.min.js"></script>
+
+
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
+
     <script type="text/javascript">
         $(document).ready(function() {
-            $('#notas').DataTable();
+            $('#notas').DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    {
+                        extend: 'print',
+                        text: 'Imprimir',
+                        exportOptions: {
+                            columns: ':visible'
+                        }
+                    },
+                    'excel',
+                    'pdf',
+                    'colvis'
+                ],
+                responsive: true,
+                columnDefs: [
+                    // {targets: -1, visible: false},
+                    { responsivePriority: 1 , },
+                    { responsivePriority: 2 , },
+                    { responsivePriority: 3 , },
+                ],
+
+                language: {
+                    url: 'https://cdn.datatables.net/plug-ins/1.11.5/i18n/es-ES.json'
+                }
+            });
         });
 
     </script>

@@ -2,6 +2,9 @@
 
 @section('css')
     <link href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/responsive/2.3.0/css/responsive.bootstrap4.min.css" rel="stylesheet">
+    <link href="{{ asset('css/customtable.css') }}" rel="stylesheet">
     <link href="{{ asset('css/garje.css') }}" rel="stylesheet">
 @endsection
 
@@ -34,7 +37,7 @@ if(auth()->user()->empresa == 0){
 
             @include('admin.layouts.sidebar')
 
-            <div class="col-12 col-xs-12 col-sm-10 col-lg-10">
+            <div class="col-12 col-xs-12 col-sm-12 col-lg-12 col-xl-10">
 
             <div class="d-flex justify-content-between mt-5  mb-5">
                 <div class="text-center text-white">
@@ -87,23 +90,22 @@ if(auth()->user()->empresa == 0){
                 @endif
             </div>
 
-                <table id="usuarios" class="table text-white mt-5">
+                <table id="usuarios" class="table display nowrap text-white mt-5e" cellspacing="0" width="100%">
                     <thead>
                         <tr>
-                            <th scope="col">Nombre</th>
-                            <th scope="col">Correo</th>
+                            <th data-priority="1">Nombre</th>
+                            <th data-priority="2">Correo</th>
                             @if (auth()->user()->empresa == 0)
-                                <th scope="col">Telefono</th>
+                                <th data-priority="3">Telefono</th>
                             @else
-                                <th scope="col">Sector</th>
-                                <th scope="col">Chofer</th>
+                                <th data-priority="4">Sector</th>
+                                <th data-priority="5">Chofer</th>
                             @endif
-
-                            <th scope="col" class="hidden_cont" ><p class="d-none d-md-block"> fecha_nacimiento </p></th>
-                            <th scope="col" class="hidden_cont" ><p class="d-none d-md-block"> direccion </p></th>
-                            <th scope="col" class="hidden_cont" ><p class="d-none d-md-block"> referencia </p></th>
-                            <th scope="col" class="hidden_cont" ><p class="d-none d-md-block"> genero </p></th>
-                            <th scope="col" class="hidden_cont" ><p class="d-none d-md-block"> direccion </p></th>
+                            <th data-priority="6"> fecha_nacimiento </th>
+                            <th data-priority="7"> direccion </th>
+                            <th data-priority="8"> referencia </th>
+                            <th data-priority="9"> genero </th>
+                            <th data-priority="10"> direccion </th>
 
                         </tr>
                     </thead>
@@ -137,11 +139,11 @@ if(auth()->user()->empresa == 0){
                                     @endif
                                 @endif
 
-                                    <td class="hidden_cont"><p class="d-none d-md-block"> {{ $item->fecha_nacimiento }} </p> </td>
-                                    <td class="hidden_cont"><p class="d-none d-md-block"> {{ $item->direccion }} </p> </td>
-                                    <td class="hidden_cont"><p class="d-none d-md-block"> {{ $item->referencia }} </p> </td>
-                                    <td class="hidden_cont"><p class="d-none d-md-block"> {{ $item->genero }} </p> </td>
-                                    <td class="hidden_cont"><p class="d-none d-md-block"> {{ $item->direccion }} </p> </td>
+                                    <td> {{ $item->fecha_nacimiento }}</td>
+                                    <td> {{ $item->direccion }}</td>
+                                    <td> {{ $item->referencia }}</td>
+                                    <td> {{ $item->genero }}</td>
+                                    <td> {{ $item->direccion }}</td>
 
                             </tr>
                         @endforeach
@@ -160,9 +162,51 @@ if(auth()->user()->empresa == 0){
     <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.min.js"></script>
 
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.colVis.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
+
+     <script src="https://cdn.datatables.net/responsive/2.3.0/js/dataTables.responsive.min.js"></script>
+     <script src="https://cdn.datatables.net/responsive/2.3.0/js/responsive.bootstrap4.min.js"></script>
+
+
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
+
     <script>
         $(document).ready(function() {
-            $('#usuarios').DataTable();
+            $('#usuarios').DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    {
+                        extend: 'print',
+                        text: 'Imprimir',
+                        exportOptions: {
+                            columns: ':visible'
+                        }
+                    },
+                    'excel',
+                    'pdf',
+                    'colvis'
+                ],
+                responsive: true,
+                columnDefs: [
+                    // {targets: -1, visible: false},
+                    { responsivePriority: 1 , },
+                    { responsivePriority: 2 , },
+                    { responsivePriority: 3 , },
+                    { responsivePriority: 4 , },
+                    { responsivePriority: 5 , },
+                    { responsivePriority: 6 , },
+                    { responsivePriority: 7 , },
+                ],
+                language: {
+                    url: 'https://cdn.datatables.net/plug-ins/1.11.5/i18n/es-ES.json'
+                }
+            });
         });
 
     </script>

@@ -2,6 +2,9 @@
 
 @section('css')
     <link href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/responsive/2.3.0/css/responsive.bootstrap4.min.css" rel="stylesheet">
+    <link href="{{ asset('css/customtable.css') }}" rel="stylesheet">
 @endsection
 
 @section('content')
@@ -13,7 +16,7 @@
 
         @include('admin.layouts.sidebar')
 
-        <div class="col-10">
+        <div class="col-12 col-xs-12 col-sm-12 col-lg-12 col-xl-10">
 
         <div class="d-flex justify-content-between mt-5  mb-5">
                     <div class="text-center text-white">
@@ -67,16 +70,14 @@
                 </script>
             @endif
 
-            <div class="content container-res-max">
                 <div class="col-12 ">
-
-                    <table id="empresa" class="table text-white">
+                    <table id="empresa" class="table display nowrap text-white" cellspacing="0" width="100%">
                         <thead>
                             <tr>
-                                <th scope="col">Nombre</th>
-                                <th scope="col">Correo</th>
-                                <th scope="col">Telefono</th>
-                                <th scope="col" class="hidden_cont" ><p class="d-none d-md-block"> direccion </p></th>
+                                <th data-priority="1">Nombre</th>
+                                <th data-priority="2">Correo</th>
+                                <th data-priority="3">Telefono</th>
+                                <th data-priority="4">direccion</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -93,16 +94,12 @@
 
                                     <td>{{ $item->email }}</td>
                                     <td>{{ $item->telefono }}</td>
-                                    <td class="hidden_cont"><p class="d-none d-md-block"> {{ $item->direccion }} </p> </td>
+                                    <td>{{ $item->direccion }}</td>
                                 </tr>
                             @endforeach
                         </tbody>
                     </table>
-
                 </div>
-
-            </div>
-
         </div>
     </div>
 
@@ -110,9 +107,50 @@
     <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.min.js"></script>
 
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.colVis.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
+
+     <script src="https://cdn.datatables.net/responsive/2.3.0/js/dataTables.responsive.min.js"></script>
+     <script src="https://cdn.datatables.net/responsive/2.3.0/js/responsive.bootstrap4.min.js"></script>
+
+
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
+
     <script>
+
         $(document).ready(function() {
-            $('#empresa').DataTable();
+            $('#empresa').DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    {
+                        extend: 'print',
+                        text: 'Imprimir',
+                        exportOptions: {
+                            columns: ':visible'
+                        }
+                    },
+                    'excel',
+                    'pdf',
+                    'colvis'
+                ],
+                responsive: true,
+                columnDefs: [
+                    // {targets: -1, visible: false},
+                    { responsivePriority: 1 , },
+                    { responsivePriority: 2 , },
+                    { responsivePriority: 3 , },
+                    { responsivePriority: 4 , },
+                ],
+
+                language: {
+                    url: 'https://cdn.datatables.net/plug-ins/1.11.5/i18n/es-ES.json'
+                }
+            });
         });
 
     </script>

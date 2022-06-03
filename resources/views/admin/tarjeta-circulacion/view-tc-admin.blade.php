@@ -1,6 +1,9 @@
 @extends('admin.layouts.app')
 @section('css')
     <link href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/responsive/2.3.0/css/responsive.bootstrap4.min.css" rel="stylesheet">
+    <link href="{{ asset('css/customtable.css') }}" rel="stylesheet">
 @endsection
 @section('content')
 
@@ -26,7 +29,7 @@
         @endif
 
         @include('admin.layouts.sidebar')
-       <div class="col-10">
+        <div class="col-12 col-xs-12 col-sm-12 col-lg-12 col-xl-10">
 
         <div class="d-flex justify-content-between mt-5  mb-5">
                     <div class="text-center text-white">
@@ -85,47 +88,41 @@
 
                                 </script>
                             @endif
-
-                            <div class="content container-res-max">
-                                <div class="col-12 ">
-
-                                    <table id="tc" class="table text-white">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">Cliente</th>
-                                                <th scope="col">Nombre</th>
-                                                <th scope="col">Modelo</th>
-
-                                                <th scope="col" class="hidden_cont" ><p class="d-none d-md-block"> tipo_placa </p></th>
-                                                <th scope="col" class="hidden_cont" ><p class="d-none d-md-block"> lugar_expedicion </p></th>
-                                                <th scope="col" class="hidden_cont" ><p class="d-none d-md-block"> fecha_emision </p></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @foreach ($tarjeta_circulacion as $item)
+                                <div class="row">
+                                    <div class="col-12 ">
+                                        <table id="tc" class="table display nowrap text-white mt-5e" cellspacing="0" width="100%">
+                                            <thead>
                                                 <tr>
-                                                    @can('Editar Tarjeta C.')
-                                                    <th><a style="text-decoration: none;"
-                                                        href="{{ route('edit_admin.tarjeta-circulacion', $item->id) }}">
-                                                        {{ $item->User->name }}</a>
-                                                    </th>
-                                                    @else
-                                                    <th>
-                                                        {{ $item->User->name }}
-                                                    </th>
-                                                    @endcan
-                                                    <td>{{ $item->nombre }}</td>
-                                                    <td>{{ $item->Automovil->Marca->nombre }}</td>
-
-                                                    <td class="hidden_cont"><p class="d-none d-md-block"> {{ $item->tipo_placa }} </p> </td>
-                                                    <td class="hidden_cont"><p class="d-none d-md-block"> {{ $item->lugar_expedicion }} </p> </td>
-                                                    <td class="hidden_cont"><p class="d-none d-md-block"> {{ $item->fecha_emision }} </p> </td>
+                                                    <th data-priority="1">Cliente</th>
+                                                    <th data-priority="2">Nombre</th>
+                                                    <th data-priority="3">Modelo</th>
+                                                    <th data-priority="4">tipo_placa </th>
+                                                    <th data-priority="5">lugar_expedicion </th>
+                                                    <th data-priority="6">fecha_emision </th>
                                                 </tr>
-                                            @endforeach
-                                        </tbody>
-                                    </table>
+                                            </thead>
+                                            <tbody>
+                                                @foreach ($tarjeta_circulacion as $item)
+                                                    <tr>
+                                                        @can('Editar Tarjeta C.')
+                                                        <th><a style="text-decoration: none;"
+                                                            href="{{ route('edit_admin.tarjeta-circulacion', $item->id) }}">
+                                                            {{ $item->User->name }}</a>
+                                                        </th>
+                                                        @else
+                                                        <th>{{ $item->User->name }}</th>
+                                                        @endcan
+                                                        <td>{{ $item->nombre }}</td>
+                                                        <td>{{ $item->Automovil->Marca->nombre }}</td>
+                                                        <td> {{ $item->tipo_placa }}  </td>
+                                                        <td> {{ $item->lugar_expedicion }}  </td>
+                                                        <td> {{ $item->fecha_emision }}  </td>
+                                                    </tr>
+                                                @endforeach
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
-                            </div>
                         </div>
                     </div>
 
@@ -157,39 +154,34 @@
                             </script>
                         @endif
 
-
                         <div class="row">
-                            <div class="content container-res-max">
                                 <div class="col-12 ">
-                                    <table id="tc_empresa" class="table text-white">
+                                    <table id="tc_empresa" class="table display nowrap text-white mt-5e" cellspacing="0" width="100%">
                                         <thead>
                                             <tr>
-                                                <th scope="col">Cliente</th>
-                                                <th scope="col">Nombre</th>
-                                                <th scope="col">Modelo</th>
+                                                <th data-priority="1">Cliente</th>
+                                                <th data-priority="2">Empresa</th>
+                                                <th data-priority="3">Modelo</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             @foreach ($tarjeta_circulacion2 as $item)
                                                 <tr>
                                                     @can('Editar Tarjeta C.')
-                                                    <th><a style="text-decoration: none;"
-                                                            href="{{ route('edit_admin.tarjeta-circulacion', $item->id) }}">
-                                                            {{ $item->UserEmpresa->name }}</a>
-                                                    </th>
-                                                    @else
                                                     <th>
-                                                        {{ $item->UserEmpresa->name }}
+                                                        <a style="text-decoration: none;" href="{{ route('edit_admin.tarjeta-circulacion', $item->id) }}">
+                                                            {{ $item->UserEmpresa->name }}
+                                                        </a>
                                                     </th>
-                                                    @endcan
-                                                    <td>{{ $item->nombre }}</td>
+                                                   @endcan
+                                                    <th>{{ $item->UserEmpresa->name }}</th>
+
                                                     <td>{{ $item->Automovil->Marca->nombre }}</td>
                                                 </tr>
                                             @endforeach
                                         </tbody>
                                     </table>
                                 </div>
-                            </div>
                         </div>
                     </div>
 
@@ -200,15 +192,13 @@
         </div>
      @else
         <div class="row">
-
-            <div class="content container-res-max">
                 <div class="col-lg-12">
-                    <table id="tc_empresa" class="table text-white">
+                    <table id="tc_empresa" class="table display nowrap text-white mt-5e" cellspacing="0" width="100%">
                         <thead>
                             <tr>
-                                <th scope="col">Cliente</th>
-                                <th scope="col">Nombre</th>
-                                <th scope="col">Sector</th>
+                                <th data-priority="1">Cliente</th>
+                                <th data-priority="2">Nombre</th>
+                                <th data-priority="3">Sector</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -226,7 +216,6 @@
                         </tbody>
                     </table>
                 </div>
-            </div>
         </div>
      @endif
 
@@ -236,13 +225,81 @@
     <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.min.js"></script>
 
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.colVis.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
+
+     <script src="https://cdn.datatables.net/responsive/2.3.0/js/dataTables.responsive.min.js"></script>
+     <script src="https://cdn.datatables.net/responsive/2.3.0/js/responsive.bootstrap4.min.js"></script>
+
+
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
+
     <script>
         $(document).ready(function() {
-            $('#tc').DataTable();
+            $('#tc').DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    {
+                        extend: 'print',
+                        text: 'Imprimir',
+                        exportOptions: {
+                            columns: ':visible'
+                        }
+                    },
+                    'excel',
+                    'pdf',
+                    'colvis'
+                ],
+                responsive: true,
+                columnDefs: [
+                    // {targets: -1, visible: false},
+                    { responsivePriority: 1 , },
+                    { responsivePriority: 2 , },
+                    { responsivePriority: 3 , },
+                    { responsivePriority: 4 , },
+                    { responsivePriority: 5 , },
+                    { responsivePriority: 6 , },
+                ],
+                language: {
+                    url: 'https://cdn.datatables.net/plug-ins/1.11.5/i18n/es-ES.json'
+                }
+            });
         });
 
         $(document).ready(function() {
-            $('#tc_empresa').DataTable();
+            $('#tc_empresa').DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    {
+                        extend: 'print',
+                        text: 'Imprimir',
+                        exportOptions: {
+                            columns: ':visible'
+                        }
+                    },
+                    'excel',
+                    'pdf',
+                    'colvis'
+                ],
+                responsive: true,
+                columnDefs: [
+                    // {targets: -1, visible: false},
+                    { responsivePriority: 1 , },
+                    { responsivePriority: 2 , },
+                    { responsivePriority: 3 , },
+                    { responsivePriority: 4 , },
+                    { responsivePriority: 5 , },
+                    { responsivePriority: 6 , },
+                ],
+                language: {
+                    url: 'https://cdn.datatables.net/plug-ins/1.11.5/i18n/es-ES.json'
+                }
+            });
         });
 
     </script>

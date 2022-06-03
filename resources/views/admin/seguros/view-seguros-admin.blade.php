@@ -1,6 +1,9 @@
 @extends('admin.layouts.app')
 @section('css')
     <link href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/responsive/2.3.0/css/responsive.bootstrap4.min.css" rel="stylesheet">
+    <link href="{{ asset('css/customtable.css') }}" rel="stylesheet">
 @endsection
 @section('content')
 
@@ -10,7 +13,7 @@
 
         @include('admin.layouts.sidebar')
 
-        <div class="col-10">
+        <div class="col-12 col-xs-12 col-sm-12 col-lg-12 col-xl-10">
 
          <div class="d-flex justify-content-between mt-5  mb-5">
                     <div class="text-center text-white">
@@ -61,16 +64,14 @@
                                     </div>
                                 </div>
 
-                                <div class="content container-res-max">
                                     <div class="col-12">
-
-                                        <table id="seguro" class="table text-white">
+                                        <table id="seguro" class="table display nowrap text-white" cellspacing="0" width="100%">
                                             <thead>
                                                 <tr>
-                                                    <th scope="col">Cliente</th>
-                                                    <th scope="col">Submarca</th>
-                                                    <th scope="col">Seguro</th>
-                                                    <th scope="col" class="hidden_cont" ><p class="d-none d-md-block"> fecha_expedicion </p></th>
+                                                    <th data-priority="1">Cliente</th>
+                                                    <th data-priority="2">Submarca</th>
+                                                    <th data-priority="3">Seguro</th>
+                                                    <th data-priority="4">fecha_expedicion</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -86,18 +87,14 @@
                                                             {{ $item->User->name }}
                                                         </th>
                                                         @endcan
-
                                                         <td>{{ $item->Automovil->submarca }}</td>
                                                         <td>{{ $item->seguro }}</td>
-                                                        <td class="hidden_cont"><p class="d-none d-md-block"> {{ $item->fecha_expedicion }} </p> </td>
+                                                        <td>{{ $item->fecha_expedicion }}</td>
                                                     </tr>
                                                 @endforeach
                                             </tbody>
                                         </table>
-
                                     </div>
-                                </div>
-
                             </div>
 
                         </div>
@@ -120,14 +117,13 @@
                                     </div>
                                 </div>
 
-                                <div class="content container-res-max">
                                     <div class="col-12 mt-4">
-                                        <table id="seguro_empresa" class="table text-white">
+                                        <table id="seguro_empresa" class="table display nowrap text-white" cellspacing="0" width="100%">
                                             <thead>
                                                 <tr>
-                                                    <th scope="col">Cliente</th>
-                                                    <th scope="col">Submarca</th>
-                                                    <th scope="col">Seguro</th>
+                                                    <th data-priority="1">Cliente</th>
+                                                    <th data-priority="2">Submarca</th>
+                                                    <th data-priority="3">Seguro</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -138,10 +134,6 @@
                                                                 href="{{ route('edit_admin.seguro', $item->id) }}">
                                                                 {{ $item->UserEmpresa->name }}</a>
                                                         </th>
-                                                        @else
-                                                        <th>
-                                                            {{ $item->UserEmpresa->name }}
-                                                        </th>
                                                         @endcan
                                                         <td>{{ $item->Automovil->submarca }}</td>
                                                         <td>{{ $item->seguro }}</td>
@@ -150,8 +142,6 @@
                                             </tbody>
                                         </table>
                                     </div>
-                                </div>
-
                             </div>
 
                         </div>
@@ -174,15 +164,13 @@
                     </div>
                 </div>
 
-                <div class="content container-res-max">
                     <div class="col-12">
-
-                        <table id="seguro" class="table text-white">
+                        <table id="seguro" class="table display nowrap text-white" cellspacing="0" width="100%">
                             <thead>
                                 <tr>
-                                    <th scope="col">Submarca</th>
-                                    <th scope="col">Seguro</th>
-                                    <th scope="col">Sector</th>
+                                    <th data-priority="1">Submarca</th>
+                                    <th data-priority="2">Seguro</th>
+                                    <th data-priority="3">Sector</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -198,10 +186,7 @@
                                 @endforeach
                             </tbody>
                         </table>
-
                     </div>
-                </div>
-
             </div>
         @endif
 
@@ -211,14 +196,82 @@
     <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.min.js"></script>
 
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.colVis.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
+
+     <script src="https://cdn.datatables.net/responsive/2.3.0/js/dataTables.responsive.min.js"></script>
+     <script src="https://cdn.datatables.net/responsive/2.3.0/js/responsive.bootstrap4.min.js"></script>
+
+
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
+
     <script>
         $(document).ready(function() {
-            $('#seguro').DataTable();
+            $('#seguro').DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    {
+                        extend: 'print',
+                        text: 'Imprimir',
+                        exportOptions: {
+                            columns: ':visible'
+                        }
+                    },
+                    'excel',
+                    'pdf',
+                    'colvis'
+                ],
+                responsive: true,
+                columnDefs: [
+                    // {targets: -1, visible: false},
+                    { responsivePriority: 1 , },
+                    { responsivePriority: 2 , },
+                    { responsivePriority: 3 , },
+                    { responsivePriority: 4 , },
+
+                ],
+
+                language: {
+                    url: 'https://cdn.datatables.net/plug-ins/1.11.5/i18n/es-ES.json'
+                }
+            });
         });
 
         $(document).ready(function() {
-            $('#seguro_empresa').DataTable();
+            $('#seguro_empresa').DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    {
+                        extend: 'print',
+                        text: 'Imprimir',
+                        exportOptions: {
+                            columns: ':visible'
+                        }
+                    },
+                    'excel',
+                    'pdf',
+                    'colvis'
+                ],
+                responsive: true,
+                columnDefs: [
+                    // {targets: -1, visible: false},
+                    { responsivePriority: 1 , },
+                    { responsivePriority: 2 , },
+                    { responsivePriority: 3 , },
+
+                ],
+
+                language: {
+                    url: 'https://cdn.datatables.net/plug-ins/1.11.5/i18n/es-ES.json'
+                }
+            });
         });
+
     </script>
 
 @endsection
