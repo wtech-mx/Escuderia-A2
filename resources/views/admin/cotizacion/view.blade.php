@@ -53,7 +53,7 @@
 
                             <div class="content container-res-max">
                                 <div class="col-12">
-                                    <table id="orden_servicio" class="table display  text-white" cellspacing="0" width="100%">
+                                    <table id="orden_servicio" class="table   text-white" cellspacing="0" width="100%">
                                         <thead>
                                             <tr>
                                                 <th  data-priority="2">Cliente</th>
