@@ -53,13 +53,13 @@
 
                             <div class="content container-res-max">
                                 <div class="col-12">
-                                    <table id="orden_servicio" class="table display nowrap text-white" cellspacing="0" width="100%">
+                                    <table id="orden_servicio" class="table display  text-white" cellspacing="0" width="100%">
                                         <thead>
                                             <tr>
                                                 <th  data-priority="2">Cliente</th>
                                                 <th  data-priority="3">Auto</th>
-                                                <th  data-priority="4">Plcas</th>
-                                                <th  data-priority="5">Fecha</th>
+                                                <th  data-priority="5">Plcas</th>
+                                                <th  data-priority="4">Fecha</th>
                                                 <th  data-priority="7">km</th>
                                                 <th  data-priority="6">Estatus</th>
                                                 <th  data-priority="1">Acciones</th>
