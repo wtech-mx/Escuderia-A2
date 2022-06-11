@@ -123,10 +123,10 @@
                                 <strong>Datos del automovil </strong>
                             </p>
                             <p class="text-right  text-white" style="color: #ccc;font-size: 18px;">
-                                Auto: {{$cotizacion->Cotizacion->Automovil->submarca}}
+                                Auto: {{$cotizacion->Cotizacion->User->Automovil->submarca}}
                             </p>
                             <p class="text-right  text-white" style="color: #ccc;font-size: 18px;">
-                                Placas: {{$cotizacion->Cotizacion->Automovil->placas}}
+                                Placas: {{$cotizacion->Cotizacion->User->Automovil->placas}}
                             </p>
                             <p class="text-right  text-white" style="color: #ccc;font-size: 18px;">
                                 Kilometraje: {{$cotizacion->Cotizacion->km}} km

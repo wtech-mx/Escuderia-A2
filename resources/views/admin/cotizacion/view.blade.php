@@ -75,10 +75,10 @@
                                                     </a>
                                                 </th>
                                                 <th>
-                                                    {{$item->Cotizacion->Automovil->submarca}}
+                                                    {{$item->Cotizacion->User->Automovil->submarca}}
                                                 </th>
                                                 <th>
-                                                    {{$item->Cotizacion->Automovil->placas}}
+                                                    {{$item->Cotizacion->User->Automovil->placas}}
                                                 </th>
                                                 <td>{{ $item->Cotizacion->fecha }}</td>
 
