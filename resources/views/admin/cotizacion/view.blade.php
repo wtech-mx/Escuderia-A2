@@ -112,24 +112,29 @@
                                                     @endif
 
                                                 </td>
-                                                <td>
-                                                    <a href="{{ route('edit.diagnostico', $item->id) }}">
-                                                        <i class="fas fa-oil-can icon-users-edit"
-                                                            style="margin-right: 10px; font-size: 13px;"></i>
-                                                    </a>
-                                                    <a href="{{ route('edit.taller', $item->id_taller) }}">
-                                                        <i class="fas fa-tasks icon-users-edit"
-                                                            style="margin-right: 10px; font-size: 13px;"></i>
-                                                    </a>
-                                                    {{-- <a data-toggle="modal" data-target="#exampleModal{{$item->id}}">
-                                                        <i class="fab fa-whatsapp icon-users-edit"
-                                                            style="margin-right: 10px; font-size: 12.5px;"></i>
-                                                    </a> --}}
 
-                                                    <a data-toggle="modal" data-target="#pdfModal{{$item->id}}">
-                                                        <i class="fa fa-file-pdf icon-users-edit"
-                                                            style="margin-right: 10px; font-size: 12.5px;"></i>
+                                                <td>
+                                                    <div class="dropdown">
+                                                      <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false" style="background: transparent">
+                                                        <i class="fa fa-ellipsis-v text-white" aria-hidden="true"></i>
+                                                      </button>
+                                                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+
+                                                    <a class="dropdown-item text-dark" href="{{ route('edit.diagnostico', $item->id) }}">
+                                                        <i class="fas fa-oil-can icon-users-edit text-dark"
+                                                            style="margin-right: 10px; font-size: 13px;"></i>Diagnostico
                                                     </a>
+                                                    <a class="dropdown-item text-dark" href="{{ route('edit.taller', $item->id_taller) }}">
+                                                        <i class="fas fa-tasks icon-users-edit text-dark"
+                                                            style="margin-right: 10px; font-size: 13px;"></i>Cotizacion
+                                                    </a>
+                                                    <a class="dropdown-item text-dark" data-toggle="modal" data-target="#pdfModal{{$item->id}}">
+                                                        <i class="fa fa-file-pdf icon-users-edit text-dark"
+                                                            style="margin-right: 10px; font-size: 12.5px;"></i> Compartir PDF
+                                                    </a>
+
+                                                      </div>
+                                                    </div>
                                                 </td>
 
                                             </tr>
