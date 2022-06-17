@@ -70,9 +70,7 @@
                                             <tr>
 
                                                 <th>
-                                                    <a href="{{ route('edit.cotizacion', $item->id_cotizacion) }}">
-                                                        {{$item->Cotizacion->User->name}}
-                                                    </a>
+                                                    {{$item->Cotizacion->User->name}}
                                                 </th>
                                                 <th>
                                                     {{$item->Cotizacion->Automovil->submarca}}
@@ -120,6 +118,10 @@
                                                       </button>
                                                       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 
+                                                        <a class="dropdown-item text-dark" href="{{ route('edit.cotizacion', $item->id_cotizacion) }}">
+                                                            <i class="fa fa-list-alt icon-users-edit text-dark"
+                                                            style="margin-right: 10px; font-size: 13px;"></i>Orden
+                                                        </a>
                                                     <a class="dropdown-item text-dark" href="{{ route('edit.diagnostico', $item->id) }}">
                                                         <i class="fas fa-oil-can icon-users-edit text-dark"
                                                             style="margin-right: 10px; font-size: 13px;"></i>Diagnostico
@@ -127,6 +129,10 @@
                                                     <a class="dropdown-item text-dark" href="{{ route('edit.taller', $item->id_taller) }}">
                                                         <i class="fas fa-tasks icon-users-edit text-dark"
                                                             style="margin-right: 10px; font-size: 13px;"></i>Cotizacion
+                                                    </a>
+                                                    <a class="dropdown-item text-dark" href="{{ route('edit.remision', $item->id_cotizacion) }}">
+                                                        <i class="fa fa-file-excel icon-users-edit text-dark"
+                                                            style="margin-right: 10px; font-size: 13px;"></i> Remision
                                                     </a>
                                                     <a class="dropdown-item text-dark" data-toggle="modal" data-target="#pdfModal{{$item->id}}">
                                                         <i class="fa fa-file-pdf icon-users-edit text-dark"

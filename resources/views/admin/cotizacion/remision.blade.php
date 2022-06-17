@@ -97,12 +97,13 @@
                 <button type="submit" class="btn btn-success">Guardar</button>
             </form>
 
-            <a class="btn btn-primary mt-5" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                Ver Cotizaciòn
-            </a>
+            <div class="col-12 mt-5">
+                <h5 class="text-center text-white">
+                    <strong>Datos de Remisión Diagnostico</strong>
+                </h5>
+            </div>
 
-            <div class="collapse" id="collapseExample">
-                <div class="card card-body">
+                <div class="card card-body mt-5">
                     <form class="card-details" method="POST" action="{{route('updateremision.remision', $cotizacion->id_cotizacion)}}" enctype="multipart/form-data" role="form">
                         @csrf
                     <div class="row mt-3 mb-3">
@@ -167,7 +168,6 @@
                     <button type="submit" class="btn btn-success mt-4">Guardar</button>
                     </form>
                 </div>
-            </div>
 
             {{-- <div class="row">
                 <div class="col-12">

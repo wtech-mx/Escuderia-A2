@@ -47,7 +47,7 @@
             <div class="d-flex justify-content-start">
                     <div class="text-center text-white bg-white" style="border-radius: 50px;padding: 5px">
                         <a href="{{ route('edit.remision', $cotizacion->id_cotizacion) }}">
-                        <img class="" src="{{ asset('img/icon/color/pdf.png') }}" width="25px" >
+                        <i i class="fa fa-file-excel icon-users-edit text-dark" ></i>
                     </a>
                     </div>
             </div>
@@ -109,12 +109,7 @@
                         <button type="submit" class="btn btn-success">Guardar</button>
                     </form>
 
-                    <a class="btn btn-primary mt-5" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                        Ver Historial
-                    </a>
-
-                    <div class="collapse" id="collapseExample">
-                        <div class="card card-body">
+                        <div class="card card-body mt-5">
                             <table class="table table-bordered" id="data_table" >
                                 <thead class="table-dark">
                                     <tr class="text-center">
@@ -146,7 +141,6 @@
                                 </tbody>
                             </table>
                         </div>
-                    </div>
 
                     @include('admin.cotizacion.script-taller')
                     <script>
