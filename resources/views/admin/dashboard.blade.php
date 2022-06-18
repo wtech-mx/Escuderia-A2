@@ -53,12 +53,12 @@
                             <strong>Hola : {{ $users->name }}</strong> <br> <br>
                         </h5>
 
-                        <button id="btn-nft-enable" onclick="initFirebaseMessagingRegistration()"
+                        <a type="button" data-toggle="modal" data-target="#exampleModalCenter"
                             class="text-center text-white bg-white" style="border-radius: 50px;padding: 5px">
                             <img class="" src="{{ asset('img/icon/color/campana.png') }}" width="30px">
-                        </button>
+                        </a>
                 </div>
-
+                @include('admin.modal-notificacion')
                 <div class=" d-flex justify-content-between bg-white p-2 rounded-pill">
                     <a href="{{ route('index.alert') }}"> <span class="badge badge-pill"
                             style="background-color: #2ECC71">Alerta</span> </a>
