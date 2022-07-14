@@ -63,6 +63,9 @@ class AlertasController extends Controller
 
     public function store(Request $request)
     {
+        $validatedData = $request->validate([
+            'id_user' => 'required'
+        ]);
         $alert = new Alertas;
         $alert->id_user = $request->get('id_user');
         $alert->id_empresa = $request->get('id_empresa');
