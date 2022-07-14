@@ -58,7 +58,7 @@
                                             <tr>
                                                 <th  data-priority="2">Cliente</th>
                                                 <th  data-priority="3">Auto</th>
-                                                <th  data-priority="5">Plcas</th>
+                                                <th  data-priority="5">Placas</th>
                                                 <th  data-priority="4">Fecha</th>
                                                 <th  data-priority="7">km</th>
                                                 <th  data-priority="6">Estatus</th>
@@ -220,6 +220,7 @@
                     'colvis'
                 ],
                 responsive: true,
+                stateSave: true,
                 columnDefs: [
                     // {targets: -1, visible: false},
                     { responsivePriority: 1 , },

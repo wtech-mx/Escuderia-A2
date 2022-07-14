@@ -16,8 +16,8 @@
                 </a>
 
                 <a type="button" class="btn btn-primary mt-3"
-                    href="https://wa.me/52{{$item->Cotizacion->User->telefono}}?text=Hola%2C+{{$item->Cotizacion->User->name}}%3A%0D%0ATe+mandamos+tu+Cotizacion+de+tu+auto.%0D%0ADa+click+en+el+siguente+enlace%0D%0A%0D%0A{{ route('index_user.cotizacion', $item->id_taller) }}">
-                    Cotización
+                    href="{{route('print.cotizacion', $item->id_cotizacion)}}">
+                    Descargar Cotización
                 </a>
 
                 <hr>
