@@ -392,7 +392,7 @@
 
                         <div class="form-group col-12 col-xs-12 col-sm-6 col-lg-6 p-3">
                             <label for="" class="mt-3">
-                                <p class="text-white"><strong>Confirmar Contraseña </strong></p>
+                                <p class="text-white"><strong>Contraseña </strong></p>
                             </label>
 
                             <div class="input-group form-group">
@@ -401,8 +401,8 @@
                                         <i class="fas fa-lock-open icon-users-edit"></i>
                                     </span>
                                 </div>
-                                <input type="password" class="form-control" name="password_confirmation"
-                                    autocomplete="new-password" placeholder="Confirmar Contraseña" id="password-confirm"
+                                <input type="password" class="form-control" name="password"
+                                    autocomplete="new-password" placeholder="Contraseña" id="password"
                                     style="border-radius: 0  10px 10px 0;">
                                 @if ($errors->has('password'))
                                     <span class="text-danger">{{ $errors->first('password') }}</span>
@@ -422,10 +422,10 @@
                                     </span>
                                 </div>
                                 <input type="password" class="form-control" name="password_confirmation"
-                                    autocomplete="new-password" placeholder="Confirmar Contraseña" id="password-confirm"
+                                    autocomplete="new-password" placeholder="Confirmar Contraseña" id="password_confirm"
                                     style="border-radius: 0  10px 10px 0;">
                                 @if ($errors->has('password'))
-                                    <span class="text-danger">{{ $errors->first('password') }}</span>
+                                    <span class="text-danger">{{ $errors->first('password_confirmation') }}</span>
                                 @endif
                             </div>
 
