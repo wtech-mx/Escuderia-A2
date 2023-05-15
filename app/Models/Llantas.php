@@ -16,6 +16,7 @@ class Llantas extends Model
     protected $fillable = [
         'id_mecanica',
         'id_user',
+        'id_empresa',
         'title',
         'description',
         'color',
@@ -30,5 +31,9 @@ class Llantas extends Model
     public function User()
     {
        return $this->belongsTo(User::class,'id_user');
+    }
+    public function UserEmpresa()
+    {
+        return $this->belongsTo(User::class, 'id_empresa');
     }
 }

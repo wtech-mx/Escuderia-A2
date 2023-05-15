@@ -32,6 +32,21 @@
 
             @foreach ($alertas as $item)
             <hr>
+            @if ($item->id_user == NULL )
+            <div class="form-group row">
+                <div class="col-4">
+                    <p>{{$item->title}}</p>
+                </div>
+
+                <div class="col-5">
+                    <p>{{$item->UserEmpresa->name}}</p>
+                </div>
+
+                <div class="col-3">
+                    <p>{{$item->start}}</p>
+                </div>
+            </div>
+          @else
             <div class="form-group row">
                 <div class="col-4">
                     <p>{{$item->title}}</p>
@@ -45,10 +60,26 @@
                     <p>{{$item->start}}</p>
                 </div>
             </div>
+          @endif
             @endforeach
 
             @foreach ($seguros as $item)
             <hr>
+            @if ($item->id_user == NULL )
+            <div class="form-group row">
+                <div class="col-4">
+                    <p>{{$item->title}}</p>
+                </div>
+
+                <div class="col-5">
+                    <p>{{$item->UserEmpresa->name}}</p>
+                </div>
+
+                <div class="col-3">
+                    <p>{{$item->start}}</p>
+                </div>
+            </div>
+          @else
             <div class="form-group row">
                 <div class="col-4">
                     <p>{{$item->title}}</p>
@@ -62,10 +93,26 @@
                     <p>{{$item->start}}</p>
                 </div>
             </div>
+          @endif
             @endforeach
 
             @foreach ($tarjeta as $item)
-            <hr>
+          <hr>
+          @if ($item->id_user == NULL )
+            <div class="form-group row">
+                <div class="col-4">
+                    <p>{{$item->title}}</p>
+                </div>
+
+                <div class="col-5">
+                    <p>{{$item->UserEmpresa->name}}</p>
+                </div>
+
+                <div class="col-3">
+                    <p>{{$item->start}}</p>
+                </div>
+            </div>
+          @else
             <div class="form-group row">
                 <div class="col-4">
                     <p>{{$item->title}}</p>
@@ -79,10 +126,28 @@
                     <p>{{$item->start}}</p>
                 </div>
             </div>
+          @endif
+
+
             @endforeach
 
             @foreach ($verificacion as $item)
             <hr>
+            @if ($item->id_user == NULL )
+            <div class="form-group row">
+                <div class="col-4">
+                    <p>{{$item->title}}</p>
+                </div>
+
+                <div class="col-5">
+                    <p>{{$item->UserEmpresa->name}}</p>
+                </div>
+
+                <div class="col-3">
+                    <p>{{$item->start}}</p>
+                </div>
+            </div>
+          @else
             <div class="form-group row">
                 <div class="col-4">
                     <p>{{$item->title}}</p>
@@ -96,12 +161,28 @@
                     <p>{{$item->start}}</p>
                 </div>
             </div>
+          @endif
             @endforeach
 
             @foreach ($llantas as $item)
             <hr>
+            @if ($item->id_user == NULL )
             <div class="form-group row">
+                <div class="col-4">
+                    <p>{{$item->title}}</p>
+                </div>
+
                 <div class="col-5">
+                    <p>{{$item->UserEmpresa->name}}</p>
+                </div>
+
+                <div class="col-3">
+                    <p>{{$item->start}}</p>
+                </div>
+            </div>
+          @else
+            <div class="form-group row">
+                <div class="col-4">
                     <p>{{$item->title}}</p>
                 </div>
 
@@ -109,14 +190,30 @@
                     <p>{{$item->User->name}}</p>
                 </div>
 
-                <div class="col-2">
+                <div class="col-3">
                     <p>{{$item->start}}</p>
                 </div>
             </div>
+          @endif
             @endforeach
 
             @foreach ($verificacion_segunda as $item)
             <hr>
+            @if ($item->id_user == NULL )
+            <div class="form-group row">
+                <div class="col-4">
+                    <p>{{$item->title}}</p>
+                </div>
+
+                <div class="col-5">
+                    <p>{{$item->UserEmpresa->name}}</p>
+                </div>
+
+                <div class="col-3">
+                    <p>{{$item->start}}</p>
+                </div>
+            </div>
+          @else
             <div class="form-group row">
                 <div class="col-4">
                     <p>{{$item->title}}</p>
@@ -130,10 +227,26 @@
                     <p>{{$item->start}}</p>
                 </div>
             </div>
+          @endif
             @endforeach
 
             @foreach ($pronostico as $item)
             <hr>
+            @if ($item->id_user == NULL )
+            <div class="form-group row">
+                <div class="col-4">
+                    <p>{{$item->title}}</p>
+                </div>
+
+                <div class="col-5">
+                    <p>{{$item->UserEmpresa->name}}</p>
+                </div>
+
+                <div class="col-3">
+                    <p>{{$item->start}}</p>
+                </div>
+            </div>
+          @else
             <div class="form-group row">
                 <div class="col-4">
                     <p>{{$item->title}}</p>
@@ -147,6 +260,7 @@
                     <p>{{$item->start}}</p>
                 </div>
             </div>
+          @endif
             @endforeach
 
         </div>

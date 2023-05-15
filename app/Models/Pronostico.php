@@ -30,4 +30,8 @@ class Pronostico extends Model
     {
         return $this->belongsTo(Automovil::class, 'current_auto');
     }
+    public function UserEmpresa()
+    {
+        return $this->belongsTo(User::class, 'id_empresa');
+    }
 }
