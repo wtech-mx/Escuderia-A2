@@ -60,7 +60,7 @@ if(auth()->user()->empresa == 0){
                 <a class="mt-1 ml-5 text-white " href="/exportar/usuarios">
                     <i class="fa fa-download icon-effect" aria-hidden="true"></i>
                 </a>
-                @can('create_admin')
+                {{-- @can('create_admin') --}}
                 <div class="content">
                     <a class="btn btn-circel" href="{{ route('create_admin.user') }}">
                         <i class="fas fa-plus-circle icon-effect"></i>
@@ -71,7 +71,7 @@ if(auth()->user()->empresa == 0){
                         </h5>
                     </a>
                 </div>
-                @endcan
+                {{-- @endcan --}}
 
                 @if (auth()->user()->empresa == 1 && auth()->user()->id_sector == NULL)
                     <div class="content">
