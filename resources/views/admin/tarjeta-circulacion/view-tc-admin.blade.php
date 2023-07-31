@@ -196,7 +196,7 @@
                     <table id="tc_empresa" class="table display nowrap text-white mt-5e" cellspacing="0" width="100%">
                         <thead>
                             <tr>
-                                <th data-priority="1">Cliente</th>
+                                {{-- <th data-priority="1">Cliente</th> --}}
                                 <th data-priority="2">Nombre</th>
                                 <th data-priority="3">Sector</th>
                             </tr>
@@ -204,11 +204,18 @@
                         <tbody>
                             @foreach ($tarjeta_circulacion_empresa as $item)
                                 <tr>
-                                    <th><a style="text-decoration: none;"
+                                    {{-- <th>
+                                        <a style="text-decoration: none;"
                                             href="{{ route('edit_admin.tarjeta-circulacion', $item->id) }}">
-                                            {{ $item->UserEmpresa->name }}</a>
-                                    </th>
-                                    <td>{{ $item->nombre }}</td>
+                                            {{ $item->UserEmpresa->name }}
+                                        </a>
+                                    </th> --}}
+                                    <td>
+                                        <a style="text-decoration: none;"
+                                            href="{{ route('edit_admin.tarjeta-circulacion', $item->id) }}">
+                                            {{ $item->nombre }}
+                                        </a>
+                                    </td>
                                     <td>{{ $item->Sectores->sector }}</td>
 
                                 </tr>
