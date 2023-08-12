@@ -229,20 +229,22 @@
                         </a>
                     </div>
 
-                    <div class="col-6 col-xs-6 col-sm-6 col-lg-3 text-center  mt-4">
-                        @can('Crear Roles y Permisos')
-                        <a href="{{ route('index_role.role') }}" class="text-white">
-                        @else
-                        <a  data-toggle="modal" data-target="#modal-permisos">
-                        @endcan
-                            <div class="card" style="border-radius: 15px">
-                                <div class="card-body">
-                                    <i class="fas fa-users-cog icon-effect-dashboard"></i>
-                                    <p class="card-text text-white"><strong>Roles y Permisos</strong></p>
+                    @if (auth()->user()->empresa == 0)
+                        <div class="col-6 col-xs-6 col-sm-6 col-lg-3 text-center  mt-4">
+                            @can('Crear Roles y Permisos')
+                            <a href="{{ route('index_role.role') }}" class="text-white">
+                            @else
+                            <a  data-toggle="modal" data-target="#modal-permisos">
+                            @endcan
+                                <div class="card" style="border-radius: 15px">
+                                    <div class="card-body">
+                                        <i class="fas fa-users-cog icon-effect-dashboard"></i>
+                                        <p class="card-text text-white"><strong>Roles y Permisos</strong></p>
+                                    </div>
                                 </div>
-                            </div>
-                        </a>
-                    </div>
+                            </a>
+                        </div>
+                    @endif
 
                     @if ($users->empresa == 0)
                         <div class="col-6 col-xs-6 col-sm-6 col-lg-3 text-center mt-4">
