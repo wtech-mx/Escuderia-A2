@@ -76,7 +76,7 @@
                       <i class="fa fa-plus-circle" aria-hidden="true"></i> Agregar
                   </button>
                 @endcan
-                @can('Editar Alerta')
+                @can('Crear Alerta')
                   <button class="btn btn-warning text-dark" id="btnModificar">
                       <i class="fa fa-retweet" aria-hidden="true"></i> Modificar
                   </button>

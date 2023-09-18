@@ -28,9 +28,7 @@ class DashboardController extends Controller
         $users = User::where('id', '=', auth()->user()->id)
             ->first();
 
-        $user = DB::table('users')
-            ->where('role', '=', 0)
-            ->get();
+
 
             $current = date("m");
             $año = date("Y");
@@ -43,7 +41,9 @@ class DashboardController extends Controller
                 $llantas = Llantas::whereMonth('start', '=', $current)->whereYear('start', '=', $año)->where('check', '=', 0)->get()->makeHidden('end');
                 $verificacion_segunda = VerificacionSegunda::whereMonth('start', '=', $current)->whereYear('start', '=', $año)->where('check', '=', 0)->get()->makeHidden('end');
                 $pronostico = Pronostico::whereMonth('start', '=', $current)->whereYear('start', '=', $año)->where('check', '=', 0)->get()->makeHidden('end');
-
+                $user = DB::table('users')
+                ->where('role', '=', 0)
+                ->get();
             } elseif (auth()->user()->empresa == 1 && auth()->user()->id_sector == NULL) {
 
                 $alertas = Alertas::where('id_empresa', '=', auth()->user()->id)->whereMonth('start', '=', $current)->whereYear('start', '=', $año)->where('check', '=', 0)->get();
@@ -53,9 +53,15 @@ class DashboardController extends Controller
                 $llantas = Llantas::where('id_empresa', '=', auth()->user()->id)->whereMonth('start', '=', $current)->whereYear('start', '=', $año)->where('check', '=', 0)->get()->makeHidden('end');
                 $verificacion_segunda = VerificacionSegunda::where('id_empresa', '=', auth()->user()->id)->whereMonth('start', '=', $current)->whereYear('start', '=', $año)->where('check', '=', 0)->get()->makeHidden('end');
                 $pronostico = Pronostico::where('id_empresa', '=', auth()->user()->id)->whereMonth('start', '=', $current)->whereYear('start', '=', $año)->where('check', '=', 0)->get()->makeHidden('end');
-
+                $user = DB::table('users')
+                ->where('role', '=', 0)
+                ->where('id_empresa', '=', auth()->user()->id)
+                ->get();
             } else {
-
+                $user = DB::table('users')
+                ->where('role', '=', 0)
+                ->where('id_empresa', '=', auth()->user()->id)
+                ->get();
                 $alertas = Alertas::where('id_sector', '=', auth()->user()->id_sector)->whereMonth('start', '=', $current)->whereYear('start', '=', $año)->where('check', '=', 0)->get();
                 $seguros = Seguros::where('id_sector', '=', auth()->user()->id_sector)->whereMonth('start', '=', $current)->whereYear('start', '=', $año)->where('check', '=', 0)->get();
                 $tarjeta = TarjetaCirculacion::where('id_sector', '=', auth()->user()->id_sector)->whereMonth('start', '=', $current)->whereYear('start', '=', $año)->where('check', '=', 0)->get()->makeHidden('end');

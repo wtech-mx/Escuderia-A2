@@ -68,8 +68,9 @@ class AlertasController extends Controller
         ]);
         $alert = new Alertas;
         $alert->id_user = $request->get('id_user');
-        $alert->id_empresa = $request->get('id_empresa');
-        $alert->titulo = $request->get('titulo');
+        $alert->id_empresa = auth()->user()->id_empresa;
+        $alert->id_sector = auth()->user()->id_sector;
+        $alert->title = $request->get('titulo');
         $alert->descripcion = $request->get('descripcion');
         $alert->start = $request->get('start');
         $alert->end = $request->get('start');
@@ -103,7 +104,18 @@ class AlertasController extends Controller
     {
         $datosEvento = request()->except(['_token', '_method'], []);
 
-        Alertas::insert($datosEvento);
+        $alert = new Alertas;
+        $alert->id_user = $request->get('id_user');
+        $alert->id_empresa = auth()->user()->id_empresa;
+        $alert->id_sector = auth()->user()->id_sector;
+        $alert->title = $request->get('titulo');
+        $alert->descripcion = $request->get('descripcion');
+        $alert->start = $request->get('start');
+        $alert->end = $request->get('start');
+        $alert->color = '#' . $request->get('color');
+        $alert->estatus = 0;
+
+        $alert->save();
     }
 
     public function show_calendar()
@@ -206,8 +218,20 @@ class AlertasController extends Controller
     public function store_calendar_user(Request $request)
     {
         $datosEvento = request()->except(['_token', '_method'], []);
+        $alert = new Alertas;
+        $alert->id_user = $request->get('id_user');
+        $alert->id_empresa = auth()->user()->id_empresa;
+        $alert->id_sector = auth()->user()->id_sector;
+        $alert->title = $request->get('title');
+        $alert->descripcion = $request->get('descripcion');
+        $alert->start = $request->get('start');
+        $alert->end = $request->get('start');
+        $alert->color = $request->get('color');
+        $alert->image = 'https://checkn-go.com.mx/img/icon/color/comprobado.png';
+        $alert->estatus = 0;
 
-        Alertas::insert($datosEvento);
+        $alert->save();
+
     }
 
     public function show_calendar_user()
