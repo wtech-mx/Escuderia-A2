@@ -13,7 +13,6 @@ if (!isset($_COOKIE['mostrarModal'])) {
     //$expirar = 43200; //muestra cada 12 horas
     //$expirar = 86400;  // muestra cada 24 horas
     $expirar = 1209600; // muestra cada 15 dias
-
     setcookie('mostrarModal', 'SI', time() + $expirar); // mostrará cada 12 horas.
     # Ahora nuestra variable de control pasará a tener el valor TRUE (Verdadero)
     $exibirModal = true;
@@ -26,7 +25,6 @@ if (!isset($_COOKIE['mostrarModal'])) {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
