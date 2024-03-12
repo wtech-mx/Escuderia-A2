@@ -1,132 +1,123 @@
                     <form method="POST" action="{{route('store_servicio.servicio')}}" enctype="multipart/form-data" role="form">
                          @csrf
-                                  <div class="col-12">
+                            <div class="col-12">
+                                <p class="title-services text-center p-3">
+                                    Elige al usuario o empresa <br> del auto a elegir
+                                </p>
+                                {{--/*|----------------------------------------------------------------------------}}
+                                {{--Tab Empres o User--}}
+                                {{--|--------------------------------------------------------------------------*/--}}
 
-                                      <p class="title-services text-center p-3">
-                                          Elige al usuario o empresa <br> del auto a elegir
-                                      </p>
-
-                                    {{--/*|----------------------------------------------------------------------------}}
-                                    {{--Tab Empres o User--}}
-                                    {{--|--------------------------------------------------------------------------*/--}}
-
-                                     <div class="d-flex justify-content-center">.
-                                        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                                            @if (auth()->user()->empresa == 0)
+                                <div class="d-flex justify-content-center">.
+                                    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                                        @if (auth()->user()->empresa == 0)
                                             <li class="nav-item bg-white">
-                                                <a class="nav-link active" id="pills-Empresa-tab" data-toggle="pill" href="#pills-Empresa" role="tab" aria-controls="pills-Empresa" aria-selected="true">
+                                                <a class="nav-link active" id="pills-Empresa-tab" data-toggle="pill" href="#pills-Empresa-banda" role="tab" aria-controls="pills-Empresa" aria-selected="true">
                                                     <img class="" src="{{ asset('img/icon/color/edificio-de-oficinas (3).png') }}" width="25px" >
                                                     Empresa
                                                 </a>
                                             </li>
 
-
-
                                             <li class="nav-item bg-white">
-                                                <a class="nav-link text-dark" id="pills-Usuario-tab" data-toggle="pill" href="#pills-Usuario" role="tab" aria-controls="pills-Usuario" aria-selected="false">
+                                                <a class="nav-link text-dark" id="pills-Usuario-tab" data-toggle="pill" href="#pills-Usuario-banda" role="tab" aria-controls="pills-Usuario" aria-selected="false">
                                                     <img class="" src="{{ asset('img/icon/color/empresario.png') }}" width="25px" >
                                                     Usuario
                                                 </a>
                                             </li>
-                                          @endif
-                                          @if (auth()->user()->empresa == 1)
+                                        @endif
+
+                                        @if (auth()->user()->empresa == 1)
                                             <li class="nav-item bg-white">
                                                 <a class="nav-link active" id="pills-Empresa-tab" data-toggle="pill" href="#pills-Empresa" role="tab" aria-controls="pills-Empresa" aria-selected="true">
                                                     <img class="" src="{{ asset('img/icon/color/edificio-de-oficinas (3).png') }}" width="25px" >
                                                     Sector
                                                 </a>
                                             </li>
-                                          @endif
-                                        </ul>
-                                      </div>
+                                        @endif
+                                    </ul>
+                                </div>
 
-
-                                    <div class="tab-content p-4" id="pills-tabContent">
+                                <div class="tab-content p-4" id="pills-tabContent">
                                     @if (auth()->user()->empresa == 0)
-                                      <div class="tab-pane fade show active mr-4 ml-4" id="pills-Empresa-banda" role="tabpanel" aria-labelledby="pills-Empresa-banda-tab">
+                                    <div class="tab-pane fade show active mr-4 ml-4" id="pills-Empresa-banda" role="tabpanel" aria-labelledby="pills-Empresa-banda-tab">
+                                            <label for="">
+                                                <p class="text-white"><strong>Empresa</strong></p>
+                                            </label>
 
-                                         <label for="">
-                                             <p class="text-white"><strong>Empresa</strong></p>
-                                         </label>
+                                            <div class="input-group form-group">
+                                                <div class="input-group-prepend " >
+                                                    <span class="input-group-text input-services" >
+                                                        <img class="" src="{{ asset('img/icon/white/edificio-de-oficinas.png') }}" width="25px" >
+                                                    </span>
+                                                </div>
 
-                                        <div class="input-group form-group">
-                                            <div class="input-group-prepend " >
-                                                <span class="input-group-text input-services" >
-                                                     <img class="" src="{{ asset('img/icon/white/edificio-de-oficinas.png') }}" width="25px" >
-                                                </span>
-                                            </div>
-
-                                                <select class="form-control" id="id_empresabn" name="id_empresabn">
-                                                     <option value="">Seleccione empresa</option>
-                                                     @foreach($empresa as $item)
+                                                <select class="form-control empresa_banda" id="id_empresabn" name="id_empresabn">
+                                                        <option value="">Seleccione empresa</option>
+                                                        @foreach($empresa as $item)
                                                         <option value="{{$item->id}}">{{ ucfirst($item->name)}}</option>
-                                                     @endforeach
+                                                        @endforeach
                                                 </select>
-                                        </div>
-
-                                         <label for="">
-                                             <p class="text-white"><strong>Veh&iacute;culo</strong></p>
-                                         </label>
-
-                                        <div class="input-group form-group">
-                                            <div class="input-group-prepend " >
-                                                <span class="input-group-text input-services" >
-                                                     <img class="" src="{{ asset('img/icon/white/coche (7).png') }}" width="25px" >
-                                                </span>
                                             </div>
 
-                                            <select class="form-control" id="current_autobn2" name="current_autobn2">
-                                              <option value="">Seleccione auto</option>
-                                            </select>
-                                        </div>
+                                            <label for="">
+                                                <p class="text-white"><strong>Veh&iacute;culo</strong></p>
+                                            </label>
 
-                                      </div>
+                                            <div class="input-group form-group">
+                                                <div class="input-group-prepend " >
+                                                    <span class="input-group-text input-services" >
+                                                        <img class="" src="{{ asset('img/icon/white/coche (7).png') }}" width="25px" >
+                                                    </span>
+                                                </div>
 
-                                      <div class="tab-pane fade mr-4 ml-4" id="pills-Usuario-banda" role="tabpanel" aria-labelledby="pills-Usuario-banda-tab">
+                                                <select class="form-control" id="current_autobn2" name="current_autobn2">
+                                                <option value="">Seleccione auto</option>
+                                                </select>
+                                            </div>
+                                    </div>
 
-                                         <label for="">
-                                             <p class="text-white"><strong>Usuario</strong></p>
-                                         </label>
+                                    <div class="tab-pane fade mr-4 ml-4" id="pills-Usuario-banda" role="tabpanel" aria-labelledby="pills-Usuario-banda-tab">
+                                            <label for="">
+                                                <p class="text-white"><strong>Usuario</strong></p>
+                                            </label>
 
-                                        <div class="input-group form-group">
-                                            <div class="input-group-prepend " >
-                                                <span class="input-group-text input-services" >
-                                                     <img class="" src="{{ asset('img/icon/white/hombre (1).png') }}" width="25px" >
-                                                </span>
+                                            <div class="input-group form-group">
+                                                <div class="input-group-prepend " >
+                                                    <span class="input-group-text input-services" >
+                                                        <img class="" src="{{ asset('img/icon/white/hombre (1).png') }}" width="25px" >
+                                                    </span>
+                                                </div>
+
+                                                <select class="form-control user_banda" id="id_userbn" name="id_userbn" value="{{ old('id_userbn') }}">
+                                                    <option value="">Seleccione usuario</option>
+                                                    @foreach($user as $item)
+                                                    <option value="{{$item->id}}">{{ ucfirst($item->name)}}</option>
+                                                    @endforeach
+                                                </select>
                                             </div>
 
-                                                 <select class="form-control" id="id_userbn" name="id_userbn" value="{{ old('id_userbn') }}">
-                                                     <option value="">Seleccione usuario</option>
-                                                     @foreach($user as $item)
-                                                        <option value="{{$item->id}}">{{ ucfirst($item->name)}}</option>
-                                                     @endforeach
-                                                 </select>
-                                        </div>
+                                            <label for="">
+                                                <p class="text-white"><strong>Veh&iacute;culo</strong></p>
+                                            </label>
 
-                                         <label for="">
-                                             <p class="text-white"><strong>Veh&iacute;culo</strong></p>
-                                         </label>
+                                            <div class="input-group form-group">
+                                                <div class="input-group-prepend " >
+                                                    <span class="input-group-text input-services" >
+                                                        <img class="" src="{{ asset('img/icon/white/coche (7).png') }}" width="25px" >
+                                                    </span>
+                                                </div>
 
-                                        <div class="input-group form-group">
-                                            <div class="input-group-prepend " >
-                                                <span class="input-group-text input-services" >
-                                                     <img class="" src="{{ asset('img/icon/white/coche (7).png') }}" width="25px" >
-                                                </span>
+                                                <select class="form-control" id="current_autobn" name="current_autobn" value="{{ old('current_autobn') }}">
+                                                        <option value="">Seleccione auto</option>
+                                                </select>
                                             </div>
-
-                                            <select class="form-control" id="current_autobn" name="current_autobn" value="{{ old('current_autobn') }}">
-                                                    <option value="">Seleccione auto</option>
-                                            </select>
-                                        </div>
-
-                                      </div>
+                                    </div>
                                     @endif
                                     @if (auth()->user()->empresa == 1)
-                                            <div class="tab-pane fade show active mr-4 ml-4" id="pills-Empresa" role="tabpanel" aria-labelledby="pills-Empresa-tab">
-
-                                                <label for="">
-                                                    <p class="text-white"><strong>Sectores</strong></p>
-                                                </label>
+                                        <div class="tab-pane fade show active mr-4 ml-4" id="pills-Empresa" role="tabpanel" aria-labelledby="pills-Empresa-tab">
+                                            <label for="">
+                                                <p class="text-white"><strong>Sectores</strong></p>
+                                            </label>
 
                                             <div class="input-group form-group">
                                                 <div class="input-group-prepend " >
@@ -135,17 +126,17 @@
                                                     </span>
                                                 </div>
 
-                                                    <select class="form-control" id="id_empresa" name="id_empresa" value="{{ old('id_empresa') }}">
-                                                            <option value="">Seleccione sector</option>
-                                                            @foreach($sector as $item)
-                                                            <option value="{{$item->id}}">{{ ucfirst($item->sector)}}</option>
-                                                            @endforeach
-                                                    </select>
+                                                <select class="form-control" id="id_empresa" name="id_empresa" value="{{ old('id_empresa') }}">
+                                                        <option value="">Seleccione sector</option>
+                                                        @foreach($sector as $item)
+                                                        <option value="{{$item->id}}">{{ ucfirst($item->sector)}}</option>
+                                                        @endforeach
+                                                </select>
                                             </div>
 
-                                                <label for="">
-                                                    <p class="text-white"><strong>Vehiculo</strong></p>
-                                                </label>
+                                            <label for="">
+                                                <p class="text-white"><strong>Vehiculo</strong></p>
+                                            </label>
 
                                             <div class="input-group form-group">
                                                 <div class="input-group-prepend " >
@@ -158,17 +149,10 @@
                                                     <option value="">Seleccione auto</option>
                                                 </select>
                                             </div>
-
-                                            </div>
-                                            </div>
+                                        </div>
                                     @endif
-                                    </div>
-
-                                    {{--/*|----------------------------------------------------------------------------}}
-                                    {{--Tab Empres o User--}}
-                                    {{--|--------------------------------------------------------------------------*/--}}
-
-                                  </div>
+                                </div>
+                            </div>
 
                                   <div class="col-12 p-4">
 
@@ -329,7 +313,7 @@
                                                         $('#current_autobn').empty();
                                                         $('#current_autobn').append(`<option value="" disabled selected>Seleccione Autom&oacute;vil</option>`);
                                                         response.forEach(element => {
-                                                            $('#current_autobn').append(`<option value="${element['id']}">${element['submarca']}</option>`);
+                                                            $('#current_autobn').append(`<option value="${element['id']}">${element['submarca']} - ${element['placas']}</option>`);
                                                         });
                                                     }
                                                 });
@@ -354,7 +338,7 @@
                                                     $('#current_autobn2').empty();
                                                     $('#current_autobn2').append(`<option value="" disabled selected>Seleccione Autom&oacute;vil</option>`);
                                                     response.forEach(element => {
-                                                        $('#current_autobn2').append(`<option value="${element['id']}">${element['submarca']}</option>`);
+                                                        $('#current_autobn2').append(`<option value="${element['id']}">${element['submarca']} - ${element['placas']}</option>`);
                                                         });
                                                     }
                                                 });
@@ -379,7 +363,7 @@
                 $('#current_autobn2').empty();
                 $('#current_autobn2').append(`<option value="" disabled selected>Seleccione Autom&oacute;vil</option>`);
                 response.forEach(element => {
-                    $('#current_autobn2').append(`<option value="${element['id']}">${element['submarca']}</option>`);
+                    $('#current_autobn2').append(`<option value="${element['id']}">${element['submarca']} - ${element['placas']}</option>`);
                     });
                 }
             });

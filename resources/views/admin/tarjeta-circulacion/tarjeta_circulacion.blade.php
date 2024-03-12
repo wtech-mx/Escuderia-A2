@@ -153,7 +153,7 @@ $newDate = date("d/m/Y", strtotime($originalDate));
                                                   <i class="fas fa-sort-numeric-up icon-tc"></i>
                                             </span>
                                         </div>
-                                        <input type="text" class="form-control"  id="num_placa" name="num_placa" value="{{$tarjeta_circulacion->num_placa}}">
+                                        <input type="text" class="form-control"  id="num_placa_tc" name="num_placa_tc" value="{{$tarjeta_circulacion->num_placa}}">
                                     </div>
                                 </div>
                             </div>
@@ -209,7 +209,7 @@ $newDate = date("d/m/Y", strtotime($originalDate));
                                         <i class="fas fa-user-shield icon-tc"></i>
                                     </span>
                                 </div>
-                                <select class="form-control" id="lugar_expedicion" name="lugar_expedicion" required>
+                                <select class="form-control estados" id="lugar_expedicion" name="lugar_expedicion" required>
                                     <option value="{{$tarjeta_circulacion->lugar_expedicion}}" selected>{{$tarjeta_circulacion->lugar_expedicion}}</option>
                                     @include('tarjeta-circulacion.estados')
                                 </select>
@@ -265,4 +265,15 @@ $newDate = date("d/m/Y", strtotime($originalDate));
                     </div>
                 </div>
 
+@endsection
+@section('select2')
+<script src="{{ asset('assets/vendor/jquery/dist/jquery.min.js')}}"></script>
+<script src="{{ asset('assets/vendor/select2/dist/js/select2.min.js')}}"></script>
+<script type="text/javascript">
+
+    $(document).ready(function() {
+        $('.estados').select2();
+    });
+
+</script>
 @endsection

@@ -14,7 +14,7 @@
                                         <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                                             @if (auth()->user()->empresa == 0)
                                             <li class="nav-item bg-white">
-                                                <a class="nav-link active" id="pills-Empresa-tab" data-toggle="pill" href="#pills-Empresa" role="tab" aria-controls="pills-Empresa" aria-selected="true">
+                                                <a class="nav-link active" id="pills-Empresa-tab" data-toggle="pill" href="#pills-Empresa-frenos" role="tab" aria-controls="pills-Empresa" aria-selected="true">
                                                     <img class="" src="{{ asset('img/icon/color/edificio-de-oficinas (3).png') }}" width="25px" >
                                                     Empresa
                                                 </a>
@@ -23,7 +23,7 @@
 
 
                                             <li class="nav-item bg-white">
-                                                <a class="nav-link text-dark" id="pills-Usuario-tab" data-toggle="pill" href="#pills-Usuario" role="tab" aria-controls="pills-Usuario" aria-selected="false">
+                                                <a class="nav-link text-dark" id="pills-Usuario-tab" data-toggle="pill" href="#pills-Usuario-frenos" role="tab" aria-controls="pills-Usuario" aria-selected="false">
                                                     <img class="" src="{{ asset('img/icon/color/empresario.png') }}" width="25px" >
                                                     Usuario
                                                 </a>
@@ -56,7 +56,7 @@
                                                 </span>
                                             </div>
 
-                                                  <select class="form-control" id="id_empresafr" name="id_empresafr">
+                                                  <select class="form-control empresa_freno" id="id_empresafr" name="id_empresafr">
                                                      <option value="">Seleccione empresa</option>
                                                      @foreach($empresa as $item)
                                                         <option value="{{$item->id}}">{{ ucfirst($item->name)}}</option>
@@ -95,7 +95,7 @@
                                                 </span>
                                             </div>
 
-                                                 <select class="form-control" id="id_userfr" name="id_userfr" value="{{ old('id_userfr') }}">
+                                                 <select class="form-control user_freno" id="id_userfr" name="id_userfr" value="{{ old('id_userfr') }}">
                                                      <option value="">Seleccione usuario</option>
                                                      @foreach($user as $item)
                                                         <option value="{{$item->id}}">{{ ucfirst($item->name)}}</option>
@@ -384,7 +384,7 @@
                                                         $('#current_autofr').empty();
                                                         $('#current_autofr').append(`<option value="" disabled selected>Seleccione Autom&oacute;vil</option>`);
                                                         response.forEach(element => {
-                                                            $('#current_autofr').append(`<option value="${element['id']}">${element['submarca']}</option>`);
+                                                            $('#current_autofr').append(`<option value="${element['id']}">${element['submarca']} - ${element['placas']}</option>`);
                                                         });
                                                     }
                                                 });
@@ -409,7 +409,7 @@
                                                     $('#current_autofr2').empty();
                                                     $('#current_autofr2').append(`<option value="" disabled selected>Seleccione Autom&oacute;vil</option>`);
                                                     response.forEach(element => {
-                                                        $('#current_autofr2').append(`<option value="${element['id']}">${element['submarca']}</option>`);
+                                                        $('#current_autofr2').append(`<option value="${element['id']}">${element['submarca']} - ${element['placas']}</option>`);
                                                         });
                                                     }
                                                 });
@@ -434,7 +434,7 @@
                                                 $('#current_autofr2').empty();
                                                 $('#current_autofr2').append(`<option value="" disabled selected>Seleccione Autom&oacute;vil</option>`);
                                                 response.forEach(element => {
-                                                    $('#current_autofr2').append(`<option value="${element['id']}">${element['submarca']}</option>`);
+                                                    $('#current_autofr2').append(`<option value="${element['id']}">${element['submarca']} - ${element['placas']}</option>`);
                                                     });
                                                 }
                                             });

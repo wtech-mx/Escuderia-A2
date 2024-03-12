@@ -161,7 +161,7 @@ class TarjetaCirculacionController extends Controller
         $tarjeta_circulacion->start = $request->get('end');
         $tarjeta_circulacion->end = $request->get('end');
 
-        $tarjeta_circulacion->num_placa = $request->get('num_placa');
+        $tarjeta_circulacion->num_placa = $request->get('num_placa_tc');
         $tarjeta_circulacion->current_auto = $request->get('current_auto');
 
         //datos para el calednario

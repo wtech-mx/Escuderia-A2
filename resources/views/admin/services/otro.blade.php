@@ -14,7 +14,7 @@
                                    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                                     @if (auth()->user()->empresa == 0)
                                     <li class="nav-item bg-white">
-                                        <a class="nav-link active" id="pills-Empresa-tab" data-toggle="pill" href="#pills-Empresa" role="tab" aria-controls="pills-Empresa" aria-selected="true">
+                                        <a class="nav-link active" id="pills-Empresa-tab" data-toggle="pill" href="#pills-Empresa-otro" role="tab" aria-controls="pills-Empresa" aria-selected="true">
                                             <img class="" src="{{ asset('img/icon/color/edificio-de-oficinas (3).png') }}" width="25px" >
                                             Empresa
                                         </a>
@@ -23,7 +23,7 @@
 
 
                                     <li class="nav-item bg-white">
-                                        <a class="nav-link text-dark" id="pills-Usuario-tab" data-toggle="pill" href="#pills-Usuario" role="tab" aria-controls="pills-Usuario" aria-selected="false">
+                                        <a class="nav-link text-dark" id="pills-Usuario-tab" data-toggle="pill" href="#pills-Usuario-otro" role="tab" aria-controls="pills-Usuario" aria-selected="false">
                                             <img class="" src="{{ asset('img/icon/color/empresario.png') }}" width="25px" >
                                             Usuario
                                         </a>
@@ -31,7 +31,7 @@
                                   @endif
                                   @if (auth()->user()->empresa == 1)
                                     <li class="nav-item bg-white">
-                                        <a class="nav-link active" id="pills-Empresa-tab" data-toggle="pill" href="#pills-Empresa" role="tab" aria-controls="pills-Empresa" aria-selected="true">
+                                        <a class="nav-link active" id="pills-Sector-tab" data-toggle="pill" href="#pills-Sector-otro" role="tab" aria-controls="pills-Sector" aria-selected="true">
                                             <img class="" src="{{ asset('img/icon/color/edificio-de-oficinas (3).png') }}" width="25px" >
                                             Sector
                                         </a>
@@ -41,7 +41,7 @@
                                </div>
                                <div class="tab-content p-4" id="pills-tabContent">
                                 @if (auth()->user()->empresa == 0)
-                                   <div class="tab-pane fade show active mr-4 ml-4" id="pills-Empresa" role="tabpanel"
+                                   <div class="tab-pane fade show active mr-4 ml-4" id="pills-Empresa-otro" role="tabpanel"
                                        aria-labelledby="pills-Empresa-tab">
 
                                        <label for="">
@@ -57,7 +57,7 @@
                                                </span>
                                            </div>
 
-                                           <select class="form-control" id="id_empresaot" name="id_empresaot"
+                                           <select class="form-control empresa_otro" id="id_empresaot" name="id_empresaot"
                                                value="{{ old('id_empresaot') }}">
                                                <option value="">Seleccione empresa</option>
                                                @foreach ($empresa as $item)
@@ -102,7 +102,7 @@
                                                </span>
                                            </div>
 
-                                           <select class="form-control formselect" id="id_userot" name="id_userot"
+                                           <select class="form-control formselect user_otro" id="id_userot" name="id_userot"
                                                value="{{ old('id_userot') }}">
                                                <option value="">Seleccione usuario</option>
                                                @foreach ($user as $item)
@@ -132,7 +132,7 @@
                                    </div>
                                 @endif
                                    @if (auth()->user()->empresa == 1)
-                                        <div class="tab-pane fade show active mr-4 ml-4" id="pills-Empresa" role="tabpanel" aria-labelledby="pills-Empresa-tab">
+                                        <div class="tab-pane fade show active mr-4 ml-4" id="pills-Sector-otro" role="tabpanel" aria-labelledby="pills-Sector-tab">
 
                                             <label for="">
                                                 <p class="text-white"><strong>Sectores</strong></p>

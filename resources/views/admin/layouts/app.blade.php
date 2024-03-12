@@ -23,6 +23,9 @@
     <link href='https://use.fontawesome.com/releases/v5.7.2/css/all.css' rel='stylesheet'>
 
     @yield('css')
+    <!-- Select2  -->
+    <link rel="stylesheet" href="{{ asset('assets/vendor/select2/dist/css/select2.min.css')}}">
+
     <!-- Styles -->
     <link href="{{ asset('css/bg.css') }}" rel="stylesheet">
     <link href="{{ asset('css/login-estilos.css') }}" rel="stylesheet">
@@ -121,7 +124,7 @@
 
     @yield('js')
     @yield('crop-js')
-
+    @yield('select2')
 </body>
 
 

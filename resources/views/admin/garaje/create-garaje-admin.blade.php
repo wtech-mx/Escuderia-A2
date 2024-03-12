@@ -4,8 +4,7 @@
 
     <link href="{{ asset('css/edit-garaje.css') }}" rel="stylesheet">
     <link href="{{ asset('css/dashboard-admin.css') }}" rel="stylesheet">
-    <div class="row bg-blue"
-        style="background-image: linear-gradient(to bottom, #00d62e, #2ce048, #43eb5f, #56f574, #68ff88);">
+    <div class="row bg-blue" style="background-image: linear-gradient(to bottom, #00d62e, #2ce048, #43eb5f, #56f574, #68ff88); z-index: 0;">
 
         @if (Session::has('empresa'))
             <script>
@@ -115,8 +114,7 @@
                                         <a class="input-a-text">Marca</a>
                                     </span>
                                 </div>
-                                <select class="form-control input-edit-car" id="id_marca" name="id_marca"
-                                    value="{{ old('submarca') }}">
+                                <select class="form-control input-edit-car marca" id="id_marca" name="id_marca" value="{{ old('id_marca') }}">
                                     <option>Selecciona la marca de tu carro</option>
                                     @foreach ($marca as $item)
                                         <option value="{{ $item->id }}">{{ $item->nombre }}</option>
@@ -424,7 +422,7 @@
                                                 </span>
                                             </div>
 
-                                            <select class="form-control" id="id_user" name="id_user" required>
+                                            <select class="form-control user_car" id="id_user" name="id_user" required>
                                                 <option value="">Seleccione usuario</option>
                                                 @foreach ($user as $item)
                                                     <option value="{{ $item->id }}">{{ $item->name }}</option>
@@ -463,4 +461,16 @@
 
     </div>
 
+@endsection
+@section('select2')
+<script src="{{ asset('assets/vendor/jquery/dist/jquery.min.js')}}"></script>
+<script src="{{ asset('assets/vendor/select2/dist/js/select2.min.js')}}"></script>
+<script type="text/javascript">
+
+    $(document).ready(function() {
+        $('.marca').select2();
+        $('.user_car').select2();
+    });
+
+</script>
 @endsection

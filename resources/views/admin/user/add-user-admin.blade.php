@@ -185,7 +185,7 @@
                                     </span>
                                 </div>
 
-                                <select class="form-control" id="referencia" name="referencia">
+                                <select class="form-control referencia" id="referencia" name="referencia">
                                     <option value="">Seleccionar Referencia</option>
                                     @foreach ($user as $item)
                                         <option value="{{ $item->id }}">{{ $item->name }}</option>
@@ -365,4 +365,15 @@
     </div>
 
 
+@endsection
+@section('select2')
+<script src="{{ asset('assets/vendor/jquery/dist/jquery.min.js')}}"></script>
+<script src="{{ asset('assets/vendor/select2/dist/js/select2.min.js')}}"></script>
+<script type="text/javascript">
+
+    $(document).ready(function() {
+        $('.referencia').select2();
+    });
+
+</script>
 @endsection
