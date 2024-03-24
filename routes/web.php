@@ -230,7 +230,18 @@ Route::group(['middleware' => ['permission:ver_usuario|create_admin|Editar Usuar
     Route::patch('admin/usuario/update/password/{id}', 'UserController@update_admin_password')->name('update_admin_password.user');
 });
 
+/*|--------------------------------------------------------------------------
+|Servicios para cotizacion
+|--------------------------------------------------------------------------*/
+Route::get('admin/servicios/taller/view', 'TallerServiciosController@index')->name('index.servicios_taller');
+Route::post('admin/servicios/taller/crear', 'TallerServiciosController@store')->name('store.servicios_taller');
+Route::patch('admin/servicios/taller/update/{id}', 'TallerServiciosController@update')->name('update.servicios_taller');
 
+/*|--------------------------------------------------------------------------
+|Cotizacion para taller
+|--------------------------------------------------------------------------*/
+Route::get('admin/cotizacion/taller/view', 'TallerCotizacionController@index')->name('index.cotizacion_taller');
+Route::get('admin/cotizacion/taller/crear', 'TallerCotizacionController@create')->name('create.cotizacion_taller');
 
 /*|--------------------------------------------------------------------------
 |Create Role

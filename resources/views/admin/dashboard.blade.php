@@ -282,28 +282,28 @@
 
                     <div class="col-6 col-xs-6 col-sm-6 col-lg-4 text-center mt-4">
                         <div class="card" style="border-radius: 15px">
-                        @can('Ver Notas')
-                        <a href="{{ route('index.notas') }}">
-                        @else
-                        <a  data-toggle="modal" data-target="#modal-permisos">
-                        @endcan
-                            <div class="contenedor-inter-card position-absolute">
-                                <p clas="text-vertical-l"
-                                    style="writing-mode: vertical-lr;color: #000;top:30px;margin-top: 2.3rem;margin-left: 5px!important;">
-                                    Historial</p>
-                            </div>
-                        </a>
-                        @can('Crear Notas')
-                        <a data-toggle="modal" data-target="#modalNotas" class="text-white">
-                        @else
-                        <a  data-toggle="modal" data-target="#modal-permisos">
-                        @endcan
-                            <div class="card-body">
-                                <i class="fas fa-sticky-note icon-effect-dashboard"></i>
-                                <p class="card-text text-white"><strong>Notas</strong></p>
-                            </div>
-                        </a>
-                    </div>
+                            @can('Ver Notas')
+                            <a href="{{ route('index.notas') }}">
+                            @else
+                            <a  data-toggle="modal" data-target="#modal-permisos">
+                            @endcan
+                                <div class="contenedor-inter-card position-absolute">
+                                    <p clas="text-vertical-l"
+                                        style="writing-mode: vertical-lr;color: #000;top:30px;margin-top: 2.3rem;margin-left: 5px!important;">
+                                        Historial</p>
+                                </div>
+                            </a>
+                            @can('Crear Notas')
+                            <a data-toggle="modal" data-target="#modalNotas" class="text-white">
+                            @else
+                            <a  data-toggle="modal" data-target="#modal-permisos">
+                            @endcan
+                                <div class="card-body">
+                                    <i class="fas fa-sticky-note icon-effect-dashboard"></i>
+                                    <p class="card-text text-white"><strong>Notas</strong></p>
+                                </div>
+                            </a>
+                        </div>
                     </div>
 
                     @if ($users->empresa == 0)
@@ -320,6 +320,26 @@
                                     </div>
                                 </div>
                             </a>
+                        </div>
+                    @endif
+
+                    @if ($users->empresa == 0)
+                        <div class="col-6 col-xs-6 col-sm-6 col-lg-4 text-center mt-4">
+                            <div class="card" style="border-radius: 15px">
+                                <a  href="{{ route('index.servicios_taller') }}">
+                                    <div class="contenedor-inter-card position-absolute">
+                                        <p clas="text-vertical-l"
+                                            style="writing-mode: vertical-lr;color: #000;top:30px;margin-top: 2.3rem;margin-left: 5px!important;">
+                                            Ver Serv.</p>
+                                    </div>
+                                </a>
+                                <a href="{{ route('index.cotizacion_taller') }}" class="text-white">
+                                    <div class="card-body">
+                                        <i class="fas fa-file icon-effect-dashboard"></i>
+                                        <p class="card-text text-white"><strong>Cotizacion Taller</strong></p>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
                     @endif
 

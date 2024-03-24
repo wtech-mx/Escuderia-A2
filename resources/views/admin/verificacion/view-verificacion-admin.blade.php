@@ -98,32 +98,32 @@
                             </h5>
 
                             <div class="row">
-                                     <div class="col-12 mt-4">
-                                        <table id="verificacion_empresa" class="table display nowrap text-white" cellspacing="0" width="100%">
-                                            <thead>
+                                    <div class="col-12 mt-4">
+                                    <table id="verificacion_empresa" class="table display nowrap text-white" cellspacing="0" width="100%">
+                                        <thead>
+                                            <tr>
+                                                <th data-priority="1">Cliente</th>
+                                                <th data-priority="2">Submarca</th>
+                                                <th data-priority="3">Placas</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($verificacion_empresa as $item)
                                                 <tr>
-                                                    <th data-priority="1">Cliente</th>
-                                                    <th data-priority="2">Submarca</th>
-                                                    <th data-priority="3">Placas</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                @foreach ($verificacion_empresa as $item)
-                                                    <tr>
-                                                        @can('Editar Veri')
-                                                        <th><a style="text-decoration: none;"
-                                                                href="{{ route('edit_admin.verificacion', $item->id) }}">
-                                                                {{ $item->UserEmpresa->name }}</a>
-                                                        </th>
-                                                        @endcan
+                                                    @can('Editar Veri')
+                                                    <th><a style="text-decoration: none;"
+                                                            href="{{ route('edit_admin.verificacion', $item->id) }}">
+                                                            {{ $item->UserEmpresa->name }}</a>
+                                                    </th>
+                                                    @endcan
 
-                                                        <td>{{ $item->Automovil->submarca }}</td>
-                                                        <td>{{ $item->Automovil->placas }}</td>
-                                                    </tr>
-                                                @endforeach
-                                            </tbody>
-                                        </table>
-                                     </div>
+                                                    <td>{{ $item->Automovil->submarca }}</td>
+                                                    <td>{{ $item->Automovil->placas }}</td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                    </div>
                             </div>
 
                         </div>
