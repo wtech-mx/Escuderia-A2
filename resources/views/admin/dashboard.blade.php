@@ -306,6 +306,35 @@
                         </div>
                     </div>
 
+                    <div class="col-6 col-xs-6 col-sm-6 col-lg-4 text-center mt-4">
+                        <div class="card" style="border-radius: 15px">
+                            @can('Ver Notas')
+                            <a href="{{ route('index.notas') }}">
+                            @else
+                            <a  data-toggle="modal" data-target="#modal-permisos">
+                            @endcan
+                                <div class="contenedor-inter-card position-absolute">
+                                    <p clas="text-vertical-l"
+                                        style="writing-mode: vertical-lr;color: #000;top:30px;margin-top: 2.3rem;margin-left: 5px!important;">
+                                        Historial
+                                    </p>
+                                </div>
+                            </a>
+
+                            @can('Crear Notas')
+                            <a data-toggle="modal" data-target="#modalSolicitud" class="text-white">
+                            @else
+
+                            <a  data-toggle="modal" data-target="#modal-permisos">
+                            @endcan
+                                <div class="card-body">
+                                    <i class="fas fa-sticky-note icon-effect-dashboard"></i>
+                                    <p class="card-text text-white"><strong>Solicitud de Servicio</strong></p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
                     @if ($users->empresa == 0)
                         <div class="col-6 col-xs-6 col-sm-6 col-lg-4 text-center mt-4">
                             @can('Ver Cupones')
@@ -359,6 +388,7 @@
 
                     @include('admin.notas.create')
                     @include('admin.modal-services')
+                    @include('admin.solicitud_servicio.modal_solicitud')
 
                 </div>
         @else

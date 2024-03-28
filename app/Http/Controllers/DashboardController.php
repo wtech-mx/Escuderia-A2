@@ -29,6 +29,7 @@ class DashboardController extends Controller
             ->first();
 
 
+            $allusers = User::where('role', '=', 0)->where('id_empresa', '=', auth()->user()->id)->get();
 
             $current = date("m");
             $año = date("Y");
@@ -44,6 +45,7 @@ class DashboardController extends Controller
                 $user = DB::table('users')
                 ->where('role', '=', 0)
                 ->get();
+
             } elseif (auth()->user()->empresa == 1 && auth()->user()->id_sector == NULL) {
 
                 $alertas = Alertas::where('id_empresa', '=', auth()->user()->id)->whereMonth('start', '=', $current)->whereYear('start', '=', $año)->where('check', '=', 0)->get();
@@ -74,7 +76,7 @@ class DashboardController extends Controller
         if ($users->role == 0) {
             return view('dashboard', compact('users', 'user'));
         } else {
-            return view('admin.dashboard', compact('users', 'user', 'alertas', 'seguros', 'tarjeta', 'verificacion', 'llantas', 'verificacion_segunda', 'pronostico'));
+            return view('admin.dashboard', compact('users', 'user', 'alertas', 'seguros', 'tarjeta', 'verificacion', 'llantas', 'verificacion_segunda', 'pronostico','allusers'));
         }
     }
 
