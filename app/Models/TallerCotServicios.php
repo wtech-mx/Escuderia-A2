@@ -16,4 +16,9 @@ class TallerCotServicios extends Model
         'id_servicio',
         'subtotal',
     ];
+
+    public function Servicio()
+    {
+        return $this->belongsTo(TallerServicios::class, 'id_servicio');
+    }
 }

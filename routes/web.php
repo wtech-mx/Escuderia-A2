@@ -240,8 +240,17 @@ Route::patch('admin/servicios/taller/update/{id}', 'TallerServiciosController@up
 /*|--------------------------------------------------------------------------
 |Cotizacion para taller
 |--------------------------------------------------------------------------*/
-Route::get('admin/cotizacion/taller/view', 'TallerCotizacionController@index')->name('index.cotizacion_taller');
-Route::get('admin/cotizacion/taller/crear', 'TallerCotizacionController@create')->name('create.cotizacion_taller');
+Route::get('admin/cotizacion/taller/view/{id}', 'TallerCotizacionController@view')->name('view.cotizacion_taller');
+Route::get('admin/cotizacion/taller/index', 'TallerCotizacionController@index')->name('index.cotizacion_taller');
+Route::post('admin/cotizacion/taller/crear', 'TallerCotizacionController@store')->name('store.cotizacion_taller');
+Route::get('admin/cotizacion/taller/auto/{id}', 'TallerCotizacionController@GetAutoAgainstMainCatEdit');
+
+Route::patch('admin/cotizacion/taller/estatus/{id}', 'TallerCotizacionController@update_estatus')->name('update_estatus.cotizacion_taller');
+
+/*|--------------------------------------------------------------------------
+|Orden de serivico
+|--------------------------------------------------------------------------*/
+Route::patch('admin/orden/servicio/taller/crear/{id}', 'TallerCotizacionController@store_taller')->name('store_taller.cotizacion_taller');
 
 /*|--------------------------------------------------------------------------
 |Create Role
