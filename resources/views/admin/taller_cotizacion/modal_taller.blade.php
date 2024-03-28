@@ -7,13 +7,13 @@
                     <input type="hidden" name="_method" value="PATCH">
 
                         <div class="row">
-                            <div class="col-12  mt-5">
+                            <div class="col-12 mt-3">
                                 <h2 class="text-center ml-4 mr-4 ">
                                     <strong>Asignar taller</strong>
                                 </h2>
                             </div>
 
-                            <div class="col-12 mt-5 mb-5">
+                            <div class="col-12 mb-2">
                                 <strong>Nombre taller</strong>
                                 <div class="input-group form-group">
                                     <div class="input-group-prepend " >
@@ -26,7 +26,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 mt-5 mb-5">
+                            <div class="col-12 mb-2">
                                 <strong>Encargado</strong>
                                 <div class="input-group form-group">
                                     <div class="input-group-prepend " >
@@ -39,7 +39,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 mt-5 mb-5">
+                            <div class="col-12 mb-2">
                                 <strong>Telefono</strong>
                                 <div class="input-group form-group">
                                     <div class="input-group-prepend " >
@@ -52,7 +52,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 mt-5 mb-5">
+                            <div class="col-12 mb-2">
                                 <strong>Correo</strong>
                                 <div class="input-group form-group">
                                     <div class="input-group-prepend " >
@@ -65,7 +65,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 mt-5 mb-5">
+                            <div class="col-12 mb-5">
                                 <strong>Dirección</strong>
                                 <div class="input-group form-group">
                                     <div class="input-group-prepend " >

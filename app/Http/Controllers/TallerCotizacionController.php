@@ -109,6 +109,14 @@ class TallerCotizacionController extends Controller
         return view('admin.taller_cotizacion.view', compact('cotizacion', 'cotizacion_serivicios'));
     }
 
+    public function view_admin($id){
+        $cotizacion = TallerCotizacion::where('id', $id)->first();
+        $cotizacion_serivicios = TallerCotServicios::where('id_cotizacion', $id)->get();
+        $taller = TallerOrden::where('id_cotizacion', $id)->first();
+
+        return view('admin.taller_cotizacion.view_admin', compact('cotizacion', 'cotizacion_serivicios', 'taller'));
+    }
+
     public function update_estatus(Request $request, $id)
     {
         $cotizacion = TallerCotizacion::findOrFail($id);

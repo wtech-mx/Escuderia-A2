@@ -89,9 +89,14 @@
                                 </td>
                                 <td><button class="btn {{ obtenerClaseBoton($item->estatus) }}" data-toggle="modal" data-target="#estatus-{{ $item->id }}">{{ $item->estatus }}</button></td>
                                  <td>
-                                    <a style="color: #3490dc" data-toggle="modal" data-target="#taller-{{ $item->id }}">Taller</a> <br>
-                                    <a style="color: #3490dc" href="{{ route('view.cotizacion_taller', $item->id) }}">View</a> <br>
-                                    <a style="color: #3490dc" data-toggle="modal" data-target="#servicio-{{ $item->id }}">Edit</a>
+                                    @if ($item->estatus == 'Asignar Taller')
+                                        <a style="color: #3490dc" data-toggle="modal" data-target="#taller-{{ $item->id }}">Taller</a> <br>
+                                    @endif
+                                    @if ($item->estatus != 'Asignar Taller')
+                                        <a style="color: #3490dc" href="{{ route('view.cotizacion_taller', $item->id) }}">Enviar</a> <br>
+                                    @endif
+
+                                    <a style="color: #3490dc" href="{{ route('view_admin.cotizacion_taller', $item->id) }}">Ver</a>
                                 </td>
                             </tr>
                             @include('admin.taller_cotizacion.modal_estatus')

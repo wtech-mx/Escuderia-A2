@@ -10,6 +10,86 @@
         <div class="row  bg-down-image-border" >
             <div class="col-12  mt-5">
                 <h2 class="text-center text-white ml-4 mr-4 ">
+                    <strong>Taller asignado</strong>
+                </h2>
+            </div>
+
+            <div class="col-6 mb-3 mt-3">
+                <label class="text-white">Fecha Asignado</label>
+                <div class="input-group form-group">
+                    <div class="input-group-prepend " >
+                        <span class="input-group-text input-services" >
+                            <img class="" src="{{ asset('img/icon/white/hombre (1).png') }}" width="25px" >
+                        </span>
+                    </div>
+
+                    <input class="form-control" type="date" value="{{$taller->fecha}}" readonly>
+                </div>
+            </div>
+            <div class="col-6"></div>
+
+            <div class="col-6 mb-3 mt-3">
+                <label class="text-white">Taller</label>
+                <div class="input-group form-group">
+                    <div class="input-group-prepend " >
+                        <span class="input-group-text input-services" >
+                            <img class="" src="{{ asset('img/icon/white/hombre (1).png') }}" width="25px" >
+                        </span>
+                    </div>
+
+                    <input class="form-control" type="text" value="{{$taller->nombre_taller}}" readonly>
+                </div>
+            </div>
+
+            <div class="col-6 mb-3 mt-3">
+                <label class="text-white">Encargado</label>
+                <div class="input-group form-group">
+                    <div class="input-group-prepend " >
+                        <span class="input-group-text input-services" >
+                            <img class="" src="{{ asset('img/icon/white/hombre (1).png') }}" width="25px" >
+                        </span>
+                    </div>
+
+                    <input class="form-control" type="text" value="{{$taller->encargado}}" readonly>
+                </div>
+            </div>
+
+            <div class="col-6 mb-3 mt-3">
+                <label class="text-white">Telefono</label>
+                <div class="input-group form-group">
+                    <div class="input-group-prepend " >
+                        <span class="input-group-text input-services" >
+                            <img class="" src="{{ asset('img/icon/white/hombre (1).png') }}" width="25px" >
+                        </span>
+                    </div>
+
+                    <input class="form-control" type="text" value="{{$taller->telefono}}" readonly>
+                </div>
+            </div>
+
+            <div class="col-6 mb-3 mt-3">
+                <label class="text-white">Correo</label>
+                <div class="input-group form-group">
+                    <div class="input-group-prepend " >
+                        <span class="input-group-text input-services" >
+                            <img class="" src="{{ asset('img/icon/white/hombre (1).png') }}" width="25px" >
+                        </span>
+                    </div>
+
+                    <input class="form-control" type="text" value="{{$taller->correo}}" readonly>
+                </div>
+            </div>
+
+            <div class="col-12 mb-3 mt-3">
+                <label class="text-white">Dirección</label>
+                <div class="input-group form-group">
+
+                    <textarea name="" id="" cols="70" rows="2">{{$cotizacion->direccion}}</textarea>
+                </div>
+            </div>
+
+            <div class="col-12  mt-5">
+                <h2 class="text-center text-white ml-4 mr-4 ">
                     <strong>Orden de Servicio</strong>
                 </h2>
             </div>

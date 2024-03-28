@@ -21,6 +21,7 @@
 
                                     <select class="form-control" id="estatus" name="estatus" required>
                                             <option value="{{$item->estatus}}">{{$item->estatus}}</option>
+                                            <option value="Espera de Cotizacion">Espera de Cotizacion</option>
                                             <option value="Autorizada Cotizacion">Autorizada Cotizacion</option>
                                             <option value="En reparacion">En Reparacion</option>
                                             <option value="Por entregar usuario">Por Entregar Usuario</option>
