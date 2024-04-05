@@ -251,7 +251,7 @@ Route::patch('admin/cotizacion/taller/estatus/{id}', 'TallerCotizacionController
 |Orden de serivico
 |--------------------------------------------------------------------------*/
 Route::patch('admin/orden/servicio/taller/crear/{id}', 'TallerCotizacionController@store_taller')->name('store_taller.cotizacion_taller');
-Route::get('admin/cotizacion/taller/view/{id}', 'TallerCotizacionController@view_admin')->name('view_admin.cotizacion_taller');
+Route::get('admin/cotizacion/taller/view/admin/{id}', 'TallerCotizacionController@view_admin')->name('view_admin.cotizacion_taller');
 
 /*|--------------------------------------------------------------------------
 |Create Role

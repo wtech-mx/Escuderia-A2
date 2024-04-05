@@ -92,13 +92,17 @@
                                     @if ($item->estatus == 'Asignar Taller')
                                         <a style="color: #3490dc" data-toggle="modal" data-target="#taller-{{ $item->id }}">Taller</a> <br>
                                     @endif
+                                    @if ($item->estatus == 'Espera de cotizacion')
+                                        <a style="color: #3490dc" data-toggle="modal" data-target="#taller-cotizacion-{{ $item->id }}">Taller</a> <br>
+                                        @include('admin.taller_cotizacion.modal_taller_edit')
+                                    @endif
                                     @if ($item->estatus != 'Asignar Taller')
                                         <a style="color: #3490dc" href="{{ route('view.cotizacion_taller', $item->id) }}">Enviar</a> <br>
                                     @endif
-
                                     <a style="color: #3490dc" href="{{ route('view_admin.cotizacion_taller', $item->id) }}">Ver</a>
                                 </td>
                             </tr>
+
                             @include('admin.taller_cotizacion.modal_estatus')
                             @include('admin.taller_cotizacion.modal_taller')
                         @endforeach

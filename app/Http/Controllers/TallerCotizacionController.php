@@ -130,7 +130,7 @@ class TallerCotizacionController extends Controller
         }else if($request->get('estatus') == 'Por cargar factura'){
             $cotizacion->fecha_factura = date('Y-m-d');
         }else if($request->get('estatus') == 'Por pagar'){
-            $cotizacion->fecha_pagado = date('Y-m-d');
+            $cotizacion->fecha_por_pagar = date('Y-m-d');
         }else if($request->get('estatus') == 'Pagado'){
             $cotizacion->fecha_pagado = date('Y-m-d');
         }
@@ -151,6 +151,11 @@ class TallerCotizacionController extends Controller
         $cotizacion->direccion = $request->get('direccion');
         $cotizacion->fecha = date('Y-m-d');
         $cotizacion->save();
+
+        $cotizacion = TallerCotizacion::findOrFail($id);
+        $cotizacion->estatus = 'Espera de cotizacion';
+        $cotizacion->fecha_asignacion_taller = date('Y-m-d');
+        $cotizacion->update();
 
         Session::flash('success', 'Se ha actualizado sus datos con exito');
         return redirect()->back();

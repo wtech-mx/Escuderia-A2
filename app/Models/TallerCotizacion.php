@@ -39,4 +39,9 @@ class TallerCotizacion extends Model
     {
         return $this->belongsTo(Automovil::class, 'current_auto');
     }
+
+    public function TallerOrden()
+    {
+        return $this->hasOne(TallerOrden::class, 'id_cotizacion');
+    }
 }
