@@ -1,7 +1,7 @@
 <div class="modal fade" id="estatus-{{ $item->id }}" tabindex="-1" aria-labelledby="servicio" aria-hidden="true">
     <div class="modal-dialog modal-sm modal-dialog-centered">
         <div class="modal-content">
-            <div class="modal-body">
+            <div class="modal-body" >
                 <form method="POST" action="{{route('update_estatus.cotizacion_taller', $item->id)}}" enctype="multipart/form-data" role="form">
                     @csrf
                     <input type="hidden" name="_method" value="PATCH">
@@ -20,14 +20,17 @@
                                     </div>
 
                                     <select class="form-control" id="estatus" name="estatus" required>
-                                            <option value="{{$item->estatus}}">{{$item->estatus}}</option>
-                                            <option value="Espera de Cotizacion">Espera de Cotizacion</option>
-                                            <option value="Autorizada Cotizacion">Autorizada Cotizacion</option>
-                                            <option value="En reparacion">En Reparacion</option>
-                                            <option value="Por entregar usuario">Por Entregar Usuario</option>
-                                            <option value="Por cargar factura">Por Cargar Factura</option>
-                                            <option value="Por pagar">Por pagar</option>
-                                            <option value="Pagado">Pagado</option>
+                                        <option value="{{$item->estatus}}">{{$item->estatus}}</option>
+                                        <option value="Pendiente de ingreso a taller">Pendiente de ingreso a taller</option>
+                                        <option value="Ingreso a taller">Ingreso a taller</option>
+                                        <option value="Espera de Cotizacion">Espera de Cotizacion</option>
+                                        <option value="Pendiente de autorización">Pendiente de autorización</option>
+                                        <option value="Autorizada Cotizacion">Autorizada Cotizacion</option>
+                                        <option value="En reparacion">En Reparacion</option>
+                                        <option value="Por entregar usuario">Por Entregar Usuario</option>
+                                        <option value="Por cargar factura">Por Cargar Factura</option>
+                                        <option value="Por pagar">Por pagar</option>
+                                        <option value="Pagado">Pagado</option>
                                     </select>
                                 </div>
                             </div>

@@ -253,6 +253,8 @@ Route::patch('admin/cotizacion/taller/estatus/{id}', 'TallerCotizacionController
 Route::patch('admin/orden/servicio/taller/crear/{id}', 'TallerCotizacionController@store_taller')->name('store_taller.cotizacion_taller');
 Route::get('admin/cotizacion/taller/view/admin/{id}', 'TallerCotizacionController@view_admin')->name('view_admin.cotizacion_taller');
 
+Route::post('/import', 'ExcelImportController@import')->name('import.taller.servicios');
+
 /*|--------------------------------------------------------------------------
 |Create Role
 |--------------------------------------------------------------------------*/

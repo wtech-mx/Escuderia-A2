@@ -45,6 +45,31 @@
         <div class="col-12">
             @include('admin.taller_cotizacion.create')
         </div>
+        <div class="col-sm-12">
+            <form action="" method="GET" >
+                <div class="card-body" style="padding-left: 1.5rem; padding-top: 1rem;">
+                    <h5>Filtro</h5>
+                        <div class="row">
+                            <div class="col-3">
+                                <label for="user_id">Filtra Estatus:</label>
+                                <select class="form-control cliente" name="id_client" id="id_client">
+                                    <option value="Espera de Cotizacion">Espera de Cotizacion</option>
+                                    <option value="Autorizada Cotizacion">Autorizada Cotizacion</option>
+                                    <option value="En reparacion">En Reparacion</option>
+                                    <option value="Por entregar usuario">Por Entregar Usuario</option>
+                                    <option value="Por cargar factura">Por Cargar Factura</option>
+                                    <option value="Por pagar">Por pagar</option>
+                                    <option value="Pagado">Pagado</option>
+                                </select>
+                            </div>
+                            <div class="col-3">
+                                <br>
+                                <button class="btn btn-sm mb-0 mt-sm-0 mt-1" type="submit" style="background-color: #F82018; color: #ffffff;">Buscar</button>
+                            </div>
+                        </div>
+                </div>
+            </form>
+        </div>
 
         <div class="row  bg-down-image-border">
             <div class="col-12">
@@ -54,6 +79,7 @@
                             <th scope="col">Cliente</th>
                             <th scope="col">Automovil</th>
                             <th scope="col">Estatus</th>
+                            <th scope="col">KM</th>
                             <th scope="col">Acciones</th>
                         </tr>
                     </thead>
@@ -87,10 +113,54 @@
                                     {{ $item->Auto->Marca->nombre}} <br>
                                     {{ $item->placas}}
                                 </td>
-                                <td><button class="btn {{ obtenerClaseBoton($item->estatus) }}" data-toggle="modal" data-target="#estatus-{{ $item->id }}">{{ $item->estatus }}</button></td>
-                                 <td>
-                                    @if ($item->estatus == 'Asignar Taller')
+                                <td>
+                                    <button class="btn {{ obtenerClaseBoton($item->estatus) }}" data-toggle="modal" data-target="#estatus-{{ $item->id }}">{{ $item->estatus }}</button><br>
+                                    @switch($item->estatus)
+                                        @case('Ingreso a taller')
+                                            Fecha: {{ $item->fecha_asignacion_taller }}
+                                            @break
+                                        @case('Espera de Cotizacion')
+                                        Fecha: {{ $item->fecha_asignacion_taller }}
+                                            @break
+                                        @case('Pendiente de autorización')
+                                        Fecha: {{ $item->fecha_asignacion_taller }}
+                                            @break
+                                        @case('Autorizada Cotizacion')
+                                        Fecha: {{ $item->fecha_asignacion_taller }}
+                                            @break
+                                        @case('En reparacion')
+                                        Fecha: {{ $item->fecha_reparacion }}
+                                            @break
+                                        @case('Por entregar usuario')
+                                        Fecha: {{ $item->fecha_entregar }}
+                                            @break
+                                        @case('Por cargar factura')
+                                        Fecha: {{ $item->fecha_factura }}
+                                            @break
+                                        @case('Por pagar')
+                                        Fecha: {{ $item->fecha_por_pagar }}
+                                            @break
+                                        @case('Pagado')
+                                        Fecha: {{ $item->fecha_pagado }}
+                                            @break
+                                    @endswitch
+                                </td>
+                                <td>
+                                    @if($item->km_taller == NULL && $item->km_entrega == NULL)
+                                        KM Actual: <br>
+                                        {{ $item->km_inicial}}
+                                    @elseif($item->km_entrega == NULL)
+                                        KM Taller: <br>
+                                        {{ $item->km_taller}}
+                                    @else
+                                        KM Entrega: <br>
+                                        {{ $item->km_entrega}}
+                                    @endif
+                                </td>
+                                <td>
+                                    @if ($item->estatus == 'Pendiente de ingreso a taller')
                                         <a style="color: #3490dc" data-toggle="modal" data-target="#taller-{{ $item->id }}">Taller</a> <br>
+                                        @include('admin.taller_cotizacion.modal_taller')
                                     @endif
                                     @if ($item->estatus == 'Espera de cotizacion')
                                         <a style="color: #3490dc" data-toggle="modal" data-target="#taller-cotizacion-{{ $item->id }}">Taller</a> <br>
@@ -99,12 +169,24 @@
                                     @if ($item->estatus != 'Asignar Taller')
                                         <a style="color: #3490dc" href="{{ route('view.cotizacion_taller', $item->id) }}">Enviar</a> <br>
                                     @endif
+                                    @if ($item->estatus == 'Por entregar usuario')
+                                        <a style="color: #3490dc" data-toggle="modal" data-target="#x-entregar-{{ $item->id }}">Documentos</a> <br>
+                                        @include('admin.taller_cotizacion.modal_x_entregar')
+                                    @endif
+                                    @if ($item->estatus == 'Por cargar factura')
+                                        <a style="color: #3490dc" data-toggle="modal" data-target="#factura-{{ $item->id }}">Cargar Factura</a> <br>
+                                        @include('admin.taller_cotizacion.modal_factura')
+                                    @endif
+                                    @if ($item->estatus == 'Pagado')
+                                        <a style="color: #3490dc" data-toggle="modal" data-target="#pagado-{{ $item->id }}">Evidencia Pagado</a> <br>
+                                        @include('admin.taller_cotizacion.modal_pagado')
+                                    @endif
                                     <a style="color: #3490dc" href="{{ route('view_admin.cotizacion_taller', $item->id) }}">Ver</a>
                                 </td>
                             </tr>
 
                             @include('admin.taller_cotizacion.modal_estatus')
-                            @include('admin.taller_cotizacion.modal_taller')
+
                         @endforeach
                     </tbody>
                 </table>
@@ -148,30 +230,6 @@
     $(document).ready(function() {
         $('.cliente_cot').select2();
         $('.js-example-basic-multiple').select2();
-
-        // Función para calcular la suma de los precios
-        function calcularTotalPrecio() {
-            var total = 0;
-            $('.js-example-basic-multiple option:selected').each(function() {
-                total += parseFloat($(this).data('precio'));
-            });
-            return total;
-        }
-
-        // Función para calcular el IVA
-        function calcularIva(totalPrecio) {
-            var iva = totalPrecio * 0.16; // Suponiendo un 16% de IVA
-            var sumiva = totalPrecio + iva;
-            return sumiva;
-        }
-
-        // Actualizar los valores de los inputs al cargar la página y cada vez que cambia la selección
-        $('.js-example-basic-multiple').change(function() {
-            var totalPrecio = calcularTotalPrecio();
-            var sumiva = calcularIva(totalPrecio);
-            $('#importe_sin').val(totalPrecio.toFixed(2));
-            $('#importe_con').val(sumiva.toFixed(2));
-        });
     });
 
 </script>

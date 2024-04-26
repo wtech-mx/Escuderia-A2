@@ -1,7 +1,7 @@
-<div class="modal fade" id="taller-cotizacion-{{ $item->id }}" tabindex="-1" aria-labelledby="servicio" aria-hidden="true">
+<div class="modal fade" id="pagado-{{ $item->id }}" tabindex="-1" aria-labelledby="servicio" aria-hidden="true">
     <div class="modal-dialog modal-sm modal-dialog-centered">
         <div class="modal-content">
-            <div class="modal-body" style="color: #000000">
+            <div class="modal-body"  style="color: #000000">
                 <form method="POST" action="{{route('store_taller.cotizacion_taller', $item->id)}}" enctype="multipart/form-data" role="form">
                     @csrf
                     <input type="hidden" name="_method" value="PATCH">
@@ -9,12 +9,12 @@
                         <div class="row">
                             <div class="col-12 mt-3">
                                 <h2 class="text-center ml-4 mr-4 ">
-                                    <strong>Agregar cotización taller</strong>
+                                    <strong>Pagado</strong>
                                 </h2>
                             </div>
 
                             <div class="col-12 mb-2">
-                                <strong>Nombre taller</strong>
+                                <strong>Evidencia</strong>
                                 <div class="input-group form-group">
                                     <div class="input-group-prepend " >
                                         <span class="input-group-text input-services" >
@@ -22,12 +22,12 @@
                                         </span>
                                     </div>
 
-                                    <input class="form-control" type="text" name="nombre_taller" id="nombre_taller" value="{{$item->TallerOrden->nombre_taller}}">
+                                    <input class="form-control" type="file" name="encargado" id="encargado">
                                 </div>
                             </div>
 
                             <div class="col-12 mb-2">
-                                <strong>Encargado</strong>
+                                <strong>Tranfo.</strong>
                                 <div class="input-group form-group">
                                     <div class="input-group-prepend " >
                                         <span class="input-group-text input-services" >
@@ -35,12 +35,12 @@
                                         </span>
                                     </div>
 
-                                    <input class="form-control" type="text" name="encargado" id="encargado" value="{{$item->TallerOrden->encargado}}">
+                                    <input class="form-control" type="file" name="encargado" id="encargado">
                                 </div>
                             </div>
 
                             <div class="col-12 mb-2">
-                                <strong>Telefono</strong>
+                                <strong>Fecha Tranfo.</strong>
                                 <div class="input-group form-group">
                                     <div class="input-group-prepend " >
                                         <span class="input-group-text input-services" >
@@ -48,59 +48,31 @@
                                         </span>
                                     </div>
 
-                                    <input class="form-control" type="number" name="telefono" id="telefono" value="{{$item->TallerOrden->telefono}}">
+                                    <input class="form-control" type="date" name="encargado" id="encargado">
                                 </div>
                             </div>
 
                             <div class="col-12 mb-2">
-                                <strong>Correo</strong>
+                                <strong>Importe</strong>
                                 <div class="input-group form-group">
                                     <div class="input-group-prepend " >
                                         <span class="input-group-text input-services" >
                                             <img class="" src="{{ asset('img/icon/white/edificio-de-oficinas.png') }}" width="25px" >
                                         </span>
                                     </div>
-
-                                    <input class="form-control" type="email" name="correo" id="correo" value="{{$item->TallerOrden->correo}}">
+                                    <input class="form-control" type="number" name="telefono" id="telefono">
                                 </div>
                             </div>
 
-                            <div class="col-12 mb-5">
-                                <strong>Dirección</strong>
+                            <div class="col-12 mb-2">
+                                <strong>Comentario</strong>
                                 <div class="input-group form-group">
                                     <div class="input-group-prepend " >
                                         <span class="input-group-text input-services" >
                                             <img class="" src="{{ asset('img/icon/white/edificio-de-oficinas.png') }}" width="25px" >
                                         </span>
                                     </div>
-
-                                    <input class="form-control" type="text" name="direccion" id="direccion" value="{{$item->TallerOrden->direccion}}">
-                                </div>
-                            </div>
-
-                            <div class="col-12 mb-5">
-                                <strong>Cotizacion</strong>
-                                <div class="input-group form-group">
-                                    <div class="input-group-prepend " >
-                                        <span class="input-group-text input-services" >
-                                            <img class="" src="{{ asset('img/icon/white/edificio-de-oficinas.png') }}" width="25px" >
-                                        </span>
-                                    </div>
-
-                                    <input class="form-control" type="file" name="direccion" id="direccion">
-                                </div>
-                            </div>
-
-                            <div class="col-12 mb-5">
-                                <strong>Fotos</strong>
-                                <div class="input-group form-group">
-                                    <div class="input-group-prepend " >
-                                        <span class="input-group-text input-services" >
-                                            <img class="" src="{{ asset('img/icon/white/edificio-de-oficinas.png') }}" width="25px" >
-                                        </span>
-                                    </div>
-
-                                    <input class="form-control" type="file" name="direccion" id="direccion" multiple>
+                                    <textarea class="form-control" name="" id="" cols="30" rows="3"></textarea>
                                 </div>
                             </div>
                         </div>

@@ -35,6 +35,12 @@
             </div>
         </div>
 
+        <form action="{{ route('import.taller.servicios') }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            <input type="file" name="file">
+            <button type="submit">Importar</button>
+        </form>
+
         <a data-toggle="modal" data-target="#modal-taller-cot">
             Agregar<i class="fas fa-plus-circle icon-effect"></i>
         </a>
@@ -69,14 +75,5 @@
 @endsection
 
 @section('js')
-<script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.min.js"></script>
-
-    <script>
-        $(document).ready(function() {
-            $('#servicio').DataTable();
-        });
-
-    </script>
 
 @endsection

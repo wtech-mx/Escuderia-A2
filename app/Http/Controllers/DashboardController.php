@@ -28,9 +28,6 @@ class DashboardController extends Controller
         $users = User::where('id', '=', auth()->user()->id)
             ->first();
 
-
-            $allusers = User::where('role', '=', 0)->where('id_empresa', '=', auth()->user()->id)->get();
-
             $current = date("m");
             $año = date("Y");
             if (auth()->user()->empresa == 0) {
@@ -61,7 +58,6 @@ class DashboardController extends Controller
                 ->get();
             } else {
                 $user = DB::table('users')
-                ->where('role', '=', 0)
                 ->where('id_empresa', '=', auth()->user()->id)
                 ->get();
                 $alertas = Alertas::where('id_sector', '=', auth()->user()->id_sector)->whereMonth('start', '=', $current)->whereYear('start', '=', $año)->where('check', '=', 0)->get();
@@ -71,12 +67,13 @@ class DashboardController extends Controller
                 $llantas = Llantas::where('id_sector', '=', auth()->user()->id_sector)->whereMonth('start', '=', $current)->whereYear('start', '=', $año)->where('check', '=', 0)->get()->makeHidden('end');
                 $verificacion_segunda = VerificacionSegunda::where('id_sector', '=', auth()->user()->id_sector)->whereMonth('start', '=', $current)->whereYear('start', '=', $año)->where('check', '=', 0)->get()->makeHidden('end');
                 $pronostico = Pronostico::where('id_sector', '=', auth()->user()->id_sector)->whereMonth('start', '=', $current)->whereYear('start', '=', $año)->where('check', '=', 0)->get()->makeHidden('end');
+
             }
 
         if ($users->role == 0) {
             return view('dashboard', compact('users', 'user'));
         } else {
-            return view('admin.dashboard', compact('users', 'user', 'alertas', 'seguros', 'tarjeta', 'verificacion', 'llantas', 'verificacion_segunda', 'pronostico','allusers'));
+            return view('admin.dashboard', compact('users', 'user', 'alertas', 'seguros', 'tarjeta', 'verificacion', 'llantas', 'verificacion_segunda', 'pronostico'));
         }
     }
 

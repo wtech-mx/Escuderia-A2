@@ -33,6 +33,22 @@
                            </div>
                         </div>
 
+                        <div class="col-6">
+                            <label for="">
+                                <p class="text-dark"><strong>KM Actual</strong></p>
+                            </label>
+
+                           <div class="input-group form-group mb-5">
+                               <div class="input-group-prepend">
+                                   <span class="input-group-text" style="background: #0CD935;">
+                                       <i class="fas fa-signature icon-tc"></i>
+                                   </span>
+                               </div>
+
+                               <input type="number" class="form-control" name="ubicacion" id="ubicacion" >
+                           </div>
+                        </div>
+
                         <div class="col-12">
                             <label for="">
                                 <p class="text-dark"><strong>Seleccionar Usuario</strong></p>
@@ -46,7 +62,8 @@
                                 </div>
                                 <select class="form-control" id="id_userco" name="id_userco">
                                     <option value="">Seleccione Cliente</option>
-                                   @foreach ($allusers as $item)
+
+                                   @foreach ($user as $item)
                                        <option value="{{ $item->id }}">{{ $item->name }}</option>
                                    @endforeach
                                </select>
@@ -72,6 +89,22 @@
 
                         <div class="col-12">
                             <label for="">
+                                <p class="text-dark"><strong>Ubicación</strong></p>
+                            </label>
+
+                           <div class="input-group form-group mb-5">
+                               <div class="input-group-prepend">
+                                   <span class="input-group-text" style="background: #0CD935;">
+                                       <i class="fas fa-signature icon-tc"></i>
+                                   </span>
+                               </div>
+
+                               <input type="text" class="form-control" name="ubicacion" id="ubicacion" >
+                           </div>
+                        </div>
+
+                        <div class="col-12">
+                            <label for="">
                                 <p class="text-dark"><strong>Describe el Problema</strong></p>
                             </label>
 
@@ -82,7 +115,7 @@
 
                         <div class="col-6">
                             <label for="">
-                                <p class="text-dark"><strong>Foto 1</strong></p>
+                                <p class="text-dark"><strong>Titulo</strong></p>
                             </label>
 
                            <div class="input-group form-group mb-5">
@@ -92,14 +125,14 @@
                                    </span>
                                </div>
 
-                               <input type="date" class="form-control" name="" id="" value="" >
+                               <input type="text" class="form-control" name="" id="" value="" placeholder="Foto de bateria">
                            </div>
 
                         </div>
 
                         <div class="col-6">
                             <label for="">
-                                <p class="text-dark"><strong>Foto 2</strong></p>
+                                <p class="text-dark"><strong>Foto</strong></p>
                             </label>
 
                            <div class="input-group form-group mb-5">
@@ -109,41 +142,7 @@
                                    </span>
                                </div>
 
-                               <input type="date" class="form-control" name="" id="" value="" >
-                           </div>
-
-                        </div>
-
-                        <div class="col-6">
-                            <label for="">
-                                <p class="text-dark"><strong>Foto 3</strong></p>
-                            </label>
-
-                           <div class="input-group form-group mb-5">
-                               <div class="input-group-prepend">
-                                   <span class="input-group-text" style="background: #0CD935;">
-                                       <i class="fas fa-image icon-tc"></i>
-                                   </span>
-                               </div>
-
-                               <input type="date" class="form-control" name="" id="" value="" >
-                           </div>
-
-                        </div>
-
-                        <div class="col-6">
-                            <label for="">
-                                <p class="text-dark"><strong>Foto 4</strong></p>
-                            </label>
-
-                           <div class="input-group form-group mb-5">
-                               <div class="input-group-prepend">
-                                   <span class="input-group-text" style="background: #0CD935;">
-                                       <i class="fas fa-image icon-tc"></i>
-                                   </span>
-                               </div>
-
-                               <input type="date" class="form-control" name="" id="" value="" >
+                               <input type="file" class="form-control" name="" id="" value="" >
                            </div>
 
                         </div>
