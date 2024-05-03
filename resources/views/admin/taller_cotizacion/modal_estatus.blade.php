@@ -7,15 +7,16 @@
                     <input type="hidden" name="_method" value="PATCH">
                             <div class="col-12  mt-5">
                                 <h2 class="text-center ml-4 mr-4 ">
-                                    <strong>Cambiar estatus</strong>
+                                    <strong>Cambiar estatus</strong> <br>
+                                    <img class="" src="{{ asset('img/icon/black/change-management.png') }}" width="60px" >
                                 </h2>
                             </div>
 
-                            <div class="col-6 mt-5 mb-5">
+                            <div class="col-12 mt-5 mb-5">
                                 <div class="input-group form-group">
                                     <div class="input-group-prepend " >
                                         <span class="input-group-text input-services" >
-                                            <img class="" src="{{ asset('img/icon/white/edificio-de-oficinas.png') }}" width="25px" >
+                                            <img class="" src="{{ asset('img/icon/white/change-management.png') }}" width="25px" >
                                         </span>
                                     </div>
 
@@ -36,7 +37,7 @@
                             <p class="text-center">
                                 <button class="btn btn-sm btn-save text-white">
                                     <img class="d-inline" src="{{ asset('img/icon/white/save-file-option (1).png') }}" alt="Icon documento" width="30px">
-                                    Guardar
+                                    Actualizar
                                 </button>
                             </p>
                 </form>

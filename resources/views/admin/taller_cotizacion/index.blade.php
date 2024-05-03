@@ -52,7 +52,7 @@
                         <div class="row">
                             <div class="col-3">
                                 <label for="user_id">Filtra Estatus:</label>
-                                <select class="form-control cliente" name="id_client" id="id_client">
+                                <select class="form-select cliente" name="id_client" id="id_client">
                                     <option value="Espera de Cotizacion">Espera de Cotizacion</option>
                                     <option value="Autorizada Cotizacion">Autorizada Cotizacion</option>
                                     <option value="En reparacion">En Reparacion</option>
@@ -64,7 +64,7 @@
                             </div>
                             <div class="col-3">
                                 <br>
-                                <button class="btn btn-sm mb-0 mt-sm-0 mt-1" type="submit" style="background-color: #F82018; color: #ffffff;">Buscar</button>
+                                <button class="btn btn-sm mb-0 mt-sm-0 mt-1" type="submit" style="background-color: #2ECC71 ; color: #ffffff;">Buscar <img class="" src="{{ asset('img/icon/white/search.png') }}" width="20px" ></button>
                             </div>
                         </div>
                 </div>
@@ -80,7 +80,6 @@
                             <th scope="col">Automovil</th>
                             <th scope="col">Estatus</th>
                             <th scope="col">KM</th>
-                            <th scope="col">Fecha</th>
                             <th scope="col">Acciones</th>
                         </tr>
                     </thead>
@@ -163,33 +162,33 @@
                                 </td>
                                 <td>
                                     @if ($item->estatus == 'Pendiente de ingreso a taller')
-                                        <a style="color: #3490dc" data-toggle="modal" data-target="#taller-{{ $item->id }}">Taller</a> <br>
+                                        <a style="color: #3490dc" data-toggle="modal" data-target="#taller-{{ $item->id }}">  <img class="" src="{{ asset('img/icon/white/configuraciones.png') }}" width="20px" > Taller</a> <br>
                                         @include('admin.taller_cotizacion.modal_taller')
                                     @endif
                                     @if ($item->estatus == 'Espera de Cotizacion')
-                                        <a style="color: #3490dc" data-toggle="modal" data-target="#taller-cotizacion-{{ $item->id }}">Taller</a> <br>
+                                        <a style="color: #3490dc" data-toggle="modal" data-target="#taller-cotizacion-{{ $item->id }}">  <img class="" src="{{ asset('img/icon/white/configuraciones.png') }}" width="20px" > Taller</a> <br>
                                         @include('admin.taller_cotizacion.modal_taller_edit')
                                     @endif
                                     @if ($item->estatus != 'Asignar Taller')
-                                        <a style="color: #3490dc" href="{{ route('view.cotizacion_taller', $item->id) }}">Enviar</a> <br>
+                                        <a style="color: #3490dc" href="{{ route('view.cotizacion_taller', $item->id) }}"><img class="" src="{{ asset('img/icon/white/cotizacion.png') }}" width="20px" > Enviar</a> <br>
                                     @endif
                                     @if ($item->estatus == 'Pendiente de autorización')
-                                        <a style="color: #3490dc" data-toggle="modal" data-target="#taller-cotizacion-{{ $item->id }}">Cotizacion</a> <br>
+                                        <a style="color: #3490dc" data-toggle="modal" data-target="#taller-cotizacion-{{ $item->id }}"><img class="" src="{{ asset('img/icon/white/enviar.png') }}" width="20px" > Cotizacion</a> <br>
                                         @include('admin.taller_cotizacion.modal_taller_edit')
                                     @endif
                                     @if ($item->estatus == 'Por entregar usuario')
-                                        <a style="color: #3490dc" data-toggle="modal" data-target="#x-entregar-{{ $item->id }}">Documentos</a> <br>
+                                        <a style="color: #3490dc" data-toggle="modal" data-target="#x-entregar-{{ $item->id }}"><img class="" src="{{ asset('img/icon/white/contrato (1).png') }}" width="20px" > Documentos</a> <br>
                                         @include('admin.taller_cotizacion.modal_x_entregar')
                                     @endif
                                     @if ($item->estatus == 'Por cargar factura')
-                                        <a style="color: #3490dc" data-toggle="modal" data-target="#factura-{{ $item->id }}">Cargar Factura</a> <br>
+                                        <a style="color: #3490dc" data-toggle="modal" data-target="#factura-{{ $item->id }}"><img class="" src="{{ asset('img/icon/white/factura.png') }}" width="20px" > Cargar Factura</a> <br>
                                         @include('admin.taller_cotizacion.modal_factura')
                                     @endif
                                     @if ($item->estatus == 'Por pagar')
-                                        <a style="color: #3490dc" data-toggle="modal" data-target="#pagado-{{ $item->id }}">Evidencia Pagado</a> <br>
+                                        <a style="color: #3490dc" data-toggle="modal" data-target="#pagado-{{ $item->id }}"><img class="" src="{{ asset('img/icon/white/metodo-de-pago (1).png') }}" width="20px" > Evidencia Pagado</a> <br>
                                         @include('admin.taller_cotizacion.modal_pagado')
                                     @endif
-                                    <a style="color: #3490dc" href="{{ route('view_admin.cotizacion_taller', $item->id) }}">Ver</a>
+                                    <a style="color: #3490dc" href="{{ route('view_admin.cotizacion_taller', $item->id) }}"><img class="" src="{{ asset('img/icon/white/ojo.png') }}" width="20px" > Ver</a>
                                 </td>
                             </tr>
 
