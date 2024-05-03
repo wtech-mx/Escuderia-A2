@@ -22,10 +22,8 @@
                                     <select class="form-control" id="estatus" name="estatus" required>
                                         <option value="{{$item->estatus}}">{{$item->estatus}}</option>
                                         <option value="Pendiente de ingreso a taller">Pendiente de ingreso a taller</option>
-                                        <option value="Ingreso a taller">Ingreso a taller</option>
                                         <option value="Espera de Cotizacion">Espera de Cotizacion</option>
                                         <option value="Pendiente de autorización">Pendiente de autorización</option>
-                                        <option value="Autorizada Cotizacion">Autorizada Cotizacion</option>
                                         <option value="En reparacion">En Reparacion</option>
                                         <option value="Por entregar usuario">Por Entregar Usuario</option>
                                         <option value="Por cargar factura">Por Cargar Factura</option>

@@ -80,6 +80,7 @@
                             <th scope="col">Automovil</th>
                             <th scope="col">Estatus</th>
                             <th scope="col">KM</th>
+                            <th scope="col">Fecha</th>
                             <th scope="col">Acciones</th>
                         </tr>
                     </thead>
@@ -114,8 +115,11 @@
                                     {{ $item->placas}}
                                 </td>
                                 <td>
-                                    <button class="btn {{ obtenerClaseBoton($item->estatus) }}" data-toggle="modal" data-target="#estatus-{{ $item->id }}">{{ $item->estatus }}</button><br>
+                                    <button class="btn {{ obtenerClaseBoton($item->estatus) }}" data-toggle="modal" data-target="#estatus-{{ $item->id }}">{{ $item->estatus }}</button><br><br>
                                     @switch($item->estatus)
+                                        @case('Pendiente de ingreso a taller')
+                                            Fecha: {{ $item->fecha_asignacion_taller }}
+                                            @break
                                         @case('Ingreso a taller')
                                             Fecha: {{ $item->fecha_asignacion_taller }}
                                             @break
@@ -162,12 +166,16 @@
                                         <a style="color: #3490dc" data-toggle="modal" data-target="#taller-{{ $item->id }}">Taller</a> <br>
                                         @include('admin.taller_cotizacion.modal_taller')
                                     @endif
-                                    @if ($item->estatus == 'Espera de cotizacion')
+                                    @if ($item->estatus == 'Espera de Cotizacion')
                                         <a style="color: #3490dc" data-toggle="modal" data-target="#taller-cotizacion-{{ $item->id }}">Taller</a> <br>
                                         @include('admin.taller_cotizacion.modal_taller_edit')
                                     @endif
                                     @if ($item->estatus != 'Asignar Taller')
                                         <a style="color: #3490dc" href="{{ route('view.cotizacion_taller', $item->id) }}">Enviar</a> <br>
+                                    @endif
+                                    @if ($item->estatus == 'Pendiente de autorización')
+                                        <a style="color: #3490dc" data-toggle="modal" data-target="#taller-cotizacion-{{ $item->id }}">Cotizacion</a> <br>
+                                        @include('admin.taller_cotizacion.modal_taller_edit')
                                     @endif
                                     @if ($item->estatus == 'Por entregar usuario')
                                         <a style="color: #3490dc" data-toggle="modal" data-target="#x-entregar-{{ $item->id }}">Documentos</a> <br>
@@ -177,7 +185,7 @@
                                         <a style="color: #3490dc" data-toggle="modal" data-target="#factura-{{ $item->id }}">Cargar Factura</a> <br>
                                         @include('admin.taller_cotizacion.modal_factura')
                                     @endif
-                                    @if ($item->estatus == 'Pagado')
+                                    @if ($item->estatus == 'Por pagar')
                                         <a style="color: #3490dc" data-toggle="modal" data-target="#pagado-{{ $item->id }}">Evidencia Pagado</a> <br>
                                         @include('admin.taller_cotizacion.modal_pagado')
                                     @endif
