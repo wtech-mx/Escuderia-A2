@@ -198,7 +198,7 @@ class TarjetaCirculacionController extends Controller
 
         Session::flash('success', 'Se ha guardado sus datos con exito');
 
-        return redirect()->route('indextc_admin.tarjeta-circulacion', compact('tarjeta_circulacion'));
+        return redirect()->back();
     }
 
     public function export()

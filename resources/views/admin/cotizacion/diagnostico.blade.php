@@ -680,7 +680,7 @@
 
                                             <tr>
                                                 <th>
-                                                    Aceite de transmicion
+                                                    Aceite de transmisión
                                                 </th>
                                                 <td><div class="bueno">
                                                     @if ( $cotizacion2->aceite_t == 1)
