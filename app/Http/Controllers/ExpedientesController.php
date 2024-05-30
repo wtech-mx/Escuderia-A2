@@ -710,7 +710,8 @@ class ExpedientesController extends Controller
         $exp->save();
 
         Session::flash('success', 'Se ha guardado sus datos con exito');
-        return redirect()->back();
+
+        return redirect()->route('create_admin.view-poliza-admin', $exp->current_auto);
     }
 
     public function store_admin_tc( Request $request){
