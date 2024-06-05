@@ -42,14 +42,20 @@
                             <div class="col-12 col-md-6 col-lg-6 mt-2" >
                                 <p><strong>Comentario Solicitante</strong></p>
                                 <div class="input-group form-group">
-                                    <textarea  class="form-control" name="comentarios" id="comentarios" cols="90" rows="3" disabled>{{$item->comentarios}}</textarea>
+                                    <textarea  class="form-control" cols="90" rows="3" disabled>
+                                        @foreach ($comentarios as $comentario)
+                                            @if ($comentario->id_cotizacion == $item->id && $comentario->estatus == 'Pendiente de asignar taller' )
+                                                {{$comentario->comentario}}
+                                            @endif
+                                        @endforeach
+                                    </textarea>
                                 </div>
                             </div>
 
                             <div class="col-12 col-md-6 col-lg-6 mt-2" >
                                 <p><strong>Comentario Admin</strong></p>
                                 <div class="input-group form-group">
-                                    <textarea  class="form-control" name="comentarios" id="comentarios" cols="90" rows="3"></textarea>
+                                    <textarea  class="form-control" name="comentario" id="comentario" cols="90" rows="3"></textarea>
                                 </div>
                             </div>
                         </div>

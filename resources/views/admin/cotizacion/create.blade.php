@@ -252,30 +252,7 @@
                 </div>
 
     @section('js')
-        <script>
-            $(document).ready(function () {
-                $('#id_userco').on('change', function () {
-                    let id = $(this).val();
-                    //id_userco no esta en la tabla de automovil
-                    $('#current_autoco').empty();
-                    $('#current_autoco').append(`<option value="" disabled selected>Procesando..</option>`);
-                    $.ajax({
-                        type: 'GET',
-                        url: 'crear/' + id,
-                        success: function (response) {
-                            var response = JSON.parse(response);
-                            console.log(response);
-                            //trae los automoviles relacionados con el id_userco
-                            $('#current_autoco').empty();
-                            $('#current_autoco').append(`<option value="" disabled selected>Seleccione Autom&oacute;vil</option>`);
-                            response.forEach(element => {
-                                $('#current_autoco').append(`<option value="${element['id']}">${element['placas']}${element['submarca']}</option>`);
-                            });
-                        }
-                    });
-                });
-            });
-        </script>
+
 
         <script src="{{ asset('js/select2.full.min.js') }}"></script>
 

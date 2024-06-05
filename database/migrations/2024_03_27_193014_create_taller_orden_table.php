@@ -17,7 +17,7 @@ class CreateTallerOrdenTable extends Migration
             $table->id();
             $table->unsignedBigInteger('id_cotizacion');
             $table->foreign('id_cotizacion')
-                ->references('id')->on('taller_cotizacion')
+                ->references('id')->on('orden_servicio')
                 ->inDelete('set null');
 
             $table->text('nombre_taller')->nullable();

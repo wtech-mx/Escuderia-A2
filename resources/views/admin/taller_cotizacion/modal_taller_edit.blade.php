@@ -1,4 +1,4 @@
-<div class="modal fade" id="taller-cotizacion-{{ $item->id }}" tabindex="-1" aria-labelledby="servicio" aria-hidden="true">
+<div class="modal fade" id="taller-edit-{{ $item->id }}" tabindex="-1" aria-labelledby="servicio" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-body" style="color: #000000">
@@ -33,14 +33,20 @@
                             <div class="col-6 mt-2" >
                                 <p><strong>Comentario Solicitante</strong></p>
                                 <div class="input-group form-group">
-                                    <textarea name="comentarios" id="comentarios" cols="90" rows="3" disabled>{{$item->comentarios}}</textarea>
+                                    <textarea cols="90" rows="3" disabled>
+                                        @foreach ($comentarios as $comentario)
+                                            @if ($comentario->id_cotizacion == $item->id && $comentario->estatus == 'Pendiente de asignar taller')
+                                                {{$comentario->comentario}}
+                                            @endif
+                                        @endforeach
+                                    </textarea>
                                 </div>
                             </div>
 
                             <div class="col-6 mt-2" >
                                 <p><strong>Comentario Admin</strong></p>
                                 <div class="input-group form-group">
-                                    <textarea name="comentarios" id="comentarios" cols="90" rows="3" disabled>Cliente Especial</textarea>
+                                    <textarea name="comentario" id="comentario" cols="90" rows="3"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -61,7 +67,7 @@
                                         </span>
                                     </div>
 
-                                    <input class="form-control" type="text" name="nombre_taller" id="nombre_taller" value="{{$item->TallerOrden->nombre_taller}}">
+                                    <input class="form-control" type="text" name="nombre_taller" id="nombre_taller" value="{{$item->TallerOrden->nombre_taller}}" disabled>
                                 </div>
                             </div>
 
@@ -74,7 +80,7 @@
                                         </span>
                                     </div>
 
-                                    <input class="form-control" type="text" name="encargado" id="encargado" value="{{$item->TallerOrden->encargado}}">
+                                    <input class="form-control" type="text" name="encargado" id="encargado" value="{{$item->TallerOrden->encargado}}" disabled>
                                 </div>
                             </div>
 
@@ -87,7 +93,7 @@
                                         </span>
                                     </div>
 
-                                    <input class="form-control" type="number" name="telefono" id="telefono" value="{{$item->TallerOrden->telefono}}">
+                                    <input class="form-control" type="number" name="telefono" id="telefono" value="{{$item->TallerOrden->telefono}}" disabled>
                                 </div>
                             </div>
 
@@ -100,7 +106,7 @@
                                         </span>
                                     </div>
 
-                                    <input class="form-control" type="email" name="correo" id="correo" value="{{$item->TallerOrden->correo}}">
+                                    <input class="form-control" type="email" name="correo" id="correo" value="{{$item->TallerOrden->correo}}" disabled>
                                 </div>
                             </div>
 
@@ -113,7 +119,7 @@
                                         </span>
                                     </div>
 
-                                    <input class="form-control" type="text" name="direccion" id="direccion" value="{{$item->TallerOrden->direccion}}">
+                                    <input class="form-control" type="text" name="direccion" id="direccion" value="{{$item->TallerOrden->direccion}}" disabled>
                                 </div>
                             </div>
 

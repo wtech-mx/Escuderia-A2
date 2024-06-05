@@ -5,23 +5,20 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class TallerOrden extends Model
+class OrdenImg extends Model
 {
     use HasFactory;
-    protected $table = "taller_orden";
+    protected $table = "orden_ser_img";
     protected $primarykey = "id";
 
     protected $fillable = [
         'id_cotizacion',
-        'nombre_taller',
-        'encargado',
-        'telefono',
-        'correo',
-        'direccion',
+        'estatus',
+        'imagen',
         'fecha',
     ];
 
-    public function Cotizacion()
+    public function OrdenServicio()
     {
         return $this->belongsTo(OrdenServicio::class, 'id_cotizacion');
     }

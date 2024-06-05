@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Alertas;
+use App\Models\Automovil;
 use App\Models\Llantas;
 use App\Models\Pronostico;
 use App\Models\Seguros;
@@ -27,6 +28,7 @@ class DashboardController extends Controller
     {
         $users = User::where('id', '=', auth()->user()->id)
             ->first();
+        $automoviles = Automovil::where('id_user', '=', auth()->user()->id)->get();
 
             $current = date("m");
             $año = date("Y");
@@ -67,13 +69,12 @@ class DashboardController extends Controller
                 $llantas = Llantas::where('id_sector', '=', auth()->user()->id_sector)->whereMonth('start', '=', $current)->whereYear('start', '=', $año)->where('check', '=', 0)->get()->makeHidden('end');
                 $verificacion_segunda = VerificacionSegunda::where('id_sector', '=', auth()->user()->id_sector)->whereMonth('start', '=', $current)->whereYear('start', '=', $año)->where('check', '=', 0)->get()->makeHidden('end');
                 $pronostico = Pronostico::where('id_sector', '=', auth()->user()->id_sector)->whereMonth('start', '=', $current)->whereYear('start', '=', $año)->where('check', '=', 0)->get()->makeHidden('end');
-
             }
 
         if ($users->role == 0) {
             return view('dashboard', compact('users', 'user'));
         } else {
-            return view('admin.dashboard', compact('users', 'user', 'alertas', 'seguros', 'tarjeta', 'verificacion', 'llantas', 'verificacion_segunda', 'pronostico'));
+            return view('admin.dashboard', compact('users', 'user', 'alertas', 'seguros', 'tarjeta', 'verificacion', 'llantas', 'verificacion_segunda', 'pronostico', 'automoviles'));
         }
     }
 

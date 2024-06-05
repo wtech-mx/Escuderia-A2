@@ -13,7 +13,7 @@ class CreateCotizacionTallerTable extends Migration
      */
     public function up()
     {
-        Schema::create('taller_cotizacion', function (Blueprint $table) {
+        Schema::create('orden_servicio', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_user')->nullable();
             $table->foreign('id_user')
@@ -25,21 +25,30 @@ class CreateCotizacionTallerTable extends Migration
                 ->references('id')->on('automovil')
                 ->inDelete('set null');
 
-            $table->text('foto1')->nullable();
-            $table->text('foto2')->nullable();
-            $table->text('foto3')->nullable();
-            $table->text('foto4')->nullable();
-            $table->text('importe_sin')->nullable();
-            $table->text('importe_con')->nullable();
-            $table->text('comentarios')->nullable();
-            $table->text('estatus');
-            $table->date('fecha_creacion');
+            $table->text('total')->nullable();
+            $table->text('km_actual')->nullable();
+            $table->text('km_taller')->nullable();
+            $table->text('km_entrega')->nullable();
+            $table->text('ubicacion')->nullable();
+            $table->text('estatus')->nullable();
 
-            $table->date('fecha_atorizacion')->nullable();
-            $table->date('fecha_reparacion')->nullable();
-            $table->date('fecha_entregar')->nullable();
+            $table->text('titulo_img')->nullable();
+            $table->text('img')->nullable();
+
+            $table->date('fecha_creacion');
+            $table->date('fecha_asignacion_taller')->nullable();
+            $table->date('fecha_ingreso_taller')->nullable();
+            $table->date('fecha_cotizacion')->nullable();
+            $table->date('fecha_autorizada')->nullable();
+            $table->date('fecha_reparado')->nullable();
+            $table->date('fecha_entregado')->nullable();
             $table->date('fecha_factura')->nullable();
             $table->date('fecha_pagado')->nullable();
+
+            $table->unsignedBigInteger('id_empresa')->nullable();
+            $table->foreign('id_empresa')
+                ->references('id')->on('users')
+                ->inDelete('set null');
             $table->timestamps();
         });
     }

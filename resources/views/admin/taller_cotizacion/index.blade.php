@@ -88,9 +88,9 @@
                             @php
                                 function obtenerClaseBoton($estatus) {
                                     switch ($estatus) {
-                                        case 'Cotizacion':
+                                        case 'Pendiente de asignar taller':
                                             return 'btn-primary';
-                                        case 'En reparacion':
+                                        case 'Pendiente de ingreso a taller':
                                             return 'btn-warning';
                                         case 'Por entregar usuario':
                                             return 'btn-info';
@@ -116,34 +116,31 @@
                                 <td>
                                     <button class="btn {{ obtenerClaseBoton($item->estatus) }}" data-toggle="modal" data-target="#estatus-{{ $item->id }}">{{ $item->estatus }}</button><br><br>
                                     @switch($item->estatus)
+                                        @case('Pendiente de asignar taller')
+                                            Fecha: {{ $item->fecha_creacion }}
+                                            @break
                                         @case('Pendiente de ingreso a taller')
                                             Fecha: {{ $item->fecha_asignacion_taller }}
                                             @break
-                                        @case('Ingreso a taller')
-                                            Fecha: {{ $item->fecha_asignacion_taller }}
+                                        @case('En espera de cotización')
+                                        Fecha: {{ $item->fecha_ingreso_taller }}
                                             @break
-                                        @case('Espera de Cotizacion')
-                                        Fecha: {{ $item->fecha_asignacion_taller }}
+                                        @case('Pendiente de Autorización')
+                                        Fecha: {{ $item->fecha_cotizacion }}
                                             @break
-                                        @case('Pendiente de autorización')
-                                        Fecha: {{ $item->fecha_asignacion_taller }}
+                                        @case('Cotización autorizada en reparación unidad')
+                                        Fecha: {{ $item->fecha_autorizada }}
                                             @break
-                                        @case('Autorizada Cotizacion')
-                                        Fecha: {{ $item->fecha_asignacion_taller }}
+                                        @case('Reparada pendiente de entrega unidad')
+                                        Fecha: {{ $item->fecha_reparado }}
                                             @break
-                                        @case('En reparacion')
-                                        Fecha: {{ $item->fecha_reparacion }}
+                                        @case('Entregada por cargar factura')
+                                        Fecha: {{ $item->fecha_entregado }}
                                             @break
-                                        @case('Por entregar usuario')
-                                        Fecha: {{ $item->fecha_entregar }}
-                                            @break
-                                        @case('Por cargar factura')
+                                        @case('Facturada por pagar')
                                         Fecha: {{ $item->fecha_factura }}
                                             @break
-                                        @case('Por pagar')
-                                        Fecha: {{ $item->fecha_por_pagar }}
-                                            @break
-                                        @case('Pagado')
+                                        @case('Pagada')
                                         Fecha: {{ $item->fecha_pagado }}
                                             @break
                                     @endswitch
@@ -161,32 +158,13 @@
                                     @endif
                                 </td>
                                 <td>
-                                    @if ($item->estatus == 'Pendiente de ingreso a taller')
+                                    @if ($item->estatus == 'Pendiente de asignar taller')
                                         <a style="color: #3490dc" data-toggle="modal" data-target="#taller-{{ $item->id }}">  <img class="" src="{{ asset('img/icon/white/configuraciones.png') }}" width="20px" > Taller</a> <br>
                                         @include('admin.taller_cotizacion.modal_taller')
                                     @endif
-                                    @if ($item->estatus == 'Espera de Cotizacion')
-                                        <a style="color: #3490dc" data-toggle="modal" data-target="#taller-cotizacion-{{ $item->id }}">  <img class="" src="{{ asset('img/icon/white/configuraciones.png') }}" width="20px" > Taller</a> <br>
+                                    @if ($item->estatus == 'Pendiente de ingreso a taller')
+                                        <a style="color: #3490dc" data-toggle="modal" data-target="#taller-edit-{{ $item->id }}">  <img class="" src="{{ asset('img/icon/white/configuraciones.png') }}" width="20px" > Taller</a> <br>
                                         @include('admin.taller_cotizacion.modal_taller_edit')
-                                    @endif
-                                    @if ($item->estatus != 'Asignar Taller')
-                                        <a style="color: #3490dc" href="{{ route('view.cotizacion_taller', $item->id) }}"><img class="" src="{{ asset('img/icon/white/cotizacion.png') }}" width="20px" > Enviar</a> <br>
-                                    @endif
-                                    @if ($item->estatus == 'Pendiente de autorización')
-                                        <a style="color: #3490dc" data-toggle="modal" data-target="#taller-cotizacion-{{ $item->id }}"><img class="" src="{{ asset('img/icon/white/enviar.png') }}" width="20px" > Cotizacion</a> <br>
-                                        @include('admin.taller_cotizacion.modal_taller_edit')
-                                    @endif
-                                    @if ($item->estatus == 'Por entregar usuario')
-                                        <a style="color: #3490dc" data-toggle="modal" data-target="#x-entregar-{{ $item->id }}"><img class="" src="{{ asset('img/icon/white/contrato (1).png') }}" width="20px" > Documentos</a> <br>
-                                        @include('admin.taller_cotizacion.modal_x_entregar')
-                                    @endif
-                                    @if ($item->estatus == 'Por cargar factura')
-                                        <a style="color: #3490dc" data-toggle="modal" data-target="#factura-{{ $item->id }}"><img class="" src="{{ asset('img/icon/white/factura.png') }}" width="20px" > Cargar Factura</a> <br>
-                                        @include('admin.taller_cotizacion.modal_factura')
-                                    @endif
-                                    @if ($item->estatus == 'Por pagar')
-                                        <a style="color: #3490dc" data-toggle="modal" data-target="#pagado-{{ $item->id }}"><img class="" src="{{ asset('img/icon/white/metodo-de-pago (1).png') }}" width="20px" > Evidencia Pagado</a> <br>
-                                        @include('admin.taller_cotizacion.modal_pagado')
                                     @endif
                                     <a style="color: #3490dc" href="{{ route('view_admin.cotizacion_taller', $item->id) }}"><img class="" src="{{ asset('img/icon/white/ojo.png') }}" width="20px" > Ver</a>
                                 </td>

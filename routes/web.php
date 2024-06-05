@@ -240,18 +240,18 @@ Route::patch('admin/servicios/taller/update/{id}', 'TallerServiciosController@up
 /*|--------------------------------------------------------------------------
 |Cotizacion para taller
 |--------------------------------------------------------------------------*/
-Route::get('admin/cotizacion/taller/view/{id}', 'TallerCotizacionController@view')->name('view.cotizacion_taller');
-Route::get('admin/cotizacion/taller/index', 'TallerCotizacionController@index')->name('index.cotizacion_taller');
-Route::post('admin/cotizacion/taller/crear', 'TallerCotizacionController@store')->name('store.cotizacion_taller');
-Route::get('admin/cotizacion/taller/auto/{id}', 'TallerCotizacionController@GetAutoAgainstMainCatEdit');
+Route::get('admin/cotizacion/taller/view/{id}', 'OrdenServicioController@view')->name('view.cotizacion_taller');
+Route::get('admin/cotizacion/taller/index', 'OrdenServicioController@index')->name('index.cotizacion_taller');
+Route::post('admin/cotizacion/taller/crear', 'OrdenServicioController@store')->name('store.cotizacion_taller');
+Route::get('admin/cotizacion/taller/auto/{id}', 'OrdenServicioController@GetAutoAgainstMainCatEdit');
 
-Route::patch('admin/cotizacion/taller/estatus/{id}', 'TallerCotizacionController@update_estatus')->name('update_estatus.cotizacion_taller');
+Route::patch('admin/cotizacion/taller/estatus/{id}', 'OrdenServicioController@update_estatus')->name('update_estatus.cotizacion_taller');
 
 /*|--------------------------------------------------------------------------
 |Orden de serivico
 |--------------------------------------------------------------------------*/
-Route::patch('admin/orden/servicio/taller/crear/{id}', 'TallerCotizacionController@store_taller')->name('store_taller.cotizacion_taller');
-Route::get('admin/cotizacion/taller/view/admin/{id}', 'TallerCotizacionController@view_admin')->name('view_admin.cotizacion_taller');
+Route::patch('admin/orden/servicio/taller/crear/{id}', 'OrdenServicioController@store_taller')->name('store_taller.cotizacion_taller');
+Route::get('admin/cotizacion/taller/view/admin/{id}', 'OrdenServicioController@view_admin')->name('view_admin.cotizacion_taller');
 
 Route::post('/import', 'ExcelImportController@import')->name('import.taller.servicios');
 

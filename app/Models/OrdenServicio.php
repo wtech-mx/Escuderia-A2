@@ -5,29 +5,34 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class TallerCotizacion extends Model
+class OrdenServicio extends Model
 {
     use HasFactory;
-    protected $table = "taller_cotizacion";
+    protected $table = "orden_servicio";
     protected $primarykey = "id";
 
     protected $fillable = [
         'id_user',
         'current_auto',
-        'foto1',
-        'foto2',
-        'foto3',
-        'foto4',
-        'importe_sin',
-        'importe_con',
-        'comentarios',
+        'total',
+        'km_actual',
+        'km_taller',
+        'km_entrega',
+        'ubicacion',
+        'descripcion_problema',
         'estatus',
+        'titulo_img',
+        'img',
         'fecha_creacion',
-        'fecha_atorizacion',
-        'fecha_reparacion',
-        'fecha_entregar',
+        'fecha_asignacion_taller',
+        'fecha_ingreso_taller',
+        'fecha_cotizacion',
+        'fecha_autorizada',
+        'fecha_reparado',
+        'fecha_entregado',
         'fecha_factura',
         'fecha_pagado',
+        'id_empresa',
     ];
 
     public function User()
