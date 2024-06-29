@@ -26,6 +26,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('orden/encuesta/satisfaccion/{id}', 'OrdenServicioController@encuesta')->name('encuesta.cotizacion_taller');
+Route::patch('orden/encuesta/satisfaccion/update/{id}', 'OrdenServicioController@update_encuesta')->name('update_encuesta.cotizacion_taller');
+
 Route::view('remision', 'admin.cotizacion.remision')->name('remision');
 //Route::get('/', function () {
 //    Storage::disk('google')->put('hello.txt', "Hello world");
@@ -246,12 +249,14 @@ Route::post('admin/cotizacion/taller/crear', 'OrdenServicioController@store')->n
 Route::get('admin/cotizacion/taller/auto/{id}', 'OrdenServicioController@GetAutoAgainstMainCatEdit');
 
 Route::patch('admin/cotizacion/taller/estatus/{id}', 'OrdenServicioController@update_estatus')->name('update_estatus.cotizacion_taller');
+Route::patch('admin/cotizacion/taller/ingreso/{id}', 'OrdenServicioController@ingreso')->name('ingreso.cotizacion_taller');
 
 /*|--------------------------------------------------------------------------
 |Orden de serivico
 |--------------------------------------------------------------------------*/
 Route::patch('admin/orden/servicio/taller/crear/{id}', 'OrdenServicioController@store_taller')->name('store_taller.cotizacion_taller');
 Route::get('admin/cotizacion/taller/view/admin/{id}', 'OrdenServicioController@view_admin')->name('view_admin.cotizacion_taller');
+Route::patch('admin/orden/servicio/taller/edit/{id}', 'OrdenServicioController@edit_cot_taller')->name('edit_cot_taller.cotizacion_taller');
 
 Route::post('/import', 'ExcelImportController@import')->name('import.taller.servicios');
 

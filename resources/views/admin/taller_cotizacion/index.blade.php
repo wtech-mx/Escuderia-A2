@@ -39,9 +39,6 @@
             </div>
         </div>
 
-        <a class="btn" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-            Agregar<i class="fas fa-plus-circle icon-effect"></i>
-        </a>
         <div class="col-12">
             @include('admin.taller_cotizacion.create')
         </div>
@@ -85,28 +82,6 @@
                     </thead>
                     <tbody>
                         @foreach ($cotizacion as $item)
-                            @php
-                                function obtenerClaseBoton($estatus) {
-                                    switch ($estatus) {
-                                        case 'Pendiente de asignar taller':
-                                            return 'btn-primary';
-                                        case 'Pendiente de ingreso a taller':
-                                            return 'btn-warning';
-                                        case 'Por entregar usuario':
-                                            return 'btn-info';
-                                        case 'Por cargar factura':
-                                            return 'btn-secondary';
-                                        case 'Por pagar':
-                                            return 'btn-danger';
-                                        case 'Pagado':
-                                            return 'btn-success';
-                                        case 'Autorizada Cotizacion': // Añadimos este caso
-                                            return 'btn-success';
-                                        default:
-                                            return 'btn-secondary';
-                                    }
-                                }
-                            @endphp
                             <tr>
                                 <td>{{ $item->User->name }}</td>
                                 <td>
@@ -114,7 +89,7 @@
                                     {{ $item->placas}}
                                 </td>
                                 <td>
-                                    <button class="btn {{ obtenerClaseBoton($item->estatus) }}" data-toggle="modal" data-target="#estatus-{{ $item->id }}">{{ $item->estatus }}</button><br><br>
+                                    <button class="btn text-white" data-toggle="modal" data-target="#estatus-{{ $item->id }}">{{ $item->estatus }}</button><br><br>
                                     @switch($item->estatus)
                                         @case('Pendiente de asignar taller')
                                             Fecha: {{ $item->fecha_creacion }}
@@ -148,7 +123,7 @@
                                 <td>
                                     @if($item->km_taller == NULL && $item->km_entrega == NULL)
                                         KM Actual: <br>
-                                        {{ $item->km_inicial}}
+                                        {{ $item->km_actual}}
                                     @elseif($item->km_entrega == NULL)
                                         KM Taller: <br>
                                         {{ $item->km_taller}}
@@ -159,14 +134,42 @@
                                 </td>
                                 <td>
                                     @if ($item->estatus == 'Pendiente de asignar taller')
-                                        <a style="color: #3490dc" data-toggle="modal" data-target="#taller-{{ $item->id }}">  <img class="" src="{{ asset('img/icon/white/configuraciones.png') }}" width="20px" > Taller</a> <br>
+                                        <a style="color: #3490dc" data-toggle="modal" data-target="#taller-{{ $item->id }}">  <img class="" src="{{ asset('img/icon/white/configuraciones.png') }}" width="20px" > Taller</a> <br><br>
                                         @include('admin.taller_cotizacion.modal_taller')
                                     @endif
                                     @if ($item->estatus == 'Pendiente de ingreso a taller')
-                                        <a style="color: #3490dc" data-toggle="modal" data-target="#taller-edit-{{ $item->id }}">  <img class="" src="{{ asset('img/icon/white/configuraciones.png') }}" width="20px" > Taller</a> <br>
+                                        <a style="color: #3490dc" data-toggle="modal" data-target="#taller-ingreso-{{ $item->id }}">  <img class="" src="{{ asset('img/icon/white/taller.png') }}" width="20px" >Ing Taller</a> <br><br>
+                                        @include('admin.taller_cotizacion.modal_ingreso_taller')
+                                    @endif
+                                    @if ($item->estatus == 'En espera de cotización')
+                                        <a style="color: #3490dc" data-toggle="modal" data-target="#taller-ingreso-{{ $item->id }}">  <img class="" src="{{ asset('img/icon/white/calendario (5).png') }}" width="20px" >Fecha Cot</a> <br><br>
+                                        @include('admin.taller_cotizacion.modal_ingreso_taller')
+                                    @endif
+                                    @if ($item->estatus == 'Pendiente de autorización')
+                                        <a style="color: #3490dc" data-toggle="modal" data-target="#taller-edit-{{ $item->id }}">  <img class="" src="{{ asset('img/icon/white/taller.png') }}" width="20px" > Taller</a> <br><br>
                                         @include('admin.taller_cotizacion.modal_taller_edit')
                                     @endif
-                                    <a style="color: #3490dc" href="{{ route('view_admin.cotizacion_taller', $item->id) }}"><img class="" src="{{ asset('img/icon/white/ojo.png') }}" width="20px" > Ver</a>
+                                    @if ($item->estatus == 'En reparacion')
+                                        <a style="color: #3490dc" data-toggle="modal" data-target="#taller-ingreso-{{ $item->id }}">  <img class="" src="{{ asset('img/icon/white/calendario (5).png') }}" width="20px" >Fin reparacion</a> <br><br>
+                                        @include('admin.taller_cotizacion.modal_ingreso_taller')
+                                    @endif
+                                    @if ($item->estatus == 'Por entregar usuario')
+                                        @php
+                                            $color = $item->OredenEncuesta->pregunta_1 == NULL ? '#dc5634' : '#34dca4';
+                                        @endphp
+                                        <a style="color: #3490dc" data-toggle="modal" data-target="#taller-ingreso-{{ $item->id }}">  <img class="" src="{{ asset('img/icon/white/car-service (1).png') }}" width="20px" >Entregar</a> <br><br>
+                                        @include('admin.taller_cotizacion.modal_ingreso_taller')
+                                        <a style="color: {{ $color }}" href="{{ route('encuesta.cotizacion_taller', $item->OredenEncuesta->id) }}">  <img class="" src="{{ asset('img/icon/white/numeros.png') }}" width="20px" >Encuesta</a> <br><br>
+                                    @endif
+                                    @if ($item->estatus == 'Por cargar factura')
+                                        <a style="color: #3490dc" data-toggle="modal" data-target="#taller-ingreso-{{ $item->id }}">  <img class="" src="{{ asset('img/icon/white/calendario (5).png') }}" width="20px" >Factura</a> <br><br>
+                                        @include('admin.taller_cotizacion.modal_ingreso_taller')
+                                    @endif
+                                    @if ($item->estatus == 'Por pagar')
+                                        <a style="color: #3490dc" data-toggle="modal" data-target="#taller-ingreso-{{ $item->id }}">  <img class="" src="{{ asset('img/icon/white/metodo-de-pago (1).png') }}" width="20px" >Pagar</a> <br><br>
+                                        @include('admin.taller_cotizacion.modal_ingreso_taller')
+                                    @endif
+                                    <a style="color: #3490dc" href="{{ route('view_admin.cotizacion_taller', $item->id) }}"><img class="" src="{{ asset('img/icon/white/cotizacion.png') }}" width="20px" > Ver</a>
                                 </td>
                             </tr>
 
@@ -214,33 +217,66 @@
 
     $(document).ready(function() {
         $('.cliente_cot').select2();
-        $('.js-example-basic-multiple').select2();
+        $('.js-example-basic').select2();
     });
 
 </script>
 
 <script>
-    $(document).ready(function () {
-        $('#id_user').on('change', function () {
-            let id = $(this).val();
-            //id_empresa no esta en la tabla de automovil
-            $('#current_auto_cot').empty();
-            $('#current_auto_cot').append(`<option value="" disabled selected>Procesando..</option>`);
-            $.ajax({
-                type: 'GET',
-                url: 'auto/' + id,
-                success: function (response) {
-                    var response = JSON.parse(response);
-                    console.log(response);
-                    //trae los automoviles relacionados con el id_empresa
-                    $('#current_auto_cot').empty();
-                    $('#current_auto_cot').append(`<option value="" disabled selected>Seleccione Autom&oacute;vil</option>`);
-                    response.forEach(element => {
-                        $('#current_auto_cot').append(`<option value="${element['id']}">${element['submarca']} - ${element['placas']}</option>`);
-                    });
-                }
-            });
-        });
+$(document).ready(function() {
+    let servicioIndices = {};
+
+    function updatePrice(selectElement) {
+        const selectedOption = $(selectElement).find('option:selected');
+        const precio = selectedOption.data('precio');
+        $(selectElement).closest('.servicio-item').find('.precio-input').val(precio);
+    }
+
+    $(document).on('change', '.servicio-select', function() {
+        updatePrice(this);
     });
+
+    function createNewServicioItem(index, registroId) {
+        return `
+            <div class="servicio-item" id="servicioItem_${index}_${registroId}">
+                <div class="row">
+                    <div class="col-6">
+                        <p><strong>Servicios</strong></p>
+                        <div class="input-group form-group">
+                            <select class="form-control servicio-select" name="servicios_cot[]" id="servicioSelect_${index}_${registroId}">
+                                <option value="">Seleccione servicio</option>
+                                @foreach($servicios as $item)
+                                    <option value="{{ $item->id }}" data-precio="{{ $item->precio }}">{{ $item->servicio }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                        <strong>Precio servicio</strong>
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text input-services">
+                                    <img src="{{ asset('img/icon/white/presupuesto (1).png') }}" width="25px">
+                                </span>
+                            </div>
+                            <input class="form-control precio-input" type="number" name="precio_cot[]" id="precioInput_${index}_${registroId}">
+                        </div>
+                    </div>
+                </div>
+            </div>`;
+    }
+
+    $(document).on('click', '.addServicioBtn', function() {
+        const registroId = $(this).data('registro-id');
+        if (!servicioIndices[registroId]) {
+            servicioIndices[registroId] = 1;
+        }
+        const newServicioItem = createNewServicioItem(servicioIndices[registroId], registroId);
+        $(`#serviciosContainer_${registroId}`).append(newServicioItem);
+        servicioIndices[registroId]++;
+    });
+});
+
+
 </script>
 @endsection

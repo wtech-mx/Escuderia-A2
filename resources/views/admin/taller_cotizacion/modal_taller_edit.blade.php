@@ -2,7 +2,7 @@
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-body" style="color: #000000">
-                <form method="POST" action="{{route('store_taller.cotizacion_taller', $item->id)}}" enctype="multipart/form-data" role="form">
+                <form method="POST" action="{{route('edit_cot_taller.cotizacion_taller', $item->id)}}" enctype="multipart/form-data" role="form">
                     @csrf
                     <input type="hidden" name="_method" value="PATCH">
                         <div class="row">
@@ -132,7 +132,7 @@
                                         </span>
                                     </div>
 
-                                    <input class="form-control" type="file" name="direccion" id="direccion">
+                                    <input class="form-control" type="file" name="cotizaion_cot" id="cotizaion_cot">
                                 </div>
                             </div>
 
@@ -145,39 +145,41 @@
                                         </span>
                                     </div>
 
-                                    <input class="form-control" type="file" name="direccion" id="direccion" multiple>
+                                    <input class="form-control" type="file" name="galeria_cot[]" id="galeria_cot[]" multiple>
                                 </div>
                             </div>
 
-                            @if ($item->estatus == 'Pendiente de autorización')
-                                <div class="col-6">
-                                    <p><strong>Servicios</strong></p>
-                                    <div class="input-group form-group">
-                                        <select class="form-control js-example-basic-multiple" id="servicios_cot[]" name="servicios_cot[]" multiple="multiple">
-                                                <option value="">Seleccione servicio</option>
-                                                @foreach($servicios as $item)
-                                                <option value="{{$item->id}}" data-precio="{{$item->precio}}">{{ $item->servicio}}</option>
-                                                @endforeach
-                                        </select>
+                                <div class="container">
+                                    <div id="serviciosContainer_{{ $item->id }}">
+                                        <div class="servicio-item" id="servicioItem_0_{{ $item->id }}">
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <p><strong>Servicio</strong></p>
+                                                    <div class="input-group form-group">
+                                                        <select class="form-control servicio-select" name="servicios_cot[]" id="servicioSelect_0_{{ $item->id }}">
+                                                            <option value="">Seleccione servicio</option>
+                                                            @foreach($servicios as $servicio)
+                                                                <option value="{{ $servicio->id }}" data-precio="{{ $servicio->precio }}">{{ $servicio->servicio }}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6 mb-2">
+                                                    <strong>Precio servicio</strong>
+                                                    <div class="input-group form-group">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text input-services">
+                                                                <img src="{{ asset('img/icon/white/presupuesto (1).png') }}" width="25px">
+                                                            </span>
+                                                        </div>
+                                                        <input class="form-control precio-input" type="number" name="precio_cot[]" id="precioInput_0_{{ $item->id }}">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
+                                    <button type="button" class="btn btn-info addServicioBtn" data-registro-id="{{ $item->id }}">Agregar Servicio</button>
                                 </div>
-
-                                <div class="col-6 mt-2" >
-                                    <label for="">
-                                        <p><strong>Importe <b>sin</b> IVA</strong></p>
-                                    </label>
-
-                                    <input class="form-control" type="text" name="importe_sin" id="importe_sin" value="0">
-                                </div>
-
-                                <div class="col-6 mt-2" >
-                                    <label for="">
-                                        <p><strong>Importe <b>con</b> IVA</strong></p>
-                                    </label>
-
-                                    <input class="form-control" type="text" name="importe_sin" id="importe_sin" value="0">
-                                </div>
-                            @endif
                         </div>
 
                         <p class="text-center">

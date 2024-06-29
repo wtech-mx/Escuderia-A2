@@ -49,4 +49,9 @@ class OrdenServicio extends Model
     {
         return $this->hasOne(TallerOrden::class, 'id_cotizacion');
     }
+
+    public function OredenEncuesta()
+    {
+        return $this->hasOne(OrdenEncuesta::class, 'id_cotizacion');
+    }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTallerOrdenTable extends Migration
+class CreateTalleresTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,24 +13,15 @@ class CreateTallerOrdenTable extends Migration
      */
     public function up()
     {
-        Schema::create('taller_orden', function (Blueprint $table) {
+        Schema::create('talleres', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_cotizacion');
-            $table->foreign('id_cotizacion')
-                ->references('id')->on('orden_servicio')
-                ->inDelete('set null');
-
-            $table->unsignedBigInteger('id_taller')->nullable();
-            $table->foreign('id_taller')
-                ->references('id')->on('talleres')
-                ->inDelete('set null');
-
             $table->text('nombre_taller')->nullable();
             $table->text('encargado')->nullable();
             $table->text('telefono')->nullable();
             $table->text('correo')->nullable();
+            $table->text('estado')->nullable();
+            $table->text('delegacion')->nullable();
             $table->text('direccion')->nullable();
-            $table->date('fecha')->nullable();
             $table->timestamps();
         });
     }
@@ -42,6 +33,6 @@ class CreateTallerOrdenTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('taller_orden');
+        Schema::dropIfExists('talleres');
     }
 }
