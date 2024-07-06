@@ -26,6 +26,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('solicutud', function () {
+    return view('emails.solicutud');
+});
+
 Route::view('remision', 'admin.cotizacion.remision')->name('remision');
 //Route::get('/', function () {
 //    Storage::disk('google')->put('hello.txt', "Hello world");
