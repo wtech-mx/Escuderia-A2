@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTallerOrdenTable extends Migration
+class CreateEncuestaOrdenTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateTallerOrdenTable extends Migration
      */
     public function up()
     {
-        Schema::create('taller_orden', function (Blueprint $table) {
+        Schema::create('orden_encuesta', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_cotizacion');
             $table->foreign('id_cotizacion')
@@ -25,11 +25,16 @@ class CreateTallerOrdenTable extends Migration
                 ->references('id')->on('talleres')
                 ->inDelete('set null');
 
-            $table->text('nombre_taller')->nullable();
-            $table->text('encargado')->nullable();
-            $table->text('telefono')->nullable();
-            $table->text('correo')->nullable();
-            $table->text('direccion')->nullable();
+            $table->text('pregunta_1')->nullable();
+            $table->text('pregunta_2')->nullable();
+            $table->text('pregunta_3')->nullable();
+            $table->text('pregunta_4')->nullable();
+            $table->text('pregunta_5')->nullable();
+            $table->text('pregunta_6')->nullable();
+            $table->text('pregunta_7')->nullable();
+            $table->text('pregunta_8')->nullable();
+            $table->text('pregunta_9')->nullable();
+            $table->text('pregunta_10')->nullable();
             $table->date('fecha')->nullable();
             $table->timestamps();
         });
@@ -42,6 +47,6 @@ class CreateTallerOrdenTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('taller_orden');
+        Schema::dropIfExists('encuesta_orden');
     }
 }

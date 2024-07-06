@@ -44,7 +44,7 @@
                                 <div class="input-group form-group">
                                     <textarea  class="form-control" cols="90" rows="3" disabled>
                                         @foreach ($comentarios as $comentario)
-                                            @if ($comentario->id_cotizacion == $item->id && $comentario->estatus == 'Pendiente de asignar taller' )
+                                            @if ($comentario->id_cotizacion == $item->id && $comentario->estatus == 'Generar la solicitud' )
                                                 {{$comentario->comentario}}
                                             @endif
                                         @endforeach
