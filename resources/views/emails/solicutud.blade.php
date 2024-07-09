@@ -306,15 +306,28 @@
                                                                                             style='font-size: 15px;width:540px;line-height:25px;background-image:none;padding:20px 0px 0px;border-radius:0px;border-top:0 hidden;border-right:0 hidden;border-bottom:0 hidden;border-left:0 hidden;'>
 																							<div class='text-item '><p><span style="color: #ffff;">Gracias por su solicitud</span></p>
 <p><span style="color: #ffff;">&nbsp;</span></p>
-<p><strong><span style="color: #ffff;">Su Taller es:</span></strong></p>
+<p style="color: #ffff;"><strong><span style="color: #ffff;">Ubicacion:</span></strong>  {{ $datos['ubicacion'] }}</p>
+<p style="color: #ffff;"><strong><span style="color: #ffff;">Estatus:</span> </strong> {{ $datos['estatus'] }}</p>
+<p style="color: #ffff;"> <strong><span style="color: #ffff;">Comentarios:</span></strong>  {{ $datos['comentario'] }}</p>
+<p style="color: #ffff;"><strong><span style="color: #ffff;">Fecha:</span> </strong> {{ $datos['fecha'] }}</p>
+
 <p><span style="color: #ffff;"> </span></p>
-<p><span style="color: #ffff;">&nbsp;</span></p>
-<p><strong><span style="color: #ffff;">Su Vehiculo es:</span></strong></p>
-<p><span style="color: #ffff;"> </span></p>
+<p><span style="color: #4b3939;">&nbsp;</span></p>
+<p><strong><span style="color: #ffff;">Informacion del Vehiculo :</span></strong></p>
+<p style="color: #ffff;"><span style="color: #ffff;"> Submarca:</span> {{ $datos['submarca'] }}</p>
+<p style="color: #ffff;"><span style="color: #ffff;"> Tipo:</span> {{ $datos['tipo'] }}</p>
+<p style="color: #ffff;"><span style="color: #ffff;"> Año:</span> {{ $datos['año'] }}</p>
+<p style="color: #ffff;"><span style="color: #ffff;"> Numero_serie:</span> {{ $datos['numero_serie'] }}</p>
+<p style="color: #ffff;"><span style="color: {{ $datos['color'] }};"> Color:</span> </p>
+<p style="color: #ffff;"><span style="color: #ffff;"> Placas:</span> {{ $datos['placas'] }}</p>
+
+
 <p>&nbsp;</p>
-<p><span style="color: #ffff;"></span></p>
+<p style="color: #ffff;"><span style="color: #ffff;"></span></p>
 <p>&nbsp;</p>
-<p><span style="color: #ffff;"></span></p></div>                                                                                        </td>
+<p style="color: #ffff;"><span style="color: #ffff;"></span></p></div>
+
+                                                                                 </td>
                                                                                     </tr>
                                                                                 </table>
                                                                             </td>

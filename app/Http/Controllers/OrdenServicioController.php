@@ -10,18 +10,26 @@ use App\Models\OrdenServicioServ;
 use App\Models\Talleres;
 use App\Models\TallerOrden;
 use App\Models\TallerServicios;
+use App\Models\Automovil;
 use App\Models\User;
 use Illuminate\Http\Request;
 use DB;
 use Session;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\PlantillaEnReparacion;
+use App\Mail\PlantillaPendienteAutorizacion;
+use App\Mail\PlantillaSolicitud;
 
 class OrdenServicioController extends Controller
 {
     public function index(){
+
         $cotizacion = OrdenServicio::get();
+
         $cliente = User::where('role', '=', '0')
         ->where('empresa', '=', 0)
         ->get();
+
         $servicios = TallerServicios::get();
         $comentarios = OrdenComentarios::get();
         $encuestas = OrdenEncuesta::get();
@@ -77,6 +85,24 @@ class OrdenServicioController extends Controller
             }
         }
 
+
+        $auto = Automovil::find($taller->current_auto);
+
+        $datos = [
+            'submarca' =>  $auto->submarca,
+            'tipo' =>  $auto->tipo,
+            'año' =>  $auto->año,
+            'numero_serie' =>  $auto->numero_serie,
+            'color' =>  $auto->color,
+            'placas' =>  $auto->placas,
+            'km_actual' =>  $taller->km_actual,
+            'ubicacion' => $taller->ubicacion,
+            'estatus' => $taller->estatus,
+            'comentario' => $comentario->comentario ,
+            'fecha' => $comentario->fecha,
+        ];
+
+        Mail::to('adrianwebtech@gmail.com')->send(new PlantillaSolicitud($datos));
 
         Session::flash('success', 'Se ha guardado su orden con exito');
         return redirect()->back();

@@ -5,15 +5,14 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class PlantillaDocumentoStps extends Mailable
+class PlantillaEnReparacion extends Mailable
 {
     use Queueable, SerializesModels;
 
     public $datos;
 
-    public function __construct($pdfContent, $datos)
+    public function __construct($datos)
     {
-        $this->pdfContent = $pdfContent;
         $this->datos = $datos;
     }
 
