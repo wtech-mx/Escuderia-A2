@@ -30,8 +30,20 @@
                                 </div>
                             </div>
 
+                            <div class="col-6">
+
+                            </div>
+
+                            <div class="col-6">
+                                @foreach ($comentarios as $comentario)
+                                    @if ($comentario->id_cotizacion == $item->id && $comentario->estatus != 'Generar la solicitud' )
+                                    <input class="form-control" type="text" name="comentario" id="comentario" value="{{$comentario->comentario}}" disabled>
+                                    @endif
+                                @endforeach
+                            </div>
+
                             <div class="col-6 mt-2" >
-                                <p><strong>Comentario Solicitante</strong></p>
+                                <p><strong>Describe el serv./falla</strong></p>
                                 <div class="input-group form-group">
                                     <textarea cols="90" rows="3" disabled>
                                         @foreach ($comentarios as $comentario)
@@ -179,6 +191,17 @@
                                         </div>
                                     </div>
                                     <button type="button" class="btn btn-info addServicioBtn" data-registro-id="{{ $item->id }}">Agregar Servicio</button>
+                                </div>
+
+                                <div class="row mt-3">
+                                    <div class="col-6">
+                                        <strong>Total</strong>
+                                        <input class="form-control" type="number" name="total_cot" id="totalInput_{{ $item->id }}" readonly>
+                                    </div>
+                                    <div class="col-6">
+                                        <strong>Total con IVA (16%)</strong>
+                                        <input class="form-control" type="number" name="total_iva_cot" id="totalIvaInput_{{ $item->id }}" readonly>
+                                    </div>
                                 </div>
                         </div>
 

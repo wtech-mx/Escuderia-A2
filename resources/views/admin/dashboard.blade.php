@@ -365,7 +365,7 @@
                                 <a href="{{ route('index.cotizacion_taller') }}" class="text-white">
                                     <div class="card-body">
                                         <i class="fas fa-file icon-effect-dashboard"></i>
-                                        <p class="card-text text-white"><strong>Cotizacion Taller</strong></p>
+                                        <p class="card-text text-white"><strong>Solicitudes Mantenimiento</strong></p>
                                     </div>
                                 </a>
                             </div>

@@ -294,7 +294,23 @@ class OrdenServicioController extends Controller
 
                     $tallerImagen = new OrdenImg;
                     $tallerImagen->id_cotizacion = $cotizacion->id;
-                    $tallerImagen->estatus = 'Por entregar usuario';
+                    $tallerImagen->estatus = 'Encuesta';
+                    $tallerImagen->imagen = $fileName;
+                    $tallerImagen->fecha = date("Y-m-d");
+                    $tallerImagen->save();
+                }
+            }
+
+            if ($request->hasFile('galeria_entrega_ine')) {
+                $ruta_recursos = public_path() . '/cotizacion/usuario' . $cotizacion->id_user;
+
+                foreach ($request->file('galeria_entrega_ine') as $file) {
+                    $fileName = uniqid() . '_' . $file->getClientOriginalName();
+                    $file->move($ruta_recursos, $fileName);
+
+                    $tallerImagen = new OrdenImg;
+                    $tallerImagen->id_cotizacion = $cotizacion->id;
+                    $tallerImagen->estatus = 'INE';
                     $tallerImagen->imagen = $fileName;
                     $tallerImagen->fecha = date("Y-m-d");
                     $tallerImagen->save();
@@ -334,7 +350,7 @@ class OrdenServicioController extends Controller
             }
         }else if($request->file('por_pagar') != NULL){
             $cotizacion = OrdenServicio::findOrFail($id);
-            $cotizacion->fecha_pagado = date("Y-m-d H:i:s");
+            $cotizacion->fecha_pagado = $request->get('fecha_por_pagar') . ' ' . $request->get('hora_por_pagar');;
             $cotizacion->estatus = 'Pagado';
             $cotizacion->update();
 
@@ -374,10 +390,12 @@ class OrdenServicioController extends Controller
     {
         $cotizacion = OrdenServicio::findOrFail($id);
         $cotizacion->estatus = 'En reparacion';
+        $cotizacion->total = $request->get('total_cot');
+        $cotizacion->total_iva = $request->get('total_iva_cot');
         $cotizacion->fecha_autorizada = now();
 
         if ($request->hasFile("cotizaion_cot")) {
-            $ruta_recursos = public_path() . '/cotizacion/usuario'.$request->get('id_user');
+            $ruta_recursos = public_path() . '/cotizacion/usuario' . $cotizacion->id_user;
             $file = $request->file('cotizaion_cot');
             $path = $ruta_recursos;
             $fileName = uniqid() . $file->getClientOriginalName();
@@ -454,4 +472,6 @@ class OrdenServicioController extends Controller
         Session::flash('success', 'Se ha registrado sus datos con exito');
         return redirect()->back();
     }
+
+    
 }

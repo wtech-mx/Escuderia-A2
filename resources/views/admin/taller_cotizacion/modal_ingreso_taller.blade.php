@@ -14,8 +14,44 @@
                                         </h2>
                                     </div>
 
+                                    <div class="col-6">
+                                        <div class="input-group form-group">
+                                            <div class="input-group-prepend " >
+                                                <span class="input-group-text input-services" >
+                                                    <img class="" src="{{ asset('img/icon/white/edificio-de-oficinas.png') }}" width="25px" >
+                                                </span>
+                                            </div>
+
+                                            <input class="form-control" type="text" value="{{$item->User->name}}" disabled>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-6">
+                                        <div class="input-group form-group">
+                                            <div class="input-group-prepend " >
+                                                <span class="input-group-text input-services" >
+                                                    <img class="" src="{{ asset('img/icon/white/coche (7).png') }}" width="25px" >
+                                                </span>
+                                            </div>
+
+                                            <input class="form-control" type="text" value="{{ $item->Auto->Marca->nombre}} / {{ $item->placas}}" disabled>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-6">
+
+                                    </div>
+
+                                    <div class="col-6">
+                                        @foreach ($comentarios as $comentario)
+                                            @if ($comentario->id_cotizacion == $item->id && $comentario->estatus != 'Generar la solicitud' )
+                                            <input class="form-control" type="text" name="comentario" id="comentario" value="{{$comentario->comentario}}" disabled>
+                                            @endif
+                                        @endforeach
+                                    </div>
+
                                     <div class="col-12 col-md-6 col-lg-6 mt-2" >
-                                        <p><strong>Comentario Solicitante</strong></p>
+                                        <p><strong>Describe el serv./falla</strong></p>
                                         <div class="input-group form-group">
                                             <textarea  class="form-control" cols="90" rows="3" disabled>
                                                 @foreach ($comentarios as $comentario)
@@ -30,7 +66,7 @@
                                     <div class="col-12 col-md-6 col-lg-6 mt-2" >
                                         <p><strong>Comentario Admin</strong></p>
                                         <div class="input-group form-group">
-                                            <textarea  class="form-control" name="comentario" id="comentario" cols="90" rows="3"></textarea>
+                                            <input class="form-control" type="text" name="comentario" id="comentario">
                                         </div>
                                     </div>
 
@@ -83,7 +119,7 @@
                                     </div>
 
                                     <div class="col-12 col-md-6 col-lg-6 mt-2" >
-                                        <p><strong>Comentario Solicitante</strong></p>
+                                        <p><strong>Describe el serv./falla</strong></p>
                                         <div class="input-group form-group">
                                             <textarea  class="form-control" cols="90" rows="3" disabled>
                                                 @foreach ($comentarios as $comentario)
@@ -98,7 +134,7 @@
                                     <div class="col-12 col-md-6 col-lg-6 mt-2" >
                                         <p><strong>Comentario Admin</strong></p>
                                         <div class="input-group form-group">
-                                            <textarea  class="form-control" name="comentario_cot" id="comentario_cot" cols="90" rows="3"></textarea>
+                                            <input class="form-control" type="text" name="comentario_cot" id="comentario_cot">
                                         </div>
                                     </div>
 
@@ -137,8 +173,44 @@
                                         </h2>
                                     </div>
 
+                                    <div class="col-6">
+                                        <div class="input-group form-group">
+                                            <div class="input-group-prepend " >
+                                                <span class="input-group-text input-services" >
+                                                    <img class="" src="{{ asset('img/icon/white/edificio-de-oficinas.png') }}" width="25px" >
+                                                </span>
+                                            </div>
+
+                                            <input class="form-control" type="text" value="{{$item->User->name}}" disabled>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-6">
+                                        <div class="input-group form-group">
+                                            <div class="input-group-prepend " >
+                                                <span class="input-group-text input-services" >
+                                                    <img class="" src="{{ asset('img/icon/white/coche (7).png') }}" width="25px" >
+                                                </span>
+                                            </div>
+
+                                            <input class="form-control" type="text" value="{{ $item->Auto->Marca->nombre}} / {{ $item->placas}}" disabled>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-6">
+
+                                    </div>
+
+                                    <div class="col-6">
+                                        @foreach ($comentarios as $comentario)
+                                            @if ($comentario->id_cotizacion == $item->id && $comentario->estatus != 'Generar la solicitud' )
+                                            <input class="form-control" type="text" name="comentario" id="comentario" value="{{$comentario->comentario}}" disabled>
+                                            @endif
+                                        @endforeach
+                                    </div>
+
                                     <div class="col-12 col-md-6 col-lg-6 mt-2" >
-                                        <p><strong>Comentario Solicitante</strong></p>
+                                        <p><strong>Describe el serv./falla</strong></p>
                                         <div class="input-group form-group">
                                             <textarea  class="form-control" cols="90" rows="3" disabled>
                                                 @foreach ($comentarios as $comentario)
@@ -153,7 +225,7 @@
                                     <div class="col-12 col-md-6 col-lg-6 mt-2" >
                                         <p><strong>Comentario Admin</strong></p>
                                         <div class="input-group form-group">
-                                            <textarea  class="form-control" name="comentario_rep" id="comentario_rep" cols="90" rows="3"></textarea>
+                                            <input class="form-control" type="text" name="comentario_rep" id="comentario_rep">
                                         </div>
                                     </div>
 
@@ -182,19 +254,6 @@
                                             <input class="form-control" type="time" name="hora_rep" id="hora_rep">
                                         </div>
                                     </div>
-
-                                    <div class="col-12 mb-5">
-                                        <strong>Fotos</strong>
-                                        <div class="input-group form-group">
-                                            <div class="input-group-prepend " >
-                                                <span class="input-group-text input-services" >
-                                                    <img class="" src="{{ asset('img/icon/white/edificio-de-oficinas.png') }}" width="25px" >
-                                                </span>
-                                            </div>
-
-                                            <input class="form-control" type="file" name="galeria_rep[]" id="galeria_rep[]" multiple>
-                                        </div>
-                                    </div>
                                 </div>
                             @elseif ($item->estatus == 'Por entregar usuario')
                                 <div class="row">
@@ -205,8 +264,44 @@
                                         </h2>
                                     </div>
 
+                                    <div class="col-6">
+                                        <div class="input-group form-group">
+                                            <div class="input-group-prepend " >
+                                                <span class="input-group-text input-services" >
+                                                    <img class="" src="{{ asset('img/icon/white/edificio-de-oficinas.png') }}" width="25px" >
+                                                </span>
+                                            </div>
+
+                                            <input class="form-control" type="text" value="{{$item->User->name}}" disabled>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-6">
+                                        <div class="input-group form-group">
+                                            <div class="input-group-prepend " >
+                                                <span class="input-group-text input-services" >
+                                                    <img class="" src="{{ asset('img/icon/white/coche (7).png') }}" width="25px" >
+                                                </span>
+                                            </div>
+
+                                            <input class="form-control" type="text" value="{{ $item->Auto->Marca->nombre}} / {{ $item->placas}}" disabled>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-6">
+
+                                    </div>
+
+                                    <div class="col-6">
+                                        @foreach ($comentarios as $comentario)
+                                            @if ($comentario->id_cotizacion == $item->id && $comentario->estatus != 'Generar la solicitud' )
+                                            <input class="form-control" type="text" name="comentario" id="comentario" value="{{$comentario->comentario}}" disabled>
+                                            @endif
+                                        @endforeach
+                                    </div>
+
                                     <div class="col-12 col-md-6 col-lg-6 mt-2" >
-                                        <p><strong>Comentario Solicitante</strong></p>
+                                        <p><strong>Describe el serv./falla</strong></p>
                                         <div class="input-group form-group">
                                             <textarea  class="form-control" cols="90" rows="3" disabled>
                                                 @foreach ($comentarios as $comentario)
@@ -221,7 +316,7 @@
                                     <div class="col-12 col-md-6 col-lg-6 mt-2" >
                                         <p><strong>Comentario Admin</strong></p>
                                         <div class="input-group form-group">
-                                            <textarea  class="form-control" name="comentario_entrega" id="comentario_entrega" cols="90" rows="3"></textarea>
+                                            <input class="form-control" type="text" name="comentario_entrega" id="comentario_entrega">
                                         </div>
                                     </div>
 
@@ -265,15 +360,26 @@
                                     </div>
 
                                     <div class="col-6 mb-5">
-                                        <strong>Fotos</strong>
+                                        <strong>Encuesta</strong>
                                         <div class="input-group form-group">
                                             <div class="input-group-prepend " >
                                                 <span class="input-group-text input-services" >
                                                     <img class="" src="{{ asset('img/icon/white/edificio-de-oficinas.png') }}" width="25px" >
                                                 </span>
                                             </div>
-
                                             <input class="form-control" type="file" name="galeria_entrega[]" id="galeria_entrega[]" multiple>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-6 mb-5">
+                                        <strong>INE</strong>
+                                        <div class="input-group form-group">
+                                            <div class="input-group-prepend " >
+                                                <span class="input-group-text input-services" >
+                                                    <img class="" src="{{ asset('img/icon/white/edificio-de-oficinas.png') }}" width="25px" >
+                                                </span>
+                                            </div>
+                                            <input class="form-control" type="file" name="galeria_entrega_ine[]" id="galeria_entrega_ine[]" multiple>
                                         </div>
                                     </div>
                                 </div>
@@ -286,8 +392,44 @@
                                         </h2>
                                     </div>
 
+                                    <div class="col-6">
+                                        <div class="input-group form-group">
+                                            <div class="input-group-prepend " >
+                                                <span class="input-group-text input-services" >
+                                                    <img class="" src="{{ asset('img/icon/white/edificio-de-oficinas.png') }}" width="25px" >
+                                                </span>
+                                            </div>
+
+                                            <input class="form-control" type="text" value="{{$item->User->name}}" disabled>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-6">
+                                        <div class="input-group form-group">
+                                            <div class="input-group-prepend " >
+                                                <span class="input-group-text input-services" >
+                                                    <img class="" src="{{ asset('img/icon/white/coche (7).png') }}" width="25px" >
+                                                </span>
+                                            </div>
+
+                                            <input class="form-control" type="text" value="{{ $item->Auto->Marca->nombre}} / {{ $item->placas}}" disabled>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-6">
+
+                                    </div>
+
+                                    <div class="col-6">
+                                        @foreach ($comentarios as $comentario)
+                                            @if ($comentario->id_cotizacion == $item->id && $comentario->estatus != 'Generar la solicitud' )
+                                            <input class="form-control" type="text" name="comentario" id="comentario" value="{{$comentario->comentario}}" disabled>
+                                            @endif
+                                        @endforeach
+                                    </div>
+
                                     <div class="col-12 col-md-6 col-lg-6 mt-2" >
-                                        <p><strong>Comentario Solicitante</strong></p>
+                                        <p><strong>Describe el serv./falla</strong></p>
                                         <div class="input-group form-group">
                                             <textarea  class="form-control" cols="90" rows="3" disabled>
                                                 @foreach ($comentarios as $comentario)
@@ -302,7 +444,7 @@
                                     <div class="col-12 col-md-6 col-lg-6 mt-2" >
                                         <p><strong>Comentario Admin</strong></p>
                                         <div class="input-group form-group">
-                                            <textarea  class="form-control" name="comentario_factura" id="comentario_factura" cols="90" rows="3"></textarea>
+                                            <input class="form-control" type="text" name="comentario_factura" id="comentario_factura">
                                         </div>
                                     </div>
 
@@ -328,8 +470,44 @@
                                         </h2>
                                     </div>
 
+                                    <div class="col-6">
+                                        <div class="input-group form-group">
+                                            <div class="input-group-prepend " >
+                                                <span class="input-group-text input-services" >
+                                                    <img class="" src="{{ asset('img/icon/white/edificio-de-oficinas.png') }}" width="25px" >
+                                                </span>
+                                            </div>
+
+                                            <input class="form-control" type="text" value="{{$item->User->name}}" disabled>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-6">
+                                        <div class="input-group form-group">
+                                            <div class="input-group-prepend " >
+                                                <span class="input-group-text input-services" >
+                                                    <img class="" src="{{ asset('img/icon/white/coche (7).png') }}" width="25px" >
+                                                </span>
+                                            </div>
+
+                                            <input class="form-control" type="text" value="{{ $item->Auto->Marca->nombre}} / {{ $item->placas}}" disabled>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-6">
+
+                                    </div>
+
+                                    <div class="col-6">
+                                        @foreach ($comentarios as $comentario)
+                                            @if ($comentario->id_cotizacion == $item->id && $comentario->estatus != 'Generar la solicitud' )
+                                            <input class="form-control" type="text" name="comentario" id="comentario" value="{{$comentario->comentario}}" disabled>
+                                            @endif
+                                        @endforeach
+                                    </div>
+
                                     <div class="col-12 col-md-6 col-lg-6 mt-2" >
-                                        <p><strong>Comentario Solicitante</strong></p>
+                                        <p><strong>Describe el serv./falla</strong></p>
                                         <div class="input-group form-group">
                                             <textarea  class="form-control" cols="90" rows="3" disabled>
                                                 @foreach ($comentarios as $comentario)
@@ -344,7 +522,33 @@
                                     <div class="col-12 col-md-6 col-lg-6 mt-2" >
                                         <p><strong>Comentario Admin</strong></p>
                                         <div class="input-group form-group">
-                                            <textarea  class="form-control" name="comentario_por_pagar" id="comentario_por_pagar" cols="90" rows="3"></textarea>
+                                            <input class="form-control" type="text" name="comentario_por_pagar" id="comentario_por_pagar">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-6 mt-5 mb-5">
+                                        <strong>Fecha entrega</strong>
+                                        <div class="input-group form-group">
+                                            <div class="input-group-prepend " >
+                                                <span class="input-group-text input-services" >
+                                                    <img class="" src="{{ asset('img/icon/white/calendario (5).png') }}" width="25px" >
+                                                </span>
+                                            </div>
+
+                                            <input class="form-control" type="date" name="fecha_por_pagar" id="fecha_por_pagar">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-6 mt-5 mb-5">
+                                        <strong>Hora entrega</strong>
+                                        <div class="input-group form-group">
+                                            <div class="input-group-prepend " >
+                                                <span class="input-group-text input-services" >
+                                                    <img class="" src="{{ asset('img/icon/white/calendario (1).png') }}" width="25px" >
+                                                </span>
+                                            </div>
+
+                                            <input class="form-control" type="time" name="hora_por_pagar" id="hora_por_pagar">
                                         </div>
                                     </div>
 

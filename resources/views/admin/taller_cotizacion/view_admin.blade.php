@@ -147,15 +147,13 @@
                 @endforeach
 
                 <div class="col-12 mb-3" >
-                    <label class="text-white">Comentario Solicitante</label>
+                    <label class="text-white">Describe el serv./falla</label>
                     <div class="input-group form-group">
-                        <textarea  class="form-control" cols="90" rows="3" disabled>
-                            @foreach ($comentarios as $comentario)
-                                @if ($comentario->estatus == 'Generar la solicitud' )
-                                    {{$comentario->comentario}}
-                                @endif
-                            @endforeach
-                        </textarea>
+                        @foreach ($comentarios as $comentario)
+                            @if ($comentario->estatus == 'Generar la solicitud' )
+                                <input class="form-control" type="text" value="{{$comentario->comentario}}" readonly>
+                            @endif
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -295,17 +293,11 @@
                     </h2>
                 </div>
 
-                <div class="col-12 mb-3 mt-3">
-                    <div class="input-group form-group">
-                        <textarea  class="form-control" cols="90" rows="10" disabled>
-                            @foreach ($comentarios as $comentario)
-                                @if ($comentario->estatus != 'Generar la solicitud' )
-                                    {{$comentario->estatus}} / {{$comentario->fecha}}
-                                    {{$comentario->comentario}}
-                                @endif
-                            @endforeach
-                        </textarea>
-                    </div>
+                <div class="col-12 mb-3 mt-3" style="background: #fff;">
+                    @foreach ($comentarios as $comentario)
+                          <h5> <b>{{$comentario->estatus}}</b></h5>
+                          <h5> {{$comentario->fecha}} - {{$comentario->comentario}}</h5>
+                    @endforeach
                 </div>
             </div>
 
@@ -409,7 +401,12 @@
                         @endif
                     </div>
                 @endforeach
+            </div>
 
+            {{----------------------------------------------------------------------------
+            |Cotizacion aprobada
+            |----------------------------------------------------------------------------}}
+            <div class="row">
                 <div class="col-12 mb-3">
                     <h2 class="text-center text-white ml-4 mr-4 ">
                         <strong>Cotización Aprobada</strong>
@@ -418,7 +415,7 @@
 
                 @if (pathinfo($cotizacion->cotizacion_taller, PATHINFO_EXTENSION) == 'pdf')
                     <div class="col-12">
-                        <iframe class="mt-2" src="{{asset('/cotizacion/usuario'. $cotizacion->id_user . '/' .$cotizacion->cotizacion_taller) }}" style="width: 60%; height: 60px;"></iframe>
+                        <iframe class="mt-2" src="{{asset('/cotizacion/usuario'. $cotizacion->id_user . '/' .$cotizacion->cotizacion_taller) }}" style="width: 80%; height: 80px;"></iframe>
                         <p class="text-center ">
                             <a class="btn btn-sm text-dark" href="{{asset('/cotizacion/usuario'. $cotizacion->id_user . '/' .$cotizacion->cotizacion_taller) }}" target="_blank" style="background: #836262; color: #ffff!important">Ver archivo</a>
                         </p>
@@ -430,8 +427,163 @@
                     </div>
                 @endif
 
+                <div class="col-12 mb-3 mt-3" style="background: #fff;">
+                    <h3>Serivicios Autorizados</h3>
+                    <ul>
+                        @foreach ($cotizacion_serivicios as $cotizacion_serivicio)
+                            <li>{{$cotizacion_serivicio->Servicio->servicio}} - <b>${{$cotizacion_serivicio->subtotal}}</b></li>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
+
+            {{----------------------------------------------------------------------------
+            |Entregado
+            |----------------------------------------------------------------------------}}
+            <div class="row">
+                <div class="col-12 mb-3">
+                    <h2 class="text-center text-white ml-4 mr-4 ">
+                        <strong>Encuesta</strong>
+                    </h2>
+                </div>
+
+                @foreach ($fotos as $foto)
+                    <div class="col-4 mb-3">
+                        @if ($foto->estatus == 'Encuesta')
+                            @if ($foto == NULL)
+                                <div class="col-6">
+                                    <img id="blah" src="{{asset('/img/icon/seguros/page-not-found.png') }}" alt="Imagen" style="width: 90px;height: 90px;"/>
+                                </div>
+                            @else
+                                @if (pathinfo($foto->imagen, PATHINFO_EXTENSION) == 'pdf')
+                                    <div class="col-12">
+                                        <iframe class="mt-2" src="{{asset('/cotizacion/usuario'. $cotizacion->id_user . '/' .$foto->imagen) }}" style="width: 80%; height: 80px;"></iframe>
+                                        <p class="text-center ">
+                                            <a class="btn btn-sm text-dark" href="{{asset('/cotizacion/usuario'. $cotizacion->id_user . '/' .$foto->imagen) }}" target="_blank" style="background: #836262; color: #ffff!important">Ver archivo</a>
+                                        </p>
+                                    </div>
+                                @else
+                                    <div class="col-6">
+                                        <img id="blah" src="{{asset('/cotizacion/usuario'. $cotizacion->id_user . '/' .$foto->imagen) }}" alt="Imagen" style="width: 150px;height: 150px;"/>
+                                        <a class="text-center text-dark btn btn-sm mt-2" href="{{asset('/cotizacion/usuario'. $cotizacion->id_user . '/' .$foto->imagen) }}" target="_blank" style="background: #43eb5f; color: #000000!important">Ver Imagen</a>
+                                    </div>
+                                @endif
+                            @endif
+                        @endif
+                    </div>
+                @endforeach
+
+                <div class="col-12 mb-3">
+                    <h2 class="text-center text-white ml-4 mr-4 ">
+                        <strong>INE</strong>
+                    </h2>
+                </div>
+
+                @foreach ($fotos as $foto)
+                    <div class="col-4 mb-3">
+                        @if ($foto->estatus == 'INE')
+                            @if ($foto == NULL)
+                                <div class="col-6">
+                                    <img id="blah" src="{{asset('/img/icon/seguros/page-not-found.png') }}" alt="Imagen" style="width: 90px;height: 90px;"/>
+                                </div>
+                            @else
+                                @if (pathinfo($foto->imagen, PATHINFO_EXTENSION) == 'pdf')
+                                    <div class="col-12">
+                                        <iframe class="mt-2" src="{{asset('/cotizacion/usuario'. $cotizacion->id_user . '/' .$foto->imagen) }}" style="width: 80%; height: 80px;"></iframe>
+                                        <p class="text-center ">
+                                            <a class="btn btn-sm text-dark" href="{{asset('/cotizacion/usuario'. $cotizacion->id_user . '/' .$foto->imagen) }}" target="_blank" style="background: #836262; color: #ffff!important">Ver archivo</a>
+                                        </p>
+                                    </div>
+                                @else
+                                    <div class="col-6">
+                                        <img id="blah" src="{{asset('/cotizacion/usuario'. $cotizacion->id_user . '/' .$foto->imagen) }}" alt="Imagen" style="width: 150px;height: 150px;"/>
+                                        <a class="text-center text-dark btn btn-sm mt-2" href="{{asset('/cotizacion/usuario'. $cotizacion->id_user . '/' .$foto->imagen) }}" target="_blank" style="background: #43eb5f; color: #000000!important">Ver Imagen</a>
+                                    </div>
+                                @endif
+                            @endif
+                        @endif
+                    </div>
+                @endforeach
+            </div>
+
+            {{----------------------------------------------------------------------------
+            |Factura
+            |----------------------------------------------------------------------------}}
+            <div class="row">
+                <div class="col-12 mb-3">
+                    <h2 class="text-center text-white ml-4 mr-4 ">
+                        <strong>Factura</strong>
+                    </h2>
+                </div>
+
+                @foreach ($fotos as $foto)
+                    <div class="col-4 mb-3">
+                        @if ($foto->estatus == 'Por cargar factura')
+                            @if ($foto == NULL)
+                                <div class="col-6">
+                                    <img id="blah" src="{{asset('/img/icon/seguros/page-not-found.png') }}" alt="Imagen" style="width: 90px;height: 90px;"/>
+                                </div>
+                            @else
+                                @if (pathinfo($foto->imagen, PATHINFO_EXTENSION) == 'pdf')
+                                    <div class="col-12">
+                                        <iframe class="mt-2" src="{{asset('/cotizacion/usuario'. $cotizacion->id_user . '/' .$foto->imagen) }}" style="width: 80%; height: 80px;"></iframe>
+                                        <p class="text-center ">
+                                            <a class="btn btn-sm text-dark" href="{{asset('/cotizacion/usuario'. $cotizacion->id_user . '/' .$foto->imagen) }}" target="_blank" style="background: #836262; color: #ffff!important">Ver archivo</a>
+                                        </p>
+                                    </div>
+                                @else
+                                    <div class="col-6">
+                                        <img id="blah" src="{{asset('/cotizacion/usuario'. $cotizacion->id_user . '/' .$foto->imagen) }}" alt="Imagen" style="width: 150px;height: 150px;"/>
+                                        <a class="text-center text-dark btn btn-sm mt-2" href="{{asset('/cotizacion/usuario'. $cotizacion->id_user . '/' .$foto->imagen) }}" target="_blank" style="background: #43eb5f; color: #000000!important">Ver Imagen</a>
+                                    </div>
+                                @endif
+                            @endif
+                        @endif
+                    </div>
+                @endforeach
+            </div>
+
+            {{----------------------------------------------------------------------------
+            |Pagado
+            |----------------------------------------------------------------------------}}
+            <div class="row">
+                <div class="col-12 mb-3">
+                    <h2 class="text-center text-white ml-4 mr-4 ">
+                        <strong>Pago</strong>
+                    </h2>
+                </div>
+
+                @foreach ($fotos as $foto)
+                    <div class="col-4 mb-3">
+                        @if ($foto->estatus == 'Por pagar')
+                            @if ($foto == NULL)
+                                <div class="col-6">
+                                    <img id="blah" src="{{asset('/img/icon/seguros/page-not-found.png') }}" alt="Imagen" style="width: 90px;height: 90px;"/>
+                                </div>
+                            @else
+                                @if (pathinfo($foto->imagen, PATHINFO_EXTENSION) == 'pdf')
+                                    <div class="col-12">
+                                        <iframe class="mt-2" src="{{asset('/cotizacion/usuario'. $cotizacion->id_user . '/' .$foto->imagen) }}" style="width: 80%; height: 80px;"></iframe>
+                                        <p class="text-center ">
+                                            <a class="btn btn-sm text-dark" href="{{asset('/cotizacion/usuario'. $cotizacion->id_user . '/' .$foto->imagen) }}" target="_blank" style="background: #836262; color: #ffff!important">Ver archivo</a>
+                                        </p>
+                                    </div>
+                                @else
+                                    <div class="col-6">
+                                        <img id="blah" src="{{asset('/cotizacion/usuario'. $cotizacion->id_user . '/' .$foto->imagen) }}" alt="Imagen" style="width: 150px;height: 150px;"/>
+                                        <a class="text-center text-dark btn btn-sm mt-2" href="{{asset('/cotizacion/usuario'. $cotizacion->id_user . '/' .$foto->imagen) }}" target="_blank" style="background: #43eb5f; color: #000000!important">Ver Imagen</a>
+                                    </div>
+                                @endif
+                            @endif
+                        @endif
+                    </div>
+                @endforeach
             </div>
 
 
+            <div class="row">
+                <div class="col-12 mb-5">
+                </div>
+            </div>
         </div>
 @endsection

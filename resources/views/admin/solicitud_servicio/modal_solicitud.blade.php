@@ -112,7 +112,7 @@
 
                                 <div class="col-12">
                                     <label for="">
-                                        <p class="text-dark"><strong>Describe el Problema</strong></p>
+                                        <p class="text-dark"><strong>Describe el serv./falla</strong></p>
                                     </label>
 
                                     <div class="input-group form-group mb-5">
