@@ -40,7 +40,7 @@
                             </div>
 
                             <div class="col-12 col-md-6 col-lg-6 mt-2" >
-                                <p><strong>Comentario Solicitante</strong></p>
+                                <p><strong>Describe el serv./falla</strong></p>
                                 <div class="input-group form-group">
                                     <textarea  class="form-control" cols="90" rows="3" disabled>
                                         @foreach ($comentarios as $comentario)

@@ -9,7 +9,9 @@
     }
 </style>
 @section('content')
-
+@php
+use Carbon\Carbon;
+@endphp
     <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
 
     <div class="row bg-down-image-border">
@@ -77,6 +79,7 @@
                             <th scope="col">Automovil</th>
                             <th scope="col">Estatus</th>
                             <th scope="col">KM</th>
+                            <th scope="col">Dias</th>
                             <th scope="col">Acciones</th>
                         </tr>
                     </thead>
@@ -133,6 +136,49 @@
                                     @endif
                                 </td>
                                 <td>
+                                    @php
+                                        $hoy = Carbon::now();
+                                        $dias_transcurridos = null;
+
+                                        switch ($item->estatus) {
+                                            case 'Pendiente de asignar taller':
+                                                $fecha = $item->fecha_creacion ? Carbon::parse($item->fecha_creacion) : null;
+                                                break;
+                                            case 'Pendiente de ingreso a taller':
+                                                $fecha = $item->fecha_asignacion_taller ? Carbon::parse($item->fecha_asignacion_taller) : null;
+                                                break;
+                                            case 'En espera de cotización':
+                                                $fecha = $item->fecha_ingreso_taller ? Carbon::parse($item->fecha_ingreso_taller) : null;
+                                                break;
+                                            case 'Pendiente de autorización':
+                                                $fecha = $item->fecha_cotizacion ? Carbon::parse($item->fecha_cotizacion) : null;
+                                                break;
+                                            case 'En reparación':
+                                                $fecha = $item->fecha_autorizada ? Carbon::parse($item->fecha_autorizada) : null;
+                                                break;
+                                            case 'Por entregar usuario':
+                                                $fecha = $item->fecha_reparado ? Carbon::parse($item->fecha_reparado) : null;
+                                                break;
+                                            case 'Por cargar factura':
+                                                $fecha = $item->fecha_entregado ? Carbon::parse($item->fecha_entregado) : null;
+                                                break;
+                                            case 'Por pagar':
+                                                $fecha = $item->fecha_factura ? Carbon::parse($item->fecha_factura) : null;
+                                                break;
+                                            default:
+                                                $fecha = null;
+                                        }
+
+                                        if ($fecha) {
+                                            $dias_transcurridos = $fecha->diffInDays($hoy);
+                                        }
+                                    @endphp
+
+                                    @if(!is_null($dias_transcurridos))
+                                        <p>{{ $dias_transcurridos }} días</p>
+                                    @endif
+                                </td>
+                                <td>
                                     @if ($item->estatus == 'Pendiente de asignar taller')
                                         <a style="color: #3490dc" data-toggle="modal" data-target="#taller-{{ $item->id }}">  <img class="" src="{{ asset('img/icon/white/configuraciones.png') }}" width="20px" > Taller</a> <br><br>
                                         @include('admin.taller_cotizacion.modal_taller')
@@ -159,7 +205,6 @@
                                         @endphp
                                         <a style="color: #3490dc" data-toggle="modal" data-target="#taller-ingreso-{{ $item->id }}">  <img class="" src="{{ asset('img/icon/white/car-service (1).png') }}" width="20px" >Entregar</a> <br><br>
                                         @include('admin.taller_cotizacion.modal_ingreso_taller')
-                                        <a style="color: {{ $color }}" href="{{ route('encuesta.cotizacion_taller', $item->OredenEncuesta->id) }}">  <img class="" src="{{ asset('img/icon/white/numeros.png') }}" width="20px" >Encuesta</a> <br><br>
                                     @endif
                                     @if ($item->estatus == 'Por cargar factura')
                                         <a style="color: #3490dc" data-toggle="modal" data-target="#taller-ingreso-{{ $item->id }}">  <img class="" src="{{ asset('img/icon/white/calendario (5).png') }}" width="20px" >Factura</a> <br><br>
@@ -230,10 +275,31 @@ $(document).ready(function() {
         const selectedOption = $(selectElement).find('option:selected');
         const precio = selectedOption.data('precio');
         $(selectElement).closest('.servicio-item').find('.precio-input').val(precio);
+        calculateTotals(selectElement);
+    }
+
+    function calculateTotals(element) {
+        const registroId = $(element).closest('.container').find('.addServicioBtn').data('registro-id');
+        let total = 0;
+
+        $(`#serviciosContainer_${registroId} .precio-input`).each(function() {
+            const value = parseFloat($(this).val());
+            if (!isNaN(value)) {
+                total += value;
+            }
+        });
+
+        const totalIva = total * 1.16;
+        $(`#totalInput_${registroId}`).val(total.toFixed(2));
+        $(`#totalIvaInput_${registroId}`).val(totalIva.toFixed(2));
     }
 
     $(document).on('change', '.servicio-select', function() {
         updatePrice(this);
+    });
+
+    $(document).on('input', '.precio-input', function() {
+        calculateTotals(this);
     });
 
     function createNewServicioItem(index, registroId) {
@@ -276,7 +342,6 @@ $(document).ready(function() {
         servicioIndices[registroId]++;
     });
 });
-
 
 </script>
 @endsection
