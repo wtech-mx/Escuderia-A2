@@ -72,11 +72,33 @@
                                                 <th>
                                                     {{$item->Cotizacion->User->name}}
                                                 </th>
+
                                                 <th>
-                                                    {{$item->Cotizacion->Automovil->submarca}}
+                                                    {{-- {{$item->Cotizacion->Automovil->submarca}} --}}
+
+                                                    @if(!isset($item->Cotizacion->Automovil->submarca))
+                                                        <p>Sin Submarca</p>
+
+                                                    @elseif(empty($item->Cotizacion->Automovil->submarca))
+                                                        <p>Sin Submarca</p>
+                                                    @else
+                                                        {{ $item->Cotizacion->Automovil->submarca }}
+                                                    @endif
+
                                                 </th>
+
                                                 <th>
-                                                    {{$item->Cotizacion->Automovil->placas}}
+                                                    {{-- {{$item->Cotizacion->Automovil->placas}} --}}
+
+                                                    @if(!isset($item->Cotizacion->Automovil->placas))
+                                                        <p>Sin placas</p>
+
+                                                    @elseif(empty($item->Cotizacion->Automovil->placas))
+                                                        <p>Sin placas</p>
+                                                    @else
+                                                        {{ $item->Cotizacion->Automovil->placas }}
+                                                    @endif
+
                                                 </th>
                                                 <td>{{ $item->Cotizacion->fecha }}</td>
 
