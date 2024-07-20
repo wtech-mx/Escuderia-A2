@@ -114,7 +114,7 @@ use Carbon\Carbon;
                                         @case('Pendiente de ingreso a taller')
                                             Fecha: {{ $item->fecha_asignacion_taller }}
                                             @break
-                                        @case('En espera de cotización')
+                                        @case('En espera de cotizacion')
                                         Fecha: {{ $item->fecha_ingreso_taller }}
                                             @break
                                         @case('Pendiente de Autorización')
@@ -161,7 +161,7 @@ use Carbon\Carbon;
                                             case 'Pendiente de ingreso a taller':
                                                 $fecha = $item->fecha_asignacion_taller ? Carbon::parse($item->fecha_asignacion_taller) : null;
                                                 break;
-                                            case 'En espera de cotización':
+                                            case 'En espera de cotizacion':
                                                 $fecha = $item->fecha_ingreso_taller ? Carbon::parse($item->fecha_ingreso_taller) : null;
                                                 break;
                                             case 'Pendiente de autorización':
@@ -201,7 +201,7 @@ use Carbon\Carbon;
                                         <a style="color: #3490dc" data-toggle="modal" data-target="#taller-ingreso-{{ $item->id }}">  <img class="" src="{{ asset('img/icon/white/taller.png') }}" width="20px" >Ing Taller</a> <br><br>
                                         @include('admin.taller_cotizacion.modal_ingreso_taller')
                                     @endif
-                                    @if ($item->estatus == 'En espera de cotización')
+                                    @if ($item->estatus == 'En espera de cotizacion')
                                         <a style="color: #3490dc" data-toggle="modal" data-target="#taller-ingreso-{{ $item->id }}">  <img class="" src="{{ asset('img/icon/white/calendario (5).png') }}" width="20px" >Fecha Cot</a> <br><br>
                                         @include('admin.taller_cotizacion.modal_ingreso_taller')
                                     @endif

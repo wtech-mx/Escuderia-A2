@@ -23,7 +23,7 @@
                                     <select class="form-control" id="estatus" name="estatus" required>
                                         <option value="{{$item->estatus}}">{{$item->estatus}}</option>
                                         <option value="Pendiente de ingreso a taller">Pendiente de ingreso a taller</option>
-                                        <option value="En espera de cotización">En espera de cotización</option>
+                                        <option value="En espera de cotizacion">En espera de cotizacion</option>
                                         <option value="Pendiente de autorización">Pendiente de autorización</option>
                                         <option value="En reparacion">En Reparacion</option>
                                         <option value="Por entregar usuario">Por Entregar Usuario</option>

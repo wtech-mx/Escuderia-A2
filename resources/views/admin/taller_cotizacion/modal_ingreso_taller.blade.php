@@ -145,7 +145,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            @elseif ($item->estatus == 'En espera de cotización')
+                            @elseif ($item->estatus == 'En espera de cotizacion')
                                 <div class="row">
                                     <div class="col-12 mt-5">
                                         <h2 class="text-center ml-4 mr-4 ">
