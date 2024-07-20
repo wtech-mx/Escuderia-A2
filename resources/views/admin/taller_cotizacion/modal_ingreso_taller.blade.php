@@ -22,9 +22,45 @@
                                                 </span>
                                             </div>
 
-                                            <input class="form-control" type="text" value="{{$item->User->name}}" disabled>
+                                            <input class="form-control" type="text" value="{{$item->User->name}}"disabled>
+                                            <input class="form-control" type="hidden" value="{{$item->User->id}}" name="userbussines" >
+
                                         </div>
                                     </div>
+
+                                    @php
+
+                                        if(!isset($item->Auto->Marca->nombre)){
+
+                                            $nombreMarca = 'Sin nombre';
+
+                                        }else if(empty($item->Auto->Marca->nombre)){
+
+                                            $nombreMarca = 'Sin nombre';
+
+                                        }else{
+
+                                            $nombreMarca = $item->Auto->Marca->nombre;
+
+                                        }
+
+                                        if(!isset($item->Auto->id)){
+
+                                            $nombreAutoId = 'Sin nombre';
+
+                                        }else if(empty($item->Auto->id)){
+
+                                            $nombreAutoId = 'Sin nombre';
+
+                                        }else{
+
+                                            $nombreAutoId = $item->Auto->id;
+
+                                        }
+
+                                    @endphp
+
+                                <input class="form-control" type="hidden" value="{{ $nombreAutoId}}" name="auto_id">
 
                                     <div class="col-6">
                                         <div class="input-group form-group">

@@ -52,7 +52,7 @@ use Carbon\Carbon;
                             <div class="col-3">
                                 <label for="user_id">Filtra Estatus:</label>
                                 <select class="form-select cliente" name="id_client" id="id_client">
-                                    <option value="Espera de Cotizacion">Espera de Cotizacion</option>
+                                    <option value="En espera de cotizacion">Espera de Cotizacion</option>
                                     <option value="Autorizada Cotizacion">Autorizada Cotizacion</option>
                                     <option value="En reparacion">En Reparacion</option>
                                     <option value="Por entregar usuario">Por Entregar Usuario</option>
@@ -88,7 +88,21 @@ use Carbon\Carbon;
                             <tr>
                                 <td>{{ $item->User->name }}</td>
                                 <td>
-                                    {{ $item->Auto->Marca->nombre}} <br>
+
+                                    @if(!isset($$item->Auto->Marca->nombre))
+
+                                    <p>Sin Submarca</p>
+
+                                    @elseif(empty($$item->Auto->Marca->nombre))
+
+                                        <p>Sin nombre</p>
+
+                                    @else
+
+                                        {{ $$item->Auto->Marca->nombre }}
+
+                                    @endif
+
                                     {{ $item->placas}}
                                 </td>
                                 <td>

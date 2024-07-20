@@ -1,11 +1,13 @@
 <?php
+
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class PlantillaPendienteAutorizacion extends Mailable
+class PlantillaIngreso extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -18,7 +20,7 @@ class PlantillaPendienteAutorizacion extends Mailable
 
     public function build()
     {
-        return $this->view('emails.pendienteautorizacion')
+        return $this->view('emails.ingreso')
                     ->subject('Pendiente de autorizacion');
     }
 }

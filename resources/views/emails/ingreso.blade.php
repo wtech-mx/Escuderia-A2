@@ -313,12 +313,11 @@
 <p style="color: #ffff;"><span style="color: {{ $datos['color'] }};"> Color:</span> </p>
 <p style="color: #ffff;"><span style="color: #ffff;"> Placas:</span> {{ $datos['placas'] }}</p>
 
-<p><strong><span style="color: #ffff;">Informacion del Taller :</span></strong></p>
-<p style="color: #ffff;"><span style="color: #ffff;"> Nombre taller :</span> {{ $datos['nombre_taller'] }}</p>
-<p style="color: #ffff;"><span style="color: #ffff;"> Encargado:</span> {{ $datos['telefono'] }}</p>
-<p style="color: #ffff;"><span style="color: #ffff;"> Telefono:</span> {{ $datos['año'] }}</p>
-<p style="color: #ffff;"><span style="color: #ffff;"> Correo:</span> {{ $datos['correo'] }}</p>
-<p style="color: #ffff;"><span style="color: #ffff;"> Dirección:</span> {{ $datos['direccion'] }}</p>
+<p><strong><span style="color: #ffff;">Informacion de ingreso:</span></strong></p>
+<p style="color: #ffff;"><span style="color: #ffff;"> Comentario del Admin :</span> {{ $datos['comentario_admin'] }}</p>
+<p style="color: #ffff;"><span style="color: #ffff;"> Fecha de ingreso:</span> {{ $datos['fecha_cot'] }}</p>
+<p style="color: #ffff;"><span style="color: #ffff;"> Hora de ingreso:</span> {{ $datos['hora_ingreso'] }}</p>
+<p style="color: #ffff;"><span style="color: #ffff;"> KM  Actual:</span> {{ $datos['km_taller'] }}</p>
 
 <p>&nbsp;</p>
 <p style="color: #ffff;"><span style="color: #ffff;"></span></p>

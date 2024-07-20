@@ -19,12 +19,13 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\PlantillaEnReparacion;
 use App\Mail\PlantillaPendienteAutorizacion;
 use App\Mail\PlantillaSolicitud;
+use App\Mail\PlantillaIngreso;
 
 class OrdenServicioController extends Controller
 {
     public function index(){
 
-        $cotizacion = OrdenServicio::get();
+        $cotizacion = OrdenServicio::orderby('id','desc')->get();
 
         $cliente = User::where('role', '=', '0')
         ->where('empresa', '=', 0)
@@ -85,7 +86,6 @@ class OrdenServicioController extends Controller
             }
         }
 
-
         $auto = Automovil::find($taller->current_auto);
 
         $datos = [
@@ -102,7 +102,8 @@ class OrdenServicioController extends Controller
             'fecha' => $comentario->fecha,
         ];
 
-        Mail::to('adrianwebtech@gmail.com')->send(new PlantillaSolicitud($datos));
+
+        Mail::to('adrianwebtech@gmail.com','aldiazm.11@gmail.com')->send(new PlantillaSolicitud($datos));
 
         Session::flash('success', 'Se ha guardado su orden con exito');
         return redirect()->back();
@@ -151,6 +152,7 @@ class OrdenServicioController extends Controller
     public function store_taller(Request $request, $id)
     {
 
+
         if (Talleres::where('telefono', $request->telefono)->exists()) {
             $taller = Talleres::where('telefono', $request->telefono)->first();
             $payer = $taller->id;
@@ -167,16 +169,16 @@ class OrdenServicioController extends Controller
             $payer = Talleres::where('id', '=', $taller->id)->first();
         }
 
-        $taller = new TallerOrden;
-        $taller->id_cotizacion = $id;
-        $taller->id_taller = $payer->id;
-        $taller->nombre_taller = $request->get('nombre_taller');
-        $taller->encargado = $request->get('encargado');
-        $taller->telefono = $request->get('telefono');
-        $taller->correo = $request->get('correo');
-        $taller->direccion = $request->get('direccion');
-        $taller->fecha = date('Y-m-d');
-        $taller->save();
+        $tallerOrden = new TallerOrden;
+        $tallerOrden->id_cotizacion = $id;
+        $tallerOrden->id_taller = $payer->id;
+        $tallerOrden->nombre_taller = $request->get('nombre_taller');
+        $tallerOrden->encargado = $request->get('encargado');
+        $tallerOrden->telefono = $request->get('telefono');
+        $tallerOrden->correo = $request->get('correo');
+        $tallerOrden->direccion = $request->get('direccion');
+        $tallerOrden->fecha = date('Y-m-d');
+        $tallerOrden->save();
 
         $cotizacion = OrdenServicio::findOrFail($id);
         $cotizacion->estatus = 'Pendiente de ingreso a taller';
@@ -198,16 +200,41 @@ class OrdenServicioController extends Controller
             $comentario->save();
         }
 
+
+        $auto = Automovil::find($request->get('auto_id'));
+        $userEmpresa = User::find($request->get('userbussines'));
+
+        $datos = [
+            'submarca' =>  $auto->submarca,
+            'tipo' =>  $auto->tipo,
+            'año' =>  $auto->año,
+            'numero_serie' =>  $auto->numero_serie,
+            'color' =>  $auto->color,
+            'placas' =>  $auto->placas,
+            'nombre_taller' => $tallerOrden->nombre_taller,
+            'encargado' => $tallerOrden->encargado,
+            'telefono' => $tallerOrden->telefono,
+            'direccion' => $tallerOrden->direccion,
+            'correo' => $tallerOrden->correo,
+            'fecha' => $tallerOrden->fecha,
+            'estatus' => $cotizacion->estatus,
+            'comentario' => $comentario->comentario ,
+            'fecha' => $comentario->fecha,
+        ];
+
+        Mail::to($request->get('correo'),'aldiazm.11@gmail.com',$userEmpresa->email)->send(new PlantillaPendienteAutorizacion($datos));
+
         Session::flash('success', 'Se ha actualizado sus datos con exito');
         return redirect()->back();
     }
 
     public function ingreso(Request $request, $id)
     {
+
         if($request->get('fecha_ingreso') != NULL){
             $cotizacion = OrdenServicio::findOrFail($id);
             $cotizacion->fecha_ingreso_taller = $request->get('fecha_ingreso') . ' ' . $request->get('hora_ingreso');
-            $cotizacion->estatus = 'En espera de cotización';
+            $cotizacion->estatus = 'En espera de cotizacion';
             $cotizacion->km_taller = $request->get('km_taller');
             $cotizacion->update();
 
@@ -230,7 +257,7 @@ class OrdenServicioController extends Controller
             if($request->get('comentario_cot') != NULL){
                 $comentario = new OrdenComentarios;
                 $comentario->id_cotizacion = $cotizacion->id;
-                $comentario->estatus = 'En espera de cotización';
+                $comentario->estatus = 'En espera de cotizacion';
                 $comentario->comentario = $request->get('comentario_cot');
                 $comentario->fecha = date("Y-m-d");
                 $comentario->save();
@@ -382,6 +409,26 @@ class OrdenServicioController extends Controller
             }
         }
 
+        $auto = Automovil::find($request->get('auto_id'));
+        $userEmpresa = User::find($request->get('userbussines'));
+
+        $datos = [
+            'submarca' =>  $auto->submarca,
+            'tipo' =>  $auto->tipo,
+            'año' =>  $auto->año,
+            'numero_serie' =>  $auto->numero_serie,
+            'color' =>  $auto->color,
+            'placas' =>  $auto->placas,
+            'comentario_admin' => $request->get('comentario'),
+            'hora_ingreso' => $request->get('hora_ingreso'),
+            'fecha_cot' => $request->get('fecha_cot'),
+            'km_taller' => $request->get('km_taller'),
+
+        ];
+
+        Mail::to('aldiazm.11@gmail.com',$userEmpresa->email)->send(new PlantillaIngreso($datos));
+
+
         Session::flash('success', 'Se ha actualizado sus datos con exito');
         return redirect()->back();
     }
@@ -473,5 +520,5 @@ class OrdenServicioController extends Controller
         return redirect()->back();
     }
 
-    
+
 }
