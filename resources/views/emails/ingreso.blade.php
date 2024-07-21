@@ -304,7 +304,7 @@
                                                                                     <tr>
                                                                                         <td valign='top' dir="ltr"
                                                                                             style='font-size: 15px;width:540px;line-height:25px;background-image:none;padding:20px 0px 0px;border-radius:0px;border-top:0 hidden;border-right:0 hidden;border-bottom:0 hidden;border-left:0 hidden;'>
-																							<div class='text-item '><p><span style="color: #ffff;">Gracias por su solicitud</span></p>
+																							<div class='text-item '><p><span style="color: #ffff;">Estatus {{ $datos['estatus_coti'] }}</span></p>
 <p><strong><span style="color: #ffff;">Informacion del Vehiculo :</span></strong></p>
 <p style="color: #ffff;"><span style="color: #ffff;"> Submarca:</span> {{ $datos['submarca'] }}</p>
 <p style="color: #ffff;"><span style="color: #ffff;"> Tipo:</span> {{ $datos['tipo'] }}</p>
@@ -313,11 +313,37 @@
 <p style="color: #ffff;"><span style="color: {{ $datos['color'] }};"> Color:</span> </p>
 <p style="color: #ffff;"><span style="color: #ffff;"> Placas:</span> {{ $datos['placas'] }}</p>
 
-<p><strong><span style="color: #ffff;">Informacion de ingreso:</span></strong></p>
-<p style="color: #ffff;"><span style="color: #ffff;"> Comentario del Admin :</span> {{ $datos['comentario_admin'] }}</p>
-<p style="color: #ffff;"><span style="color: #ffff;"> Fecha de ingreso:</span> {{ $datos['fecha_cot'] }}</p>
-<p style="color: #ffff;"><span style="color: #ffff;"> Hora de ingreso:</span> {{ $datos['hora_ingreso'] }}</p>
-<p style="color: #ffff;"><span style="color: #ffff;"> KM  Actual:</span> {{ $datos['km_taller'] }}</p>
+<p><strong><span style="color: #ffff;">Pendiente de ingreso a taller :</span></strong></p>
+
+<p style="color: #ffff;"><span style="color: #ffff;"> Comentario Administrador:</span> {{ $datos['comentario_cot'] }}</p>
+<p style="color: #ffff;"><span style="color: #ffff;"> Fecha Ingreso:</span> {{ $datos['fecha_cot'] }}</p>
+<p style="color: #ffff;"><span style="color: #ffff;"> Hora ingreso:</span> {{ $datos['hora_cot'] }}</p>
+
+
+<p><strong><span style="color: #ffff;">En reparacion :</span></strong></p>
+
+<p style="color: #ffff;"><span style="color: #ffff;"> Comentario Administrador:</span> {{ $datos['comentario_rep'] }}</p>
+<p style="color: #ffff;"><span style="color: #ffff;"> Fecha reparación:</span> {{ $datos['fecha_rep'] }}</p>
+<p style="color: #ffff;"><span style="color: #ffff;"> Hora reparación:</span> {{ $datos['hora_rep'] }}</p>
+
+
+<p><strong><span style="color: #ffff;">Por entregar usuario :</span></strong></p>
+
+<p style="color: #ffff;"><span style="color: #ffff;"> Comentario Administrador:</span> {{ $datos['comentario_entrega'] }}</p>
+<p style="color: #ffff;"><span style="color: #ffff;"> Fecha entrega:</span> {{ $datos['fecha_entrega'] }}</p>
+<p style="color: #ffff;"><span style="color: #ffff;"> Hora entrega:</span> {{ $datos['hora_entrega'] }}</p>
+<p style="color: #ffff;"><span style="color: #ffff;"> KM Actual:</span> {{ $datos['km_entrega'] }}</p>
+
+<p><strong><span style="color: #ffff;">Por cargar factura :</span></strong></p>
+
+<p style="color: #ffff;"><span style="color: #ffff;"> Comentario Administrador:</span> {{ $datos['comentario_factura'] }}</p>
+
+
+<p><strong><span style="color: #ffff;">Por pagar :</span></strong></p>
+
+<p style="color: #ffff;"><span style="color: #ffff;"> Comentario Administrador:</span> {{ $datos['comentario_por_pagar'] }}</p>
+<p style="color: #ffff;"><span style="color: #ffff;"> Fecha por pagar:</span> {{ $datos['fecha_por_pagar'] }}</p>
+<p style="color: #ffff;"><span style="color: #ffff;"> Hora por pagar:</span> {{ $datos['hora_por_pagar'] }}</p>
 
 <p>&nbsp;</p>
 <p style="color: #ffff;"><span style="color: #ffff;"></span></p>

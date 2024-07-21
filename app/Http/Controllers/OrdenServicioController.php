@@ -231,12 +231,51 @@ class OrdenServicioController extends Controller
     public function ingreso(Request $request, $id)
     {
 
+
+        $auto = Automovil::find($request->get('auto_id'));
+        $userEmpresa = User::find($request->get('userbussines'));
+
+        $datos = [
+            'submarca' =>  $auto->submarca,
+            'tipo' =>  $auto->tipo,
+            'año' =>  $auto->año,
+            'numero_serie' =>  $auto->numero_serie,
+            'color' =>  $auto->color,
+            'placas' =>  $auto->placas,
+            'estatus_coti' =>  $request->get('estatus_coti'),
+            'comentario' => '...',
+            'comentario_factura' => '...',
+            'comentario_cot' => '...',
+            'comentario_rep' => '...',
+            'comentario_entrega' => '...',
+            'comentario_por_pagar' => '...',
+            'km_taller' => '...',
+            'hora_ingreso' => '...',
+            'fecha_ingreso' => '...',
+            'hora_cot' => '...',
+            'fecha_cot' => '...',
+            'hora_rep' => '...',
+            'fecha_rep' => '...',
+            'hora_entrega' => '...',
+            'fecha_entrega' => '...',
+            'hora_por_pagar' => '...',
+            'fecha_por_pagar' => '...',
+            'km_entrega' => '...',
+
+        ];
+
+
         if($request->get('fecha_ingreso') != NULL){
             $cotizacion = OrdenServicio::findOrFail($id);
             $cotizacion->fecha_ingreso_taller = $request->get('fecha_ingreso') . ' ' . $request->get('hora_ingreso');
             $cotizacion->estatus = 'En espera de cotizacion';
             $cotizacion->km_taller = $request->get('km_taller');
             $cotizacion->update();
+
+            $datos['km_taller'] = $request->get('km_taller');
+
+            $datos['fecha_ingreso'] = $request->get('fecha_ingreso');
+            $datos['hora_ingreso'] = $request->get('hora_ingreso');
 
             // G U A R D A R  C O M E N T A R I O
             if($request->get('comentario') != NULL){
@@ -246,12 +285,17 @@ class OrdenServicioController extends Controller
                 $comentario->comentario = $request->get('comentario');
                 $comentario->fecha = date("Y-m-d");
                 $comentario->save();
+
+                $datos['comentario'] = $request->get('comentario');
             }
         }else if($request->get('fecha_cot') != NULL){
             $cotizacion = OrdenServicio::findOrFail($id);
             $cotizacion->fecha_cotizacion = $request->get('fecha_cot') . ' ' . $request->get('hora_cot');
             $cotizacion->estatus = 'Pendiente de autorización';
             $cotizacion->update();
+
+            $datos['hora_cot'] = $request->get('hora_cot');
+            $datos['fecha_cot'] = $request->get('fecha_cot');
 
             // G U A R D A R  C O M E N T A R I O
             if($request->get('comentario_cot') != NULL){
@@ -261,6 +305,8 @@ class OrdenServicioController extends Controller
                 $comentario->comentario = $request->get('comentario_cot');
                 $comentario->fecha = date("Y-m-d");
                 $comentario->save();
+
+                $datos['comentario_cot'] = $request->get('comentario_cot');
             }
         }else if($request->get('fecha_rep') != NULL){
             $cotizacion = OrdenServicio::findOrFail($id);
@@ -276,6 +322,8 @@ class OrdenServicioController extends Controller
                 $comentario->comentario = $request->get('comentario_rep');
                 $comentario->fecha = date("Y-m-d");
                 $comentario->save();
+
+                $datos['comentario_rep'] = $request->get('comentario_rep');
             }
 
             // G U A R D A R  I M G  G A L E R I A
@@ -300,6 +348,7 @@ class OrdenServicioController extends Controller
             $cotizacion->estatus = 'Por cargar factura';
             $cotizacion->km_entrega = $request->get('km_entrega');
             $cotizacion->update();
+            $datos['km_entrega'] = $request->get('km_entrega');
 
             // G U A R D A R  C O M E N T A R I O
             if($request->get('comentario_entrega') != NULL){
@@ -309,6 +358,8 @@ class OrdenServicioController extends Controller
                 $comentario->comentario = $request->get('comentario_entrega');
                 $comentario->fecha = date("Y-m-d");
                 $comentario->save();
+
+                $datos['comentario_entrega'] = $request->get('comentario_entrega');
             }
 
             // G U A R D A R  I M G  G A L E R I A
@@ -357,6 +408,9 @@ class OrdenServicioController extends Controller
                 $comentario->comentario = $request->get('comentario_factura');
                 $comentario->fecha = date("Y-m-d");
                 $comentario->save();
+
+                $datos['comentario_factura'] = $request->get('comentario_factura');
+
             }
 
             // G U A R D A R  I M G  G A L E R I A
@@ -389,6 +443,8 @@ class OrdenServicioController extends Controller
                 $comentario->comentario = $request->get('comentario_por_pagar');
                 $comentario->fecha = date("Y-m-d");
                 $comentario->save();
+
+                $datos['comentario_por_pagar'] = $request->get('comentario_por_pagar');
             }
 
             // G U A R D A R  I M G  G A L E R I A
@@ -409,25 +465,7 @@ class OrdenServicioController extends Controller
             }
         }
 
-        $auto = Automovil::find($request->get('auto_id'));
-        $userEmpresa = User::find($request->get('userbussines'));
-
-        $datos = [
-            'submarca' =>  $auto->submarca,
-            'tipo' =>  $auto->tipo,
-            'año' =>  $auto->año,
-            'numero_serie' =>  $auto->numero_serie,
-            'color' =>  $auto->color,
-            'placas' =>  $auto->placas,
-            'comentario_admin' => $request->get('comentario'),
-            'hora_ingreso' => $request->get('hora_ingreso'),
-            'fecha_cot' => $request->get('fecha_cot'),
-            'km_taller' => $request->get('km_taller'),
-
-        ];
-
         Mail::to('aldiazm.11@gmail.com',$userEmpresa->email)->send(new PlantillaIngreso($datos));
-
 
         Session::flash('success', 'Se ha actualizado sus datos con exito');
         return redirect()->back();

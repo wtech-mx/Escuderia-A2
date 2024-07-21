@@ -5,7 +5,44 @@
                 <form method="POST" action="{{route('ingreso.cotizacion_taller', $item->id)}}" enctype="multipart/form-data" role="form">
                     @csrf
                     <input type="hidden" name="_method" value="PATCH">
+
+                    @php
+
+                        if(!isset($item->Auto->Marca->nombre)){
+
+                            $nombreMarca = 'Sin nombre';
+
+                        }else if(empty($item->Auto->Marca->nombre)){
+
+                            $nombreMarca = 'Sin nombre';
+
+                        }else{
+
+                            $nombreMarca = $item->Auto->Marca->nombre;
+
+                        }
+
+                        if(!isset($item->Auto->id)){
+
+                            $nombreAutoId = 'Sin nombre';
+
+                        }else if(empty($item->Auto->id)){
+
+                            $nombreAutoId = 'Sin nombre';
+
+                        }else{
+
+                            $nombreAutoId = $item->Auto->id;
+
+                        }
+
+                    @endphp
+
+                    <input class="form-control" type="hidden" value="{{ $nombreAutoId}}" name="auto_id">
+                    <input class="form-control" type="hidden" value="{{$item->User->id}}" name="userbussines" >
+
                             @if ($item->estatus == 'Pendiente de ingreso a taller')
+                                <input type="hidden" name="estatus_coti" value="En espera de cotizacion">
                                 <div class="row">
                                     <div class="col-12  mt-5">
                                         <h2 class="text-center ml-4 mr-4 ">
@@ -23,44 +60,9 @@
                                             </div>
 
                                             <input class="form-control" type="text" value="{{$item->User->name}}"disabled>
-                                            <input class="form-control" type="hidden" value="{{$item->User->id}}" name="userbussines" >
 
                                         </div>
                                     </div>
-
-                                    @php
-
-                                        if(!isset($item->Auto->Marca->nombre)){
-
-                                            $nombreMarca = 'Sin nombre';
-
-                                        }else if(empty($item->Auto->Marca->nombre)){
-
-                                            $nombreMarca = 'Sin nombre';
-
-                                        }else{
-
-                                            $nombreMarca = $item->Auto->Marca->nombre;
-
-                                        }
-
-                                        if(!isset($item->Auto->id)){
-
-                                            $nombreAutoId = 'Sin nombre';
-
-                                        }else if(empty($item->Auto->id)){
-
-                                            $nombreAutoId = 'Sin nombre';
-
-                                        }else{
-
-                                            $nombreAutoId = $item->Auto->id;
-
-                                        }
-
-                                    @endphp
-
-                                <input class="form-control" type="hidden" value="{{ $nombreAutoId}}" name="auto_id">
 
                                     <div class="col-6">
                                         <div class="input-group form-group">
@@ -146,6 +148,7 @@
                                     </div>
                                 </div>
                             @elseif ($item->estatus == 'En espera de cotizacion')
+                                <input type="hidden" name="estatus_coti" value="En espera de cotizacion">
                                 <div class="row">
                                     <div class="col-12 mt-5">
                                         <h2 class="text-center ml-4 mr-4 ">
@@ -201,6 +204,7 @@
                                     </div>
                                 </div>
                             @elseif ($item->estatus == 'En reparacion')
+                                <input type="hidden" name="estatus_coti" value="En reparacion">
                                 <div class="row">
                                     <div class="col-12 mt-5">
                                         <h2 class="text-center ml-4 mr-4 ">
@@ -292,6 +296,7 @@
                                     </div>
                                 </div>
                             @elseif ($item->estatus == 'Por entregar usuario')
+                                <input type="hidden" name="estatus_coti" value="Por entregar usuario">
                                 <div class="row">
                                     <div class="col-12 mt-5">
                                         <h2 class="text-center ml-4 mr-4 ">
@@ -420,6 +425,7 @@
                                     </div>
                                 </div>
                             @elseif ($item->estatus == 'Por cargar factura')
+                                <input type="hidden" name="estatus_coti" value="Por cargar factura">
                                 <div class="row">
                                     <div class="col-12 mt-5">
                                         <h2 class="text-center ml-4 mr-4 ">
@@ -498,6 +504,7 @@
                                     </div>
                                 </div>
                             @elseif ($item->estatus == 'Por pagar')
+                                <input type="hidden" name="estatus_coti" value="Por pagar">
                                 <div class="row">
                                     <div class="col-12 mt-5">
                                         <h2 class="text-center ml-4 mr-4 ">
