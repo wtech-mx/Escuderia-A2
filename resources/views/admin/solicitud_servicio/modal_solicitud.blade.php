@@ -53,7 +53,7 @@
                                 </div>
                                 </div>
 
-                                {{-- <div class="col-12">
+                                <div class="col-12">
                                     <label for="">
                                         <p class="text-dark"><strong>Seleccionar Usuario</strong></p>
                                     </label>
@@ -64,15 +64,14 @@
                                                 <i class="fas fa-users icon-tc"></i>
                                             </span>
                                         </div>
-                                        <select class="form-control" id="id_userco" name="id_userco">
-                                            <option value="">Seleccione Cliente</option>
-
-                                        @foreach ($user as $item)
-                                            <option value="{{ $item->id }}">{{ $item->name }}</option>
-                                        @endforeach
-                                    </select>
+                                        <select class="form-control" id="id_empleado" name="id_empleado">
+                                            <option value="">Seleccione Empleado</option>
+                                            @foreach ($user as $item)
+                                                <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
-                                </div> --}}
+                                </div>
 
                                 <div class="col-12">
                                     <label for="">
@@ -85,11 +84,8 @@
                                                 <i class="fas fa-car icon-tc"></i>
                                             </span>
                                         </div>
-                                        <select class="form-control" id="current_auto" name="current_auto">
-                                            <option value="">seleccione auto</option>
-                                            @foreach ($automoviles as $item)
-                                                <option value="{{ $item->id }}">{{ $item->placas }} / {{ $item->submarca }}</option>
-                                            @endforeach
+                                        <select class="form-control" id="id_automovil" name="id_automovil">
+                                            <option value="">Seleccione Empleado</option>
                                         </select>
                                     </div>
                                 </div>
@@ -188,6 +184,5 @@
 
 @section('js')
 <script src="{{ asset('js/select2.full.min.js') }}"></script>
-
 
 @endsection

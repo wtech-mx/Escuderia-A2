@@ -195,6 +195,31 @@
 
         </script>
 
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#id_empleado').on('change', function() {
+            var empleadoId = $(this).val();
+            if (empleadoId) {
+                $.ajax({
+                    url: '{{ route("get.automoviles", ":id") }}'.replace(':id', empleadoId),
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function(data) {
+                        $('#id_automovil').empty();
+                        $('#id_automovil').append('<option value="">Seleccione Automóvil</option>');
+                        $.each(data, function(key, value) {
+                            $('#id_automovil').append('<option value="'+ value.id +'">'+ value.placas + ' / ' + value.submarca  +'</option>');
+                        });
+                    }
+                });
+            } else {
+                $('#id_automovil').empty();
+                $('#id_automovil').append('<option value="">Seleccione Automóvil</option>');
+            }
+        });
+    });
+</script>
     @endsection
 
 

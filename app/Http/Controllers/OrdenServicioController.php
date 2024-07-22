@@ -38,12 +38,19 @@ class OrdenServicioController extends Controller
         return view('admin.taller_cotizacion.index', compact('cotizacion', 'cliente', 'servicios', 'comentarios', 'encuestas'));
     }
 
+    public function getAutomoviles($id)
+    {
+        $automoviles = Automovil::where('id_user', $id)->get();
+        return response()->json($automoviles);
+    }
+
     public function store(Request $request)
     {
 
         $taller = new OrdenServicio;
-        $taller->id_user = auth()->user()->id;
-        $taller->current_auto = $request->get('current_auto');
+        $taller->id_user = $request->get('id_empleado');
+        $taller->id_empresa = auth()->user()->id;
+        $taller->current_auto = $request->get('id_automovil');
         $taller->km_actual = $request->get('km_actual');
         $taller->ubicacion = $request->get('ubicacion');
         $taller->titulo_img = $request->get('titulo_img');
@@ -103,7 +110,7 @@ class OrdenServicioController extends Controller
         ];
 
 
-        Mail::to('adrianwebtech@gmail.com','aldiazm.11@gmail.com')->send(new PlantillaSolicitud($datos));
+        Mail::to('aldiazm.11@gmail.com','a11@gmail.com')->send(new PlantillaSolicitud($datos));
 
         Session::flash('success', 'Se ha guardado su orden con exito');
         return redirect()->back();
@@ -167,11 +174,12 @@ class OrdenServicioController extends Controller
             $taller->direccion = $request->get('direccion');
             $taller->save();
             $payer = Talleres::where('id', '=', $taller->id)->first();
+            $payer = $payer->id;
         }
 
         $tallerOrden = new TallerOrden;
         $tallerOrden->id_cotizacion = $id;
-        $tallerOrden->id_taller = $payer->id;
+        $tallerOrden->id_taller = $payer;
         $tallerOrden->nombre_taller = $request->get('nombre_taller');
         $tallerOrden->encargado = $request->get('encargado');
         $tallerOrden->telefono = $request->get('telefono');
@@ -187,7 +195,7 @@ class OrdenServicioController extends Controller
 
         $encuesta = new OrdenEncuesta;
         $encuesta->id_cotizacion = $cotizacion->id;
-        $encuesta->id_taller = $payer->id;
+        $encuesta->id_taller = $payer;
         $encuesta->save();
 
         // G U A R D A R  C O M E N T A R I O

@@ -89,17 +89,17 @@ use Carbon\Carbon;
                                 <td>{{ $item->User->name }}</td>
                                 <td>
 
-                                    @if(!isset($$item->Auto->Marca->nombre))
+                                    @if(!isset($item->Auto->Marca->nombre))
 
                                     <p>Sin Submarca</p>
 
-                                    @elseif(empty($$item->Auto->Marca->nombre))
+                                    @elseif(empty($item->Auto->Marca->nombre))
 
                                         <p>Sin nombre</p>
 
                                     @else
 
-                                        {{ $$item->Auto->Marca->nombre }}
+                                        {{ $item->Auto->Marca->nombre }}
 
                                     @endif
 

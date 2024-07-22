@@ -12,7 +12,8 @@
                                     <strong>Datos del cliente</strong>
                                 </h2>
                             </div>
-
+                            <input class="form-control" type="hidden" value="{{ $item->current_auto}}" name="auto_id">
+                            <input class="form-control" type="hidden" value="{{$item->id_user}}" name="userbussines" >
                             <div class="col-12 col-md-6 col-lg-6 mb-3">
                                 <p><strong>Nombre</strong></p>
                                 <div class="input-group form-group">
