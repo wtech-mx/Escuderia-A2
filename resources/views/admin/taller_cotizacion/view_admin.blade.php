@@ -64,7 +64,7 @@
                 </div>
 
                 <div class="col-4 mb-3 mt-3">
-                    <label class="text-white">KM Principal</label>
+                    <label class="text-white">KM Inicial</label>
                     <div class="input-group form-group">
                         <div class="input-group-prepend " >
                             <span class="input-group-text input-services" >
@@ -77,7 +77,7 @@
                 </div>
 
                 <div class="col-4 mb-3 mt-3">
-                    <label class="text-white">KM en taller</label>
+                    <label class="text-white">KM Ingreso</label>
                     <div class="input-group form-group">
                         <div class="input-group-prepend " >
                             <span class="input-group-text input-services" >
@@ -90,7 +90,7 @@
                 </div>
 
                 <div class="col-4 mb-3 mt-3">
-                    <label class="text-white">KM entregado</label>
+                    <label class="text-white">KM Entrega</label>
                     <div class="input-group form-group">
                         <div class="input-group-prepend " >
                             <span class="input-group-text input-services" >
@@ -406,7 +406,7 @@
             {{----------------------------------------------------------------------------
             |Cotizacion aprobada
             |----------------------------------------------------------------------------}}
-            <div class="row">
+            <div class="row mb-5">
                 <div class="col-12 mb-3">
                     <h2 class="text-center text-white ml-4 mr-4 ">
                         <strong>Cotización Aprobada</strong>
@@ -434,6 +434,19 @@
                             <li>{{$cotizacion_serivicio->Servicio->servicio}} - <b>${{$cotizacion_serivicio->subtotal}}</b></li>
                         @endforeach
                     </ul>
+                </div>
+
+                <div class="col-6">
+                    <strong class="text-white">Importe total Total</strong>
+                    <input class="form-control" type="number" value="{{ $cotizacion->total }}" disabled>
+                </div>
+                <div class="col-6">
+                    <strong class="text-white">Total con IVA</strong>
+                    <input class="form-control" type="number" value="{{ $cotizacion->total_iva }}" disabled>
+                </div>
+                <div class="col-6">
+                    <strong class="text-white">IVA %</strong>
+                    <input class="form-control" type="number" value="{{ $cotizacion->iva }}" disabled>
                 </div>
             </div>
 

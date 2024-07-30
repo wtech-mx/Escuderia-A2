@@ -195,12 +195,16 @@
 
                                 <div class="row mt-3">
                                     <div class="col-6">
-                                        <strong>Total</strong>
-                                        <input class="form-control" type="number" name="total_cot" id="totalInput_{{ $item->id }}" readonly>
+                                        <strong>Importe total Total</strong>
+                                        <input class="form-control" type="number" name="total_cot" id="totalInput">
                                     </div>
                                     <div class="col-6">
-                                        <strong>Total con IVA (16%)</strong>
-                                        <input class="form-control" type="number" name="total_iva_cot" id="totalIvaInput_{{ $item->id }}" readonly>
+                                        <strong>Total con IVA</strong>
+                                        <input class="form-control" type="number" name="total_iva_cot" id="totalIvaInput">
+                                    </div>
+                                    <div class="col-6">
+                                        <strong>IVA %</strong>
+                                        <input class="form-control" type="number" name="iva" id="iva" value="{{ $item->iva }}" >
                                     </div>
                                 </div>
                         </div>

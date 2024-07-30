@@ -486,6 +486,7 @@ class OrdenServicioController extends Controller
         $cotizacion->total = $request->get('total_cot');
         $cotizacion->total_iva = $request->get('total_iva_cot');
         $cotizacion->fecha_autorizada = now();
+        $cotizacion->iva = $request->get('iva');
 
         if ($request->hasFile("cotizaion_cot")) {
             $ruta_recursos = public_path() . '/cotizacion/usuario' . $cotizacion->id_user;
