@@ -30,14 +30,20 @@
                                 </div>
                             </div>
 
-                            <div class="col-6">
-
-                            </div>
-
-                            <div class="col-6">
+                            <div class="col-12">
+                                <label for="" class="mt-5">Comentarios</label>
                                 @foreach ($comentarios as $comentario)
                                     @if ($comentario->id_cotizacion == $item->id && $comentario->estatus != 'Generar la solicitud' )
-                                    <input class="form-control" type="text" name="comentario" id="comentario" value="{{$comentario->comentario}}" disabled>
+                                    <div class="input-group form-group mt-3">
+                                        <div class="input-group-prepend " >
+                                            <span class="input-group-text input-services" >
+                                                <img class="" src="{{ asset('img/icon/white/editar.png') }}" width="25px" >
+                                            </span>
+                                        </div>
+
+                                        <input class="form-control" type="text" name="comentario" id="comentario" value="{{$comentario->comentario}}" disabled>
+                                    </div>
+
                                     @endif
                                 @endforeach
                             </div>
@@ -45,7 +51,7 @@
                             <div class="col-6 mt-2" >
                                 <p><strong>Describe el serv./falla</strong></p>
                                 <div class="input-group form-group">
-                                    <textarea cols="90" rows="3" disabled>
+                                    <textarea cols="90" rows="3" disabled  class="form-control">
                                         @foreach ($comentarios as $comentario)
                                             @if ($comentario->id_cotizacion == $item->id && $comentario->estatus == 'Pendiente de asignar taller')
                                                 {{$comentario->comentario}}
@@ -58,7 +64,7 @@
                             <div class="col-6 mt-2" >
                                 <p><strong>Comentario Admin</strong></p>
                                 <div class="input-group form-group">
-                                    <textarea name="comentario" id="comentario" cols="90" rows="3"></textarea>
+                                    <textarea name="comentario" id="comentario" cols="90" rows="3"  class="form-control"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -165,7 +171,7 @@
                                     <div id="serviciosContainer_{{ $item->id }}">
                                         <div class="servicio-item" id="servicioItem_0_{{ $item->id }}">
                                             <div class="row">
-                                                <div class="col-6">
+                                                <div class="col-6 mb-2">
                                                     <p><strong>Servicio</strong></p>
                                                     <div class="input-group form-group">
                                                         <select class="form-control servicio-select" name="servicios_cot[]" id="servicioSelect_0_{{ $item->id }}">
@@ -177,7 +183,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-6 mb-2">
-                                                    <strong>Precio servicio</strong>
+                                                    <p><strong>Precio servicio</strong></p>
                                                     <div class="input-group form-group">
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text input-services">
@@ -194,22 +200,24 @@
                                 </div>
 
                                 <div class="row mt-3">
-                                    <div class="col-6">
+                                    <div class="col-6 mt-3">
                                         <strong>Importe total Total</strong>
                                         <input class="form-control" type="number" name="total_cot" id="totalInput">
                                     </div>
-                                    <div class="col-6">
+
+                                    <div class="col-6 mt-3">
                                         <strong>Total con IVA</strong>
                                         <input class="form-control" type="number" name="total_iva_cot" id="totalIvaInput">
                                     </div>
-                                    <div class="col-6">
+
+                                    <div class="col-6 mt-3">
                                         <strong>IVA %</strong>
                                         <input class="form-control" type="number" name="iva" id="iva" value="{{ $item->iva }}" >
                                     </div>
                                 </div>
                         </div>
 
-                        <p class="text-center">
+                        <p class="text-center mt-4">
                             <button class="btn btn-sm btn-save text-white">
                                 <img class="d-inline" src="{{ asset('img/icon/white/save-file-option (1).png') }}" alt="Icon documento" width="30px">
                                 Guardar

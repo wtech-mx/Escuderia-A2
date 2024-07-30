@@ -230,7 +230,7 @@ class OrdenServicioController extends Controller
             'fecha' => $comentario->fecha,
         ];
 
-        Mail::to($request->get('correo'),'aldiazm.11@gmail.com',$userEmpresa->email)->send(new PlantillaPendienteAutorizacion($datos));
+        Mail::to($request->get('correo'),$userEmpresa->email)->send(new PlantillaPendienteAutorizacion($datos));
 
         Session::flash('success', 'Se ha actualizado sus datos con exito');
         return redirect()->back();
@@ -473,7 +473,7 @@ class OrdenServicioController extends Controller
             }
         }
 
-        Mail::to('aldiazm.11@gmail.com',$userEmpresa->email)->send(new PlantillaIngreso($datos));
+        Mail::to($userEmpresa->email)->send(new PlantillaIngreso($datos));
 
         Session::flash('success', 'Se ha actualizado sus datos con exito');
         return redirect()->back();
