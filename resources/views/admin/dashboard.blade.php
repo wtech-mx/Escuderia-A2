@@ -58,7 +58,7 @@
                             <img class="" src="{{ asset('img/icon/color/campana.png') }}" width="30px">
                         </a>
                 </div>
-                @include('admin.modal-notificacion')
+                {{-- @include('admin.modal-notificacion') --}}
                 <div class=" d-flex justify-content-between bg-white p-2 rounded-pill">
                     <a href="{{ route('index.alert') }}"> <span class="badge badge-pill"
                             style="background-color: #2ECC71">Alerta</span> </a>
