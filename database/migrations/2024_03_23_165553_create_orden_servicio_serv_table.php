@@ -37,6 +37,6 @@ class CreateOrdenServicioServTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('taller_cotservicios');
+        Schema::dropIfExists('orden_servicio_serv');
     }
 }
