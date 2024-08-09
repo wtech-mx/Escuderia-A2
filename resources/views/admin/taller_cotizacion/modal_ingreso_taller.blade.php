@@ -178,7 +178,7 @@
                                     </div>
 
                                     <div class="col-6 mt-5 mb-5">
-                                        <strong>Fecha Ingreso</strong>
+                                        <strong>Fecha Cotización</strong>
                                         <div class="input-group form-group">
                                             <div class="input-group-prepend " >
                                                 <span class="input-group-text input-services" >
@@ -191,7 +191,7 @@
                                     </div>
 
                                     <div class="col-6 mt-5 mb-5">
-                                        <strong>Hora ingreso</strong>
+                                        <strong>Hora Cotización</strong>
                                         <div class="input-group form-group">
                                             <div class="input-group-prepend " >
                                                 <span class="input-group-text input-services" >

@@ -413,41 +413,43 @@
                     </h2>
                 </div>
 
-                @if (pathinfo($cotizacion->cotizacion_taller, PATHINFO_EXTENSION) == 'pdf')
-                    <div class="col-12">
-                        <iframe class="mt-2" src="{{asset('/cotizacion/usuario'. $cotizacion->id_user . '/' .$cotizacion->cotizacion_taller) }}" style="width: 80%; height: 80px;"></iframe>
-                        <p class="text-center ">
-                            <a class="btn btn-sm text-dark" href="{{asset('/cotizacion/usuario'. $cotizacion->id_user . '/' .$cotizacion->cotizacion_taller) }}" target="_blank" style="background: #836262; color: #ffff!important">Ver archivo</a>
-                        </p>
+                @if ($cotizacion->fecha_cotizacion != NULL)
+                    @if (pathinfo($cotizacion->cotizacion_taller, PATHINFO_EXTENSION) == 'pdf')
+                        <div class="col-12">
+                            <iframe class="mt-2" src="{{asset('/cotizacion/usuario'. $cotizacion->id_user . '/' .$cotizacion->cotizacion_taller) }}" style="width: 80%; height: 80px;"></iframe>
+                            <p class="text-center ">
+                                <a class="btn btn-sm text-dark" href="{{asset('/cotizacion/usuario'. $cotizacion->id_user . '/' .$cotizacion->cotizacion_taller) }}" target="_blank" style="background: #836262; color: #ffff!important">Ver archivo</a>
+                            </p>
+                        </div>
+                    @else
+                        <div class="col-6">
+                            <img id="blah" src="{{asset('/cotizacion/usuario'. $cotizacion->id_user . '/' .$cotizacion->cotizacion_taller) }}" alt="Imagen" style="width: 150px;height: 150px;"/>
+                            <a class="text-center text-dark btn btn-sm mt-2" href="{{asset('/cotizacion/usuario'. $cotizacion->id_user . '/' .$cotizacion->cotizacion_taller) }}" target="_blank" style="background: #43eb5f; color: #000000!important">Ver Imagen</a>
+                        </div>
+                    @endif
+
+                    <div class="col-12 mb-3 mt-3" style="background: #fff;">
+                        <h3>Serivicios Autorizados</h3>
+                        <ul>
+                            @foreach ($cotizacion_serivicios as $cotizacion_serivicio)
+                                <li>{{$cotizacion_serivicio->Servicio->servicio}} - <b>${{$cotizacion_serivicio->subtotal}}</b></li>
+                            @endforeach
+                        </ul>
                     </div>
-                @else
+
                     <div class="col-6">
-                        <img id="blah" src="{{asset('/cotizacion/usuario'. $cotizacion->id_user . '/' .$cotizacion->cotizacion_taller) }}" alt="Imagen" style="width: 150px;height: 150px;"/>
-                        <a class="text-center text-dark btn btn-sm mt-2" href="{{asset('/cotizacion/usuario'. $cotizacion->id_user . '/' .$cotizacion->cotizacion_taller) }}" target="_blank" style="background: #43eb5f; color: #000000!important">Ver Imagen</a>
+                        <strong class="text-white">Importe total Total</strong>
+                        <input class="form-control" type="number" value="{{ $cotizacion->total }}" disabled>
+                    </div>
+                    <div class="col-6">
+                        <strong class="text-white">Total con IVA</strong>
+                        <input class="form-control" type="number" value="{{ $cotizacion->total_iva }}" disabled>
+                    </div>
+                    <div class="col-6">
+                        <strong class="text-white">IVA %</strong>
+                        <input class="form-control" type="number" value="{{ $cotizacion->iva }}" disabled>
                     </div>
                 @endif
-
-                <div class="col-12 mb-3 mt-3" style="background: #fff;">
-                    <h3>Serivicios Autorizados</h3>
-                    <ul>
-                        @foreach ($cotizacion_serivicios as $cotizacion_serivicio)
-                            <li>{{$cotizacion_serivicio->Servicio->servicio}} - <b>${{$cotizacion_serivicio->subtotal}}</b></li>
-                        @endforeach
-                    </ul>
-                </div>
-
-                <div class="col-6">
-                    <strong class="text-white">Importe total Total</strong>
-                    <input class="form-control" type="number" value="{{ $cotizacion->total }}" disabled>
-                </div>
-                <div class="col-6">
-                    <strong class="text-white">Total con IVA</strong>
-                    <input class="form-control" type="number" value="{{ $cotizacion->total_iva }}" disabled>
-                </div>
-                <div class="col-6">
-                    <strong class="text-white">IVA %</strong>
-                    <input class="form-control" type="number" value="{{ $cotizacion->iva }}" disabled>
-                </div>
             </div>
 
             {{----------------------------------------------------------------------------
