@@ -195,45 +195,39 @@ use Carbon\Carbon;
                                 <td>
                                     @if ($item->estatus == 'Pendiente de asignar taller')
                                         <a style="color: #3490dc" data-toggle="modal" data-target="#taller-{{ $item->id }}">  <img class="" src="{{ asset('img/icon/white/configuraciones.png') }}" width="20px" > Taller</a> <br><br>
-                                        @include('admin.taller_cotizacion.modal_taller')
                                     @endif
                                     @if ($item->estatus == 'Pendiente de ingreso a taller')
                                         <a style="color: #3490dc" data-toggle="modal" data-target="#taller-ingreso-{{ $item->id }}">  <img class="" src="{{ asset('img/icon/white/taller.png') }}" width="20px" >Ing Taller</a> <br><br>
-                                        @include('admin.taller_cotizacion.modal_ingreso_taller')
                                     @endif
                                     @if ($item->estatus == 'En espera de cotizacion')
                                         <a style="color: #3490dc" data-toggle="modal" data-target="#taller-ingreso-{{ $item->id }}">  <img class="" src="{{ asset('img/icon/white/calendario (5).png') }}" width="20px" >Fecha Cot</a> <br><br>
-                                        @include('admin.taller_cotizacion.modal_ingreso_taller')
                                     @endif
                                     @if ($item->estatus == 'Pendiente de autorización')
                                         <a style="color: #3490dc" data-toggle="modal" data-target="#taller-edit-{{ $item->id }}">  <img class="" src="{{ asset('img/icon/white/taller.png') }}" width="20px" > Taller</a> <br><br>
-                                        @include('admin.taller_cotizacion.modal_taller_edit')
                                     @endif
                                     @if ($item->estatus == 'En reparacion')
                                         <a style="color: #3490dc" data-toggle="modal" data-target="#taller-ingreso-{{ $item->id }}">  <img class="" src="{{ asset('img/icon/white/calendario (5).png') }}" width="20px" >Fin reparacion</a> <br><br>
-                                        @include('admin.taller_cotizacion.modal_ingreso_taller')
                                     @endif
                                     @if ($item->estatus == 'Por entregar usuario')
                                         @php
                                             $color = $item->OredenEncuesta->pregunta_1 == NULL ? '#dc5634' : '#34dca4';
                                         @endphp
                                         <a style="color: #3490dc" data-toggle="modal" data-target="#taller-ingreso-{{ $item->id }}">  <img class="" src="{{ asset('img/icon/white/car-service (1).png') }}" width="20px" >Entregar</a> <br><br>
-                                        @include('admin.taller_cotizacion.modal_ingreso_taller')
                                     @endif
                                     @if ($item->estatus == 'Por cargar factura')
                                         <a style="color: #3490dc" data-toggle="modal" data-target="#taller-ingreso-{{ $item->id }}">  <img class="" src="{{ asset('img/icon/white/calendario (5).png') }}" width="20px" >Factura</a> <br><br>
-                                        @include('admin.taller_cotizacion.modal_ingreso_taller')
                                     @endif
                                     @if ($item->estatus == 'Por pagar')
                                         <a style="color: #3490dc" data-toggle="modal" data-target="#taller-ingreso-{{ $item->id }}">  <img class="" src="{{ asset('img/icon/white/metodo-de-pago (1).png') }}" width="20px" >Pagar</a> <br><br>
-                                        @include('admin.taller_cotizacion.modal_ingreso_taller')
                                     @endif
                                     <a style="color: #3490dc" href="{{ route('view_admin.cotizacion_taller', $item->id) }}"><img class="" src="{{ asset('img/icon/white/cotizacion.png') }}" width="20px" > Ver</a>
                                 </td>
                             </tr>
 
                             @include('admin.taller_cotizacion.modal_estatus')
-
+                            @include('admin.taller_cotizacion.modal_ingreso_taller')
+                            @include('admin.taller_cotizacion.modal_taller_edit')
+                            @include('admin.taller_cotizacion.modal_taller')
                         @endforeach
                     </tbody>
                 </table>
