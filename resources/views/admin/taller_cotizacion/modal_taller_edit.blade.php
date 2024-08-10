@@ -1,6 +1,12 @@
 <div class="modal fade" id="taller-edit-{{ $item->id }}" tabindex="-1" aria-labelledby="servicio" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
+            <div class="modal-header">
+                <h5></h5>
+                <button type="button" class="btn btn-secondary close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
             <div class="modal-body" style="color: #000000">
                 <form method="POST" action="{{route('edit_cot_taller.cotizacion_taller', $item->id)}}" enctype="multipart/form-data" role="form">
                     @csrf
@@ -217,13 +223,16 @@
                                 </div>
                         </div>
 
-                        <p class="text-center mt-4">
+                        <p class="text-center mt-4 mb-2">
                             <button class="btn btn-sm btn-save text-white">
                                 <img class="d-inline" src="{{ asset('img/icon/white/save-file-option (1).png') }}" alt="Icon documento" width="30px">
                                 Guardar
                             </button>
                         </p>
                 </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-lg btn-secondary" data-dismiss="modal">Cerrar</button>
             </div>
         </div>
     </div>
