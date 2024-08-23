@@ -193,7 +193,7 @@ use Carbon\Carbon;
                                             case 'Pendiente de autorización':
                                                 $fecha = $item->fecha_cotizacion ? Carbon::parse($item->fecha_cotizacion) : null;
                                                 break;
-                                            case 'En reparación':
+                                            case 'En reparacion':
                                                 $fecha = $item->fecha_autorizada ? Carbon::parse($item->fecha_autorizada) : null;
                                                 break;
                                             case 'Por entregar usuario':
