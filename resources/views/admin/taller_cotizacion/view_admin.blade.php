@@ -391,7 +391,7 @@
                                             <source src="{{asset('/cotizacion/usuario'.$cotizacion->id_user.'/'.$foto->imagen)}}" type='video/mp4'>
                                         </video>
                                     </div>
-                                @if (pathinfo($foto->imagen, PATHINFO_EXTENSION) == 'mov')
+                                @elseif (pathinfo($foto->imagen, PATHINFO_EXTENSION) == 'mov')
                                     <div class="col-12">
                                         <video controls preload="auto" width="300" height="200" data-setup="{}" style="padding: 10px;">
                                             <source src="{{asset('/cotizacion/usuario'.$cotizacion->id_user.'/'.$foto->imagen)}}" type='video/mp4'>
