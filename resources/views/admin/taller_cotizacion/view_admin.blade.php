@@ -432,7 +432,7 @@
                         <h3>Serivicios Autorizados</h3>
                         <ul>
                             @foreach ($cotizacion_serivicios as $cotizacion_serivicio)
-                                <li>{{$cotizacion_serivicio->Servicio->servicio}} - <b>${{$cotizacion_serivicio->subtotal}}</b></li>
+                                <li>{{$cotizacion_serivicio->Servicio->familia}} / {{$cotizacion_serivicio->Servicio->servicio}} - <b>${{$cotizacion_serivicio->subtotal}}</b></li>
                             @endforeach
                         </ul>
                     </div>

@@ -180,10 +180,10 @@
                                                 <div class="col-6 mb-2">
                                                     <p><strong>Servicio</strong></p>
                                                     <div class="input-group form-group">
-                                                        <select class="form-control servicio-select" name="servicios_cot[]" id="servicioSelect_0_{{ $item->id }}">
+                                                        <select class="form-control servicio-select" name="servicios_cot[]">
                                                             <option value="">Seleccione servicio</option>
                                                             @foreach($servicios as $servicio)
-                                                                <option value="{{ $servicio->id }}" data-precio="{{ $servicio->precio }}">{{ $servicio->servicio }}</option>
+                                                                <option value="{{ $servicio->id }}">{{ $servicio->familia }} - {{ $servicio->servicio }}</option>
                                                             @endforeach
                                                         </select>
                                                     </div>
@@ -196,7 +196,7 @@
                                                                 <img src="{{ asset('img/icon/white/presupuesto (1).png') }}" width="25px">
                                                             </span>
                                                         </div>
-                                                        <input class="form-control precio-input" type="number" name="precio_cot[]" id="precioInput_0_{{ $item->id }}">
+                                                        <input class="form-control precio-input" type="number" name="precio_cot[]">
                                                     </div>
                                                 </div>
                                             </div>

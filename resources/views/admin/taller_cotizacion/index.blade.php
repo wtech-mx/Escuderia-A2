@@ -7,6 +7,32 @@
     .select2-container{
         width: 200px !important;
     }
+    .select2-container .select2-dropdown .select2-results__option {
+        color: #333; /* Cambia #333 por el color que desees */
+        background-color: #fff; /* Asegúrate de que el fondo sea blanco */
+    }
+
+    /* Ajusta el color de las opciones al estar seleccionadas */
+    .select2-container .select2-dropdown .select2-results__option--highlighted {
+        background-color: #3490dc; /* Color de fondo al seleccionar */
+        color: #fff; /* Color del texto al seleccionar */
+    }
+
+    /* Ajusta el color del texto en el campo de búsqueda de Select2 */
+    .select2-container .select2-search--dropdown .select2-search__field {
+        color: #333; /* Cambia #333 por el color que desees */
+    }
+
+    /* Ajusta el color del texto en el campo seleccionado (dentro del input) */
+    .select2-container .select2-selection--single .select2-selection__rendered {
+        color: #333; /* Cambia #333 por el color que desees */
+    }
+
+    /* Si estás utilizando un tema oscuro, puedes ajustar los colores así: */
+    body.modal-open .select2-container--default .select2-results__option {
+        color: #fff; /* Blanco para texto */
+        background-color: #333; /* Fondo oscuro */
+    }
 </style>
 @section('content')
 @php
@@ -266,90 +292,68 @@ use Carbon\Carbon;
         });
 </script>
 
-<script type="text/javascript">
-
+<script>
     $(document).ready(function() {
         $('.cliente_cot').select2();
         $('.js-example-basic').select2();
-    });
 
-</script>
-
-<script>
-$(document).ready(function() {
-    let servicioIndices = {};
-
-    function updatePrice(selectElement) {
-        const selectedOption = $(selectElement).find('option:selected');
-        const precio = selectedOption.data('precio');
-        $(selectElement).closest('.servicio-item').find('.precio-input').val(precio);
-        calculateTotals(selectElement);
-    }
-
-    function calculateTotals(element) {
-        const registroId = $(element).closest('.container').find('.addServicioBtn').data('registro-id');
-        let total = 0;
-
-        $(`#serviciosContainer_${registroId} .precio-input`).each(function() {
-            const value = parseFloat($(this).val());
-            if (!isNaN(value)) {
-                total += value;
-            }
+        $('[id^="taller-edit-"]').on('shown.bs.modal', function () {
+            $(this).find('.servicio-select').select2({
+                width: '100%',
+                dropdownParent: $(this).find('.modal-content')
+            });
         });
 
-        const totalIva = total * 1.16;
-        $(`#totalInput_${registroId}`).val(total.toFixed(2));
-        $(`#totalIvaInput_${registroId}`).val(totalIva.toFixed(2));
-    }
+        let servicioIndices = {};
 
-    $(document).on('change', '.servicio-select', function() {
-        updatePrice(this);
-    });
-
-    $(document).on('input', '.precio-input', function() {
-        calculateTotals(this);
-    });
-
-    function createNewServicioItem(index, registroId) {
-        return `
-            <div class="servicio-item" id="servicioItem_${index}_${registroId}">
-                <div class="row">
-                    <div class="col-6">
-                        <p><strong>Servicios</strong></p>
-                        <div class="input-group form-group">
-                            <select class="form-control servicio-select" name="servicios_cot[]" id="servicioSelect_${index}_${registroId}">
-                                <option value="">Seleccione servicio</option>
-                                @foreach($servicios as $item)
-                                    <option value="{{ $item->id }}" data-precio="{{ $item->precio }}">{{ $item->servicio }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-6 mb-2">
-                        <strong>Precio servicio</strong>
-                        <div class="input-group form-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text input-services">
-                                    <img src="{{ asset('img/icon/white/presupuesto (1).png') }}" width="25px">
-                                </span>
+        function createNewServicioItem(index, registroId) {
+            return `
+                <div class="servicio-item" id="servicioItem_${index}_${registroId}">
+                    <div class="row">
+                        <div class="col-6">
+                            <p><strong>Servicios</strong></p>
+                            <div class="input-group form-group">
+                                <select class="form-control servicio-select" name="servicios_cot[]" id="servicioSelect_${index}_${registroId}">
+                                    <option value="">Seleccione servicio</option>
+                                    @foreach($servicios as $item)
+                                        <option value="{{ $item->id }}" data-precio="{{ $item->precio }}">{{$item->familia}} {{ $item->servicio }}</option>
+                                    @endforeach
+                                </select>
                             </div>
-                            <input class="form-control precio-input" type="number" name="precio_cot[]" id="precioInput_${index}_${registroId}">
+                        </div>
+                        <div class="col-6 mb-2">
+                            <strong>Precio servicio</strong>
+                            <div class="input-group form-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text input-services">
+                                        <img src="{{ asset('img/icon/white/presupuesto (1).png') }}" width="25px">
+                                    </span>
+                                </div>
+                                <input class="form-control precio-input" type="number" name="precio_cot[]" id="precioInput_${index}_${registroId}">
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>`;
-    }
-
-    $(document).on('click', '.addServicioBtn', function() {
-        const registroId = $(this).data('registro-id');
-        if (!servicioIndices[registroId]) {
-            servicioIndices[registroId] = 1;
+                </div>`;
         }
-        const newServicioItem = createNewServicioItem(servicioIndices[registroId], registroId);
-        $(`#serviciosContainer_${registroId}`).append(newServicioItem);
-        servicioIndices[registroId]++;
+
+        $(document).on('click', '.addServicioBtn', function() {
+            const registroId = $(this).data('registro-id');
+            if (!servicioIndices[registroId]) {
+                servicioIndices[registroId] = 1;
+            }
+            const newServicioItem = createNewServicioItem(servicioIndices[registroId], registroId);
+            $(`#serviciosContainer_${registroId}`).append(newServicioItem);
+
+            // Inicializar Select2 para el nuevo elemento
+            $(`#servicioSelect_${servicioIndices[registroId]}_${registroId}`).select2({
+                width: '100%',
+                dropdownParent: $(`#taller-edit-${registroId}`).find('.modal-content')
+            });
+
+            servicioIndices[registroId]++;
+        });
     });
-});
 
 </script>
+
 @endsection
