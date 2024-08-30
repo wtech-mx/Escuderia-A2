@@ -246,7 +246,9 @@ use Carbon\Carbon;
                                     @if ($item->estatus == 'Por pagar')
                                         <a style="color: #3490dc" data-toggle="modal" data-target="#taller-ingreso-{{ $item->id }}">  <img class="" src="{{ asset('img/icon/white/metodo-de-pago (1).png') }}" width="20px" >Pagar</a> <br><br>
                                     @endif
-                                    <a style="color: #3490dc" href="{{ route('view_admin.cotizacion_taller', $item->id) }}"><img class="" src="{{ asset('img/icon/white/cotizacion.png') }}" width="20px" > Ver</a>
+                                    <a style="color: #3490dc" href="{{ route('view_admin.cotizacion_taller', $item->id) }}"><img class="" src="{{ asset('img/icon/white/cotizacion.png') }}" width="20px" > Ver</a> <br><br>
+
+                                    <a style="color: #3490dc" href="{{ route('orden.imprimir', $item->id) }}"> <img class="" src="{{ asset('img/icon/white/metodo-de-pago (1).png') }}" width="20px" >PDF</a>
                                 </td>
                             </tr>
 
@@ -321,16 +323,13 @@ use Carbon\Carbon;
                                 </select>
                             </div>
                         </div>
-                        <div class="col-6 mb-2">
+                        <div class="col-3 mb-2">
                             <strong>Precio servicio</strong>
-                            <div class="input-group form-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text input-services">
-                                        <img src="{{ asset('img/icon/white/presupuesto (1).png') }}" width="25px">
-                                    </span>
-                                </div>
-                                <input class="form-control precio-input" type="number" name="precio_cot[]" id="precioInput_${index}_${registroId}">
-                            </div>
+                             <input class="form-control precio-input" type="number" name="precio_cot[]" id="precioInput_${index}_${registroId}">
+                        </div>
+                        <div class="col-3 mb-2">
+                            <strong>Marca</strong>
+                             <input class="form-control precio-input" type="text" name="marca_cot[]" id="marcaInput_${index}_${registroId}">
                         </div>
                     </div>
                 </div>`;
@@ -351,6 +350,23 @@ use Carbon\Carbon;
             });
 
             servicioIndices[registroId]++;
+        });
+
+        $('[id^="taller-edit-"]').on('shown.bs.modal', function () {
+            const modalId = $(this).attr('id');
+            const id = modalId.split('-')[2]; // Obtiene el id del registro del modal
+
+            $(this).find('.suma-input').on('input', function() {
+                // Obtener los valores de los inputs del modal específico
+                const refaccion = parseFloat($(`#refaccionCot_${id}`).val()) || 0;
+                const manoObra = parseFloat($(`#moCot_${id}`).val()) || 0;
+
+                // Calcular la suma
+                const total = refaccion + manoObra;
+
+                // Mostrar el resultado en el input de "Importe total" del modal específico
+                $(`#totalInput_${id}`).val(total.toFixed(2));
+            });
         });
     });
 

@@ -151,7 +151,7 @@
                     <div class="input-group form-group">
                         @foreach ($comentarios as $comentario)
                             @if ($comentario->estatus == 'Generar la solicitud' )
-                                <input class="form-control" type="text" value="{{$comentario->comentario}}" readonly>
+                                <textarea name="" id="" cols="70" rows="2" readonly>{{$comentario->comentario}}</textarea>
                             @endif
                         @endforeach
                     </div>

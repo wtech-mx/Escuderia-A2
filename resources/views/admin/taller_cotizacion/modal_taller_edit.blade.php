@@ -81,72 +81,73 @@
                                     <strong>Agregar cotización taller</strong>
                                 </h2>
                             </div>
+                            @if ($item->TallerOrden)
+                                <div class="col-12 mb-2">
+                                    <strong>Nombre taller</strong>
+                                    <div class="input-group form-group">
+                                        <div class="input-group-prepend " >
+                                            <span class="input-group-text input-services" >
+                                                <img class="" src="{{ asset('img/icon/white/edificio-de-oficinas.png') }}" width="25px" >
+                                            </span>
+                                        </div>
 
-                            <div class="col-12 mb-2">
-                                <strong>Nombre taller</strong>
-                                <div class="input-group form-group">
-                                    <div class="input-group-prepend " >
-                                        <span class="input-group-text input-services" >
-                                            <img class="" src="{{ asset('img/icon/white/edificio-de-oficinas.png') }}" width="25px" >
-                                        </span>
+                                        <input class="form-control" type="text" name="nombre_taller" id="nombre_taller" value="{{$item->TallerOrden->nombre_taller}}" disabled>
+
                                     </div>
-
-                                    <input class="form-control" type="text" name="nombre_taller" id="nombre_taller" value="{{$item->TallerOrden->nombre_taller}}" disabled>
                                 </div>
-                            </div>
 
-                            <div class="col-12 mb-2">
-                                <strong>Encargado</strong>
-                                <div class="input-group form-group">
-                                    <div class="input-group-prepend " >
-                                        <span class="input-group-text input-services" >
-                                            <img class="" src="{{ asset('img/icon/white/edificio-de-oficinas.png') }}" width="25px" >
-                                        </span>
+                                <div class="col-12 mb-2">
+                                    <strong>Encargado</strong>
+                                    <div class="input-group form-group">
+                                        <div class="input-group-prepend " >
+                                            <span class="input-group-text input-services" >
+                                                <img class="" src="{{ asset('img/icon/white/edificio-de-oficinas.png') }}" width="25px" >
+                                            </span>
+                                        </div>
+
+                                        <input class="form-control" type="text" name="encargado" id="encargado" value="{{$item->TallerOrden->encargado}}" disabled>
                                     </div>
-
-                                    <input class="form-control" type="text" name="encargado" id="encargado" value="{{$item->TallerOrden->encargado}}" disabled>
                                 </div>
-                            </div>
 
-                            <div class="col-12 mb-2">
-                                <strong>Telefono</strong>
-                                <div class="input-group form-group">
-                                    <div class="input-group-prepend " >
-                                        <span class="input-group-text input-services" >
-                                            <img class="" src="{{ asset('img/icon/white/edificio-de-oficinas.png') }}" width="25px" >
-                                        </span>
+                                <div class="col-12 mb-2">
+                                    <strong>Telefono</strong>
+                                    <div class="input-group form-group">
+                                        <div class="input-group-prepend " >
+                                            <span class="input-group-text input-services" >
+                                                <img class="" src="{{ asset('img/icon/white/edificio-de-oficinas.png') }}" width="25px" >
+                                            </span>
+                                        </div>
+
+                                        <input class="form-control" type="number" name="telefono" id="telefono" value="{{$item->TallerOrden->telefono}}" disabled>
                                     </div>
-
-                                    <input class="form-control" type="number" name="telefono" id="telefono" value="{{$item->TallerOrden->telefono}}" disabled>
                                 </div>
-                            </div>
 
-                            <div class="col-12 mb-2">
-                                <strong>Correo</strong>
-                                <div class="input-group form-group">
-                                    <div class="input-group-prepend " >
-                                        <span class="input-group-text input-services" >
-                                            <img class="" src="{{ asset('img/icon/white/edificio-de-oficinas.png') }}" width="25px" >
-                                        </span>
+                                <div class="col-12 mb-2">
+                                    <strong>Correo</strong>
+                                    <div class="input-group form-group">
+                                        <div class="input-group-prepend " >
+                                            <span class="input-group-text input-services" >
+                                                <img class="" src="{{ asset('img/icon/white/edificio-de-oficinas.png') }}" width="25px" >
+                                            </span>
+                                        </div>
+
+                                        <input class="form-control" type="email" name="correo" id="correo" value="{{$item->TallerOrden->correo}}" disabled>
                                     </div>
-
-                                    <input class="form-control" type="email" name="correo" id="correo" value="{{$item->TallerOrden->correo}}" disabled>
                                 </div>
-                            </div>
 
-                            <div class="col-12 mb-5">
-                                <strong>Dirección</strong>
-                                <div class="input-group form-group">
-                                    <div class="input-group-prepend " >
-                                        <span class="input-group-text input-services" >
-                                            <img class="" src="{{ asset('img/icon/white/edificio-de-oficinas.png') }}" width="25px" >
-                                        </span>
+                                <div class="col-12 mb-5">
+                                    <strong>Dirección</strong>
+                                    <div class="input-group form-group">
+                                        <div class="input-group-prepend " >
+                                            <span class="input-group-text input-services" >
+                                                <img class="" src="{{ asset('img/icon/white/edificio-de-oficinas.png') }}" width="25px" >
+                                            </span>
+                                        </div>
+
+                                        <input class="form-control" type="text" name="direccion" id="direccion" value="{{$item->TallerOrden->direccion}}" disabled>
                                     </div>
-
-                                    <input class="form-control" type="text" name="direccion" id="direccion" value="{{$item->TallerOrden->direccion}}" disabled>
                                 </div>
-                            </div>
-
+                            @endif
                             <div class="col-12 mb-5">
                                 <strong>Cotizacion</strong>
                                 <div class="input-group form-group">
@@ -188,16 +189,14 @@
                                                         </select>
                                                     </div>
                                                 </div>
-                                                <div class="col-6 mb-2">
+                                                <div class="col-3 mb-2">
                                                     <p><strong>Precio servicio</strong></p>
-                                                    <div class="input-group form-group">
-                                                        <div class="input-group-prepend">
-                                                            <span class="input-group-text input-services">
-                                                                <img src="{{ asset('img/icon/white/presupuesto (1).png') }}" width="25px">
-                                                            </span>
-                                                        </div>
-                                                        <input class="form-control precio-input" type="number" name="precio_cot[]">
-                                                    </div>
+                                                    <input class="form-control precio-input" type="number" name="precio_cot[]">
+                                                </div>
+
+                                                <div class="col-3 mb-2">
+                                                    <p><strong>Marca</strong></p>
+                                                    <input class="form-control precio-input" type="text" name="marca_cot[]">
                                                 </div>
                                             </div>
                                         </div>
@@ -206,9 +205,19 @@
                                 </div>
 
                                 <div class="row mt-3">
+                                    <div class="col-6 mb-2">
+                                        <strong>Refaccion</strong>
+                                        <input class="form-control suma-input" type="number" name="refaccion_cot" id="refaccionCot_{{ $item->id }}">
+                                    </div>
+
+                                    <div class="col-6 mb-2">
+                                        <strong>Mano de obra</strong>
+                                        <input class="form-control suma-input" type="number" name="mo_cot" id="moCot_{{ $item->id }}">
+                                    </div>
+
                                     <div class="col-6 mt-3">
                                         <strong>Importe total Total</strong>
-                                        <input class="form-control" type="number" name="total_cot" id="totalInput">
+                                        <input class="form-control" type="number" name="total_cot" id="totalInput_{{ $item->id }}">
                                     </div>
 
                                     <div class="col-6 mt-3">

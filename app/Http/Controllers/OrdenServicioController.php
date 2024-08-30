@@ -20,6 +20,7 @@ use App\Mail\PlantillaEnReparacion;
 use App\Mail\PlantillaPendienteAutorizacion;
 use App\Mail\PlantillaSolicitud;
 use App\Mail\PlantillaIngreso;
+use Carbon\Carbon;
 
 class OrdenServicioController extends Controller
 {
@@ -485,6 +486,8 @@ class OrdenServicioController extends Controller
         $cotizacion->estatus = 'En reparacion';
         $cotizacion->total = $request->get('total_cot');
         $cotizacion->total_iva = $request->get('total_iva_cot');
+        $cotizacion->total_iva = $request->get('refaccion_cot');
+        $cotizacion->total_iva = $request->get('mo_cot');
         $cotizacion->fecha_autorizada = now();
         $cotizacion->iva = $request->get('iva');
 
@@ -501,6 +504,7 @@ class OrdenServicioController extends Controller
         // G U A R D A R  S E R V I C I O S
         $id_servicio = $request->get('servicios_cot');
         $subtotal = $request->get('precio_cot');
+        $marca = $request->get('marca_cot');
 
         $insert_data = [];
         for ($count = 0; $count < count($id_servicio); $count++) {
@@ -508,6 +512,7 @@ class OrdenServicioController extends Controller
                 'id_cotizacion' => $cotizacion->id,
                 'id_servicio' => $id_servicio[$count],
                 'subtotal' => $subtotal[$count],
+                'marca' => $marca[$count],
             );
             $insert_data[] = $data;
         }
@@ -566,6 +571,18 @@ class OrdenServicioController extends Controller
         Session::flash('success', 'Se ha registrado sus datos con exito');
         return redirect()->back();
     }
+    public function imprimir($id){
+        $today =  date('d-m-Y');
 
+        $cotizacion = OrdenServicio::where('id', $id)->first();
+        $cotizacion_serivicios = OrdenServicioServ::where('id_cotizacion', $id)->get();
+        $taller = TallerOrden::where('id_cotizacion', $id)->first();
+        $fotos = OrdenImg::where('id_cotizacion', $id)->get();
+        $comentarios = OrdenComentarios::where('id_cotizacion', $id)->get();
+
+        $pdf = \PDF::loadView('admin.taller_cotizacion.pdf_view', compact('today', 'cotizacion', 'cotizacion_serivicios', 'taller', 'fotos', 'comentarios'));
+        return $pdf->stream();
+       //  return $pdf->download('Precorte '.$fechaYHoraFormateada.'.pdf');
+    }
 
 }

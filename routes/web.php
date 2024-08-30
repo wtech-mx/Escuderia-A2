@@ -252,6 +252,7 @@ Route::get('admin/cotizacion/taller/auto/{id}', 'OrdenServicioController@GetAuto
 Route::patch('admin/cotizacion/taller/estatus/{id}', 'OrdenServicioController@update_estatus')->name('update_estatus.cotizacion_taller');
 Route::patch('admin/cotizacion/taller/ingreso/{id}', 'OrdenServicioController@ingreso')->name('ingreso.cotizacion_taller');
 Route::get('/get-automoviles/{id}', 'OrdenServicioController@getAutomoviles')->name('get.automoviles');
+Route::get('admin/cotizacion/taller/imprimir/{id}', 'OrdenServicioController@imprimir')->name('orden.imprimir');
 
 
 /*|--------------------------------------------------------------------------
