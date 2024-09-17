@@ -1,8 +1,13 @@
 @extends('admin.layouts.app')
 
+@php
+use Carbon\Carbon;
+@endphp
+
 @section('css')
 <link href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.min.css" rel="stylesheet">
 @endsection
+
 <style>
     .select2-container{
         width: 200px !important;
@@ -34,233 +39,239 @@
         background-color: #333; /* Fondo oscuro */
     }
 </style>
+
 @section('content')
-@php
-use Carbon\Carbon;
-@endphp
+
+
     <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
 
     <div class="row bg-down-image-border">
 
+        @include('admin.layouts.sidebar')
 
-        <div class="col-2  mt-4">
-            <div class="d-flex justify-content-start">
-                <div class="text-center text-white">
-                    <a href="{{ route('index.dashboard') }}" style="background-color: transparent;clip-path: none">
-                        <img class="" src="{{ asset('img/icon/white/left-arrow.png') }}" width="25px">
-                    </a>
-                </div>
-            </div>
-        </div>
+        <div class="col-12 col-xs-12 col-sm-12 col-lg-12 col-xl-10">
 
-        <div class="col-8  mt-4">
-            <h5 class="text-center text-white ml-4 mr-4 ">
-                <strong>Cotizaciones Taller</strong>
-            </h5>
-        </div>
+            <div class="row">
 
-        <div class="col-2  mt-4">
-            <div class="d-flex justify-content-start">
-                <div class="text-center text-white bg-white" style="border-radius: 50px;padding: 5px">
-                    <img class="" src="{{ asset('img/icon/color/campana.png') }}" width="25px">
-                </div>
-            </div>
-        </div>
+                <div class="col-12 col-xs-12 col-sm-12 col-lg-12 col-xl-10">
 
-        <div class="col-12">
-            @include('admin.taller_cotizacion.create')
-        </div>
-        <div class="col-sm-12">
-            <form action="" method="GET" >
-                <div class="card-body" style="padding-left: 1.5rem; padding-top: 1rem;">
-                    <h5>Filtro</h5>
-                        <div class="row">
-                            <div class="col-3">
-                                <label for="user_id">Filtra Estatus:</label>
-                                <select class="form-select cliente" name="id_client" id="id_client">
-                                    <option value="En espera de cotizacion">Espera de Cotizacion</option>
-                                    <option value="Autorizada Cotizacion">Autorizada Cotizacion</option>
-                                    <option value="En reparacion">En Reparacion</option>
-                                    <option value="Por entregar usuario">Por Entregar Usuario</option>
-                                    <option value="Por cargar factura">Por Cargar Factura</option>
-                                    <option value="Por pagar">Por pagar</option>
-                                    <option value="Pagado">Pagado</option>
-                                </select>
+                    <div class="d-flex justify-content-between mt-5  mb-5">
+                            <div class="text-center text-white">
+                                <a href="{{ route('index.dashboard') }}" style="background-color: transparent;clip-path: none">
+                                    <img class="" src="{{ asset('img/icon/white/left-arrow.png') }}" width="25px">
+                                </a>
                             </div>
-                            <div class="col-3">
-                                <br>
-                                <button class="btn btn-sm mb-0 mt-sm-0 mt-1" type="submit" style="background-color: #2ECC71 ; color: #ffffff;">Buscar <img class="" src="{{ asset('img/icon/white/search.png') }}" width="20px" ></button>
+
+                            <h5 class="text-center text-white ml-4 mr-4 ">
+                                <strong>Cotizaciones Taller </strong>
+                            </h5>
+
+                            <div class="text-center text-white bg-white" style="border-radius: 50px;padding: 5px">
+                                <img class="" src="{{ asset('img/icon/color/campana.png') }}" width="25px">
                             </div>
+                    </div>
+
+
+                <div class="col-12">
+                    @include('admin.taller_cotizacion.create')
+                </div>
+
+                <div class="col-sm-12">
+                    <form action="" method="GET" >
+                        <div class="card-body" style="padding-left: 1.5rem; padding-top: 1rem;">
+                            <h5>Filtro</h5>
+                                <div class="row">
+                                    <div class="col-3">
+                                        <label for="user_id">Filtra Estatus:</label>
+                                        <select class="form-select cliente" name="id_client" id="id_client">
+                                            <option value="En espera de cotizacion">Espera de Cotizacion</option>
+                                            <option value="Autorizada Cotizacion">Autorizada Cotizacion</option>
+                                            <option value="En reparacion">En Reparacion</option>
+                                            <option value="Por entregar usuario">Por Entregar Usuario</option>
+                                            <option value="Por cargar factura">Por Cargar Factura</option>
+                                            <option value="Por pagar">Por pagar</option>
+                                            <option value="Pagado">Pagado</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-3">
+                                        <br>
+                                        <button class="btn btn-sm mb-0 mt-sm-0 mt-1" type="submit" style="background-color: #2ECC71 ; color: #ffffff;">Buscar <img class="" src="{{ asset('img/icon/white/search.png') }}" width="20px" ></button>
+                                    </div>
+                                </div>
                         </div>
+                    </form>
                 </div>
-            </form>
-        </div>
 
-        <div class="row  bg-down-image-border">
-            <div class="col-12">
-                <table id="cotizacion" class="table text-white">
-                    <thead>
-                        <tr>
-                            <th scope="col">Cliente</th>
-                            <th scope="col">Automovil</th>
-                            <th scope="col">Estatus</th>
-                            <th scope="col">KM</th>
-                            <th scope="col">Dias</th>
-                            <th scope="col">Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($cotizacion as $item)
-                            <tr>
-                                <td>{{ $item->User->name }}</td>
-                                <td>
+                <div class="col-12">
+                        <table id="cotizacion" class="table text-white">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Cliente</th>
+                                    <th scope="col">Automovil</th>
+                                    <th scope="col">Estatus</th>
+                                    <th scope="col">KM</th>
+                                    <th scope="col">Dias</th>
+                                    <th scope="col">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($cotizacion as $item)
+                                    <tr>
+                                        <td>{{ $item->User->name }}</td>
+                                        <td>
 
-                                    @if(!isset($item->Auto->Marca->nombre))
+                                            @if(!isset($item->Auto->Marca->nombre))
 
-                                    <p>Sin Submarca</p>
+                                            <p>Sin Submarca</p>
 
-                                    @elseif(empty($item->Auto->Marca->nombre))
+                                            @elseif(empty($item->Auto->Marca->nombre))
 
-                                        <p>Sin nombre</p>
+                                                <p>Sin nombre</p>
 
-                                    @else
+                                            @else
 
-                                        {{ $item->Auto->Marca->nombre }}
+                                                {{ $item->Auto->Marca->nombre }}
 
-                                    @endif
+                                            @endif
 
-                                    {{ $item->placas}}
-                                </td>
-                                <td>
-                                    <button class="btn text-white" data-toggle="modal" data-target="#estatus-{{ $item->id }}">{{ $item->estatus }}</button><br><br>
-                                    @switch($item->estatus)
-                                        @case('Pendiente de asignar taller')
-                                            Fecha: {{ $item->fecha_creacion }}
-                                            @break
-                                        @case('Pendiente de ingreso a taller')
-                                            Fecha: {{ $item->fecha_asignacion_taller }}
-                                            @break
-                                        @case('En espera de cotizacion')
-                                        Fecha: {{ $item->fecha_ingreso_taller }}
-                                            @break
-                                        @case('Pendiente de Autorización')
-                                        Fecha: {{ $item->fecha_cotizacion }}
-                                            @break
-                                        @case('Cotización autorizada en reparación unidad')
-                                        Fecha: {{ $item->fecha_autorizada }}
-                                            @break
-                                        @case('Reparada pendiente de entrega unidad')
-                                        Fecha: {{ $item->fecha_reparado }}
-                                            @break
-                                        @case('Entregada por cargar factura')
-                                        Fecha: {{ $item->fecha_entregado }}
-                                            @break
-                                        @case('Facturada por pagar')
-                                        Fecha: {{ $item->fecha_factura }}
-                                            @break
-                                        @case('Pagada')
-                                        Fecha: {{ $item->fecha_pagado }}
-                                            @break
-                                    @endswitch
-                                </td>
-                                <td>
-                                    @if($item->km_taller == NULL && $item->km_entrega == NULL)
-                                        KM Actual: <br>
-                                        {{ $item->km_actual}}
-                                    @elseif($item->km_entrega == NULL)
-                                        KM Taller: <br>
-                                        {{ $item->km_taller}}
-                                    @else
-                                        KM Entrega: <br>
-                                        {{ $item->km_entrega}}
-                                    @endif
-                                </td>
-                                <td>
-                                    @php
-                                        $hoy = Carbon::now();
-                                        $dias_transcurridos = null;
+                                            {{ $item->placas}}
+                                        </td>
+                                        <td>
+                                            <button class="btn text-white" data-toggle="modal" data-target="#estatus-{{ $item->id }}">{{ $item->estatus }}</button><br><br>
+                                            @switch($item->estatus)
+                                                @case('Pendiente de asignar taller')
+                                                    Fecha: {{ $item->fecha_creacion }}
+                                                    @break
+                                                @case('Pendiente de ingreso a taller')
+                                                    Fecha: {{ $item->fecha_asignacion_taller }}
+                                                    @break
+                                                @case('En espera de cotizacion')
+                                                Fecha: {{ $item->fecha_ingreso_taller }}
+                                                    @break
+                                                @case('Pendiente de Autorización')
+                                                Fecha: {{ $item->fecha_cotizacion }}
+                                                    @break
+                                                @case('Cotización autorizada en reparación unidad')
+                                                Fecha: {{ $item->fecha_autorizada }}
+                                                    @break
+                                                @case('Reparada pendiente de entrega unidad')
+                                                Fecha: {{ $item->fecha_reparado }}
+                                                    @break
+                                                @case('Entregada por cargar factura')
+                                                Fecha: {{ $item->fecha_entregado }}
+                                                    @break
+                                                @case('Facturada por pagar')
+                                                Fecha: {{ $item->fecha_factura }}
+                                                    @break
+                                                @case('Pagada')
+                                                Fecha: {{ $item->fecha_pagado }}
+                                                    @break
+                                            @endswitch
+                                        </td>
+                                        <td>
+                                            @if($item->km_taller == NULL && $item->km_entrega == NULL)
+                                                KM Actual: <br>
+                                                {{ $item->km_actual}}
+                                            @elseif($item->km_entrega == NULL)
+                                                KM Taller: <br>
+                                                {{ $item->km_taller}}
+                                            @else
+                                                KM Entrega: <br>
+                                                {{ $item->km_entrega}}
+                                            @endif
+                                        </td>
+                                        <td>
+                                            @php
+                                                $hoy = Carbon::now();
+                                                $dias_transcurridos = null;
 
-                                        switch ($item->estatus) {
-                                            case 'Pendiente de asignar taller':
-                                                $fecha = $item->fecha_creacion ? Carbon::parse($item->fecha_creacion) : null;
-                                                break;
-                                            case 'Pendiente de ingreso a taller':
-                                                $fecha = $item->fecha_asignacion_taller ? Carbon::parse($item->fecha_asignacion_taller) : null;
-                                                break;
-                                            case 'En espera de cotizacion':
-                                                $fecha = $item->fecha_ingreso_taller ? Carbon::parse($item->fecha_ingreso_taller) : null;
-                                                break;
-                                            case 'Pendiente de autorización':
-                                                $fecha = $item->fecha_cotizacion ? Carbon::parse($item->fecha_cotizacion) : null;
-                                                break;
-                                            case 'En reparacion':
-                                                $fecha = $item->fecha_autorizada ? Carbon::parse($item->fecha_autorizada) : null;
-                                                break;
-                                            case 'Por entregar usuario':
-                                                $fecha = $item->fecha_reparado ? Carbon::parse($item->fecha_reparado) : null;
-                                                break;
-                                            case 'Por cargar factura':
-                                                $fecha = $item->fecha_entregado ? Carbon::parse($item->fecha_entregado) : null;
-                                                break;
-                                            case 'Por pagar':
-                                                $fecha = $item->fecha_factura ? Carbon::parse($item->fecha_factura) : null;
-                                                break;
-                                            default:
-                                                $fecha = null;
-                                        }
+                                                switch ($item->estatus) {
+                                                    case 'Pendiente de asignar taller':
+                                                        $fecha = $item->fecha_creacion ? Carbon::parse($item->fecha_creacion) : null;
+                                                        break;
+                                                    case 'Pendiente de ingreso a taller':
+                                                        $fecha = $item->fecha_asignacion_taller ? Carbon::parse($item->fecha_asignacion_taller) : null;
+                                                        break;
+                                                    case 'En espera de cotizacion':
+                                                        $fecha = $item->fecha_ingreso_taller ? Carbon::parse($item->fecha_ingreso_taller) : null;
+                                                        break;
+                                                    case 'Pendiente de autorización':
+                                                        $fecha = $item->fecha_cotizacion ? Carbon::parse($item->fecha_cotizacion) : null;
+                                                        break;
+                                                    case 'En reparacion':
+                                                        $fecha = $item->fecha_autorizada ? Carbon::parse($item->fecha_autorizada) : null;
+                                                        break;
+                                                    case 'Por entregar usuario':
+                                                        $fecha = $item->fecha_reparado ? Carbon::parse($item->fecha_reparado) : null;
+                                                        break;
+                                                    case 'Por cargar factura':
+                                                        $fecha = $item->fecha_entregado ? Carbon::parse($item->fecha_entregado) : null;
+                                                        break;
+                                                    case 'Por pagar':
+                                                        $fecha = $item->fecha_factura ? Carbon::parse($item->fecha_factura) : null;
+                                                        break;
+                                                    default:
+                                                        $fecha = null;
+                                                }
 
-                                        if ($fecha) {
-                                            $dias_transcurridos = $fecha->diffInDays($hoy);
-                                        }
-                                    @endphp
+                                                if ($fecha) {
+                                                    $dias_transcurridos = $fecha->diffInDays($hoy);
+                                                }
+                                            @endphp
 
-                                    @if(!is_null($dias_transcurridos))
-                                        <p>{{ $dias_transcurridos }} días</p>
-                                    @endif
-                                </td>
-                                <td>
-                                    @if ($item->estatus == 'Pendiente de asignar taller')
-                                        <a style="color: #3490dc" data-toggle="modal" data-target="#taller-{{ $item->id }}">  <img class="" src="{{ asset('img/icon/white/configuraciones.png') }}" width="20px" > Taller</a> <br><br>
-                                    @endif
-                                    @if ($item->estatus == 'Pendiente de ingreso a taller')
-                                        <a style="color: #3490dc" data-toggle="modal" data-target="#taller-ingreso-{{ $item->id }}">  <img class="" src="{{ asset('img/icon/white/taller.png') }}" width="20px" >Ing Taller</a> <br><br>
-                                    @endif
-                                    @if ($item->estatus == 'En espera de cotizacion')
-                                        <a style="color: #3490dc" data-toggle="modal" data-target="#taller-ingreso-{{ $item->id }}">  <img class="" src="{{ asset('img/icon/white/calendario (5).png') }}" width="20px" >Fecha Cot</a> <br><br>
-                                    @endif
-                                    @if ($item->estatus == 'Pendiente de autorización')
-                                        <a style="color: #3490dc" data-toggle="modal" data-target="#taller-edit-{{ $item->id }}">  <img class="" src="{{ asset('img/icon/white/taller.png') }}" width="20px" > Taller</a> <br><br>
-                                    @endif
-                                    @if ($item->estatus == 'En reparacion')
-                                        <a style="color: #3490dc" data-toggle="modal" data-target="#taller-ingreso-{{ $item->id }}">  <img class="" src="{{ asset('img/icon/white/calendario (5).png') }}" width="20px" >Fin reparacion</a> <br><br>
-                                    @endif
-                                    @if ($item->estatus == 'Por entregar usuario')
-                                        @php
-                                            $color = $item->OredenEncuesta->pregunta_1 == NULL ? '#dc5634' : '#34dca4';
-                                        @endphp
-                                        <a style="color: #3490dc" data-toggle="modal" data-target="#taller-ingreso-{{ $item->id }}">  <img class="" src="{{ asset('img/icon/white/car-service (1).png') }}" width="20px" >Entregar</a> <br><br>
-                                    @endif
-                                    @if ($item->estatus == 'Por cargar factura')
-                                        <a style="color: #3490dc" data-toggle="modal" data-target="#taller-ingreso-{{ $item->id }}">  <img class="" src="{{ asset('img/icon/white/calendario (5).png') }}" width="20px" >Factura</a> <br><br>
-                                    @endif
-                                    @if ($item->estatus == 'Por pagar')
-                                        <a style="color: #3490dc" data-toggle="modal" data-target="#taller-ingreso-{{ $item->id }}">  <img class="" src="{{ asset('img/icon/white/metodo-de-pago (1).png') }}" width="20px" >Pagar</a> <br><br>
-                                    @endif
-                                    <a style="color: #3490dc" href="{{ route('view_admin.cotizacion_taller', $item->id) }}"><img class="" src="{{ asset('img/icon/white/cotizacion.png') }}" width="20px" > Ver</a> <br><br>
+                                            @if(!is_null($dias_transcurridos))
+                                                <p>{{ $dias_transcurridos }} días</p>
+                                            @endif
+                                        </td>
+                                        <td>
+                                            @if ($item->estatus == 'Pendiente de asignar taller')
+                                                <a style="color: #3490dc" data-toggle="modal" data-target="#taller-{{ $item->id }}">  <img class="" src="{{ asset('img/icon/white/configuraciones.png') }}" width="20px" > Taller</a> <br><br>
+                                            @endif
+                                            @if ($item->estatus == 'Pendiente de ingreso a taller')
+                                                <a style="color: #3490dc" data-toggle="modal" data-target="#taller-ingreso-{{ $item->id }}">  <img class="" src="{{ asset('img/icon/white/taller.png') }}" width="20px" >Ing Taller</a> <br><br>
+                                            @endif
+                                            @if ($item->estatus == 'En espera de cotizacion')
+                                                <a style="color: #3490dc" data-toggle="modal" data-target="#taller-ingreso-{{ $item->id }}">  <img class="" src="{{ asset('img/icon/white/calendario (5).png') }}" width="20px" >Fecha Cot</a> <br><br>
+                                            @endif
+                                            @if ($item->estatus == 'Pendiente de autorización')
+                                                <a style="color: #3490dc" data-toggle="modal" data-target="#taller-edit-{{ $item->id }}">  <img class="" src="{{ asset('img/icon/white/taller.png') }}" width="20px" > Taller</a> <br><br>
+                                            @endif
+                                            @if ($item->estatus == 'En reparacion')
+                                                <a style="color: #3490dc" data-toggle="modal" data-target="#taller-ingreso-{{ $item->id }}">  <img class="" src="{{ asset('img/icon/white/calendario (5).png') }}" width="20px" >Fin reparacion</a> <br><br>
+                                            @endif
+                                            @if ($item->estatus == 'Por entregar usuario')
+                                                @php
+                                                    $color = $item->OredenEncuesta->pregunta_1 == NULL ? '#dc5634' : '#34dca4';
+                                                @endphp
+                                                <a style="color: #3490dc" data-toggle="modal" data-target="#taller-ingreso-{{ $item->id }}">  <img class="" src="{{ asset('img/icon/white/car-service (1).png') }}" width="20px" >Entregar</a> <br><br>
+                                            @endif
+                                            @if ($item->estatus == 'Por cargar factura')
+                                                <a style="color: #3490dc" data-toggle="modal" data-target="#taller-ingreso-{{ $item->id }}">  <img class="" src="{{ asset('img/icon/white/calendario (5).png') }}" width="20px" >Factura</a> <br><br>
+                                            @endif
+                                            @if ($item->estatus == 'Por pagar')
+                                                <a style="color: #3490dc" data-toggle="modal" data-target="#taller-ingreso-{{ $item->id }}">  <img class="" src="{{ asset('img/icon/white/metodo-de-pago (1).png') }}" width="20px" >Pagar</a> <br><br>
+                                            @endif
+                                            <a style="color: #3490dc" href="{{ route('view_admin.cotizacion_taller', $item->id) }}"><img class="" src="{{ asset('img/icon/white/cotizacion.png') }}" width="20px" > Ver</a> <br><br>
 
-                                    <a style="color: #3490dc" href="{{ route('orden.imprimir', $item->id) }}"> <img class="" src="{{ asset('img/icon/white/metodo-de-pago (1).png') }}" width="20px" >PDF</a>
-                                </td>
-                            </tr>
+                                            <a style="color: #3490dc" href="{{ route('orden.imprimir', $item->id) }}"> <img class="" src="{{ asset('img/icon/white/metodo-de-pago (1).png') }}" width="20px" >PDF</a>
+                                        </td>
+                                    </tr>
 
-                            @include('admin.taller_cotizacion.modal_estatus')
-                            @include('admin.taller_cotizacion.modal_ingreso_taller')
-                            @include('admin.taller_cotizacion.modal_taller_edit')
-                            @include('admin.taller_cotizacion.modal_taller')
-                        @endforeach
-                    </tbody>
-                </table>
+                                    @include('admin.taller_cotizacion.modal_estatus')
+                                    @include('admin.taller_cotizacion.modal_ingreso_taller')
+                                    @include('admin.taller_cotizacion.modal_taller_edit')
+                                    @include('admin.taller_cotizacion.modal_taller')
+                                @endforeach
+                            </tbody>
+                        </table>
+                </div>
+
+
             </div>
+
         </div>
+
+
     </div>
 @endsection
 
