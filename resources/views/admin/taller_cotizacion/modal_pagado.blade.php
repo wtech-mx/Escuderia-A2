@@ -1,5 +1,5 @@
 <div class="modal fade" id="pagado-{{ $item->id }}" tabindex="-1" aria-labelledby="servicio" aria-hidden="true">
-    <div class="modal-dialog modal-sm modal-dialog-centered">
+    <div class="modal-dialog  modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-body"  style="color: #000000">
                 <form method="POST" action="{{route('store_taller.cotizacion_taller', $item->id)}}" enctype="multipart/form-data" role="form">

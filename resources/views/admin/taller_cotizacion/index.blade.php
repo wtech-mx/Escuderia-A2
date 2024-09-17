@@ -91,7 +91,37 @@ use Carbon\Carbon;
                                 <tbody>
                                     @foreach ($cotizacion as $item)
                                         <tr>
-                                            <td>{{ $item->User->name }}</td>
+                                            <td>
+
+                                                @php
+                                                $nombreDelCurso = $item->User->name;
+                                                $nombreDelCurso = str_replace('Curso de ', '', $nombreDelCurso);
+                                                $nombreDelCurso = str_replace('Curso ', '', $nombreDelCurso);
+
+                                                $palabras = explode(' ', $nombreDelCurso);
+
+                                                // Inicializa la cadena formateada
+                                                $nombre_formateado = '';
+                                                $contador_palabras = 0;
+
+                                                foreach ($palabras as $palabra) {
+                                                    // Agrega la palabra actual a la cadena formateada
+                                                    $nombre_formateado .= $palabra . ' ';
+
+                                                    // Incrementa el contador de palabras
+                                                    $contador_palabras++;
+
+                                                    // Agrega un salto de línea después de cada tercera palabra
+                                                    if ($contador_palabras % 3 == 0) {
+                                                        $nombre_formateado .= "<br>";
+                                                    }
+                                                }
+                                            @endphp
+
+                                            {!! $nombre_formateado !!}
+
+                                            </td>
+
                                             <td>
 
                                                 @if(!isset($item->Auto->Marca->nombre))
@@ -272,28 +302,112 @@ use Carbon\Carbon;
 <script src="{{ asset('assets/vendor/select2/dist/js/select2.min.js')}}"></script>
 
 <script>
+
+    $(document).ready(function() {
+        $('#automoviles').DataTable({
+            dom: 'Bfrtip',
+            buttons: [
+                {
+                    extend: 'print',
+                    text: 'Imprimir',
+                    exportOptions: {
+                        columns: ':visible'
+                    }
+                },
+                'excel',
+                'pdf',
+                'colvis'
+            ],
+            responsive: true,
+            columnDefs: [
+                // {targets: -1, visible: false},
+                { responsivePriority: 1 , },
+                { responsivePriority: 2 , },
+                { responsivePriority: 3 , },
+                { responsivePriority: 4 , },
+                { responsivePriority: 5 , },
+                { responsivePriority: 6 , },
+                { responsivePriority: 7 , },
+                { responsivePriority: 8 , },
+                { responsivePriority: 9 , },
+                { responsivePriority: 10 , },
+            ],
+
+            language: {
+                url: 'https://cdn.datatables.net/plug-ins/1.11.5/i18n/es-ES.json'
+            }
+        });
+
+    });
+
     $(document).ready(function() {
         $('#cotizacion').DataTable({
-                dom: 'Bfrtip',
-                buttons: [
-                    {
-                        extend: 'print',
-                        text: 'Imprimir',
-                        exportOptions: {
-                            columns: ':visible'
-                        }
-                    },
-                    'excel',
-                    'pdf',
-                    'colvis'
-                ],
+            dom: 'Bfrtip',
+            buttons: [
+                {
+                    extend: 'print',
+                    text: 'Imprimir',
+                    exportOptions: {
+                        columns: ':visible'
+                    }
+                },
+                'excel',
+                'pdf',
+                'colvis'
+            ],
+            responsive: true,
+            columnDefs: [
+                // {targets: -1, visible: false},
+                { responsivePriority: 1 , },
+                { responsivePriority: 2 , },
+                { responsivePriority: 3 , },
+                { responsivePriority: 4 , },
+                { responsivePriority: 5 , },
+                { responsivePriority: 6 , },
+                { responsivePriority: 7 , },
+                { responsivePriority: 8 , },
+                { responsivePriority: 9 , },
+                { responsivePriority: 10 , },
+            ],
 
-                language: {
-                    url: 'https://cdn.datatables.net/plug-ins/1.11.5/i18n/es-ES.json'
-                }
-            });
-
+            language: {
+                url: 'https://cdn.datatables.net/plug-ins/1.11.5/i18n/es-ES.json'
+            }
         });
+
+    });
+
+    $(document).ready(function() {
+        $('#empresa').DataTable({
+            dom: 'Bfrtip',
+            buttons: [
+                {
+                    extend: 'print',
+                    text: 'Imprimir',
+                    exportOptions: {
+                        columns: ':visible'
+                    }
+                },
+                'excel',
+                'pdf',
+                'colvis'
+            ],
+            responsive: true,
+            columnDefs: [
+                // {targets: -1, visible: false},
+                { responsivePriority: 1 , },
+                { responsivePriority: 2 , },
+                { responsivePriority: 3 , },
+                { responsivePriority: 4 , },
+            ],
+
+            language: {
+                url: 'https://cdn.datatables.net/plug-ins/1.11.5/i18n/es-ES.json'
+            }
+        });
+
+    });
+
 </script>
 
 <script>

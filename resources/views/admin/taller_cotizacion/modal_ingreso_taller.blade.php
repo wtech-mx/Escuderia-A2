@@ -1,5 +1,5 @@
 <div class="modal fade" id="taller-ingreso-{{ $item->id }}" tabindex="-1" aria-labelledby="servicio" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
                 <h5></h5>
