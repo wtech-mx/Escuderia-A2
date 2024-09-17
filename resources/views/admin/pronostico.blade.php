@@ -54,7 +54,7 @@
             </div>
         </div>
 
-    
+
     <form method="POST" action="{{ route('store.pronostico') }}" enctype="multipart/form-data"
         role="form">
 
@@ -106,6 +106,7 @@
                     <label for="" class="mt-5">
                         <p class="text-white"><strong>Servicio</strong></p>
                     </label>
+
                 <div class="input-group form-group">
 
                     <div class="input-group-prepend ">
@@ -195,7 +196,7 @@
             $('#current_auto').empty();
             $('#current_auto').append(`<option value="" disabled selected>Seleccione Autom&oacute;vil</option>`);
             response.forEach(element => {
-                $('#current_auto').append(`<option value="${element['placas']}">${element['placas']}</option>`);
+                $('#current_auto').append(`<option value="${element['placas']}">${element['placas']} / ${element['submarca']} / ${element['año']}</option>`);
                 });
             }
         });
