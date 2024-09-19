@@ -209,7 +209,8 @@
                             <b>Fecha Pagado</b> <br>
                             {{$cotizacion->fecha_pagado}}
                         </td>
-                    </tr>
+                    </tr>Evidencias del taller
+
                 </tbody>
             </table>
 
@@ -218,38 +219,52 @@
                 <tbody>
                     <tr>
                         @foreach ($fotos as $foto)
-                            <td class="section" id="body_content"style="margin: 0;padding:0;">
-                                @if ($foto->estatus == 'Pendiente de autorización')
-                                    @if ($foto == NULL)
-                                            <img id="blah" src="https://checkn-go.com.mx/img/icon/seguros/page-not-found.png" alt="Imagen" style="width: 90px;height: 90px;"/>
+                        <div class="col-4 mb-3">
+                            @if ($foto->estatus == 'Pendiente de autorización')
+                                @if ($foto == NULL)
+
+                                        <img id="blah" src="{{asset('/img/icon/seguros/page-not-found.png') }}" alt="Imagen" style="width: 90px;height: 90px;display:inline-bock;"/>
+                                @else
+                                    @if (pathinfo($foto->imagen, PATHINFO_EXTENSION) == 'mp4')
+                                            <video controls preload="auto" width="300" height="200" data-setup="{}" style="padding: 10px;display:inline-bock;">
+                                                <source src="{{asset('/cotizacion/usuario'.$cotizacion->id_user.'/'.$foto->imagen)}}" type='video/mp4'>
+                                            </video>
+                                    @elseif (pathinfo($foto->imagen, PATHINFO_EXTENSION) == 'mov')
+                                        <div class="col-12">
+                                            <video controls preload="auto" width="300" height="200" data-setup="{}" style="padding: 10px;display:inline-bock;">
+                                                <source src="{{asset('/cotizacion/usuario'.$cotizacion->id_user.'/'.$foto->imagen)}}" type='video/mp4'>
+                                            </video>
+                                        </div>
                                     @else
-                                            @if (pathinfo($foto->imagen, PATHINFO_EXTENSION) == 'mp4')
-                                                <div class="col-12">
-                                                    <video controls preload="auto" width="300" height="200" data-setup="{}" style="padding: 10px;">
-                                                        <source src="https://checkn-go.com.mx/cotizacion/usuario{{$cotizacion->id_user}}/{{$foto->imagen}}" type='video/mp4'>
-                                                    </video>
-                                                </div>
-                                            @elseif (pathinfo($foto->imagen, PATHINFO_EXTENSION) == 'mov')
-                                                <div class="col-12">
-                                                    <video controls preload="auto" width="300" height="200" data-setup="{}" style="padding: 10px;">
-                                                        <source src="https://checkn-go.com.mx/cotizacion/usuario{{$cotizacion->id_user}}/{{$foto->imagen}}" type='video/mp4'>
-                                                    </video>
-                                                </div>
-                                            @else
-                                                <div class="col-6">
-                                                    <img id="blah" src="https://checkn-go.com.mx/cotizacion/usuario{{$cotizacion->id_user}}/{{$foto->imagen}}" alt="Imagen" style="width: 150px;height: 150px;"/>
-                                                    <a class="text-center text-dark btn btn-sm mt-2" href="https://checkn-go.com.mx/cotizacion/usuario{{$cotizacion->id_user}}/{{$foto->imagen}}" target="_blank" style="background: #43eb5f; color: #000000!important">Ver Imagen</a>
-                                                </div>
-                                            @endif
+
+                                            <img id="blah" src="{{asset('/cotizacion/usuario'. $cotizacion->id_user . '/' .$foto->imagen) }}" alt="Imagen" style="width: 150px;height: 150px;display:inline-bock;"/>
+                                            <a class="text-center text-dark btn btn-sm mt-2" href="{{asset('/cotizacion/usuario'. $cotizacion->id_user . '/' .$foto->imagen) }}" target="_blank" style="background: #43eb5f; color: #000000!important">Ver Imagen</a>
+                                        </div>
                                     @endif
                                 @endif
-                            </td>
-                        @endforeach
+                            @endif
+                        </div>
+                    @endforeach
                     </tr>
                 </tbody>
             </table>
 
             <h3 style="text-align: center;"><b> Cotización Aprobada </b></h3>
+
+            @if (pathinfo($cotizacion->cotizacion_taller, PATHINFO_EXTENSION) == 'pdf')
+            <div class="col-12">
+                <iframe class="mt-2" src="{{asset('/cotizacion/usuario'. $cotizacion->id_user . '/' .$cotizacion->cotizacion_taller) }}" style="width: 80%; height: 80px;"></iframe>
+                <p class="text-center ">
+                    <a class="btn btn-sm text-dark" href="{{asset('/cotizacion/usuario'. $cotizacion->id_user . '/' .$cotizacion->cotizacion_taller) }}" target="_blank" style="background: #836262; color: #ffff!important">Ver archivo</a>
+                </p>
+            </div>
+        @else
+            <div class="col-6">
+                <img id="blah" src="{{asset('/cotizacion/usuario'. $cotizacion->id_user . '/' .$cotizacion->cotizacion_taller) }}" alt="Imagen" style="width: 150px;height: 150px;"/>
+                <a class="text-center text-dark btn btn-sm mt-2" href="{{asset('/cotizacion/usuario'. $cotizacion->id_user . '/' .$cotizacion->cotizacion_taller) }}" target="_blank" style="background: #43eb5f; color: #000000!important">Ver Imagen</a>
+            </div>
+        @endif
+
             @if ($cotizacion->fecha_cotizacion != NULL)
                 <div class="col-6">
                     <strong class="text-white">Importe total Total</strong>

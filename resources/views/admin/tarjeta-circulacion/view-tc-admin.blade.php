@@ -29,6 +29,9 @@
         @endif
 
         @include('admin.layouts.sidebar')
+
+        <div class="content container-res-max">
+
         <div class="col-12 col-xs-12 col-sm-12 col-lg-12 col-xl-10">
 
         <div class="d-flex justify-content-between mt-5  mb-5">
@@ -226,6 +229,7 @@
         </div>
      @endif
 
+        </div>
     </div>
 
 @section('js')
