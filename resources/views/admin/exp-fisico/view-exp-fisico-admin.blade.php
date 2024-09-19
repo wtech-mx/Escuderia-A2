@@ -13,6 +13,8 @@
 
     <div class="row bg-down-blue container-res" style="border-radius: 0 0 0 0; ">
 
+        <div class="content container-res-max">
+
         @include('admin.layouts.sidebar')
 
         <div class="col-12 col-xs-12 col-sm-12 col-lg-12 col-xl-10">
@@ -176,8 +178,12 @@
             </div>
         @endif
 
+        </div>
+
     </div>
 
+
+@endsection
 
 @section('js')
     <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
@@ -296,4 +302,3 @@
 
 @endsection
 
-@endsection

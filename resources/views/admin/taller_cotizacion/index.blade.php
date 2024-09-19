@@ -428,7 +428,7 @@ use Carbon\Carbon;
             return `
                 <div class="servicio-item" id="servicioItem_${index}_${registroId}">
                     <div class="row">
-                        <div class="col-6">
+                        <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                             <p><strong>Servicios</strong></p>
                             <div class="input-group form-group">
                                 <select class="form-control servicio-select" name="servicios_cot[]" id="servicioSelect_${index}_${registroId}">
@@ -439,11 +439,11 @@ use Carbon\Carbon;
                                 </select>
                             </div>
                         </div>
-                        <div class="col-3 mb-2">
+                        <div class="col-6 col-sm-3 col-md-3 col-lg-3 mb-2">
                             <strong>Precio servicio</strong>
                              <input class="form-control precio-input" type="number" name="precio_cot[]" id="precioInput_${index}_${registroId}">
                         </div>
-                        <div class="col-3 mb-2">
+                        <div class="col-6 col-sm-3 col-md-3 col-lg-3 mb-2">
                             <strong>Marca</strong>
                              <input class="form-control precio-input" type="text" name="marca_cot[]" id="marcaInput_${index}_${registroId}">
                         </div>

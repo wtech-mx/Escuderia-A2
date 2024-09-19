@@ -30,6 +30,20 @@
             </script>
         @endif
 
+        @if (Session::has('success'))
+            <script>
+                Swal.fire(
+                    'Exito!',
+                    'Se ha guardado exitosamente.',
+                    'success'
+                )
+
+            </script>
+        @endif
+
+        <div class="content container-res-max">
+
+
         @include('admin.layouts.sidebar')
 
         <div class="col-12 col-xs-12 col-sm-12 col-lg-12 col-xl-10">
@@ -72,6 +86,7 @@
             </div>
 
             @if (auth()->user()->empresa == 0)
+
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="90000">
 
                 <div class="carousel-inner">
@@ -95,17 +110,6 @@
 
                             </div>
                         </div>
-
-                        @if (Session::has('success'))
-                            <script>
-                                Swal.fire(
-                                    'Exito!',
-                                    'Se ha guardado exitosamente.',
-                                    'success'
-                                )
-
-                            </script>
-                        @endif
 
                         <div class="row">
 
@@ -263,7 +267,11 @@
 
         </div>
 
+        </div>
+
     </div>
+
+    @endsection
 
 @section('js')
     <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
@@ -391,7 +399,5 @@
         });
 
     </script>
-
-@endsection
 
 @endsection

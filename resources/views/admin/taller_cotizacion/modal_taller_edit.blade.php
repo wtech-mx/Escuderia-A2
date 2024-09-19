@@ -1,5 +1,6 @@
 <div class="modal fade" id="taller-edit-{{ $item->id }}" tabindex="-1" aria-labelledby="servicio" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
+
         <div class="modal-content">
             <div class="modal-header">
                 <h5></h5>
@@ -178,7 +179,7 @@
                                     <div id="serviciosContainer_{{ $item->id }}">
                                         <div class="servicio-item" id="servicioItem_0_{{ $item->id }}">
                                             <div class="row">
-                                                <div class="col-6 mb-2">
+                                                <div class="col-12 col-sm-6 col-md-6 col-lg-6 mb-2">
                                                     <p><strong>Servicio</strong></p>
                                                     <div class="input-group form-group">
                                                         <select class="form-control servicio-select" name="servicios_cot[]">
@@ -189,12 +190,12 @@
                                                         </select>
                                                     </div>
                                                 </div>
-                                                <div class="col-3 mb-2">
+                                                <div class="col-6 col-sm-3 col-md-3 col-lg-3 mb-2">
                                                     <p><strong>Precio servicio</strong></p>
                                                     <input class="form-control precio-input" type="number" name="precio_cot[]">
                                                 </div>
 
-                                                <div class="col-3 mb-2">
+                                                <div class="col-6 col-sm-3 col-md-3 col-lg-3 mb-2">
                                                     <p><strong>Marca</strong></p>
                                                     <input class="form-control precio-input" type="text" name="marca_cot[]">
                                                 </div>

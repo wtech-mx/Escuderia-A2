@@ -74,8 +74,8 @@
 
 
         <?php
-        $originalDate = $seguro->end;
-        $newDate = date('d/m/Y', strtotime($originalDate));
+            $originalDate = $seguro->end;
+            $newDate = date('d/m/Y', strtotime($originalDate));
         ?>
 
         <form method="POST" action="{{ route('update.seguro', $seguro->id) }}" enctype="multipart/form-data" role="form">

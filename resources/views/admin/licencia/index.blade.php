@@ -11,6 +11,9 @@
 
     <div class="row bg-image">
 
+        <div class="content container-res-max">
+
+
         @include('admin.layouts.sidebar')
 
        <div class="col-12 col-xs-12 col-sm-12 col-lg-12 col-xl-10">
@@ -66,6 +69,7 @@
                         </tbody>
                     </table>
                 </div>
+        </div>
         </div>
 
 @section('js')

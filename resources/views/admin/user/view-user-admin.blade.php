@@ -11,11 +11,11 @@
 @section('content')
 
 @php
-if(auth()->user()->empresa == 0){
-    $usuarios = $user;
-}else{
-    $usuarios = $users_sector;
-}
+    if(auth()->user()->empresa == 0){
+        $usuarios = $user;
+    }else{
+        $usuarios = $users_sector;
+    }
 @endphp
 
     <div class="row bg-image">
@@ -39,123 +39,125 @@ if(auth()->user()->empresa == 0){
 
             <div class="col-12 col-xs-12 col-sm-12 col-lg-12 col-xl-10">
 
-            <div class="d-flex justify-content-between mt-5  mb-5">
-                <div class="text-center text-white">
-                    <a href="{{ route('index.dashboard') }}" style="background-color: transparent;clip-path: none">
-                        <img class="" src="{{ asset('img/icon/white/left-arrow.png') }}" width="25px">
-                    </a>
-                </div>
-
-                <h5 class="text-center text-white ml-4 mr-4 ">
-                    <strong>Usuarios </strong>
-                </h5>
-
-                <div class="text-center text-white bg-white" style="border-radius: 50px;padding: 5px">
-                    <img class="" src="{{ asset('img/icon/color/campana.png') }}" width="25px">
-                </div>
-            </div>
-
-            <div class="d-flex justify-content-between ">
-
-                <a class="mt-1 ml-5 text-white " href="/exportar/usuarios">
-                    <i class="fa fa-download icon-effect" aria-hidden="true"></i>
-                </a>
-                {{-- @can('create_admin') --}}
-                <div class="content">
-                    <a class="btn btn-circel" href="{{ route('create_admin.user') }}">
-                        <i class="fas fa-plus-circle icon-effect"></i>
-                    </a>
-                    <a class="btn btn-circel" href="{{ route('create_admin.user') }}">
-                        <h5 class="text-white text-tittle-app  mt-2 " style="font: normal normal bold 15px/20px Segoe UI">
-                            Agregar
-                        </h5>
-                    </a>
-                </div>
-                {{-- @endcan --}}
-
-                @if (auth()->user()->empresa == 1 && auth()->user()->id_sector == NULL)
-                    <div class="content">
-                        <a type="button" class="btn" data-toggle="modal" data-target="#exampleModal"
-                            style="background: transparent !important;" src>
-                            <img class="" src="{{ asset('img/icon/white/sector.png') }}" width="25px">
+                <div class="d-flex justify-content-between mt-5  mb-5">
+                    <div class="text-center text-white">
+                        <a href="{{ route('index.dashboard') }}" style="background-color: transparent;clip-path: none">
+                            <img class="" src="{{ asset('img/icon/white/left-arrow.png') }}" width="25px">
                         </a>
+                    </div>
 
-                        <a type="button" class="btn" data-toggle="modal" data-target="#exampleModal"
-                        style="background: transparent !important;">
+                    <h5 class="text-center text-white ml-4 mr-4 ">
+                        <strong>Usuarios </strong>
+                    </h5>
+
+                    <div class="text-center text-white bg-white" style="border-radius: 50px;padding: 5px">
+                        <img class="" src="{{ asset('img/icon/color/campana.png') }}" width="25px">
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-between ">
+
+                    <a class="mt-1 ml-5 text-white " href="/exportar/usuarios">
+                        <i class="fa fa-download icon-effect" aria-hidden="true"></i>
+                    </a>
+                    {{-- @can('create_admin') --}}
+                    <div class="content">
+                        <a class="btn btn-circel" href="{{ route('create_admin.user') }}">
+                            <i class="fas fa-plus-circle icon-effect"></i>
+                        </a>
+                        <a class="btn btn-circel" href="{{ route('create_admin.user') }}">
                             <h5 class="text-white text-tittle-app  mt-2 " style="font: normal normal bold 15px/20px Segoe UI">
-                                Sector
+                                Agregar
                             </h5>
                         </a>
                     </div>
-                @endif
-            </div>
+                    {{-- @endcan --}}
 
-                <table id="usuarios" class="table display nowrap text-white mt-5e" cellspacing="0" width="100%">
-                    <thead>
-                        <tr>
-                            <th data-priority="1">Nombre</th>
-                            <th data-priority="2">Correo</th>
-                            @if (auth()->user()->empresa == 0)
-                                <th data-priority="3">Telefono</th>
-                            @else
-                                <th data-priority="4">Sector</th>
-                                <th data-priority="5">Chofer</th>
-                            @endif
-                            <th data-priority="6"> fecha_nacimiento </th>
-                            <th data-priority="7"> direccion </th>
-                            <th data-priority="8"> referencia </th>
-                            <th data-priority="9"> genero </th>
-                            <th data-priority="10"> direccion </th>
+                    @if (auth()->user()->empresa == 1 && auth()->user()->id_sector == NULL)
+                        <div class="content">
+                            <a type="button" class="btn" data-toggle="modal" data-target="#exampleModal"
+                                style="background: transparent !important;" src>
+                                <img class="" src="{{ asset('img/icon/white/sector.png') }}" width="25px">
+                            </a>
 
-                        </tr>
-                    </thead>
-                    <tbody>
-                            @foreach ($usuarios as $item)
-                        @php
-                            $fechaEntera = strtotime($item->updated_at);
-                            $anio = date('Y', $fechaEntera);
-                            $mes = date('m', $fechaEntera);
-                            $dia = date('d', $fechaEntera);
-                        @endphp
+                            <a type="button" class="btn" data-toggle="modal" data-target="#exampleModal"
+                            style="background: transparent !important;">
+                                <h5 class="text-white text-tittle-app  mt-2 " style="font: normal normal bold 15px/20px Segoe UI">
+                                    Sector
+                                </h5>
+                            </a>
+                        </div>
+                    @endif
+                </div>
+
+                    <table id="usuarios" class="table display nowrap text-white mt-5e" cellspacing="0" width="100%">
+                        <thead>
                             <tr>
-                                @can('Editar Usuario')
-                                    <td><a style="text-decoration: none;"
-                                        href="{{ route('edit_admin.user', $item->id) }}">{{ $item->name }}</a>
-                                    </td>
-                                    @else
-                                    <td>{{ $item->name }}</td>
-                                @endcan
-
-                                <td>{{ $item->email }}</td>
+                                <th data-priority="1">Nombre</th>
+                                <th data-priority="2">Correo</th>
                                 @if (auth()->user()->empresa == 0)
-                                    <td>{{ $item->telefono }}</td>
+                                    <th data-priority="3">Telefono</th>
                                 @else
-                                    <td>{{ $item->Sectores->sector }}</td>
-
-                                    @if ($item->chofer == NULL)
-                                    <td>No</td>
-                                    @else
-                                    <td>Si</td>
-                                    @endif
+                                    <th data-priority="4">Sector</th>
+                                    <th data-priority="5">Chofer</th>
                                 @endif
-
-                                    <td> {{ $item->fecha_nacimiento }}</td>
-                                    <td> {{ $item->direccion }}</td>
-                                    <td> {{ $item->referencia }}</td>
-                                    <td> {{ $item->genero }}</td>
-                                    <td> {{ $item->direccion }}</td>
+                                <th data-priority="6"> fecha_nacimiento </th>
+                                <th data-priority="7"> direccion </th>
+                                <th data-priority="8"> referencia </th>
+                                <th data-priority="9"> genero </th>
+                                <th data-priority="10"> direccion </th>
 
                             </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                                @foreach ($usuarios as $item)
+                            @php
+                                $fechaEntera = strtotime($item->updated_at);
+                                $anio = date('Y', $fechaEntera);
+                                $mes = date('m', $fechaEntera);
+                                $dia = date('d', $fechaEntera);
+                            @endphp
+                                <tr>
+                                    @can('Editar Usuario')
+                                        <td><a style="text-decoration: none;"
+                                            href="{{ route('edit_admin.user', $item->id) }}">{{ $item->name }}</a>
+                                        </td>
+                                        @else
+                                        <td>{{ $item->name }}</td>
+                                    @endcan
+
+                                    <td>{{ $item->email }}</td>
+                                    @if (auth()->user()->empresa == 0)
+                                        <td>{{ $item->telefono }}</td>
+                                    @else
+                                        <td>{{ $item->Sectores->sector }}</td>
+
+                                        @if ($item->chofer == NULL)
+                                        <td>No</td>
+                                        @else
+                                        <td>Si</td>
+                                        @endif
+                                    @endif
+
+                                        <td> {{ $item->fecha_nacimiento }}</td>
+                                        <td> {{ $item->direccion }}</td>
+                                        <td> {{ $item->referencia }}</td>
+                                        <td> {{ $item->genero }}</td>
+                                        <td> {{ $item->direccion }}</td>
+
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
 
             </div>
 
         </div>
-        {{-- {{ $user->render() }} --}}
 
     </div>
+
+
+@endsection
 
 @section('js')
 
@@ -210,7 +212,5 @@ if(auth()->user()->empresa == 0){
         });
 
     </script>
-
-@endsection
 
 @endsection
