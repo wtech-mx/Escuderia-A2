@@ -215,39 +215,27 @@
             </table>
 
             <h3 style="text-align: center;"><b> Evidencias del taller </b></h3><br>
-            <table class="container" align="center" style="margin-top: 1rem">
-                <tbody>
-                    <tr>
-                        @foreach ($fotos as $foto)
-                        <div class="col-4 mb-3">
-                            @if ($foto->estatus == 'Pendiente de autorización')
-                                @if ($foto == NULL)
+            @foreach ($fotos as $foto)
+            @if ($foto->estatus == 'Pendiente de autorización')
+                @if ($foto == NULL)
 
-                                        <img id="blah" src="{{asset('/img/icon/seguros/page-not-found.png') }}" alt="Imagen" style="width: 90px;height: 90px;display:inline-bock;"/>
-                                @else
-                                    @if (pathinfo($foto->imagen, PATHINFO_EXTENSION) == 'mp4')
-                                            <video controls preload="auto" width="300" height="200" data-setup="{}" style="padding: 10px;display:inline-bock;">
-                                                <source src="{{asset('/cotizacion/usuario'.$cotizacion->id_user.'/'.$foto->imagen)}}" type='video/mp4'>
-                                            </video>
-                                    @elseif (pathinfo($foto->imagen, PATHINFO_EXTENSION) == 'mov')
-                                        <div class="col-12">
-                                            <video controls preload="auto" width="300" height="200" data-setup="{}" style="padding: 10px;display:inline-bock;">
-                                                <source src="{{asset('/cotizacion/usuario'.$cotizacion->id_user.'/'.$foto->imagen)}}" type='video/mp4'>
-                                            </video>
-                                        </div>
-                                    @else
+                        <img id="blah" src="{{asset('/img/icon/seguros/page-not-found.png') }}" alt="Imagen" style="width: 90px;height: 90px;display:inline-bock;"/>
+                @else
+                    @if (pathinfo($foto->imagen, PATHINFO_EXTENSION) == 'mp4')
+                            <video controls preload="auto" width="300" height="200" data-setup="{}" style="padding: 10px;display:inline-bock;">
+                                <source src="{{asset('/cotizacion/usuario'.$cotizacion->id_user.'/'.$foto->imagen)}}" type='video/mp4'>
+                            </video>
+                    @elseif (pathinfo($foto->imagen, PATHINFO_EXTENSION) == 'mov')
+                            <video controls preload="auto" width="300" height="200" data-setup="{}" style="padding: 10px;display:inline-bock;">
+                                <source src="{{asset('/cotizacion/usuario'.$cotizacion->id_user.'/'.$foto->imagen)}}" type='video/mp4'>
+                            </video>
+                    @else
 
-                                            <img id="blah" src="{{asset('/cotizacion/usuario'. $cotizacion->id_user . '/' .$foto->imagen) }}" alt="Imagen" style="width: 150px;height: 150px;display:inline-bock;"/>
-                                            <a class="text-center text-dark btn btn-sm mt-2" href="{{asset('/cotizacion/usuario'. $cotizacion->id_user . '/' .$foto->imagen) }}" target="_blank" style="background: #43eb5f; color: #000000!important">Ver Imagen</a>
-                                        </div>
-                                    @endif
-                                @endif
-                            @endif
-                        </div>
-                    @endforeach
-                    </tr>
-                </tbody>
-            </table>
+                        <img id="blah" src="{{asset('/cotizacion/usuario'. $cotizacion->id_user . '/' .$foto->imagen) }}" alt="Imagen" style="width: 150px;height: 150px;display: inline-block;"/>
+                    @endif
+                @endif
+            @endif
+    @endforeach
 
             <h3 style="text-align: center;"><b> Cotización Aprobada </b></h3>
 
@@ -261,7 +249,6 @@
         @else
             <div class="col-6">
                 <img id="blah" src="{{asset('/cotizacion/usuario'. $cotizacion->id_user . '/' .$cotizacion->cotizacion_taller) }}" alt="Imagen" style="width: 150px;height: 150px;"/>
-                <a class="text-center text-dark btn btn-sm mt-2" href="{{asset('/cotizacion/usuario'. $cotizacion->id_user . '/' .$cotizacion->cotizacion_taller) }}" target="_blank" style="background: #43eb5f; color: #000000!important">Ver Imagen</a>
             </div>
         @endif
 
@@ -303,7 +290,6 @@
                             @else
                                 <div class="col-6">
                                     <img id="blah" src="https://checkn-go.com.mx/cotizacion/usuario{{$cotizacion->id_user}}/{{$foto->imagen}}" alt="Imagen" style="width: 150px;height: 150px;"/>
-                                    <a class="text-center text-dark btn btn-sm mt-2" href="https://checkn-go.com.mx/cotizacion/usuario{{$cotizacion->id_user}}/{{$foto->imagen}}" target="_blank" style="background: #43eb5f; color: #000000!important">Ver Imagen</a>
                                 </div>
                             @endif
                         @endif
@@ -326,7 +312,6 @@
                         @else
                             <div class="col-6">
                                 <img id="blah" src="https://checkn-go.com.mx/cotizacion/usuario{{$cotizacion->id_user}}/{{$foto->imagen}}" alt="Imagen" style="width: 150px;height: 150px;"/>
-                                <a class="text-center text-dark btn btn-sm mt-2" href="https://checkn-go.com.mx/cotizacion/usuario{{$cotizacion->id_user}}/{{$foto->imagen}}" target="_blank" style="background: #43eb5f; color: #000000!important">Ver Imagen</a>
                             </div>
                         @endif
                     @endif
@@ -349,7 +334,6 @@
                         @else
                             <div class="col-6">
                                 <img id="blah" src="https://checkn-go.com.mx/cotizacion/usuario{{$cotizacion->id_user}}/{{$foto->imagen}}" alt="Imagen" style="width: 150px;height: 150px;"/>
-                                <a class="text-center text-dark btn btn-sm mt-2" href="https://checkn-go.com.mx/cotizacion/usuario{{$cotizacion->id_user}}/{{$foto->imagen}}" target="_blank" style="background: #43eb5f; color: #000000!important">Ver Imagen</a>
                             </div>
                         @endif
                     @endif
@@ -372,7 +356,6 @@
                         @else
                             <div class="col-6">
                                 <img id="blah" src="https://checkn-go.com.mx/cotizacion/usuario{{$cotizacion->id_user}}/{{$foto->imagen}}" alt="Imagen" style="width: 150px;height: 150px;"/>
-                                <a class="text-center text-dark btn btn-sm mt-2" href="https://checkn-go.com.mx/cotizacion/usuario{{$cotizacion->id_user}}/{{$foto->imagen}}" target="_blank" style="background: #43eb5f; color: #000000!important">Ver Imagen</a>
                             </div>
                         @endif
                     @endif
