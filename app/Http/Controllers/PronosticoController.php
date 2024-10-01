@@ -33,6 +33,15 @@ class PronosticoController extends Controller
         return view('admin.pronostico', compact('user'));
     }
 
+    public function create_tc()
+    {
+        $user = DB::table('users')
+            ->where('role', '=', '0')
+            ->get();
+
+        return view('admin.pronostico_tc', compact('user'));
+    }
+
     /* Trae los automoviles con el user seleccionado  */
     public function GetSubCatAgainstMainCatEdit($id)
     {
@@ -67,6 +76,29 @@ class PronosticoController extends Controller
         Session::flash('succes', 'Se ha guardado con exito');
 
         return redirect()->back();
+    }
+
+    public function store_tc(Request $request)
+    {
+
+        $alert = new Pronostico;
+        $alert->id_user = $request->get('id_user');
+        $alert->id_empresa = $request->get('id_empresa');
+        $alert->current_auto = $request->get('current_auto');
+        $alert->title = 'Pronostico /' .$request->get('current_auto');
+        $alert->descripcion = 'Pronostico para el automovil '. $request->get('current_auto') . ': ' . $request->get('descripcion');
+        $alert->start = $request->get('end');
+        $alert->end = $request->get('end');
+        $alert->color = '#F1C40F';
+        $alert->image = $request->get('image');
+        $alert->estatus = 0;
+        $alert->check = 0;
+
+        $alert->save();
+
+        Session::flash('succes', 'Se ha guardado con exito');
+
+        return redirect()->route('index.dashboard');
     }
 
     /**
