@@ -71,6 +71,7 @@
             @endif
 
                 <div class="col-12 ">
+                    <a href="{{ route('descargar.db') }}" class="btn btn-xs mb-3" style="background: #00F936;">Descargar Base de Datos</a>
                     <table id="empresa" class="table display nowrap text-white" cellspacing="0" width="100%">
                         <thead>
                             <tr>

@@ -304,6 +304,8 @@ Route::group(['middleware' => ['permission:Ver Emp|Crear Emp|Editar Emp']], func
 
     Route::get('admin/empresa/edit/{id}', 'EmpresasController@edit_admin')->name('edit_admin.empresa');
     Route::patch('admin/empresa/update/{id}', 'EmpresasController@update_admin')->name('update_admin.empresa');
+
+    Route::get('/descargar-db', 'DatabaseController@descargarBaseDeDatos')->name('descargar.db');
 });
 
 Route::get('/exportar/empresas', 'EmpresasController@export');
