@@ -51,6 +51,9 @@ use Carbon\Carbon;
 
     <div class="row bg-down-image-border">
 
+        @include('admin.sweat_alerts')
+
+
         @include('admin.layouts.sidebar')
 
         <div class="col-12 col-xs-12 col-sm-12 col-lg-12 col-xl-10">

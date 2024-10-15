@@ -10,6 +10,7 @@
 
     <div class="row bg-down-image-border">
 
+        @include('admin.sweat_alerts')
 
         <div class="col-2  mt-4">
             <div class="d-flex justify-content-start">

@@ -96,7 +96,7 @@ class PronosticoController extends Controller
 
         $alert->save();
 
-        Session::flash('succes', 'Se ha guardado con exito');
+        Session::flash('success', 'Se ha guardado con exito');
 
         return redirect()->route('index.dashboard');
     }
