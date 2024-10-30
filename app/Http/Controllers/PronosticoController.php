@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pronostico;
+use App\Models\Automovil;
+
 use Illuminate\Http\Request;
 use DB;
 use Session;
@@ -81,12 +83,13 @@ class PronosticoController extends Controller
     public function store_tc(Request $request)
     {
 
+
         $alert = new Pronostico;
         $alert->id_user = $request->get('id_user');
         $alert->id_empresa = $request->get('id_empresa');
         $alert->current_auto = $request->get('current_auto');
-        $alert->title = 'Pronostico /' .$request->get('current_auto');
-        $alert->descripcion = 'Pronostico para el automovil '. $request->get('current_auto') . ': ' . $request->get('descripcion');
+        $alert->title = $request->get('current_auto');
+        $alert->descripcion = 'Pronostico'. $request->get('current_auto') . ': ' . $request->get('descripcion');
         $alert->start = $request->get('end');
         $alert->end = $request->get('end');
         $alert->color = '#e57a16';

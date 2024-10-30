@@ -100,7 +100,7 @@
                 @endif
 
             </ul>
-            <form method="POST" action="{{ route('store_admin.automovil') }}" enctype="multipart/form-data" role="form">
+            <form method="POST" action="{{ route('store_admin.automovil') }}" enctype="multipart/form-data" role="form" id="autoForm">
                 @csrf
                 <div class="tab-content" id="pills-tabContent">
 
@@ -439,9 +439,8 @@
                                     </div>
 
                                     <div class="col-12" style="margin-bottom: 8rem !important;">
-                                        <button type="submit" class="btn btn-lg btn-save-dark text-white mt-5">
-                                            <img class="" src="{{ asset('img/icon/white/save-file-option (1).png') }}"
-                                                width="20px">
+                                        <button type="submit" class="btn btn-lg btn-save-dark text-white mt-5" id="saveButton">
+                                            <img src="{{ asset('img/icon/white/save-file-option (1).png') }}" width="20px">
                                             Guardar
                                         </button>
                                     </div>
@@ -466,11 +465,16 @@
 <script src="{{ asset('assets/vendor/jquery/dist/jquery.min.js')}}"></script>
 <script src="{{ asset('assets/vendor/select2/dist/js/select2.min.js')}}"></script>
 <script type="text/javascript">
+    document.getElementById('autoForm').addEventListener('submit', function() {
+        // Deshabilita el botón y cambia el texto
+        const button = document.getElementById('saveButton');
+        button.disabled = true;
+        button.innerText = 'Guardando...';
+    });
 
     $(document).ready(function() {
         $('.marca').select2();
         $('.user_car').select2();
     });
-
 </script>
 @endsection

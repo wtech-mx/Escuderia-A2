@@ -25,7 +25,7 @@
         </script>
     @endif
 
-    <div class="row bg-down-image-border">
+    <div class="row bg-down-image-border" style="min-height: auto!important;">
 
         <div class="col-2 mt-5">
             <div class="d-flex justify-content-start">
@@ -39,7 +39,7 @@
 
         <div class="col-8 mt-5">
             <h5 class="text-center text-white ml-4 mr-4 ">
-                <strong>Licencia de conducir</strong>
+                <strong>Licencia de conducirs</strong>
             </h5>
         </div>
 
